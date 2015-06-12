@@ -10,24 +10,26 @@
   * Thompson and Ritchie 
   *  MULTICS and UNIX design philosophy
   *	BSD -> AT&T SYS V
-  *	RMS –> FSF GNU 
+  *	RMS 
+          - [FSF](http://www.fsf.org) 
+          - [GNU](http://www.gnu.org) 
   * AT & T lawsuit
   * Birth of Linux 
        * [Linux Torvalds](https://plus.google.com/+LinusTorvalds/posts) 
        * 1994
   * OpenSource movement 
-       * Licenses
+       * [Licenses](http://opensource.org/licenses)
   * Linux Commercial Distrubtions
        * Debian
        * Cannonical – Ubuntu
-       * Mark Shuttleworth
+            - Mark Shuttleworth
    * Redhat
         * [Fedora](https://getfedora.org/)
         * [REHL](http://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
         * [Centos](http://www.centos.org)
    * Linux Civil War 
-        * Debian 
-        * Devuan
+        * [Debian](http://www.debian.org) 
+        * [Devuan](http://www.devuan.org)
         * Fedora's impending systemd take over
         * Systemd vs SysVInit vs Freedom vs principals
         * Future of Linux?  Commercial vs Open source OSI vs FSF
@@ -44,8 +46,9 @@
    * Installations and isos
         * Local install
         * Virtual install
+        * Net install
 
-3.	Desktop Linux 
+3.	Desktop Linux (GUI)
    * GUI
    * Task Bars 
    * File Managers
@@ -83,11 +86,15 @@
 
 7.	vi and editors and bash shell
 
-8.	Shell scripting
+8.	Basic Shell scripting
+   * if statements
+   * for loops
+   * System variables
+   * Passing Variables into scripts
 
 9.	Package installation – yum apt-get (soon to be dns replace yum)
 
-10.	Symlins and file types	
+10.  Symlinks and file types	
    * Stdin and stdout and stderr
 
 11.	Find and grep 
