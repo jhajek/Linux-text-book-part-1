@@ -1,4 +1,4 @@
-# Intro to Linux
+# Introduction to Linux - Taming the Penguin
 ## Understanding the technology and Philosophy of Unix/Linux - Part I
 #### (version 0.0.1)
 
