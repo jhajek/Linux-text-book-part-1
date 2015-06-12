@@ -5,7 +5,7 @@ set -e
 
 sudo apt-get -y install pandoc pandoc-citeproc texlive
 
-rm -rf ./output/*
+rm -rf ./output/*.epub ./output/*.html ./output/*.pdf ./output/*.docx
 
 #[Getting-Started](http://pandoc.org/getting-started.html)
 
