@@ -10,7 +10,7 @@ How to install;
 
 [Install Instructions](http://pandoc.org/installing.html)
 
-> inux
+> Linux
 For 64-bit Debian and Ubuntu, we provide a debian package on the download page. This will install the pandoc and pandoc-citeproc executables and man pages. If you use an RPM-based distro, you may be able to install this deb using alien.
 Or, try your package manager. Pandoc is in the Debian, Ubuntu, Slackware, Arch, Fedora, NiXOS, openSUSE, and gentoo repositories. Note, however, that versions in the repositories are often old.
 If the version in your repository is too old and you cannot use the deb we provide, you can install from source, using the instructions below under Installing from source. Note that most distros have the Haskell platform in their package repositories. For example, on Debian/Ubuntu, you can install it with apt-get install haskell-platform.
