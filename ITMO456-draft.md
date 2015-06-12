@@ -2,7 +2,7 @@
 ## Understanding the technology and Philosophy of Unix/Linux - Part I
 #### (version 0.0.1)
 
-![Understanding the Technology and Philosophy of Unix/Linux](../images/open_source.png "Understanding the Technology and Philosophy of Unix/Linux")
+![Understanding the Technology and Philosophy of Unix/Linux](images/open_source.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 # Table of Contents
 
