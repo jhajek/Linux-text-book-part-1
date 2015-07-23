@@ -1,0 +1,10 @@
+---
+title: 
+- type: main
+  text: Understanding the Technology and Philosophy of Linux - Part II
+- type: subtitle
+  text: Operantem Doctrina et Philosophia Linux - Parte Duo
+author: Jeremy Hajek
+rights:  Creative Commons Non-Commercial Share Alike 3.0
+language: en-US
+...
