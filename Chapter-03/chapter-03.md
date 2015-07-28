@@ -1,21 +1,38 @@
-## Chapter 03 - System Start Up and Recovery	
-  * SysVInit 
-    -  Customizing SysV-init system startup
-    -  Linux Standard Base Specification (LSB)
-  * Introduction to Systemd start up  
-    - Details about systemd
-  * System Recovery
-    -  GRUB version 2 and Legacy
-    -  Grub shell
-    -  Boot loader start and hand off to kernel
-    -  Kernel loading
-    -  Hardware initialization and setup
-    -  Daemon/service initialization and setup
-    -  Know the different boot loader install locations on a hard disk or removable device  *  
-    -  Overwriting standard boot loader options and using boot loader shells
-    -  Awareness of UEFI
-  * Alternate bootloaders
-    -  PXE
-    -  Grub and Grub2
+# Chapter 3 - Desktop Linux (GUI)
+![Who needs Flash?](http://imgs.xkcd.com/comics/supported_features.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-- - - 
+## GUI
+   
+   * Task Bars 
+   * File Managers
+   
+## X-Windows x11  
+  
+  * Windowing Managers
+  * Enlightenment
+  * I3
+  * Xmonad
+  * Others…
+
+## Desktop Environments
+  
+   * Desktop Environments
+     + KDE
+     + GNOME
+     + XFCE
+     + LXDE - LXQT
+     + MATE (GNOME 2)
+ 
+## Podcast	
+
+  * URL goes here for Q&A
+  
+## Review Questions
+
+  * Questions go here
+  
+## Labs
+
+  * Lab goes here
+  
+ 

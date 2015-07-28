@@ -1,14 +1,33 @@
-## Chapter 04 - Filesystem and Devices
+# Linux basic commands and File system structure
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
-> Astute quote goes here
 
-  * History of Linux filesystems
-    -  The concept of the fstab configuration
-    -  Tools and utilities for handling SWAP partitions and files
-    -  Use of UUIDs
-  *	Maintaining a Linux filesystem
-    -  Tools and utilities to manipulate and ext2, ext3 and ext4
-    -  Tools and utilities to manipulate xfs
-    -  Awareness of Btrfs and ZFS and FUSE
+## Basic Commands
+   * Demo and list of basic movement commands from command line
+   * Intro to terminal
+   * – cd ls cp mv  (a few others)
+        + Explanation of commands arguments options (flags)
+## File System structure
+       
+  * Upside down tree
+  * / (root)
+  * All standard POSIX directories
+  * Explain the sym-linking of /usr/sbin and /usr/bin
+  * Explain the purpose of each standard directory and what they should expect
 
-- - - 
+## Explanation of PATH
+        * Absolute vs Relative
+        * Go over these concepts with above simple commands
+
+## Podcast	
+
+  * URL goes here for Q&A
+  
+## Review Questions
+
+  * Questions go here
+  
+## Labs
+
+  * Lab goes here
+  
+   

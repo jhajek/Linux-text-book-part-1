@@ -1,8 +1,8 @@
-## Chapter 1 - History of Unix and Linux
+# Chapter 1 - History of Unix and Linux
 
 ![*At the end of class you will find this cartoon funny*](http://imgs.xkcd.com/comics/open_source.png "Understanding the Technology and Philosophy of Linux Part I")
 
-### 1.1.0 - The foundation of Unix and Linux
+## 1.1.0 - The foundation of Unix and Linux
 
 Why are you learning about Linux?  It is a term that seems to be on everyone's lips.  There is a good chance that you even have Linux running in your pocket and don't even know it! (Hint Android Operating System is based off of Linux).  So this chapter begins the start of your mastery of Linux.  In addtition to teaching you technology, this book aims to teach you about the history and philosophy of Linux so you can understand where it came from and where it is going.  Some pieces of this book will seem frustratingm, after all the roots of the design decisions of what we are dealing with are 40 years old in some cases.  Helping to understand what kind of technology was available and what these creators were thinking will help you master the concepts of Linux.
 
@@ -19,7 +19,7 @@ __Outcomes__
  
  At the completion of this chapter a student will understand and be able to discuss the environment in which Unix and Linux were created. They will be able to relate key names; Thompson, Ritchie, Stallman, Torvalds to their technilogical contributions.  They will be able to understand what Linux and Unix are and how they relate to FOSS and commercial softare.
 
-### 1.2.0 - Where it began and why it matters now 
+## 1.2.0 - Where it began and why it matters now 
 
 Conventions
 
@@ -60,7 +60,7 @@ __Take away point__
   
   The question is not who uses Linux but the question should be when did you last use it?  How did it get this way?  Where did it come from?  For that we need to go back 40+ years to fully understand this shared Unix/Linux history.  Ignore this part at your own peril, you will never understand Linux unless you understand UNIX at its core philosophies.  Here we go.
 
-#### 1.2.1 - Thompson, Ritchie, and Bell Labs
+### 1.2.1 - Thompson, Ritchie, and Bell Labs
 
   Many people supported and worked on Unix but two names have received most of the credit for the creation, promotion, and use of Unix.  
   
@@ -96,7 +96,7 @@ Unix differences
  
  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie helped create a [language called "B"](https://en.wikipedia.org/wiki/B_(programming_language "B Lanugage") which was written after A and derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data - (needed to save space) B was also missing many other features you would expect in modern programming languages.  What happened was that Thompson and Ritchie went to work extending "B" with all the features they would need to make an operating system fully function.  They called this language surprsingly, "C" -- the same "C" lanugage you know today.  C was different from assembler in that is resembled it in being close to the code but had a high enough level of abstraction that the "C" code could be recomplied on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, etc, etc.  
  
-![C Programming language "Hello World!"](../images/hello-c.png "C language") ![Intel x86 Assembly code of "Hello World!"](../images/hello-asm.png "Assembly Language")   
+![C Programming language "Hello World!"](images\hello-c.png "C language") ![Intel x86 Assembly code of "Hello World!"](images\hello-asm.png "Assembly Language")   
  
 Since Ritchie created "C" to solve all the problems Unix had -- it became the defacto lanuage of Unix and from that point on pretty much all operating systems are designed in "C" after Thompson and Rithie showed that you could use a high level lanuage to make Unix portable accross many platforms.  
 
@@ -106,7 +106,7 @@ In 1975 Ken Thompson took a sabbatical from Bell Labs and went back to his Alma 
 
 So at this time you start to see a split in Unix.  AT&T maintained the official commercial Unix distribution called System V and the university at Berkely began to reverse engineer parts of Unix so that they could have their own non-commercial version of Unix.   As the decade of the 70's came to an end AT&T began to realize that they were sitting on a commercial goldmine with Unix.  They began to sell corporate licenses, support, and also began to withhold the source code.  This lead to some fundamental philisophical disagrements about the nature of software.  Some argued that the sharing and induvidual original spirit of Unix should be preserved and that everyone had the right to view and modify the code for their own use.  Other's saw this as a business and you needed to protect your trade secrects at all costs.  One who stronly and passionately saw software as needing to be "free" was Richard Mathhew Stallman, known also as RMS.    
 
-#### 1.2.2 - Ricahrd Stallman and GNU
+### 1.2.2 - Ricahrd Stallman and GNU
 
 <a title="By Dkoukoul (Own work) [CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ARichard_Stallman_at_CommonsFest_Athens_2015_2.JPG"><img width="256" alt="Richard Stallman at CommonsFest Athens 2015 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG/256px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG"/></a>
 
@@ -124,28 +124,26 @@ In 1983 RMS issues his GNU Manifesto elliciting help for volunteers to help him 
 
 RMS started this work of creating a free Unix-like operating system.  The first tool build was a C complier that was needed so that the code could be recomplied to different hardware.  The Unix C complier -- cc -- GNU's version adds a "g" to all the reverse engineered applications and tools so "cc" became "gcc."  GNU has been working now for about 20 years.  They did remarkably well and had reverse engineered all the components of Unix by 1991 (8 years.) They built everything except 1 critial piece...  they didn't have a kernel for their operating system.  Turns out that writing a kernel is much harder than it looks.  A project was started called [GNU Hurd](http://www.gnu.org/software/hurd/ "GNU Hurd") was started to be the kernel for the GNU operating system.  Development stalled and was never finished (in the time period of the late 80's and mid 90's).  (hurd is in alpha stage downloadable today but is about 10 years behind in its hardware support)      
 
-
-
-#### 1.2.3 - Rise of AT&T and commercial Linux vs academic Linux
+### 1.2.3 - Rise of AT&T and commercial Linux vs academic Linux
 
   AT&T SysV and BSD lawsuit
 
-#### 1.2.4 - Linus Torvalds and Linux
+### 1.2.4 - Linus Torvalds and Linux
 
 <a title="By Krd (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinuxCon_Europe_Linus_Torvalds_03.jpg"><img width="256" alt="LinuxCon Europe Linus Torvalds 03" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/256px-LinuxCon_Europe_Linus_Torvalds_03.jpg"/></a>
 
   * Talk about good timing
 
-#### 1.2.5 - The rise of commercial Linux
+### 1.2.5 - The rise of commercial Linux
 
   * Ubuntu 
   * Red Hat
 
-#### 1.2.6 - Rise of OpenSource
+### 1.2.6 - Rise of OpenSource
 
 * Free software vs opensource
 
-#### 1.2.7 Impending Linux Civil War
+### 1.2.7 Impending Linux Civil War
 
 * cover breifly here and then again later in the end of the book
 * SysVInit vs systemd 
@@ -154,18 +152,19 @@ RMS started this work of creating a free Unix-like operating system.  The first 
 * Can Linux survive as an opensource project?
 
 
-#### 1.2.8 Licensing
+### 1.2.8 Licensing
 
   * Not patents but Licensing
   
 
-### 1.3.0 - Chapter Conclusion and Summary
+## 1.3.0 - Chapter Conclusion and Summary
 
-#### 1.3.1 - Review Questions
+### 1.3.1 - Review Questions
 
-#### 1.3.2 - Podcast Review Questions
+### 1.3.2 - Podcast Review Questions
 
 
-#### 1.3.3 - Review Lab
+### 1.3.3 - Review Lab
 
-- - - 
+Labs go here
+
