@@ -1,9 +1,15 @@
-## Chapter 08 - Web Services 
-  *  APACHE
-    -  Apache mods
-    -  Reverse proxy
-    -  SSL configuration
-   * NGINX
-      - As a reverse proxy
+# vi and editors and bash shell
+![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-- - -
+
+## Podcast	
+
+  * URL goes here for Q&A
+  
+## Review Questions
+
+  * Questions go here
+  
+## Labs
+
+  * Lab goes here

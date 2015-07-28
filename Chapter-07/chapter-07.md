@@ -1,12 +1,15 @@
-## Chapter 07 - System Maintenance and Tools
+# Commandline variables and shell meta- characters
+![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-  *  tar
-  *  make
-  *  uname
-  *  compression
-    - bzip
-    - gzip
-    - xz
-  *  configure
-  *  install
-- - - 
+
+## Podcast	
+
+  * URL goes here for Q&A
+  
+## Review Questions
+
+  * Questions go here
+  
+## Labs
+
+  * Lab goes here

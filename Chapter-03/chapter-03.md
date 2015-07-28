@@ -1,28 +1,24 @@
-# Chapter 3 - Desktop Linux (GUI)
-![Who needs Flash?](http://imgs.xkcd.com/comics/supported_features.png "Understanding the Technology and Philosophy of Unix/Linux")
+#  Hardware and Installation
+![Must be a Linux User]( http://imgs.xkcd.com/comics/surgery.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-## GUI
-   
-   * Task Bars 
-   * File Managers
-   
-## X-Windows x11  
-  
-  * Windowing Managers
-  * Enlightenment
-  * I3
-  * Xmonad
-  * Others…
+## - Architecture
 
-## Desktop Environments
+  * Windows
+  * Mac
+  * Linux/BSD
+
+## - Virtual Machines
   
-   * Desktop Environments
-     + KDE
-     + GNOME
-     + XFCE
-     + LXDE - LXQT
-     + MATE (GNOME 2)
- 
+  * Hyper-V
+  * Virtual Box
+  * VmWare
+
+## - Installations and isos
+
+  * Local install
+  * Virtual install
+  * Net install
+  
 ## Podcast	
 
   * URL goes here for Q&A
@@ -35,4 +31,4 @@
 
   * Lab goes here
   
- 
+   

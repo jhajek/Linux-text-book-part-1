@@ -1,3 +1,18 @@
-## Chapter 12 - E-Mail Services
+# Find and grep 
+![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-- - -
+## Types
+
+  * Intro to regex
+
+## Podcast	
+
+  * URL goes here for Q&A
+  
+## Review Questions
+
+  * Questions go here
+  
+## Labs
+
+  * Lab goes here

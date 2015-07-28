@@ -1,7 +1,19 @@
-## Chapter 10 - File Sharing
+# Package installation
+![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-  * NFS
-  * SAMBA
-  * Object Storage (Perhaps just an overview of how it works in comparison?)
+## Types
 
-- - -
+  * yum (soon to be dns replace yum)
+  * apt-get 
+
+## Podcast	
+
+  * URL goes here for Q&A
+  
+## Review Questions
+
+  * Questions go here
+  
+## Labs
+
+  * Lab goes here
