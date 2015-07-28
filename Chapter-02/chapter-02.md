@@ -116,13 +116,26 @@ Best short interview I ever heard with Richard Stallmand from Will Backmand of [
 
 Ricahrd Stallman was a student and a researcher at MIT in the early 1980's.  He realized that users of computers were not "free." Free here doesn't mean cost, but free as in freedom.  His passion was to develop a fully free operating system so that everyone who could use a computer could have access to an operating system.  
 
-RMS was a brilliant man--on the level on Ken Thompson.  But he realized that the Unix he was using at the University was not free.  Students did not have the right to modify the source code.  Unix for all its utility, was not free.  Richard wrote his GNU manifesto stating his plans in 1985.  [GNU Manifesto](http://www.gnu.org/gnu/manifesto.html "GNU Manifesto") 
+RMS is a brilliant man--on the level on Ken Thompson.  But he realized that the Unix he was using at the University was not free.  Students did not have the right to modify the source code.  Unix for all its utility, was not free.  Richard wrote his GNU manifesto stating his plans in 1985.  [GNU Manifesto](http://www.gnu.org/gnu/manifesto.html "GNU Manifesto") 
 
 Unix was not free.  All code was owned by AT&T at the time.  No one could legally improve or modify source code, even though the school or department paid for it.  RMS saw this not as a legal issue but as a moral issue.
 
 In 1983 RMS issues his GNU Manifesto elliciting help for volunteers to help him to create the GNU operating system. GNU is a recursive acronym meaning *"GNU's not Unix."*  So the [FSF](http://www.fsf.org/ "FSF") was formed.  
 
 RMS started this work of creating a free Unix-like operating system.  The first tool build was a C complier that was needed so that the code could be recomplied to different hardware.  The Unix C complier -- cc -- GNU's version adds a "g" to all the reverse engineered applications and tools so "cc" became "gcc."  GNU has been working now for about 20 years.  They did remarkably well and had reverse engineered all the components of Unix by 1991 (8 years.) They built everything except 1 critial piece...  they didn't have a kernel for their operating system.  Turns out that writing a kernel is much harder than it looks.  A project was started called [GNU Hurd](http://www.gnu.org/software/hurd/ "GNU Hurd") was started to be the kernel for the GNU operating system.  Development stalled and was never finished (in the time period of the late 80's and mid 90's).  (hurd is in alpha stage downloadable today but is about 10 years behind in its hardware support)      
+
+__Free Software vs. Open Source__
+
+__Eric S. Raymond__
+
+<a title="By Erc_S_Raymond_and_company.jpg: jerone2 derivative work: Bilby (Erc_S_Raymond_and_company.jpg) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AEric_S_Raymond_portrait.jpg"><img width="256" alt="Eric S Raymond portrait" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eric_S_Raymond_portrait.jpg/256px-Eric_S_Raymond_portrait.jpg"/></a>
+
+[The Art of Unix Usability](http://www.catb.org/~esr/writings/taouu/html/ "Book link")
+
+[The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/ "CatB")
+
+*As head of the Open Source Initiative, he argued that advocates should focus on the potential for better products. The "very seductive" moral and ethical rhetoric of Richard Stallman and the Free Software Foundation fails, he said, "not because his principles are wrong, but because that kind of language ... simply does not persuade anybody".* 
+[Eric S. Raymond](https://en.wikipedia.org/wiki/Eric_S._Raymond#Open_source "Quote")
 
 ### - Rise of AT&T and commercial Linux vs academic Linux
 
