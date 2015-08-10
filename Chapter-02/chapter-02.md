@@ -65,7 +65,7 @@ __Take away point__
   * CME - [Chicago Mercantile Exhcange](https://en.wikipedia.org/wiki/Chicago_Mercantile_Exchange)
   * IBM
   * Android
-  * [Microsoft](http://www.informationweek.com/enterprise/microsoft-contributes-to-linux-kernel----and-its-not-april-1/d/d-id/1081481) 
+  * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel") 
   * [Pretty much every top website except Stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
   
   The question is not who uses Linux but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril, you will never understand Linux unless you understand UNIX at its core philosophies.  Here we go.
@@ -145,9 +145,9 @@ __GNU Manifesto__
  
 > __Why I Must Write GNU__
 
-> I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way. I cannot in good conscience sign a nondisclosure agreement or a software license agreement. For years I worked within the Artificial Intelligence Lab to resist such tendencies and other inhospitalities, but eventually they had gone too far: I could not remain in an institution where such things are done for me against my will.
+> *"I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way. I cannot in good conscience sign a nondisclosure agreement or a software license agreement. For years I worked within the Artificial Intelligence Lab to resist such tendencies and other inhospitalities, but eventually they had gone too far: I could not remain in an institution where such things are done for me against my will."*
 > 
-> So that I can continue to use computers without dishonor, I have decided to put together a sufficient body of free software so that I will be able to get along without any software that is not free. I have resigned from the AI Lab to deny MIT any legal excuse to prevent me from giving GNU away.
+> *"So that I can continue to use computers without dishonor, I have decided to put together a sufficient body of free software so that I will be able to get along without any software that is not free. I have resigned from the AI Lab to deny MIT any legal excuse to prevent me from giving GNU away."*
 
   GNU is a recursive acronym meaning *"GNU's not Unix."*  Stallman wanted to let people know his project was Unix like in fucntionality but not goverened by Unix's restricitve licensing.  His passion was to develop a fully free operating system so that everyone who could use a computer could have access to a *"free"* operating system.  Stallman is a brilliant man who had the capability to build an OS from scratch, but the project became more than a one man job.
 
@@ -166,98 +166,191 @@ __GNU HURD__
   GNU HURD is currently in a usable alpha stage [and downloadable today](http://www.gnu.org/software/hurd/ "GNU HURD Download") by joining it with the Debian Linux distribution applications--all GPL approved mind you. 
   Instead recommends the Linux kernel instead.  In someways this was the realization of Stallman's dream and yet someways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 the Linux kernel pops onto the scene and we have another little revolution in the free and open computing world.  Thompson -> Stallman -> Torvalds.
   
-### - Linus Torvalds and Linux
-
-<a title="By Krd (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinuxCon_Europe_Linus_Torvalds_03.jpg"><img width="256" alt="LinuxCon Europe Linus Torvalds 03" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/256px-LinuxCon_Europe_Linus_Torvalds_03.jpg"/></a>
+### - Linus Torvalds, Linux, and Minix
 
 __Minix__
 
-  With the closing off of the AT&T Unix source code by 1984 to academics and researchers in the university - they were left without source to show as examples.  One professor [Andrew S. Tanenbaum](http://www.cs.vu.nl/~ast/ "Tanebaum's website") teaching at  Vrije Universiteit in Amsterdam - began to write and implement his own Unix Operating System for education purposes.  It was 12,000 linees of code and system call compatible with commerical Unix.  The [Minix](http://www.minix3.org/ "Minix 3 website") name was a combination of "minimal" and "Unix."  Minix 1.0 and 1.5 were released from 1987 and 1991 respectively with the original purpose as only a teaching tool. Minix 1.0-1.5 was freely avaialable to anyone as the source code came in the appendix to a text book about operating systems written by Tanenbaum written in 1987.  Minix was designed to run on x86 Intel processors and Sun Sparc processors which most students had access to at their Universities and even their homes.  The source code for Minix 3 is currently available on in a [git repository](http://git.minix3.org/index.cgi "Minix git") and is still being developed and researched.  Many people believed that Minix could be a viable alternative to commercial Unix and the still missing GNU Hurd kernel.  But the Minix creator Professor Tanenbaum was not interested in moving into this space and the code was no where as mature as the Unix code base, whcih by 1991 had been in existance for almost 20 years!   
+  Before we talk about the Linux kernel, we need to talk about the Minix operating system.  With the closing off of the AT&T Unix source code by 1984 to academics and researchers in the university - they were left without source to show as examples.  One professor [Andrew S. Tanenbaum](http://www.cs.vu.nl/~ast/ "Tanebaum's website") teaching at  Vrije Universiteit in Amsterdam - began to write and implement his own Unix-like operating system but only for teaching and demonstroation purposes.  It was 12,000 linees of C code and system call compatible with commerical Unix.  The name [Minix](http://www.minix3.org/ "Minix 3 website") was a combination of "minimal" and "Unix."  Minix 1.0 and 1.5 were released in 1987 and 1991 respectively with the original purpose as only a teaching tool. Minix 1.0 and 1.5 were freely avaialable to anyone as the source code came in the appendix to a text book about operating systems written by Tanenbaum in 1987.  Minix was designed to run initall on older x86 Intel processors and in version 1.5 Sun Sparc processors.  These were common desktop stations in use at the university at that time.  Any enterprising student could find and old 8086 PC or old Sun Sparc Station to run it on. The source code for Minix 3 is currently available in a [git repository](http://git.minix3.org/index.cgi "Minix git") and is still being developed and researched.  In 1991 many people believed that Minix could have been a viable alternative to commercial Unix and become the still missing GNU Hurd kernel.  But the Minix creator, Professor Tanenbaum, was not interested in moving into this space and the code was no where near as mature as the Unix code base, which by 1991 had been in existance for almost 20 years!  Minix appears on the radar but was not the missing piece to the GNU puzzle.   
+  
+  <a title="By GerardM (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY 2.5 (http://creativecommons.org/licenses/by/2.5)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AAndrewTanenbaum.JPG"><img width="256" alt="AndrewTanenbaum" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/AndrewTanenbaum.JPG"/></a>
+
+  Professor Andrew S. Tanenbaum
 
 __Linux__
 
-  The Linux kernel comes to us from a graduate student named Linus Torvalds at the University of Helsinki in 1991.  Linus was using Unix at the university running SunOS on Sun Sparc Stations.  Linus wanted to have access to Unix on his own PC - at that time in 1991 he owned an Intel 386 PC.  He was displeased with Minix and its shortcomings as a useful production UNix-like system.  In a fashion not unlike Ken Thompson, Linus set about to create his own Kernel that ran on his own computer, that was Unix like but wasn't Minix.  From scratch over mutliple months he worked until he had built his own kernel from scratch.     
+  <a title="By Krd (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinuxCon_Europe_Linus_Torvalds_03.jpg"><img width="256" alt="LinuxCon Europe Linus Torvalds 03" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/256px-LinuxCon_Europe_Linus_Torvalds_03.jpg"/></a>
+  
+  Linus Torvalds
 
-  This was very impressive for a single person.  Linus' brilliance comes not from ingenuety but comes from good engineering pricipals of knowing when not to go down dead-end developenent trails.
+  The Linux kernel comes to us from a graduate student named Linus Torvalds who developed it while at the University of Helsinki in Finland in 1991.  As a student Torvalds was using Unix on the universities Sun Sparc Stations.  He was not pleased with SunOS but felt it was the best of the commercial Unixes.  His real dream was to set out to run his own Unix like operating system on his own personal PC.  He had recently purchased an Intel x386 processor based desktop PC.  Linus tried Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement.  In a fashion not unlike Ken Thompson, Tovalds set out in the early part of 1991 deciding to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.  
+ 
+  This was very impressive feat for a single person. Torvalds himself acknowledged that if GNU Hurd had been ready or if at this time AT&T hadn't been suing BSD, he would have re-used their kernel work and not built his own. By August 25th of 1991 the initial release of the Linux kernel was posted online.  The quote from the beginning of the chapter was the basis of the initial post to Minix Usenet Newsgroup-(Bulletin board like precursor to the actual Internet - like Google Groups -- today you would use twitter). His initial work was not quite a full fledged system but really just a small kernel, a user shell (GNU Bash), a C Compiler (GCC) but it was like a crack in a damn - it would only get wider and bigger.
   
-  But Linus had a problem. He had a kernel, but he had no User Interface tools and no operating system applications tools or compilers.  But Richard Stallman and the GNU project had all of that.  And now you can see the connection.  After publically announcing his Linux code and project on Usenet (Bulletin board like precursor to the actual Internet - like Google Groups -- today you would use twitter) people began downloading and compiling his kernel, adding GNU tools, and making fully capable UNix-like operating systems jsut as RMS had dreamed.
-  
-  To make matters even easier Linus Torvalds has ssen Richard Stallman speak 1 few years prior and decided to open source his Linux Kernel by licensing it under the GPLv2 license.
-  
-  Linux Kernel unique attributes
+  By September of 1991 Linux kernel version 0.1 has been posted to the University of Helsinki FTP servers for public download.  By Feburary of 1992 Linux 0.12 kernel had been released.  At that time Linus decided to give the project a real license for its use.  Having seen Richard Stallman speak at the University of Helsinki a few years back, Linus was inspried and dedided to release the Linus Kernel under the GPL license.  This was the smartest thing anyone could have done.  Can you see the connection to the GNU project?   The reason we Linux is so popular is because of this fledgling kernel that worked enough for people to use, hack on, and build upon now had a governance structure that could accept code contributions and be avaiulable for commerical work as well.  Being GPL the Linux kernel was instantly compatible with all of the entire GNU project's tools base.  You instantly had the kernel that GNU was missing and the Linux kernel had all the tools and applications ready to be used.     
+   
+  People began downloading and compiling his kernel, adding GNU tools, and making a fully capable UNix-like operating systems.  Linus' brilliance comes not from ingenuety but comes from good engineering pricipals of knowing when not to go down dead-end developenent trails.  Torvalds work was not perfect but was good enough that others could take it and start to use it and improve it.  From 1992 to 2001 Linux grew rapidly in size and features and spawned commercial companies to sell and support Linux Distributions. Stallman's dream was being realized.  
+    
+   There should have been cause for great celebration with Linux and GNU coming together.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux hoping that the FSF and free software would get the recognition it deserved.  But Linus Torvalds didn't see it that way.  He has a unique personality--perhaps a bit arrogant.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linus, leaving the GNU part out even though all of their tooling is what made Linux possible.  This is a spot of contention with the FSF.  
+    
+  Linux Kernel unique attributes recap
   
   * Developed to solve one person's problem of wanting his own Unix liek OS 
-  * Released freely
+  * Released often
   * Accpeted contributions back
-  * Protected by GPL license
+  * Released freely and protected by GPL license
   * Used existing GNU tools - no need to reinvent the wheel
   
   __Personality__
   
+  Linus Torvalds has a renowned personality.  Some people thing it is a schtick or a comedy persona he puts on.  But he is very uncaring in relating to others and can be really mean and agressivly mean spirited to those who he has disagreemtns.  When approached about this Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
+  
   http://www.wired.com/2013/07/linus-torvalds-right-to-offend/
   http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/
   Linus response to previous article http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/
-  
-  
 
 __AT&T and BSD Lawsuit__
 
-  1991 BSD Unix distribution going well - adding many addiitonal features that standard Unix did not have - but they were not paying any licensing to AT&T.  BUt AT&T has teh UNix copyright and some AT&T original course code was still contained in BSD.
-  
-  Court issued an injucntion in 1992 - seeing as Linux 0.01 was released in August of 1991 - this was the perfect time - now all the development focus left BSD and went to the unencumbered GPL's Linux.  By the time the lawsuit was finished in late 1993/1994 it was too late.  The Linux rocket had left the launch pad and was never coming back.
+  From August of 1991 to Feburary of 1992 there was a rush of interest in Linux development? But where did all these develoeprs come from?  Remember the Berkley System Unix Distribution?  In the late 80's and now 1990s its development had been flourishing.  It began to support features that not even AT&T's Unix had.  BSD was such alarge project through that not all of the original code that was given the Berkly under acadmeic license had been reqritten.  AT&T found its code in BSD Unix and took them to court.  In early 1992 there was a court order development injunction preventing work from being done on BSD Unix.  This was just the time that Linux kernel development, covered by GPL now, so there was no licensing encumberment, devlopment flourished.  By the time the lawsuit was finished in late 1993/1994 it was too late.  The Linux rocket had left the launch pad and was never coming back. 
 
 ### - Rise of OpenSource
 
+  As the 1990's went along we begin to see commercial companies adopting and using Linux as well as the rise of commercial Linux companies.  Of all the companies that started at that time RedHat Linux is and was the most successful.  Most of all of the Linux distribtions started pre-2003 no longer exist or are not commercially viable.  Today (August 10th 2015) RedHat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "REdHat Market Cap")  
+
 __Free Software vs. Open Source Software__
 
-This kind of licensing gave the free software movement the legal ability to hold people accountable and made free software viable for commercial use.  But the term *"free"* has an overriding misunderstanding of being about cost.  Many commercial entities were simply not interested because they were concerned about loosing the chance to make money.  
+By the year 1998 a new term was rising.  With all the best intentions the term *"free"* in free software had an overriding air of being about cost.  Many commercial entities were simply not interested because they were concerned about loosing the chance to make money.  Some developers also disagreed with the FSF's moral stance on free software instead comparing open development and open code superior to close source and development but ultimately a business decision, not a moral decision.  Enter Eric S. Raymond.
 
 __Eric S. Raymond__
 
 <a title="By Erc_S_Raymond_and_company.jpg: jerone2 derivative work: Bilby (Erc_S_Raymond_and_company.jpg) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AEric_S_Raymond_portrait.jpg"><img width="256" alt="Eric S Raymond portrait" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eric_S_Raymond_portrait.jpg/256px-Eric_S_Raymond_portrait.jpg"/></a>
 
-Eric S. Raymond is another developer considered a peer along with Ricahrd Stallman.  Eric was one of the first to embrace the Free Software idea and promote using free software.  His book, "The Cathedral and the Bazaar"   This book was influential in helping the Netscape Corporation opensource their Netscape Web Browser code as the company went bankrupt under the name of the Mozilla project.  Raymond helped to found the Open Source Initiative in 1998 for the promotion of free software.  Where Raymond and Stallman differ is that the OSI sees closed source software as deficient and open development as a superior model.  Stallman and the FSF sees closed source and restrictive licesnses as a moral deficiency.  The OSI was willingto make compromises in order to make larger productivity gains.  The FSF will not compromise.  The terms do overlap Free Software and Open Source but ultiamtely have two divergent meanings.   There has been some compromise in the naming [FLOSS] (https://en.wikipedia.org/wiki/Free_software_movement "FLOSS"), Free and Libre Open Source Software -- but the FSF rejects any licensing that allows a user to restrict the use of "Free" Code.  For example, the OSI would have no problem using Microsoft Powerpoint to make an advertisement slide deck for the benefits of adopting Open Source.  At the fundamental level, the FSF could never use Microsoft Powerpoint in the first place because it is not free software--there by forefitting the advertising chance in order to maintain principal.
+Eric S. Raymond is another developer considered a peer along with Ricahrd Stallman.  Eric was one of the first to embrace the Free Software idea and promote using free software.  He was so convinced by the free softeare and the open development method that took place with Linux that he penned a seminal paper that was later reprinted called , __"The Cathedral and the Bazaar."__  
 
-Eric Raymond has written many influential books and also contributed to libgif and libpng libraries for rendering images on computers and web browsers.
+  His main point was that by usual business practices - Linux should have been a massive failure and poorly implemented experiment.  But instead it was an unprecendented success.  His article examined why this is the case.  His conclusion was that the open source code and open design methodology treating your user as a valued resource was vital to opensource project success.  Based on this Raymond and Bruce Perens founded the Open Source Initiative (OSI).  Their goal was to promote free software but instead of focusing on the moral issus they focused on the desgin principals as producing superior software.  A quote from Raymond puts his opinion bluntly;
+ 
+ > *As head of the Open Source Initiative, he argued that advocates should focus on the potential for better products. The "very seductive" moral and ethical rhetoric of Richard Stallman and the Free Software Foundation fails, he said, "not because his principles are wrong, but because that kind of language ... simply does not persuade anybody".* 
+ > [Eric S. Raymond](https://en.wikipedia.org/wiki/Eric_S._Raymond#Open_source "Quote")
+
+  The "Catherdral and the Bazaar" was also influential in helping the Netscape Corporation opensource their Netscape Web Browser code as the company went bankrupt under the name of the Mozilla project.  This code gave rise to what would eventually become the Firefox web browser in 2002--thanks to Raymond's writings.  The OSI was willing to make freedom compromises in order to make larger productivity gains with opensource software. The FSF will not compromise. Richard Stallman fired back in his article [Open Source Misses the Point](http://www.gnu.org/philosophy/open-source-misses-the-point.html "Open Source Misses the Point") The terms do overlap Free Software and Open Source but ultiamtely have two divergent meanings.   There has been some compromise in the naming [FLOSS, Free Libre and Open Source Software] (https://en.wikipedia.org/wiki/Free_software_movement "FLOSS"), Free and Libre Open Source Software -- but the FSF rejects any licensing that allows a user to restrict the use of "freedom" Code.  One arguemtn would be the existance of [DRM](https://en.wikipedia.org/wiki/Digital_rights_management "DRM") software.  The OSI group would not be opposed to push for Open Source DRM software.  But the FSF would be opposed to the concept of DRM--which is a tool they believe for restricting a users freedom. 
+
+ You can read Raymond's two seminal books on Unix and Open Source philosophy online: 
 
   * [The Art of Unix Usability](http://www.catb.org/~esr/writings/taouu/html/ "Book link")
   * [The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/ "CatB")
 
-His most famous quote is this one and can you tell that he doesn't get along with Stallman?
+### - The rise of commercial Linux and Linux modern Distros
 
-*As head of the Open Source Initiative, he argued that advocates should focus on the potential for better products. The "very seductive" moral and ethical rhetoric of Richard Stallman and the Free Software Foundation fails, he said, "not because his principles are wrong, but because that kind of language ... simply does not persuade anybody".* 
-[Eric S. Raymond](https://en.wikipedia.org/wiki/Eric_S._Raymond#Open_source "Quote")
+  As the nature of Linux grows and corporations become more invovle the value proposition of Linux begins to grow as well.  As of today Linux can be thought of as following in two distinct families.  Debian and RedHat are the two core distributions that most Linux distributions descend from.   Yes I know there is still Slackware derivatives of Gentoo and Suse - but for the purposes of this book I will focus on the main two.
+  
+  __Debian__
+  
+  In 1993 [Debian](https://www.debian.org/intro/about)
+  
+  [History](https://www.debian.org/doc/manuals/project-history)
+  
+   Releases named after Toy Story characters.  Only distribution not backed by a major corporation.  
+   All volunteer organization
+   Dedicated to software rights and freedoms of users
+   Distro come with a [Software contract](https://www.debian.org/social_contract "Contract") - of what the project will guarentee to do 
+   Debian will allow for installation of Non-free software if the user initiates that.  FSF and GNU based Linux do not even allow for the possibility of installing Non-free software.
 
-### - The rise of commercial Linux
+  __RedHat__
+  
+  [About](http://www.redhat.com/en/about/company)
+  ![RedHat Info graph](http://www.redhat.com/infographics/corporate/)
+  
+  [Source - http://www.redhat.com/infographics/corporate/](http://www.redhat.com/infographics/corporate/)
 
-  * Red Hat
+ <img src='https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png' />
+  
+  Began focusing on desktop Linux as a direct rival to Microsoft.  But realized by 2002 that there was no money in selling open source desktop software instead they moved their entire focus to take on Microsoft in the Enterprise arena.  By 2012 they became the first Linux based company to make a billion dollars in a physical year. 
+  
+  __Ubuntu__ 
 
-
+<a title="By Macguy314 (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AUbuntu_logo_copyleft_1.svg"><img width="128" alt="Ubuntu logo copyleft 1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Ubuntu_logo_copyleft_1.svg/128px-Ubuntu_logo_copyleft_1.svg.png"/></a>
+  
+   By 2004 There was a void in the desktop Linux market and getting certain Linux distributions to run was not always easy (Citation?).  Ubuntu's main focus was "it should just work." And they did that well.
+   
+   2005 Mark Shuttleworth who had started the Thwate SSL company which was bought out by verisign and invested 10 million dollars in the Ubuntu Foundation
+   
+   [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth)
+   
+   Linux for people - Ubuntu took/stole the desktop makret that RedHat had abandoned.  Ubuntu forked the opensource work of Debian and built on top of it adding in closed source code and features where neccesary in order to make the best experience.  They had business in mind and have indeed captured the desktop market and are even thr source for the Steam OS Linux video game distrubution.   But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu is basically "living" off of the initial 10 million dollar investment of Mark Shuttleworth.  
+   
+   A company called Canonical was formed to handle commercial support and hires and structure the developers who work on Ubunutu.  Ubuntu pioneered the idea of rolling releases - based on every 6 months.  Each distribution is released in April and October so there are two distrubutions per year.  Ubuntu also introduced the concept of an LTS - this means that the OS will have security pathces, fixes, and software backported to it for 5 years.  Every even year and the april distribution.  So 10.04 12.04 14.04 16.04 and so forth. (the first number being the year.)
+   
+  __RHEL__ 
+  
+ <img src='https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png' />
+  
+  __Fedora__
+  
+  <a title="See page for author [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg"><img width="128" alt="Fedora logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fedora_logo_and_wordmark.svg/128px-Fedora_logo_and_wordmark.svg.png"/></a>
+  
+  __Centos__
+  
+  <a title="By CentOS Project (http://wiki.centos.org/ArtWork/Logo/Type) [GPL (http://www.gnu.org/licenses/gpl.html) or Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ACentOS_Logotype.png"><img width="128" alt="CentOS Logotype" src="https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png"/></a>
+   
+  __Linux Mint (Ubuntu)__
+  
+  <a title="By Clement Lefebvre [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg"><img width="128" alt="Linux Mint logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Linux_Mint_logo_and_wordmark.svg/128px-Linux_Mint_logo_and_wordmark.svg.png"/></a>
+    
+  __Oracle Unbreakable Linux__
+    
+  
+  
+  __BSD Unix__
+  
+    * ![FreeBSD](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/320px-Freebsd_logo.svg.png)
+        +  ![DragonFly BSD](http://www.dragonflybsd.org/images/FullLogo.gif)
+    *![NetBSD](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/307px-NetBSD.svg.png)
+    * ![OpenBSD](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/320px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
+        *  OpenSSH comes out of this project
+        
+  
 ### - Impending Linux Civil War
 
+__systemd and Lennart Poettering__
+
+<a title="By Kushal Das (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALennart_poettering.jpg"><img width="256" alt="Lennart poettering" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lennart_poettering.jpg/256px-Lennart_poettering.jpg"/></a>
+  
 * cover breifly here and then again later in the end of the book
 * SysVInit vs systemd 
 * Lennart Poetering
 * Red Hat's grab for Linux?
 * Can Linux survive as an opensource project?
 
-
-### - Licensing
-
-  * Not patents but Licensing
-  
-
 ## - Chapter Conclusion and Summary
+
+  Wow - we covered a lot of history -- but it is important to the understand the current state of Linux usage.
 
 ### - Review Questions
 
+Get into groups and answer/discuss these questions
 
+Based on the movie's tone - why would you think there is a definate anti-microsoft tone?
+
+Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
+
+Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
+
+Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
+
+What were the two commercial Linux companies featured in the movie?
+
+What is RedHat Linux's stock price today?
+
+How does Ricahrd Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?
 
 ### - Podcast Review Questions
+
+Tim Orielly podcast and questions go here.
 
 ### - Review Lab
 
 Watch Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c
 
-Get into groups and answer/discuss these questions
+
+
+
 
