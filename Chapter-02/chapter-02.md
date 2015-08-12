@@ -166,7 +166,7 @@ __GNU HURD__
   GNU HURD is currently in a usable alpha stage [and downloadable today](http://www.gnu.org/software/hurd/ "GNU HURD Download") by joining it with the Debian Linux distribution applications--all GPL approved mind you. 
   Instead recommends the Linux kernel instead.  In someways this was the realization of Stallman's dream and yet someways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 the Linux kernel pops onto the scene and we have another little revolution in the free and open computing world.  Thompson -> Stallman -> Torvalds.
   
-### - Linus Torvalds, Linux, and Minix
+### - Minix, Linus Torvalds, and Linux 
 
 __Minix__
 
@@ -204,67 +204,78 @@ __Linux__
   
   Linus Torvalds has a renowned personality.  Some people thing it is a schtick or a comedy persona he puts on.  But he is very uncaring in relating to others and can be really mean and agressivly mean spirited to those who he has disagreemtns.  When approached about this Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
   
-  http://www.wired.com/2013/07/linus-torvalds-right-to-offend/
-  http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/
-  Linus response to previous article http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/
+*  [Torvald's right to offend](http://www.wired.com/2013/07/linus-torvalds-right-to-offend/ "rights")
+*  [Torvald doesn't care](http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/ "Doesn't care")
+*  [Linus response to previous article](http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/ "Response")
 
 __AT&T and BSD Lawsuit__
 
   From August of 1991 to Feburary of 1992 there was a rush of interest in Linux development? But where did all these develoeprs come from?  Remember the Berkley System Unix Distribution?  In the late 80's and now 1990s its development had been flourishing.  It began to support features that not even AT&T's Unix had.  BSD was such alarge project through that not all of the original code that was given the Berkly under acadmeic license had been reqritten.  AT&T found its code in BSD Unix and took them to court.  In early 1992 there was a court order development injunction preventing work from being done on BSD Unix.  This was just the time that Linux kernel development, covered by GPL now, so there was no licensing encumberment, devlopment flourished.  By the time the lawsuit was finished in late 1993/1994 it was too late.  The Linux rocket had left the launch pad and was never coming back. 
 
-### - Rise of OpenSource
+### - Free Software vs. Open Source Software
 
-  As the 1990's went along we begin to see commercial companies adopting and using Linux as well as the rise of commercial Linux companies.  Of all the companies that started at that time RedHat Linux is and was the most successful.  Most of all of the Linux distribtions started pre-2003 no longer exist or are not commercially viable.  Today (August 10th 2015) RedHat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "REdHat Market Cap")  
-
-__Free Software vs. Open Source Software__
-
-By the year 1998 a new term was rising.  With all the best intentions the term *"free"* in free software had an overriding air of being about cost.  Many commercial entities were simply not interested because they were concerned about loosing the chance to make money.  Some developers also disagreed with the FSF's moral stance on free software instead comparing open development and open code superior to close source and development but ultimately a business decision, not a moral decision.  Enter Eric S. Raymond.
+By the year 1998 a new term was rising.  With all the best intentions the term *"free"* in free software had an overriding air of being only about cost.  Many commercial entities were simply not interested or afraid because they were concerned about loosing the chance to make money or retain rights over programs they created.  Some developers seeing a chance to promote the quality and community to the larger commercial markert. These developers did not hold with the FSF's moral stance on free software as the ultimate argument in free software adoption. Instead they compared open development and open code as superior in quality and cost in cost reduction to closed source development.  They beleived opensource was a business process decision and not a moral decision.  Enter Eric S. Raymond.
 
 __Eric S. Raymond__
 
 <a title="By Erc_S_Raymond_and_company.jpg: jerone2 derivative work: Bilby (Erc_S_Raymond_and_company.jpg) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AEric_S_Raymond_portrait.jpg"><img width="256" alt="Eric S Raymond portrait" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eric_S_Raymond_portrait.jpg/256px-Eric_S_Raymond_portrait.jpg"/></a>
 
-Eric S. Raymond is another developer considered a peer along with Ricahrd Stallman.  Eric was one of the first to embrace the Free Software idea and promote using free software.  He was so convinced by the free softeare and the open development method that took place with Linux that he penned a seminal paper that was later reprinted called , __"The Cathedral and the Bazaar."__  
+Eric S. Raymond is another developer considered a peer along with Ricahrd Stallman.  Eric was one of the first to embrace the Free Software idea and promote using free software.  He was so convinced by the free softeare and the open development method that took place with Linux that he penned a seminal paper that was later reprinted called, __"The Cathedral and the Bazaar."__  
 
-  His main point was that by usual business practices - Linux should have been a massive failure and poorly implemented experiment.  But instead it was an unprecendented success.  His article examined why this is the case.  His conclusion was that the open source code and open design methodology treating your user as a valued resource was vital to opensource project success.  Based on this Raymond and Bruce Perens founded the Open Source Initiative (OSI).  Their goal was to promote free software but instead of focusing on the moral issus they focused on the desgin principals as producing superior software.  A quote from Raymond puts his opinion bluntly;
+  His main point was that by usual business practices - Linux should have been a massive failure and poorly implemented experiment.  But instead it was an unprecendented success.  His article examined why this is the case.  His conclusion was that the open source code and open design methodology treating your user as a valued resource was vital to opensource project success.  Based on this Raymond and [Bruce Perens](https://en.wikipedia.org/wiki/Bruce_Perens "Bruce Perens") founded the [Open Source Initiative (OSI).](http://opensource.org/ "OSI") Their goal was to promote free software but instead of focusing on the moral issus they focused on the desgin principals as producing superior software.  A quote from Raymond puts his opinion bluntly;
  
  > *As head of the Open Source Initiative, he argued that advocates should focus on the potential for better products. The "very seductive" moral and ethical rhetoric of Richard Stallman and the Free Software Foundation fails, he said, "not because his principles are wrong, but because that kind of language ... simply does not persuade anybody".* 
  > [Eric S. Raymond](https://en.wikipedia.org/wiki/Eric_S._Raymond#Open_source "Quote")
 
-  The "Catherdral and the Bazaar" was also influential in helping the Netscape Corporation opensource their Netscape Web Browser code as the company went bankrupt under the name of the Mozilla project.  This code gave rise to what would eventually become the Firefox web browser in 2002--thanks to Raymond's writings.  The OSI was willing to make freedom compromises in order to make larger productivity gains with opensource software. The FSF will not compromise. Richard Stallman fired back in his article [Open Source Misses the Point](http://www.gnu.org/philosophy/open-source-misses-the-point.html "Open Source Misses the Point") The terms do overlap Free Software and Open Source but ultiamtely have two divergent meanings.   There has been some compromise in the naming [FLOSS, Free Libre and Open Source Software] (https://en.wikipedia.org/wiki/Free_software_movement "FLOSS"), Free and Libre Open Source Software -- but the FSF rejects any licensing that allows a user to restrict the use of "freedom" Code.  One arguemtn would be the existance of [DRM](https://en.wikipedia.org/wiki/Digital_rights_management "DRM") software.  The OSI group would not be opposed to push for Open Source DRM software.  But the FSF would be opposed to the concept of DRM--which is a tool they believe for restricting a users freedom. 
+  The "Catherdral and the Bazaar" was also influential in helping the Netscape Corporation opensource their Netscape Web Browser code as the company went bankrupt under the name of the Mozilla project.  This code gave rise to what would eventually become the Firefox web browser in 2002--thanks to Raymond's writings.  The OSI was willing to make freedom compromises in order to make larger productivity gains with opensource software. The FSF will not compromise. Richard Stallman fired back in his article [Open Source Misses the Point](http://www.gnu.org/philosophy/open-source-misses-the-point.html "Open Source Misses the Point") The terms do overlap Free Software and Open Source but ultiamtely have two divergent meanings.   There has been some compromise in the naming [FLOSS, Free Libre and Open Source Software] (https://en.wikipedia.org/wiki/Free_software_movement "FLOSS"), Free and Libre Open Source Software -- but the FSF rejects any licensing that allows a user to restrict the use of "freedom" Code.  One arguemtn would be the existance of [DRM](https://en.wikipedia.org/wiki/Digital_rights_management "DRM") software.  The OSI group would not be opposed to push for open sourced DRM software.  But the FSF would be opposed to the entire concept of DRM--which is a tool they believe for restricting a users freedom. 
 
- You can read Raymond's two seminal books on Unix and Open Source philosophy online: 
+ You can read Raymond's two seminal books on Unix and Open Source philosophy online online as they are free: 
 
   * [The Art of Unix Usability](http://www.catb.org/~esr/writings/taouu/html/ "Book link")
   * [The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/ "CatB")
 
 ### - The rise of commercial Linux and Linux modern Distros
 
-  As the nature of Linux grows and corporations become more invovle the value proposition of Linux begins to grow as well.  As of today Linux can be thought of as following in two distinct families.  Debian and RedHat are the two core distributions that most Linux distributions descend from.   Yes I know there is still Slackware derivatives of Gentoo and Suse - but for the purposes of this book I will focus on the main two.
+  As the nature of Linux grows and corporations become more invovle the value proposition of Linux begins to grow as well.  The combination of the Linux kernel and GNU tools, plus other user tools and components became known a Linux distribution.  The shortname became known as a Linux *distro.* Another term to be aware of is a there are different flavors or spins of Linux Distributions. After almost 20 years of Linux we think of all the distributions hailing from two distinct families that most distros descend from: Debian and RedHat.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on the two main distributions.  You can find many other specialized Linux distributions at [http://distrowatch.org](http://distrowatch.com/ "Distro Watch")
   
-  __Debian__
+   *  [Slackware](http://www.slackware.com/info/ "Slackware")
+   *  [Gentoo Linux](https://www.gentoo.org/get-started/about/ "Gentoo Linux")
+   *  [SUSE Linux](https://en.wikipedia.org/wiki/SUSE_Linux_distributions "SUSE Linux")
+   *  [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian spin
+   *  [antiX Linux](http://antix.mepis.org/index.php?title=Main_Page "antiX") - lightwight Debian derivative focused on old machines.
+   *  [Arch Linux](https://www.archlinux.org/ "Arch Linux")
+   *  [Tails Linux](https://tails.boum.org/ "Tails Linux") - Online security focused Linux distro - debian spin
+   *  and many more... 
   
-  In 1993 [Debian](https://www.debian.org/intro/about)
+  __Debian Family__
   
-  [History](https://www.debian.org/doc/manuals/project-history)
+  The Debian distribution was founded in 1993 and is unique for being one of the only non-commercial company backed Linux.
   
-   Releases named after Toy Story characters.  Only distribution not backed by a major corporation.  
-   All volunteer organization
-   Dedicated to software rights and freedoms of users
-   Distro come with a [Software contract](https://www.debian.org/social_contract "Contract") - of what the project will guarentee to do 
-   Debian will allow for installation of Non-free software if the user initiates that.  FSF and GNU based Linux do not even allow for the possibility of installing Non-free software.
+  [Ian Murdock](http://ianmurdock.com/ "Ian Murdock")
+  
+  <a title="By Ilya Schurov , Computerra Weekly (originally posted to Flickr as 9722_00_23_14) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AIanMurdock.jpg"><img width="256" alt="IanMurdock" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/IanMurdock.jpg/256px-IanMurdock.jpg"/></a>  
+  
+ >*"I founded Debian in 1993. Debian was one of the first Linux distributions and also one of the most successful and influential open source projects ever launched. Debian pioneered a number of ideas commonplace today, including employing an open community that allowed (and encouraged!) anyone to contribute (much like how Wikipedia would later operate). And, with its integrated software repositories anyone could contribute to, Debian arguably had the industry’s first (albeit primitive) “App Store”. Today, more than 1,000 people are involved in Debian development, and there are millions of Debian users worldwide."* - [http://ianmurdock.com](http://ianmurdock.com) 
 
-  __RedHat__
-  
-  [About](http://www.redhat.com/en/about/company)
-  ![RedHat Info graph](http://www.redhat.com/infographics/corporate/)
-  
-  [Source - http://www.redhat.com/infographics/corporate/](http://www.redhat.com/infographics/corporate/)
+__Debian__
 
-![RHEL](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png)
-  
-  Began focusing on desktop Linux as a direct rival to Microsoft.  But realized by 2002 that there was no money in selling open source desktop software instead they moved their entire focus to take on Microsoft in the Enterprise arena.  By 2012 they became the first Linux based company to make a billion dollars in a physical year. 
-  
+![Debian Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Debian-OpenLogo.svg/109px-Debian-OpenLogo.svg.png "Debian Logo")
+
+The current release is Debian 8.1 codenamed Jessie, June 2015.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and [history of Debian.](https://www.debian.org/doc/manuals/project-history)
+
+There are [currently 128 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") according to distrowatch.com.
+ 
+ These are the main points of Debian and the key I believe to their long term success and usage accross the Linux landscape:
+   
+   * Initial release scheudle was yearly but as Debian project has grown not is two year release schedule
+   * Releases are named after charactrers from the Toy Story movie.  
+   * It is the only major distribution not backed by a corporation.  
+   * All volunteer organization -- project leader is elected on a rotating basis
+   * Dedicated to protecting software rights and freedoms of users
+   * First major distribution to come with a [Software contract](https://www.debian.org/social_contract "Contract") - of what the project will guarantee to the user.
+   * Debian supports free and open source software as superior but will allow for closed source software/drivers to be installed. 
+   *  FSF and GNU based Linux do not even allow for the possibility of installing Non-free software.
+
   __Ubuntu__ 
 
 <a title="By Macguy314 (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AUbuntu_logo_copyleft_1.svg"><img width="128" alt="Ubuntu logo copyleft 1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Ubuntu_logo_copyleft_1.svg/128px-Ubuntu_logo_copyleft_1.svg.png"/></a>
@@ -274,40 +285,62 @@ Eric S. Raymond is another developer considered a peer along with Ricahrd Stallm
    2005 Mark Shuttleworth who had started the Thwate SSL company which was bought out by verisign and invested 10 million dollars in the Ubuntu Foundation
    
    [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth)
+   <a title="By Martin Schmitt (cropped by Mary Gardiner) (http://www.flickr.com/photos/foobarbaz/141522112/) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AMark_Shuttleworth_by_Martin_Schmitt.jpg"><img width="128" alt="Mark Shuttleworth by Martin Schmitt" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Mark_Shuttleworth_by_Martin_Schmitt.jpg/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg"/></a>
    
    Linux for people - Ubuntu took/stole the desktop makret that RedHat had abandoned.  Ubuntu forked the opensource work of Debian and built on top of it adding in closed source code and features where neccesary in order to make the best experience.  They had business in mind and have indeed captured the desktop market and are even thr source for the Steam OS Linux video game distrubution.   But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu is basically "living" off of the initial 10 million dollar investment of Mark Shuttleworth.  
    
    A company called Canonical was formed to handle commercial support and hires and structure the developers who work on Ubunutu.  Ubuntu pioneered the idea of rolling releases - based on every 6 months.  Each distribution is released in April and October so there are two distrubutions per year.  Ubuntu also introduced the concept of an LTS - this means that the OS will have security pathces, fixes, and software backported to it for 5 years.  Every even year and the april distribution.  So 10.04 12.04 14.04 16.04 and so forth. (the first number being the year.)
-   
+
+   Ubuntu Unity - change 
+ 
+  __Linux Mint__
+  
+  <a title="By Clement Lefebvre [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg"><img width="128" alt="Linux Mint logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Linux_Mint_logo_and_wordmark.svg/128px-Linux_Mint_logo_and_wordmark.svg.png"/></a>
+    
+   Ubuntu based distro -- people didn't like Unity - went back to GNOME 3 and 2
+
+  __RedHat Family__
+  
+  ![RHEL](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png) 
+  
+  [About](http://www.redhat.com/en/about/company)
+  [RedHat Histroy](http://www.redhat.com/infographics/corporate/data/ "RedHat History")
+  
+  In 1995 Marc Ewing and Bob Young formed the RedHat Linux company.   
+  
+   __Fedora__
+  
+  [25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active)
+  
+  <a title="See page for author [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg"><img width="128" alt="Fedora logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fedora_logo_and_wordmark.svg/128px-Fedora_logo_and_wordmark.svg.png"/></a> 
+
   __RHEL__ 
-  
+
+  RHEL stands for RedHat Enterprise Linux.  
 ![RHEL](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png)
-  
-  __Fedora__
-  
-  <a title="See page for author [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg"><img width="128" alt="Fedora logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fedora_logo_and_wordmark.svg/128px-Fedora_logo_and_wordmark.svg.png"/></a>
+
+  Began focusing on desktop Linux as a direct rival to Microsoft.  But realized by 2002 that there was no money in selling open source desktop software instead they moved their entire focus to take on Microsoft in the Enterprise arena.  By 2012 they became the first Linux based company to make a billion dollars in a physical year. 
   
   __Centos__
   
   <a title="By CentOS Project (http://wiki.centos.org/ArtWork/Logo/Type) [GPL (http://www.gnu.org/licenses/gpl.html) or Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ACentOS_Logotype.png"><img width="128" alt="CentOS Logotype" src="https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png"/></a>
    
-  __Linux Mint (Ubuntu)__
-  
-  <a title="By Clement Lefebvre [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg"><img width="128" alt="Linux Mint logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Linux_Mint_logo_and_wordmark.svg/128px-Linux_Mint_logo_and_wordmark.svg.png"/></a>
+  __Oracle Linux__
     
-  __Oracle Unbreakable Linux__
-    
+  [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux "Oracle Linux")
   
+  Did you think that Oracle would allow their logo to be displayed under an open license?
+  
+  Oracle claims that the Unbreakable Enterprise Kernel is compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can install and run unchanged on the Unbreakable Enterprise Kernel. For users requiring strict compatibility with Red Hat or for users running kernel modules dependent on specific kernel versions, the Red Hat Compatible Kernel offers 100% compatibility with Red Hat Enterprise Linux.
   
   __BSD Unix__
   
-    * ![FreeBSD](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/320px-Freebsd_logo.svg.png)
-        +  ![DragonFly BSD](http://www.dragonflybsd.org/images/FullLogo.gif)
-    *![NetBSD](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/307px-NetBSD.svg.png)
-    * ![OpenBSD](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/320px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
-        *  OpenSSH comes out of this project
+   * ![FreeBSD](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/320px-Freebsd_logo.svg.png)
+   * ![DragonFly BSD](http://www.dragonflybsd.org/images/FullLogo.gif)
+   * ![NetBSD](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/307px-NetBSD.svg.png)
+   * ![OpenBSD](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/320px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
+     +  OpenSSH comes out of this project
         
-  
 ### - Impending Linux Civil War
 
 __systemd and Lennart Poettering__
@@ -340,15 +373,28 @@ What were the two commercial Linux companies featured in the movie?
 
 What is RedHat Linux's stock price today?
 
+What is VA Linux's stock price today?
+
 How does Ricahrd Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?
 
 ### - Podcast Review Questions
 
-Tim Orielly podcast and questions go here.
+[Listen or watch](http://twit.tv/floss/73) this podcast - http://twit.tv/floss/73
+
+ *  Who is Tim Orielly? ~3:00-5:00
+ *  What is Oscon? ~6:45
+ *  Who coined the term web 2.0? ~13:34
+ *  What did we learn from the IBM PC? ~18:30
+ *  What is web 2.0? ~19:30
+ *  Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00
+ *  Where is the money made in open source - software or data? ~ 34:00
+ *  What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
+ *  [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
 
 ### - Review Lab
 
-Watch Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c
+[Watch Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) and answer the questions listed under review questions.
+
 
 
 
