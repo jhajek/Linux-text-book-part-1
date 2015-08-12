@@ -261,7 +261,7 @@ Eric S. Raymond is another developer considered a peer along with Ricahrd Stallm
   
   [Source - http://www.redhat.com/infographics/corporate/](http://www.redhat.com/infographics/corporate/)
 
- <img src='https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png' />
+![RHEL](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png)
   
   Began focusing on desktop Linux as a direct rival to Microsoft.  But realized by 2002 that there was no money in selling open source desktop software instead they moved their entire focus to take on Microsoft in the Enterprise arena.  By 2012 they became the first Linux based company to make a billion dollars in a physical year. 
   
@@ -281,7 +281,7 @@ Eric S. Raymond is another developer considered a peer along with Ricahrd Stallm
    
   __RHEL__ 
   
- <img src='https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png' />
+![RHEL](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png)
   
   __Fedora__
   
