@@ -6,6 +6,7 @@
   * Windows
   * Mac
   * Linux/BSD
+  * ARM
 
 ## - Virtual Machines
   
