@@ -234,9 +234,15 @@ Eric S. Raymond is another developer considered a peer along with Ricahrd Stallm
   * [The Art of Unix Usability](http://www.catb.org/~esr/writings/taouu/html/ "Book link")
   * [The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/ "CatB")
 
-### - The rise of commercial Linux and Linux modern Distros
+__Linux makes you ritch__
 
-  As the nature of Linux grows and corporations become more invovle the value proposition of Linux begins to grow as well.  The combination of the Linux kernel and GNU tools, plus other user tools and components became known a Linux distribution.  The shortname became known as a Linux *distro.* Another term to be aware of is a there are different flavors or spins of Linux Distributions. After almost 20 years of Linux we think of all the distributions hailing from two distinct families that most distros descend from: Debian and RedHat.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on the two main distributions.  You can find many other specialized Linux distributions at [http://distrowatch.org](http://distrowatch.com/ "Distro Watch")
+  As the 1990's went along we began to see eastablished companies adopting and using Linux. as well as the rise of commercial Linux companies.  Of all the companies that started at that time RedHat Linux is and was the most successful.  Most of all of the Linux distribtions started pre-2003 no longer exist or are not commercially viable.  To illustrate this, today (August 10th 2015) RedHat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "RedHat Market Cap")  
+
+### - The Rise of Commercial Linux and Modern Linux Distros
+
+  As the nature of Linux grew and corporations become more invovled in kernel development, the value proposition of Linux begans to grow as well.  The combination of the Linux kernel and the GNU tools, plus GUI tools became known a Linux distribution - which anyone could freely make.  The shortname became known as a Linux *distro.* Another term to be aware of is a there are different flavors, derivatives, or spins of Linux Distributions. 
+  
+  After almost 20 years of Linux we can think of the distributions mainly hailing from two distinct families: Debian and RedHat.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on the two main distributions.  You can find almost all known  Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
   
    *  [Slackware](http://www.slackware.com/info/ "Slackware")
    *  [Gentoo Linux](https://www.gentoo.org/get-started/about/ "Gentoo Linux")
@@ -245,13 +251,10 @@ Eric S. Raymond is another developer considered a peer along with Ricahrd Stallm
    *  [antiX Linux](http://antix.mepis.org/index.php?title=Main_Page "antiX") - lightwight Debian derivative focused on old machines.
    *  [Arch Linux](https://www.archlinux.org/ "Arch Linux")
    *  [Tails Linux](https://tails.boum.org/ "Tails Linux") - Online security focused Linux distro - debian spin
+   *  [LXDE](http://lxle.net/ "LXDE") - lightweight system focusing on reinvigorating older laptops.
    *  and many more... 
   
   __Debian Family__
-  
-  The Debian distribution was founded in 1993 and is unique for being one of the only non-commercial company backed Linux.
-  
-  [Ian Murdock](http://ianmurdock.com/ "Ian Murdock")
   
   <a title="By Ilya Schurov , Computerra Weekly (originally posted to Flickr as 9722_00_23_14) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AIanMurdock.jpg"><img width="256" alt="IanMurdock" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/IanMurdock.jpg/256px-IanMurdock.jpg"/></a>  
   
@@ -261,43 +264,52 @@ __Debian__
 
 ![Debian Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Debian-OpenLogo.svg/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
-The current release is Debian 8.1 codenamed Jessie, June 2015.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and [history of Debian.](https://www.debian.org/doc/manuals/project-history)
+The Debian distribution was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercial company backed Linux.  The current release is Debian 8.1 codenamed Jessie, June 2015.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and [history of Debian.](https://www.debian.org/doc/manuals/project-history)
 
 There are [currently 128 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") according to distrowatch.com.
  
  These are the main points of Debian and the key I believe to their long term success and usage accross the Linux landscape:
    
-   * Initial release scheudle was yearly but as Debian project has grown not is two year release schedule
+   * Initial release scheudle was yearly but as Debian project has grown now is two year release schedule
    * Releases are named after charactrers from the Toy Story movie.  
    * It is the only major distribution not backed by a corporation.  
-   * All volunteer organization -- project leader is elected on a rotating basis
+   * All volunteer project and organization -- project leader is elected on a rotating basis
    * Dedicated to protecting software rights and freedoms of users
    * First major distribution to come with a [Software contract](https://www.debian.org/social_contract "Contract") - of what the project will guarantee to the user.
-   * Debian supports free and open source software as superior but will allow for closed source software/drivers to be installed. 
-   *  FSF and GNU based Linux do not even allow for the possibility of installing Non-free software.
+   * Debian supports free and open source software as superior to closed source but will allow for closed source software/drivers to be installed by the user. 
+   * Supported st various times 11 different processor types giving it a wide install base. 
 
   __Ubuntu__ 
 
 <a title="By Macguy314 (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AUbuntu_logo_copyleft_1.svg"><img width="128" alt="Ubuntu logo copyleft 1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Ubuntu_logo_copyleft_1.svg/128px-Ubuntu_logo_copyleft_1.svg.png"/></a>
   
-   By 2004 There was a void in the desktop Linux market and getting certain Linux distributions to run was not always easy (Citation?).  Ubuntu's main focus was "it should just work." And they did that well.
+   Ubuntu is a unique sidtribution.  It is entirely based on Debian.  It is Debian repackaged with a focus on applications "just working."  Around 2004 Mark Shuttleworth, the founder of Ubuntu, was unnerved that Windows had such a domination of the PC market.  He had been a Debian developer, but felt that the partial lack of a corporate sponsor in some ways hindered Debian from catching the marketshare from Windows.  He set out to make a Debian based distro called Ubuntu.  This is a Zulu word for *"community"* as Shuttleworth wanted Linux to be people friendly and work really well out of the box--like Windows.  
    
-   2005 Mark Shuttleworth who had started the Thwate SSL company which was bought out by verisign and invested 10 million dollars in the Ubuntu Foundation
+   By 2004 RedHat, who had owned the desktop Linux market realized that there was little money to be made in that market so they abandoned it decideing to focus on the enterprise market.  This left a void that Ubuntu rushed to fill and they did it well. By 2005, Mark Shuttleworth who had started the Thwate SSL security company which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintainance of Ubuntu Linux.  
    
    [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth)
    <a title="By Martin Schmitt (cropped by Mary Gardiner) (http://www.flickr.com/photos/foobarbaz/141522112/) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AMark_Shuttleworth_by_Martin_Schmitt.jpg"><img width="128" alt="Mark Shuttleworth by Martin Schmitt" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Mark_Shuttleworth_by_Martin_Schmitt.jpg/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg"/></a>
    
-   Linux for people - Ubuntu took/stole the desktop makret that RedHat had abandoned.  Ubuntu forked the opensource work of Debian and built on top of it adding in closed source code and features where neccesary in order to make the best experience.  They had business in mind and have indeed captured the desktop market and are even thr source for the Steam OS Linux video game distrubution.   But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu is basically "living" off of the initial 10 million dollar investment of Mark Shuttleworth.  
+   What made Ubuntu so succesful was tha they forked the opensource work of rock-solid Debian but built on top of it adding in closed source code and user centered features where neccesary in order to make the best experience.  They had business in mind and have indeed captured the desktop Linux market.  But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu is basically "living" off of the initial 10 million dollar investment of Mark Shuttleworth. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Cannonical") was formed to handle commercial support and hires the developers who work on Ubunutu.  
    
-   A company called Canonical was formed to handle commercial support and hires and structure the developers who work on Ubunutu.  Ubuntu pioneered the idea of rolling releases - based on every 6 months.  Each distribution is released in April and October so there are two distrubutions per year.  Ubuntu also introduced the concept of an LTS - this means that the OS will have security pathces, fixes, and software backported to it for 5 years.  Every even year and the april distribution.  So 10.04 12.04 14.04 16.04 and so forth. (the first number being the year.)
-
-   Ubuntu Unity - change 
+   Ubuntu pioneered the idea of rolling releases - releasing every 6 months compared to Microsoft doing 3 to 5 years.  Each distribution is released in late April and late October so there are two distrubutions per year.  Ubuntu also introduced the concept of an LTS, Long Term Support - this means that certain releases will have security pathces, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and have the stability you need.  These LTS releases happen every even year and in the April distribution.  So Ubuntu 10.04, 12.04, 14.04, 16.04, and so forth. (the first number being the year.)
  
   __Linux Mint__
   
   <a title="By Clement Lefebvre [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg"><img width="128" alt="Linux Mint logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Linux_Mint_logo_and_wordmark.svg/128px-Linux_Mint_logo_and_wordmark.svg.png"/></a>
     
-   Ubuntu based distro -- people didn't like Unity - went back to GNOME 3 and 2
+   Linux Mint started also in 2006 as a fork of the Ubuntu project but with a different desktop interface.  Linux Mint also focused on adding multimedia codecs for playback of audio and video directly to the install so that all media worked out of the box.  Linux Mint is even more user experience focused than Ubuntu and is one of the most popular Ubuntu based distros.
+
+   Some of the other notable Debian based distros
+   
+   *  Lubuntu
+   *  Xubuntu 
+   *  [Kubuntu](http://www.kubuntu.org/ "Kubuntu") Uubntu remixed with the KDE desktop Environemnt
+   *  [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam onlien gaming companies official Linux distro
+   *  antiX
+   *  [Raspian])http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommeded for the Raspberry Pi.
+   *  [gNewSense](http://gnewsense.org "gNewSense") <- GNU/Linux FSF recommended distro, entirely GPL compliant
+   *  
 
   __RedHat Family__
   
