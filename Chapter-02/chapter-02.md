@@ -306,7 +306,7 @@ There are [currently 128 major Debian based distros](http://distrowatch.com/sear
    *  Xubuntu 
    *  [Kubuntu](http://www.kubuntu.org/ "Kubuntu") Uubntu remixed with the KDE desktop Environemnt
    *  [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam onlien gaming companies official Linux distro
-   *  antiX
+   *  [Kylin Linux](http://distrowatch.com/ubuntukylin "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
    *  [Raspian])http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommeded for the Raspberry Pi.
    *  [gNewSense](http://gnewsense.org "gNewSense") <- GNU/Linux FSF recommended distro, entirely GPL compliant
    *  
@@ -318,52 +318,99 @@ There are [currently 128 major Debian based distros](http://distrowatch.com/sear
   [About](http://www.redhat.com/en/about/company)
   [RedHat Histroy](http://www.redhat.com/infographics/corporate/data/ "RedHat History")
   
-  In 1995 Marc Ewing and Bob Young formed the RedHat Linux company.   
+  RedHat Linux was formed shortly after teh Debian project launched in 1995 Marc Ewing and Bob Young.  It was one of the first commercial Linux companies and one of the few to survive to the modern day independant of an existing company.  RedHat source code is currently shared accross three main distributions: Fedora, RHEL (RedHat Enterprise Linux), and CentOS.   
   
    __Fedora__
-  
-  [25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active)
-  
+
   <a title="See page for author [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg"><img width="128" alt="Fedora logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fedora_logo_and_wordmark.svg/128px-Fedora_logo_and_wordmark.svg.png"/></a> 
 
+   [Fedora Project](https://getfedora.org/ "Get Fedora")
+  
+   The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the RedHat Desktop Linux product was merged with the community based spin off Fedora Linux.  The Fedora projects focus was rapid development and iterations.  They would release two distributions per year, only supporting the previous distribution before moving on.  In this way they could innovate new technologies quickly without having to worry about legacy applications.  This distribution was meant for desktop users and developers.  This fast upgrade cycle means that you will be updating your entire system twice per year.    
+   
+   Currently there are [25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or Fedora calls them *"spins"* -- this term is unique to Fedora.
+  
   __RHEL__ 
-
-  RHEL stands for RedHat Enterprise Linux.  
 ![RHEL](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png)
+  
+  RedHat began to see the opportunity to server enterprise products and make money using opensource at the time.  A big market was Java based applications which had been the domain of Sun and its Unix based Solaris servers for years.  RHEL could enter that market, running the same applications, and do it on chaper Intel x86 based boxes.  With Oracle announcing it would port its products to RHEL, this platform became to the go to choice as the alternative against Microsoft and helped put Sun and Solaris basically out of business.  The acronym stands for RedHat Enterprise Linux.  
 
-  Began focusing on desktop Linux as a direct rival to Microsoft.  But realized by 2002 that there was no money in selling open source desktop software instead they moved their entire focus to take on Microsoft in the Enterprise arena.  By 2012 they became the first Linux based company to make a billion dollars in a physical year. 
+  The key to RHEL's success in the enterprise is its long term stasbility.  Much like the version of Windows Servers it competes with - the applciation platform is expected to run for 5+ years.  A enterprise grade server product cannot be changing every six months like the Fedora project.  RedHat instead takes "snapshots" from Fedora and freezes them in time.  As of today (August 13th 2015) the current version of RHEL is 7.1 which is a freeze of the technology point in Fedora 19, whihc was released July of 2013.  This way the developers get to know the platform and software versions that will be maintained and supported long term. How succesful is this strategy? By 2012 they became the first Linux based company to make a billion dollars in a physical year.  But this success brought about a serious opensource question, if you have a successful prodcut like RHEL, since you are using GPL based opensource code--you have to opensource your code--that means anyone else can redistribute your code freely, in theory eating your lunch.     
   
   __Centos__
   
   <a title="By CentOS Project (http://wiki.centos.org/ArtWork/Logo/Type) [GPL (http://www.gnu.org/licenses/gpl.html) or Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ACentOS_Logotype.png"><img width="128" alt="CentOS Logotype" src="https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png"/></a>
+  
+  By 2004 many people began to see the utility and success of RedHat Linux, and being opensource they began to fork the code and make their own distributions.  CentOS is one of them.  By 2010 they emerged as one of the two remaining RHEL derivatives.  Their developers, like Debian, are entirely volunteer based and not backed by a company.  Their motive was to take the solidness of RHEL and just update a few features and add more modern software packages sooner then the 5 year RHEL cycle.   Initially RedHat didn't support CentOS--taking them to court numerous times, as CentOS had not removed all of RedHat's trademarked logos in all the code.  Eventually all of RedHat's copyrighted material was removed and CentOS has a leagal copy of RHEL to redistribute and use.  This made RedHat angry as they were loosing sales to enterprises using CentOS insteaf of RHEL.  By 2014, RedHat and Centos came to terms to work together--with RedHat offering to sell support contracts to CentOS users.  Is CentOS doing anything illegal?  Not according to the GPL and the spirit of opensource, but it does bring up the financial issue again.
    
   __Oracle Linux__
     
   [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux "Oracle Linux")
   
-  Did you think that Oracle would allow their logo to be displayed under an open license?
+  Did you think that Oracle would allow their logo to be displayed under an open license? Not to be out done.  Oracle who say that many of their customers were paying RedHat for operating systems licenses and support and then running their database on top of it wanted a piece of the action.  Oracle now owns Java--which is the primary tool used to interface with all the Oracle and its suppoprting products.  Oracle could also make a fork of RHEL's code and place their logos and tools into and feed off of RHEL's existing knowledge base.
   
-  Oracle claims that the Unbreakable Enterprise Kernel is compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can install and run unchanged on the Unbreakable Enterprise Kernel. For users requiring strict compatibility with Red Hat or for users running kernel modules dependent on specific kernel versions, the Red Hat Compatible Kernel offers 100% compatibility with Red Hat Enterprise Linux.
+ Oracle Linux was born in 2007 and is a fully GPL compliant OS with Oracle software extensions and fine tuning. 
+ Oracle claims that the Unbreakable Enterprise Kernel is compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can install and run unchanged on the Unbreakable Enterprise Kernel. For users requiring strict compatibility with Red Hat or for users running kernel modules dependent on specific kernel versions, the Red Hat Compatible Kernel offers 100% compatibility with Red Hat Enterprise Linux. [https://en.wikipedia.org/wiki/Oracle_Linux](https://en.wikipedia.org/wiki/Oracle_Linux)
+  
+ Is Oracle breaking the law?  Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's own software.   
   
   __BSD Unix__
   
-   * ![FreeBSD](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/320px-Freebsd_logo.svg.png)
-   * ![DragonFly BSD](http://www.dragonflybsd.org/images/FullLogo.gif)
-   * ![NetBSD](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/307px-NetBSD.svg.png)
-   * ![OpenBSD](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/320px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
-     +  OpenSSH comes out of this project
+  After the AT&T--BSD lawsuit was settled in 1994, you saw the BSD code splinter into different distro for OpenSource Unix.  AT&T retained the copyright to closed source SystemV Unix. These are the other distr
+  
+   ![FreeBSD](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/320px-Freebsd_logo.svg.png)
+   
+   * Released in November 1994
+   * Essentially the inheriter of the BSD code base and the largest BSD implementation.  
+   * Leagally prohibitted from using the term *"Unix"* as outcome of AT&T lawsuit.
+   
+   ![DragonFly BSD](http://www.dragonflybsd.org/images/FullLogo.gif)
+   
+   * Fork of FreeBSD in April of 2005 by Matthew Dillon.
+   * Focused on unique techniques in handling mutliprocessing in the FreeBSD kernel
+
+   ![NetBSD](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/307px-NetBSD.svg.png) 
+   
+   * Released October of 1994 as another version of the BSD code after the lawsuit.
+   * Focuses on portability to run this OS on nearly every platform you can think of.
+   
+   ![OpenBSD](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/320px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
+
+   * Fork of NetBSD lead by Theo de Raadt end of 1995
+   * Founded by Theo de Raadt
+   
+   <a title="By FAndrey [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ATheo_de_Raadt_2013.jpg"><img width="128" alt="Theo de Raadt 2013" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Theo_de_Raadt_2013.jpg/128px-Theo_de_Raadt_2013.jpg"/></a>
+   
+   * Theo was banned from NetBSD in 1994.
+   * He complained that they were developing too slow and not focusing on security.
+   * OpenSSH comes out of this project.
+     + [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
+     + Recognizing the standard of SSH (secure shell) they are moving to port and integrate SSH natively to Windows. 
+   * Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most sercure OS.
+   
+   [Minix 3](https://en.wikipedia.org/wiki/MINIX_3 "Minix 3") 
+   
+   * Released October of 2005 
+   * Since then the OS went from a teaching tool to a product being used commercially.  
+   * Began using NetBSD user space applications to give it a GUI and make it a viable commercial product. 
         
 ### - Impending Linux Civil War
 
-__systemd and Lennart Poettering__
-
 <a title="By Kushal Das (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALennart_poettering.jpg"><img width="256" alt="Lennart poettering" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lennart_poettering.jpg/256px-Lennart_poettering.jpg"/></a>
+
+__Lennart Poettering__
+
+  Not since Linux Torvalds has a man been so loved or reviled in the Linux community.  Lennart is a name you need to know as well.  He is currently a developer for Red Hat and having worked on many open source proejcts.  His current project is systemd.  Systemd is a replacement for the traditional SysVInit program that started all of the Operating Systems process upon boot.  
   
-* cover breifly here and then again later in the end of the book
-* SysVInit vs systemd 
-* Lennart Poetering
-* Red Hat's grab for Linux?
-* Can Linux survive as an opensource project?
+  Poeterring has angered many people by breaking certain Unix traditions and conventions in the name of speed and features.  The Unix philosophy of having little programs do one thing well goes right out the window. Poetering argues that philosophy is a byproduct of an era where computing was slow and disk space was precious.  If Linux wants to be taken serious like Mac and Windows--it needs to think like Mac and Windows.  Poeterring is young and wants to push the development of the operating system of Linux forward rapidly.  
+  
+  The other major point of contention is with all the changes in systemd to the boot process, many other pieces of software need to change as well.  Linux has always been about choice but the GNOME desktop developers have chosen to hard integrate with systemd. Meaning that if you operating system uses systemd instead of SysVInit - then you m,ay very well in the future be forced to use GNOME as it will become a dependency of your init system.
+  
+  This leads to an interesting point.  All major distros have moved to systemd.  Debian was the last hold out and they actually had a civil war and split over this issue.  Half of the developers left and went to form a distro called Devuan--which is focusing on removing all the systemd dependencies and putting choice back in the users hand.
+  
+  Systemd has many nice and needed features.  Leonart is updating pieces of Linux that haven't been touched in ages. He even wrote a [21 part defence](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. I will talk more on the technical aspects of systemd in the chapter 4.
+     
+  The fears of Linux users are that systemd will grab dependencies and eventually force Linux users into a small sub-section of systemd supported software choices.  In a sense create a vendor lock in.  What makes this all the more intreguing is that Lennart works for Red Hat.  Would Red Hat mind if this systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user?  That is a good question.  This also begs the question - can Linux survive as an independant and open software or does it need a commercial comapny backing it?  Or could this be seen as Red Hat's grab for the entire Linux market?  It is too early to tell but keep a watch on what happens with systemd.
 
 ## - Chapter Conclusion and Summary
 
