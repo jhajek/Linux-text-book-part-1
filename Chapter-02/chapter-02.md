@@ -25,7 +25,7 @@ __Outcomes__
 
   You will notice that I have been using the terms Unix and Linux interchangably so far.  For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the full truth if we left Unix out.  For this first chapter then we need to understand their related history.  There are differences and there are similarities.  
 
-## Where it Began and Why it Matters Now 
+## - Where it Began and Why it Matters Now 
  
   When we say *"Unix"* we are referring to an entire operating system.  An Operating System can be boiled down into three main parts.   
 
@@ -100,7 +100,17 @@ Unix differences from existing commercial Operating Systems
   * Built by engineers
   * Had a consistent design philosophy
   * Designed to be portable and work on many hardware vendor platforms
- 
+
+Thompson's Unix success was also a by product of its main design philosophies:
+
+  *  Everything is a file 
+    + This means that everything can be read from or written to: All the way from devices to text files
+  *  Unix Portable -- everything written in C
+  *  Unix is a collection of small tools that do one and only one thing well
+    + To build complex tools you chain input and output of tools together with *pipes* -> "|"
+ *  The only file format used in Unix is plain ASCII text 
+    +  Yes, there are compiled binaries but you generally are not reading and writing directly to them 
+    
  Between 1970 and 1974 Unix grew in its maturity.  And one of its crowning achienvements--its portability came to life.  Unix was originally written in assembly lanugage for the PDP-7. It needed to be as low level code as possible because disk storage space was a HUGE premium in those days.  This was good, but the problem with writting in low level assembly means that the code is optimized to only run on a PDP-7 system.  Not on a PDP-11 or a DEC Vac, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portablitiy.  What good is Unix if it could only be used on a PDP 7? It would have stayed a Bell Labs pet project.
  
  While Thompson was builing Unix his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system, and then to be able to contribute additonal functionality.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped in PDP7 assembler language.  Today we take for granted high level lanugages like C, C++, Python, and Java.  In the early 1970's these did not exist.  Ritchie's initial work was on a high level language that could be built in order to compile and run the same code on two different operating systems. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_(programming_language "B Lanugage") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature actually to save precious harddrive space). B was also missing many other features you would expect in modern programming languages.  
@@ -180,7 +190,7 @@ __Linux__
 
   <a title="By Krd (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinuxCon_Europe_Linus_Torvalds_03.jpg"><img width="256" alt="LinuxCon Europe Linus Torvalds 03" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/256px-LinuxCon_Europe_Linus_Torvalds_03.jpg"/></a>
   
-  Linus Torvalds
+  __Linus Torvalds__
 
   The Linux kernel comes to us from a graduate student named Linus Torvalds who developed it while at the University of Helsinki in Finland in 1991.  As a student Torvalds was using Unix on the universities Sun Sparc Stations.  He was not pleased with SunOS but felt it was the best of the commercial Unixes.  His real dream was to set out to run his own Unix like operating system on his own personal PC.  He had recently purchased an Intel x386 processor based desktop PC.  Linus tried Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement.  In a fashion not unlike Ken Thompson, Tovalds set out in the early part of 1991 deciding to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.  
  
@@ -192,7 +202,7 @@ __Linux__
     
    There should have been cause for great celebration with Linux and GNU coming together.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux hoping that the FSF and free software would get the recognition it deserved.  But Linus Torvalds didn't see it that way.  He has a unique personality--perhaps a bit arrogant.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linus, leaving the GNU part out even though all of their tooling is what made Linux possible.  This is a spot of contention with the FSF.  
     
-  Linux Kernel unique attributes recap
+  Linux Kernel unique attributes recap:
   
   * Developed to solve one person's problem of wanting his own Unix liek OS 
   * Released often
@@ -214,7 +224,7 @@ __AT&T and BSD Lawsuit__
 
 ### - Free Software vs. Open Source Software
 
-By the year 1998 a new term was rising.  With all the best intentions the term *"free"* in free software had an overriding air of being only about cost.  Many commercial entities were simply not interested or afraid because they were concerned about loosing the chance to make money or retain rights over programs they created.  Some developers seeing a chance to promote the quality and community to the larger commercial markert. These developers did not hold with the FSF's moral stance on free software as the ultimate argument in free software adoption. Instead they compared open development and open code as superior in quality and cost in cost reduction to closed source development.  They beleived opensource was a business process decision and not a moral decision.  Enter Eric S. Raymond.
+By the year 1998 a new idea in the *"Free Spftare"* movement was rising.  The long expected GNU HURD kernel never arrived, being replaced by Linux.  You also begant to see a corporate interset in opensource.  With all the best intentions the term *"free"* in free software had an overriding air of being only about cost.  Many commercial entities were simply not interested or afraid because they were concerned about loosing the chance to make money or retain rights over programs they created.  Some developers seeing a chance to promote the quality and community to the larger commercial markert. These developers did not hold with the FSF's moral stance on free software as the ultimate argument in free software adoption. Instead they compared open development and open code as superior in quality and cost in cost reduction to closed source development.  They beleived opensource was a business process decision and not a moral decision.  Enter Eric S. Raymond.
 
 __Eric S. Raymond__
 
@@ -234,7 +244,7 @@ Eric S. Raymond is another developer considered a peer along with Ricahrd Stallm
   * [The Art of Unix Usability](http://www.catb.org/~esr/writings/taouu/html/ "Book link")
   * [The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/ "CatB")
 
-__Linux makes you ritch__
+__Linux makes you rich__
 
   As the 1990's went along we began to see eastablished companies adopting and using Linux. as well as the rise of commercial Linux companies.  Of all the companies that started at that time RedHat Linux is and was the most successful.  Most of all of the Linux distribtions started pre-2003 no longer exist or are not commercially viable.  To illustrate this, today (August 10th 2015) RedHat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "RedHat Market Cap")  
 
@@ -260,11 +270,13 @@ __Linux makes you ritch__
   
  >*"I founded Debian in 1993. Debian was one of the first Linux distributions and also one of the most successful and influential open source projects ever launched. Debian pioneered a number of ideas commonplace today, including employing an open community that allowed (and encouraged!) anyone to contribute (much like how Wikipedia would later operate). And, with its integrated software repositories anyone could contribute to, Debian arguably had the industry’s first (albeit primitive) “App Store”. Today, more than 1,000 people are involved in Debian development, and there are millions of Debian users worldwide."* - [http://ianmurdock.com](http://ianmurdock.com) 
 
-__Debian__
+The Debian family contains 3 major sub-families:
 
 ![Debian Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Debian-OpenLogo.svg/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
-The Debian distribution was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercial company backed Linux.  The current release is Debian 8.1 codenamed Jessie, June 2015.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and [history of Debian.](https://www.debian.org/doc/manuals/project-history)
+__Debian Linux__
+
+The Debian distribution (pronounced deb-ian) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercial company backed Linux.  The current release is Debian 8.1 codenamed Jessie, June 2015.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and [history of Debian.](https://www.debian.org/doc/manuals/project-history)
 
 There are [currently 128 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") according to distrowatch.com.
  
@@ -279,7 +291,9 @@ There are [currently 128 major Debian based distros](http://distrowatch.com/sear
    * Debian supports free and open source software as superior to closed source but will allow for closed source software/drivers to be installed by the user. 
    * Supported st various times 11 different processor types giving it a wide install base. 
 
- <a title="By Macguy314 (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AUbuntu_logo_copyleft_1.svg"><img width="128" alt="Ubuntu logo copyleft 1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Ubuntu_logo_copyleft_1.svg/128px-Ubuntu_logo_copyleft_1.svg.png"/></a>
+ <a title="By Macguy314 (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AUbuntu_logo_copyleft_1.svg"><img width="256" alt="Ubuntu logo copyleft 1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Ubuntu_logo_copyleft_1.svg/256px-Ubuntu_logo_copyleft_1.svg.png"/></a>
+ 
+ __Ubuntu__
  
    Ubuntu Linux is a unique distribution.  It is entirely based on Debian.  It is Debian repackaged with a focus on applications "just working."  Around 2004 Mark Shuttleworth, the founder of Ubuntu, was unnerved that Windows had such a domination of the PC market.  He had been a Debian developer, but felt that the partial lack of a corporate sponsor in some ways hindered Debian from catching the marketshare from Windows.  He set out to make a Debian based distro called Ubuntu.  This is a Zulu word for *"community"* as Shuttleworth wanted Linux to be people friendly and work really well out of the box--like Windows.  
    
@@ -292,14 +306,20 @@ There are [currently 128 major Debian based distros](http://distrowatch.com/sear
    What made Ubuntu so succesful was tha they forked the opensource work of rock-solid Debian but built on top of it adding in closed source code and user centered features where neccesary in order to make the best experience.  They had business in mind and have indeed captured the desktop Linux market.  But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu is basically "living" off of the initial 10 million dollar investment of Mark Shuttleworth. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Cannonical") was formed to handle commercial support and hires the developers who work on Ubunutu.  
    
    Ubuntu pioneered the idea of rolling releases - releasing every 6 months compared to Microsoft doing 3 to 5 years.  Each distribution is released in late April and late October so there are two distrubutions per year.  Ubuntu also introduced the concept of an LTS, Long Term Support - this means that certain releases will have security pathces, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and have the stability you need.  These LTS releases happen every even year and in the April distribution.  So Ubuntu 10.04, 12.04, 14.04, 16.04, and so forth. (the first number being the year.)
- 
-  __Linux Mint__
   
-  <a title="By Clement Lefebvre [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg"><img width="128" alt="Linux Mint logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Linux_Mint_logo_and_wordmark.svg/128px-Linux_Mint_logo_and_wordmark.svg.png"/></a>
+  <a title="By Clement Lefebvre [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg"><img width="256" alt="Linux Mint logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Linux_Mint_logo_and_wordmark.svg/256px-Linux_Mint_logo_and_wordmark.svg.png"/></a>
     
-   Linux Mint started also in 2006 as a fork of the Ubuntu project but with a different desktop interface.  Linux Mint also focused on adding multimedia codecs for playback of audio and video directly to the install so that all media worked out of the box.  Linux Mint is even more user experience focused than Ubuntu and is one of the most popular Ubuntu based distros.
+__Linux Mint__
+    
+   Linux Mint started also in 2006 as a fork of the Ubuntu project but with a different desktop interface.  Linux Mint focused foremost on the user and desktop experience out of the box adding multimedia codecs for playback of audio and video directly to the install (see Flash).  Linux Mint is even more user experience focused than Ubuntu and is one of the most popular Ubuntu based distros.
 
-   Some of the other notable Debian based distros
+__Devuan Logo Here__
+
+__Devuan Linux__
+
+  [Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of a "Debian Civil War" with half of the Debian developers leaving in the Debian project in the beginning of 2015 to begin this distrobution from scratch.  It is a direct fork with fundamental changes to the core operating system.  Other distros change application look and feel but to change the core operating system is a monumental task.  The state of the OS is in late Alpha or early beta as of August 2015 with vm images availalbe for download.  We will talk about this more in detail under the topic "LInux Civil War" later in this chapter. 
+
+   Some of the other notable Debian/Ubuntu based distros are as follows:
    
    *  Lubuntu
    *  Xubuntu 
@@ -307,55 +327,54 @@ There are [currently 128 major Debian based distros](http://distrowatch.com/sear
    *  [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam onlien gaming companies official Linux distro
    *  [Kylin Linux](http://distrowatch.com/ubuntukylin "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
    *  [Raspian])http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommeded for the Raspberry Pi.
-   *  [gNewSense](http://gnewsense.org "gNewSense") <- GNU/Linux FSF recommended distro, entirely GPL compliant
-   *  
+   *  [gNewSense](http://gnewsense.org "gNewSense") <- GNU/Linux FSF recommended distro, entirely GPL compliant software.
 
   __RedHat Family__
   
   ![RHEL](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png) 
   
-  [About](http://www.redhat.com/en/about/company)
-  [RedHat Histroy](http://www.redhat.com/infographics/corporate/data/ "RedHat History")
-  
   RedHat Linux was formed shortly after teh Debian project launched in 1995 Marc Ewing and Bob Young.  It was one of the first commercial Linux companies and one of the few to survive to the modern day independant of an existing company.  RedHat source code is currently shared accross three main distributions: Fedora, RHEL (RedHat Enterprise Linux), and CentOS.   
   
-   __Fedora__
-
-  <a title="See page for author [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg"><img width="128" alt="Fedora logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fedora_logo_and_wordmark.svg/128px-Fedora_logo_and_wordmark.svg.png"/></a> 
+   You can read more about RedHat from their website:
+   
+  *  [About](http://www.redhat.com/en/about/company)
+  *  [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "RedHat History")
+  
+  <a title="See page for author [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg"><img width="256" alt="Fedora logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fedora_logo_and_wordmark.svg/256px-Fedora_logo_and_wordmark.svg.png"/></a> 
 
    [Fedora Project](https://getfedora.org/ "Get Fedora")
   
-   The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the RedHat Desktop Linux product was merged with the community based spin off Fedora Linux.  The Fedora projects focus was rapid development and iterations.  They would release two distributions per year, only supporting the previous distribution before moving on.  In this way they could innovate new technologies quickly without having to worry about legacy applications.  This distribution was meant for desktop users and developers.  This fast upgrade cycle means that you will be updating your entire system twice per year.    
+   The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the comapny/community based spin off Fedora Core Linux.  The Fedora project's focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable but from Red Hat's point of view outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies.  
+   
+   For example Fedora 22 was released on XYZ date, Fedora 21 was released ABC, and Fedora 20 was released DDD but is not suppoprted anymore - even though it was only realed a short while ago! Why so fast and so merciless on not supporting older versions?  With this concept they would not have to without having to worry about legacy applications.  This distribution was meant for desktop users and developers who don't mind updating rapidly.  The reason for this iteration is that the Fedora Project is really jsut a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.    
    
    Currently there are [25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or Fedora calls them *"spins"* -- this term is unique to Fedora.
   
-  __RHEL__ 
 ![RHEL](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png)
   
-  RedHat began to see the opportunity to server enterprise products and make money using opensource at the time.  A big market was Java based applications which had been the domain of Sun and its Unix based Solaris servers for years.  RHEL could enter that market, running the same applications, and do it on chaper Intel x86 based boxes.  With Oracle announcing it would port its products to RHEL, this platform became to the go to choice as the alternative against Microsoft and helped put Sun and Solaris basically out of business.  The acronym stands for RedHat Enterprise Linux.  
+   __RHEL__ 
+  
+  RedHat began to see the opportunity to create a Linux distro targeting enterprises and make money using opensource at the time.  A big market that was practically cornered by two companies were Java based applications and database servers - MySQL or Orcale.  These markets had been the domain of Sun and its Unix based Solaris Operating System for years, as well as Microsoft runnning Oracle on Windows.  RHEL could enter that market, running the same applications, and do it on cheaper Intel x86 based boxes.  With Oracle announcing it would port its products to RHEL, this platform became to the go to choice as the alternative against Microsoft and helped put Sun and Solaris basically out of business.  The acronym stands for RedHat Enterprise Linux.  
 
   The key to RHEL's success in the enterprise is its long term stasbility.  Much like the version of Windows Servers it competes with - the applciation platform is expected to run for 5+ years.  A enterprise grade server product cannot be changing every six months like the Fedora project.  RedHat instead takes "snapshots" from Fedora and freezes them in time.  As of today (August 13th 2015) the current version of RHEL is 7.1 which is a freeze of the technology point in Fedora 19, whihc was released July of 2013.  This way the developers get to know the platform and software versions that will be maintained and supported long term. How succesful is this strategy? By 2012 they became the first Linux based company to make a billion dollars in a physical year.  But this success brought about a serious opensource question, if you have a successful prodcut like RHEL, since you are using GPL based opensource code--you have to opensource your code--that means anyone else can redistribute your code freely, in theory eating your lunch.     
   
+  <a title="By CentOS Project (http://wiki.centos.org/ArtWork/Logo/Type) [GPL (http://www.gnu.org/licenses/gpl.html) or Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ACentOS_Logotype.png"><img width="256" alt="CentOS Logotype" src="https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png"/></a>
+  
   __Centos__
-  
-  <a title="By CentOS Project (http://wiki.centos.org/ArtWork/Logo/Type) [GPL (http://www.gnu.org/licenses/gpl.html) or Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ACentOS_Logotype.png"><img width="128" alt="CentOS Logotype" src="https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png"/></a>
-  
+    
   By 2004 many people began to see the utility and success of RedHat Linux, and being opensource they began to fork the code and make their own distributions.  CentOS is one of them.  By 2010 they emerged as one of the two remaining RHEL derivatives.  Their developers, like Debian, are entirely volunteer based and not backed by a company.  Their motive was to take the solidness of RHEL and just update a few features and add more modern software packages sooner then the 5 year RHEL cycle.   Initially RedHat didn't support CentOS--taking them to court numerous times, as CentOS had not removed all of RedHat's trademarked logos in all the code.  Eventually all of RedHat's copyrighted material was removed and CentOS has a leagal copy of RHEL to redistribute and use.  This made RedHat angry as they were loosing sales to enterprises using CentOS insteaf of RHEL.  By 2014, RedHat and Centos came to terms to work together--with RedHat offering to sell support contracts to CentOS users.  Is CentOS doing anything illegal?  Not according to the GPL and the spirit of opensource, but it does bring up the financial issue again.
    
   __Oracle Linux__
     
   [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux "Oracle Linux")
   
-  Did you think that Oracle would allow their logo to be displayed under an open license? Not to be out done.  Oracle who say that many of their customers were paying RedHat for operating systems licenses and support and then running their database on top of it wanted a piece of the action.  Oracle now owns Java--which is the primary tool used to interface with all the Oracle and its suppoprting products.  Oracle could also make a fork of RHEL's code and place their logos and tools into and feed off of RHEL's existing knowledge base.
+  Did you think that Oracle would allow their logo to be displayed under an open license? Not to be out done.  Oracle who saw that many of their customers were paying RedHat for operating systems licenses, buying support contracts, and then running their database on top of it wanted a piece of the action.  Oracle now owns Java--which is the primary tool used to interface with all the Oracle and its suppoprting products.  Oracle made a fork of RHEL's opensource code and placed their logos, Oracle specific tools, and made their own software tweaks in this fork and called it Oracle Linux.
   
- Oracle Linux was born in 2007 and is a fully GPL compliant OS with Oracle software extensions and fine tuning. 
- Oracle claims that the Unbreakable Enterprise Kernel is compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can install and run unchanged on the Unbreakable Enterprise Kernel. For users requiring strict compatibility with Red Hat or for users running kernel modules dependent on specific kernel versions, the Red Hat Compatible Kernel offers 100% compatibility with Red Hat Enterprise Linux. [https://en.wikipedia.org/wiki/Oracle_Linux](https://en.wikipedia.org/wiki/Oracle_Linux)
+ [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can install and run unchanged. One may ask, isn't this illegal? Is Oracle breaking the law?  Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.   
   
- Is Oracle breaking the law?  Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's own software.   
+  __Unix and the BSD Family__
   
-  __BSD Unix__
-  
-  After the AT&T--BSD lawsuit was settled in 1994, you saw the BSD code splinter into different distro for OpenSource Unix.  AT&T retained the copyright to closed source SystemV Unix. These are the other distr
+  While Linux was exploding in the mid 1990's the AT&T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix.  Unfortunately the BSD code splintered into 4 main distros pulling the already thin developer group that hadn't shifted to Linux development, even thinner. 
   
    ![FreeBSD](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/320px-Freebsd_logo.svg.png)
    
@@ -367,6 +386,14 @@ There are [currently 128 major Debian based distros](http://distrowatch.com/sear
    
    * Fork of FreeBSD in April of 2005 by Matthew Dillon.
    * Focused on unique techniques in handling mutliprocessing in the FreeBSD kernel
+   * Introduced a new filesystem called HAMMER and HAMMER2
+
+   __PC-BSD__
+   *  FreeBSD based distro with a focus on user interface and experience. 
+   *  Provides friendly installers and package managers for users 
+
+  __Ghost BSD__
+  *  Does something...
 
    ![NetBSD](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/307px-NetBSD.svg.png) 
    
@@ -377,9 +404,6 @@ There are [currently 128 major Debian based distros](http://distrowatch.com/sear
 
    * Fork of NetBSD lead by Theo de Raadt end of 1995
    * Founded by Theo de Raadt
-   
-   <a title="By FAndrey [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ATheo_de_Raadt_2013.jpg"><img width="128" alt="Theo de Raadt 2013" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Theo_de_Raadt_2013.jpg/128px-Theo_de_Raadt_2013.jpg"/></a>
-   
    * Theo was banned from NetBSD in 1994.
    * He complained that they were developing too slow and not focusing on security.
    * OpenSSH comes out of this project.
@@ -392,6 +416,14 @@ There are [currently 128 major Debian based distros](http://distrowatch.com/sear
    * Released October of 2005 
    * Since then the OS went from a teaching tool to a product being used commercially.  
    * Began using NetBSD user space applications to give it a GUI and make it a viable commercial product. 
+        
+   __Open Solaris / Open Indians / Smart OS__
+   * In 200? Sun had experiemented with creating and opensource user based distro from their Unix based Solaris OS
+   * They hired Ian Murdock (the guy who started Debian) to oversee this project
+   * Project was called Open Solaris but was killed when Oracle purchased Sun in 200X
+   * The resulting codebased was forked and turned into a project called Lumios
+   * Currently their is a competing Open Solaris based distro called Smart OS which is produced by Joyent 
+     + Combines the best of the BSD underpinnings but runs the best of Linux based desktop applications and software
         
 ### - Impending Linux Civil War
 
@@ -407,7 +439,7 @@ __Lennart Poettering__
   
   This leads to an interesting point.  All major distros have moved to systemd.  Debian was the last hold out and they actually had a civil war and split over this issue.  Half of the developers left and went to form a distro called Devuan--which is focusing on removing all the systemd dependencies and putting choice back in the users hand.
   
-  Systemd has many nice and needed features.  Leonart is updating pieces of Linux that haven't been touched in ages. He even wrote a [21 part defence](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. I will talk more on the technical aspects of systemd in the chapter 4.
+  Systemd has many nice and needed features.  Leonart is updating pieces of Linux that haven't been touched in ages. He even wrote a [21 part defence](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. I will talk more on the technical aspects of systemd in the chapter X.
      
   The fears of Linux users are that systemd will grab dependencies and eventually force Linux users into a small sub-section of systemd supported software choices.  In a sense create a vendor lock in.  What makes this all the more intreguing is that Lennart works for Red Hat.  Would Red Hat mind if this systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user?  That is a good question.  This also begs the question - can Linux survive as an independant and open software or does it need a commercial comapny backing it?  Or could this be seen as Red Hat's grab for the entire Linux market?  It is too early to tell but keep a watch on what happens with systemd.
 
