@@ -459,6 +459,7 @@ __Lennart Poettering__
 ## - Chapter Conclusion and Summary
 
   Wow - we covered a lot of history -- but it is important to the understand the current state of Linux usage.
+  [Learn more about opensource licensing](http://www.openlogic.com/resources/enterprise-blog/archive/open-source-license-interpretation-made-easy)
 
 ### - Review Questions
 

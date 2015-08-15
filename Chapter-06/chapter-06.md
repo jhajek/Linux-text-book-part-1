@@ -1,5 +1,5 @@
 # File permissions and ownership
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
+![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/authorization.png  "File Permissions")
 
 
 ## Podcast	
