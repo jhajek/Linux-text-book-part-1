@@ -417,8 +417,21 @@ __Devuan Linux__
    * Since then the OS went from a teaching tool to a product being used commercially.  
    * Began using NetBSD user space applications to give it a GUI and make it a viable commercial product. 
         
-   __Open Solaris / Open Indians / Smart OS__
-   * In 200? Sun had experiemented with creating and opensource user based distro from their Unix based Solaris OS
+   __Open Solaris / Open Indiana / Smart OS__
+   
+   <a title="By openindiana.org [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AOpenIndiana_logo_large.svg"><img width="256" alt="OpenIndiana logo large" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/OpenIndiana_logo_large.svg/256px-OpenIndiana_logo_large.svg.png"/></a>
+     
+   Open Solaris
+     
+   <a title="By Sun Microsystems (OpenSolaris) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AOpenSolaris_Logo.svg"><img width="128" alt="OpenSolaris Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/OpenSolaris_Logo.svg/128px-OpenSolaris_Logo.svg.png"/></a>
+   
+   Joyent  
+   
+   <a title="By Joylent (uploaded by (Lamro@enwiki) [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AJoyent-logo.png"><img width="256" alt="Joyent-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Joyent-logo.png/256px-Joyent-logo.png"/></a>
+   
+   [SmartOS](https://smartos.org/ "SmartOS")
+   
+   * In 2006 Sun had experiemented with creating and opensource user based distro from their Unix based Solaris OS
    * They hired Ian Murdock (the guy who started Debian) to oversee this project
    * Project was called Open Solaris but was killed when Oracle purchased Sun in 200X
    * The resulting codebased was forked and turned into a project called Lumios
@@ -467,7 +480,7 @@ What is VA Linux's stock price today?
 
 How does Ricahrd Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?
 
-### - Podcast Review Questions
+### - Podcast Questions
 
 [Listen or watch](http://twit.tv/floss/73) this podcast - http://twit.tv/floss/73
 
@@ -481,7 +494,7 @@ How does Ricahrd Stallman react at the end of the movie of the success of the Li
  *  What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
  *  [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
 
-### - Review Lab
+### - Lab
 
 [Watch Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) and answer the questions listed under review questions.
 
