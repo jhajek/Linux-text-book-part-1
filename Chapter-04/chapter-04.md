@@ -9,6 +9,7 @@
 ## X-Windows x11  
   
   * Windowing Managers
+  * MIR Wayland X 
   * Enlightenment
   * I3
   * Xmonad

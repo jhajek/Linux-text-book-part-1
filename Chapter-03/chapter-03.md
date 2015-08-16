@@ -123,9 +123,12 @@ See [getting started manual](https://www.virtualbox.org/manual/ch01.html "Gettin
 
 ### - Begin the Install
 
-[Supported Host Operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System")
+[Supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System")
+
 
 ### - Walk Through the Settings 
+
+
 
 ### - Hard Drives and Partitioning
 
