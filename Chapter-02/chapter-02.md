@@ -461,6 +461,8 @@ __Lennart Poettering__
   Wow - we covered a lot of history -- but it is important to the understand the current state of Linux usage.
   [Learn more about opensource licensing](http://www.openlogic.com/resources/enterprise-blog/archive/open-source-license-interpretation-made-easy)
 
+   [Additional Reading on the Unix history side](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix")
+
 ### - Review Questions
 
 Get into groups and answer/discuss these questions

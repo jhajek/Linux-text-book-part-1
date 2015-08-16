@@ -80,10 +80,12 @@ __Outcomes__
 Links to get you started
   
    * [Get Fodora](http://getfedora.org)
-     + Fedora checksum page
+     + [Fedora checksum page for Linux and Mac](https://getfedora.org/en/verify "Verify")
+     + [Fedora checksum page for Windows](http://docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide/sect-verifying-images.html "Verify Windows")
    * [Get Ubuntu](http://ubuntu.com)
-     + Ubuntu checksum page
-   * [Get VirtualBox](http://virtualbox.org)
+     + [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
+     + [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
+   * [Get VirtualBox](http://virtualbox.org "VirtualBox")
 
 ### - Planning Your Install
 
@@ -91,20 +93,37 @@ Links to get you started
   
   *  Strict Security such as SE Linux?
   *  Stable release with long term support?
-  *  GUI or no? Support for propriatery codecs such as Flash or Jave JRE?
-  *  What processor do I have--32bit or 64-bit?  How much RAM?
-  *  Licensing - does it need to be GPL compliant or can propriatary programs and data be included?
-  *  Is the checksum of the download valid?
-    + On Linux type XYZ at the commandline
-      - For Ubuntu use the command md5sum isofilenamehere or sha256sum isofielnamehere
-      - Fedora checksums as of Fedora 21 are sha256 only
-    + On Windows type XYZ at the commandline
-      - Instructions here - [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
-    
+  *  Will this be a desktop install or server install?  GUI or no GUI?
+  *  What software will you be needing?
+    + Serving web pages?
+    + Building Android applications?
+    + Hacking your neighbor's wi-fi?
+  *  What processor do I have, 32-bit or 64-bit?  How much RAM do you have or need?
+  *  Licensing for business - does it need to be GPL compliant or can propriatary programs and codecs be included?
+  
 ### - VirtualBox configurtion        
+
+  See the [changelog](https://www.virtualbox.org/wiki/Changelog "Changelog") for an idea of features now supported in Virtual Box 
+
+See [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for more details
+
+[Feature List](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
+
+*  Guest multiprocessing (SMP). 
+*  USB device support. 
+*  Seamless windowing
+*  Shared folders
+*  Hardware compatibility. 
+*  Full ACPI support. 
+*  Multiscreen resolutions. 
+*  Built-in iSCSI support. 
+*  PXE Network boot. 
+*  Remote machine display
 
 
 ### - Begin the Install
+
+[Supported Host Operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System")
 
 ### - Walk Through the Settings 
 
@@ -144,8 +163,7 @@ screen shot showing you need to host the file on the web somewhere or include th
 
 ### - Podcast Questions
 
-  * URL to Linux Torlvals podcast
-  
+  * URL to Linux Torlvals podcast  
   
 ### - Lab
 
