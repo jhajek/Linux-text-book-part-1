@@ -2,7 +2,7 @@
 
 ![*At the end of class you will find this cartoon funny*](http://imgs.xkcd.com/comics/open_source.png "Understanding the Technology and Philosophy of Linux Part I")
 
-[*If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do. Torvalds, Linus(1996-07-22)*](http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI)
+[*If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do. Torvalds, Linus(1996-07-22)*](http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI "Quote from Linus Torvalds")
 
 ## - The Foundation of Unix and Linux
 
@@ -138,10 +138,6 @@ By 1980, with many copies of Thompson's Unix now in circulation and nearly a dec
 ### - Richard Stallman and GNU
 
 <a title="By Dkoukoul (Own work) [CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ARichard_Stallman_at_CommonsFest_Athens_2015_2.JPG"><img width="256" alt="Richard Stallman at CommonsFest Athens 2015 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG/256px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG"/></a>
-
-Best short interview I ever heard with Richard Stallmand from Will Backmand of [BSDTalk](http://bsdtalk.blogspot.com/ "BSD Talk")
-
-[Link to .ogg audio interview file](https://archive.org/download/bsdtalk132/bsdtalk132.ogg "RMS Interview")
 
 Before beginning anything in dealing with Richard Stallman there is one critical concept you need to understand: "software freedom."  Often times you hear as a selling point that Linux is a good operating system to use because it is free -- as in there is no cost.  Stallman is not advocating about cost or the ability to charge money for software.  This is a common confusion.  He is advocating that the software itself is *"free"* as in freedom and that the user has the freedom to modify and or inspect its content and redistribute the original source.  Ricahrd Stallman belives this is not a question of legality but of moral consequence and thereby will not use any non-free software period.  When dealing with Stallman this is the fundamental fact you need to know.
 

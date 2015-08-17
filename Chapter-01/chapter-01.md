@@ -1,10 +1,12 @@
-# Introduction
+# Introduction to The Philosophy and Technology of Linux Part I
+
+![*One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. "This," one of them finally says, "This is a man who BELIEVED in something."*](http://imgs.xkcd.com/comics/operating_systems.png "Operating Systems")
 
 [*I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones... - Linus Torvalds 1991*](https://groups.google.com/forum/?hl=en#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ "Initial Post About Linux.")
 
 ## Objectives of this book
 
-  As you know there are many many books on Linux out there.  This book strives to be different in trying to highlight the philosophy of Linux/Unix and tying that to the tools and nature of the tools in Linux.    Understanding the history of Linux goes along way to understanding how it works.  This book strives to be different as well.  In addition to being pegged to the LPIC-I/Linux+ content it will go beyond being just a training book.  
+  As you know there are many many books on Linux out there.  This book strives to be different in trying to highlight two areas.  First the philosophy of Linux and its design.  Anyone can teach you how to push a button, but this book aims to go beyond that and help you understand the reason the button is there in the first place.  Above all Linux is merely a tool to help you get your work done.  Seeing as this book is self-published its exercises and sections can be updated rapidly to cover the ever-changing tools in Linux. I have found over the years understanding the history of Linux goes along way to understanding how it works.  This book strives to be different as well.  In addition to being pegged to the LPIC-I/Linux+ content it will go beyond being just a training book.  
   
   For instructors - we are going beyond the traditional powerpoint world, and looking into using new technologies like Microsoft Sway for presentations.  Also including audio and video excerpts as well as working code examples using [doitlive](http://doitlive.readthedocs.org/en/latest/ "tool for demoing code") for demonstration purposes.  The book is being publsihed on Github under a Create Commons CC-SA Share alike license -- this way as things change code can be updated or removed and new digital versions can be published quickly.  
 
@@ -14,14 +16,16 @@
 
 ## Cover Image
   
-  Was sourced from here "<a href="https://commons.wikimedia.org/wiki/File:John_Calvin_21.jpg#/media/File:John_Calvin_21.jpg">John Calvin 21</a>" by Georg Osterwald (1803–1884) - <a class="external text" href="http://bpun.unine.ch/icono/JPG01/POET3.31.jpg" rel="nofollow">Bibliothèque publique et universitaire de Neuchâtel - BPUN</a>. Licensed under Public Domain via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>
+ will get to that once the content is done...
 
-## Background 
+## Background of Author
 
-   What gives you the right to write this book?   There are many things I still have to learn and I find that I am always learning something new or tying an insight of two unrelated points together.  Having done system administration full time since 2005 and teaching and researching full time since 2010 I have gained on the job experience that I believe can be useful to those aspiring to use this book.
+My name is Enigo Montoya...
 
 ## Thanks 
 
-Professor Sam - who taught me that it is pronoucned etc ef-stab not etc ef es tab. 
-Professor Ray Trygstad who gave me my first real IT job and showed me the wonders of Perl
+Professor Sam - who taught me that it is pronoucned *"etc ef-stab"* not *"etc ef es tab"* and how to read error messages. 
+Professor Ray Trygstad who gave me my first real IT job and showed me the wonders of Perl.
 Illinois Institute of Technology who has entrusted me with much.
+My wife and kids who supported me always.
+

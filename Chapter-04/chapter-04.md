@@ -28,7 +28,9 @@
  
 ## Podcast	
 
-  * URL goes here for Q&A
+Best short interview I ever heard with Richard Stallmand from Will Backmand of [BSDTalk](http://bsdtalk.blogspot.com/ "BSD Talk")
+
+[Link to .ogg audio interview file](https://archive.org/download/bsdtalk132/bsdtalk132.ogg "RMS Interview")
   
 ## Review Questions
 

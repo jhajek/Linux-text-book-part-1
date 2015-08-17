@@ -3,7 +3,7 @@
 
 ## Types
 
-  * yum (soon to be dns replace yum)
+  * yum (soon to be dnf replace yum)
   * apt-get 
 
 ## Podcast	
