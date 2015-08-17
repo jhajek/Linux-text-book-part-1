@@ -59,11 +59,11 @@ __Outcomes__
   
   __VMware Workstation__
 
-   VMwaer also released a desktop product that is similar to VirtualBox on Windows and Linux called VMwear Workstation. This software predated Virtual Box by nearly 5 yearswith a seperate desktop product availalbe for the MAC called VMwear Fusion.
+   VMware also released a desktop product that is similar to VirtualBox on Windows and Linux called VMware Workstation. This software predated Virtual Box by nearly 5 yearswith a seperate desktop product availalbe for the Mac called VMware Fusion.
 
 __Parallels Desktop for Mac__
 
-  Until 2013 Parallels Desktop was a direct competitor to VMwear Workstation of the desktop of Windows and Linux. As of 2013 those products were discontinued in favor of Parallels focusing their desktop product on the Mac.  
+  Until 2013 Parallels Desktop was a direct competitor to VMware Workstation of the desktop of Windows and Linux. As of 2013 those products were discontinued in favor of Parallels focusing their desktop product on the Mac.  
 
  __TYPE I__
 
@@ -71,7 +71,7 @@ __Parallels Desktop for Mac__
      
    *  Microsoft Hyper-V
    
-   *  VMWare ESXi
+   *  VMware ESXi
 
 ## - Installations and isos
 
