@@ -8,16 +8,18 @@
    * System variables
    * Passing Variables into scripts
 
-## Podcast	
+## - Chapter Conclusions and Review
 
-  * URL goes here for Q&A
-  
-## Review Questions
+  Conclusion goes here
+
+### - Review Questions
 
   * Questions go here
-  
-## Labs
 
-  * Lab goes here
-  
-  
+### - Podcast Questions
+
+ * Questions go here
+
+### - Lab
+
+ * Lab goes here 

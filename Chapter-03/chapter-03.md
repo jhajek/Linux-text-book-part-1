@@ -1,5 +1,5 @@
 #  Hardware and Installation
-![Must be a Linux User]( http://imgs.xkcd.com/comics/surgery.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*Must be a Linux User...*]( http://imgs.xkcd.com/comics/surgery.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 3 Objectives__
 

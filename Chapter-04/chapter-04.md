@@ -1,5 +1,5 @@
 # Desktop Linux (GUI)
-![Who needs Flash?](http://imgs.xkcd.com/comics/supported_features.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*Who needs Flash?*](http://imgs.xkcd.com/comics/supported_features.png "Linux Supported Features")
 
 ## GUI
    
@@ -25,19 +25,20 @@
      + XFCE
      + LXDE - LXQT
      + MATE (GNOME 2)
- 
-## Podcast	
-
-Best short interview I ever heard with Richard Stallmand from Will Backmand of [BSDTalk](http://bsdtalk.blogspot.com/ "BSD Talk")
-
-[Link to .ogg audio interview file](https://archive.org/download/bsdtalk132/bsdtalk132.ogg "RMS Interview")
   
-## Review Questions
+## - Chapter Conclusions and Review
+
+  Conclusion goes here
+
+### - Review Questions
 
   * Questions go here
-  
-## Labs
 
-  * Lab goes here
-  
- 
+### - Podcast Questions
+
+ * Best short interview I ever heard with Richard Stallmand from Will Backmand of [BSDTalk](http://bsdtalk.blogspot.com/ "BSD Talk")
+ * [Link to .ogg audio interview file](https://archive.org/download/bsdtalk132/bsdtalk132.ogg "RMS Interview")
+
+### - Lab
+
+ * Lab goes here 

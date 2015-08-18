@@ -1,17 +1,18 @@
 # vi and editors and bash shell
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
+## - Chapter Conclusions and Review
 
-## Podcast	
+  Conclusion goes here
 
-  * URL goes here for Q&A
-  
-## Review Questions
+### - Review Questions
 
   * Questions go here
-  
-## Labs
 
-  * Lab goes here
-  
-  
+### - Podcast Questions
+
+ * Questions go here
+
+### - Lab
+
+ * Lab goes here 
