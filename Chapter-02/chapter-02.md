@@ -463,25 +463,29 @@ __Lennart Poettering__
 
 Get into groups and answer/discuss these questions
 
-Based on the movie's tone - why would you think there is a definate anti-microsoft tone?
+1. Based on the movie's tone and time - why would you think there is a definate anti-microsoft tone?
 
-Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
+1. What influence did Bill Gates' 1976 *"Open Letter to Hobbyists"* influence the opensource movement, if any?
 
-Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
+1. Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
 
-Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
+1. Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
 
-What were the two commercial Linux companies featured in the movie?
+1. Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
 
-What is RedHat Linux's stock price today?
+1. What were the two commercial Linux companies featured in the movie?
 
-What is VA Linux's stock price today?
+1. What is RedHat Linux's stock price today?
 
-How does Ricahrd Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?
+1. What is VA Linux's stock price today?
+
+1. How does Ricahrd Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?  
+
+1. As a follow up - why do you think this is so?
 
 ### - Podcast Questions
 
-[Listen or watch](http://twit.tv/floss/73) this podcast - http://twit.tv/floss/73
+Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73) 
 
  *  Who is Tim Orielly? ~3:00-5:00
  *  What is Oscon? ~6:45
@@ -495,7 +499,9 @@ How does Ricahrd Stallman react at the end of the movie of the success of the Li
 
 ### - Lab
 
-[Watch Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) and answer the questions listed under review questions.
+This activity can be induvidual or group based.
+
+There was a documentary movie called [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. Answer the questions listed under "Review Questions" above.
 
 
 

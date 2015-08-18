@@ -159,13 +159,9 @@ Here are the commands executed in Linux
 
   All things start with the NEW button shown in the picture below.
  
-  Here you can begin the walk through wizard to create a virtual machine of your own size and choosing.
-  
   Name it (auto guess) choose the specific Operating System type and then the specific OS.  What happens if you choose the wrong one?  Two things, 1 you can always go back in the settings option and change it after the virtual machine is powered off.  2. As long as you have the correct OS family everything should be ok--but see the extensions setting at the end of this chapter.
   
-  Next is the amount of memeory availalbe - note that this is shared with your underlying OS and whatever you allocate to this guest VM will be unavaialbe to the underlying host OS while the guest VM is powered on.
-
-  Here you have a choice of how much harddrive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
+  Next is the amount of memeory availalbe - note that this is shared with your underlying OS and whatever you allocate to this guest VM will be unavaialbe to the underlying host OS while the guest VM is powered on. Here you have a choice of how much harddrive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
  
   You can chose to dynamically allocate your harddrive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The harddrive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be overhead processing in continually allocating enough space.  Statically allocating the harddrive space on the otherhand will potentially lessen the number of systems that can go on your harddrive because potentially much space that is allocated is actually unused. 
   
@@ -201,11 +197,38 @@ Video and screenshots Links Here
    
 ### - VirtualBox extensions
 
-Explain what they are and show screen shots how to add them   
+  You may have noticed that when a guest VM is usccesfully installed the screen resolution maybe very small or the mouse intergration features are not working.  VirtualBox guest additions also enable exclusive features that are not normally availalber in an operating system such as shared folders, cut and paste support, and even support for multiple monitors.  The way to solve this is through something called VirtualBox Guest Additions.   On the VirtualBox menu under INSERT DEVICES you need to select the "Insert Guest Additions CD Image."  
+  This is source code and drivers provided by VirtualBox that will add VirtualBox features and hardware to the underlying guest VM.  The guest VM has no idea it is in a virtualized environment and even if it did know Oeprating Systems do no come equipped with drivers to support VIrtualBox.  In this way the drivers are added to the OS in Windows and in Linux the drivers are loaded into the kernel to enhance the experience.
+  
+  For Windows and Mac as the guest VM OS this is a pretty stright forward install - the attached Guest Additions iso appears within the VM and you simply double click it and run through the menu, reboot, and new features are added.
+  
+  For Linux you need to compile these extensions into the kernel and some extra tools are needed.
+  
+  __Debian/Ubuntu__
+  
+   This goes for any distro that derives from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation)
    
+    sudo apt-get update
+    sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+    cd /media/cdrom/Guestadditons/LinuxRun.vbox
+
+ __Red Hat__
+ 
+ On Fedora 22 using dnf 
+ 
+ On Centos, RHEL, and older Fedora distros using yum
+ 
+     yum update
+     yum install gcc linux-headers-$(uname -r)
+ 
+ If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.
+ without these additional tools installed you will receive an error message 
+    
+    Building the main Guest Additions Modile[Failed] 
+     
 ### - Preseed and Kickstart  
 
-  All the previous steps took maybe 10 to 15 minutes which is not bad at all.  But let us say you will be creating many virtualmachines for certain purposes. Or perhaps you will be recreating the same virtual machine many times.  There is a way to automate the install process.  This is called an answer file in the Windows server world.  For Red Hat based systems this is called kickstart and Debian and Ubuntu use a file format called preseed.  None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.  
+  All the previous steps took maybe 10 to 15 minutes if you are on a fast machine which is not bad at all.  But let us say you will be creating many virtual machines for research purposes. Or perhaps you will be recreating the same virtual machine many times.  There is a way to automate the install process.  This is called an answer file in the Windows server world.  For Red Hat based systems this is called kickstart and Debian and Ubuntu use a file format called preseed.  None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.  
     
   [Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")
   
@@ -217,7 +240,7 @@ screen shot showing you need to host the file on the web somewhere or include th
 
 ## - Chapter Conclusions and Review
 
-  Summary goes here
+  Through this chapter we gained an understanding of what x86 based virtualizations does.  We learned about the purpose of a hypervisor and how opensource tools such as VirtualBox provide these services.  We learned how to install Ubuntu and Fedora based distros in the most common scenarios.  We learned about VirtualBox features and how to automate Linux installs through kickstart and preseed configuration files.
 
 ### - Review Questions
 
@@ -229,9 +252,18 @@ screen shot showing you need to host the file on the web somewhere or include th
   
 ### - Lab
 
-  * Download and install these linux distributions in virtual box using the screen shot tool to submit jpeg files
+  * Download the Linux and BSD based distors below and install them in VirtualBox.  Use the VirtualBox screenshot tool for taking screen shots within a virtual machine.  The images are saved to / / / /.  
     + Debian Based
-    + Fedora Based
+        - Ubuntu 15.04 Desktop 64-bit
+        - Linux Mint 17 64-bit
+        - XUbuntu 15.04 Desktop 64-bit
+        - Lubuntu 15.04 Desktop 64-bit 
+        
+    + Red Hat Based
+        - Fedora 21
+        - Fedora 22
+        - Centos 7.x
+        - One Fedora spin of your choice
     + BSD based
   
    
