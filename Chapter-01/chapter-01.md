@@ -10,13 +10,15 @@
   
   For instructors - we are going beyond the traditional powerpoint world, and looking into using new technologies like Microsoft Sway for presentations.  Also including audio and video excerpts as well as working code examples using [doitlive](http://doitlive.readthedocs.org/en/latest/ "tool for demoing code") for demonstration purposes.  The book is being publsihed on Github under a Create Commons CC-SA Share alike license -- this way as things change code can be updated or removed and new digital versions can be published quickly.  
 
+  Some of these chapters are heavier in content then others.  Some are lighter.  Feel free to combine and remix the chapters.  You are even welcome to fork the proejct on Github and remix it or contribute back patches and pull requests.
+
 ## Presenatation Style
 
  This book doubles as a universtiy text book.  It has a 16 week semester structure, along with review questions, podcast assignements, and lab exerciese.  But the book can be used beyond that.  There is a wealth of other material that is can be covered in depth depending on your needs. 
 
 ## Cover Image
   
- will get to that once the content is done...
+ Will get to that once the content is done...
 
 ## Background of Author
 

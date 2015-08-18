@@ -1,6 +1,12 @@
 # Future and embedded Linux
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
+__Chapter 16 Objectives__
+
+
+
+__Outcomes__
+
 ## Types
 
    * IoT

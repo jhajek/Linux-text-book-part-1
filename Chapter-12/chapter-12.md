@@ -1,6 +1,12 @@
 # Find and grep 
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
+__Chapter 12 Objectives__
+
+
+
+__Outcomes__
+
 ## Types
 
   * Intro to regex

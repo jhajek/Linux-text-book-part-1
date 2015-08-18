@@ -1,8 +1,16 @@
 # Linux basic commands and File system structure
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
+__Chapter 5 Objectives__
+
+
+
+__Outcomes__
+
 ## Basic Commands
    * Demo and list of basic movement commands from command line
+   * learn to speak linux command option argument
+   * how to read the screen
    * Intro to terminal
    * – cd ls cp mv  (a few others)
         + Explanation of commands arguments options (flags)

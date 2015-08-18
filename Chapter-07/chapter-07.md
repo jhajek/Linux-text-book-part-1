@@ -1,6 +1,12 @@
 # Commandline variables and shell meta- characters
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
+__Chapter 7 Objectives__
+
+
+
+__Outcomes__
+
 ## - Chapter Conclusions and Review
 
   Conclusion goes here
