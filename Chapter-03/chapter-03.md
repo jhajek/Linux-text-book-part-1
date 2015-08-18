@@ -67,17 +67,17 @@ __Parallels Desktop for Mac__
 
  __TYPE I__
 
-   The other is what is called a bare metal hyper-visor.  These are usually used in server environments on hardware utilizing multiple core CPUs, Mutli TerraBytes of RAM, and multi terrabytes of Hard drive space.  This Hypervisor includes a kernel and mini operating system tuned just for managing and interfacing with virtual machines.  This book will not cover TYPE I hypervisors or commercial implementations of them.
+   The other is what is called a bare metal hypervisor.  These are usually used in server environments on hardware utilizing multiple core CPUs, mutli-terraBytes of RAM, and multi terrabytes of Hard drive space.  This Hypervisor includes a kernel and mini-operating system tuned just for managing and interfacing with virtual machines.  This book will not cover TYPE I hypervisors or commercial implementations of them.
      
-   *  Microsoft Hyper-V
+   *  [Microsoft Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx "Hyper-V")
    
-   *  VMware ESXi
+   *  [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
 
 ## - Installations and isos
 
   Now that we understand a bit about what a hypervisor is let us beging the process.  The next pages are going to show you in comparison how to install the latest versions of Fedora and Ubuntu (as of August 10th 2015) Fedora 22 and Ubuntu 15.04.  This will require you to download two isos from their respective download sites. For this install process we will assume that you are using VirtualBox version 5.0.0.  These distributions can be install directly to a hard drive and become the primary operating system. This might be a good exercise if you have an old laptop or PC laying around.  You would be suprised if you asked your relatives or perhaps a company you work for or even a school you might go to what they have in the way of old computers that might still be useful to experiement with Linux installations as well.  There is also the concept of dual booting your PCs with multiple operating systems.   I created a quad-boot system containing Ubuntu, Fedora, Centos, and Windows 10 see article here for how to accomplish this task.  This processes is beyong the scope of this book but link is provided for those interested.
 
-   You also need to be aware of the type of architecture you are installing to.  Is the processor 32 bit or 64 bit?  If it is a 64 bit processor you can install 32 bit operating system but not the other way around.  32-bit processors are usually only low end older Atom processors and older intel chips - pre Core 2 Duo processors.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most secialized or low end chip these days is 64 bit you should be safe with that type of distro.  
+   You also need to be aware of the type of architecture you are installing to.  Is the processor 32 bit or 64 bit?  If it is a 64-bit processor you can install 32-bit operating system but not the other way around.  32-bit processors are usually only low end older Atom processors and older intel chips - pre Core 2 Duo processors.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most secialized or low end chip these days is 64-bit you should be safe with that type of distro.  
    
    The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes x86_64, and even AMD_64 <-- that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64 bit extententions to the x86 instruction set and they caught on and stuck--hence the credit.  Their is one other type of architecture called ARM.  This is noted as aarch and aarch_64 -- ARM is the architecture that runs phones, tablets, and small embedded sytems such as the Raspberry Pi.  It has an entirely different instruction set so the software compiled for this architecture and vis versa is not compatable with the Intel x86 x64  architecture.  
    
@@ -92,6 +92,25 @@ __Links to get you started__
      + [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
      + [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
    * [Get VirtualBox](http://virtualbox.org "VirtualBox")
+
+Here are the commands to execute in Windows in powershell
+   
+```powershell
+Get-FileHash .\ubuntu-15.04-desktop-amd64.iso -Algorithm MD5 | format-list
+```
+    Algorithm : MD5
+    Hash      : 53C869EBA8686007239A650D903847FD
+    Path      : C:\Users\palad\Downloads\isos\ubuntu-15.04-desktop-amd64.iso
+
+```powershell
+Get-FileHash .\Fedora-Live-Workstation-x86_64-22-3.iso -Algorithm SHA256 | format-list
+```
+    Algorithm : SHA256
+    Hash      : 615ABFC89709A46A078DD1D39638019AA66F62B0FF8325334F1AF100551BB6CF
+    Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.iso
+
+Here are the commands executed in Linux
+
 
 ### - Planning Your Install
 
@@ -114,11 +133,7 @@ __Links to get you started__
   
 ### - VirtualBox configurtion        
 
-  If you are using Windows, Mac, or Linux you need to download the appropriate version of from Virtualbox homepage.  You can begin the install process.  If you are familiar with installing software or have Virtualbox already installed you can skip past this part.  Intructors: this part of the text is also duplicated in the lab section of this chapter.
-
-  *  See the [changelog](https://www.virtualbox.org/wiki/Changelog "Changelog") for an idea of features now supported in Virtual Box. 
-  *  See [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for more details
-  * [Supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System")
+  If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.0.2 (August 18th, 2015) is the current version.   
   
  [Feature List for VirtualBox](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
 
@@ -135,9 +150,15 @@ __Links to get you started__
 *  Video and screenshot capture within virtual machines
 
 ### - Create Guest Virtual Machine
+  
+  Upon completion of a fresh install and luanching of VirtualBox you should see this image: 
+  
+  ![VirutalBox fresh install](images/virtualbox-fresh.png "Fresh VirtualBox install")
+  
+  See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this doucmentation is actually very thurogh and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
   All things start with the NEW button shown in the picture below.
-  
+ 
   Here you can begin the walk through wizard to create a virtual machine of your own size and choosing.
   
   Name it (auto guess) choose the specific Operating System type and then the specific OS.  What happens if you choose the wrong one?  Two things, 1 you can always go back in the settings option and change it after the virtual machine is powered off.  2. As long as you have the correct OS family everything should be ok--but see the extensions setting at the end of this chapter.
@@ -145,11 +166,10 @@ __Links to get you started__
   Next is the amount of memeory availalbe - note that this is shared with your underlying OS and whatever you allocate to this guest VM will be unavaialbe to the underlying host OS while the guest VM is powered on.
 
   Here you have a choice of how much harddrive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
-  
-  
+ 
   You can chose to dynamically allocate your harddrive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The harddrive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be overhead processing in continually allocating enough space.  Statically allocating the harddrive space on the otherhand will potentially lessen the number of systems that can go on your harddrive because potentially much space that is allocated is actually unused. 
   
-  Next is the harddrive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment the default VDI is sufficent.  If you know you will be transferring this VirtualMachine to another environment: VMWare (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,RAW) then you can choose the appropriate type.
+  Next is the harddrive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment the default VDI is sufficent.  If you know you will be transferring this VirtualMachine to another environment: VMWare (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.
   
   Now click finish and you should be ready to go - with your VirtualBox start screen looking something like mine.  Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.
   
