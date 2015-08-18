@@ -210,23 +210,40 @@ Video and screenshots Links Here
    
     sudo apt-get update
     sudo apt-get install build-essential dkms linux-headers-$(uname -r)
-    cd /media/cdrom/Guestadditons/LinuxRun.vbox
+    cd /media/cdrom/VBOXGUESTADDITIONS_5.0.2_102096/
+    sudo VBOXLinuxAdditions.run
 
  __Red Hat__
  
  On Fedora 22 using dnf 
  
+     sudo dnf update kernel*
+     sudo reboot
+     sudo mkdir /media/VirtualBoxGuestAdditions
+     sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+     sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers dkms make bzip2 perl
+     cd /media/VirtualBoxGuestAdditions
+     # 32-bit and 64-bit systems run following
+     ./VBoxLinuxAdditions.run
+     sudo reboot
+     
  On Centos, RHEL, and older Fedora distros using yum
  
-     yum update
-     yum install gcc linux-headers-$(uname -r)
- 
+     sudo yum update kernel*
+     sudo yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+     sudo mkdir /media/VirtualBoxGuestAdditions
+     sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions 
+     cd /media/VirtualBoxGuestAdditions
+     # 32-bit and 64-bit systems run following
+     ./VBoxLinuxAdditions.run
+     sudo reboot
+
  If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.
- without these additional tools installed you will receive an error message 
+ without these additional tools installed you will receive an error message similar to
     
     Building the main Guest Additions Modile[Failed] 
      
-### - Preseed and Kickstart  
+### - Automating the Install Answer Process With Preseed and Kickstart  
 
   All the previous steps took maybe 10 to 15 minutes if you are on a fast machine which is not bad at all.  But let us say you will be creating many virtual machines for research purposes. Or perhaps you will be recreating the same virtual machine many times.  There is a way to automate the install process.  This is called an answer file in the Windows server world.  For Red Hat based systems this is called kickstart and Debian and Ubuntu use a file format called preseed.  None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.  
     
@@ -246,24 +263,40 @@ screen shot showing you need to host the file on the web somewhere or include th
 
   * Questions go here
 
-### - Podcast Questions
+### - Podcast Questions 
 
-  * URL to Linux Torlvals podcast  
+Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
+
+  *  ~6:32 Who is Linus Torvalds?
+  *  ~6:54 Where did he create Linux?
+  *  ~7:30 What did Unix have that other operating systems didn't at that time?
+  *  ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
+  *  ~10:30 About what month and what year did this happen?
+  *  ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project? 
+  *  ~13:30-14:00 Why was it licensed under the GPL license?
+  *  ~20:48 Why didn't Linus want to work for a Linux company? 
+  *  ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
+  *  ~46:10 What is the way to become a great programmer?
+  *  ~51:17 What is Linus' farewell message to the audience?
   
 ### - Lab
 
-  * Download the Linux and BSD based distors below and install them in VirtualBox.  Use the VirtualBox screenshot tool for taking screen shots within a virtual machine.  The images are saved to / / / /.  
+  * You will need to some research and find the download links for the Linux and BSD based distors below and install them in VirtualBox.  Complete the install and launch a text editor and type your name, the name of the Linux distro, and the message "Hello World."  Assume each instance listed below is 64-bit version.
+
     + Debian Based
-        - Ubuntu 15.04 Desktop 64-bit
-        - Linux Mint 17 64-bit
-        - XUbuntu 15.04 Desktop 64-bit
-        - Lubuntu 15.04 Desktop 64-bit 
+        - Ubuntu 15.04 Desktop edition
+        - Linux Mint 17 
+        - Lubuntu 15.04 Desktop edition 
+        - gNewSense 3.1  
+        - Debian 8 
         
     + Red Hat Based
         - Fedora 21
         - Fedora 22
-        - Centos 7.x
+        - Centos 7
         - One Fedora spin of your choice
+        
     + BSD based
-  
+        - FreeBSD 10.2
+        - OpenBSD 5.7 
    
