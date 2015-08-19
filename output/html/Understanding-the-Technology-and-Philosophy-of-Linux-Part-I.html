@@ -6,17 +6,18 @@
 <h2 id="objectives-of-this-book">Objectives of this book</h2>
 <p>As you know there are many many books on Linux out there. This book strives to be different in trying to highlight two areas. First the philosophy of Linux and its design. Anyone can teach you how to push a button, but this book aims to go beyond that and help you understand the reason the button is there in the first place. Above all Linux is merely a tool to help you get your work done. Seeing as this book is self-published its exercises and sections can be updated rapidly to cover the ever-changing tools in Linux. I have found over the years understanding the history of Linux goes along way to understanding how it works. This book strives to be different as well. In addition to being pegged to the LPIC-I/Linux+ content it will go beyond being just a training book.</p>
 <p>For instructors - we are going beyond the traditional powerpoint world, and looking into using new technologies like Microsoft Sway for presentations. Also including audio and video excerpts as well as working code examples using <a href="http://doitlive.readthedocs.org/en/latest/" title="tool for demoing code">doitlive</a> for demonstration purposes. The book is being publsihed on Github under a Create Commons CC-SA Share alike license – this way as things change code can be updated or removed and new digital versions can be published quickly.</p>
+<p>Some of these chapters are heavier in content then others. Some are lighter. Feel free to combine and remix the chapters. You are even welcome to fork the proejct on Github and remix it or contribute back patches and pull requests.</p>
 <h2 id="presenatation-style">Presenatation Style</h2>
 <p>This book doubles as a universtiy text book. It has a 16 week semester structure, along with review questions, podcast assignements, and lab exerciese. But the book can be used beyond that. There is a wealth of other material that is can be covered in depth depending on your needs.</p>
 <h2 id="cover-image">Cover Image</h2>
-<p>will get to that once the content is done…</p>
+<p>Will get to that once the content is done…</p>
 <h2 id="background-of-author">Background of Author</h2>
 <p>My name is Enigo Montoya…</p>
 <h2 id="thanks">Thanks</h2>
 <p>Professor Sam - who taught me that it is pronoucned <em>“etc ef-stab”</em> not <em>“etc ef es tab”</em> and how to read error messages. Professor Ray Trygstad who gave me my first real IT job and showed me the wonders of Perl. Illinois Institute of Technology who has entrusted me with much. My wife and kids who supported me always.</p>
 <h1 id="history-of-unix-and-linux">History of Unix and Linux</h1>
 <figure>
-<img src="http://imgs.xkcd.com/comics/open_source.png" title="Understanding the Technology and Philosophy of Linux Part I" alt="At the end of class you will find this cartoon funny" /><figcaption><em>At the end of class you will find this cartoon funny</em></figcaption>
+<img src="http://imgs.xkcd.com/comics/open_source.png" title="Understanding the Technology and Philosophy of Linux Part I" alt="At the end of class you will find this cartoon funny." /><figcaption><em>At the end of class you will find this cartoon funny.</em></figcaption>
 </figure>
 <p><a href="http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI" title="Quote from Linus Torvalds"><em>If you still don’t like it, that’s OK: that’s why I’m boss. I simply know better than you do. Torvalds, Linus(1996-07-22)</em></a></p>
 <h2 id="the-foundation-of-unix-and-linux">- The Foundation of Unix and Linux</h2>
@@ -359,16 +360,20 @@
 <p><a href="http://www.oreilly.com/openbook/opensources/book/kirkmck.html" title="History of Unix">Additional Reading on the Unix history side</a></p>
 <h3 id="review-questions">- Review Questions</h3>
 <p>Get into groups and answer/discuss these questions</p>
-<p>Based on the movie’s tone - why would you think there is a definate anti-microsoft tone?</p>
-<p>Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?</p>
-<p>Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?</p>
-<p>Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?</p>
-<p>What were the two commercial Linux companies featured in the movie?</p>
-<p>What is RedHat Linux’s stock price today?</p>
-<p>What is VA Linux’s stock price today?</p>
-<p>How does Ricahrd Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?</p>
+<ol type="1">
+<li><p>Based on the movie’s tone and time - why would you think there is a definate anti-microsoft tone?</p></li>
+<li><p>What influence did Bill Gates’ 1976 <em>“Open Letter to Hobbyists”</em> influence the opensource movement, if any?</p></li>
+<li><p>Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?</p></li>
+<li><p>Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?</p></li>
+<li><p>Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?</p></li>
+<li><p>What were the two commercial Linux companies featured in the movie?</p></li>
+<li><p>What is RedHat Linux’s stock price today?</p></li>
+<li><p>What is VA Linux’s stock price today?</p></li>
+<li><p>How does Ricahrd Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?</p></li>
+<li><p>As a follow up - why do you think this is so?</p></li>
+</ol>
 <h3 id="podcast-questions">- Podcast Questions</h3>
-<p><a href="http://twit.tv/floss/73">Listen or watch</a> this podcast - http://twit.tv/floss/73</p>
+<p>Listen to the FLOSS podcast number 73 with <a href="http://twit.tv/floss/73">Tim O’Reilly - http://twit.tv/floss/73</a></p>
 <ul>
 <li>Who is Tim Orielly? ~3:00-5:00</li>
 <li>What is Oscon? ~6:45</li>
@@ -381,10 +386,11 @@
 <li><a href="http://radar.oreilly.com">radar.oreilly.com</a> What is the lag time from articles on this site to the main stream media? ~55:00</li>
 </ul>
 <h3 id="lab">- Lab</h3>
-<p><a href="https://www.youtube.com/watch?v=jw8K460vx1c">Watch Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c</a> and answer the questions listed under review questions.</p>
+<p>This activity can be induvidual or group based.</p>
+<p>There was a documentary movie called <a href="https://www.youtube.com/watch?v=jw8K460vx1c">Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c</a> made in 2001. Answer the questions listed under “Review Questions” above.</p>
 <h1 id="hardware-and-installation">Hardware and Installation</h1>
 <figure>
-<img src="http://imgs.xkcd.com/comics/surgery.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Must be a Linux User" /><figcaption>Must be a Linux User</figcaption>
+<img src="http://imgs.xkcd.com/comics/surgery.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Must be a Linux User…" /><figcaption><em>Must be a Linux User…</em></figcaption>
 </figure>
 <p><strong>Chapter 3 Objectives</strong></p>
 <ul>
@@ -505,10 +511,8 @@ Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.is
 </figure>
 <p>See the <a href="https://www.virtualbox.org/manual/ch01.html" title="Getting started manual">getting started manual</a> for a wide range of information. Unlike some opensource projects this doucmentation is actually very thurogh and useful. VirtualBox has a list of <a href="https://www.virtualbox.org/manual/ch01.html#hostossupport" title="Supported Host Operating System">supported host operating systems</a>, which is basically any operating system you can think of from DOS to Haiku to FreeBSD.</p>
 <p>All things start with the NEW button shown in the picture below.</p>
-<p>Here you can begin the walk through wizard to create a virtual machine of your own size and choosing.</p>
 <p>Name it (auto guess) choose the specific Operating System type and then the specific OS. What happens if you choose the wrong one? Two things, 1 you can always go back in the settings option and change it after the virtual machine is powered off. 2. As long as you have the correct OS family everything should be ok–but see the extensions setting at the end of this chapter.</p>
-<p>Next is the amount of memeory availalbe - note that this is shared with your underlying OS and whatever you allocate to this guest VM will be unavaialbe to the underlying host OS while the guest VM is powered on.</p>
-<p>Here you have a choice of how much harddrive space you will allocate to the guest VM. This space will be treated as a file by the underlying host OS–allowing for easy migration, export, and even cloning of the guest VM.</p>
+<p>Next is the amount of memeory availalbe - note that this is shared with your underlying OS and whatever you allocate to this guest VM will be unavaialbe to the underlying host OS while the guest VM is powered on. Here you have a choice of how much harddrive space you will allocate to the guest VM. This space will be treated as a file by the underlying host OS–allowing for easy migration, export, and even cloning of the guest VM.</p>
 <p>You can chose to dynamically allocate your harddrive space or statically allocate it. The advantage of dynamically allocating is that not all the space will be assigned right away. The harddrive will grow incrementally as you need space until it hits the maximum you defined. The disadvantage of this is that if you are creating lots of data there will be overhead processing in continually allocating enough space. Statically allocating the harddrive space on the otherhand will potentially lessen the number of systems that can go on your harddrive because potentially much space that is allocated is actually unused.</p>
 <p>Next is the harddrive file format. There are a few competing standards. If you know you are going to be working in the VirtualBox environment the default VDI is sufficent. If you know you will be transferring this VirtualMachine to another environment: VMWare (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.</p>
 <p>Now click finish and you should be ready to go - with your VirtualBox start screen looking something like mine. Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.</p>
@@ -526,100 +530,234 @@ Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.is
 <p>The final process where it asks about additional software to install</p>
 <p>Video and screenshots Links Here</p>
 <h3 id="virtualbox-extensions">- VirtualBox extensions</h3>
-<p>Explain what they are and show screen shots how to add them</p>
-<h3 id="preseed-and-kickstart">- Preseed and Kickstart</h3>
-<p>All the previous steps took maybe 10 to 15 minutes which is not bad at all. But let us say you will be creating many virtualmachines for certain purposes. Or perhaps you will be recreating the same virtual machine many times. There is a way to automate the install process. This is called an answer file in the Windows server world. For Red Hat based systems this is called kickstart and Debian and Ubuntu use a file format called preseed. None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.</p>
+<p>You may have noticed that when a guest VM is usccesfully installed the screen resolution maybe very small or the mouse intergration features are not working. VirtualBox guest additions also enable exclusive features that are not normally availalber in an operating system such as shared folders, cut and paste support, and even support for multiple monitors. The way to solve this is through something called VirtualBox Guest Additions. On the VirtualBox menu under INSERT DEVICES you need to select the “Insert Guest Additions CD Image.”<br />
+ This is source code and drivers provided by VirtualBox that will add VirtualBox features and hardware to the underlying guest VM. The guest VM has no idea it is in a virtualized environment and even if it did know Oeprating Systems do no come equipped with drivers to support VIrtualBox. In this way the drivers are added to the OS in Windows and in Linux the drivers are loaded into the kernel to enhance the experience.</p>
+<p>For Windows and Mac as the guest VM OS this is a pretty stright forward install - the attached Guest Additions iso appears within the VM and you simply double click it and run through the menu, reboot, and new features are added.</p>
+<p>For Linux you need to compile these extensions into the kernel and some extra tools are needed.</p>
+<p><strong>Debian/Ubuntu</strong></p>
+<p>This goes for any distro that derives from Debian. You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers. Apt is the Debian/Ubuntu package manager, we will learn about more in depth in <a href="Package%20Installation">chapter 10</a></p>
+<pre><code>sudo apt-get update
+sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+cd /media/cdrom/VBOXGUESTADDITIONS_5.0.2_102096/
+sudo VBOXLinuxAdditions.run</code></pre>
+<p><strong>Red Hat</strong></p>
+<p>On Fedora 22 using dnf</p>
+<pre><code> sudo dnf update kernel*
+ sudo reboot
+ sudo mkdir /media/VirtualBoxGuestAdditions
+ sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+ sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers dkms make bzip2 perl
+ cd /media/VirtualBoxGuestAdditions
+ # 32-bit and 64-bit systems run following
+ ./VBoxLinuxAdditions.run
+ sudo reboot
+ </code></pre>
+<p>On Centos, RHEL, and older Fedora distros using yum</p>
+<pre><code> sudo yum update kernel*
+ sudo yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+ sudo mkdir /media/VirtualBoxGuestAdditions
+ sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions 
+ cd /media/VirtualBoxGuestAdditions
+ # 32-bit and 64-bit systems run following
+ ./VBoxLinuxAdditions.run
+ sudo reboot</code></pre>
+<p>If successful you can reboot the Linux guest VM and you will notice the changes take place immediately. without these additional tools installed you will receive an error message similar to</p>
+<pre><code>Building the main Guest Additions Modile[Failed] 
+ </code></pre>
+<h3 id="automating-the-install-answer-process-with-preseed-and-kickstart">- Automating the Install Answer Process With Preseed and Kickstart</h3>
+<p>All the previous steps took maybe 10 to 15 minutes if you are on a fast machine which is not bad at all. But let us say you will be creating many virtual machines for research purposes. Or perhaps you will be recreating the same virtual machine many times. There is a way to automate the install process. This is called an answer file in the Windows server world. For Red Hat based systems this is called kickstart and Debian and Ubuntu use a file format called preseed. None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.</p>
 <p><a href="https://help.ubuntu.com/lts/installation-guide/amd64/apb.html" title="Preseed">Debian/Ubuntu pressed template</a></p>
 <p><a href="https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html">Kickstart documentation</a> - it can be generated from scratch or upon a succesful install a default kickstart is located in /root/anaconda-ks.cfg</p>
 <p>Link to video on how to run the files</p>
 <p>screen shot showing you need to host the file on the web somewhere or include the file in install media</p>
 <h2 id="chapter-conclusions-and-review">- Chapter Conclusions and Review</h2>
-<p>Summary goes here</p>
+<p>Through this chapter we gained an understanding of what x86 based virtualizations does. We learned about the purpose of a hypervisor and how opensource tools such as VirtualBox provide these services. We learned how to install Ubuntu and Fedora based distros in the most common scenarios. We learned about VirtualBox features and how to automate Linux installs through kickstart and preseed configuration files.</p>
 <h3 id="review-questions-1">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
 <h3 id="podcast-questions-1">- Podcast Questions</h3>
+<p>Listen to the FLOSS podcast number 88 with <a href="http://twit.tv/show/floss-weekly/88" title="FLOSS Linus Torvald">Linus Torvalds - http://twit.tv/show/floss-weekly/88</a></p>
 <ul>
-<li>URL to Linux Torlvals podcast</li>
+<li>~6:32 Who is Linus Torvalds?</li>
+<li>~6:54 Where did he create Linux?</li>
+<li>~7:30 What did Unix have that other operating systems didn’t at that time?</li>
+<li>~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?</li>
+<li>~10:30 About what month and what year did this happen?</li>
+<li>~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project?</li>
+<li>~13:30-14:00 Why was it licensed under the GPL license?</li>
+<li>~20:48 Why didn’t Linus want to work for a Linux company?</li>
+<li>~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?</li>
+<li>~46:10 What is the way to become a great programmer?</li>
+<li>~51:17 What is Linus’ farewell message to the audience?</li>
 </ul>
 <h3 id="lab-1">- Lab</h3>
 <ul>
-<li>Download and install these linux distributions in virtual box using the screen shot tool to submit jpeg files
+<li><p>You will need to some research and find the download links for the Linux and BSD based distors below and install them in VirtualBox. Complete the install and launch a text editor and type your name, the name of the Linux distro, and the message “Hello World.” Assume each instance listed below is 64-bit version.</p>
 <ul>
-<li>Debian Based</li>
-<li>Fedora Based</li>
-<li>BSD based</li>
+<li>Debian Based
+<ul>
+<li>Ubuntu 15.04 Desktop edition</li>
+<li>Linux Mint 17</li>
+<li>Lubuntu 15.04 Desktop edition</li>
+<li>gNewSense 3.1<br />
+</li>
+<li>Debian 8</li>
+</ul></li>
+<li>Red Hat Based
+<ul>
+<li>Fedora 21</li>
+<li>Fedora 22</li>
+<li>Centos 7</li>
+<li>One Fedora spin of your choice</li>
+</ul></li>
+<li>BSD based
+<ul>
+<li>FreeBSD 10.2</li>
+<li>OpenBSD 5.7</li>
+</ul></li>
 </ul></li>
 </ul>
 <h1 id="desktop-linux-gui">Desktop Linux (GUI)</h1>
 <figure>
-<img src="http://imgs.xkcd.com/comics/supported_features.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Who needs Flash?" /><figcaption>Who needs Flash?</figcaption>
+<img src="http://imgs.xkcd.com/comics/supported_features.png" title="Linux Supported Features" alt="Who needs Flash?" /><figcaption><em>Who needs Flash?</em></figcaption>
 </figure>
-<h2 id="gui">GUI</h2>
+<h2 id="from-paper-tape-to-cli-to-guis-to-4k">From Paper Tape to CLI to GUIs to 4K</h2>
+<p><strong>Chapter 4 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
+<p>Unix had its starts in the late 1960’s and 1970’s. Computing at that time took on a less interactive and more iterative/batch processing style. Not until the late 70’s and early 1980’s do we begin to see the green colorede terminals we are familiar with. Initially Unix had to develop support for GUIs. This was done through the X11 protocol or what ended up being called X Windows. The X was originally a place holder in the hopeps that an actual name could be created, but they say what is temprorary is permanent, and X Windows was here to stay. X Windows is actually a client server protocol. It was designed with the idea in mind of transporting display windows over TCP/IP. Seeing as it was designed in the University and corporate setting - the idea of security was non-existant. Any Computer that could connect to another computer could start an X Windows session. The utility of this was that you could use lesser hardware and simply via the X Windows protocol remotely run you application window. An office or university would have 1 large server and each desktop would connect and tunnel X Windows over TCP/IP.</p>
+<p>Initially this was designed witha single purpose, single window in mind. But X Window use grew the utility of X Windows to be a <em>“compositor”</em> for drawing a GUI (Graphical User Interface) on your local desktop became a standard feature.</p>
+<p>X Windows was developed by MIT and someone else. The actual protocol that data transfers over is called X11.</p>
+<p>X has a long history and that history was forked and rejoined over time.</p>
+<p>X Windows protocol was forked in X86free.org and X.org and for many years were seperate - but they have recently joined back together and the current and standad Linux desktop compositor is now referred to as <em>“X”</em>. X has a definate advantage in that it is very mature and very well known for all its good and bad parts. In the diagram below you can see one of X major faults. (Get picture from Wayland website) Seeing as it was designed not with a desktop GUI in mind, every desktop element is a client that has to make calls to the X server in order to render any changes to the screen. This adds extra layers of overhead.</p>
+<p>A project was started to reimainge the nature of the Linux compsitor. This project is called Wayland. But the Wayland authors knew they couldn’t just throw X out as everysingle Linux desktop today uses it–that would break all of Linux. Instead they reimplemented X into something called X wayland (see image from Wayland.org) Slowly many Linux distributions are looking at the improvememnts of Wayland and moving to gradually implement it. Will we ever see the end of X? Probably not as it is too deep into the “bones” of Linux. But Fedora 22 has a beta version of X-wayland running Fedora 22 - which will render Walyand and X at the same time.</p>
+<p>Not ot be outdone Ubuntu decided not to work with the Wayland project and decided to create their own compositor called Mir. THis idea was highly ciriticzed (find link). But I think it was without warrent. Ubuntu has a business case–they were looking to make a compositor that could adapt based on form factor. Instead of having a phone, tablet, tv, desktop rendered, Mir would be custimoizable to Ubuntu’s hardware dreams. This precluded them to work on their own compositor. But they have leanred that it is not so easy and it has been constantly delayed from public release. (Link to Mir current status)</p>
+<h2 id="window-managers">Window Managers</h2>
+<p>With the advent of X and windowing capabilities, a need to manage multiple local windows arrose and gave rise to early windowing managers. For those of us old enough to remember, this would be similar to early Mac and pre Windows-95 operating systems. (Show image of windowing tool kit)</p>
+<p>Window Managers are very fast because they have almost no chrome or what we would think of as standard polish. There only concept is render contents inside of particiular windows. Things we come to expect such as sliders, close boxes, touch simply don’t exist in Window Managers</p>
+<p>A Window Manager is one step above a single X WIndow extension, but it is not a desktop environemnt. Here is a list of some Window Managers</p>
 <ul>
-<li>Task Bars</li>
-<li>File Managers</li>
-</ul>
-<h2 id="x-windows-x11">X-Windows x11</h2>
-<ul>
-<li>Windowing Managers</li>
-<li>MIR Wayland X</li>
 <li>Enlightenment</li>
 <li>I3</li>
 <li>Xmonad</li>
-<li>Others…</li>
+<li>OpenBox</li>
 </ul>
 <h2 id="desktop-environments">Desktop Environments</h2>
-<p>http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/</p>
+<p>By the time of the Linux kernel release and it becoming a stable development platform. What enabled Linux to move from hobby OS to real commcerial option was the creation of the first desktop environments. The KDE (K Desktop Environment) was the first toolkit released In 1994/5. It was opensources and adopted quickly but parts of it used the propriatery QT (pronounced cuteie) Windowing tool kit - which was not opensource. It was opensourced by KDE 2.0. This moved Miguel De Icazza to create a truly opensoruced alternative to KDE called GNOME. This was a GNU project and also included the development of the GTK Gnome Took Kit for creating windowing objects.</p>
+<p>Miguel ended forming the company that became Xamarin, a cross development movile platform using c# to develop for Android and iOS. (Get picture of Miguel)</p>
+<p>Which is better? Hard to say. Both have had set backs and advancements over the years. The look and feel of KDE resembles traditional Windows as it was designed to help ease of Windows users into Linux transition. GNOME itstead went for the Mac route of floating windows. Not to be outdone. Ubuntu introduced their own Desktop Environment called Unity (date and time and link to Ubuntu) This decision lead to a many Ubuntu based distros being formed just to replace the Desktop Environment. The majority of Linux distros use GNOME as their standard desktop0 environment. But as in Linux, you can customize or even replace or install side by side the Desktop evnrionemnt. A desktop environment needed to embody more than just window openings and closings, but began to provide tools you and I take for granted. Things such as a clock, or a text editor, office sutie or email client, even initially a web broweser and all these things having a consitent usage pattern and feel.</p>
+<p>Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these Environemnts as the resources required were growing. So a movement to create light desktop environements sprung up. The first was XFCE and then LXDE (How is it related to LXQT) There were also design revolts. When GNOME moved from version 2 to version 3 the amount change was seen by some GNOME users as treason. They foked the GNOME2 desktop code and it became known as something called MATE - which was integrated into a Desktop environment called Cinnamon. All of these desktop environments are available for install. Some are specifically packaged by Red Hat and Ubuntu to match a theme and style and some are avaialble to install but might not be in the most usable state.</p>
+<p>Get logos for these</p>
 <ul>
 <li>Desktop Environments
 <ul>
 <li>KDE</li>
 <li>GNOME</li>
+<li>Unity</li>
 <li>XFCE</li>
-<li>LXDE - LXQT</li>
-<li>MATE (GNOME 2)</li>
+<li>LXDE &amp; LXQT</li>
+<li>MATE (GNOME 2) Cinnamon</li>
+<li><a href="http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/" class="uri" title="Ubuntu to Mac desktop conversion">http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/</a></li>
 </ul></li>
 </ul>
-<h2 id="podcast">Podcast</h2>
-<p>Best short interview I ever heard with Richard Stallmand from Will Backmand of <a href="http://bsdtalk.blogspot.com/" title="BSD Talk">BSDTalk</a></p>
-<p><a href="https://archive.org/download/bsdtalk132/bsdtalk132.ogg" title="RMS Interview">Link to .ogg audio interview file</a></p>
-<h2 id="review-questions-2">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-1">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-2">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs">Labs</h2>
+<h3 id="podcast-questions-2">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Best short interview I ever heard with Richard Stallmand from Will Backmand of <a href="http://bsdtalk.blogspot.com/" title="BSD Talk">BSDTalk</a></li>
+<li><a href="https://archive.org/download/bsdtalk132/bsdtalk132.ogg" title="RMS Interview">Link to .ogg audio interview file</a></li>
+</ul>
+<h3 id="lab-2">- Lab</h3>
+<ul>
+<li>Using the virtual machines you installed in the previous chapter, you will now install the list below of Window Managers and Desktop environments. You will take a screenshot from within VirtualBox.</li>
 </ul>
 <h1 id="linux-basic-commands-and-file-system-structure">Linux basic commands and File system structure</h1>
 <figure>
 <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
 </figure>
+<p>The main use and power of an operating system to this day is still the Shell. The shell is a way for a user to directly interface with the operating system. We will cover more about specific shells and features in Chapter 8.</p>
+<p><strong>Chapter 5 Objectives</strong></p>
+<ul>
+<li>Understand the function of the Linux Shell and its relation to the Operating System.</li>
+<li>Learn how to read the structure of commands on the commandline</li>
+<li>Learn the Linux commandline nomenclature</li>
+<li>Understand the Linux Standard Base and what makes a distro a Linux distro</li>
+<li>Understand the difference between absolute and relative paths</li>
+<li>Know basic tools for moving and modifying the contents of the filesystem.</li>
+</ul>
+<p><strong>Outcomes</strong></p>
+<p>At the completion of this chapter you will understand how to use the Linux shell for modifying the contents of the operating system. You will understand the nature of the filesystem and how to navigate it–understadning the system path. You will know basic commands for manipulating content in the filesystem.</p>
+<h2 id="shell">Shell</h2>
+<p>Show picture of seashells</p>
+<p>(insert diagram about shell OS interaction)</p>
+<p>Many may say, <em>“Hey I have a nice point and click GUI why do I need to use the crusty old commandline?”</em> That is a valid question. In reality the GUI is syntactic sugar on top of the Shell. Anything you click on in a GUI in reality is executing a command in the shell. In certain cases using the shell may have more avaialble features for your command then in the GUI. The GUI by definition cannot have more capability than the shell.</p>
+<p>In the shell is where we can enter basic commands for navigation and file manipulation. Some of the basic commands we will cover are as follows:</p>
+<ul>
+<li><code>cd - used to change directory</code></li>
+<li><code>ls - used to list the content of a directory</code></li>
+<li><code>cp - used to cp the contents of a file, can also be used to copy and rename a file</code></li>
+<li><code>mv - used to rename a file in place</code></li>
+<li><code>mkdir - used to create or make a new directory</code></li>
+<li><code>touch - used to create a new blank file or to update the timestamp of an existing file without opening it</code></li>
+<li><code>cat - technically used to concatenate the contents of two files, but will accept nothing as the second paramter thereby just being used to display the content of a file</code></li>
+<li><code>less - used for paging the contents of a large file, also supports scrolling up as well as down</code></li>
+<li><code>date - used for outputting the current date and time in various customizable formats</code></li>
+<li><code>man - the manual command used to find out how to use the detailed structure of a command</code></li>
+<li><code>pwd - used to print out your present working directory--your location in the filesystem tree.</code></li>
+<li><code>file - used to find out what the content type a file is</code></li>
+</ul>
 <h2 id="basic-commands">Basic Commands</h2>
+<p>(show screen shot of ls command with ls ls -la ls -la /etc/ man ls</p>
+<p>There is a common nomenclature of commands in Linux. There is an executable that is part of the system function located in /bin, files such as ls cd touch are all precompiled binaries located on the system. To enter a command you type the name of the binary, as you use Linux more and more you will begin to memorize the tool names. Each command can have options or sometimes called flags and then may or may not accept arguments.</p>
+<h3 id="command-nomencvlature">- Command nomencvlature</h3>
+<p><code>ls -la /etc</code></p>
+<p>The first two letters <strong><code>ls</code></strong> make up the command for listing the contents of a directory. The command must be followed by a space. Then next letters are preceeded by a <strong>dash</strong>, to tell the shell interpreter that these letters are options. Options are usually single letter representations of functionality. The <strong><code>-l</code></strong> options tells the ls command to give a long listing of a directory with details and the <strong>“-a”</strong> tells the shell to print all files in the directory including hidden files. Options can be combined in most cases into a single string preceeded bya dash. So <strong><code>-la</code></strong> can also be writted as <strong><code>-l -a</code></strong>. Additonally there are options that use full english lanugage structure, which are usually preceeded by <strong>two dashes</strong> and then a more descriptive english phrase. Ask the students to find one?</p>
+<p>The final value of <strong>/etc</strong> in the command <code>ls -la /etc</code> is an argument passed to the <code>ls</code> command telling the ls command to list the contents of the _<strong>/etc</strong> directory. If this value is left empty the shell assumes you mean the <code>pwd</code> or your current location/.</p>
+<h3 id="manual-man-command---your-best-friend">- Manual (man) command - your best friend</h3>
+<p><strong>Purpose of manual command</strong></p>
+<p>__history of maunal command</p>
+<h3 id="file-system-structure">- File System structure</h3>
+<p><strong>What is a Filesystem?</strong></p>
+<p>A way for the Opertaing system to access and manage files<br />
+ Upside down tree Top of the tree / (root)</p>
+<p>Add what each of these locations holds - have the students cd into these directories and do ls and file commands</p>
 <ul>
-<li>Demo and list of basic movement commands from command line</li>
-<li>Intro to terminal</li>
-<li><p>– cd ls cp mv (a few others) + Explanation of commands arguments options (flags) ## File System structure</p></li>
-<li>Upside down tree</li>
-<li>/ (root)</li>
-<li>All standard POSIX directories</li>
-<li>Explain the sym-linking of /usr/sbin and /usr/bin</li>
-<li><p>Explain the purpose of each standard directory and what they should expect</p></li>
+<li>/etc</li>
+<li>/bin</li>
+<li>/sbin</li>
+<li>/tmp</li>
+<li>/var</li>
+<li>/usr</li>
+<li>/mnt</li>
 </ul>
+<p>talk about Red Hat Explain the sym-linking of /usr/sbin and /usr/bin</p>
+<p>optional non-standard /opt from Unix /media Ubuntu and Red Hat - an obvious place to put mounted USB, CD-ROm and other added devices</p>
+<h3 id="posix-and-linux-standard-base">- POSIX and Linux Standard Base</h3>
+<p><strong>POSIX</strong></p>
+<p>Need for POSIX standard and what it does, and almost sacredness of Linux supporting POSIX standards</p>
+<p>Quote from Poettering about dropping the fantasy UNIX and breaking POSIX to enhance Linux capabilities.</p>
+<p><strong>LSB</strong></p>
+<p>Similar to POSIX but additionally unique to Linux in defining what a distro needs to be officially called a Linux distro.</p>
 <h2 id="explanation-of-path">Explanation of PATH</h2>
-<pre><code>    * Absolute vs Relative
-    * Go over these concepts with above simple commands</code></pre>
-<h2 id="podcast-1">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-3">Review Questions</h2>
+<pre><code> * Absolute vs Relative
+ * Go over these concepts with above simple commands</code></pre>
+<h2 id="ps">- 3 P’s</h2>
+<p>Path Permission dePendencies</p>
+<h2 id="chapter-conclusions-and-review-2">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-3">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-1">Labs</h2>
+<h3 id="podcast-questions-3">- Podcast Questions</h3>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h3 id="lab-3">- Lab</h3>
 <ul>
 <li>Lab goes here</li>
 </ul>
@@ -627,54 +765,68 @@ Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.is
 <figure>
 <img src="http://imgs.xkcd.com/comics/authorization.png" title="File Permissions" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
 </figure>
-<h2 id="podcast-2">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-4">Review Questions</h2>
-<ul>
-<li>Questions go here</li>
-</ul>
-<h2 id="labs-2">Labs</h2>
-<ul>
-<li>Lab goes here</li>
-</ul>
-<h1 id="commandline-variables-and-shell-meta--characters">Commandline variables and shell meta- characters</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
-<h2 id="podcast-3">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-5">Review Questions</h2>
+<p><strong>Chapter 6 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
+<h2 id="read-write-execute">- Read, Write, Execute</h2>
+<h3 id="tools">- Tools</h3>
+<p>chmod chown chgrp ls -la fields</p>
+<h2 id="chapter-conclusions-and-review-3">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-4">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-3">Labs</h2>
-<ul>
-<li>Lab goes here</li>
-</ul>
-<h1 id="vi-and-editors-and-bash-shell">vi and editors and bash shell</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
-<h2 id="podcast-4">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-6">Review Questions</h2>
+<h3 id="podcast-questions-4">- Podcast Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-4">Labs</h2>
+<h3 id="lab-4">- Lab</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Lab goes here # Commandline variables and shell meta- characters <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
 </ul>
-<h1 id="basic-shell-scripting">Basic Shell scripting</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
+<p><strong>Chapter 7 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
+<h2 id="chapter-conclusions-and-review-4">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-5">- Review Questions</h3>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h3 id="podcast-questions-5">- Podcast Questions</h3>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h3 id="lab-5">- Lab</h3>
+<ul>
+<li>Lab goes here # vi and editors and bash shell and profiles <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 8 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
+<p>XKCD vi cartoon goes here</p>
+<h2 id="history-of-vi">- History of VI</h2>
+<p>ed -&gt; em -&gt; ex -&gt; vi -&gt; vim</p>
+<h3 id="bill-joy-and-bsd">- Bill Joy and BSD</h3>
+<p>Get picture of Bill Joy - link to article The future doesn’t need you</p>
+<h3 id="why-keybindings-are-as-they-are">- Why keybindings are as they are</h3>
+<h3 id="relation-of-vi-and-vim">- Relation of vi and vim</h3>
+<h3 id="stream-editors-vs-text-editors">- Stream editors vs text editors</h3>
+<p>vi and emacs vs nano, gedit, joe, kate</p>
+<h2 id="chapter-conclusions-and-review-5">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-6">- Review Questions</h3>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h3 id="podcast-questions-6">- Podcast Questions</h3>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h3 id="lab-6">- Lab</h3>
+<ul>
+<li>complete vi tutor example # Basic Shell scripting <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 9 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
 <h2 id="types">types</h2>
 <ul>
 <li>if statements</li>
@@ -682,83 +834,83 @@ Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.is
 <li>System variables</li>
 <li>Passing Variables into scripts</li>
 </ul>
-<h2 id="podcast-5">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-7">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-6">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-7">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-5">Labs</h2>
+<h3 id="podcast-questions-7">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Questions go here</li>
 </ul>
-<h1 id="package-installation">Package installation</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
+<h3 id="lab-7">- Lab</h3>
+<ul>
+<li>Lab goes here # Package Installation <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 10 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
 <h2 id="types-1">Types</h2>
 <ul>
 <li>yum (soon to be dnf replace yum)</li>
 <li>apt-get</li>
 </ul>
-<h2 id="podcast-6">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-8">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-7">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-8">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-6">Labs</h2>
+<h3 id="podcast-questions-8">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Questions go here</li>
 </ul>
-<h1 id="symlinks-and-file-types">Symlinks and file types</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
+<h3 id="lab-8">- Lab</h3>
+<ul>
+<li>Lab goes here # Symlinks and file types <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 11 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
 <h2 id="types-2">Types</h2>
 <ul>
 <li>Stdin and stdout and stderr</li>
 </ul>
-<h2 id="podcast-7">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-9">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-8">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-9">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-7">Labs</h2>
+<h3 id="podcast-questions-9">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Questions go here</li>
 </ul>
-<h1 id="find-and-grep">Find and grep</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
+<h3 id="lab-9">- Lab</h3>
+<ul>
+<li>Lab goes here # Find and grep <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 12 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
 <h2 id="types-3">Types</h2>
 <ul>
 <li>Intro to regex</li>
 </ul>
-<h2 id="podcast-8">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-10">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-9">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-10">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-8">Labs</h2>
+<h3 id="podcast-questions-10">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Questions go here</li>
 </ul>
-<h1 id="creating-partitioning-and-mounting-filesystems">Creating, Partitioning, and mounting filesystems</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
+<h3 id="lab-10">- Lab</h3>
+<ul>
+<li>Lab goes here # Creating, Partitioning, and mounting filesystems <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 13 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
 <h2 id="types-4">Types</h2>
 <ul>
 <li>Creating them virtually</li>
@@ -768,65 +920,66 @@ Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.is
 <li>mount command</li>
 <li>/etc/fstab</li>
 </ul>
-<h2 id="podcast-9">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-11">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-10">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-11">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-9">Labs</h2>
+<h3 id="podcast-questions-11">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Questions go here</li>
 </ul>
-<h1 id="basic-networking">Basic Networking</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
+<h3 id="lab-11">- Lab</h3>
+<ul>
+<li>Lab goes here # Basic Networking <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 14 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
 <h2 id="types-5">Types</h2>
 <ul>
 <li>Network configs</li>
 <li>Tools to troubleshoot</li>
 </ul>
-<h2 id="podcast-10">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-12">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-11">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-12">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-10">Labs</h2>
+<h3 id="podcast-questions-12">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Questions go here</li>
 </ul>
-<h1 id="services-and-processes">Services and processes</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
+<h3 id="lab-12">- Lab</h3>
+<ul>
+<li>Lab goes here<br />
+# Services and processes <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 15 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
 <h2 id="types-6">Types</h2>
 <ul>
 <li>Starting stopping</li>
 <li>Systemd vs sysVInit</li>
 <li>Cron jobs</li>
 </ul>
-<h2 id="podcast-11">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-13">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-12">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-13">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-11">Labs</h2>
+<h3 id="podcast-questions-13">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Questions go here</li>
 </ul>
-<h1 id="future-and-embedded-linux">Future and embedded Linux</h1>
-<figure>
-<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
-</figure>
+<h3 id="lab-13">- Lab</h3>
+<ul>
+<li>Lab goes here # Future and embedded Linux <img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /></li>
+</ul>
+<p><strong>Chapter 16 Objectives</strong></p>
+<p><strong>Outcomes</strong></p>
 <h2 id="types-7">Types</h2>
 <ul>
 <li>IoT</li>
@@ -839,19 +992,20 @@ Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.is
 <li>Linux Plus</li>
 <li>LPI</li>
 </ul>
-<h2 id="podcast-12">Podcast</h2>
-<ul>
-<li>URL goes here for Q&amp;A</li>
-</ul>
-<h2 id="review-questions-14">Review Questions</h2>
+<h2 id="chapter-conclusions-and-review-13">- Chapter Conclusions and Review</h2>
+<p>Conclusion goes here</p>
+<h3 id="review-questions-14">- Review Questions</h3>
 <ul>
 <li>Questions go here</li>
 </ul>
-<h2 id="labs-12">Labs</h2>
+<h3 id="podcast-questions-14">- Podcast Questions</h3>
 <ul>
-<li>Lab goes here</li>
+<li>Questions go here</li>
 </ul>
-<h1 id="glossary-a">Glossary A</h1>
+<h3 id="lab-14">- Lab</h3>
+<ul>
+<li>Lab goes here # Glossary A</li>
+</ul>
 <p>hello</p>
 <h1 id="glossary-b">Glossary B</h1>
 <p>hello</p>
