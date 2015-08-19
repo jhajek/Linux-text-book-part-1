@@ -1,0 +1,857 @@
+<h1 id="introduction-to-the-philosophy-and-technology-of-linux-part-i">Introduction to The Philosophy and Technology of Linux Part I</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/operating_systems.png" title="Operating Systems" alt="One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. This, one of them finally says, This is a man who BELIEVED in something." /><figcaption><em>One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. “This,” one of them finally says, “This is a man who BELIEVED in something.”</em></figcaption>
+</figure>
+<p><a href="https://groups.google.com/forum/?hl=en#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ" title="Initial Post About Linux."><em>I’m doing a (free) operating system (just a hobby, won’t be big and professional like gnu) for 386(486) AT clones… - Linus Torvalds 1991</em></a></p>
+<h2 id="objectives-of-this-book">Objectives of this book</h2>
+<p>As you know there are many many books on Linux out there. This book strives to be different in trying to highlight two areas. First the philosophy of Linux and its design. Anyone can teach you how to push a button, but this book aims to go beyond that and help you understand the reason the button is there in the first place. Above all Linux is merely a tool to help you get your work done. Seeing as this book is self-published its exercises and sections can be updated rapidly to cover the ever-changing tools in Linux. I have found over the years understanding the history of Linux goes along way to understanding how it works. This book strives to be different as well. In addition to being pegged to the LPIC-I/Linux+ content it will go beyond being just a training book.</p>
+<p>For instructors - we are going beyond the traditional powerpoint world, and looking into using new technologies like Microsoft Sway for presentations. Also including audio and video excerpts as well as working code examples using <a href="http://doitlive.readthedocs.org/en/latest/" title="tool for demoing code">doitlive</a> for demonstration purposes. The book is being publsihed on Github under a Create Commons CC-SA Share alike license – this way as things change code can be updated or removed and new digital versions can be published quickly.</p>
+<h2 id="presenatation-style">Presenatation Style</h2>
+<p>This book doubles as a universtiy text book. It has a 16 week semester structure, along with review questions, podcast assignements, and lab exerciese. But the book can be used beyond that. There is a wealth of other material that is can be covered in depth depending on your needs.</p>
+<h2 id="cover-image">Cover Image</h2>
+<p>will get to that once the content is done…</p>
+<h2 id="background-of-author">Background of Author</h2>
+<p>My name is Enigo Montoya…</p>
+<h2 id="thanks">Thanks</h2>
+<p>Professor Sam - who taught me that it is pronoucned <em>“etc ef-stab”</em> not <em>“etc ef es tab”</em> and how to read error messages. Professor Ray Trygstad who gave me my first real IT job and showed me the wonders of Perl. Illinois Institute of Technology who has entrusted me with much. My wife and kids who supported me always.</p>
+<h1 id="history-of-unix-and-linux">History of Unix and Linux</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/open_source.png" title="Understanding the Technology and Philosophy of Linux Part I" alt="At the end of class you will find this cartoon funny" /><figcaption><em>At the end of class you will find this cartoon funny</em></figcaption>
+</figure>
+<p><a href="http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI" title="Quote from Linus Torvalds"><em>If you still don’t like it, that’s OK: that’s why I’m boss. I simply know better than you do. Torvalds, Linus(1996-07-22)</em></a></p>
+<h2 id="the-foundation-of-unix-and-linux">- The Foundation of Unix and Linux</h2>
+<p>Why are you learning about Linux? It is a term that seems to be on everyone’s lips. There is a good chance that you even have Linux running in your pocket and don’t even know it! Raise your hand if you have an Android based phone or tablet? Here is a hint, Android Operating System is based off of Linux. So this chapter begins the start of your mastery of Linux. In addtition to teaching you technology, this book aims to teach you about the history and philosophy of Linux so you can understand where it came from and where it is going and why you are using it. Some pieces of this book will seem frustrating, after all the roots of the design decisions of what we are using today are 30-40 years old in some cases. Helping to understand what kind of technology was available and what these creators were thinking will help you master the concepts of Linux.</p>
+<p><strong>Chapter 2 Objectives</strong></p>
+<ul>
+<li>Understand how the Unix Operating System was created</li>
+<li>Understand the contributions of Ken Thompson and Dennis Ritchie to Unix</li>
+<li>Understand the contributions of Richard Stallman to Unix, Linux, GNU, and FOSS</li>
+<li>Understand the contributions of Linus Torvalds to the creation of Linux</li>
+<li>Understand the nature of modern commercial implementations of Linux</li>
+<li>Understand the principles of the Linux Community and what the <em>“free”</em> in <em>“Software Freemom”</em> means</li>
+</ul>
+<p><strong>Outcomes</strong></p>
+<p>At the completion of this chapter a student will understand and be able to discuss the environment in which Unix and Linux were created. They will be able to relate key names; <em>Thompson, Ritchie, Stallman, and Torvalds</em> to their technilogical contributions. They will be able to understand what Linux and Unix are and how they relate to FOSS and commercial softare.</p>
+<p><em>Convention Note</em></p>
+<p>You will notice that I have been using the terms Unix and Linux interchangably so far. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the full truth if we left Unix out. For this first chapter then we need to understand their related history. There are differences and there are similarities.</p>
+<h2 id="where-it-began-and-why-it-matters-now">- Where it Began and Why it Matters Now</h2>
+<p>When we say <em>“Unix”</em> we are referring to an entire operating system. An Operating System can be boiled down into three main parts.</p>
+<ol type="1">
+<li><strong>Kernel</strong></li>
+</ol>
+<p><a title="By Bobbo (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL (http://www.gnu.org/copyleft/fdl.html)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AKernel_Layout.svg"><img width="256" alt="Kernel Layout" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/256px-Kernel_Layout.svg.png"/></a></p>
+<p>Unix includes a kernel - a hardware abstraction layer that handles all the interfaces from the operating system to the hardware. The kernel is the portion of the Operating system that allows you to write once and interface with hardware through drivers. Otherwise you would have to compile the operating system everytime and include the hardware drivers for your hardware. Take Windows for instance - you have just one version for all of the hardware out there. Intel Chips, AMD processors, Marvell, Broadcom, and many others. But there is no need to buy a version of Windows, Mac, or Linux specific to that hardware - software drivers are inserted into the kernel and allow Windows, Mac, or Linux to simply communicate with the hardware. Think of the Kernel liek the engine of a car.</p>
+<ol start="2" type="1">
+<li><strong>User Interface and Operating System Tools</strong></li>
+</ol>
+<p>All operating systems need a way for a user to interface with the kernel. This is where the Shell and User Applications come into play. The Shell is a way for you as the user to send commands to the operating system–which executes these commands through the kernel. Unix originally didn’t have a graphical user interface, its time of being developed in the 70’s precluded this. Once CRT monitors became prevelant the commandline shell became the standard interface. This allowed you to type commands direclty on a screen and see the results back–no paper involved. Eventually the <a href="https://en.wikipedia.org/wiki/X_Window_System">X Windows System</a> came along giving you the familiar desktop windows you are most likely used to, allowing for mouse and keyboard input. X Windows is the standard windowing toolkit that prety much all versions of Linux GUI build upon today.</p>
+<p>Operating System tools include simple tools you take for granted like copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, or redirect output from the screen to a file. All these tools and more are included in Unix as an operating system.</p>
+<p>User applications like a web browsers and email clients are seen as tools that are created by the user that just repurpose the existing Operating System tools and are built/installed by the user.</p>
+<ol start="3" type="1">
+<li><strong>Programming Language and Compiler Tools</strong></li>
+</ol>
+<p>In the modern GUI comuting world we are used to just clicking on .exe or .dmg files and off our installation of Chrome or Firefox goes. In the Unix world all software is built using the C language. You needed a compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything. Today most code is pre-compiled for you and you can use other languages, but in the early days of Unix and Linux a C Compiler was neccesary as you were building the kernel, operating system, and tooling from scratch.</p>
+<p><strong>Linux is the same as Unix but…</strong></p>
+<p>Linux on the otherhand is technically not a full operating system like Unix. It is actually just a kernel, and is missing all the other tools listed above, though you will hear people refer to it as an operating sysetm. Depending on your audience you need to know both facets. The Linux kernel plus someone elses User Interface and Operating System Tools and Programming Language and Compiler Tools and premade user applications makes up a Linux distribution or simply Linux distro. Every company and person can equally contribute to the Linux kernel and make their own distributions. Linux was built out of the Unix world, keeping all the same conventions and ideas from Unix but starting in a different place. I think a good analogy would be the American Colonies in 1776 - they thought of themselves as Europeans, they came out of Europe but yet were starting new in America.</p>
+<p><strong>Take away point</strong></p>
+<p>Who uses Linux today?</p>
+<ul>
+<li>Facebook</li>
+<li>RedHat</li>
+<li>Oracle</li>
+<li><a href="http://highscalability.com/google-architecture" title="You Tube Architecture">Google</a></li>
+<li>Amazon</li>
+<li>RedHat</li>
+<li>NYSE- <a href="https://en.wikipedia.org/wiki/New_York_Stock_Exchange">New York Stock Exchange</a></li>
+<li>CME - <a href="https://en.wikipedia.org/wiki/Chicago_Mercantile_Exchange">Chicago Mercantile Exhcange</a></li>
+<li>IBM</li>
+<li>Android</li>
+<li><a href="https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft" title="2009 submitted 12,00 Lines of Code to the Linux Kernel">Microsoft</a></li>
+<li><a href="http://highscalability.com/all-time-favorites/" title="Architectures">Pretty much every top website except Stackoverflow.com</a></li>
+</ul>
+<p>The question is not who uses Linux but the question should be when did you last use it? How did it get this way? Where did it come from? Ignore this part at your own peril, you will never understand Linux unless you understand UNIX at its core philosophies. Here we go.</p>
+<h3 id="thompson-ritchie-and-bell-labs">- Thompson, Ritchie, and Bell Labs</h3>
+<p>Many people supported and worked on what would become known as Unix but two names have received most of the credit for the creation, promotion, and use of Unix. <em><strong>Know these names.</strong></em></p>
+<p><strong>Ken Thompson and Dennis Ritchie</strong></p>
+<p><a title="See page for author [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AKen_n_dennis.jpg"><img width="256" alt="Ken n dennis" src="https://upload.wikimedia.org/wikipedia/commons/3/36/Ken_n_dennis.jpg"/></a></p>
+<p>Without Thompson and Ritchie, there would be no Unix and most likely no Linux today. Until recently both were hired as Distinguished Engineers at Google. Dennis Ritchie passed away in 2011. Ken Thompson is still working and recently help produce the [Go programming language](https://en.wikipedia.org/wiki/Go_(programming_language) from Google.</p>
+<p>To begin We need to go back to 1968. The Unix project got it start in something called MULTICS, which was an attempt to build a multi-user operating system. At the time, this combined all the brightest minds of General Electric, MIT, ARPA, and Bell Labs. Now today those aren’t names you think of when you think of computers. Yet in 1968/1969 General Electric and the government (ARPA) were the large funders and suppliers of computing (The PC market we know of today doesn’t come until 1984!).</p>
+<p>Bell Labs was basically the <em>“idea shop”</em> of the entire country - where the best and brightest went to invent everything we take for granted today. Bell Labs was spun off by AT&amp;T and became Lucent Technologies, which became Alcatel-Lucent and now is soon to be part of Nokia. One could argue that Google and Facebook have taken its place where the brightest minds go to invent new things in America. No wonder that Dennis Ritchie, Ken Thompson, Brian Kernighan and even James Gosling (creator of the Java programming language) are and were employees at Google.</p>
+<p>Like all projects that try to do to much, MULTICS stalled in gridlock between the different companies and the demands of the government. This left one crafty engineers with much free time and (for those days) a true rarity - unused copmuters; PDP-7s to be exact. Ken Thompson had an insiders view of the innovative things MULTICS was trying to accomplish and why the inner workings of the MULTICS project went wrong. Thompson also had a job to do as a Bell Labs researcher. On his own time and down time, he began to use these PDP7’s and program his own multi-user operating sysetm, but with a different twist. It was designed by him, and solved daily work and coding problems he had. This operating system and its tools was then a project to help him get his own work done more efficiently.</p>
+<p><strong>PDP7</strong></p>
+<p><a title="By en:User:Toresbe [CC SA 1.0 (http://creativecommons.org/licenses/sa/1.0/)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3APdp7-oslo-2005.jpeg"><img width="512" alt="Pdp7-oslo-2005" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pdp7-oslo-2005.jpeg/512px-Pdp7-oslo-2005.jpeg"/></a></p>
+<p>For this time, 1969-70, this is something radically new. Thompson had no idea that his pet work project was going to become part of a computing revolution. Where as MULTICS and other computer systems were designed by committees and based on marketable features–due to the nature of the up front financial investment, Unix was simple and easy to build because it solved only a small set of problems–which turned out to be the same problems every engineer had. The overall reason that Unix took hold was that it was designed by engineers to solve other problems that engineers were having–enabling them to get work done. This was pure genius and this is how Ken Thompson’s mind worked.</p>
+<p>Unix differences from existing commercial Operating Systems</p>
+<ul>
+<li>Written by Ken Thompson on his spare time</li>
+<li>No company owned it or committee designed it for commercial purposes</li>
+<li>Solved problems that engineers had</li>
+<li>Built by engineers</li>
+<li>Had a consistent design philosophy</li>
+<li>Designed to be portable and work on many hardware vendor platforms</li>
+</ul>
+<p>Thompson’s Unix success was also a by product of its main design philosophies:</p>
+<ul>
+<li>Everything is a file
+<ul>
+<li>This means that everything can be read from or written to: All the way from devices to text files</li>
+</ul></li>
+<li>Unix Portable – everything written in C</li>
+<li>Unix is a collection of small tools that do one and only one thing well
+<ul>
+<li>To build complex tools you chain input and output of tools together with <em>pipes</em> -&gt; “|”</li>
+</ul></li>
+<li>The only file format used in Unix is plain ASCII text
+<ul>
+<li>Yes, there are compiled binaries but you generally are not reading and writing directly to them</li>
+</ul></li>
+</ul>
+<p>Between 1970 and 1974 Unix grew in its maturity. And one of its crowning achienvements–its portability came to life. Unix was originally written in assembly lanugage for the PDP-7. It needed to be as low level code as possible because disk storage space was a HUGE premium in those days. This was good, but the problem with writting in low level assembly means that the code is optimized to only run on a PDP-7 system. Not on a PDP-11 or a DEC Vac, or an IBM 360, etc, etc. So what you gain in efficiency you lose in portablitiy. What good is Unix if it could only be used on a PDP 7? It would have stayed a Bell Labs pet project.</p>
+<p>While Thompson was builing Unix his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system, and then to be able to contribute additonal functionality. Enter Dennis Ritchie, who championed Ken Thompson’s Unix in Bell Labs. Ritchie was a computer language creator and saw the utility of Thompson’s Unix, but realized it was trapped in PDP7 assembler language. Today we take for granted high level lanugages like C, C++, Python, and Java. In the early 1970’s these did not exist. Ritchie’s initial work was on a high level language that could be built in order to compile and run the same code on two different operating systems. His initial work was on a [language called “B”](https://en.wikipedia.org/wiki/B_(programming_language “B Lanugage”) which was derived from a language called BCPL. B was designed to execute applications and operating system specific tasks but didn’t handle numeric data (a feature actually to save precious harddrive space). B was also missing many other features you would expect in modern programming languages.</p>
+<p>What happened was that Thompson and Ritchie went to work extending “B” with all the features they would need to make an operating system fully function and portable. They called this language surprsingly, “C” – the same “C” lanugage you know today. C was different from assembler in that is resembled assembler code syntx had a high enough level of abstraction that the “C” code was an independant language. With the advent of C - Unix was rewritten in this language. With the creation of C compilers for different hardware, Unix could now be built and be recomplied on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, SUN SPARC etc, etc.</p>
+<p><img src="images/hello-c.png" title="C language" alt="C Programming language Hello World!" /> <img src="images/hello-asm.png" title="Assembly Language" alt="Intel x86 Assembly code of Hello World!" /></p>
+<p>Since Ritchie created “C” to solve all the problems Unix had – it became the defacto lanuage of Unix and from that point on pretty much all operating systems are designed in “C” after Thompson and Rithie showed that you could use a high level lanuage to make Unix portable accross many platforms.</p>
+<p><strong>Brian Kernighan</strong></p>
+<p><a title="By Ben Lowe (https://www.flickr.com/photos/blowe/7984191331/) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ABrian_Kernighan_in_2012_at_Bell_Labs_1.jpg"><img width="256" alt="Brian Kernighan in 2012 at Bell Labs 1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Brian_Kernighan_in_2012_at_Bell_Labs_1.jpg/256px-Brian_Kernighan_in_2012_at_Bell_Labs_1.jpg"/></a></p>
+<p>Thompson didn’t have a name for his project initally, another realted figure, Brian Kernighan, can be credited with giving it the name UNIX. This was a play on words– MULTI vs UNI in the name. Kernighan also helped write the original C language text book along with Dennis Ritche (called K&amp;R C – some of you might have used when in school).</p>
+<p><strong>Unix Maturity</strong></p>
+<p>By 1974/75 Unix is growing in its maturity. Other Bell Labs divisions get wind of this and begin to request “tapes” for their own use. Tapes meant giant mounted magnetic tape reels that contained all the operating system installation code. By law AT&amp;T was prohibited from getting into the computer business so they could not turn this into a business. AT&amp;T left it curriously as Thompson and Ritchie’s pet project. Many Universities at this time–wanting to teach computing and operating systems began to request copies of Unix to teach in their Operating Systems classes. This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson. You sent him a letter, paid for shipping, and you got a reel within a week or so. Thompson had no concept of “ownership” and freely shared his project with anyone who was interested.</p>
+<p>In 1975 Ken Thompson took a sabbatical from Bell Labs and went back to his Alma Mater, Berkly, in California. Installing the Version 6 Unix Release. The students at Berkley loved Unix and started adding their own features to improve it to solve their own problems. One student in 1978, Bill Joy, added vi and the C Shell (two things still in use today in modern Linux) and started redistributing his “re-mix” of Unix called BSD (Berkely System Distrubition.)</p>
+<p>By 1980, with many copies of Thompson’s Unix now in circulation and nearly a decade of work you start to see fragmentation of the original Unix and many universities adding on their own customizations. Since the code was technically propriaary under AT&amp;T’s ownership - there was no way to contribute code back to the source. Unix starts to splinter. Another problem AT&amp;T had was that by the end of the 70’s all those students who had learned Unix in college went to work in corporations and began to request Unix be used on their hardware platforms at work. Unix was the only operating system of its type kind that could do this. Now AT&amp;T had a financial motive to commercialize Unix. By 1982 AT&amp;T released Unix System III, followed by System V in 1983, as a commerical product outside of Bell Labs for sale to commerical companies, while adding a multi-hundred dollar academic fee too. At this time the Berkley System Distribution of Unix was beginning to vary widly in functionality from commcerial AT&amp;T UNIX. You see derivates of Unix like SunOS and SCO Unix being released as commerical companies based of BSD Unix. With HP/UX and IBM AIX being based on AT&amp;T System V. The focus of Unix takes a dramatic shift now as the implementation portion is finished. Now the spoltlight moves to users and application creation. Enter Richard Mathhew Stallman, known also as RMS a researcher at the AI Labs at MIT who moves the discussion of software and <em>“software freedom”</em> into the spotlight.</p>
+<h3 id="richard-stallman-and-gnu">- Richard Stallman and GNU</h3>
+<p><a title="By Dkoukoul (Own work) [CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ARichard_Stallman_at_CommonsFest_Athens_2015_2.JPG"><img width="256" alt="Richard Stallman at CommonsFest Athens 2015 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG/256px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG"/></a></p>
+<p>Before beginning anything in dealing with Richard Stallman there is one critical concept you need to understand: “software freedom.” Often times you hear as a selling point that Linux is a good operating system to use because it is free – as in there is no cost. Stallman is not advocating about cost or the ability to charge money for software. This is a common confusion. He is advocating that the software itself is <em>“free”</em> as in freedom and that the user has the freedom to modify and or inspect its content and redistribute the original source. Ricahrd Stallman belives this is not a question of legality but of moral consequence and thereby will not use any non-free software period. When dealing with Stallman this is the fundamental fact you need to know.</p>
+<p>Ricahrd Stallman was a student and a researcher at MIT in the early 1980’s. He was part of what you would call today a hacker culture that was constantly researching and developling new tools and applications. As Richard Stallman progressed in his time at MIT he began to encounter events that he saw as counter intuative hacker culture that had been created at MIT by 1984. The spirit of Ken Thompson and the free and sharing culture of Unix was strong with these Jedi. Small things such as the addition of usernames and passwords on the school computer networks were seen as obstacles. Stallman saw the removal of the capability to modify a network printer’s firmware to send an email feature in case of a paper jam as well as the beginning of propriatary software lock in–hindering the ability of the users to inspect the code and improve it to serve their needs. By 1984 AT&amp;T began to withhold the source code of Unix and restric access of those in the academic world to be able to use the AT&amp;T source code. By 1983 Stallman began to argue that the users of the software’s freedom were being trampled on. Users were now beholden to the closed nature of the prodcuts they were using–even if they had paid for the software. Stallman saw this as more than an inconvienience and set about making it his life’s work to rectifiy this issue.</p>
+<p><strong>GNU Manifesto</strong></p>
+<p>A plan began to hatch in his mind. Since Unix was the popular operating system at the time Stallman would make a call, a manifesto, for his GNU project to basically reverse engineer all the funcitonality, capability, and tooling of Unix–<strong>BUT</strong> without the propriatary and restricitve licenses with the source code being freely shared.</p>
+<p>He felt strongly enough to announce the GNU project publicly in th fall of 1983, and to quit his job working in the MIT lab in 1984 to avoid conflict of interests and persue this work. Richard wrote his GNU manifesto stating his plans in Oct 3rd, 1985 and issuing a general call to arms in the <a href="http://www.gnu.org/gnu/manifesto.html" title="GNU Manifesto">GNU Manifesto.</a> Here is the opening paragraph from the manifesto.</p>
+<blockquote>
+<p><strong>Why I Must Write GNU</strong></p>
+</blockquote>
+<blockquote>
+<p><em>“I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way. I cannot in good conscience sign a nondisclosure agreement or a software license agreement. For years I worked within the Artificial Intelligence Lab to resist such tendencies and other inhospitalities, but eventually they had gone too far: I could not remain in an institution where such things are done for me against my will.”</em></p>
+<p><em>“So that I can continue to use computers without dishonor, I have decided to put together a sufficient body of free software so that I will be able to get along without any software that is not free. I have resigned from the AI Lab to deny MIT any legal excuse to prevent me from giving GNU away.”</em></p>
+</blockquote>
+<p>GNU is a recursive acronym meaning <em>“GNU’s not Unix.”</em> Stallman wanted to let people know his project was Unix like in fucntionality but not goverened by Unix’s restricitve licensing. His passion was to develop a fully free operating system so that everyone who could use a computer could have access to a <em>“free”</em> operating system. Stallman is a brilliant man who had the capability to build an OS from scratch, but the project became more than a one man job.</p>
+<p><strong>Free Software Foundation and GPL</strong></p>
+<p>In late 1985 the <a href="http://www.fsf.org/" title="FSF">FSF</a> – Free Software Foundation was formed to be the holder of all the intellectual property of the GNU project. By 1989 a new role for the FSF arose. Commercial entities were starting to take notice and corrupt the idea of free software and the FSF needed a way to protect their software freedoms. But how? Copyright was restrictive and would make the FSF no different from the commercial entities that restrict freedom. Public Domain offered no legally enforceable protections. So enter Copyleft–which is a hack on the term copyright in the form of the <a href="https://en.wikipedia.org/wiki/GNU_General_Public_License" title="GPL">GPL - GNU Public License.</a> It flips copyright over by basically saying, you need to freely distribute the source code of any project lisenced under GPL, you need to attribute where your source came from, and that you cannot restrict any of these rights to any future derivative work. Meaning that you cannot close source some open source code that is GPL’d. This is different from the <em>“permissive open source licenses”</em> BSD, MIT, and Apache licenses which can have derivative works closed source.</p>
+<p><strong>GNU HURD</strong></p>
+<p>All seemed to be going well. RMS started this work of creating a free Unix-like operating system. Since Unix was built upon the C programming Language, the first thing needed to build a kernel, a shell, and tools was a C compiler. This project was called GCC or GNU C Compiler which was an <em>“free”</em> version of the propriatary Unix AT&amp;T “cc” program or C Compiler. Next Stallman needed a text or screen editor to edit files and run his compiler tools to build software. In 1981 James Gosling has created the Gosling Emacs editor. James Gosling would later go on to create the Java programming language while at Sun in 1994. Stallman almost single handedly rewrote all of <a href="https://en.wikipedia.org/wiki/Gosling_Emacs" title="Gosling Stallman and Emacs">Goslings code in gmacs</a> to produce a <em>“free”</em> version of Emacs - now over 30 years old and still in use. The project continued on to now basic Operating System commands such as <a href="https://en.wikipedia.org/wiki/GNU_Project" title="Commands">ls, grep, awk, make and ld.</a> Eventually an entire “zoo” of projects were created and are listed and described here: <a href="http://www.gnu.org/manual/blurbs.html">other GNU tools</a> were added by contributers and volunteers. They did remarkably well and had reverse engineered and in some cases improved the components of Unix by 1991 (8 years of work). They built everything except 1 critial piece… they didn’t have a kernel for their operating system. Turns out that writing a kernel is much harder than it looks.</p>
+<p>A project was started called <a href="http://www.gnu.org/software/hurd/" title="GNU Hurd">GNU Hurd</a> to be the kernel for the GNU operating system in 1985. The term GNU Hurd is also another clever recursive hack. Since GNU has a double meaning. There is a <a href="https://en.wikipedia.org/wiki/Wildebeest" title="GNU">large goat like animal called a gnu</a>, which lives in herds that roam the plains of Africa. The name HURD came from the idea of a herd of animals and the fact that the design of the GNU Kernel would be a “herd” of small micro-processes comminicating together. It seems that GNU hackers really loved cleaver hacks. It it something that you have to get used to in opensource as the spirit of bad puns and clever hacks has carried on to this day.</p>
+<p>Hurd made some false starts in its initial micro-kernel development phase causing multiple versions to be created and scrapped. What they were trying to do was really innovative but really complicated to have it work reliably. In retrospect HURD was never finished. By 1998 The GNU project had all but stopped active development and promotion of GNU HURD as the kernel for its free operating system. The GNU project realized that the Linux Kernel had accomplished what GNU was trying to do in a matter of 4 years and in a more clever way.</p>
+<p>GNU HURD is currently in a usable alpha stage <a href="http://www.gnu.org/software/hurd/" title="GNU HURD Download">and downloadable today</a> by joining it with the Debian Linux distribution applications–all GPL approved mind you. Instead recommends the Linux kernel instead. In someways this was the realization of Stallman’s dream and yet someways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel. By 1991 the Linux kernel pops onto the scene and we have another little revolution in the free and open computing world. Thompson -&gt; Stallman -&gt; Torvalds.</p>
+<h3 id="minix-linus-torvalds-and-linux">- Minix, Linus Torvalds, and Linux</h3>
+<p><strong>Minix</strong></p>
+<p>Before we talk about the Linux kernel, we need to talk about the Minix operating system. With the closing off of the AT&amp;T Unix source code by 1984 to academics and researchers in the university - they were left without source to show as examples. One professor <a href="http://www.cs.vu.nl/~ast/" title="Tanebaum&#39;s website">Andrew S. Tanenbaum</a> teaching at Vrije Universiteit in Amsterdam - began to write and implement his own Unix-like operating system but only for teaching and demonstroation purposes. It was 12,000 linees of C code and system call compatible with commerical Unix. The name <a href="http://www.minix3.org/" title="Minix 3 website">Minix</a> was a combination of “minimal” and “Unix.” Minix 1.0 and 1.5 were released in 1987 and 1991 respectively with the original purpose as only a teaching tool. Minix 1.0 and 1.5 were freely avaialable to anyone as the source code came in the appendix to a text book about operating systems written by Tanenbaum in 1987. Minix was designed to run initall on older x86 Intel processors and in version 1.5 Sun Sparc processors. These were common desktop stations in use at the university at that time. Any enterprising student could find and old 8086 PC or old Sun Sparc Station to run it on. The source code for Minix 3 is currently available in a <a href="http://git.minix3.org/index.cgi" title="Minix git">git repository</a> and is still being developed and researched. In 1991 many people believed that Minix could have been a viable alternative to commercial Unix and become the still missing GNU Hurd kernel. But the Minix creator, Professor Tanenbaum, was not interested in moving into this space and the code was no where near as mature as the Unix code base, which by 1991 had been in existance for almost 20 years! Minix appears on the radar but was not the missing piece to the GNU puzzle.</p>
+<p><a title="By GerardM (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY 2.5 (http://creativecommons.org/licenses/by/2.5)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AAndrewTanenbaum.JPG"><img width="256" alt="AndrewTanenbaum" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/AndrewTanenbaum.JPG"/></a></p>
+<p>Professor Andrew S. Tanenbaum</p>
+<p><strong>Linux</strong></p>
+<p><a title="By Krd (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinuxCon_Europe_Linus_Torvalds_03.jpg"><img width="256" alt="LinuxCon Europe Linus Torvalds 03" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/256px-LinuxCon_Europe_Linus_Torvalds_03.jpg"/></a></p>
+<p><strong>Linus Torvalds</strong></p>
+<p>The Linux kernel comes to us from a graduate student named Linus Torvalds who developed it while at the University of Helsinki in Finland in 1991. As a student Torvalds was using Unix on the universities Sun Sparc Stations. He was not pleased with SunOS but felt it was the best of the commercial Unixes. His real dream was to set out to run his own Unix like operating system on his own personal PC. He had recently purchased an Intel x386 processor based desktop PC. Linus tried Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement. In a fashion not unlike Ken Thompson, Tovalds set out in the early part of 1991 deciding to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn’t Minix.</p>
+<p>This was very impressive feat for a single person. Torvalds himself acknowledged that if GNU Hurd had been ready or if at this time AT&amp;T hadn’t been suing BSD, he would have re-used their kernel work and not built his own. By August 25th of 1991 the initial release of the Linux kernel was posted online. The quote from the beginning of the chapter was the basis of the initial post to Minix Usenet Newsgroup-(Bulletin board like precursor to the actual Internet - like Google Groups – today you would use twitter). His initial work was not quite a full fledged system but really just a small kernel, a user shell (GNU Bash), a C Compiler (GCC) but it was like a crack in a damn - it would only get wider and bigger.</p>
+<p>By September of 1991 Linux kernel version 0.1 has been posted to the University of Helsinki FTP servers for public download. By Feburary of 1992 Linux 0.12 kernel had been released. At that time Linus decided to give the project a real license for its use. Having seen Richard Stallman speak at the University of Helsinki a few years back, Linus was inspried and dedided to release the Linus Kernel under the GPL license. This was the smartest thing anyone could have done. Can you see the connection to the GNU project? The reason we Linux is so popular is because of this fledgling kernel that worked enough for people to use, hack on, and build upon now had a governance structure that could accept code contributions and be avaiulable for commerical work as well. Being GPL the Linux kernel was instantly compatible with all of the entire GNU project’s tools base. You instantly had the kernel that GNU was missing and the Linux kernel had all the tools and applications ready to be used.</p>
+<p>People began downloading and compiling his kernel, adding GNU tools, and making a fully capable UNix-like operating systems. Linus’ brilliance comes not from ingenuety but comes from good engineering pricipals of knowing when not to go down dead-end developenent trails. Torvalds work was not perfect but was good enough that others could take it and start to use it and improve it. From 1992 to 2001 Linux grew rapidly in size and features and spawned commercial companies to sell and support Linux Distributions. Stallman’s dream was being realized.</p>
+<p>There should have been cause for great celebration with Linux and GNU coming together. The FSF saw this as a victory for GNU and began calling the system GNU/Linux hoping that the FSF and free software would get the recognition it deserved. But Linus Torvalds didn’t see it that way. He has a unique personality–perhaps a bit arrogant. He just ignored the FSF’s requests and people referred to what should have been GNU/Linux as just Linus, leaving the GNU part out even though all of their tooling is what made Linux possible. This is a spot of contention with the FSF.</p>
+<p>Linux Kernel unique attributes recap:</p>
+<ul>
+<li>Developed to solve one person’s problem of wanting his own Unix liek OS</li>
+<li>Released often</li>
+<li>Accpeted contributions back</li>
+<li>Released freely and protected by GPL license</li>
+<li>Used existing GNU tools - no need to reinvent the wheel</li>
+</ul>
+<p><strong>Personality</strong></p>
+<p>Linus Torvalds has a renowned personality. Some people thing it is a schtick or a comedy persona he puts on. But he is very uncaring in relating to others and can be really mean and agressivly mean spirited to those who he has disagreemtns. When approached about this Linus states that he only cares about the kernel and no one else matters to him. These links below provide some points and counter points about Linus.</p>
+<ul>
+<li><a href="http://www.wired.com/2013/07/linus-torvalds-right-to-offend/" title="rights">Torvald’s right to offend</a></li>
+<li><a href="http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/" title="Doesn&#39;t care">Torvald doesn’t care</a></li>
+<li><a href="http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/" title="Response">Linus response to previous article</a></li>
+</ul>
+<p><strong>AT&amp;T and BSD Lawsuit</strong></p>
+<p>From August of 1991 to Feburary of 1992 there was a rush of interest in Linux development? But where did all these develoeprs come from? Remember the Berkley System Unix Distribution? In the late 80’s and now 1990s its development had been flourishing. It began to support features that not even AT&amp;T’s Unix had. BSD was such alarge project through that not all of the original code that was given the Berkly under acadmeic license had been reqritten. AT&amp;T found its code in BSD Unix and took them to court. In early 1992 there was a court order development injunction preventing work from being done on BSD Unix. This was just the time that Linux kernel development, covered by GPL now, so there was no licensing encumberment, devlopment flourished. By the time the lawsuit was finished in late 1993/1994 it was too late. The Linux rocket had left the launch pad and was never coming back.</p>
+<h3 id="free-software-vs.open-source-software">- Free Software vs. Open Source Software</h3>
+<p>By the year 1998 a new idea in the <em>“Free Spftare”</em> movement was rising. The long expected GNU HURD kernel never arrived, being replaced by Linux. You also begant to see a corporate interset in opensource. With all the best intentions the term <em>“free”</em> in free software had an overriding air of being only about cost. Many commercial entities were simply not interested or afraid because they were concerned about loosing the chance to make money or retain rights over programs they created. Some developers seeing a chance to promote the quality and community to the larger commercial markert. These developers did not hold with the FSF’s moral stance on free software as the ultimate argument in free software adoption. Instead they compared open development and open code as superior in quality and cost in cost reduction to closed source development. They beleived opensource was a business process decision and not a moral decision. Enter Eric S. Raymond.</p>
+<p><strong>Eric S. Raymond</strong></p>
+<p><a title="By Erc_S_Raymond_and_company.jpg: jerone2 derivative work: Bilby (Erc_S_Raymond_and_company.jpg) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AEric_S_Raymond_portrait.jpg"><img width="256" alt="Eric S Raymond portrait" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eric_S_Raymond_portrait.jpg/256px-Eric_S_Raymond_portrait.jpg"/></a></p>
+<p>Eric S. Raymond is another developer considered a peer along with Ricahrd Stallman. Eric was one of the first to embrace the Free Software idea and promote using free software. He was so convinced by the free softeare and the open development method that took place with Linux that he penned a seminal paper that was later reprinted called, <strong>“The Cathedral and the Bazaar.”</strong></p>
+<p>His main point was that by usual business practices - Linux should have been a massive failure and poorly implemented experiment. But instead it was an unprecendented success. His article examined why this is the case. His conclusion was that the open source code and open design methodology treating your user as a valued resource was vital to opensource project success. Based on this Raymond and <a href="https://en.wikipedia.org/wiki/Bruce_Perens" title="Bruce Perens">Bruce Perens</a> founded the <a href="http://opensource.org/" title="OSI">Open Source Initiative (OSI).</a> Their goal was to promote free software but instead of focusing on the moral issus they focused on the desgin principals as producing superior software. A quote from Raymond puts his opinion bluntly;</p>
+<blockquote>
+<p><em>As head of the Open Source Initiative, he argued that advocates should focus on the potential for better products. The “very seductive” moral and ethical rhetoric of Richard Stallman and the Free Software Foundation fails, he said, “not because his principles are wrong, but because that kind of language … simply does not persuade anybody”.</em> <a href="https://en.wikipedia.org/wiki/Eric_S._Raymond#Open_source" title="Quote">Eric S. Raymond</a></p>
+</blockquote>
+<p>The “Catherdral and the Bazaar” was also influential in helping the Netscape Corporation opensource their Netscape Web Browser code as the company went bankrupt under the name of the Mozilla project. This code gave rise to what would eventually become the Firefox web browser in 2002–thanks to Raymond’s writings. The OSI was willing to make freedom compromises in order to make larger productivity gains with opensource software. The FSF will not compromise. Richard Stallman fired back in his article <a href="http://www.gnu.org/philosophy/open-source-misses-the-point.html" title="Open Source Misses the Point">Open Source Misses the Point</a> The terms do overlap Free Software and Open Source but ultiamtely have two divergent meanings. There has been some compromise in the naming [FLOSS, Free Libre and Open Source Software] (https://en.wikipedia.org/wiki/Free_software_movement “FLOSS”), Free and Libre Open Source Software – but the FSF rejects any licensing that allows a user to restrict the use of “freedom” Code. One arguemtn would be the existance of <a href="https://en.wikipedia.org/wiki/Digital_rights_management" title="DRM">DRM</a> software. The OSI group would not be opposed to push for open sourced DRM software. But the FSF would be opposed to the entire concept of DRM–which is a tool they believe for restricting a users freedom.</p>
+<p>You can read Raymond’s two seminal books on Unix and Open Source philosophy online online as they are free:</p>
+<ul>
+<li><a href="http://www.catb.org/~esr/writings/taouu/html/" title="Book link">The Art of Unix Usability</a></li>
+<li><a href="http://www.catb.org/~esr/writings/cathedral-bazaar/" title="CatB">The Cathedral and the Bazaar</a></li>
+</ul>
+<p><strong>Linux makes you rich</strong></p>
+<p>As the 1990’s went along we began to see eastablished companies adopting and using Linux. as well as the rise of commercial Linux companies. Of all the companies that started at that time RedHat Linux is and was the most successful. Most of all of the Linux distribtions started pre-2003 no longer exist or are not commercially viable. To illustrate this, today (August 10th 2015) RedHat Linux has a market cap of <a href="http://ycharts.com/companies/RHT/market_cap" title="RedHat Market Cap">~14 billion dollars.</a></p>
+<h3 id="the-rise-of-commercial-linux-and-modern-linux-distros">- The Rise of Commercial Linux and Modern Linux Distros</h3>
+<p>As the nature of Linux grew and corporations become more invovled in kernel development, the value proposition of Linux begans to grow as well. The combination of the Linux kernel and the GNU tools, plus GUI tools became known a Linux distribution - which anyone could freely make. The shortname became known as a Linux <em>distro.</em> Another term to be aware of is a there are different flavors, derivatives, or spins of Linux Distributions.</p>
+<p>After almost 20 years of Linux we can think of the distributions mainly hailing from two distinct families: Debian and RedHat. There are many other quality distributions of Linux that I don’t want to leave out or paint in a bad light. For the purposes of this book I will focus on the two main distributions. You can find almost all known Linux distributions at <a href="http://distrowatch.com/" title="Distro Watch">http://distrowatch.com</a></p>
+<ul>
+<li><a href="http://www.slackware.com/info/" title="Slackware">Slackware</a></li>
+<li><a href="https://www.gentoo.org/get-started/about/" title="Gentoo Linux">Gentoo Linux</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SUSE_Linux_distributions" title="SUSE Linux">SUSE Linux</a></li>
+<li><a href="https://www.kali.org/" title="Kali Linux">Kali Linux</a> - Hacking tool based Debian spin</li>
+<li><a href="http://antix.mepis.org/index.php?title=Main_Page" title="antiX">antiX Linux</a> - lightwight Debian derivative focused on old machines.</li>
+<li><a href="https://www.archlinux.org/" title="Arch Linux">Arch Linux</a></li>
+<li><a href="https://tails.boum.org/" title="Tails Linux">Tails Linux</a> - Online security focused Linux distro - debian spin</li>
+<li><a href="http://lxle.net/" title="LXDE">LXDE</a> - lightweight system focusing on reinvigorating older laptops.</li>
+<li>and many more…</li>
+</ul>
+<p><strong>Debian Family</strong></p>
+<p><a title="By Ilya Schurov , Computerra Weekly (originally posted to Flickr as 9722_00_23_14) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AIanMurdock.jpg"><img width="256" alt="IanMurdock" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/IanMurdock.jpg/256px-IanMurdock.jpg"/></a></p>
+<blockquote>
+<p><em>“I founded Debian in 1993. Debian was one of the first Linux distributions and also one of the most successful and influential open source projects ever launched. Debian pioneered a number of ideas commonplace today, including employing an open community that allowed (and encouraged!) anyone to contribute (much like how Wikipedia would later operate). And, with its integrated software repositories anyone could contribute to, Debian arguably had the industry’s first (albeit primitive) “App Store”. Today, more than 1,000 people are involved in Debian development, and there are millions of Debian users worldwide.”</em> - <a href="http://ianmurdock.com" class="uri">http://ianmurdock.com</a></p>
+</blockquote>
+<p>The Debian family contains 3 major sub-families:</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Debian-OpenLogo.svg/109px-Debian-OpenLogo.svg.png" title="Debian Logo" alt="Debian Logo" /><figcaption>Debian Logo</figcaption>
+</figure>
+<p><strong>Debian Linux</strong></p>
+<p>The Debian distribution (pronounced deb-ian) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercial company backed Linux. The current release is Debian 8.1 codenamed Jessie, June 2015. The Debian project and its history can be found at <a href="https://www.debian.org/intro/about">http://debian.org</a> and <a href="https://www.debian.org/doc/manuals/project-history">history of Debian.</a></p>
+<p>There are <a href="http://distrowatch.com/search.php?ostype=All&amp;category=All&amp;origin=All&amp;basedon=Debian&amp;notbasedon=None&amp;desktop=All&amp;architecture=All&amp;status=Active" title="Debian based distros">currently 128 major Debian based distros</a> according to distrowatch.com.</p>
+<p>These are the main points of Debian and the key I believe to their long term success and usage accross the Linux landscape:</p>
+<ul>
+<li>Initial release scheudle was yearly but as Debian project has grown now is two year release schedule</li>
+<li>Releases are named after charactrers from the Toy Story movie.<br />
+</li>
+<li>It is the only major distribution not backed by a corporation.<br />
+</li>
+<li>All volunteer project and organization – project leader is elected on a rotating basis</li>
+<li>Dedicated to protecting software rights and freedoms of users</li>
+<li>First major distribution to come with a <a href="https://www.debian.org/social_contract" title="Contract">Software contract</a> - of what the project will guarantee to the user.</li>
+<li>Debian supports free and open source software as superior to closed source but will allow for closed source software/drivers to be installed by the user.</li>
+<li>Supported st various times 11 different processor types giving it a wide install base.</li>
+</ul>
+<p><a title="By Macguy314 (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AUbuntu_logo_copyleft_1.svg"><img width="256" alt="Ubuntu logo copyleft 1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Ubuntu_logo_copyleft_1.svg/256px-Ubuntu_logo_copyleft_1.svg.png"/></a></p>
+<p><strong>Ubuntu</strong></p>
+<p>Ubuntu Linux is a unique distribution. It is entirely based on Debian. It is Debian repackaged with a focus on applications “just working.” Around 2004 Mark Shuttleworth, the founder of Ubuntu, was unnerved that Windows had such a domination of the PC market. He had been a Debian developer, but felt that the partial lack of a corporate sponsor in some ways hindered Debian from catching the marketshare from Windows. He set out to make a Debian based distro called Ubuntu. This is a Zulu word for <em>“community”</em> as Shuttleworth wanted Linux to be people friendly and work really well out of the box–like Windows.</p>
+<p>By 2004 RedHat, who had owned the desktop Linux market realized that there was little money to be made in that market so they abandoned it decideing to focus on the enterprise market. This left a void that Ubuntu rushed to fill and they did it well. By 2005, Mark Shuttleworth who had started the Thwate SSL security company which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintainance of Ubuntu Linux.</p>
+<p><a href="https://en.wikipedia.org/wiki/Mark_Shuttleworth">Mark Shuttleworth</a></p>
+<p><a title="By Martin Schmitt (cropped by Mary Gardiner) (http://www.flickr.com/photos/foobarbaz/141522112/) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AMark_Shuttleworth_by_Martin_Schmitt.jpg"><img width="128" alt="Mark Shuttleworth by Martin Schmitt" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Mark_Shuttleworth_by_Martin_Schmitt.jpg/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg"/></a></p>
+<p>What made Ubuntu so succesful was tha they forked the opensource work of rock-solid Debian but built on top of it adding in closed source code and user centered features where neccesary in order to make the best experience. They had business in mind and have indeed captured the desktop Linux market. But one problem is they haven’t found a way to make much money off of their excellent product. Ubuntu is basically “living” off of the initial 10 million dollar investment of Mark Shuttleworth. Shuttleworth formed a commercial company called <a href="http://www.canonical.com/" title="Cannonical">Canonical</a> was formed to handle commercial support and hires the developers who work on Ubunutu.</p>
+<p>Ubuntu pioneered the idea of rolling releases - releasing every 6 months compared to Microsoft doing 3 to 5 years. Each distribution is released in late April and late October so there are two distrubutions per year. Ubuntu also introduced the concept of an LTS, Long Term Support - this means that certain releases will have security pathces, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and have the stability you need. These LTS releases happen every even year and in the April distribution. So Ubuntu 10.04, 12.04, 14.04, 16.04, and so forth. (the first number being the year.)</p>
+<p><a title="By Clement Lefebvre [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg"><img width="256" alt="Linux Mint logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Linux_Mint_logo_and_wordmark.svg/256px-Linux_Mint_logo_and_wordmark.svg.png"/></a></p>
+<p><strong>Linux Mint</strong></p>
+<p>Linux Mint started also in 2006 as a fork of the Ubuntu project but with a different desktop interface. Linux Mint focused foremost on the user and desktop experience out of the box adding multimedia codecs for playback of audio and video directly to the install (see Flash). Linux Mint is even more user experience focused than Ubuntu and is one of the most popular Ubuntu based distros.</p>
+<p><strong>Devuan Logo Here</strong></p>
+<p><strong>Devuan Linux</strong></p>
+<p><a href="http://www.devuan.org" title="Devuan">Devuan Linux Project</a> (Pronounced <em>Dev-one</em>) is a fork of the entire Debian project - not just a Debian based distro. This is a result of a “Debian Civil War” with half of the Debian developers leaving in the Debian project in the beginning of 2015 to begin this distrobution from scratch. It is a direct fork with fundamental changes to the core operating system. Other distros change application look and feel but to change the core operating system is a monumental task. The state of the OS is in late Alpha or early beta as of August 2015 with vm images availalbe for download. We will talk about this more in detail under the topic “LInux Civil War” later in this chapter.</p>
+<p>Some of the other notable Debian/Ubuntu based distros are as follows:</p>
+<ul>
+<li>Lubuntu</li>
+<li>Xubuntu</li>
+<li><a href="http://www.kubuntu.org/" title="Kubuntu">Kubuntu</a> Uubntu remixed with the KDE desktop Environemnt</li>
+<li><a href="http://store.steampowered.com/steamos" title="SteamOS">SteamOS</a> Steam onlien gaming companies official Linux distro</li>
+<li><a href="http://distrowatch.com/ubuntukylin" title="Kylin Linux">Kylin Linux</a> Ubuntu Distro designed for Mandarin Chinese as opposed to English.</li>
+<li>[Raspian])http://www.raspbian.org/ “Raspian”) This is a Debian based distro that is standard recommeded for the Raspberry Pi.</li>
+<li><a href="http://gnewsense.org" title="gNewSense">gNewSense</a> &lt;- GNU/Linux FSF recommended distro, entirely GPL compliant software.</li>
+</ul>
+<p><strong>RedHat Family</strong></p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png" alt="RHEL" /><figcaption>RHEL</figcaption>
+</figure>
+<p>RedHat Linux was formed shortly after teh Debian project launched in 1995 Marc Ewing and Bob Young. It was one of the first commercial Linux companies and one of the few to survive to the modern day independant of an existing company. RedHat source code is currently shared accross three main distributions: Fedora, RHEL (RedHat Enterprise Linux), and CentOS.</p>
+<p>You can read more about RedHat from their website:</p>
+<ul>
+<li><a href="http://www.redhat.com/en/about/company">About</a></li>
+<li><a href="http://www.redhat.com/infographics/corporate/data/" title="RedHat History">Red Hat History</a></li>
+</ul>
+<p><a title="See page for author [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg"><img width="256" alt="Fedora logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fedora_logo_and_wordmark.svg/256px-Fedora_logo_and_wordmark.svg.png"/></a></p>
+<p><a href="https://getfedora.org/" title="Get Fedora">Fedora Project</a></p>
+<p>The <a href="https://en.wikipedia.org/wiki/Fedora_Project" title="Fedora Project">Fedora Project</a> was started in 2003 when the Red Hat Desktop Linux product was merged with the comapny/community based spin off Fedora Core Linux. The Fedora project’s focus was rapid development and rapid release. They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable but from Red Hat’s point of view outdated software. Remember their focus was rapid iteration of the project to quickly test new technologies.</p>
+<p>For example Fedora 22 was released on XYZ date, Fedora 21 was released ABC, and Fedora 20 was released DDD but is not suppoprted anymore - even though it was only realed a short while ago! Why so fast and so merciless on not supporting older versions? With this concept they would not have to without having to worry about legacy applications. This distribution was meant for desktop users and developers who don’t mind updating rapidly. The reason for this iteration is that the Fedora Project is really jsut a testing ground for technology that will eventually go into Red Hat’s enterprise project, referred to as RHEL.</p>
+<p>Currently there are <a href="http://distrowatch.com/search.php?ostype=All&amp;category=All&amp;origin=All&amp;basedon=Fedora&amp;notbasedon=None&amp;desktop=All&amp;architecture=All&amp;package=All&amp;status=Active">25 Fedora based distros</a> or Fedora calls them <em>“spins”</em> – this term is unique to Fedora.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/93px-RedHat.svg.png" alt="RHEL" /><figcaption>RHEL</figcaption>
+</figure>
+<p><strong>RHEL</strong></p>
+<p>RedHat began to see the opportunity to create a Linux distro targeting enterprises and make money using opensource at the time. A big market that was practically cornered by two companies were Java based applications and database servers - MySQL or Orcale. These markets had been the domain of Sun and its Unix based Solaris Operating System for years, as well as Microsoft runnning Oracle on Windows. RHEL could enter that market, running the same applications, and do it on cheaper Intel x86 based boxes. With Oracle announcing it would port its products to RHEL, this platform became to the go to choice as the alternative against Microsoft and helped put Sun and Solaris basically out of business. The acronym stands for RedHat Enterprise Linux.</p>
+<p>The key to RHEL’s success in the enterprise is its long term stasbility. Much like the version of Windows Servers it competes with - the applciation platform is expected to run for 5+ years. A enterprise grade server product cannot be changing every six months like the Fedora project. RedHat instead takes “snapshots” from Fedora and freezes them in time. As of today (August 13th 2015) the current version of RHEL is 7.1 which is a freeze of the technology point in Fedora 19, whihc was released July of 2013. This way the developers get to know the platform and software versions that will be maintained and supported long term. How succesful is this strategy? By 2012 they became the first Linux based company to make a billion dollars in a physical year. But this success brought about a serious opensource question, if you have a successful prodcut like RHEL, since you are using GPL based opensource code–you have to opensource your code–that means anyone else can redistribute your code freely, in theory eating your lunch.</p>
+<p><a title="By CentOS Project (http://wiki.centos.org/ArtWork/Logo/Type) [GPL (http://www.gnu.org/licenses/gpl.html) or Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ACentOS_Logotype.png"><img width="256" alt="CentOS Logotype" src="https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png"/></a></p>
+<p><strong>Centos</strong></p>
+<p>By 2004 many people began to see the utility and success of RedHat Linux, and being opensource they began to fork the code and make their own distributions. CentOS is one of them. By 2010 they emerged as one of the two remaining RHEL derivatives. Their developers, like Debian, are entirely volunteer based and not backed by a company. Their motive was to take the solidness of RHEL and just update a few features and add more modern software packages sooner then the 5 year RHEL cycle. Initially RedHat didn’t support CentOS–taking them to court numerous times, as CentOS had not removed all of RedHat’s trademarked logos in all the code. Eventually all of RedHat’s copyrighted material was removed and CentOS has a leagal copy of RHEL to redistribute and use. This made RedHat angry as they were loosing sales to enterprises using CentOS insteaf of RHEL. By 2014, RedHat and Centos came to terms to work together–with RedHat offering to sell support contracts to CentOS users. Is CentOS doing anything illegal? Not according to the GPL and the spirit of opensource, but it does bring up the financial issue again.</p>
+<p><strong>Oracle Linux</strong></p>
+<p><a href="https://en.wikipedia.org/wiki/Oracle_Linux" title="Oracle Linux">Oracle Linux</a></p>
+<p>Did you think that Oracle would allow their logo to be displayed under an open license? Not to be out done. Oracle who saw that many of their customers were paying RedHat for operating systems licenses, buying support contracts, and then running their database on top of it wanted a piece of the action. Oracle now owns Java–which is the primary tool used to interface with all the Oracle and its suppoprting products. Oracle made a fork of RHEL’s opensource code and placed their logos, Oracle specific tools, and made their own software tweaks in this fork and called it Oracle Linux.</p>
+<p><a href="https://en.wikipedia.org/wiki/Oracle_Linux">Oracle Linux</a> was born in 2007 and is a fully GPL compliant OS. Oracle claims that their <em>“Unbreakable Enterprise Kernel”</em> is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can install and run unchanged. One may ask, isn’t this illegal? Is Oracle breaking the law? Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat’s created software–this is the nature of the GPL license.</p>
+<p><strong>Unix and the BSD Family</strong></p>
+<p>While Linux was exploding in the mid 1990’s the AT&amp;T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix. Unfortunately the BSD code splintered into 4 main distros pulling the already thin developer group that hadn’t shifted to Linux development, even thinner.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/320px-Freebsd_logo.svg.png" alt="FreeBSD" /><figcaption>FreeBSD</figcaption>
+</figure>
+<ul>
+<li>Released in November 1994</li>
+<li>Essentially the inheriter of the BSD code base and the largest BSD implementation.<br />
+</li>
+<li>Leagally prohibitted from using the term <em>“Unix”</em> as outcome of AT&amp;T lawsuit.</li>
+</ul>
+<figure>
+<img src="http://www.dragonflybsd.org/images/FullLogo.gif" alt="DragonFly BSD" /><figcaption>DragonFly BSD</figcaption>
+</figure>
+<ul>
+<li>Fork of FreeBSD in April of 2005 by Matthew Dillon.</li>
+<li>Focused on unique techniques in handling mutliprocessing in the FreeBSD kernel</li>
+<li>Introduced a new filesystem called HAMMER and HAMMER2</li>
+</ul>
+<p><strong>PC-BSD</strong> * FreeBSD based distro with a focus on user interface and experience. * Provides friendly installers and package managers for users</p>
+<p><strong>Ghost BSD</strong> * Does something…</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/307px-NetBSD.svg.png" alt="NetBSD" /><figcaption>NetBSD</figcaption>
+</figure>
+<ul>
+<li>Released October of 1994 as another version of the BSD code after the lawsuit.</li>
+<li>Focuses on portability to run this OS on nearly every platform you can think of.</li>
+</ul>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/320px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png" alt="OpenBSD" /><figcaption>OpenBSD</figcaption>
+</figure>
+<ul>
+<li>Fork of NetBSD lead by Theo de Raadt end of 1995</li>
+<li>Founded by Theo de Raadt</li>
+<li>Theo was banned from NetBSD in 1994.</li>
+<li>He complained that they were developing too slow and not focusing on security.</li>
+<li>OpenSSH comes out of this project.
+<ul>
+<li><a href="http://undeadly.org/cgi?action=article&amp;sid=20150708134520">Microsoft recently became the first “gold sponsor” of the project</a></li>
+<li>Recognizing the standard of SSH (secure shell) they are moving to port and integrate SSH natively to Windows.</li>
+</ul></li>
+<li>Project is focused on radical implementations of security and safe coding practices–leveraging itself as the most sercure OS.</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/MINIX_3" title="Minix 3">Minix 3</a></p>
+<ul>
+<li>Released October of 2005</li>
+<li>Since then the OS went from a teaching tool to a product being used commercially.<br />
+</li>
+<li>Began using NetBSD user space applications to give it a GUI and make it a viable commercial product.</li>
+</ul>
+<p><strong>Open Solaris / Open Indiana / Smart OS</strong></p>
+<p><a title="By openindiana.org [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AOpenIndiana_logo_large.svg"><img width="256" alt="OpenIndiana logo large" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/OpenIndiana_logo_large.svg/256px-OpenIndiana_logo_large.svg.png"/></a></p>
+<p>Open Solaris</p>
+<p><a title="By Sun Microsystems (OpenSolaris) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AOpenSolaris_Logo.svg"><img width="128" alt="OpenSolaris Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/OpenSolaris_Logo.svg/128px-OpenSolaris_Logo.svg.png"/></a></p>
+<p>Joyent</p>
+<p><a title="By Joylent (uploaded by (Lamro@enwiki) [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AJoyent-logo.png"><img width="256" alt="Joyent-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Joyent-logo.png/256px-Joyent-logo.png"/></a></p>
+<p><a href="https://smartos.org/" title="SmartOS">SmartOS</a></p>
+<ul>
+<li>In 2006 Sun had experiemented with creating and opensource user based distro from their Unix based Solaris OS</li>
+<li>They hired Ian Murdock (the guy who started Debian) to oversee this project</li>
+<li>Project was called Open Solaris but was killed when Oracle purchased Sun in 200X</li>
+<li>The resulting codebased was forked and turned into a project called Lumios</li>
+<li>Currently their is a competing Open Solaris based distro called Smart OS which is produced by Joyent
+<ul>
+<li>Combines the best of the BSD underpinnings but runs the best of Linux based desktop applications and software</li>
+</ul></li>
+</ul>
+<h3 id="impending-linux-civil-war">- Impending Linux Civil War</h3>
+<p><a title="By Kushal Das (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALennart_poettering.jpg"><img width="256" alt="Lennart poettering" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lennart_poettering.jpg/256px-Lennart_poettering.jpg"/></a></p>
+<p><strong>Lennart Poettering</strong></p>
+<p>Not since Linux Torvalds has a man been so loved or reviled in the Linux community. Lennart is a name you need to know as well. He is currently a developer for Red Hat and having worked on many open source proejcts. His current project is systemd. Systemd is a replacement for the traditional SysVInit program that started all of the Operating Systems process upon boot.</p>
+<p>Poeterring has angered many people by breaking certain Unix traditions and conventions in the name of speed and features. The Unix philosophy of having little programs do one thing well goes right out the window. Poetering argues that philosophy is a byproduct of an era where computing was slow and disk space was precious. If Linux wants to be taken serious like Mac and Windows–it needs to think like Mac and Windows. Poeterring is young and wants to push the development of the operating system of Linux forward rapidly.</p>
+<p>The other major point of contention is with all the changes in systemd to the boot process, many other pieces of software need to change as well. Linux has always been about choice but the GNOME desktop developers have chosen to hard integrate with systemd. Meaning that if you operating system uses systemd instead of SysVInit - then you m,ay very well in the future be forced to use GNOME as it will become a dependency of your init system.</p>
+<p>This leads to an interesting point. All major distros have moved to systemd. Debian was the last hold out and they actually had a civil war and split over this issue. Half of the developers left and went to form a distro called Devuan–which is focusing on removing all the systemd dependencies and putting choice back in the users hand.</p>
+<p>Systemd has many nice and needed features. Leonart is updating pieces of Linux that haven’t been touched in ages. He even wrote a <a href="http://0pointer.de/blog/projects/systemd-for-admins-1.html" title="21">21 part defence</a> of systemd on his website. I will talk more on the technical aspects of systemd in the chapter X.</p>
+<p>The fears of Linux users are that systemd will grab dependencies and eventually force Linux users into a small sub-section of systemd supported software choices. In a sense create a vendor lock in. What makes this all the more intreguing is that Lennart works for Red Hat. Would Red Hat mind if this systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user? That is a good question. This also begs the question - can Linux survive as an independant and open software or does it need a commercial comapny backing it? Or could this be seen as Red Hat’s grab for the entire Linux market? It is too early to tell but keep a watch on what happens with systemd.</p>
+<h2 id="chapter-conclusion-and-summary">- Chapter Conclusion and Summary</h2>
+<p>Wow - we covered a lot of history – but it is important to the understand the current state of Linux usage. <a href="http://www.openlogic.com/resources/enterprise-blog/archive/open-source-license-interpretation-made-easy">Learn more about opensource licensing</a></p>
+<p><a href="http://www.oreilly.com/openbook/opensources/book/kirkmck.html" title="History of Unix">Additional Reading on the Unix history side</a></p>
+<h3 id="review-questions">- Review Questions</h3>
+<p>Get into groups and answer/discuss these questions</p>
+<p>Based on the movie’s tone - why would you think there is a definate anti-microsoft tone?</p>
+<p>Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?</p>
+<p>Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?</p>
+<p>Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?</p>
+<p>What were the two commercial Linux companies featured in the movie?</p>
+<p>What is RedHat Linux’s stock price today?</p>
+<p>What is VA Linux’s stock price today?</p>
+<p>How does Ricahrd Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?</p>
+<h3 id="podcast-questions">- Podcast Questions</h3>
+<p><a href="http://twit.tv/floss/73">Listen or watch</a> this podcast - http://twit.tv/floss/73</p>
+<ul>
+<li>Who is Tim Orielly? ~3:00-5:00</li>
+<li>What is Oscon? ~6:45</li>
+<li>Who coined the term web 2.0? ~13:34</li>
+<li>What did we learn from the IBM PC? ~18:30</li>
+<li>What is web 2.0? ~19:30</li>
+<li>Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00</li>
+<li>Where is the money made in open source - software or data? ~ 34:00</li>
+<li>What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32</li>
+<li><a href="http://radar.oreilly.com">radar.oreilly.com</a> What is the lag time from articles on this site to the main stream media? ~55:00</li>
+</ul>
+<h3 id="lab">- Lab</h3>
+<p><a href="https://www.youtube.com/watch?v=jw8K460vx1c">Watch Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c</a> and answer the questions listed under review questions.</p>
+<h1 id="hardware-and-installation">Hardware and Installation</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/surgery.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Must be a Linux User" /><figcaption>Must be a Linux User</figcaption>
+</figure>
+<p><strong>Chapter 3 Objectives</strong></p>
+<ul>
+<li>Know how the Linux install process works for the two major Linux Distribution families</li>
+<li>Know how filesystem partitioning works</li>
+<li>Understand how to use virtualization platforms for installing Linux distributions</li>
+<li>Be able to understand the benefits of automated answer files for installs</li>
+</ul>
+<p><strong>Outcomes</strong></p>
+<p>At the end of this chapter you will understand the Linux installation process and be able to describe the process fully. A user will also b e familier with the different processor architectures. You will be aaware of virtualization products and platforms the Linux can be installed upon.</p>
+<h2 id="installation-of-linux-distros">Installation of Linux Distros</h2>
+<p>Part of the power of Linux is that it is <em>“free to use”</em>, <em>“free as in freedom”</em> This usually translate into free to use <em>“cost wise”</em> as well. This makes the barrier to entry in using a Linux distro very small. In the interceeding 21 years the various distros have perfected packaging and installtions has become very simple. If you are familiar with the Windows or Mac install process then Linux will not be too different. FreeBSD on the other hand, you will find completely alien but that is another story. The term for a file used to install a Linux distro is called an <em>iso</em>. An .iso file is actually a standard file type that represents the contents of a CD/DVD-ROM in a single archived file format. Since it is a standard ISO files can be mounted with in operating systems, the can be read from and even written to CD/DVDs, USB, and SD cards. THe reason the iso term and format are so tied to Linux historical one. During the mid 90’s as Linux rose to prominence CD-ROM drives and technologies began to become standard amongst PCs. It made sense to create distributions that were almost the exact size of a CD-ROM beccause it made distribution and copying very easy. In the early days of Linux it was not uncommon for a distribution to have a mailing address where you could write a letter and request premade CD versions of a distro.</p>
+<p>As USB drives and SD Cards have surpassed Optical Disks in speed and capacity they have come now to represent the favorite install media. Infact if you think about it many laptops, 2 in 1s, and even desktop PCs and Macs don’t even come with an optical drive. Though many old an still usable PCs still have optical drives. One of the best tools I have found for creating bootable install media on optical disk or UBS drive is UNetBootin. The tools takes the difficulty out of making install media. It even includes and option to manually just-in-time download which ever iso you are looking for and “burn” the iso to the drive. You may hear the term <em>“burn”</em> used in relations to isos, all this means is to transfer or write data from one source to its final source.</p>
+<p>ISO files also have utitility for when you are installing a Linux distribution into a virtualized platform.</p>
+<h2 id="virtual-machines">- Virtual Machines</h2>
+<p>Every operating system has the concept of rings in relation to how systems communicate. These rings are for privilege seperation and how security is built in to an operating system. With the higher numbered rings be the least privilleged. Traditionally user applications are in ring 4 and the kernel which has the most power is in ring 0. For instance a program a user write cannot just talk directly to the video card and write to the screen. The program needs to go through the OS which in turn goes through the kernel allowing or enforcing commands to be executed. A hypervisor is a new ring that inserts itself between the OS and the kernel–called ring -1.</p>
+<p><a title="Hertzsprung at English Wikipedia [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY-SA 2.5-2.0-1.0 (http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3APriv_rings.svg"><img width="256" alt="Priv rings" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/256px-Priv_rings.svg.png"/></a></p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/256px-Priv_rings.svg.png" title="Hertzsprung at English Wikipedia GFDL http://www.gnu.org/copyleft/fdl.html, CC-BY-SA-3.0 http://creativecommons.org/licenses/by-sa/3.0/ or CC BY-SA 2.5-2.0-1.0 http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0, via Wikimedia Commons" alt="Privilege Rings" /><figcaption>Privilege Rings</figcaption>
+</figure>
+<p>*“To assist virtualization, VT and Pacifica insert a new privilege level beneath Ring 0. Both add nine new machine code instructions that only work at”Ring -1,&quot; intended to be used by the hypervisor.“* <a href="http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134">Andy Dorman - Informationweek</a></p>
+<p><a title="By Terendo (Own work) [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHyper-V.png"><img width="256" alt="Hyper-V" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Hyper-V.png/256px-Hyper-V.png"/></a></p>
+<p>When dealing with virtualization you are functionally running multiple operating systems at one time. Technically this is not possible as only one oeprating sysetm can have control at a time - so how can a hyper-visor make this work?</p>
+<p>Insert screen shot of system running Windows and also with Ubuntu and Fedora up and running with task manager</p>
+<p>By having the hypervisor intercepting system calls from the virtualzied operating system. The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two atendees. The <em>“guest”</em> operating system thinks it has complete control of the hardware - the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available. The hypervisor ina sense offers a pretend kernel to the guest virtualized system. In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands. For example if we are running and Ubuntu Desktop virtualized guest system on a Windows 10 host, the Linux desktop has no way of knowing how to issue a command to use the network card to request a web site because Linux knows its own OS and kernel and Windows is a completely different kernel and operating system. The virtualziation layer will do this translation for you – allowing the <em>“host”</em> system to think that your guest virtualzied OS is nothing more than an application, and allowing your guest virtualized operating system to think that it own the entire set of hardware.</p>
+<p>The entire concept of virtualization is too large to cover here. I will try to give you a basic introduction. The main concept you need to know is that your computer (PC, laptop, Mac) have vastly more power then needed most of the time. In general you are only actively using your memory, hard drive, and CPU a small fraction of the time. Even watching a Youtube video or listening to streaming music service doesn’t usually tax your system that much. Virtualization adds the concept of a hypervisor. A hypervisor is a shim that is inserted into your operating sysetm to intercept system calls to hardware. The benefit is that a hypervisor can act as a translator for multiple operating systems running simultaniously on one system. There by maximizing the usage of yoru resources and preventing you from needing 4 or 5 different physical PCs.</p>
+<p><a title="By Scsami (Own work) [CC0], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHyperviseur.png"><img width="256" alt="Hyperviseur" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png"/></a></p>
+<p><strong>TYPE II</strong></p>
+<p>One is geared assuming you are using an underlying operating systems - such as Windows, Mac, or a Linux distro - thereby off loading all control of the programs to the host OS. This is usually called desktop virtualization.</p>
+<p>There are four main desktop platforms for virtualization:</p>
+<p><strong>Microsoft Hyper-V</strong></p>
+<p>Hyper-V was originally only a server class product release in Windows Server 2012 R2. Microsoft ported the technology to be able to be used on Windows 8 Professional and Enterprise as well as Windows 10 Professional and Enterprise. It comes as a free component and is a fully functional implementation of the sever class prodcut. It has the added benefit of being able to work over a wireless connection too. Hyper-V is a good product, you can install Windows and Linux virtual machines on it, but Hyper-V can only run on Windows.</p>
+<p><strong>Oracle VirtualBox</strong></p>
+<p>This prodcut was originally an opensource project that was purchased by Sun and then inherited by Oracle. Though the name is on the project, Oracle has been surprisingly hands off of this project. Because of that it has grown in usage, features, and utility to become the defacto desktop virtualization tool. It can run on Mac, Windows, and Linux and allows for seemless transfer of virtual machines across platforms</p>
+<p><strong>VMware Workstation</strong></p>
+<p>VMware also released a desktop product that is similar to VirtualBox on Windows and Linux called VMware Workstation. This software predated Virtual Box by nearly 5 yearswith a seperate desktop product availalbe for the Mac called VMware Fusion.</p>
+<p><strong>Parallels Desktop for Mac</strong></p>
+<p>Until 2013 Parallels Desktop was a direct competitor to VMware Workstation of the desktop of Windows and Linux. As of 2013 those products were discontinued in favor of Parallels focusing their desktop product on the Mac.</p>
+<p><strong>TYPE I</strong></p>
+<p>The other is what is called a bare metal hypervisor. These are usually used in server environments on hardware utilizing multiple core CPUs, mutli-terraBytes of RAM, and multi terrabytes of Hard drive space. This Hypervisor includes a kernel and mini-operating system tuned just for managing and interfacing with virtual machines. This book will not cover TYPE I hypervisors or commercial implementations of them.</p>
+<ul>
+<li><p><a href="https://technet.microsoft.com/en-us/library/hh831531.aspx" title="Hyper-V">Microsoft Hyper-V</a></p></li>
+<li><p><a href="http://www.vmware.com/products/vsphere-hypervisor/" title="vSphere">VMware ESXi</a></p></li>
+</ul>
+<h2 id="installations-and-isos">- Installations and isos</h2>
+<p>Now that we understand a bit about what a hypervisor is let us beging the process. The next pages are going to show you in comparison how to install the latest versions of Fedora and Ubuntu (as of August 10th 2015) Fedora 22 and Ubuntu 15.04. This will require you to download two isos from their respective download sites. For this install process we will assume that you are using VirtualBox version 5.0.0. These distributions can be install directly to a hard drive and become the primary operating system. This might be a good exercise if you have an old laptop or PC laying around. You would be suprised if you asked your relatives or perhaps a company you work for or even a school you might go to what they have in the way of old computers that might still be useful to experiement with Linux installations as well. There is also the concept of dual booting your PCs with multiple operating systems. I created a quad-boot system containing Ubuntu, Fedora, Centos, and Windows 10 see article here for how to accomplish this task. This processes is beyong the scope of this book but link is provided for those interested.</p>
+<p>You also need to be aware of the type of architecture you are installing to. Is the processor 32 bit or 64 bit? If it is a 64-bit processor you can install 32-bit operating system but not the other way around. 32-bit processors are usually only low end older Atom processors and older intel chips - pre Core 2 Duo processors. You can find information about your processor by going to <a href="http://ark.intel.com]" title="ARK">http://ark.intel.com</a>. This is Intel’s clearing house for all its information about processors and motherboards. They can tell you all you want to know about a processor. All but the most secialized or low end chip these days is 64-bit you should be safe with that type of distro.</p>
+<p>The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture. The 64-bit architecture is usually referred to as x64, but sometimes x86_64, and even AMD_64 &lt;– that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64 bit extententions to the x86 instruction set and they caught on and stuck–hence the credit. Their is one other type of architecture called ARM. This is noted as aarch and aarch_64 – ARM is the architecture that runs phones, tablets, and small embedded sytems such as the Raspberry Pi. It has an entirely different instruction set so the software compiled for this architecture and vis versa is not compatable with the Intel x86 x64 architecture.</p>
+<p>Each distro also has a checksum feature provided by the site that issues the download. A checksum is a 1 way mathematical function that gives you a unique representation of what the content of the iso should be. That way if you download and iso from somewhere and the checksum is different then you might be alerted to someone trying to add additonal contents to an iso or perhaps just a corrupted download. Most distros use a simple md5 hash, but a few, notably Fedora, has moved to more robust hashes using SHA-256 strength hashing.</p>
+<p><strong>Links to get you started</strong></p>
+<ul>
+<li><a href="http://getfedora.org">Get Fodora</a>
+<ul>
+<li><a href="https://getfedora.org/en/verify" title="Verify">Fedora checksum page for Linux and Mac</a></li>
+<li><a href="http://docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide/sect-verifying-images.html" title="Verify Windows">Fedora checksum page for Windows</a></li>
+</ul></li>
+<li><a href="http://ubuntu.com">Get Ubuntu</a>
+<ul>
+<li><a href="https://help.ubuntu.com/community/UbuntuHashes" title="Ubuntu Hashes">Ubuntu checksum page</a></li>
+<li><a href="http://technet.microsoft.com/en-us/library/dn520872.aspx" title="Powershell Hash checking function">Microsoft Powershell hash checking functions</a></li>
+</ul></li>
+<li><a href="http://virtualbox.org" title="VirtualBox">Get VirtualBox</a></li>
+</ul>
+<p>Here are the commands to execute in Windows in powershell</p>
+<pre class="powershell"><code>Get-FileHash .\ubuntu-15.04-desktop-amd64.iso -Algorithm MD5 | format-list</code></pre>
+<pre><code>Algorithm : MD5
+Hash      : 53C869EBA8686007239A650D903847FD
+Path      : C:\Users\palad\Downloads\isos\ubuntu-15.04-desktop-amd64.iso</code></pre>
+<pre class="powershell"><code>Get-FileHash .\Fedora-Live-Workstation-x86_64-22-3.iso -Algorithm SHA256 | format-list</code></pre>
+<pre><code>Algorithm : SHA256
+Hash      : 615ABFC89709A46A078DD1D39638019AA66F62B0FF8325334F1AF100551BB6CF
+Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.iso</code></pre>
+<p>Here are the commands executed in Linux</p>
+<h3 id="planning-your-install">- Planning Your Install</h3>
+<p>Before beginning there are a series of questions you should ask yourself, “What do I need in this distro?”</p>
+<ul>
+<li>Strict Security such as SE Linux?</li>
+<li>Stable release with long term support?</li>
+<li>Will this be a desktop install or server install? GUI or no GUI?</li>
+<li>What software will you be needing?
+<ul>
+<li>Serving web pages?</li>
+<li>Building Android applications?</li>
+<li>Hacking your neighbor’s wi-fi?</li>
+</ul></li>
+<li>What processor do I have, 32-bit or 64-bit? How much RAM do I have or need?</li>
+<li>Is this an old PC or laptop I am using–does it lack processor extensions that can aid in rendering multi-media efficiently?
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions" title="SSE">SSE</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions" title="AVX">AVX</a></li>
+</ul></li>
+<li>Licensing for business?
+<ul>
+<li>Does it need to be GPL compliant?</li>
+<li>Can propriatary programs and codecs be included?</li>
+</ul></li>
+</ul>
+<h3 id="virtualbox-configurtion">- VirtualBox configurtion</h3>
+<p>If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.0.2 (August 18th, 2015) is the current version.</p>
+<p><a href="https://www.virtualbox.org/manual/ch01.html#virtintro" title="Feature List">Feature List for VirtualBox</a></p>
+<ul>
+<li>Guest multiprocessing (SMP).</li>
+<li>USB device support.</li>
+<li>Seamless windowing</li>
+<li>Shared folders</li>
+<li>Hardware compatibility.</li>
+<li>Full ACPI support.</li>
+<li>Multiscreen resolutions.</li>
+<li>Built-in iSCSI support.</li>
+<li>PXE Network boot.</li>
+<li>Remote machine display</li>
+<li>Video and screenshot capture within virtual machines</li>
+</ul>
+<h3 id="create-guest-virtual-machine">- Create Guest Virtual Machine</h3>
+<p>Upon completion of a fresh install and luanching of VirtualBox you should see this image:</p>
+<figure>
+<img src="images/virtualbox-fresh.png" title="Fresh VirtualBox install" alt="VirutalBox fresh install" /><figcaption>VirutalBox fresh install</figcaption>
+</figure>
+<p>See the <a href="https://www.virtualbox.org/manual/ch01.html" title="Getting started manual">getting started manual</a> for a wide range of information. Unlike some opensource projects this doucmentation is actually very thurogh and useful. VirtualBox has a list of <a href="https://www.virtualbox.org/manual/ch01.html#hostossupport" title="Supported Host Operating System">supported host operating systems</a>, which is basically any operating system you can think of from DOS to Haiku to FreeBSD.</p>
+<p>All things start with the NEW button shown in the picture below.</p>
+<p>Here you can begin the walk through wizard to create a virtual machine of your own size and choosing.</p>
+<p>Name it (auto guess) choose the specific Operating System type and then the specific OS. What happens if you choose the wrong one? Two things, 1 you can always go back in the settings option and change it after the virtual machine is powered off. 2. As long as you have the correct OS family everything should be ok–but see the extensions setting at the end of this chapter.</p>
+<p>Next is the amount of memeory availalbe - note that this is shared with your underlying OS and whatever you allocate to this guest VM will be unavaialbe to the underlying host OS while the guest VM is powered on.</p>
+<p>Here you have a choice of how much harddrive space you will allocate to the guest VM. This space will be treated as a file by the underlying host OS–allowing for easy migration, export, and even cloning of the guest VM.</p>
+<p>You can chose to dynamically allocate your harddrive space or statically allocate it. The advantage of dynamically allocating is that not all the space will be assigned right away. The harddrive will grow incrementally as you need space until it hits the maximum you defined. The disadvantage of this is that if you are creating lots of data there will be overhead processing in continually allocating enough space. Statically allocating the harddrive space on the otherhand will potentially lessen the number of systems that can go on your harddrive because potentially much space that is allocated is actually unused.</p>
+<p>Next is the harddrive file format. There are a few competing standards. If you know you are going to be working in the VirtualBox environment the default VDI is sufficent. If you know you will be transferring this VirtualMachine to another environment: VMWare (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.</p>
+<p>Now click finish and you should be ready to go - with your VirtualBox start screen looking something like mine. Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.</p>
+<h3 id="walk-through-the-settings">- Walk Through the Settings</h3>
+<p>Before we hit that start button - lets select one of our virtual machines and take a look at the content of the SETTINGS button. Here we will find all the settings possible related to our virtual machine. Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.</p>
+<p>Define settings for new install</p>
+<p>Ready to begin</p>
+<p>Video and screenshots Links Here</p>
+<h3 id="hard-drives-and-partitioning">- Hard Drives and Partitioning</h3>
+<p>Start the Linux install from iso file</p>
+<p>Formatting questions</p>
+<p>LVM (see later chapter 13)</p>
+<p>Video and screenshots Links Here</p>
+<h3 id="installing-software">- Installing software</h3>
+<p>The final process where it asks about additional software to install</p>
+<p>Video and screenshots Links Here</p>
+<h3 id="virtualbox-extensions">- VirtualBox extensions</h3>
+<p>Explain what they are and show screen shots how to add them</p>
+<h3 id="preseed-and-kickstart">- Preseed and Kickstart</h3>
+<p>All the previous steps took maybe 10 to 15 minutes which is not bad at all. But let us say you will be creating many virtualmachines for certain purposes. Or perhaps you will be recreating the same virtual machine many times. There is a way to automate the install process. This is called an answer file in the Windows server world. For Red Hat based systems this is called kickstart and Debian and Ubuntu use a file format called preseed. None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.</p>
+<p><a href="https://help.ubuntu.com/lts/installation-guide/amd64/apb.html" title="Preseed">Debian/Ubuntu pressed template</a></p>
+<p><a href="https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html">Kickstart documentation</a> - it can be generated from scratch or upon a succesful install a default kickstart is located in /root/anaconda-ks.cfg</p>
+<p>Link to video on how to run the files</p>
+<p>screen shot showing you need to host the file on the web somewhere or include the file in install media</p>
+<h2 id="chapter-conclusions-and-review">- Chapter Conclusions and Review</h2>
+<p>Summary goes here</p>
+<h3 id="review-questions-1">- Review Questions</h3>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h3 id="podcast-questions-1">- Podcast Questions</h3>
+<ul>
+<li>URL to Linux Torlvals podcast</li>
+</ul>
+<h3 id="lab-1">- Lab</h3>
+<ul>
+<li>Download and install these linux distributions in virtual box using the screen shot tool to submit jpeg files
+<ul>
+<li>Debian Based</li>
+<li>Fedora Based</li>
+<li>BSD based</li>
+</ul></li>
+</ul>
+<h1 id="desktop-linux-gui">Desktop Linux (GUI)</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/supported_features.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Who needs Flash?" /><figcaption>Who needs Flash?</figcaption>
+</figure>
+<h2 id="gui">GUI</h2>
+<ul>
+<li>Task Bars</li>
+<li>File Managers</li>
+</ul>
+<h2 id="x-windows-x11">X-Windows x11</h2>
+<ul>
+<li>Windowing Managers</li>
+<li>MIR Wayland X</li>
+<li>Enlightenment</li>
+<li>I3</li>
+<li>Xmonad</li>
+<li>Others…</li>
+</ul>
+<h2 id="desktop-environments">Desktop Environments</h2>
+<p>http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/</p>
+<ul>
+<li>Desktop Environments
+<ul>
+<li>KDE</li>
+<li>GNOME</li>
+<li>XFCE</li>
+<li>LXDE - LXQT</li>
+<li>MATE (GNOME 2)</li>
+</ul></li>
+</ul>
+<h2 id="podcast">Podcast</h2>
+<p>Best short interview I ever heard with Richard Stallmand from Will Backmand of <a href="http://bsdtalk.blogspot.com/" title="BSD Talk">BSDTalk</a></p>
+<p><a href="https://archive.org/download/bsdtalk132/bsdtalk132.ogg" title="RMS Interview">Link to .ogg audio interview file</a></p>
+<h2 id="review-questions-2">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="linux-basic-commands-and-file-system-structure">Linux basic commands and File system structure</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="basic-commands">Basic Commands</h2>
+<ul>
+<li>Demo and list of basic movement commands from command line</li>
+<li>Intro to terminal</li>
+<li><p>– cd ls cp mv (a few others) + Explanation of commands arguments options (flags) ## File System structure</p></li>
+<li>Upside down tree</li>
+<li>/ (root)</li>
+<li>All standard POSIX directories</li>
+<li>Explain the sym-linking of /usr/sbin and /usr/bin</li>
+<li><p>Explain the purpose of each standard directory and what they should expect</p></li>
+</ul>
+<h2 id="explanation-of-path">Explanation of PATH</h2>
+<pre><code>    * Absolute vs Relative
+    * Go over these concepts with above simple commands</code></pre>
+<h2 id="podcast-1">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-3">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-1">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="file-permissions-and-ownership">File permissions and ownership</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/authorization.png" title="File Permissions" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="podcast-2">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-4">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-2">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="commandline-variables-and-shell-meta--characters">Commandline variables and shell meta- characters</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="podcast-3">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-5">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-3">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="vi-and-editors-and-bash-shell">vi and editors and bash shell</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="podcast-4">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-6">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-4">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="basic-shell-scripting">Basic Shell scripting</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="types">types</h2>
+<ul>
+<li>if statements</li>
+<li>for loops</li>
+<li>System variables</li>
+<li>Passing Variables into scripts</li>
+</ul>
+<h2 id="podcast-5">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-7">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-5">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="package-installation">Package installation</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="types-1">Types</h2>
+<ul>
+<li>yum (soon to be dnf replace yum)</li>
+<li>apt-get</li>
+</ul>
+<h2 id="podcast-6">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-8">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-6">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="symlinks-and-file-types">Symlinks and file types</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="types-2">Types</h2>
+<ul>
+<li>Stdin and stdout and stderr</li>
+</ul>
+<h2 id="podcast-7">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-9">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-7">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="find-and-grep">Find and grep</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="types-3">Types</h2>
+<ul>
+<li>Intro to regex</li>
+</ul>
+<h2 id="podcast-8">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-10">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-8">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="creating-partitioning-and-mounting-filesystems">Creating, Partitioning, and mounting filesystems</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="types-4">Types</h2>
+<ul>
+<li>Creating them virtually</li>
+<li>fdisk<br />
+</li>
+<li>df</li>
+<li>mount command</li>
+<li>/etc/fstab</li>
+</ul>
+<h2 id="podcast-9">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-11">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-9">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="basic-networking">Basic Networking</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="types-5">Types</h2>
+<ul>
+<li>Network configs</li>
+<li>Tools to troubleshoot</li>
+</ul>
+<h2 id="podcast-10">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-12">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-10">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="services-and-processes">Services and processes</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="types-6">Types</h2>
+<ul>
+<li>Starting stopping</li>
+<li>Systemd vs sysVInit</li>
+<li>Cron jobs</li>
+</ul>
+<h2 id="podcast-11">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-13">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-11">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="future-and-embedded-linux">Future and embedded Linux</h1>
+<figure>
+<img src="http://imgs.xkcd.com/comics/2038.png" title="Understanding the Technology and Philosophy of Unix/Linux" alt="Understanding the Technology and Philosophy of Unix/Linux" /><figcaption>Understanding the Technology and Philosophy of Unix/Linux</figcaption>
+</figure>
+<h2 id="types-7">Types</h2>
+<ul>
+<li>IoT</li>
+<li>RaspberryPi</li>
+<li>Android</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>3 P’s trouble shooting (PATH, PERMISSION, dePendencies) Based off of the Army’s 3Q’s of movement for soldiers – quickly, quietly, and cautiously.</li>
+<li>Linux Plus</li>
+<li>LPI</li>
+</ul>
+<h2 id="podcast-12">Podcast</h2>
+<ul>
+<li>URL goes here for Q&amp;A</li>
+</ul>
+<h2 id="review-questions-14">Review Questions</h2>
+<ul>
+<li>Questions go here</li>
+</ul>
+<h2 id="labs-12">Labs</h2>
+<ul>
+<li>Lab goes here</li>
+</ul>
+<h1 id="glossary-a">Glossary A</h1>
+<p>hello</p>
+<h1 id="glossary-b">Glossary B</h1>
+<p>hello</p>
