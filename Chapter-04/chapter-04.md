@@ -19,6 +19,8 @@ __Outcomes__
   
   X has a long history and that history was forked and rejoined over time.  
   
+  
+  
   X Windows protocol was forked in X86free.org and X.org  and for many years were seperate - but they have recently joined back together and the current and standad Linux desktop compositor is now referred to as *"X"*.  X has a definate advantage in that it is very mature and very well known for all its good and bad parts.  In the diagram below you can see one of X major faults.  (Get picture from Wayland website)  Seeing as it was designed not with a desktop GUI in mind, every desktop element is a client that has to make calls to the X server in order to render any changes to the screen.  This adds extra layers of overhead.
 
   A project was started to reimainge the nature of the Linux compsitor.  This project is called Wayland.  But the Wayland authors knew they couldn't just throw X out as everysingle Linux desktop today uses it--that would break all of Linux.  Instead they reimplemented X into something called X wayland (see image from Wayland.org)   Slowly many Linux distributions are looking at the improvememnts of Wayland and moving to gradually implement it.  Will we ever see the end of X?  Probably not as it is too deep into the "bones" of Linux.  But Fedora 22 has a beta version of X-wayland running Fedora 22 - which will render Walyand and X at the same time. 

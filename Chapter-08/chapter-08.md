@@ -1,4 +1,4 @@
-# vi and editors and bash shell
+# vi and editors and bash shell and profiles
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 8 Objectives__
