@@ -7,6 +7,10 @@ __Chapter 7 Objectives__
 
 __Outcomes__
 
+
+
+Does stdin and std out and std err go here?
+
 ## - Chapter Conclusions and Review
 
   Conclusion goes here
