@@ -1,7 +1,7 @@
-# Creating, Partitioning, and mounting filesystems
+# Basic Networking
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 13 Objectives__
+__Chapter 14 Objectives__
 
 
 
@@ -9,11 +9,8 @@ __Outcomes__
 
 ## Types
 
-   * Creating them virtually
-   * fdisk   
-   * df
-   * mount command
-   * /etc/fstab
+   * Network configs 
+   * Tools to troubleshoot
    
 ## - Chapter Conclusions and Review
 
@@ -29,4 +26,4 @@ __Outcomes__
 
 ### - Lab
 
- * Lab goes here 
+ * Lab goes here   

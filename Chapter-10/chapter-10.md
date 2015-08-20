@@ -1,7 +1,7 @@
-# Package Installation
+# Symlinks and file types
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 10 Objectives__
+__Chapter 11 Objectives__
 
 
 
@@ -9,8 +9,7 @@ __Outcomes__
 
 ## Types
 
-  * yum (soon to be dnf replace yum)
-  * apt-get 
+  * Stdin and stdout and stderr
 
 ## - Chapter Conclusions and Review
 

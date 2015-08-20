@@ -1,24 +1,16 @@
-# Future and embedded Linux
+# Commandline variables and shell meta- characters
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 16 Objectives__
+__Chapter 7 Objectives__
 
 
 
 __Outcomes__
 
-## Types
 
-   * IoT
-   * RaspberryPi
-   * Android
-   
-## Conclusion 
-   
-   * 3 P’s trouble shooting (PATH, PERMISSION, dePendencies) Based off of the Army’s 3Q’s of movement for soldiers – quickly, quietly, and cautiously.
-   * Linux Plus 
-   * LPI
-   
+
+Does stdin and std out and std err go here?
+
 ## - Chapter Conclusions and Review
 
   Conclusion goes here

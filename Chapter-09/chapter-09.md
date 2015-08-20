@@ -1,18 +1,16 @@
-# Basic Shell scripting
+# Package Installation
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 9 Objectives__
+__Chapter 10 Objectives__
 
 
 
 __Outcomes__
 
-## types
+## Types
 
-   * if statements
-   * for loops
-   * System variables
-   * Passing Variables into scripts
+  * yum (soon to be dnf replace yum)
+  * apt-get 
 
 ## - Chapter Conclusions and Review
 

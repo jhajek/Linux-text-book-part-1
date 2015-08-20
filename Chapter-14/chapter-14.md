@@ -1,7 +1,7 @@
-# Basic Networking
+# Services and processes
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 14 Objectives__
+__Chapter 15 Objectives__
 
 
 
@@ -9,8 +9,9 @@ __Outcomes__
 
 ## Types
 
-   * Network configs 
-   * Tools to troubleshoot
+   * Starting stopping
+   * Systemd vs sysVInit
+   * Cron jobs
    
 ## - Chapter Conclusions and Review
 
@@ -26,4 +27,4 @@ __Outcomes__
 
 ### - Lab
 
- * Lab goes here   
+ * Lab goes here 

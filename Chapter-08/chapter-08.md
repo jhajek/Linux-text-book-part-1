@@ -1,31 +1,18 @@
-# vi and editors and bash shell and profiles
+# Basic Shell scripting
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 8 Objectives__
+__Chapter 9 Objectives__
 
 
 
 __Outcomes__
 
-XKCD vi cartoon goes here
+## types
 
-## - History of VI
-
-ed -> em -> ex -> vi -> vim
-
-### - Bill Joy and BSD
-
-  Get picture of Bill Joy - link to article The future doesn't need you
-  
-### - Why keybindings are as they are
-
-
-### - Relation of vi and vim
-
-
-### - Stream editors vs text editors
-
-vi and emacs vs nano, gedit, joe, kate
+   * if statements
+   * for loops
+   * System variables
+   * Passing Variables into scripts
 
 ## - Chapter Conclusions and Review
 
@@ -41,4 +28,4 @@ vi and emacs vs nano, gedit, joe, kate
 
 ### - Lab
 
- * complete vi tutor example
+ * Lab goes here 

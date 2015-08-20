@@ -1,7 +1,7 @@
-# Find and grep 
+# Creating, Partitioning, and mounting filesystems
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 12 Objectives__
+__Chapter 13 Objectives__
 
 
 
@@ -9,8 +9,12 @@ __Outcomes__
 
 ## Types
 
-  * Intro to regex
-
+   * Creating them virtually
+   * fdisk   
+   * df
+   * mount command
+   * /etc/fstab
+   
 ## - Chapter Conclusions and Review
 
   Conclusion goes here
