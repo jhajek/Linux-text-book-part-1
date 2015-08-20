@@ -15,8 +15,7 @@ __Outcomes__
    
 ## Conclusion 
    
-   * 3 P’s trouble shooting (PATH, PERMISSION, dePendencies) Based off of the Army’s 3Q’s of movement for soldiers – quickly, quietly, and cautiously.
-   * Linux Plus 
+   * Linux+
    * LPI
    
 ## - Chapter Conclusions and Review

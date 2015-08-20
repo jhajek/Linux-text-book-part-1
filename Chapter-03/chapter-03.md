@@ -33,7 +33,7 @@ __Outcomes__
     
   <a title="By Terendo (Own work) [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHyper-V.png"><img width="256" alt="Hyper-V" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Hyper-V.png/256px-Hyper-V.png"/></a>
   
-  When dealing with virtualization you are functionally running multiple operating systems at one time.  Technically this is not possible as only one oeprating sysetm can have control at a time - so how can a hyper-visor make this work?  
+  When dealing with virtualization you are functionally running multiple operating systems at one time.  Technically this is not possible as only one oeprating sysetm can have control at a time - so how can a hypervisor make this work?  
  
    Insert screen shot of system running Windows and also with Ubuntu and Fedora up and running with task manager
 
@@ -43,7 +43,7 @@ __Outcomes__
 
 <a title="By Scsami (Own work) [CC0], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHyperviseur.png"><img width="256" alt="Hyperviseur" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png"/></a>
   
-  __TYPE II__
+  __TYPE II Hypervisor__
    
    One is geared assuming you are using an underlying operating systems - such as Windows, Mac, or a Linux distro - thereby off loading all control of the programs to the host OS.  This is usually called desktop virtualization.
  
@@ -65,7 +65,7 @@ __Parallels Desktop for Mac__
 
   Until 2013 Parallels Desktop was a direct competitor to VMware Workstation of the desktop of Windows and Linux. As of 2013 those products were discontinued in favor of Parallels focusing their desktop product on the Mac.  
 
- __TYPE I__
+ __TYPE I Hypervisor__
 
    The other is what is called a bare metal hypervisor.  These are usually used in server environments on hardware utilizing multiple core CPUs, mutli-terraBytes of RAM, and multi terrabytes of Hard drive space.  This Hypervisor includes a kernel and mini-operating system tuned just for managing and interfacing with virtual machines.  This book will not cover TYPE I hypervisors or commercial implementations of them.
      
