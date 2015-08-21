@@ -1,7 +1,7 @@
 # Symlinks and file types
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 11 Objectives__
+__Chapter 10 Objectives__
 
 
 

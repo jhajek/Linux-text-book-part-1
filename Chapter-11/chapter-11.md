@@ -1,7 +1,7 @@
 # Find and grep 
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 12 Objectives__
+__Chapter 11 Objectives__
 
 
 

@@ -1,7 +1,7 @@
 # Basic Networking
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 14 Objectives__
+__Chapter 13 Objectives__
 
 
 

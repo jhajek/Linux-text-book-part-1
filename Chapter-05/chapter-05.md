@@ -43,6 +43,7 @@ In the shell is where we can enter basic commands for navigation and file manipu
 *  ```man - the manual command used to find out how to use the detailed structure of a command```
 *  ```pwd - used to print out your present working directory--your location in the filesystem tree.```
 *  ```file - used to find out what the content type a file is``` 
+*  ```wget - command used to retrieve files from the web via the command line```
 
 ## Basic Commands
 
@@ -83,7 +84,7 @@ __What is a Filesystem?__
    * /var
    * /usr
    * /mnt
-  
+   
   This filesystem harkons back to Ken Thompson's original Unix design nearly 40 years ago.  This means that this knowledge is wide spread and well known.  The downside is a sense of tradition and nostalgia ha crept in about this filesystem structure has crept in too.
   Red Hat has taken notice of this and while maintainining backwards compatability have started to move forward with changing the nature of the Linux filesystem.  
   For instance --Red Hat  Explain the sym-linking of /usr/sbin and /usr/bin
@@ -199,16 +200,30 @@ rwx
 
 There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter Y.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's).
 
-  chmod  allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  
+  ```chmod```  allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  
   The outputs look like this:
   Insert picture of chmod 755 and chmod +x 
   
   Why would you change permissions?  PErhaps to allow all users of a system a shell script that backsup the content of your home directory.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.
   
-  chown
-  chgrp
+  ```chown``` 
+  Pronounced *"chuh-own"*
+  This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner.  Try it 
+  
+  touch todolist
+  
+  ls -la todolist - who is the owner of the file?  Who is the group owner?
+  
+  Change it so that the file is owned by root and the group owner is root
+  
+  ```chgrp```
+  Pronounced *"Chuh-gerp"*  
+  This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
 
 ### - ACLs
+
+IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them.  Here is what sticky bits do...
+
 
 
 ## - 3 P's
@@ -223,7 +238,7 @@ Find how to do definitions in markdown
 
 ## - Chapter Conclusions and Review
 
-  Conclusion goes here
+  In this chapter we discovered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file create and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative PATH.  FInally we covered file permissions and the tools used to change or modify them. 
 
 ### - Review Questions
 

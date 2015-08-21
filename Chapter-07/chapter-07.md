@@ -1,7 +1,9 @@
-# vi and editors and bash shell and profiles
+# Introduction to Bash Shell, Linux Editors, and User Profiles  
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 8 Objectives__
+Vi cartoon goes here
+
+__Chapter 7 Objectives__
 
 
 
@@ -9,7 +11,7 @@ __Outcomes__
 
 XKCD vi cartoon goes here
 
-## - History of VI
+## - History of vi
 
 ed -> em -> ex -> vi -> vim
 
@@ -26,6 +28,8 @@ ed -> em -> ex -> vi -> vim
 ### - Stream editors vs text editors
 
 vi and emacs vs nano, gedit, joe, kate
+get screenshots of these editors in action
+
 
 ## - Chapter Conclusions and Review
 

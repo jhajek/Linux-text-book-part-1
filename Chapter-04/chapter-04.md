@@ -1,15 +1,19 @@
 # Desktop Linux (GUI)
 ![*Who needs Flash?*](http://imgs.xkcd.com/comics/supported_features.png "Linux Supported Features")
 
-## From Paper Tape to CLI to GUIs to 4K
-
 __Chapter 4 Objectives__
 
-
+  In this chapter you will:
+  *  Learn about how desktop Linux works
+  *  Understand the nature and use of X Windows, Mir, Wayland, and GUI compositors
+  *  Understand the purpose of window mangers and desktop environments
+  *  Know the major features of GNOME 3 and Unity desktop environments 
 
 __Outcomes__
 
+  At the conclusion of this chapter you will have a strong knowledge of the X Windows system and how it is the foundation of Desktop Linux.  You will be able to implement various Window Managers and Desktop Envrionemnts, selecting the proper environement to utilize and suit your hardware needs.  You will be comfortable using and recoginizing the features of GNOME 3 and Unity desktop environments.  
 
+## From Paper Tape to CLI to GUIs to 4K
 
   Unix had its starts in the late 1960's and 1970's.  Computing at that time took on a less interactive and more iterative/batch processing style.  Not until the late 70's and early 1980's do we begin to see the green colorede terminals we are familiar with.  Initially Unix had to develop support for GUIs.  This was done through the X11 protocol or what ended up being called X Windows.  The X was originally a place holder in the hopeps that an actual name could be created, but they say what is temprorary is permanent, and X Windows was here to stay.  X Windows is actually a client server protocol.  It was designed with the idea in mind of transporting display windows over TCP/IP.  Seeing as it was designed in the University and corporate setting - the idea of security was non-existant.  Any Computer that could connect to another computer could start an X Windows session.  The utility of this was that you could use lesser hardware and simply via the X Windows protocol remotely run you application window.  An office or university would have 1 large server and each desktop would connect and tunnel X Windows over TCP/IP.  
   
@@ -64,6 +68,12 @@ __Outcomes__
      + MATE (GNOME 2) Cinnamon
      + [http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/](http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/ "Ubuntu to Mac desktop conversion")
 
+## - Gnome 3 features  
+  
+  
+## - Unity Features
+
+
   
 ## - Chapter Conclusions and Review
 
@@ -74,6 +84,8 @@ __Outcomes__
   * Questions go here
 
 ### - Podcast Questions
+
+Perhaps Miguel De Icazza podcast?  Or Ubuntu Edge?  Mir?  
 
  * Best short interview I ever heard with Richard Stallmand from Will Backmand of [BSDTalk](http://bsdtalk.blogspot.com/ "BSD Talk")
  * [Link to .ogg audio interview file](https://archive.org/download/bsdtalk132/bsdtalk132.ogg "RMS Interview")

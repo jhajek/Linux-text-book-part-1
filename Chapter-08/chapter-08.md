@@ -1,7 +1,9 @@
 # Basic Shell scripting
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 9 Objectives__
+
+
+__Chapter 8 Objectives__
 
 
 

@@ -501,8 +501,9 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 
 This activity can be induvidual or group based.
 
-There was a documentary movie called [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. Answer the questions listed under "Review Questions" above.
+1. There was a documentary movie called [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. Answer the questions listed under "Review Questions" above.
 
+2. Install [Oracle VirtualBox](http://www.virtualbox.org "VirtualBox homepage") on your own laptop or if a lab computer is provided.  Note if you are already using desktop Linux or have access to a system with Linux on it, this step is optional, but VirtualBox runs on Linux as well.
 
 
 
