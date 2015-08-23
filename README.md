@@ -10,13 +10,15 @@ How to install;
 
 [Install Instructions](http://pandoc.org/installing.html)
 
-> Linux
-> For 64-bit Debian and Ubuntu, we provide a debian package on the download page. This will install the pandoc and pandoc-citeproc executables and man pages. If you use an RPM-based distro, you may be able to install this deb using alien.
-> Or, try your package manager. Pandoc is in the Debian, Ubuntu, Slackware, Arch, Fedora, NiXOS, openSUSE, and gentoo repositories. Note, however, that versions in the repositories are often old.
-> If the version in your repository is too old and you cannot use the deb we provide, you can install from source, using the instructions below under Installing from source. Note that most distros have the Haskell platform in their package repositories. For example, on Debian/Ubuntu, you can install it with apt-get install haskell-platform.
-> For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. (On Debian/Ubuntu, apt-get install texlive.)
+> Ubuntu Linux
+> I would recommend installing Pandoc directly from the lastest debian package.  Located here: [https://github.com/jgm/pandoc/releases/tag/1.15.0.6](https://github.com/jgm/pandoc/releases/tag/1.15.0.6)
+> For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. (On Debian/Ubuntu, ```apt-get install texlive```.)
 
-[Getting-Started](http://pandoc.org/getting-started.html)
+> Red Hat Linux 
+> See yum or dnf
+
+> Mac OSX
+> [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
 > Windows 
 You need Pandoc 1.15.x  and MikTex 2.9.x to build this book proper
@@ -31,3 +33,5 @@ In order to enable script execution for Powershell - run this command from an Ad
 Set-ExecutionPolicy RemoteSigned```
 
 You can then run the build script ./build-windows.ps1 from the powershell window and this will generate the digital output
+
+On your first build you will recieve a Package Installtion dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.

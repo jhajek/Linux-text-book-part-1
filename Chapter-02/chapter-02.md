@@ -4,7 +4,7 @@
 
 [*If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do. Torvalds, Linus(1996-07-22)* ](http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI "Quote from Linus Torvalds")
 
-## - The Foundation of Unix and Linux
+## The Foundation of Unix and Linux
 
 Why are you learning about Linux?  It is a term that seems to be on everyone's lips.  There is a good chance that you even have Linux running in your pocket and don't even know it! Raise your hand if you have an Android based phone or tablet? Here is a hint, Android Operating System is based off of Linux.  So this chapter begins the start of your mastery of Linux.  In addtition to teaching you technology, this book aims to teach you about the history and philosophy of Linux so you can understand where it came from and where it is going and why you are using it.  Some pieces of this book will seem frustrating, after all the roots of the design decisions of what we are using today are 30-40 years old in some cases.  Helping to understand what kind of technology was available and what these creators were thinking will help you master the concepts of Linux.
 
@@ -25,7 +25,7 @@ __Outcomes__
 
   You will notice that I have been using the terms Unix and Linux interchangably so far.  For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the full truth if we left Unix out.  For this first chapter then we need to understand their related history.  There are differences and there are similarities.  
 
-## - Where it Began and Why it Matters Now 
+## Where it Began and Why it Matters Now 
  
   When we say *"Unix"* we are referring to an entire operating system.  An Operating System can be boiled down into three main parts.   
 
@@ -70,7 +70,7 @@ __Take away point__
   
   The question is not who uses Linux but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril, you will never understand Linux unless you understand UNIX at its core philosophies.  Here we go.
 
-### - Thompson, Ritchie, and Bell Labs
+### Thompson, Ritchie, and Bell Labs
 
   Many people supported and worked on what would become known as Unix but two names have received most of the credit for the creation, promotion, and use of Unix.  *__Know these names.__*
   
@@ -135,7 +135,7 @@ In 1975 Ken Thompson took a sabbatical from Bell Labs and went back to his Alma 
 
 By 1980, with many copies of Thompson's Unix now in circulation and nearly a decade of work you start to see fragmentation of the original Unix and many universities adding on their own customizations.  Since the code was technically propriaary under AT&T's ownership - there was no way to contribute code back to the source.  Unix starts to splinter.  Another problem AT&T had was that by the end of the 70's all those students who had learned Unix in college went to work in corporations and began to request Unix be used on their hardware platforms at work. Unix was the only operating system of its type kind that could do this.  Now AT&T had a financial motive to commercialize Unix.  By 1982 AT&T released Unix System III, followed by System V in 1983, as a commerical product outside of Bell Labs for sale to commerical companies, while adding a multi-hundred dollar academic fee too.  At this time the Berkley System Distribution of Unix was beginning to vary widly in functionality from commcerial AT&T UNIX. You see derivates of Unix like SunOS and SCO Unix being released as commerical companies based of BSD Unix.  With HP/UX and IBM AIX being based on AT&T System V.  The focus of Unix takes a dramatic shift now as the implementation portion is finished.  Now the spoltlight moves to users and application creation. Enter Richard Mathhew Stallman, known also as RMS a researcher at the AI Labs at MIT who moves the discussion of software and *"software freedom"* into the spotlight.  
 
-### - Richard Stallman and GNU
+### Richard Stallman and GNU
 
 <a title="By Dkoukoul (Own work) [CC BY-SA 4.0 (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ARichard_Stallman_at_CommonsFest_Athens_2015_2.JPG"><img width="256" alt="Richard Stallman at CommonsFest Athens 2015 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG/256px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG"/></a>
 
@@ -172,7 +172,7 @@ __GNU HURD__
   GNU HURD is currently in a usable alpha stage [and downloadable today](http://www.gnu.org/software/hurd/ "GNU HURD Download") by joining it with the Debian Linux distribution applications--all GPL approved mind you. 
   Instead recommends the Linux kernel instead.  In someways this was the realization of Stallman's dream and yet someways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 the Linux kernel pops onto the scene and we have another little revolution in the free and open computing world.  Thompson -> Stallman -> Torvalds.
   
-### - Minix, Linus Torvalds, and Linux 
+### Minix, Linus Torvalds, and Linux 
 
 __Minix__
 
@@ -218,7 +218,7 @@ __AT&T and BSD Lawsuit__
 
   From August of 1991 to Feburary of 1992 there was a rush of interest in Linux development? But where did all these develoeprs come from?  Remember the Berkley System Unix Distribution?  In the late 80's and now 1990s its development had been flourishing.  It began to support features that not even AT&T's Unix had.  BSD was such alarge project through that not all of the original code that was given the Berkly under acadmeic license had been reqritten.  AT&T found its code in BSD Unix and took them to court.  In early 1992 there was a court order development injunction preventing work from being done on BSD Unix.  This was just the time that Linux kernel development, covered by GPL now, so there was no licensing encumberment, devlopment flourished.  By the time the lawsuit was finished in late 1993/1994 it was too late.  The Linux rocket had left the launch pad and was never coming back. 
 
-### - Free Software vs. Open Source Software
+### Free Software vs. Open Source Software
 
 By the year 1998 a new idea in the *"Free Spftare"* movement was rising.  The long expected GNU HURD kernel never arrived, being replaced by Linux.  You also begant to see a corporate interset in opensource.  With all the best intentions the term *"free"* in free software had an overriding air of being only about cost.  Many commercial entities were simply not interested or afraid because they were concerned about loosing the chance to make money or retain rights over programs they created.  Some developers seeing a chance to promote the quality and community to the larger commercial markert. These developers did not hold with the FSF's moral stance on free software as the ultimate argument in free software adoption. Instead they compared open development and open code as superior in quality and cost in cost reduction to closed source development.  They beleived opensource was a business process decision and not a moral decision.  Enter Eric S. Raymond.
 
@@ -244,7 +244,7 @@ __Linux makes you rich__
 
   As the 1990's went along we began to see eastablished companies adopting and using Linux. as well as the rise of commercial Linux companies.  Of all the companies that started at that time RedHat Linux is and was the most successful.  Most of all of the Linux distribtions started pre-2003 no longer exist or are not commercially viable.  To illustrate this, today (August 10th 2015) RedHat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "RedHat Market Cap")  
 
-### - The Rise of Commercial Linux and Modern Linux Distros
+### The Rise of Commercial Linux and Modern Linux Distros
 
   As the nature of Linux grew and corporations become more invovled in kernel development, the value proposition of Linux begans to grow as well.  The combination of the Linux kernel and the GNU tools, plus GUI tools became known a Linux distribution - which anyone could freely make.  The shortname became known as a Linux *distro.* Another term to be aware of is a there are different flavors, derivatives, or spins of Linux Distributions. 
   
@@ -434,7 +434,7 @@ __Devuan Linux__
    * Currently their is a competing Open Solaris based distro called Smart OS which is produced by Joyent 
      + Combines the best of the BSD underpinnings but runs the best of Linux based desktop applications and software
         
-### - Impending Linux Civil War
+### The Impending Linux Civil War
 
 <a title="By Kushal Das (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ALennart_poettering.jpg"><img width="256" alt="Lennart poettering" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lennart_poettering.jpg/256px-Lennart_poettering.jpg"/></a>
 
@@ -452,14 +452,14 @@ __Lennart Poettering__
      
   The fears of Linux users are that systemd will grab dependencies and eventually force Linux users into a small sub-section of systemd supported software choices.  In a sense create a vendor lock in.  What makes this all the more intreguing is that Lennart works for Red Hat.  Would Red Hat mind if this systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user?  That is a good question.  This also begs the question - can Linux survive as an independant and open software or does it need a commercial comapny backing it?  Or could this be seen as Red Hat's grab for the entire Linux market?  It is too early to tell but keep a watch on what happens with systemd.
 
-## - Chapter Conclusion and Summary
+## Chapter Conclusion and Summary
 
   Wow - we covered a lot of history -- but it is important to the understand the current state of Linux usage.
   [Learn more about opensource licensing](http://www.openlogic.com/resources/enterprise-blog/archive/open-source-license-interpretation-made-easy)
 
    [Additional Reading on the Unix history side](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix")
 
-### - Review Questions
+### Review Questions
 
 Get into groups and answer/discuss these questions
 
@@ -483,7 +483,7 @@ Get into groups and answer/discuss these questions
 
 1. As a follow up - why do you think this is so?
 
-### - Podcast Questions
+### Podcast Questions
 
 Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73) 
 
@@ -497,15 +497,11 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
  *  What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
  *  [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
 
-### - Lab
+### Lab
 
 This activity can be induvidual or group based.
 
 1. There was a documentary movie called [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. Answer the questions listed under "Review Questions" above.
 
 2. Install [Oracle VirtualBox](http://www.virtualbox.org "VirtualBox homepage") on your own laptop or if a lab computer is provided.  Note if you are already using desktop Linux or have access to a system with Linux on it, this step is optional, but VirtualBox runs on Linux as well.
-
-
-
-
 
