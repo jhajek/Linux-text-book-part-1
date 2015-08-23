@@ -20,37 +20,39 @@ __Outcomes__
   * dnf 
   * apt 
 
-## - Tar Balls and Compression Tools
+## Tar Balls and Compression Tools
 
 
-### - Extracting a Tar Ball
+### Extracting a Tar Ball
 
 
-## - Compling and Installing source code
+## Compling and Installing source code
 
 C
-### - GNC GCC
+### GNC GCC
 
 
-### - GNU Make
+### GNU Make
 
 
-### - Using Python to Install Python Based Programs
+### Using Python to Install Python Based Programs
 
 
 
-## - Chapter Conclusions and Review
+## Chapter Conclusions and Review
 
   Conclusion goes here
 
-### - Review Questions
+### Review Questions
 
   * Questions go here
 
-### - Podcast Questions
+### Podcast Questions
 
  * Questions go here
 
-### - Lab
+### Lab
 
  * Lab goes here 
+ 
+ 

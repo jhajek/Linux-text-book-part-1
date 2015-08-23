@@ -11,38 +11,40 @@ __Outcomes__
 
 XKCD vi cartoon goes here
 
-## - History of vi
+## History of vi
 
 ed -> em -> ex -> vi -> vim
 
-### - Bill Joy and BSD
+### Bill Joy and BSD
 
   Get picture of Bill Joy - link to article The future doesn't need you
   
-### - Why keybindings are as they are
+### Why keybindings are as they are
 
 
-### - Relation of vi and vim
+### Relation of vi and vim
 
 
-### - Stream editors vs text editors
+### Stream editors vs text editors
 
 vi and emacs vs nano, gedit, joe, kate
 get screenshots of these editors in action
 
 
-## - Chapter Conclusions and Review
+## Chapter Conclusions and Review
 
   Conclusion goes here
 
-### - Review Questions
+### Review Questions
 
   * Questions go here
 
-### - Podcast Questions
+### Podcast Questions
 
  * Questions go here
 
-### - Lab
+### Lab
 
  * complete vi tutor example
+ 
+ 

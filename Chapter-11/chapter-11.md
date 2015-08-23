@@ -11,18 +11,20 @@ __Outcomes__
 
   * Intro to regex
 
-## - Chapter Conclusions and Review
+## Chapter Conclusions and Review
 
   Conclusion goes here
 
-### - Review Questions
+### Review Questions
 
   * Questions go here
 
-### - Podcast Questions
+### Podcast Questions
 
  * Questions go here
 
-### - Lab
+### Lab
 
  * Lab goes here 
+ 
+ 

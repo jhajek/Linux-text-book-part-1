@@ -30,8 +30,13 @@ You need Pandoc 1.15.x  and MikTex 2.9.x to build this book proper
 In order to enable script execution for Powershell - run this command from an Administrator enabled Powershell console:
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned```
+Set-ExecutionPolicy RemoteSigned
+```
 
 You can then run the build script ./build-windows.ps1 from the powershell window and this will generate the digital output
 
 On your first build you will recieve a Package Installtion dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.
+
+__Kindle .mobi__
+
+To generate .mobi files for use on Kindle devices or apps, you need to install Kindlegen from [here](http://www.amazon.com/gp/feature.html?docId=1000765211)

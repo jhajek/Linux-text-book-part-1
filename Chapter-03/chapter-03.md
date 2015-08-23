@@ -20,7 +20,7 @@ __Outcomes__
 
   ISO files also have utitility for when you are installing a Linux distribution into a virtualized platform.
 
-## - Virtual Machines
+## Virtual Machines
   
   Every operating system has the concept of rings in relation to how systems communicate.  These rings are for privilege seperation and how security is built in to an operating system. With the higher numbered rings be the least privilleged. Traditionally user applications are in ring 4 and the kernel which has the most power is in ring 0.  For instance a program a user write cannot just talk directly to the video card and write to the screen.  The program needs to go through the OS which in turn goes through the kernel allowing or enforcing commands to be executed.  A hypervisor is a new ring that inserts itself between the OS and the kernel--called ring -1.
     
@@ -73,7 +73,7 @@ __Parallels Desktop for Mac__
    
    *  [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
 
-## - Installations and isos
+## Installations and isos
 
   Now that we understand a bit about what a hypervisor is let us beging the process.  The next pages are going to show you in comparison how to install the latest versions of Fedora and Ubuntu (as of August 10th 2015) Fedora 22 and Ubuntu 15.04.  This will require you to download two isos from their respective download sites. For this install process we will assume that you are using VirtualBox version 5.0.0.  These distributions can be install directly to a hard drive and become the primary operating system. This might be a good exercise if you have an old laptop or PC laying around.  You would be suprised if you asked your relatives or perhaps a company you work for or even a school you might go to what they have in the way of old computers that might still be useful to experiement with Linux installations as well.  There is also the concept of dual booting your PCs with multiple operating systems.   I created a quad-boot system containing Ubuntu, Fedora, Centos, and Windows 10 see article here for how to accomplish this task.  This processes is beyong the scope of this book but link is provided for those interested.
 
@@ -112,7 +112,7 @@ Get-FileHash .\Fedora-Live-Workstation-x86_64-22-3.iso -Algorithm SHA256 | forma
 Here are the commands executed in Linux
 
 
-### - Planning Your Install
+### Planning Your Install
 
   Before beginning there are a series of questions you should ask yourself, "What do I need in this distro?"
   
@@ -131,7 +131,7 @@ Here are the commands executed in Linux
     + Does it need to be GPL compliant?
     + Can propriatary programs and codecs be included?
   
-### - VirtualBox configurtion        
+### VirtualBox configurtion        
 
   If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.0.2 (August 18th, 2015) is the current version.   
   
@@ -149,7 +149,7 @@ Here are the commands executed in Linux
 *  Remote machine display
 *  Video and screenshot capture within virtual machines
 
-### - Create Guest Virtual Machine
+### Create Guest Virtual Machine
   
   Upon completion of a fresh install and luanching of VirtualBox you should see this image: 
   
@@ -169,7 +169,7 @@ Here are the commands executed in Linux
   
   Now click finish and you should be ready to go - with your VirtualBox start screen looking something like mine.  Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.
   
-### - Walk Through the Settings 
+### Walk Through the Settings 
 
 Before we hit that start button - lets select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.
 
@@ -179,7 +179,7 @@ Ready to begin
 
 Video and screenshots Links Here
 
-### - Hard Drives and Partitioning
+### Hard Drives and Partitioning
 
 Start the Linux install from iso file
 
@@ -189,13 +189,13 @@ LVM (see later chapter 13)
 
 Video and screenshots Links Here
 
-### - Installing software
+### Installing Software
 
 The final process where it asks about additional software to install
 
 Video and screenshots Links Here
    
-### - VirtualBox extensions
+### VirtualBox Extensions
 
   You may have noticed that when a guest VM is usccesfully installed the screen resolution maybe very small or the mouse intergration features are not working.  VirtualBox guest additions also enable exclusive features that are not normally availalber in an operating system such as shared folders, cut and paste support, and even support for multiple monitors.  The way to solve this is through something called VirtualBox Guest Additions.   On the VirtualBox menu under INSERT DEVICES you need to select the "Insert Guest Additions CD Image."  
   This is source code and drivers provided by VirtualBox that will add VirtualBox features and hardware to the underlying guest VM.  The guest VM has no idea it is in a virtualized environment and even if it did know Oeprating Systems do no come equipped with drivers to support VIrtualBox.  In this way the drivers are added to the OS in Windows and in Linux the drivers are loaded into the kernel to enhance the experience.
@@ -243,7 +243,7 @@ Video and screenshots Links Here
     
     Building the main Guest Additions Modile[Failed] 
      
-### - Automating the Install Answer Process With Preseed and Kickstart  
+### Automating the Install Answer Process With Preseed and Kickstart  
 
   All the previous steps took maybe 10 to 15 minutes if you are on a fast machine which is not bad at all.  But let us say you will be creating many virtual machines for research purposes. Or perhaps you will be recreating the same virtual machine many times.  There is a way to automate the install process.  This is called an answer file in the Windows server world.  For Red Hat based systems this is called kickstart and Debian and Ubuntu use a file format called preseed.  None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.  
     
@@ -255,15 +255,15 @@ Link to video on how to run the files
 
 screen shot showing you need to host the file on the web somewhere or include the file in install media
 
-## - Chapter Conclusions and Review
+## Chapter Conclusions and Review
 
   Through this chapter we gained an understanding of what x86 based virtualizations does.  We learned about the purpose of a hypervisor and how opensource tools such as VirtualBox provide these services.  We learned how to install Ubuntu and Fedora based distros in the most common scenarios.  We learned about VirtualBox features and how to automate Linux installs through kickstart and preseed configuration files.
 
-### - Review Questions
+### Review Questions
 
   * Questions go here
 
-### - Podcast Questions 
+### Podcast Questions 
 
 Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
 
@@ -279,7 +279,7 @@ Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show
   *  ~46:10 What is the way to become a great programmer?
   *  ~51:17 What is Linus' farewell message to the audience?
   
-### - Lab
+### Lab
 
   * You will need to some research and find the download links for the Linux and BSD based distors below and install them in VirtualBox.  Complete the install and launch a text editor and type your name, the name of the Linux distro, and the message "Hello World."  Assume each instance listed below is 64-bit version.
 

@@ -12,18 +12,20 @@ __Outcomes__
    * Network configs 
    * Tools to troubleshoot
    
-## - Chapter Conclusions and Review
+## Chapter Conclusions and Review
 
   Conclusion goes here
 
-### - Review Questions
+### Review Questions
 
   * Questions go here
 
-### - Podcast Questions
+### Podcast Questions
 
  * Questions go here
 
-### - Lab
+### Lab
 
  * Lab goes here   
+ 
+ 

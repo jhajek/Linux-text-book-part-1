@@ -52,7 +52,7 @@ In the shell is where we can enter basic commands for navigation and file manipu
   There is a common nomenclature of commands in Linux.  There is an executable that is part of the system function located in /bin, files such as ls cd touch are all precompiled binaries located on the system.  To enter a command you type the name of the binary, as you use Linux more and more you will begin to memorize the tool names.  Each command can have options or sometimes called flags and then may or may not accept arguments.
   
 
-### - Command nomencvlature
+### Command nomenclature
   
   ```ls -la /etc```
   
@@ -60,14 +60,14 @@ In the shell is where we can enter basic commands for navigation and file manipu
    
   The final value of __/etc__ in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the ls command to list the contents of the ___/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location/.
 
-### - Manual (man) command - your best friend
+### Manual (man) command - your best friend
 
  __Purpose of manual command__
  
  __history of maunal command
 
         
-### - File System structure
+### File System structure
    
 __What is a Filesystem?__ 
   
@@ -93,7 +93,7 @@ __What is a Filesystem?__
    /opt from Unix
    /media Ubuntu and Red Hat - an obvious place to put mounted USB, CD-ROm and other added devices
    
-### - POSIX and Linux Standard Base
+### POSIX and Linux Standard Base
    
 __POSIX__
 
@@ -108,7 +108,7 @@ __Linux Standard Base__
 Similar to POSIX but additionally unique to Linux in defining what a distro needs to be officially called a Linux distro.  
 LSB was created in XYZA
 
-### - How to Read Commands and "Speak Linux"
+### How to Read Commands and "Speak Linux"
 
   In working with many excellent people over the years I have found that there is a common Linux language.  When talking to others, you find that for the most part the standard Linux filesystem has been memorized.  As well as the most common Linux tools through repeated usage.  With this in mind you can "speak" a command without mentionig certain aspects--they are implied.  
   
@@ -176,7 +176,7 @@ In this chapter's lab you will do work with creating and moving files around fro
 
 *NOTE if you get lost in the Linux filesystem tree you can always tpye cd $HOME and you will be taken back to your initial home directroy that you are placed in when the terminal starts.*
 
-## - File permissions and ownership
+## File Permissions and Ownership
 
   Linux has a simple security model.  There are simply three types of permission that every file has: __read__, __write__, __execute__.  These files give a combination of permissions.  With read you can display the content of a file or copy it, but cannot delete or rename it.  For that you need write permission.  If a file is a shell script or an executable binary it needs the execute permission.  How can you tell what permissions a file has?  Type ```ls -la``` and lets see.  We have seen this output before and now we will explain it. 
 
@@ -188,15 +188,15 @@ Every file includes an owner and a group.  If you notice the next two columns in
 
 Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of rw_r__r__ can be read as 644.  The permissions for rwxrwxrwx is 777.  Numberic value for this is rw_______ is 600.
   
-### - Read, Write, Execute
+### Read, Write, Execute
 
 rwx
 
-### - Owner, Group, Other (World)
+### Owner, Group, Other (World)
 
 
 
-### - Tools 
+### Tools 
 
 There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter Y.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's).
 
@@ -220,13 +220,13 @@ There are a series of commands that can be used to change or augment the owner, 
   Pronounced *"Chuh-gerp"*  
   This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
 
-### - ACLs
+### ACLs
 
 IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them.  Here is what sticky bits do...
 
 
 
-## - 3 P's
+## The 3 P's Describing 95% of all Linux Problems
 
 Find how to do definitions in markdown
   * Path 
@@ -236,19 +236,19 @@ Find how to do definitions in markdown
   * dePendencies
      +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
 
-## - Chapter Conclusions and Review
+## Chapter Conclusions and Review
 
   In this chapter we discovered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file create and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative PATH.  FInally we covered file permissions and the tools used to change or modify them. 
 
-### - Review Questions
+### Review Questions
 
   * Questions go here
 
-### - Podcast Questions
+### Podcast Questions
 
  * Questions go here
 
-### - Lab
+### Lab
 
  * Lab goes here 
    
