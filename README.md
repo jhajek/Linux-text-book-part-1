@@ -11,23 +11,23 @@ How to install;
 [Install Instructions](http://pandoc.org/installing.html)
 
 > Linux
-For 64-bit Debian and Ubuntu, we provide a debian package on the download page. This will install the pandoc and pandoc-citeproc executables and man pages. If you use an RPM-based distro, you may be able to install this deb using alien.
-Or, try your package manager. Pandoc is in the Debian, Ubuntu, Slackware, Arch, Fedora, NiXOS, openSUSE, and gentoo repositories. Note, however, that versions in the repositories are often old.
-If the version in your repository is too old and you cannot use the deb we provide, you can install from source, using the instructions below under Installing from source. Note that most distros have the Haskell platform in their package repositories. For example, on Debian/Ubuntu, you can install it with apt-get install haskell-platform.
-For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. (On Debian/Ubuntu, apt-get install texlive.)
+> For 64-bit Debian and Ubuntu, we provide a debian package on the download page. This will install the pandoc and pandoc-citeproc executables and man pages. If you use an RPM-based distro, you may be able to install this deb using alien.
+> Or, try your package manager. Pandoc is in the Debian, Ubuntu, Slackware, Arch, Fedora, NiXOS, openSUSE, and gentoo repositories. Note, however, that versions in the repositories are often old.
+> If the version in your repository is too old and you cannot use the deb we provide, you can install from source, using the instructions below under Installing from source. Note that most distros have the Haskell platform in their package repositories. For example, on Debian/Ubuntu, you can install it with apt-get install haskell-platform.
+> For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. (On Debian/Ubuntu, apt-get install texlive.)
 
 [Getting-Started](http://pandoc.org/getting-started.html)
 
-If you want to create a PDF, you’ll need to have LaTeX installed. (See MacTeX on OS X, MiKTeX on Windows, or install the texlive package in linux.) Then do
-`pandoc ../Linux-Technology-and-Philosophy-Part-I.md -s -o ../output/Linux-Technology-and-Philosophy-Part-I.pdf`
+> Windows 
+You need Pandoc 1.15.x  and MikTex 2.9.x to build this book proper
 
-To convert it to HTML, use this command:
-`pandoc ../Linux-Technology-and-Philosophy-Part-I.md -f markdown -t html -s -o ../output/Linux-Technology-and-Philosophy-Part-I.html`
+[Pandoc Windows pandoc-1.15.0.6.msi](https://github.com/jgm/pandoc/releases/tag/1.15.0.6 "Pandoc MSI")
 
-[Convert your Markdown file to Word (docx):](http://bob.yexley.net/generate-a-word-document-from-markdown-on-os-x/)
-`pandoc -o ../output/Linux-Technology-and-Philosophy-Part-I.docx -f markdown -t docx ../Linux-Technology-and-Philosophy-Part-I.md`
+[MikTex](http://miktex.org/download "Miktex Download")
 
-[Convert to epub](http://pandoc.org/epub.html)
-`pandoc ../Linux-Technology-and-Philosophy-Part-I.md -o ../output/Linux-Technology-and-Philosophy-Part-I.md`
+In order to enable script execution for Powershell - run this command from an Administrator enabled Powershell console:
 
-Or run the included script in the build folder that will install and generate everything for you 
+```powershell
+Set-ExecutionPolicy RemoteSigned```
+
+You can then run the build script ./build-windows.ps1 from the powershell window and this will generate the digital output
