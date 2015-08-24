@@ -255,9 +255,9 @@ __Linux and Linus Torvalds__ [^7]
     
   Linux Kernel unique attributes recap:
   
-  * Developed to solve one person's problem of wanting his own Unix liek OS 
+  * Developed to solve one person's problem of wanting his own Unix-like OS 
   * Released often
-  * Accpeted contributions back
+  * Accepted contributions back
   * Released freely and protected by GPL license
   * Used existing GNU tools - no need to reinvent the wheel
   
