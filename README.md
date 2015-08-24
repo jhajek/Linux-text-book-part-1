@@ -40,3 +40,13 @@ On your first build you will recieve a Package Installtion dialogue from MikTex 
 __Kindle .mobi__
 
 To generate .mobi files for use on Kindle devices or apps, you need to install Kindlegen from [here](http://www.amazon.com/gp/feature.html?docId=1000765211)
+
+__Reading PDF and ePUB__
+
+You can use any PDF reader, Adobe or the Microsfot Reader built into Windows 8 and 10.
+
+Or you can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
+
+ePub and PDF can alsop be read via the Barns and Noble Nook app.  It is available for all platforms, [iOS, Androis, and Windows](http://www.nook.com/nookapp/#appChoices "Nook app").  I use it and can recommend it on any platform.
+
+the iBooks app on iOS works as well for viewing ePubs and PDFs.
