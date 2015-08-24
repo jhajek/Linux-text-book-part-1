@@ -528,7 +528,7 @@ __Lennart Poettering__ [^18]
 
 Get into groups and answer/discuss these questions
 
-1. Based on the movie's tone and time - why would you think there is a definate anti-microsoft tone?
+1. Based on the movie's tone and time - why would you think there is a definite anti-microsoft tone?
 
 1. What influence did Bill Gates' 1976 *"Open Letter to Hobbyists"* influence the opensource movement, if any?
 
