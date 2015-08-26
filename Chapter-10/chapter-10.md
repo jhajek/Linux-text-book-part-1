@@ -9,7 +9,9 @@ __Chapter 10 Objectives__
   * Understand the nature of gcc and GNU tools make 
   * Undderstand how to use the Python lanuguage interpreter in order to run python based install scripts 
   * Understand how to use tar, gzip, and bzip2 for extracting packages containing source code
-    
+  * Compiling code from source
+  * Using Python setup.py install tools
+  
 __Outcomes__
 
   At the conclusion of this chapter you will be able to install packages and manage dependecies through using standard package managers dnf, yum, and apt.  You will also be comfortable compiling software from source using a tar ball and python setup tools.
