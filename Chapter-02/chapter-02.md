@@ -549,7 +549,7 @@ Get into groups and answer/discuss these questions
 
 1. How does Richard Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?  
 
-1. As a follow up - why do you think this is so?
+1. What is the main argument between *"Free Software"* and *"Open Source"*?
 
 ### Podcast Questions
 
