@@ -1,17 +1,19 @@
-# Services and processes
+# Remote Access and Firewall Technologies
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 14 Objectives__
 
-
+  * SSH
+    + RSA keys
+  * VNC
+  * rdesktop
+  * Firewall
+    + iptables
+    + ufw
+  
 
 __Outcomes__
 
-## Types
-
-   * Starting stopping
-   * Systemd vs sysVInit
-   * Cron jobs
    
 ## Chapter Conclusions and Review
 
