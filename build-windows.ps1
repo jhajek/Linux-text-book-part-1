@@ -5,7 +5,7 @@ rm -v ./output/pdf/*.pdf
 rm -v ./output/epub/*.epub
 rm -v ./output/html/*.html
 rm -v ./output/docx/*.docx
-rm -v ./output/mobi/*.mobi
+#rm -v ./output/mobi/*.mobi
 
 # ($stamp = Get-Date -UFormat "%m%d%y-%k%M%)
 
@@ -43,6 +43,6 @@ cp -Force  C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\*.epub  C
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #
 ###########################################
-kindlegen ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.epub 
-mv ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi ./output/mobi/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi
+#kindlegen ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.epub 
+#mv ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi ./output/mobi/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi
 
