@@ -7,7 +7,8 @@ __Chapter 4 Objectives__
   *  Learn about how desktop Linux works
   *  Understand the nature and use of X Windows, Mir, Wayland, and GUI compositors
   *  Understand the purpose of window mangers and desktop environments
-  *  Know the major features of GNOME 3 and Unity desktop environments 
+  *  Know the major features of GNOME 3 and Unity desktop environments
+  *  Symlinks and file types 
 
 __Outcomes__
 

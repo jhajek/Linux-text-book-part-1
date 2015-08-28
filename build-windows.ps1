@@ -1,11 +1,19 @@
 #[Getting-Started](http://pandoc.org/getting-started.html)
 
 #delete previous build artifacts but not the README.md
-rm -v ./output/pdf/*.pdf
+If (Test-Path ./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.pdf){
+  # http://stevehardie.com/2013/04/powershell-check-if-file-exists/
+  rm -v ./output/pdf/*.pdf
+}Else{
+  echo "./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.pdf - File does not exist =("
+}
+
+
+
 rm -v ./output/epub/*.epub
 rm -v ./output/html/*.html
 rm -v ./output/docx/*.docx
-rm -v ./output/mobi/*.mobi
+#rm -v ./output/mobi/*.mobi
 
 # ($stamp = Get-Date -UFormat "%m%d%y-%k%M%)
 
@@ -37,12 +45,12 @@ pandoc --toc --number-sections -o ./output/docx/Understanding-the-Technology-and
 # Debugging          #
 ######################
 
-cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\pdf\*.pdf  C:\Users\palad\OneDrive\Documents\epub
-cp -Force  C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\*.epub  C:\Users\palad\OneDrive\Documents\epub
+# cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\pdf\*.pdf  C:\Users\palad\OneDrive\Documents\epub
+# cp -Force  C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\*.epub  C:\Users\palad\OneDrive\Documents\epub
 
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #
 ###########################################
-kindlegen ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.epub 
-mv ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi ./output/mobi/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi
+#kindlegen ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.epub 
+#mv ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi ./output/mobi/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi
 

@@ -2,9 +2,9 @@
 
 ![*At the end of class you will find this cartoon funny.*](http://imgs.xkcd.com/comics/open_source.png "Understanding the Technology and Philosophy of Linux Part I")
 
-[*"If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do."* Linus Torvalds](http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI "Quote from Linus Torvalds")
-
 ## The Foundation of Unix and Linux
+
+> [*"If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do."* Linus Torvalds](http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI "Quote from Linus Torvalds")
 
 Why are you learning about Linux?  Where did it come from?  There is a good chance that you have Linux running in your pocket and don't even know it. Raise your hand if you have an Android based phone or tablet? Here is a hint, Android Operating System is based off of Linux.  So this chapter begins the start of your mastery of Linux, in addtition to teaching you its technology. This book aims to teach you about the history and philosophy of Linux so you can understand the environment surrounding its origin: where it is going and why you are using it.  Some pieces of this book may seem frustrating at first, after all the roots of Linux and Unix go back 30-40 years in some cases.  Understanding these concepts and what these creators were thinking will help you master the Linux environemnt.
 
@@ -23,33 +23,35 @@ __Outcomes__
 
 *Convention Note*
 
-  You will notice that I have been using the terms Unix and Linux interchangably so far.  For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the full truth if we left Unix out.  In this first chapter we need to understand their related history.   
+  You will notice that I have been using the terms Unix and Linux interchangably so far.  For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the full truth if we left Unix out.  In this first chapter we need to understand their related history.  If you are curious the name is pronounced [*"Lin-ucks;"* link to audio pronounciation.](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") 
 
 ## Where it Began and Why it Matters Now 
  
-  Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Where as a rectangle is a square but a square is not a rectangle, Linux is Unix but Unix is not Linux.  Let's look at this in detail. When we say *"Unix"* we are referring to an entire operating system.  An Operating System can be boiled down into three main parts.   
+  Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Where as a square is a rectangle but a rectangle is not a square, Linux is Unix in spirit, but Unix is not Linux.  Let's look at this in detail. The first main difference between Unix and Linux is that *"Unix"* is an entire operating system.  An operating system can be boiled down into three main parts.   
 
 1. __The Kernel__  [^1]
          
  ![*Kernel_Layout.svg*](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/304px-Kernel_Layout.svg.png "Kernel Layout")
     
-  Unix includes a kernel - a hardware abstraction layer that handles all the interfaces from the operating system to the hardware.  The kernel is the portion of the Operating system abstracts access to your hardware; this is done through *"drivers"*.  Without software drivers and a kernel, you would have to compile the operating system everytime you built it for different architectures.  Take Windows for instance - you have just one version, 7, 8, 10, etc etc.  Yet it run on Intel processors, AMD processors, ARM processors, Marvell networking cards, Broadcom wireless cards, Mac, and many others device manufacturers devices.  But there is no need to buy a special version of Windows, Mac, or Linux specific to that hardware.  The software drivers are written so that a piece of hardware can be accessed through the kernel by the operating system. You can think of the Kernel like the engine of a car.  Kernels are difficult to write as they handle other complex tasks such as task scheduling, memory mangement, and input/output.  
+  Unix includes a kernel - a hardware abstraction layer that handles all the interfaces from the operating system to the hardware.  The kernel is the portion of the Operating system abstracts access to your hardware; this is done through *"drivers"*.  Without software drivers and a kernel, you would have to recompile the operating system for each processor architecure and again for each different brand of hardware architectures.  
+  
+  Take Windows for instance - you have just one version, 7, 8, 10, etc etc.  Yet it runs on Intel processors, AMD processors, ARM processors, Marvell networking cards, Broadcom wireless cards, Macbook, and many others manufacturers devices.  But there is no need to buy a special version of Windows, Mac, or Linux specific to a set of hardware.  The software drivers are written so that a piece of hardware can be accessed through the kernel by the operating system. Ultimately the kernels job is to handle complex tasks such as memory mangement, task scheduling, input/output and allocation of resources.  
   
 2. __User Interface and User Tools__
  
-  All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user Applications"* (sometimes called userland) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface, the time of developemnt being in the 1970s precluded this. Once CRT monitors became prevelant the commandline shell became the standard interface.  This allowed you to type commands direclty on a screen and see the results back--no paper tape involved.  Eventually the [X Windows System](https://en.wikipedia.org/wiki/X_Window_System) came along giving you the familiar desktop windows you are most likely used to, allowing for mouse and keyboard input.  X Windows is the standard windowing toolkit that prety much all versions of Linux GUI build upon today.   
+  All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user applications"* (sometimes called userland) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface but it allways had a shell. The time era of developemnt in the 1970s precluded this. Once CRT monitors became prevelant the GUI commandline shell became the standard interface.  This allowed you to type commands direclty on a screen and see the results back--no paper tape involved.  Eventually the [X Windows System](https://en.wikipedia.org/wiki/X_Window_System) came along giving you the familiar desktop windows you are most likely used to, allowing for mouse and keyboard input.  X Windows is the standard windowing toolkit that prety much all versions of Linux GUI build upon today.   
 
   User tools include all simple tooling or commands you take for granted: copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, or redirect output from the screen to a file.  
   
-  User applications like a web browsers and email clients are seen as tools that are created by the user that just repurpose the existing User tools and are built/installed by the user.
+  User applications like a web browsers and email clients are seen as tools that are created by the user that just repurpose the existing user tools and are built/installed by the user.
 
 3. __Programming Language and Compiler Tools__
 
-  In the modern GUI comuting world we are used to just clicking on .exe or .dmg files and off our installation of Chrome or Firefox goes.  In the Unix world all software is built using the C language.  You need a compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  Today most code is pre-compiled for you and you can use other languages, but in the early days of Unix and Linux a C Compiler was neccesary as you were building the kernel, operating system, and tooling from scratch.  
+  In the modern GUI comuting world we are used to just clicking on .exe or .dmg files and off our installation of Chrome or Firefox goes.  In the Unix world all software is built using the C language.  You need a compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  Today most code is pre-compiled for you and you can use other languages besides C, but in the early days of Unix and Linux a C Compiler was neccesary as you were building the kernel, operating system, and all tooling from scratch.  
  
 __Linux is the same as Unix but...__
  
-  Linux on the otherhand is technically not a full operating system like Unix.  It is actually just a kernel, missing item 2 and 3 from the above list. You will hear people refer to it as an operating sysetm.  Depending on your audience you need to know both facets.  The Linux kernel plus someone elses User Interface and User Tools and Programming Language and Compiler Tools makes up a Linux distribution or simply Linux distro. Every company and person can equally contribute to the Linux kernel and make their own distributions.  Linux was built out of the Unix world, keeping all the same conventions and ideas from Unix but starting in a different place.  
+  Linux on the otherhand is technically not a full operating system like Unix.  It is actually just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating sysetm.  Depending on your audience you need to know both facets.  The Linux kernel plus someone elses *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*. 
 
 __Who Uses Linux Today?__  
   
@@ -64,8 +66,8 @@ __Who Uses Linux Today?__
   * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel") 
   * [Pretty much every top website except Stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
   
-  
-  The question is not who uses Linux but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril, you will never understand Linux unless you understand UNIX at its core philosophies.  Here we go.
+ 
+  The question is not who uses Linux but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril. You will never understand Linux unless you understand UNIX at its core philosophies. 
 
 ### Thompson, Ritchie, and Bell Labs
 
@@ -75,13 +77,13 @@ __Ken Thompson and Dennis Ritchie__ [^2]
 
 ![*Ken Thompson and Dennis Ritchie*](https://upload.wikimedia.org/wikipedia/commons/3/36/Ken_n_dennis.jpg "Ken n Dennis")
 
-  Without Thompson and Ritchie, there would be no Unix and most likely no Linux today.  Until recently both were hired as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011. Ken Thompson is still working and recently help produce the [Go programming language](http://golang.org/ "Golang") from Google. 
+  Without Thompson and Ritchie, there would be no Unix and most likely no Linux today.  Until recently both were hired as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011. Ken Thompson is still working and recently help produce the [Go programming language](http://golang.org/ "Golang"). 
 
-  To begin we need to go back to 1968.  The Unix project got it start in something called MULTICS, which was an attempt to build a multi-user operating system.  At the time, this combined all the brightest minds of General Electric, MIT, ARPA, and Bell Labs.  Now today those aren't names you think of when you think of computers.  Yet in 1968/1969 General Electric and the government (ARPA) were the large funders and suppliers of computing (The PC market we know of today doesn't come until 1984!).
+  To begin this story we need to go back to 1968.  At the time, the combined might of all the brightest minds of General Electric, MIT, ARPA, and Bell Labs came together to try to build a multi-user operating system called *MULTICS*.  Now today those aren't names that come to mind when you think of computer companies.  Yet in 1968/1969 General Electric and the government (ARPA) were the large funders and suppliers of computing (The PC market we know of today doesn't come into existance until 1984!).
 
-  Bell Labs was basically the *"idea shop"* of the entire country - where the best and brightest went to invent everything we take for granted today. Bell Labs was spun off by AT&T and became Lucent Technologies, which became Alcatel-Lucent and now is soon to be part of Nokia. One could argue that Google and Facebook have taken its place  where the brightest minds go to invent new things in America.  No wonder that Dennis Ritchie, Ken Thompson, Brian Kernighan and even James Gosling (creator of the Java programming language) are and were employees at Google.
+  Bell Labs at the time was basically the *"idea shop"* of the United States--where the best and brightest went to invent everything we take for granted today. Bell Labs was spun off by AT&T and became Lucent Technologies, which became Alcatel-Lucent and now is soon to be part of Nokia. One could argue that Google and Facebook have taken its place  where the brightest minds go to invent new things in America.  No wonder that Dennis Ritchie, Ken Thompson, Brian Kernighan and even James Gosling (creator of the Java programming language) are and were employees at Google.
 
-  Like all projects that try to do too much, MULTICS stalled in gridlock between the different companies and the demands of the government.  This left one crafty engineers with much free time and (for those days) a true rarity - unused copmuters; PDP-7s to be exact.  Ken Thompson had an insiders view of the innovative things MULTICS was trying to accomplish and why the inner workings of the MULTICS project went wrong. Thompson also had a job to do as a Bell Labs researcher.  On his own time and down time, he began to use these PDP-7s and program his own multi-user operating sysetm, but with a different twist.  It was designed by him, and solved daily work and coding problems he had.  This operating system and its tools was then a project to help him get his own work done more efficiently.   
+  Like all projects that try to do too much, MULTICS stalled in gridlock between the different companies and the demands of the government.  This left one crafty engineers with much free time and (for those days) a true rarity - unused copmuters; PDP-7s to be exact.  Ken Thompson had an insiders view of the innovative things MULTICS was trying to accomplish and why the inner workings of the MULTICS project went wrong. Thompson also had a job to do as a Bell Labs researcher.  On his own time and down time, he began to use these PDP-7s and program his own multi-user operating sysetm, but with a different twist.  It was designed by him, and solved daily work and coding problems he had.  This operating system and its tools was a project to help him get his own work done more efficiently.   
 
 __PDP-7__ [^3]
 
@@ -101,17 +103,18 @@ Unix differences from existing commercial Operating Systems
 Thompson's Unix success was also a by product of its main design philosophies:
 
   *  Everything is a file 
-    + This means that everything can be read from or written to: All the way from devices to text files
-  *  Unix is Portable -- everything written in C
-  *  Unix is a collection of small tools that do one and only one thing well
-    + To build complex tools you chain input and output of tools together with *pipes* -> "|"
- *  The only file format used in Unix is plain ASCII text 
-    +  Yes, there are compiled binaries but you generally are not reading and writing directly to them 
+    + This means that everything can be read from or written to: all the way from devices to text files
+    +  Yes, there are compiled binaries but you generally are not reading and writing directly to them
+  *  Unix is portable
+    + Tools and OS code can be recompiled for different environments because everything is written in C. 
+  * I/O is redirectible between small executables 
+    + Small tools that do one and only one thing well
+    + Output of one command becomes the input of another command.
+    + Complicated applications are built by chaining many outputs of small executables together with *pipes* -> "|"
     
- Between 1970 and 1974 Unix grew in its maturity.  And one of its crowning achienvements--its portability came to life.  Unix was originally written in assembly lanugage for the PDP-7. It needed to be as low level code as possible because disk storage space was a HUGE premium in those days.  This was good, but the problem with writting in low level assembly means that the code is optimized to only run on a PDP-7 system.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portablitiy.  What good is Unix if it could only be used on a PDP-7? It would have stayed a Bell Labs pet project.
+ Between 1970 and 1974 Unix grew in its maturity.  And one of its crowning achienvements--its portability came to life.  Unix was originally written in assembly lanugage for the PDP-7. It needed to be as low level code as possible because disk storage space was a *HUGE* premium in those days.  The code was good and highly optimized, but the problem with writting in low level assembly means that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portablitiy.  What good would it have been if Unix could only be used on a PDP-7? It would have stayed a Bell Labs pet project and become an obscure entry on a wikipedia page.
  
- While Thompson was building Unix his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system, and then to be able to contribute additonal functionality.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped in PDP-7 assembler language.  Today we take for granted high level lanugages like C, C++, Python, and Java.  In the early 1970's these did not exist.  Ritchie's initial work was on a high level language that could be built in order to compile and run the same code on two different operating systems, in 1970 this was generally not possible. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Lanugage") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature actually to save precious harddrive space). B was also missing other features you would expect in a modern programming languages.  
- 
+ While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system.  These new people contributed additonal functionality to solve their work problems.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped in PDP-7 assembler language.  Today we take for granted high level lanugages like C, C++, Python, and Java.  In the early 1970's these did not exist.  Ritchie's initial work was on a high level language that could be built in order to compile and run the same code on two different operating systems, in 1970 this was generally not possible. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Lanugage") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious harddrive space). B was also missing other features you would expect in a modern programming languages.  
  What happened was that Thompson and Ritchie went to work extending "B" with all the features they would need to make an operating system fully function and portable.  They called this language surprsingly, "C" -- the same "C" lanugage you know today.  C was different from assembler in that is resembled assembler code syntx had a high enough level of abstraction that the "C" code was an independant language.  With the advent of C - Unix was rewritten in this language.  With the creation of C compilers for different hardware, Unix could now be built and be recomplied on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, SUN SPARC etc, etc.  
 
 __Assembler and C Lanugage Comparison__
@@ -182,7 +185,7 @@ __Brian Kernighan__ [^4]
   
 __Unix Maturity__
 
-By 1974/75 Unix is growing in its maturity.  Other Bell Labs divisions get wind of this and begin to request "tapes" for their own use.  Tapes meant giant mounted magnetic tape reels that contained all the operating system installation code.  By law AT&T was prohibited from getting into the computer business so they could not turn this into a business.  AT&T left it curriously as Thompson and Ritchie's pet project.  Many Universities at this time--wanting to teach computing and operating systems began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.    
+By 1974/75 Unix is growing in its maturity.  Other Bell Labs divisions get wind of this and begin to request *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code.  By law AT&T was prohibited from getting into the computer business so they could not turn this into a business.  AT&T left it curriously as Thompson and Ritchie's pet project.  Many Universities at this time--wanting to teach computing and operating systems began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.    
 
 In 1975 Ken Thompson took a sabbatical from Bell Labs and went back to his Alma Mater, Berkly, in California.  Installing the Version 6 Unix Release.  The students at Berkley loved Unix and started adding their own features to improve it to solve their own problems.  One student in 1978, Bill Joy, added vi and the C Shell (two things still in use today in modern Linux) and started redistributing his "re-mix" of Unix called BSD (Berkely System Distrubition.)  
 
@@ -404,7 +407,7 @@ __Red Hat Enterprise Linux - RHEL__
   
   RedHat began to see the opportunity to create a Linux distro targeting enterprises and make money using opensource at the time.  A big market that was practically cornered by two companies were Java based applications and database servers - MySQL or Orcale.  These markets had been the domain of Sun and its Unix based Solaris Operating System for years, as well as Microsoft runnning Oracle on Windows.  RHEL could enter that market, running the same applications, and do it on cheaper Intel x86 based boxes.  With Oracle announcing it would port its products to RHEL, this platform became to the go to choice as the alternative against Microsoft and helped put Sun and Solaris basically out of business.  The acronym stands for RedHat Enterprise Linux.  
 
-  The key to RHEL's success in the enterprise is its long term stasbility.  Much like the version of Windows Servers it competes with - the applciation platform is expected to run for 5+ years.  A enterprise grade server product cannot be changing every six months like the Fedora project.  RedHat instead takes "snapshots" from Fedora and freezes them in time.  As of today (August 13th 2015) the current version of RHEL is 7.1 which is a freeze of the technology point in Fedora 19, whihc was released July of 2013.  This way the developers get to know the platform and software versions that will be maintained and supported long term. How succesful is this strategy? By 2012 they became the first Linux based company to make a billion dollars in a physical year.  But this success brought about a serious opensource question, if you have a successful prodcut like RHEL, since you are using GPL based opensource code--you have to opensource your code--that means anyone else can redistribute your code freely, in theory eating your lunch.     
+  The key to RHEL's success in the enterprise is its long term stasbility.  Much like the version of Windows Servers it competes with - the applciation platform is expected to run for 5+ years.  A enterprise grade server product cannot be changing every six months like the Fedora project.  RedHat instead takes "snapshots" from Fedora and freezes them in time.  As of today (August 13th 2015) the current version of RHEL is 7.1 which is a freeze of the technology from Fedora 19, whihc was released July of 2013.  This way the developers get to know the platform and software versions that will be maintained and supported long term. How succesful is this strategy? By 2012 they became the first Linux based company to make a billion dollars in a physical year.  But this success brought about a serious opensource question, if you have a successful prodcut like RHEL, since you are using GPL based opensource code--you have to opensource your code--that means anyone else can redistribute your code freely, in theory eating your lunch.     
   
 ![*CentOS*](https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png "CentOS logo")
   
@@ -546,7 +549,7 @@ Get into groups and answer/discuss these questions
 
 1. How does Richard Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?  
 
-1. As a follow up - why do you think this is so?
+1. What is the main argument between *"Free Software"* and *"Open Source"*?
 
 ### Podcast Questions
 

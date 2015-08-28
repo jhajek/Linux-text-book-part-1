@@ -1,4 +1,4 @@
-# Creating, Partitioning, and mounting filesystems
+# Creating, Partitioning, and Mounting Filesystems
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 12 Objectives__

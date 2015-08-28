@@ -1,11 +1,19 @@
-# Find and grep 
+# System Administration 
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 11 Objectives__
 
-
+  *  logging  /var/log  rsyslog
+    + dmesg
+  * top, atop
+  * sudo 
+  * privilleges
+  * adduser, userdel, usermod
+  
 
 __Outcomes__
+
+
 
 ## Types
 

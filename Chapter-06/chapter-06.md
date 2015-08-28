@@ -1,9 +1,13 @@
-# Commandline Variables and Shell Meta-Characters
+# Commandline Variables, Shell Meta-Characters, Search Tools
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 6 Objectives__
 
-
+   * std in, out, err
+   * redirection < > | tee
+   * Find and grep
+   * {} !,#,$,\,
+   
 
 __Outcomes__
 

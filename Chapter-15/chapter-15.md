@@ -1,19 +1,16 @@
-# Future and embedded Linux
+# The Future of Linux
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 15 Objectives__
 
-
-
-__Outcomes__
-
-## Types
-
    * IoT
    * RaspberryPi
    * Android
+
+__Outcomes__
+
    
-## Conclusion 
+## Where to go Now? 
    
    * Linux+
    * LPI
