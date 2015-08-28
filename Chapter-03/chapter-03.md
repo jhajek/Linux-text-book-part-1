@@ -16,32 +16,45 @@ __Outcomes__
 
   Part of the power of Linux is that it is *"free to use"*, *"free as in freedom"*  This usually translates into free to use *"cost-wise"* as well.  This makes the barrier to entry in using a Linux distro very small.   In the interceeding 21 years the various distros have perfected packaging and installtion has become very simple.  If you are familiar with the Windows or Mac install process then Linux will not be too different.  FreeBSD on the other hand, you will find completely alien but that is another story.  The term for a file used to install a Linux distro is called an *ISO*.  An [ISO (*"eye-so"*)](https://en.wikipedia.org/wiki/ISO_9660 "ISO 9600 standard") file is actually a standard file type that represents the contents of a CD/DVD-ROM in a single archived file format.  Since it is a standard, ISO files can be mounted within operating systems, they can be read from and even written or *"burned"* to CD/DVDs, USB, and SD cards.  The reason the ISO term and format are tied to the Linux Distro installtion process is a historical one.  During the mid 90's as Linux rose to prominence at the same time CD-ROM technology began to become affordable and the method of data distribution that replaced floppy and Zip disks amongst PCs.  It made sense to create distributions that were almost the exact size of a CD-ROM beccause it made distributing and copying very easy Linux very easy.  In the early days of Linux it was not uncommon for a distribution to have a mailing address where you could write a letter and request premade CD versions of a distro.
 
-  As USB drives and SD Cards have since surpassed Optical Disks in speed and capacity they have come to represent the default install install media.  Infact if you think about it many laptops, 2-in-1s, and even desktop PCs and Macs don't even come with an optical drive anymore.  Though many old and still usable PCs have optical drives.  One of the best tools I have found for creating bootable install media on optical disk or USB drives is [UNetbootin](http://unetbootin.github.io/ "UNetbootin").  This tools takes away the difficulty out of making install media and with two clicks makes it happen.  It even includes an option to manually just-in-time download whichever ISO you are looking for and "burn" the it to the media of your choice.  You may hear the term *"burn"* used in relations to ISOs, all this means is to transfer or write data from one source to its extracted final source.
+  As USB drives and SD Cards have since surpassed Optical Disks in speed and capacity they have come to represent the default install install media.  Infact if you think about it many laptops, 2-in-1s, and even desktop PCs and Macs don't even come with an optical drive anymore.  Though many old and still usable PCs have optical drives.  One of the best tools I have found for creating bootable install media on optical disk or USB drives is [UNetbootin](http://unetbootin.github.io/ "UNetbootin").  
+  
+  ![*UNetbootin initial screen*](images/Chapter-03/unetbootin.png "UNetbootin")
+  
+  This tools takes away the difficulty out of making install media and with two clicks makes it happen.  It even includes an option to manually just-in-time download whichever ISO you are looking for and "burn" the it to the media of your choice.  You may hear the term *"burn"* used in relations to ISOs, all this means is to transfer or write data from one source to its extracted final source.
 
   While you can burn ISO filed to media for installtion on a desktop or laptop, ISO files also have utitility for installing a Linux distribution into a virtualization Platform.
 
 ## Virtual Machines
   
-  Every operating system is made up of multiple components as we mentioned in chapter 2.  These components are seperated by privillege rings. These rings are for privilege seperation and are built in security for the operating system. With the higher numbered rings being the least privilleged. Traditionally user applications are in ring 4 (sometimes called ["*userland"* or *"user space"*](https://en.wikipedia.org/wiki/User_space "user space") and the kernel which has the most power is in ring 0.  For instance a program a user writes cannot just talk directly to the video card and write to the video memory for the screen.  The program needs to go through the OS which in turn goes through the kernel allowing or enforcing commands to be executed.  How then does virtualization fit in? Virtualization or called a [hypervisor](https://en.wikipedia.org/wiki/Hypervisor "Hypervisor") is a new ring that inserts itself between the OS and the kernel to intercept commands and is called ring -1.
-    
-  <a title="Hertzsprung at English Wikipedia [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY-SA 2.5-2.0-1.0 (http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3APriv_rings.svg"><img width="256" alt="Priv rings" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/256px-Priv_rings.svg.png"/></a>
-    
- ![Privilege Rings](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/256px-Priv_rings.svg.png "Hertzsprung at English Wikipedia GFDL http://www.gnu.org/copyleft/fdl.html, CC-BY-SA-3.0 http://creativecommons.org/licenses/by-sa/3.0/ or CC BY-SA 2.5-2.0-1.0 http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0, via Wikimedia Commons")   
-    
-    
-   *"To assist virtualization, VT and Pacifica insert a new privilege level beneath Ring 0. Both add nine new machine code instructions that only work at "Ring -1," intended to be used by the hypervisor."* [Andy Dorman - Informationweek](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134) 
-    
-  <a title="By Terendo (Own work) [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHyper-V.png"><img width="256" alt="Hyper-V" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Hyper-V.png/256px-Hyper-V.png"/></a>
-  
-  When dealing with virtualization you are functionally running multiple operating systems at one time.  Technically this is not possible as only one oeprating sysetm can have control at a time - so how can a hypervisor make this work?  
+  Every operating system is made up of multiple components as we mentioned in chapter 2.  These components are seperated by privillege rings. These rings are for privilege seperation and are built in security for the operating system. With the higher numbered rings being the least privilleged. Traditionally user applications are in ring 4 (sometimes called ["*userland*" or *"user space"*](https://en.wikipedia.org/wiki/User_space "user space") and the kernel which has the most power is in ring 0.  For instance a program a user writes cannot just talk directly to the video card and write to the video memory for the screen.  The program needs to go through the OS which in turn goes through the kernel allowing or enforcing commands to be executed.  How then does virtualization fit in? Virtualization or called a [hypervisor](https://en.wikipedia.org/wiki/Hypervisor "Hypervisor") is a new ring that inserts itself between the OS and the kernel to intercept commands and is called ring -1.
  
-   Insert screen shot of system running Windows and also with Ubuntu and Fedora up and running with task manager
-
-  By having the hypervisor intercepting system calls from the virtualzied operating system.  The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two atendees.  The *"guest"* operating system thinks it has complete control of the hardware - the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available.  The hypervisor ina sense offers a pretend kernel to the guest virtualized system.  In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands.  For example if we are running and Ubuntu Desktop virtualized guest system on a Windows 10 host, the Linux desktop has no way of knowing how to issue a command to use the network card to request a web site because Linux knows its own OS and kernel and Windows is a completely different kernel and operating system.  The virtualziation layer will do this translation for you -- allowing the *"host"* system to think that your guest virtualzied OS is nothing more than an application, and allowing your guest virtualized operating system to think that it own the entire set of hardware.  
+ 
+ __One Ring to Rule Them All...__ [^22]
+    
+ ![*Not these kind of rings...*](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Unico_Anello.png/128px-Unico_Anello.png "1 Ring to rule them all...")
+ 
+ 
+ __Operating System Rings__ [^19]
+ 
+ ![*Operating System Rings*](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/200px-Priv_rings.svg.png "One Ring")
+   
+   
+  We could spend an entire semseter studying virtualization and I hope you do.  But for the moment what we need to know is that this ring assist is done by the CPU processor having extra instructions on how to handle multiple operating systems residing on one system through virtualization.  To do this AMD and Intel introduced extensions to assist virtualization, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica). Both instruction sets added nine new machine code instructions that only work at "Ring -1," intended to be used by the hypervisor" [Andy Dorman - Informationweek.](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")   When dealing with virtualization you are functionally running multiple operating systems at one time.  Technically this is not possible as only one operating sysetm can have control at a time - so how can a hypervisor make this work?  
+    
+    
+   __Virtulization Diagram__ [^20]  
+  ![*Virtulization Diagram*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Hyper-V.png/640px-Hyper-V.png "Virtulization Diagram")
   
-  The entire concept of virtualization is too large to cover here.  I will try to give you a basic introduction.  The main concept you need to know is that your computer (PC, laptop, Mac) have vastly more power then needed most of the time.  In general you are only actively using your memory, hard drive, and CPU a small fraction of the time.  Even watching a Youtube video or listening to streaming music service doesn't usually tax your system that much.  Virtualization adds the concept of a hypervisor.  A hypervisor is a shim that is inserted into your operating sysetm to intercept system calls to hardware.  The benefit is that a hypervisor can act as a translator for multiple operating systems running simultaniously on one system.  There by maximizing the usage of yoru resources and preventing you from needing 4 or 5 different physical PCs.   
+  
+  By having the hypervisor intercepting system calls from the virtualzied operating system.  The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two attendees.  The hypervisor has now created two classes of operating systems.  The "*host*" and potentially multiple "*guests*".  The *"guest"* operating system thinks it has complete control of the hardware - the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available.  The hypervisor ina sense offers a pretend kernel to the guest virtualized system.  In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands.  For example if we are running and Ubuntu Desktop virtualized guest system on a Windows 10 host, the Linux desktop has no way of knowing how to issue a command to use the network card to request a web site because Linux knows its own OS and kernel and Windows is a completely different kernel and operating system.  The virtualziation layer will do this translation for you -- allowing the *"host"* system to think that your guest virtualzied OS is nothing more than an application, and allowing your guest virtualized operating system to think that it own the entire set of hardware.  
+  
+  The main concept of virtualization you need to know is that your computer (PC, laptop, Mac) has vastly more power then is needed most of the time.  In general you are only actively using your memory, hard drive, and CPU a small fraction of the time.  Even watching a Youtube video or listening to streaming music service doesn't usually tax your system that much. The benefit of virtualization is that a hypervisor can act as a translator for multiple operating systems running simultaniously on one system.  There by maximizing the usage of yoru resources and preventing you from needing 4 or 5 different physical PCs.   
 
-<a title="By Scsami (Own work) [CC0], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHyperviseur.png"><img width="256" alt="Hyperviseur" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png"/></a>
+
+__Hpyervisor Levels__ [^21]
+
+![*Server and Desktop Virtualization*](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png "Server and Desktop Virtualization")
+  
   
   __TYPE II Hypervisor__
    
@@ -73,15 +86,15 @@ __Parallels Desktop for Mac__
    
    *  [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
 
-## Installations and isos
+## Installations and ISOs
 
-  Now that we understand a bit about what a hypervisor is let us beging the process.  The next pages are going to show you in comparison how to install the latest versions of Fedora and Ubuntu (as of August 10th 2015) Fedora 22 and Ubuntu 15.04.  This will require you to download two isos from their respective download sites. For this install process we will assume that you are using VirtualBox version 5.0.0.  These distributions can be install directly to a hard drive and become the primary operating system. This might be a good exercise if you have an old laptop or PC laying around.  You would be suprised if you asked your relatives or perhaps a company you work for or even a school you might go to what they have in the way of old computers that might still be useful to experiement with Linux installations as well.  There is also the concept of dual booting your PCs with multiple operating systems.   I created a quad-boot system containing Ubuntu, Fedora, Centos, and Windows 10 see article here for how to accomplish this task.  This processes is beyong the scope of this book but link is provided for those interested.
+  Now that we understand a bit about what a hypervisor is let us begin the process.  The next pages are going to show you in comparison how to install the latest versions of Fedora and Ubuntu (as of August 10th 2015) Fedora 22 and Ubuntu Desktop 15.04.  This will require you to download two ISOs from their respective download sites. For this install process we will assume that you are using VirtualBox version 5.x.x branch but if you have and of the 4.x.x branch there shouldn't be any issues.   It might be a good exercise if you have an old laptop or PC laying around to make some installable media (CR-ROM or Flash drive) and install one of these distributions directly to a hard drive as the primary operating system.  You would be suprised just asking your relatives or perhaps a company you work for or even a school you might go to what they have in the way of old laptops that are still be useful to experiement with Linux installations.  Another option to consider is dual-booting or triple-booting your system, we will not cover that option here.  If you do try it, back up your data first, you never know what could go wrong. I created a [quad-boot system](https://forge.sat.iit.edu/2015/05/quad-boot-your-pc-ubuntu-15-04-centos-6-6-fedora-21-windows-10/ "Quad Boot") containing Ubuntu, Fedora, Centos, and Windows 10 see article here for how to accomplish this task.  This processes is beyong the scope of this book but link is provided for those interested.
 
    You also need to be aware of the type of architecture you are installing to.  Is the processor 32 bit or 64 bit?  If it is a 64-bit processor you can install 32-bit operating system but not the other way around.  32-bit processors are usually only low end older Atom processors and older intel chips - pre Core 2 Duo processors.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most secialized or low end chip these days is 64-bit you should be safe with that type of distro.  
    
-   The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes x86_64, and even AMD_64 <-- that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64 bit extententions to the x86 instruction set and they caught on and stuck--hence the credit.  Their is one other type of architecture called ARM.  This is noted as aarch and aarch_64 -- ARM is the architecture that runs phones, tablets, and small embedded sytems such as the Raspberry Pi.  It has an entirely different instruction set so the software compiled for this architecture and vis versa is not compatable with the Intel x86 x64  architecture.  
+   The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes x86_64, and even AMD_64 <-- that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64 bit extententions to the 32-bit x86 instruction set--hence the credit.  Their is one other type of architecture called ARM or AARCH, AARCH64.  This is the ARM architecture that runs phones, tablets, and small embedded sytems such as the Raspberry Pi.  It has an entirely different instruction set so the software compiled for this architecture is not compatable with the Intel x86-x64 architecture.  
    
-   Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a 1 way mathematical function that gives you a unique representation of what the content of the iso should be.  That way if you download and iso from somewhere and the checksum is different then you might be alerted to someone trying to add additonal contents to an iso or perhaps just a corrupted download.  Most distros use a simple md5 hash, but a few, notably Fedora, has moved to more robust hashes using SHA-256 strength hashing.
+   Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a one way mathematical function that gives you a unique representation of what the content of the iso should be.  That way if you download and iso from somewhere and the checksum is different then you might be alerted to someone trying to add additonal contents to an iso or perhaps just a corrupted download.  Most distros use a simple md5 hash, but a few, notably Fedora, has moved to more robust hashes using the SHA-256 hash.
 
 __Links to get you started__
   
@@ -93,7 +106,7 @@ __Links to get you started__
      + [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
    * [Get VirtualBox](http://virtualbox.org "VirtualBox")
 
-Here are the commands to execute in Windows in powershell
+Here are the commands to execute in Windows in powershell:
    
 ```powershell
 Get-FileHash .\ubuntu-15.04-desktop-amd64.iso -Algorithm MD5 | format-list
@@ -109,8 +122,18 @@ Get-FileHash .\Fedora-Live-Workstation-x86_64-22-3.iso -Algorithm SHA256 | forma
     Hash      : 615ABFC89709A46A078DD1D39638019AA66F62B0FF8325334F1AF100551BB6CF
     Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.iso
 
-Here are the commands executed in Linux
+Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
+```bash
+md5sum ./ubuntu-15.04-desktop-amd64.iso
+```
+    
+    53c869eba8686007239a650d903847fd ./ubuntu-15.04-desktop-amd64.iso
+    
+```bash
+sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
+```
+    615abfc89709a46a078dd1d39638019aa66f62b0ff8325334f1aF100551bb6cf ./Fedora-Live-Workstation-x86_64-22-3.iso  
 
 ### Planning Your Install
 
@@ -135,7 +158,7 @@ Here are the commands executed in Linux
 
   If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.0.2 (August 18th, 2015) is the current version.   
   
- [Feature List for VirtualBox](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
+ [*Feature List for VirtualBox*](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
 
 *  Guest multiprocessing (SMP). 
 *  USB device support. 
@@ -149,11 +172,11 @@ Here are the commands executed in Linux
 *  Remote machine display
 *  Video and screenshot capture within virtual machines
 
-### Create Guest Virtual Machine
+### Create Your First Guest Virtual Machine
   
   Upon completion of a fresh install and luanching of VirtualBox you should see this image: 
   
-  ![VirutalBox fresh install](images/virtualbox-fresh.png "Fresh VirtualBox install")
+  ![*VirutalBox fresh install*](images/Chapter-03/virtualbox-fresh.png "Fresh VirtualBox install")
   
   See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this doucmentation is actually very thurogh and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
@@ -204,14 +227,15 @@ Video and screenshots Links Here
   
   For Linux you need to compile these extensions into the kernel and some extra tools are needed.
   
-  __Debian/Ubuntu__
+  __Ubuntu__
   
    This goes for any distro that derives from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation)
    
     sudo apt-get update
     sudo apt-get install build-essential dkms linux-headers-$(uname -r)
-    cd /media/cdrom/VBOXGUESTADDITIONS_5.0.2_102096/
-    sudo VBOXLinuxAdditions.run
+    cd /media/$USER/VBOXGUESTADDITIONS_5.0.2_102096/
+    sudo VBoxLinuxAdditions.run
+    sudo reboot
 
  __Red Hat__
  
@@ -230,6 +254,7 @@ Video and screenshots Links Here
  On Centos, RHEL, and older Fedora distros using yum
  
      sudo yum update kernel*
+     sudo reboot
      sudo yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
      sudo mkdir /media/VirtualBoxGuestAdditions
      sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions 
@@ -238,8 +263,8 @@ Video and screenshots Links Here
      ./VBoxLinuxAdditions.run
      sudo reboot
 
- If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.
- without these additional tools installed you will receive an error message similar to
+ If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.  If some of these commands are not familiar that is ok - we will cover them all in later chapters.
+ Without these additional tools installed you will receive an error message similar to
     
     Building the main Guest Additions Modile[Failed] 
      
@@ -298,5 +323,15 @@ Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show
         
     + BSD based
         - FreeBSD 10.2
-        - OpenBSD 5.7 
-   
+        - OpenBSD 5.7
+         
+### Footnotes   
+  
+[^19]: <a title="wikipedia:User:Hertzsprung" class="extiw" href="//en.wikipedia.org/wiki/User:Hertzsprung">Hertzsprung</a> at <a title="wikipedia:" class="extiw" href="//en.wikipedia.org/wiki/">English Wikipedia</a> [<a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> or <a href="http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0">CC BY-SA 2.5-2.0-1.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3APriv_rings.svg">via Wikimedia Commons</a>
+
+[^20]: By Terendo (Own work) [Public domain], via Wikimedia Commons <a href="https://commons.wikimedia.org/wiki/File%3AHyper-V.png">https://commons.wikimedia.org/wiki/File%3AHyper-V.png</a>
+    
+[^21]: By Scsami (Own work) [CC0], via Wikimedia Commons" <a href="https://commons.wikimedia.org/wiki/File%3AHyperviseur.png">https://commons.wikimedia.org/wiki/File%3AHyperviseur.png</a>
+ 
+[^22]: By Xander (own work, (not derivative from the movies)) [Public domain], <a href="https://commons.wikimedia.org/wiki/File%3AUnico_Anello.png">via Wikimedia Commons</a> 
+    

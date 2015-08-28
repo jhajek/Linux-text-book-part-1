@@ -1,7 +1,15 @@
 #[Getting-Started](http://pandoc.org/getting-started.html)
 
 #delete previous build artifacts but not the README.md
-rm -v ./output/pdf/*.pdf
+If (Test-Path ./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.pdf){
+  # http://stevehardie.com/2013/04/powershell-check-if-file-exists/
+  rm -v ./output/pdf/*.pdf
+}Else{
+  echo "./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.pdf - File does not exist =("
+}
+
+
+
 rm -v ./output/epub/*.epub
 rm -v ./output/html/*.html
 rm -v ./output/docx/*.docx
