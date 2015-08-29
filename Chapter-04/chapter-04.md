@@ -95,3 +95,4 @@ Perhaps Miguel De Icazza podcast?  Or Ubuntu Edge?  Mir?
 
  * Using the virtual machines you installed in the previous chapter, you will now install the list below of Window Managers and Desktop environments.  You will take a screenshot from within VirtualBox.
  
+ 

@@ -151,37 +151,19 @@ sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
     + Does it need to be GPL compliant?
     + Can propriatary programs and codecs be included?
   
-### VirtualBox configurtion        
-
-  If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.0.2 (August 18th, 2015) is the current version.   
-  
- [*Feature List for VirtualBox*](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
-
-*  Guest multiprocessing (SMP). 
-*  USB device support. 
-*  Seamless windowing
-*  Shared folders
-*  Hardware compatibility. 
-*  Full ACPI support. 
-*  Multiscreen resolutions. 
-*  Built-in iSCSI support. 
-*  PXE Network boot. 
-*  Remote machine display
-*  Video and screenshot capture within virtual machines
-
 ### Create Your First Guest Virtual Machine
   
   Upon completion of a fresh install and luanching of VirtualBox you should see this image: 
   
-  ![*VirutalBox fresh install*](images/Chapter-03/virtualbox-fresh.png "Fresh VirtualBox install")
+  ![*VirutalBox fresh install*](images/Chapter-03/virtulabox-fresh-install-550.png "Fresh VirtualBox install")
   
   See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this doucmentation is actually very thurogh and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
   Let us walk through the initial installtion process.  The first step to begin is with the *NEW button*.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-15-04-Desktop" and "Fedora-22-workstation." As you type in the title that has the name in it VirtualBox will autodetect and switch the type and version automatically.  
   
-  ![*Create New Ubuntu Instance Dialog*](images/Chapter-03/create-and-name-550.png "Create New Instance Dialog")
+  ![*Create New Ubuntu Instance Dialog*](images/Chapter-03/create-and-name-450.png "Create New Instance Dialog")
   
-  ![*Create New Fedora Instance Dialog*](images/Chapter-03/fedora-install-550.png "Create New Instance Dialog")
+  ![*Create New Fedora Instance Dialog*](images/Chapter-03/fedora-install-450.png "Create New Instance Dialog")
     
   What happens if you choose the wrong type or version?  Two things, __first__ if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it.  You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off.  __Second__ If you select the wrong version, (32-bit instead of 64-bit) you will recieve an error from the BIOS as the operating system loads explaining that it cannot continue.
   
@@ -191,7 +173,7 @@ sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
   
   The next step is to select the amount of virtual harddrive allocation.  Here you have a choice of how much harddrive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
 
-  ![*Harddisk Allocation](images/Chapter-03/hard-disk-550.png "Harddisk allocation")
+  ![*Harddisk Allocation*](images/Chapter-03/hard-disk-550.png "Harddisk allocation")
   
   Next is the harddrive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI type is sufficent.  If you know you will be transferring this Virtual Machine to another environment: VMware (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.
   
@@ -296,6 +278,24 @@ Video and screenshots Links Here
 Link to video on how to run the files
 
 screen shot showing you need to host the file on the web somewhere or include the file in install media
+
+### VirtualBox Features       
+
+  If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.0.2 (August 18th, 2015) is the current version.   
+  
+ [*Feature List for VirtualBox*](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
+
+*  Guest multiprocessing (SMP). 
+*  USB device support. 
+*  Seamless windowing
+*  Shared folders
+*  Hardware compatibility. 
+*  Full ACPI support. 
+*  Multiscreen resolutions. 
+*  Built-in iSCSI support. 
+*  PXE Network boot. 
+*  Remote machine display
+*  Video and screenshot capture within virtual machines
 
 ## Chapter Conclusions and Review
 

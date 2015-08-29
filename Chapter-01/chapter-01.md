@@ -1,5 +1,5 @@
 ---
-title: __Understanding the Philosophy and Technology of Linux__
+title: __Understanding the Technology and Philosophy of Linux__
   __Part I__
 author: Jeremy Hajek
 date: 07/30/2015
