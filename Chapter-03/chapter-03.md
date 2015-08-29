@@ -177,21 +177,41 @@ sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
   
   See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this doucmentation is actually very thurogh and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
-  All things start with the NEW button shown in the picture below.
- 
-  Name it (auto guess) choose the specific Operating System type and then the specific OS.  What happens if you choose the wrong one?  Two things, 1 you can always go back in the settings option and change it after the virtual machine is powered off.  2. As long as you have the correct OS family everything should be ok--but see the extensions setting at the end of this chapter.
+  Let us walk through the initial installtion process.  The first step to begin is with the *NEW button*.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-15-04-Desktop" and "Fedora-22-workstation." As you type in the title that has the name in it VirtualBox will autodetect and switch the type and version automatically.  
   
-  Next is the amount of memeory availalbe - note that this is shared with your underlying OS and whatever you allocate to this guest VM will be unavaialbe to the underlying host OS while the guest VM is powered on. Here you have a choice of how much harddrive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
- 
-  You can chose to dynamically allocate your harddrive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The harddrive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be overhead processing in continually allocating enough space.  Statically allocating the harddrive space on the otherhand will potentially lessen the number of systems that can go on your harddrive because potentially much space that is allocated is actually unused. 
+  ![*Create New Ubuntu Instance Dialog*](images/Chapter-03/create-and-name-550.png "Create New Instance Dialog")
   
-  Next is the harddrive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment the default VDI is sufficent.  If you know you will be transferring this VirtualMachine to another environment: VMWare (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.
+  ![*Create New Fedora Instance Dialog*](images/Chapter-03/fedora-install-550.png "Create New Instance Dialog")
+    
+  What happens if you choose the wrong type or version?  Two things, __first__ if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it.  You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off.  __Second__ If you select the wrong version, (32-bit instead of 64-bit) you will recieve an error from the BIOS as the operating system loads explaining that it cannot continue.
   
-  Now click finish and you should be ready to go - with your VirtualBox start screen looking something like mine.  Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.
+  Next is the amount of memeory availalbe - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailalbe to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate.  The recommended amount of memory is at least one gigabyte but more likely two gigabytes will be better.  You can also *"over-provision"* memory by making multiple virtual machines whose memory totals beyond your systesm's memory by not having them running all at once.
+  
+  ![*Memory Selection Dialog*](images/Chapter-03/memory-selection-550.png "Memory Selection Dialog")
+  
+  The next step is to select the amount of virtual harddrive allocation.  Here you have a choice of how much harddrive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
+
+  ![*Harddisk Allocation](images/Chapter-03/hard-disk-550.png "Harddisk allocation")
+  
+  Next is the harddrive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI type is sufficent.  If you know you will be transferring this Virtual Machine to another environment: VMware (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.
+  
+  ![*Drive Type*](images/Chapter-03/disk-type-550.png "Drive Type")
+    
+   You can chose to dynamically allocate your harddrive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The harddrive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be an overhead processing in continually allocating space.  Statically allocating the harddrive space on the otherhand will potentially lessen the number of systems that can go on your harddrive because potentially much space that is allocated is actually unused. Virtual harddrives for the guest OSes are treated as files from the point host OSes. 
+  
+   ![*Disk Type*](images/Chapter-03/disk-size-550.png "Disk Type")
+
+   The final option dialog is where you can choose where to store your virtual machine's virtual harddrive. Usually the default is fine unless you know you need to store the harddrive on a serpeate partition or disk.   Also VirtualBox will make a suggestion on a recommended virtual harddrive size.   
+
+   ![*Disk Size Slider*](images/Chapter-03/disk-slider-550.png "Disk Slider")
+   
+  Now click *finish* and you should be ready to go.  with your VirtualBox start screen looking something like mine.  Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.
+  
+   ![*Completed Install*](images/Chapter-03/finish-550.png "Success")
   
 ### Walk Through the Settings 
 
-Before we hit that start button - lets select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.
+Before we hit the start button - lets select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.
 
 Define settings for new install
 
