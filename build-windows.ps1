@@ -1,19 +1,42 @@
 #[Getting-Started](http://pandoc.org/getting-started.html)
 
+# http://stevehardie.com/2013/04/powershell-check-if-file-exists/
+# http://www.powershelladmin.com/wiki/Powershell_multi-line_comments
 #delete previous build artifacts but not the README.md
 If (Test-Path ./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.pdf){
-  # http://stevehardie.com/2013/04/powershell-check-if-file-exists/
   rm -v ./output/pdf/*.pdf
 }Else{
   echo "./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.pdf - File does not exist =("
 }
 
+If (Test-Path ./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.epub){
+  rm -v ./output/epub/*.epub
+}Else{
+  echo "./output/epub/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.epub - File does not exist =("
+}
 
+If (Test-Path ./output/html/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.html){
+  rm -v ./output/html/*.html
+}Else{
+  echo "./output/html/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.html - File does not exist =("
+}
 
-rm -v ./output/epub/*.epub
-rm -v ./output/html/*.html
-rm -v ./output/docx/*.docx
-#rm -v ./output/mobi/*.mobi
+If (Test-Path ./output/docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.docx){
+  rm -v ./output/docx/*.docx
+}Else{
+  echo "./output/docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.docx - File does not exist =("
+}
+
+#ODT goes here
+
+<#
+If (Test-Path ./output/mobi/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi){
+  # http://stevehardie.com/2013/04/powershell-check-if-file-exists/
+  rm -v ./output/mobi/*.mobi
+}Else{
+  echo "./output/mobi/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi - File does not exist =("
+}
+#>
 
 # ($stamp = Get-Date -UFormat "%m%d%y-%k%M%)
 
