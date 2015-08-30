@@ -187,9 +187,9 @@ sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
 
    ![*Disk Size Slider*](images/Chapter-03/disk-slider-550.png "Disk Slider")
    
-  Now click *finish* and you should be ready to go.  with your VirtualBox start screen looking something like mine.  Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.
-  
    ![*Completed Install*](images/Chapter-03/finish-550.png "Success")
+  
+   Now click *finish* and you should be ready to go.  With your VirtualBox start screen looking something like mine. Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.
   
 ### Walk Through the Settings 
 
@@ -219,16 +219,13 @@ Video and screenshots Links Here
    
 ### VirtualBox Extensions
 
-  You may have noticed that when a guest VM is usccesfully installed the screen resolution maybe very small or the mouse intergration features are not working.  VirtualBox guest additions also enable exclusive features that are not normally availalber in an operating system such as shared folders, cut and paste support, and even support for multiple monitors.  The way to solve this is through something called VirtualBox Guest Additions.   On the VirtualBox menu under INSERT DEVICES you need to select the "Insert Guest Additions CD Image."  
-  This is source code and drivers provided by VirtualBox that will add VirtualBox features and hardware to the underlying guest VM.  The guest VM has no idea it is in a virtualized environment and even if it did know Oeprating Systems do no come equipped with drivers to support VIrtualBox.  In this way the drivers are added to the OS in Windows and in Linux the drivers are loaded into the kernel to enhance the experience.
+  You may have noticed that when a guest VM is succesfully installed the screen resolution may be very small and the mouse intergration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is.  So it guesses by providing a lowest comon denominator set of hardware drivers, usually for pretty old, but well known set of hardware.  In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally availalbe in an operating system.  These featuers include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.     
   
-  For Windows and Mac as the guest VM OS this is a pretty stright forward install - the attached Guest Additions iso appears within the VM and you simply double click it and run through the menu, reboot, and new features are added.
-  
-  For Linux you need to compile these extensions into the kernel and some extra tools are needed.
+  VirtualBox guest additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image."  For Windows and Mac as the guest VM OS this is a pretty stright forward install - the attached Guest Additions iso appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
   
   __Ubuntu__
   
-   This goes for any distro that derives from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation)
+   This goes for any distro that derives from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation). These instructions assume you are using VirtualBox 5.0.2, you will need to adjust the version numbers and path name if you are using a differenet version.
    
     sudo apt-get update
     sudo apt-get install build-essential dkms linux-headers-$(uname -r)
@@ -262,21 +259,19 @@ Video and screenshots Links Here
      ./VBoxLinuxAdditions.run
      sudo reboot
 
- If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.  If some of these commands are not familiar that is ok - we will cover them all in later chapters.
- Without these additional tools installed you will receive an error message similar to
+ If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.  If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:
     
     Building the main Guest Additions Modile[Failed] 
      
 ### Automating the Install Answer Process With Preseed and Kickstart  
 
-  All the previous steps took maybe 10 to 15 minutes if you are on a fast machine which is not bad at all.  But let us say you will be creating many virtual machines for research purposes. Or perhaps you will be recreating the same virtual machine many times.  There is a way to automate the install process.  This is called an answer file in the Windows server world.  For Red Hat based systems this is called kickstart and Debian and Ubuntu use a file format called preseed.  None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.  
+  All the previous steps took maybe 10 to 15 minutes if you are on a fast machine; which is not bad at all.  But let us say you will be creating multiple virtual machines for research purposes. Or perhaps you will be recreating the same virtual machine many times.  There is a way to automate the install process.  This is called an *answer file* in the Windows world.  For Red Hat based systems this is called *kickstart* and Debian and Ubuntu use a file format called *preseed*.  None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.  
     
   [Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")
   
   [Kickstart documentation](https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html) - it can be generated from scratch or upon a succesful install a default kickstart is located in /root/anaconda-ks.cfg
   
-Link to video on how to run the files
-
+  
 screen shot showing you need to host the file on the web somewhere or include the file in install media
 
 ### VirtualBox Features       
