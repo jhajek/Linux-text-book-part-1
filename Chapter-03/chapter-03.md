@@ -193,7 +193,7 @@ sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
     
 ### Walk Through the Settings 
 
-![*Virtual Machine Settings*](images/Chapter-03/settings-small.png "Virtual Machine Settings")
+![*Virtual Machine Settings*](images/Chapter-03/settings.png "Virtual Machine Settings")
 
 Before we hit the start button - lets select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.  The most common options you will deal with are described as follows:
 
