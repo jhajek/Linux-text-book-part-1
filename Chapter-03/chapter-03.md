@@ -374,6 +374,8 @@ Network
     
 [^21]: By Scsami (Own work) [CC0], via Wikimedia Commons" <a href="https://commons.wikimedia.org/wiki/File%3AHyperviseur.png">https://commons.wikimedia.org/wiki/File%3AHyperviseur.png</a>
  
-[^22]: By Xander (own work, (not derivative from the movies)) [Public domain], <a href="https://commons.wikimedia.org/wiki/File%3AUnico_Anello.png">via Wikimedia Commons</a> 
+[^22]: By Xander (own work, (not derivative from the movies)) [Public domain], <a href="https://commons.wikimedia.org/wiki/File%3AUnico_Anello.png">via Wikimedia Commons</a>
+    
+    
     
     

@@ -4,6 +4,7 @@
 __Chapter 4 Objectives__
 
   In this chapter you will:
+  
   *  Learn about how desktop Linux works
   *  Understand the nature and use of X Windows, Mir, Wayland, and GUI compositors
   *  Understand the purpose of window mangers and desktop environments
