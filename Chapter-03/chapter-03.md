@@ -233,7 +233,7 @@ Ready to begin the install?
 
    You can also see the install details by clicking the small white triangle to reveal the verbose output of the process.  
    
-   ![*Install Details*](images/Chapter-03/ubuntu/installing-system-tab.png "Install Details")
+   ![*Install Details*](images/Chapter-03/ubuntu-install/installing-system-tab.png "Install Details")
 
 ### Installing Fedora
 
