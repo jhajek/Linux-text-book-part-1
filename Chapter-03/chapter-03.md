@@ -347,7 +347,7 @@ Network
   
 ### Lab
 
-  * You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install and launch a text editor and type your name, the name of the Linux distro, and the message "Hello World."  Assume each instance listed below is 64-bit version. Take a screen shot of each successful install.
+  You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install and launch a text editor and type your name, the name of the Linux distro,and the message "Hello World."  Assume each instance listed below is 64-bit version. Take a screen shot of each successful install.
 
     + Debian Based
         - Ubuntu 15.04 Desktop edition

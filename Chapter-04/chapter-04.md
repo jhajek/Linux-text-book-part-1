@@ -1,4 +1,4 @@
-# Desktop Linux (GUI)
+# Desktop Linux - GUI
 ![*Who needs Flash?*](http://imgs.xkcd.com/comics/supported_features.png "Linux Supported Features")
 
 __Chapter 4 Objectives__
