@@ -193,6 +193,8 @@ sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
     
 ### Walk Through the Settings 
 
+![*Virtual Machine Settings*](images/Chapter-03/settings-small.png "Virtual Machine Settings")
+
 Before we hit the start button - lets select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.  The most common options you will deal with are described as follows:
 
 General
@@ -250,7 +252,6 @@ Ready to begin the install?
   
   Under the create user dialog box, you will notice a key check box that is circled in red below: *Make this user administrator*.  This allows your useraccount to be able to use the *sudo* command to elevate up to root user privilleges.  This is considered far safer than using the __root__ user continually.  You can click the *Finish Install* button to complete the install.  You will be presented with a final *Quit* button which will exit the installer and drop you back into the *Live* desktop.  In order to reboot the system you need to open the system menu via the downwards facing white triangle in the upper right hand corner. The reboot icon is located under the traditional power icon.  Once restarted congratulations you have successfully installed and can begin using your installed Fedora 22 system.  
   
-   
 ### VirtualBox Extensions
 
   You may have noticed that when a guest VM is succesfully installed the screen resolution may be very small and the mouse intergration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is.  So it guesses by providing a lowest comon denominator set of hardware drivers, usually for pretty old, but well known set of hardware.  In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally availalbe in an operating system.  These featuers include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.     
