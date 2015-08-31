@@ -189,33 +189,67 @@ sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
    
    ![*Completed Install*](images/Chapter-03/finish-550.png "Success")
   
-   Now click *finish* and you should be ready to go.  With your VirtualBox start screen looking something like mine. Note I have gone through and completed the setup for both Ubuntu 15.04 and Fedora 22 Workstation as seen here.
-  
+   Now click *finish* and you should be ready to go.  
+    
 ### Walk Through the Settings 
 
-Before we hit the start button - lets select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.
+Before we hit the start button - lets select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.  The most common options you will deal with are described as follows:
 
-Define settings for new install
+General
 
-Ready to begin
+: Setting that handle meta-data about the virtual machine
 
-Video and screenshots Links Here
+System 
 
-### Hard Drives and Partitioning
+: Settings to change amoung of RAM and processors - enabling or diabling chipset drivers and CPU features
 
-Start the Linux install from iso file
+Display
 
-Formatting questions
+: Settings to change how the display settings work
 
-LVM (see later chapter 13)
+Storage
 
-Video and screenshots Links Here
+: Settings related to disk drives.
 
-### Installing Software
+Network
 
-The final process where it asks about additional software to install
+: Settings related to changing or adding new network interfaces or network types.\
 
-Video and screenshots Links Here
+Ready to begin the install?
+
+### Installing Ubuntu
+
+  Hitting the start button on your virtual machine install for Ubuntu 15.04 Desktop will bring you to a *WELCOME* screen.  Here you will be presented with the option to choose your install language.  As well as presented with two options:  *TRY UBUNTU* or *INSTALL UBUNTU*.  The option *TRY UBUNTU* will load the actual Ubuntu operating system but load it into RAM and not install it on your hard drive.  This is helpful because it gives you the option to use Ubuntu fully without permanently installing it.  Note that all data is stored in memory so nothing will survive a reboot - but this may be a good tool for doing online banking with.  The Live option also has the option to go into an install mode via a desktop icon. 
+
+  Under the *INSTALL* option Ubuntu will present you with multiple option tests that need to be passed before install.  Things such as enough available hard drive space, is your computer plugged into a power source, and do you have an internet connection?  In addition you will be prompted if you want to install propriatery codecs automatically during install?  This would include things such as Adobe Flash, codecs to playback MP3, and potentially propriatary AMD or NVIDEA graphics drivers.  Your choice and these can always be added later on demand.  THe final option is to install updates while downloading - this will add time to the install but also save you from having to launch the update script upon first login. 
+  
+  For installation type you will be presented with default options such as *ERASE DISK AND INSTALL UBUNTU*.  In addition there are options for enabling full disk encryption for securing your install data.  The third option listed is to install using the LVM method of partitioning, which will be covered in chapter 12.  The fourth option is for a custom partitioning, which is helpful in cases when you are installing multiple operating systems and create a multi-boot system.  
+  
+  At the completion of this dialog box you will be asked to confirm the automatically generated partitions created by the system.  A Linux system needs a minumim of 2 partitions to function but 3 are recommended.  Those partitions are / (pronounced root), /boot (where all the files needed to start the OS are located, and swap (which is an on disk based RAM suppliment parititon.  
+  
+  The next parts of the installtion contain pretty straightforward parts: timezone selection, keyboard layout, and account creation and password setup.  Note that Ubuntu doesn't create any root user by default, which ever user you create first is automatically placed into the sudo group -- which is similar to a super user.
+  
+  ![*Password Strength Argument*](http://imgs.xkcd.com/comics/password_strength.png "Password Strength")
+
+   You can also see the install details by clicking the small white triangle to reveal the verbose output of the process.  
+   
+   ![*Install Details*](images/Chapter-03/ubuntu/installing-system-tab.png "Install Details")
+
+### Installing Fedora
+
+  Similarly on Fedora 22 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*.
+  
+  Fedora 22 will initially present you with a language screen option.  After choosing your default language the next step in the installtion summary.  
+  
+  You will note 4 categories: keyboard, time and date, network and hostname, and installation destination.  The first three options should all be filled out by default, the last option installation destination will have an orange notification icon next to it.  This means we need to double click on this section and enter a sub-menu before we can continue.  This warning icon is a focing mechanism to make you review these settings.  You will see visual icons of all the hard disks available for installation.  The one with a white checkmark is the disk where the __"/"__ (root) partition will be installed. If the default selections are satidfactory then you can click DONE button at the top to the screen and continue.   Otherwise at the bottom of the screen are the detailed installation options, which include encryption, LVM, and external installation dirves such as over iSCSI or NFS.
+  Now you can click "*begin installation*". 
+  
+  ![*Begin Installation*](images/Chapter-03/fedora-install/begin-installation.png "Being Installation")
+  
+  While the disk partitioner is running and the install process is beginning.  The next screen will prompt you to create a __root__ user password and also to create a non-root user account.  In the Unix/Linux world the __root__ user is akin to the administrator account in Windows, meaning you have all the power to do anything you want to the system.  So use __root__ account sparingly.  You notice a fundamental difference, Ubuntu will not even give you a __root__ account, they make you ellevate your privilleges, called __sudo__ each time.  Fedora *trusts* you and will give you the __root__ user, trusting you not to destroy the system.   In this case you need to give yourself a strong __root__  password and it is good practice to create a local non-root user account.  
+  
+  Under the create user dialog box, you will notice a key check box that is circled in red below: *Make this user administrator*.  This allows your useraccount to be able to use the *sudo* command to elevate up to root user privilleges.  This is considered far safer than using the __root__ user continually.  You can click the *Finish Install* button to complete the install.  You will be presented with a final *Quit* button which will exit the installer and drop you back into the *Live* desktop.  In order to reboot the system you need to open the system menu via the downwards facing white triangle in the upper right hand corner. The reboot icon is located under the traditional power icon.  Once restarted congratulations you have successfully installed and can begin using your installed Fedora 22 system.  
+  
    
 ### VirtualBox Extensions
 
