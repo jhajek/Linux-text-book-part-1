@@ -246,7 +246,24 @@ Find how to do definitions in markdown
 
 ### Podcast Questions
 
- * Questions go here
+Centos - [http://twit.tv/floss/142](http://twit.tv/floss/142 "CentOS")
+
+Answer said questions:
+
+  * ~2:25 Why did Randal's previous employer have large (1000s) Red Hat systems deployed.
+  * ~3:40 What is the short story about how Centos came about?
+  * ~4:58 Who is the largest commercial Enterprise Linux?
+  * ~7:17 Since Centos appears to be pure piracy - how do the two projects relate to each other?  How do they relate from the RedHat point of view?
+  * ~8:10 Who from RedHat is not happy with Centos?
+  * ~10:25 How do Centos users differ from RedHat's paying customers?
+  * ~19:00. How does the RHEL environment work vs Fedora environment? (RedHat Enterprise Linux)
+  * ~22:55 Since Centos is using the RHEL code base how long does Centos lag behind the RHEL codebase when a new release is issued?
+  * ~24:24 How does Centos make money?
+  * ~29:00 How does Centos pay for everything?
+  * ~30:00 Who was Lance Davis and what happened with him?
+  * ~35:00 - Kiran mentioned 2 million users for Centos - what did they do right compared to other projects (whitebox linux) that didn't make it?
+  * ~44:00 Is Centos for Servers only or can you use it on the Desktop?
+  * Personal questions - is what Centos doing legal?  Is it ethical?  Why or why not?
 
 ### Lab
 
