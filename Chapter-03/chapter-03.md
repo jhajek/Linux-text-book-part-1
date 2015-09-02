@@ -10,7 +10,7 @@ __Chapter 3 Objectives__
 
 __Outcomes__
 
-  At the end of this chapter you will understand the Linux installation process and be able to describe the process fully.  A user will also be familiar with the different processor architectures.  You will be aware of virtualization products and platforms the Linux can be installed upon.
+  At the end of this chapter you will understand the Linux installation process and be able to describe the process fully.  A user will also be familiar with the different processor architectures.  You will be aware of virtualization products and platforms the Linux can be installed upon. You will be able to complete a Linux operating system install.
 
 ## Installation of Linux Distros
 
@@ -46,7 +46,7 @@ __Outcomes__
   
   For example if we are running an Ubuntu Desktop virtualized guest system on a Windows 10 host, the Linux desktop has no way of knowing how to issue a command to use the network card to request a website because Linux knows its own OS and kernel and Windows is a completely different kernel and operating system.  The virtualization layer will do the translation for you -- allowing the *"host"* system to think that your guest virtualized operating system is nothing more than a native application, and allowing your guest virtualized operating system to think that it owns the entire set of hardware.  
   
-  The main concept of virtualization you need to know is that your computer (PC, laptop, Mac) has vastly more power then is needed most of the time.  In general you are only actively using your memory, hard drive, and CPU a small fraction of the time.  Even watching a Youtube video or listening to streaming music service doesn't usually tax your system that much. The benefit of virtualization is that a hypervisor can act as a translator for multiple operating systems running simultaneously on one system.  Thereby maximizing the usage of yoru resources and preventing you from needing 4 or 5 different physical PCs.   
+  The main concept of virtualization you need to know is that your computer (PC, laptop, Mac) has vastly more power then is needed most of the time.  In general you are only actively using your memory, hard drive, and CPU a small fraction of the time.  Even watching a Youtube video or listening to streaming music service doesn't usually tax your system that much. The benefit of virtualization is that a hypervisor can act as a translator for multiple operating systems running simultaneously on one system.  Thereby maximizing the usage of your resources and preventing you from needing 4 or 5 different physical PCs.   
 
 
 __Hypervisor Levels__ [^21]
@@ -335,7 +335,7 @@ Network
 
 ## Chapter Conclusions and Review
 
-  Through this chapter we gained an understanding of what x86 based virtualizations does.  We learned about the purpose of a hypervisor and how opensource tools such as VirtualBox provide these services.  We learned how to install Ubuntu and Fedora based distros in the most common scenarios.  We learned about VirtualBox features and how to automate Linux installs through kickstart and preseed configuration files.
+  Through this chapter we gained an understanding of what x86 based virtualizations does.  We learned about the purpose of a hypervisor and how opensource tools such as VirtualBox provide these services.  We learned how to install Ubuntu and Fedora based distros in the most common scenarios.  We learned about VirtualBox features and how to install Linux.
 
 ### Review Questions
 
