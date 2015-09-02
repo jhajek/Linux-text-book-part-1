@@ -357,7 +357,7 @@ Network
 4)	What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
 5)	The operating system that the hypervisor resides on is called the _________ system
 6)	Hosted or desktop virtualization is called what type of hypervisor?
-7)	Bare Metal or  Native Virtualization is called what type of hypervisor?
+7)	Bare Metal or Native Virtualization is called what type of hypervisor?
 8)	Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
   a. mount point
   b. checksum
