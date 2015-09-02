@@ -340,7 +340,7 @@ Network
 ### Review Questions
 
 1)	What is the term for the industry standard file format that is used to install a Linux distro?
-  a.ISO
+  a. ISO
   b. ZIP
   c. Disk-ISO
   d. Distro
@@ -355,9 +355,13 @@ Network
   c. UNetbootin
   d. Image Magick
 4)	What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
+
 5)	The operating system that the hypervisor resides on is called the _________ system
+
 6)	Hosted or desktop virtualization is called what type of hypervisor?
+
 7)	Bare Metal or Native Virtualization is called what type of hypervisor?
+
 8)	Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
   a. mount point
   b. checksum
@@ -378,13 +382,11 @@ Network
 
 Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130) 
 
-
-  
 ### Lab
 
   You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install and launch a text editor and type your name, the name of the Linux distro, and the message "Hello World."  Assume each instance listed below is 64-bit version. Take a screen shot of each successful install.
   
-  ![*Sample Deliverable*](images/Chapter-03/lab-sample-400-by-300.png "Sample Deliverable")
+  ![*Sample Deliverable*](images/Chapter-03/lab-sample-500-by-375.png "Sample Deliverable")
 
     + Debian Based
         - Ubuntu 15.04 Desktop edition
