@@ -4,9 +4,9 @@
 __Chapter 3 Objectives__
 
   * Know how the Linux install process works for the two major Linux Distribution families
-  * Know how filesystem partitioning works 
+  * Know what a Linux distribution (distro) is
+  * Know about Linux 32-bit and 64-bit architectures an the standard installation format for a distribution
   * Understand how to use virtualization platforms for installing Linux distributions
-  * Be able to understand the benefits of automated answer files for installs
 
 __Outcomes__
 
