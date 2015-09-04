@@ -404,8 +404,6 @@ Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://
 
   You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install and launch a text editor and type your name, the name of the Linux distro, and the message "Hello World."  Assume each instance listed below is 64-bit version. Take a screen shot of each successful install.
   
-  ![*Sample Deliverable*](images/Chapter-03/lab-sample-500-by-375.png "Sample Deliverable")
-
     + Debian Based
         - Ubuntu 15.04 Desktop edition
         - Linux Mint 17 
@@ -422,8 +420,10 @@ Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://
     + BSD based
         - FreeBSD 10.2
         - OpenBSD 5.7
+        
+ ![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
          
-### Footnotes   
+#### Footnotes   
   
 [^19]: <a title="wikipedia:User:Hertzsprung" class="extiw" href="//en.wikipedia.org/wiki/User:Hertzsprung">Hertzsprung</a> at <a title="wikipedia:" class="extiw" href="//en.wikipedia.org/wiki/">English Wikipedia</a> [<a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> or <a href="http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0">CC BY-SA 2.5-2.0-1.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3APriv_rings.svg">via Wikimedia Commons</a>
 
@@ -431,8 +431,6 @@ Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://
     
 [^21]: By Scsami (Own work) [CC0], via Wikimedia Commons" <a href="https://commons.wikimedia.org/wiki/File%3AHyperviseur.png">https://commons.wikimedia.org/wiki/File%3AHyperviseur.png</a>
  
-[^22]: By Xander (own work, (not derivative from the movies)) [Public domain], <a href="https://commons.wikimedia.org/wiki/File%3AUnico_Anello.png">via Wikimedia Commons</a>
-    
-    
+[^22]: By Xander (own work, (not derivative from the movies))  Public domain <a href="https://commons.wikimedia.org/wiki/File%3AUnico_Anello.png">via Wikimedia Commons</a>
     
     

@@ -1,5 +1,5 @@
-# Desktop Linux - GUI
-![*Who needs Flash?*](http://imgs.xkcd.com/comics/supported_features.png "Linux Supported Features")
+# Desktop Linux and GUIs
+![*It used to be like this...*](http://imgs.xkcd.com/comics/cautionary.png "A Cautionary Tail...")
 
 __Chapter 4 Objectives__
 
@@ -9,22 +9,29 @@ __Chapter 4 Objectives__
   *  Understand the nature and use of X Windows, Mir, Wayland, and other GUI compositors
   *  Understand the purpose of window mangers and the nature of desktop environments
   *  Know the major features of GNOME 3 and Unity desktop environments
-  *  Understate the nature of Symlinks and file types 
+  *  Understate the nature of Symlinks and file types <-- __probably need to move this somewhere__
 
 __Outcomes__
 
-  At the conclusion of this chapter you will have a strong knowledge of the X Windows system and how it is the foundation of Desktop Linux.  You will be able to implement various window managers and desktop envrionemnts, selecting the proper environement to utilize and suit your hardware needs.  You will be comfortable using and recoginizing the features of GNOME 3 and Unity desktop environments.  
+  At the conclusion of this chapter you will have a strong knowledge of the X Windows system and why it is the foundation of Desktop Linux.  You will be able to implement various window managers and desktop envrionemnts, selecting the proper environement to utilize and suit your hardware needs.  You will be comfortable using and recoginizing the features of GNOME 3 and Unity desktop environments.  
 
 ## From Paper Tape to CLI to GUIs to 4K
 
-  When you think about how we use computers today th eone thing we take for granted is a *GUI*, __Graphical User Interface__.  The GUI is so tied to the way computers are used--just think about why the OS many people used is called Windows. Unix however, had its start in the late 1960s and 1970s--there was vastly different technology available at that time.  In the late 70s and early 1980s we began to see the beginnings of modern *CRTs* and monitors with the advent of 80 character green colored commandline screen terminals.  
+  When you think about how we use computers today the one thing we take for granted is a *GUI*, __Graphical User Interface__.  The GUI is intracatly tied to the way computers are used, why do think Microsfot calls its operating system Windows? Unix however, had its start in the late 1960s and 1970s--there was vastly different technology available at that time.  The PDP7s that Thompson and Ritchie used were called[*Teletypes*](https://en.wikipedia.org/wiki/Teleprinter "TTYs") or *TTYs* that had punch card readers for data entry and paper tape for output all conencted to the PDP7 via a modem. You will notice that even today in Unix screen outputs are still refered to as TTYs. By the mid 1970s we begin to see what are called *dumb terminals* appear which could be considered primitave monitors. The [Datapoint 3300](https://en.wikipedia.org/wiki/Datapoint_3300 "Datapoint 3300") was one of the more common models reprsenting the era.  It supported control codes to move the cursor up, down, left and right, to the top left of the screen, or to the start of the bottom line and dispalyed a whopping 72 by 25 rows of charaters in the days before microprocessors and ram were part of terminals.
   
-  The first GUI that became a commercial success was not on a Unix system but on the the Apple Macintosh in 1984. 
+  By 1978 Digital Equipment Corporation (DEC) had released something called a *smart terminal*. 
+  
+  ![*VT-100*](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/DEC_VT100_terminal.jpg/270px-DEC_VT100_terminal.jpg "VT-100")[^26]:
+  
+  The [DEC VT-100](https://en.wikipedia.org/wiki/VT100 "VT-100") was the most popular model: it had character and cursor positioning and was connected to the Unix system via serial ports and a modem.  The VT-100 set the standard for 80 by 24 rows and columns still in use today.  These terminals had the backing of DRAM and an Intel 8080 processor.  Open up any terminal emulator in linux and see its default size.  Open up Command line in Windows and you will notice the same default dimensions.  Why?  The environemnt you grow up in has a lasting influence on you.  All the developers who built Terminal emulators and Command Line for Windows "grew up" using Unix systems on a DEC VT-100 screen.  It was a natural fit.  The VT-100 and VT-220 continued with wide deployment and sucess but the concept of color or being able to draw any shapes to the screen was in the hands of a few expensive and propriatary companies; everything was still [ASCII](https://en.wikipedia.org/wiki/ASCII "ASCII") or character based.  
+ 
+ ![*Windows cmd.exe*](images/Chapter-04/cmd-399-by-200.png "cmd.exe")
+ 
+ ![*Linux Terminal*](images/Chapter-04/linux-terminal-299-by-200.png "Linux Terminal")
+ 
+On a side note, the first GUI that became a commercial success was not on a Unix system but on the Apple Macintosh in 1984. 
   ![*Apple Macintosh 1984*](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Macintosh_128k_transparency.png/205px-Macintosh_128k_transparency.png "Apple Macintosh")[^23]
-  
-  Dumb terminals mid 1970s Datapoint 3300 -  It supported control codes to move the cursor up, down, left and right, to the top left of the screen, or to the start of the bottom line. - https://en.wikipedia.org/wiki/Datapoint_3300
-  Smart terminals DEC VT100 most common and still emulated today - allowed for cursor positioning  - https://en.wikipedia.org/wiki/VT100 and the 80 character column that is now considered standard.  System communicated with a central server via a serial port and modem - but had capabilities for cursor positioning and control sequences.  Still no concept of color or being able to draw any shapes - all text and character based.
-  
+ 
   MIT started the X project in 1984 to being to make the ability to draw shape primiatives on a screen.   "X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface — this is handled by individual programs. "  https://en.wikipedia.org/wiki/X_Window_System
   
   X was two parts 
@@ -140,3 +147,7 @@ Please answer these questions from the [podcast http://twit.tv/floss/71](http://
      <a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a> or 
      <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>, 
      <a href="https://commons.wikimedia.org/wiki/File%3AX_client_server_example.svg">via Wikimedia Commons</a>
+     
+  [^26]: By Jason Scott (Flickr: IMG_9976) <a href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, 
+    <a href="https://commons.wikimedia.org/wiki/File%3ADEC_VT100_terminal.jpg">via Wikimedia Commons</a>   
+    
