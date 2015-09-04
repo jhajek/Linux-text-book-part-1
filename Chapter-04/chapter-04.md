@@ -5,19 +5,39 @@ __Chapter 4 Objectives__
 
   In this chapter you will:
   
-  *  Learn about how desktop Linux works
-  *  Understand the nature and use of X Windows, Mir, Wayland, and GUI compositors
-  *  Understand the purpose of window mangers and desktop environments
+  *  Learn about the different types of desktop Linux
+  *  Understand the nature and use of X Windows, Mir, Wayland, and other GUI compositors
+  *  Understand the purpose of window mangers and the nature of desktop environments
   *  Know the major features of GNOME 3 and Unity desktop environments
-  *  Symlinks and file types 
+  *  Understate the nature of Symlinks and file types 
 
 __Outcomes__
 
-  At the conclusion of this chapter you will have a strong knowledge of the X Windows system and how it is the foundation of Desktop Linux.  You will be able to implement various Window Managers and Desktop Envrionemnts, selecting the proper environement to utilize and suit your hardware needs.  You will be comfortable using and recoginizing the features of GNOME 3 and Unity desktop environments.  
+  At the conclusion of this chapter you will have a strong knowledge of the X Windows system and how it is the foundation of Desktop Linux.  You will be able to implement various window managers and desktop envrionemnts, selecting the proper environement to utilize and suit your hardware needs.  You will be comfortable using and recoginizing the features of GNOME 3 and Unity desktop environments.  
 
 ## From Paper Tape to CLI to GUIs to 4K
 
-  Unix had its starts in the late 1960's and 1970's.  Computing at that time took on a less interactive and more iterative/batch processing style.  Not until the late 70's and early 1980's do we begin to see the green colorede terminals we are familiar with.  Initially Unix had to develop support for GUIs.  This was done through the X11 protocol or what ended up being called X Windows.  The X was originally a place holder in the hopeps that an actual name could be created, but they say what is temprorary is permanent, and X Windows was here to stay.  X Windows is actually a client server protocol.  It was designed with the idea in mind of transporting display windows over TCP/IP.  Seeing as it was designed in the University and corporate setting - the idea of security was non-existant.  Any Computer that could connect to another computer could start an X Windows session.  The utility of this was that you could use lesser hardware and simply via the X Windows protocol remotely run you application window.  An office or university would have 1 large server and each desktop would connect and tunnel X Windows over TCP/IP.  
+  When you think about how we use computers today th eone thing we take for granted is a *GUI*, __Graphical User Interface__.  The GUI is so tied to the way computers are used--just think about why the OS many people used is called Windows. Unix however, had its start in the late 1960s and 1970s--there was vastly different technology available at that time.  In the late 70s and early 1980s we began to see the beginnings of modern *CRTs* and monitors with the advent of 80 character green colored commandline screen terminals.  
+  
+  The first GUI that became a commercial success was not on a Unix system but on the the Apple Macintosh in 1984. 
+  ![*Apple Macintosh 1984*](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Macintosh_128k_transparency.png/205px-Macintosh_128k_transparency.png "Apple Macintosh")[^23]
+  
+  Dumb terminals mid 1970s Datapoint 3300 -  It supported control codes to move the cursor up, down, left and right, to the top left of the screen, or to the start of the bottom line. - https://en.wikipedia.org/wiki/Datapoint_3300
+  Smart terminals DEC VT100 most common and still emulated today - allowed for cursor positioning  - https://en.wikipedia.org/wiki/VT100 and the 80 character column that is now considered standard.  System communicated with a central server via a serial port and modem - but had capabilities for cursor positioning and control sequences.  Still no concept of color or being able to draw any shapes - all text and character based.
+  
+  MIT started the X project in 1984 to being to make the ability to draw shape primiatives on a screen.   "X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface — this is handled by individual programs. "  https://en.wikipedia.org/wiki/X_Window_System
+  
+  X was two parts 
+  
+  ![*X Windows Diagram*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/X_client_server_example.svg/250px-X_client_server_example.svg.png) [^25]
+  
+  X gave you a frame work each program wrote their own interfaces.   This was opensources by 1986 
+  
+  "First, in 1987-1988 X established itself as the standard graphics engine for Unix machines, a hardware-independent neutral platform on top of which to build GUIs" - http://www.catb.org/~esr/writings/taouu/html/ch02s06.html
+  
+  Prior to that there had been many attempts at propraitery GUIs on Unix.  Most notably from Sun.  The version of the X protocol was version 10 at that time.  
+  
+  Beyond the simple green screen terminals we being to see actual UNIX based GUIs by the mid 1980s. Also during the early 1980s you begin to see propriatery primative UNIX GUIs especially from Sun. These GUI interfaces were placed onto highend workstations sold at premium prices for the day. The early 80s were a transitionary period.  Computing at that time took on a less iterative/batch processing style and a more interactive style.   Initially Unix had to develop support for GUIs.  This was done through the X11 protocol or what ended up being called X Windows.  The X was originally a place holder in the hopeps that an actual name could be created, but they say what is temprorary is permanent, and X Windows was here to stay.  X Windows is actually a client server protocol.  It was designed with the idea in mind of transporting display windows over TCP/IP.  Seeing as it was designed in the University and corporate setting - the idea of security was non-existant.  Any Computer that could connect to another computer could start an X Windows session.  The utility of this was that you could use lesser hardware and simply via the X Windows protocol remotely run you application window.  An office or university would have 1 large server and each desktop would connect and tunnel X Windows over TCP/IP.  
   
   Initially this was designed witha single purpose, single window in mind.  But X Window use grew the utility of X Windows to be a *"compositor"* for drawing a GUI (Graphical User Interface) on your local desktop became a standard feature.
   
@@ -32,6 +52,8 @@ __Outcomes__
   A project was started to reimainge the nature of the Linux compsitor.  This project is called Wayland.  But the Wayland authors knew they couldn't just throw X out as everysingle Linux desktop today uses it--that would break all of Linux.  Instead they reimplemented X into something called X wayland (see image from Wayland.org)   Slowly many Linux distributions are looking at the improvememnts of Wayland and moving to gradually implement it.  Will we ever see the end of X?  Probably not as it is too deep into the "bones" of Linux.  But Fedora 22 has a beta version of X-wayland running Fedora 22 - which will render Walyand and X at the same time. 
   
   Not ot be outdone Ubuntu decided not to work with the Wayland project and decided to create their own compositor called Mir.  THis idea was highly ciriticzed (find link).  But I think it was without warrent.  Ubuntu has a business case--they were looking to make a compositor that could adapt based on form factor.  Instead of having a phone, tablet, tv, desktop rendered, Mir would be custimoizable to Ubuntu's hardware dreams.  This precluded them to work on their own compositor.  But they have leanred that it is not so easy and it has been constantly delayed from public release.  (Link to Mir current status)    
+
+### Virtual Consoles?
   
 ## Window Managers
 
@@ -65,7 +87,7 @@ __Outcomes__
      + KDE
      + GNOME
      + Unity
-     + XFCE
+     + Xfce
      + LXDE & LXQT
      + MATE (GNOME 2) Cinnamon
      + [http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/](http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/ "Ubuntu to Mac desktop conversion")
@@ -105,4 +127,16 @@ Please answer these questions from the [podcast http://twit.tv/floss/71](http://
 
  * Using the virtual machines you installed in the previous chapter, you will now install the list below of Window Managers and Desktop environments.  You will take a screenshot from within VirtualBox.
  
+ ### - Footnotes
  
+ [^24]: <a href="http://www.allaboutapple.com/" rel="nofollow">http://www.allaboutapple.com/</a>    
+     <a  href="http://creativecommons.org/licenses/by-sa/2.5/it/deed.en">CC BY-SA 2.5 it</a>, 
+     <a href="http://creativecommons.org/licenses/by-sa/2.5/it/deed.en">CC BY-SA 2.5 it</a>, 
+     <a href="www.gnu.org/copyleft/fdl.html">GFDL</a> or 
+     <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>, 
+     <a href="https://commons.wikimedia.org/wiki/File%3AMacintosh_128k_transparency.png">via Wikimedia Commons</a>
+ 
+ [^25]: By Original by David Gerard, recreated by Efitu (Wikimedia Commons) 
+     <a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a> or 
+     <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>, 
+     <a href="https://commons.wikimedia.org/wiki/File%3AX_client_server_example.svg">via Wikimedia Commons</a>
