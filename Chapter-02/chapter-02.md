@@ -243,7 +243,7 @@ __Andrew Tanenbaum and Minix__
     
 __Linux and Linus Torvalds__ [^7]
 
-![*Linus Torvalds*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/256px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
+![*Linus Torvalds*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/512px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
 
   The Linux kernel comes to us from a graduate student named Linus Torvalds who developed it while at the University of Helsinki in Finland in 1991.  As a student Torvalds was using Unix on the universities Sun Sparc Stations.  He was not pleased with SunOS but felt it was the best of the commercial Unixes.  His real dream was to set out to run his own Unix like operating system on his own personal PC.  He had recently purchased an Intel x386 processor based desktop PC.  Linus tried Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement.  In a fashion not unlike Ken Thompson, Torvalds set out in the early part of 1991 deciding to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.  
  
@@ -257,7 +257,7 @@ __Linux and Linus Torvalds__ [^7]
    
   People began downloading and compiling his kernel, adding GNU tools, and making a fully capable Unix-like operating systems.  Linus' brilliance comes not from ingenuity but comes from good engineering principals of knowing when not to go down dead-end development trails.  Torvalds work was not perfect but was good enough that others could take it and start to use it and improve it.  From 1992 to 2001 Linux grew rapidly in size and features and spawned commercial companies to sell and support Linux Distributions. Stallman's dream was being realized.  
     
-   There should have been cause for great celebration with Linux and GNU coming together.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux hoping that the FSF and free software would get the recognition it deserved.  But Linus Torvalds didn't see it that way.  He has a unique personality--perhaps a bit arrogant.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linus, leaving the GNU part out even though all of their tooling is what made Linux possible.  This is a spot of contention with the FSF.  
+  There should have been cause for great celebration with Linux and GNU coming together.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux hoping that the FSF and free software would get the recognition it deserved.  But Linus Torvalds didn't see it that way.  He has a unique personality--perhaps a bit arrogant.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linus, leaving the GNU part out even though all of their tooling is what made Linux possible.  This is a spot of contention with the FSF.  
     
   Linux Kernel unique attributes recap:
   
@@ -318,16 +318,15 @@ __Linux Makes You Rich__
    *  [antiX Linux](http://antix.mepis.org/index.php?title=Main_Page "antiX") - lightweight Debian derivative focused on old machines.
    *  [Arch Linux](https://www.archlinux.org/ "Arch Linux")
    *  [Tails Linux](https://tails.boum.org/ "Tails Linux") - Online security focused Linux distro - debian distro
-   *  [LXDE](http://lxle.net/ "LXDE") - lightweight system focusing on reinvigorating older laptops.
    *  and many more... 
   
-__Debian Family__ [^9]
+#### Debian Family__ 
   
 ![*Ian Murdock - founder of The Debian Project*](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/IanMurdock.jpg/256px-IanMurdock.jpg "Ian Murdock")  
   
 >*"I founded Debian in 1993. Debian was one of the first Linux distributions and also one of the most successful and influential open source projects ever launched. Debian pioneered a number of ideas commonplace today, including employing an open community that allowed (and encouraged!) anyone to contribute (much like how Wikipedia would later operate). And, with its integrated software repositories anyone could contribute to, Debian arguably had the industry’s first (albeit primitive) “App Store”. Today, more than 1,000 people are involved in Debian development, and there are millions of Debian users worldwide."* - [http://ianmurdock.com](http://ianmurdock.com) 
 
-The Debian family contains 3 major sub-families:
+The Debian family contains 3 major sub-families: [^9]
 
 ![Debian Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Debian-OpenLogo.svg/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
@@ -385,9 +384,7 @@ __Devuan Linux__
    *  [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux FSF distro, entirely GPL compliant software.
    *  [trisquel](https://trisquel.info "Tri-skel") FSF and Richard Stallman use this one, entirely GPL compliant.
 
-- - -
-
-__RedHat Family__
+#### RedHat Family
     
   RedHat Linux was formed shortly after the Debian project launched in 1995 Marc Ewing and Bob Young.  It was one of the first commercial Linux companies and one of the few to survive to the modern day independant of an existing company.  RedHat source code is currently shared accross three main distributions: Fedora, RHEL (RedHat Enterprise Linux), and CentOS.   
   
@@ -427,10 +424,8 @@ __Oracle Linux__
   Did you think that Oracle would allow their logo to be displayed under an open license? Not to be out done.  Oracle who saw that many of their customers were paying RedHat for operating systems licenses, buying support contracts, and then running their database on top of it wanted a piece of the action.  Oracle now owns Java--which is the primary tool used to interface with all the Oracle and its suppoprting products.  Oracle made a fork of RHEL's opensource code and placed their logos, Oracle specific tools, and made their own software tweaks in this fork and called it Oracle Linux.
   
  [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can install and run unchanged. One may ask, isn't this illegal? Is Oracle breaking the law?  Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.   
-  
-- - -
-  
-__Unix and the BSD Family Distros__
+    
+#### Unix and the BSD Family Distros
   
   While Linux was exploding in the mid 1990's the AT&T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix.  Unfortunately the BSD code splintered into 4 main distros pulling the already thin developer group that hadn't shifted to Linux development, even thinner. Although these are not Linux distrubutions they are worth mentioning since they share the same space and operate under similar opensource licenses.
   
@@ -438,14 +433,8 @@ __Unix and the BSD Family Distros__
    
    * Released in November 1994
    * Essentially the inheriter of the BSD code base and the largest BSD implementation.  
-   * Leagally prohibitted from using the term *"Unix"* as outcome of AT&T lawsuit.
+   * Legally prohibitted from using the term *"Unix"* as outcome of AT&T lawsuit.
      
-![*DragonFly BSD*](http://www.dragonflybsd.org/images/small_logo.png)
-   
-   * Fork of FreeBSD in April of 2005 by Matthew Dillon.
-   * Focused on unique techniques in handling mutliprocessing in the FreeBSD kernel
-   * Introduced a new filesystem called HAMMER and HAMMER2
-
 __PC-BSD__
 
    *  FreeBSD based distro with a focus on user interface and experience. 
@@ -458,12 +447,18 @@ __Ghost BSD__
    *  Provides friendly installers and package managers for users
    *  Tries to match the usability of Mac or Windows with the foundation and principals of FreeBSD
 
-![NetBSD](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/128px-NetBSD.svg.png) 
+![*DragonFly BSD*](http://www.dragonflybsd.org/images/small_logo.png)
+   
+   * Fork of FreeBSD in April of 2005 by Matthew Dillon.
+   * Focused on unique techniques in handling mutliprocessing in the FreeBSD kernel
+   * Introduced a new filesystem called [HAMMER](https://en.wikipedia.org/wiki/HAMMER "HAMMER FS") and HAMMER2
+
+![*NetBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/128px-NetBSD.svg.png) 
    
    * Released October of 1994 as another version of the BSD code after the lawsuit.
    * Focuses on portability to run this OS on nearly every platform you can think of.
    
- ![OpenBSD](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
+ ![*OpenBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
 
    * Fork of NetBSD lead by Theo de Raadt end of 1995
    * Founded by Theo de Raadt
@@ -509,7 +504,7 @@ __Joyent__ [^17]
         
 ### The Impending Linux Civil War
 
-![*Lennart Poettering*](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lennart_poettering.jpg/256px-Lennart_poettering.jpg "Lennart Poettering")
+![*Lennart Poettering*](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lennart_poettering.jpg/640px-Lennart_poettering.jpg "Lennart Poettering")
 
 __Lennart Poettering__ [^18]
 
@@ -521,9 +516,9 @@ __Lennart Poettering__ [^18]
   
   This leads to an interesting point.  All major distros have moved to systemd.  Debian was the last hold out and they actually had a civil war and split over this issue.  Half of the developers left and went to form a distro called Devuan--which is focusing on removing all the systemd dependencies and putting choice back in the users hand.
   
-  Systemd has many nice and needed features.  Leonart is updating pieces of Linux that haven't been touched in ages. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. I will talk more on the technical aspects of systemd in the chapter X.
+  Systemd has many nice and needed features.  Leonart is updating pieces of Linux that haven't been touched in ages. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. I will talk more on the technical aspects of systemd in the chapter 9.
      
-  The fears of Linux users are that systemd will grab dependencies and eventually force Linux users into a small sub-section of systemd supported software choices.  In a sense create a vendor lock in.  What makes this all the more intreguing is that Lennart works for Red Hat.  Would Red Hat mind if this systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user?  That is a good question.  This also begs the question - can Linux survive as an independant and open software or does it need a commercial comapny backing it?  Or could this be seen as Red Hat's grab for the entire Linux market?  It is too early to tell but keep a watch on what happens with systemd.
+  The fears of Linux users are that systemd will grab dependencies and eventually force Linux users into a small sub-section of systemd supported software only choices. Some of the conspiracy theorists believe that since Red Hat could not coerce Linus Torvalds under their wing, that they will just innovate around him. In a sense create a vendor lock in.  Could this be a [*"embrace, extend, and extinguish"*](https://en.wikipedia.org/wiki/Embrace,_extend_and_extinguish "Embrace, extend, and extinguish") tactic that Oracle and Microsoft were once so famous for conducting on rival technologies?  What makes this all the more intreguing is that Lennart works for Red Hat.  Would Red Hat mind if this systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user?  That is a good question.  This also begs the question - can Linux survive as an independant and open software project or does it need a commercial company backing it?  Or could this be seen as Red Hat's grab for the entire Linux market?  It is too early to tell but keep a watch on what happens with systemd.
 
 ## Chapter Conclusion and Summary
 

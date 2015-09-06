@@ -1,14 +1,15 @@
 # Desktop Linux and GUIs
-![*It used to be like this...*](http://imgs.xkcd.com/comics/cautionary.png "A Cautionary Tail...")
+![*GUIs??? NIH*](http://imgs.xkcd.com/comics/supported_features.png "GUIs NIH")
 
 __Chapter 4 Objectives__
 
   In this chapter you will:
   
   *  Learn about the different types of desktop Linux
-  *  Understand the nature and use of X Windows, Mir, Wayland, and other GUI compositors
+  *  Understand the nature and use of X, Mir, Wayland, and other GUI compositors
   *  Understand the purpose of window mangers and the nature of desktop environments
   *  Know the major features of GNOME 3 and Unity desktop environments
+  *  Understand GUI package managers
   *  Understate the nature of Symlinks and file types <-- __probably need to move this somewhere__
 
 __Outcomes__
@@ -27,62 +28,90 @@ __Outcomes__
  
  ![*VT-100*](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/DEC_VT100_terminal.jpg/270px-DEC_VT100_terminal.jpg "VT-100") 
   
- ![*Windows cmd.exe earily similar to the VT-100*](images/Chapter-04/cmd-399-by-200.png "cmd.exe")
+  This screenshot is a file listing from the ```/dev``` (devices) folder on a Fedora 22 system
+  
+![*TTY Alive Today*](images/Chapter-04/tty.png "TTYs")
+  
+![*Windows cmd.exe earily similar to the VT-100*](images/Chapter-04/cmd-399-by-200.png "cmd.exe")
  
- ![*Ubuntu's GNOME Terminal emulates the VT-100 directly*](images/Chapter-04/linux-terminal-299-by-200.png "Linux Terminal")
- 
-### X Windows
- 
-   Beyond the simple green screen terminals we begin to see actual UNIX based GUIs by the mid 1980s. Also during the early 1980s you begin to see propriatery primative UNIX GUIs especially from Sun. These GUI interfaces were placed onto highend workstations sold at premium prices for the day. The early 80s were a transitionary period.  Computing at that time took on a less iterative/batch processing style and a more interactive style.   Initially Unix had to develop support for GUIs.  This was done through the X11 protocol or what ended up being called X Windows.  The X was originally a place holder in the hopeps that an actual name could be created, but they say what is temprorary is permanent, and X Windows was here to stay.  X Windows is actually a client server protocol.  It was designed with the idea in mind of transporting display windows over TCP/IP.  Seeing as it was designed in the University and corporate setting - the idea of security was non-existant.  Any Computer that could connect to another computer could start an X Windows session.  The utility of this was that you could use lesser hardware and simply via the X Windows protocol remotely run your application window.  An office or university would have 1 large server and each desktop would connect and tunnel X Windows over TCP/IP.  
-  
-  Initially this was designed witha single purpose, single window in mind.  But X Window use grew the utility of X Windows to be a *"compositor"* for drawing a GUI (Graphical User Interface) on your local desktop became a standard feature.  X gave you a frame work each program wrote their own interfaces.   This was opensourced by 1986. Prior to that there had been many attempts at propraitery GUIs on Unix.  Most notably from Sun.  On a side note, the first GUI that became a commercial success was not on a Unix system but on the Apple Macintosh in 1984. 
-  
-  __Apple MacIntosh__ [^23]
-  
-![*Apple Macintosh 1984*](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Macintosh_128k_transparency.png/205px-Macintosh_128k_transparency.png "Apple Macintosh")
-
-#### X is a Server and a Client
-  
-   *"...in 1987-1988 X established itself as the standard graphics engine for Unix machines, a hardware-independent neutral platform on top of which to build GUIs"* [Eric S. Raymond writings](http://www.catb.org/~esr/writings/taouu/html/ch02s06.html "Early history of Unix"). MIT started the X project in 1984 to being to make the ability to draw shape primitives on a screen.   *"X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface — this is handled by individual programs."*  [https://en.wikipedia.org/wiki/X_Window_System](https://en.wikipedia.org/wiki/X_Window_System "X Windows")
-
-  *  X Windows was developed by MIT and someone else.  The actual protocol that data transfers over is called X11.  
-  *  X has a long history and that history was forked and rejoined over time.  
-
-   X has a definate advantage in that it is very mature and very well known for all its good and bad parts.  In the diagram below you can see one of X major faults.  Seeing as it was designed not with a desktop GUI in mind, every desktop element is a client that has to make calls to the X server in order to render any changes to the screen.  This adds extra layers of overhead also becomes a security nightmare. 
-  
-![*X Windows Diagram*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/X_client_server_example.svg/250px-X_client_server_example.svg.png) [^2524]
- 
-  Windows in X communicate via the X11 protocol. X Windows protocol was forked in Xfree86.org and X.org  and for many years were seperate - but they have recently joined back together and the current and standad Linux desktop compositor is now referred to as *"X"*. 
-   
-#### - Project Wayland
-
-  A project was started to reimainge the nature of the Linux compsitor.  This project is called Wayland.  But the Wayland authors knew they couldn't just throw X out as everysingle Linux desktop today uses it--that would break all of Linux.  Instead they reimplemented X into something called X wayland (see image from Wayland.org)   Slowly many Linux distributions are looking at the improvememnts of Wayland and moving to gradually implement it.  Will we ever see the end of X?  Probably not as it is too deep into the "bones" of Linux.  But Fedora 22 has a beta version of X-wayland running Fedora 22 - which will render Walyand and X at the same time. 
-  
-  Not to be outdone Ubuntu decided not to work with the Wayland project and decided to create their own compositor called Mir.  THis idea was highly ciriticzed (find link).  But I think it was without warrent.  Ubuntu has a business case--they were looking to make a compositor that could adapt based on form factor.  Instead of having a phone, tablet, tv, desktop rendered, Mir would be custimoizable to Ubuntu's hardware dreams.  This precluded them to work on their own compositor.  But they have leanred that it is not so easy and it has been constantly delayed from public release.  (Link to Mir current status)    
+![*Ubuntu's GNOME Terminal emulates the VT-100 directly*](images/Chapter-04/linux-terminal-299-by-200.png "Linux Terminal")
 
 ### Virtual Consoles?
   
-  With the X Window system the idea of having discrete terminals went away.  Now you could have multiple *virtual terminals* on one system that emulated the features of a DEC VT-100 or VT-220 terminal.  IF you hit the  ```ctrl + alt + F1-F7``` you will jump to 1 of 7 different virtual terminals enabled by default.  Usually F7 is the default one but it can vary from operating system to operating system.
+  With the X system the idea of having discrete terminals went away.  Now you could have multiple *virtual terminals* on one system that emulated the features of a DEC VT-100 or VT-220 terminal.  IF you hit the  ```ctrl + alt + F1-F7``` within your Linux distro you will jump to 1 of 7 different virtual terminals enabled by default.  Usually F7 is the default GUI but it can vary from operating system to operating system.
+   
+## Along Comes an X
+ 
+   Beyond the simple green screen terminals by the mid 1980s we began to see propriatery primative UNIX GUIs from commercial vendors, especially from Sun. These GUI interfaces were placed on highend workstations sold at premium prices for the day. One may wonder why you would even bother to great a GUI in the first place. Computing at that time was begining to take less of an iterative/batch processing approach to computing and a more of an interactive approach. GUIs were in the hand of the privilelged few vendors but not of anyone else.  By 1985 MIT opensourced a project called X.  This project was after Richard Stallman had left the school but continued in his spirit.  X was a continuation of a primiative GUI called "*W*". As Unix originally had no concept of a GUI one had to be bolted on.  But the spirit of X was not to enforce any standards on the user.  
+      
+   X uses a client–server model: an X server communicates with various client programs. The server accepts requests for graphical output (windows) and sends back user input (from keyboard, mouse, or touchscreen). The server may function as:
   
-### Window Managers
+  * an application displaying to a window of another display system
+  * a system program controlling the video output of a PC
+  * a dedicated piece of hardware.
 
- list of managers - https://en.wikipedia.org/wiki/Comparison_of_X_window_managers
+__X__ [^25]
+   
+![*X Diagram*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/X_client_server_example.svg/200px-X_client_server_example.svg.png) 
 
- With the advent of X and windowing capabilities, a need to manage multiple local windows arrose and gave rise to early windowing managers.  For those of us old enough to remember, this would be similar to early Mac and pre Windows-95 operating systems.
- (Show image of windowing tool kit)
+   Even in the mid 1980s the dream of having your own desktop PC was a bit of a ways off.  Large single Unix systems were still the nature of computing so the X system fit in, especially in the idea of remote terminals or underpowered system connecting remotely to a central server and running their own *X Window* remotely. X is often misnamed as X Windows, but the name for the project is *"X"*. 
+
+ > *"...in 1987-1988 X established itself as the standard graphics engine for Unix machines, a hardware-independent neutral platform on top of which to build GUIs"* [Eric S. Raymond writings](http://www.catb.org/~esr/writings/taouu/html/ch02s06.html "Early history of Unix"). 
+   
+ > "X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface — this is handled by individual programs."*  [https://en.wikipedia.org/wiki/X_Window_System](https://en.wikipedia.org/wiki/X_Window_System "X Windows")
+   
+   By 1987 version 11 had been released of the protocol, being commonly referred to as X11.  The industry wanted ot prevent fragmentation and they asked MIT to form a steering consortium for the project.  MIT X Consortium became the X Consortium Inc in 1993.  By 1996 the X Consortium, with vendor input, released one of the first standard Unix GUIs called the __CDE__ *Common Desktop Environment*. By 1997 the X Consortium trasnformed into the Open Group.  The Open Group angered many people by relicensing the project under stricter commercial terms in an effort to make some money to support the project--but this action backfired amongst the community.  By 1999 the Open Group has ceased functioning and ceased really developing X. The Open Group created *X.Org* to maintain the X11 standard.   
+   
+   At the same time a parallel implementation base on X11R5 was being developed by IBM for their PCs.  The project was started created in 1992 as XFree86.  This code was donated to the X Consortium and the code had been part of the larger code base that the X Consortium managed.  So While the X Consortium, Open Group, X.Org was in charge of X development, they actually weren't innovating or developing anything.  It was the group at XFree86 that was doing all the innovation.
+   
+   THe story gets more complicated.  As the userbase of Linux surges in the early 2000s as desktop Linux and GUIs grow, X use would naturally follow that growth curve as well.  You have two problems: X.Org, a vendor controlled stewardship organization, was not doing any development on X, and XFree86 was starting to narrow its *openness* just like the OpenGroup did in 1997, expelling some of the original X creators who had joined the XFree86 project and changing open licesnses to not be GPL compliant. 
+   
+   This lead to the founding of the X.Org Foundation.  This was a break though event.  It bsasically reconciled the two groups under one new foundation, [X.Org Foundation](http://x.org "X.Org Foundation"), it also ensured the the creators of the X project were once again the stewards, and finally it insured that there was a GPL based and protected X project that developers and companies could contribute to as well.  X.Org Foundation continues to innovate and foster the project to this day.  
+    
+   A final GUI note that in parallel the most break through commercial GUI availalbe in the early 80s was released by Apple in 1984. 
+   
+__Apple MacIntosh__ [^23]
+  
+![*Apple Macintosh 1984*](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Macintosh_128k_transparency.png/205px-Macintosh_128k_transparency.png "Apple Macintosh") 
+  
+   X has a definate advantage in that it is very mature and very stable for better or worse.  In the diagram earlier in the chapter you can see one of X's major faults.  It was designed not with a desktop GUI in mind, those didn't exist at the time. Every desktop element is a client that has to make calls to the X server in order to render any changes to the screen.  This adds extra layers of overhead and also becomes a [security issue](http://www.windowsecurity.com/whitepapers/unix_security/Securing_X_Windows.html#3.0 "Security Issues") with an X client being able to connect unauthenticated in somecases to other X servers.
+      
+### - Project Wayland
+  
+  In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began to reimagine the nature of the Linux GUI compositor with a simpler desktop driven protocol.  With the help of other senior X.Org developers they began to create a succsor proejct to the X project.  By 2012 they had their first code release usable for beta testing. This project was called [Wayland](http://wayland.freedesktop.org "Wayland").  The famous architect of the City of Chicago Daniel Burnham once said, *"Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized."*  Every single desktop environment and window manager runs on X--this means rewritting or extending every single graphical toolkit and graphical developemnt environemnt out there. The Wayland project had that just in mind. What is Wayland then?  
  
- Window Managers are very fast because they have almost no chrome or what we would think of as standard polish.  There only concept is render contents inside of particiular windows.  Things we come to expect such as sliders, close boxes, touch simply don't exist in Window Managers
- 
- A Window Manager is one step above a single X WIndow extension, but it is not a desktop environemnt. 
- Here is a list of some Window Managers  
+   > *"Wayland is a protocol for a compositor to talk to its clients as well as a C library implementation of that protocol. The compositor can be a standalone display server running on Linux kernel modesetting and evdev input devices, an X application, or a wayland client itself. The clients can be traditional applications, X servers (rootless or fullscreen) or other display servers."* [Wayland Project](http://wayland.freedesktop.org/ "Wayland Project")
+  
+  ![*Wayland Rendering Model*](images/Chapter-04/wayland-architecture.png "Wayland Architecture")
+  
+  * The kernel gets an event and sends it to the compositor. This is similar to the X case, which is great, since we get to reuse all the input drivers in the kernel. 
+  * The compositor looks through its scenegraph to determine which window should receive the event. The scenegraph corresponds to what's on screen and the compositor understands the transformations that it may have applied to the elements in the scenegraph. Thus, the compositor can pick the right window and transform the screen coordinates to window local coordinates, by applying the inverse transformations. The types of transformation that can be applied to a window is only restricted to what the compositor can do, as long as it can compute the inverse transformation for the input events. 
+  * As in the X case, when the client receives the event, it updates the UI in response. But in the wayland case, the rendering happens in the client, and the client just sends a request to the compositor to indicate the region that was updated. 
+  * The compositor collects damage requests from its clients and then recomposites the screen. The compositor can then directly issue an ioctl to schedule a pageflip with KMS. 
+  
+  X is too deep into the bones of Linux and may never be ever fully replaced. The short term is to implement something called XWayland. Instead the Wayland project implemented X into Wayland.  Fedora 22 has a beta version of X-wayland running Fedora 22 - which will render Walyand and X at the same time.  
+  
+![*X on Wayland*](images/Chapter-04/x-on-wayland.png "X on Wayland")
+  
+### Ubuntu Mir     
+  
+  Not to be outdone Ubuntu saw an opportunity to come up with an X repalcement.  They created their own compositor called Mir.  Unfortuantely this has met with serious opposition, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in Intel's opensource graphic drivers. Unfortuantely Ubuntu is the only Linux operating system to support Mir and development has been delayed as the project has taken on the monumental task of replacing X.  Ubuntu was critcized for not joining the Wayland group's work but I think that may have been a bit without warrent.  Ubuntu has a business use case--they are looking to make a compositor that could adapt based on form factor, something not unlike how Android works.  This would enable them to make Ubuntu for tablets, phones, TVs, even smaller devices electronic devices.  Mir would be custimoizable to Ubuntu's hardware dreams and they could sell hardware and perhaps make some money.  This precluded them to work on their own compositor.  
+  
+ > *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
+  
+## Window Managers
 
-#### Compositing 
+ X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows one one machine and manage their state as well?  Then you need a window manger to sit on top of X and handle that rendering.  Window managers are almost inseperable from X in this case. Window Managers are not full GUIs you might be used to. They are one step below but window managers are very fast because they render simple windows and simple sets of icons.  Their only job is to render content inside of particiular windows and manage that window's state. 
+ 
+You can break window managers into 5 ctegories based on their window behavior.
+
+### Compositing 
 
 * Compiz - Fusion Adds more functionality to Compiz with more plugins, tools and libraries 
 * Compiz - OpenGL window and compositing 
 * Metacity - Small window manager, using GTK+2 to do everything 
 
-#### Stacking 
+### Stacking 
 
 *  Blackbox - Similar to the NeXT interface and Window Maker 
 *  Fluxbox - Highly configurable and low resource 
@@ -91,14 +120,14 @@ __Outcomes__
 *  Openbox - Standards compliant, fast, light-weight, extensible window manager 
 *  Sawfish - Extensible window manager using an Emacs Lisp-like scripting language 
 
-#### Minimalistic 
+### Minimalistic 
 
 *  IceWM - Win95-OS/2-Motif-like window manager 
 *  Afterstep - NEXTSTEP look and feel 
 *  Window Maker - NeXTSTEP-like window manager  
 *  Pekwm - Originally based on the aewm++ window manager 
 
-#### Tiling 
+### Tiling 
 
 *  Xmonad - Minimalist, tiling window manager written in Haskell 
 *  Ratpoison - Keyboard-only window manager 
@@ -108,7 +137,7 @@ __Outcomes__
 *  Awesome - Dynamic and tiling 
 *  dwm - Dynamic window manager 
 
-#### Other 
+### Other 
 
 *  evilwm - Maximises screen real estate and provides good keyboard control 
 
@@ -116,9 +145,9 @@ __Outcomes__
   
   Comparison of desktops for X - https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
 
-  By the time of the Linux kernel release and it becoming a stable development platform.  What enabled Linux to move from hobby OS to real commcerial option was the creation of the first desktop environments.  The KDE (K Desktop Environment) was the first toolkit released In 1994/5.  It was opensources and adopted quickly but parts of it used the propriatery QT (pronounced cuteie) Windowing tool kit - which was not opensource. It was opensourced by KDE 2.0.  This moved Miguel De Icazza to create a truly opensoruced alternative to KDE called GNOME.  This was a GNU project and also included the development of the GTK Gnome Took Kit for creating windowing objects.  
+  By the time of the Linux kernel release and it becoming a stable development platform.  What enabled Linux to move from hobby OS to real commcerial option was the creation of the first desktop environments.  The KDE (K Desktop Environment) was the first toolkit released In 1994/5.  It was opensources and adopted quickly but parts of it used the propriatery QT (pronounced cuteie) Windowing tool kit - which was not opensource. It was opensourced by KDE 2.0.  This moved Miguel De Icazza to create a truly opensoruced alternative to KDE called GNOME.  This was a GNU project and also included the development of the *GTK*, commonly mistaken as the *Gnome Took Kit*, actually stands for the GIMP Tool Kit.  [GIMP](https://en.wikipedia.org/wiki/GIMP "GIMP") is the GNU Image Manipulation Program, for creating windowing objects.  
 
-  Miguel ended forming the company that became Xamarin, a cross development movile platform using c# to develop for Android and iOS.
+  Miguel ended up forming the company that became Xamarin, a cross development movile platform using c# to develop for Android and iOS.
   (Get picture of Miguel)
    
   Which is better?  Hard to say.  Both have had set backs and advancements over the years.  The look and feel of KDE resembles traditional Windows as it was designed to help ease of Windows users into Linux transition.  GNOME itstead went for the Mac route of floating windows.  Not to be outdone.  Ubuntu introduced their own Desktop Environment called Unity (date and time and link to Ubuntu)  This decision lead to a many Ubuntu based distros being formed just to replace the Desktop Environment.  The majority of Linux distros use GNOME as their standard desktop0 environment.  But as in Linux, you can customize or even replace or install side by side the Desktop evnrionemnt.  A desktop environment needed to embody more than just window openings and closings, but began to provide tools you and I take for granted.  Things such as a clock, or a text editor, office sutie or email client, even initially a web broweser and all these things having a consitent usage pattern and feel.
@@ -128,21 +157,42 @@ __Outcomes__
   Get logos for these
   
    * Desktop Environments
-     + KDE
-     + GNOME
-     + Unity
-     + Xfce
-     + LXDE & LXQT
-     + MATE (GNOME 2) Cinnamon
-     + [http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/](http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/ "Ubuntu to Mac desktop conversion")
+     + KDE 5 - https://www.kde.org/  Qt framework
+     + GNOME 3 - GNome.org/ developed on GTK+ 3
+     + Unity - https://unity.ubuntu.com/ 
+     + Xfwm developed by Xfce  
+     + LXDE http://lxde.org/ Developed on GTK+ 2
+       - LXQT - a port of LXDE from GTK+ 3 to Qt http://lxqt.org/about/
+     + MATE   http://mate-desktop.org/ continuation of (GNOME 2)
+     + Cinnamon - http://cinnamon.linuxmint.com/ fork of GTK+ 3  developed for LInux Mint in response to Ubuntu Unity
 
-## - Gnome 3 features  
-  
-  
-## - Unity Features
+There are more Desktop environemnts but these are the major ones you will enconter.   You can install all of these themes of both Ubuntu and Fedora.  There are usally packages that come pre-themed based on each desktop as well as you can install the generic desktops without direct distro themeing - though in that way they often look visually jaringly.
 
+### Theming
+
+Fun Ubuntu to Mac and Windows themes
+http://www.noobslab.com/p/themes-icons.html  
+
+and unique Ubuntu theming
+
+Windows Icons here
+http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html
+
+Have them install Ubuntu touch theme?
+
+Fedora moves to fast to really have a themeing community behind it but you can tweak the GNOME 3 settings.
+
+### - Gnome 3 Features  
+
+#### Fedora 22 package manager
+
+  The package manager is called Software - you can search for it, but many of the items you will search for don't appear in the store.  That is because Fedora 22 is cutting edge and requries packages to have an AppData meta data file for it to appear in the Software store.  In the mean time you can use the Software store to install the GNOME Packages package manager which will default to the old style and let you install everything.  
+  
+### - Unity Features
+  
 Mac theme transformation for Ubuntu http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html
 Window theme transformation for Ubuntu  http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html and here http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html
+
   
 ## - Chapter Conclusions and Review
 
@@ -154,9 +204,7 @@ Window theme transformation for Ubuntu  http://www.noobslab.com/2015/06/do-you-l
 
 ### - Podcast Questions
 
-Fedora Project
-
-Please answer these questions from the [podcast http://twit.tv/floss/71](http://twit.tv/floss/71 "Fedora Project")
+Please answer these questions from the Fedora Project podcast on [FLOSS - http://twit.tv/floss/71](http://twit.tv/floss/71 "Fedora Project")
 
   * ~9:11 What is the Fedora Project?
   * ~11:35 How does Redhat make money on Fedora if it is free?
@@ -171,8 +219,8 @@ Please answer these questions from the [podcast http://twit.tv/floss/71](http://
 ### - Lab
 
  * Using the virtual machines you installed in the previous chapter, you will now install the list below of Window Managers and Desktop environments.  You will take a screenshot from within VirtualBox.
- 
- ### - Footnotes
+
+### - Footnotes
  
  [^23]: <a href="http://www.allaboutapple.com/" rel="nofollow">http://www.allaboutapple.com/</a>    
      <a  href="http://creativecommons.org/licenses/by-sa/2.5/it/deed.en">CC BY-SA 2.5 it</a>, 
@@ -189,3 +237,8 @@ Please answer these questions from the [podcast http://twit.tv/floss/71](http://
   [^25]: By Jason Scott (Flickr: IMG_9976) <a href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, 
     <a href="https://commons.wikimedia.org/wiki/File%3ADEC_VT100_terminal.jpg">via Wikimedia Commons</a>   
     
+  [^26]: Diagram provdied by: http://wayland.freedesktop.org/architecture.html
+  
+  [^27]: [http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016](http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016)
+  
+  
