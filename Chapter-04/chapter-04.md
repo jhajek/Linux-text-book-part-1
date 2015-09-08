@@ -186,7 +186,7 @@ GNOME 2 was released in early 2002 and the last GNOME 2 release was in 2010.  Ov
   
 ### LXDE/LXQT 
 
-The LXDE project was started in 2006 by Hong Jen Yee 洪任諭.  This is a quote from the LXDE website: 
+The LXDE project was started in 2006 by Hong Jen Yee.  This is a quote from the LXDE website: 
   
 > "LXDE is an energy saving and extremely fast and performing desktop solution. It works well with computers on the low end of the performance spectrum such as new generation netbooks and other small mobile computers...It can be built on top of various Linux distributions such as Ubuntu, Debian or Fedora" [^39]
 
