@@ -76,7 +76,7 @@ __Apple MacIntosh__ [^23]
   
    X has a definate advantage in that it is very mature and very stable for better or worse.  In the diagram earlier in the chapter you can see one of X's major faults.  It was designed not with a desktop GUI in mind, those didn't exist at the time. Every desktop element is a client that has to make calls to the X server in order to render any changes to the screen.  This adds extra layers of overhead and also becomes a [security issue](http://www.windowsecurity.com/whitepapers/unix_security/Securing_X_Windows.html#3.0 "Security Issues") with an X client being able to connect unauthenticated in somecases to other X servers.
       
-### - Project Wayland
+### Project Wayland
   
   In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began to reimagine the nature of the Linux GUI compositor with a simpler desktop driven protocol.  With the help of other senior X.Org developers they began to create a succsor proejct to the X project.  By 2012 they had their first code release usable for beta testing. This project was called [Wayland](http://wayland.freedesktop.org "Wayland").  The famous architect of the City of Chicago Daniel Burnham once said, *"Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized."*  Every single desktop environment and window manager runs on X--this means rewritting or extending every single graphical toolkit and graphical developemnt environemnt out there. The Wayland project had that just in mind. What is Wayland then?  
  
@@ -95,76 +95,108 @@ __Apple MacIntosh__ [^23]
   
 ### Ubuntu Mir     
   
-  Not to be outdone Ubuntu saw an opportunity to come up with an X repalcement.  They created their own compositor called Mir.  Unfortuantely this has met with serious opposition, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in Intel's opensource graphic drivers. Unfortuantely Ubuntu is the only Linux operating system to support Mir and development has been delayed as the project has taken on the monumental task of replacing X.  Ubuntu was critcized for not joining the Wayland group's work but I think that may have been a bit without warrent.  Ubuntu has a business use case--they are looking to make a compositor that could adapt based on form factor, something not unlike how Android works.  This would enable them to make Ubuntu for tablets, phones, TVs, even smaller devices electronic devices.  Mir would be custimoizable to Ubuntu's hardware dreams and they could sell hardware and perhaps make some money.  This precluded them to work on their own compositor.  
+  Not to be outdone Ubuntu saw an opportunity to come up with an X repalcement and announced the Mir project in early 2013.  Unfortuantely this has met with serious opposition from the X and Wayland communities seeing this as an outside effort to *"corner the market"*, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in it's Linux opensource graphic driver package. Unfortuantely Ubuntu is the only Linux operating system to support Mir and development has been delayed as the project has taken on the monumental task of replacing X.  Ubuntu was critcized for not joining the Wayland group's work but I think that may have been somewhat without warrent.  Ubuntu has a business use case--they are looking to make a compositor that could adapt based on form factor, something not unlike how Android works.  This would enable them to make Ubuntu for tablets, phones, TVs, even smaller devices electronic devices.  Mir would be custimoizable to Ubuntu's hardware dreams and they could sell hardware and perhaps make some money.  Will this strategy work? We will have to wait and see.
   
  > *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
   
 ## Window Managers
 
- X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows one one machine and manage their state as well?  Then you need a window manger to sit on top of X and handle that rendering.  Window managers are almost inseperable from X in this case. Window Managers are not full GUIs you might be used to. They are one step below but window managers are very fast because they render simple windows and simple sets of icons.  Their only job is to render content inside of particiular windows and manage that window's state. 
- 
-You can break window managers into 5 ctegories based on their window behavior.
+ X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows on one machine and manage their state as well (open and close them?) How about arranging them?  Do you need them tiled or overlapping? Then you need a window manger to sit on top of X and handle that rendering.  Thankfully window managers are essentially common in Desktop Linux and almost inseperable from X in this case. Window Managers are not the full GUIs you might be used to. They are one step below a full blown desktop environemnt but window managers are very fast because they render simple windows and simple sets of icons.  Their job is to render content inside of particiular windows and manage that window's state. Since Linux and X were developed independant of a central product, you will see a depth and breadth of different window managers serving different functions and features.  Some are very simple, some serve direct purposes, some are tied to full blown desktop environments.  Window Managers can be changed and swapped as needed because they are not a central part of the operating system.  As opposed to Windows and Mac where all you can do is change themes, you can't change window managers.  Some of the minimalistic window managers can be used to help older laptops and PCs remain useful and very usable with modern Linux, where modern commercial operating systems like the Mac for instance intentionally depricate older hardware. You can break window managers into 5 ctegories based on their window behavior.
 
 ### Compositing 
 
-* Compiz - Fusion Adds more functionality to Compiz with more plugins, tools and libraries 
-* Compiz - OpenGL window and compositing 
-* Metacity - Small window manager, using GTK+2 to do everything 
+* [Compiz](http://www.compiz.org/ "Compiz") - Fusion Adds more functionality to Compiz with more plugins, tools and libraries 
+* Compiz - Allows for OpenGL use in windows and compositing 
+* [Metacity](https://blogs.gnome.org/metacity/ "metacity") - Small window manager, using GTK+ 2 to do everything 
 
 ### Stacking 
 
-*  Blackbox - Similar to the NeXT interface and Window Maker 
-*  Fluxbox - Highly configurable and low resource 
-*  FVWM - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop 
-*  Enlightenment - Focuses on pushing the limits of existing technologies 
-*  Openbox - Standards compliant, fast, light-weight, extensible window manager 
-*  Sawfish - Extensible window manager using an Emacs Lisp-like scripting language 
+*  [Blackbox](http://blackboxwm.sourceforge.net/ "Blackbox Wiki") - Similar to the NeXT interface and Window Maker 
+*  [Fluxbox](http://fluxbox.org/ "Fluxbox") - Highly configurable and low resource 
+*  [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop 
+*  [Enlightenment](https://www.enlightenment.org/ "Enlightenment") - Focuses on pushing the limits of existing technologies 
+*  [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager 
+*  [Sawfish](http://sawfish.tuxfamily.org/ "Sawfish") - Extensible window manager using an Emacs Lisp-like scripting language 
 
 ### Minimalistic 
 
-*  IceWM - Win95-OS/2-Motif-like window manager 
-*  Afterstep - NEXTSTEP look and feel 
-*  Window Maker - NeXTSTEP-like window manager  
-*  Pekwm - Originally based on the aewm++ window manager 
+*  [IceWM](http://www.icewm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager 
+*  [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel 
+*  [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager  
+*  [Pekwm](https://www.pekwm.org/projects/pekwm/ "Pekwm") - Originally based on the aewm++ window manager 
 
 ### Tiling 
 
-*  Xmonad - Minimalist, tiling window manager written in Haskell 
-*  Ratpoison - Keyboard-only window manager 
-*  StumpWM - Common Lisp window manager 
-*  wmii - Lightweight tabbed and tiled 
-*  Ion - Tiling tabbed window manager designed for keyboard users 
-*  Awesome - Dynamic and tiling 
-*  dwm - Dynamic window manager 
+*  [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell 
+*  [Ratpoison](http://www.nongnu.org/ratpoison/shot2.png "Ratpoison") - Keyboard-only window manager 
+*  [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Common Lisp window manager and Keyboard-only
+*  [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager 
+*  [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support.
 
 ### Other 
 
-*  evilwm - Maximises screen real estate and provides good keyboard control 
+*  [evilwm](http://www.6809.org.uk/evilwm/ "evilwm") - Maximises screen real estate and provides good keyboard control 
+*  [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window Manager for the KDE Desktop Environment
+*  [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window Manager for the GNOME Desktop Environment
 
 ## Desktop Environments
   
-  Comparison of desktops for X - https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments
+   About the time that the OSI movement was launching in late 1990s a growing need for more than just window managers was growing too.  Modern processors at that time were gaining in processing power and multimedia extensions began to appear by [1997, called collectively MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and window managers? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop enviroment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM [^32].  On top of that all the elements of the desktop have a changable but consistent usage pattern and look-and-feel.  Let us look at the history of the two main desktop environments.
+  
+### KDE [^33]
+ 
+The KDE project (originally the K Desktop Environment) was the first open Linux desktop environment.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usablity in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have these capabilities--just a mix of window mangers and independant applictions.  At the time of development there were only a few toolkits available that could be used for created desktop environments.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *cute-ee*, developed initially by a company called Trolltech. In 1998 Qt was not available under a complete opensource license but had modified license stating that non-commercial software projects for Unix were allowable. Qt was a good choice for developers because it had C++ language bindings as opposed to C only. Matthias Ettrich chose the best technology at the time for developing GUIs. By 2000 Trolltech relicensed Qt to be GPL compliant.  But this still upset Richard Stallman [^33] who never forgave KDE for initially using a non-GPL compatible license. As an aside Nokia bought Trolltech in 2008 but Qt remained under GPL license.[^34]
 
-  By the time of the Linux kernel release and it becoming a stable development platform.  What enabled Linux to move from hobby OS to real commcerial option was the creation of the first desktop environments.  The KDE (K Desktop Environment) was the first toolkit released In 1994/5.  It was opensources and adopted quickly but parts of it used the propriatery QT (pronounced cuteie) Windowing tool kit - which was not opensource. It was opensourced by KDE 2.0.  This moved Miguel De Icazza to create a truly opensoruced alternative to KDE called GNOME.  This was a GNU project and also included the development of the *GTK*, commonly mistaken as the *Gnome Took Kit*, actually stands for the GIMP Tool Kit.  [GIMP](https://en.wikipedia.org/wiki/GIMP "GIMP") is the GNU Image Manipulation Program, for creating windowing objects.  
+KDE is unique because allthough it is vendor backed, it is a GPL project so it is not tied directly to the vendor.  It is also not tied to a single Linux distro, with distros such as openSUSE, Mageia, Kubuntu and even PC-BSD using KDE by default. Qt recently split itself during the 5.0 release from one entire library into three seperate sub-components.  The 3 library parts are called colectively [Plasma](https://www.kde.org/workspaces/plasmadesktop/ "Plasma").  
 
-  Miguel ended up forming the company that became Xamarin, a cross development movile platform using c# to develop for Android and iOS.
-  (Get picture of Miguel)
+### GNOME [^33]
+
+  Shortly after the initial release of KDE and its licensing confusion, an enterprising opensource advocate saw the need for a truly open and free desktop environment.  His name was [Miguel De Icaza](https://en.wikipedia.org/wiki/Miguel_de_Icaza "Miguel") 
+
+__Miguel de Icaza__ [^28]
+
+![*Miguel de Icaza*](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Miguel_de_Icaza.jpg/351px-Miguel_de_Icaza.jpg "Miguel de Icaza")
+  
+GNOME initially stood for GNU Network Object Model Environment but the accronym is no longer used.  GNOME was a GNU project directly created under the GPL.  The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Took Kit*, actually stands for the GIMP Tool Kit as opposed to Qt.  [GIMP](https://en.wikipedia.org/wiki/GIMP "GIMP") is the GNU Image Manipulation Program similar to Photoshop or Paint.Net in feature set.  GTK or now known as GTK+ are useful for creating standalone applications with multiple development language bindings as well.  
+
+In an intersting development Miguel ended up forming the company that became Xamarin, a cross development mobile platform company using c# to develop for Android and iOS--shortly after Microsoft began opensourcing the C# language.  Miguel has always been a software pragmatist - always chasing the best technology and open sourcing it.  He took much criticsm because he started the Mono project in bringing Microsoft's C# and .NET platform to Linux, because he saw C# as the best language to develop in cross platform.   This brought about the comdenation of Richard Stallman, calling Miguel, "*A traitor to free software.*" [^30]  Miguel's response to Stallman was a beautiful example of how to diffuse an inflamatory situation:
+
+> "I want to say that God loves all creatures. From the formidable elephant to the tiniest ant. And that includes Richard Stallman. 
+>
+> As for me, I think that there is a world of possibility, and if Richard wants to discuss how we can improve the pool of open source/free software in the world he has my email address. 
+> 
+> Love, Miguel." [^35]
+
+In the early 2000s Sun and HP adopted the GNOME desktop as the replaceemtn for CDE for their Unix distros.  Red Hat Linux adopted GNOME as well.  The GNOME has recently come into some controversy.  
+
+GNOME 2 was released in early 2002 and the last GNOME 2 release was in 2010.  Over this 8 years GNOME developed itself as a mature desktop by using the traditional desktop metaphore: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds who is a Red Hat user came out against GNOME 3 hard.  GNOME 3 took on a different metaphor, that of the GNOME shell.  Think of the shell as a way to manage or view multiple tasks and applications happening.  Instead of a desktop, think of new metaphore as a table top using By 2012 GNOME community development had waned.  Coincidentially by that time their was 1 community developer working on GNOME full time and 10 Red Hat Employees.  In 2012 the GNOME project voted to include Lennart Poeterring's sysetmd as a hard dependency.  This had a two fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot.  We see that Debian, who adopted systemd, also was forced to swithc from GNOME 2 and Xfce back to GNOME 3 because of the hard dependency.  Perhaps more of Red Hat's plot to take over the Linux standard by copting the Linux desktop?  Who can say? [^29] 
+
+
+
    
-  Which is better?  Hard to say.  Both have had set backs and advancements over the years.  The look and feel of KDE resembles traditional Windows as it was designed to help ease of Windows users into Linux transition.  GNOME itstead went for the Mac route of floating windows.  Not to be outdone.  Ubuntu introduced their own Desktop Environment called Unity (date and time and link to Ubuntu)  This decision lead to a many Ubuntu based distros being formed just to replace the Desktop Environment.  The majority of Linux distros use GNOME as their standard desktop0 environment.  But as in Linux, you can customize or even replace or install side by side the Desktop evnrionemnt.  A desktop environment needed to embody more than just window openings and closings, but began to provide tools you and I take for granted.  Things such as a clock, or a text editor, office sutie or email client, even initially a web broweser and all these things having a consitent usage pattern and feel.
+ Which is better?  Hard to say.  Both have had set backs and advancements over the years.  The look and feel of KDE resembles traditional Windows as it was designed to help ease of Windows users into Linux transition.  GNOME itstead went for the Mac route of floating windows.  
+ 
+### Development Forks: Unity, Mate, and Cinnamon
+ 
+ Not to be outdone.  Ubuntu introduced their own Desktop Environment called Unity (date and time and link to Ubuntu)  This decision lead to a many Ubuntu based distros being formed just to replace the Desktop Environment.  The majority of Linux distros use GNOME as their standard desktop0 environment.  But as in Linux, you can customize or even replace or install side by side the Desktop evnrionemnt. 
   
   Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these Environemnts as the resources required were growing.  So a movement to create light desktop environements sprung up.  The first was XFCE and then LXDE (How is it related to LXQT)  There were also design revolts.  When GNOME moved from version 2 to version 3 the amount change was seen by some GNOME users as treason.  They foked the GNOME2 desktop code and it became known as something called MATE - which was integrated into a Desktop environment called Cinnamon.  All of these desktop environments are available for install.  Some are specifically packaged by Red Hat and Ubuntu to match a theme and style and some are avaialble to install but might not be in the most usable state.
   
-  Get logos for these
-  
-   * Desktop Environments
-     + KDE 5 - https://www.kde.org/  Qt framework
-     + GNOME 3 - GNome.org/ developed on GTK+ 3
-     + Unity - https://unity.ubuntu.com/ 
-     + Xfwm developed by Xfce  
-     + LXDE http://lxde.org/ Developed on GTK+ 2
-       - LXQT - a port of LXDE from GTK+ 3 to Qt http://lxqt.org/about/
-     + MATE   http://mate-desktop.org/ continuation of (GNOME 2)
-     + Cinnamon - http://cinnamon.linuxmint.com/ fork of GTK+ 3  developed for LInux Mint in response to Ubuntu Unity
+  [Qt](https://www.qt.io/ "Qt)(pronounced *cute-ee*) is developed in C++ and KWin the window manager can be extended in [QtScript](https://en.wikipedia.org/wiki/QtScript "QtScript") which is Javascript based.  
+     
+[Who uses what?](https://en.wikipedia.org/wiki/Category:Desktop_environments_based_on_GTK%2B "Development Environments")     
+     
+----------------------------------------------------- --------------- ---------------------    
+[KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5            https://www.kde.org/ 
+[GNOME 3](https://www.GNome.org/ "GNOME")             GTK+ 3          https://GNome.org/
+[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3          http://www.xfce.org/
+[LXDE](http://lxde.org/ "LXDE")                       GTK+ 2 -> 3     http://lxde.org/
+[LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5            http://lxqt.org/about/
+[MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 2 -> 3     http://mate-desktop.org/
+[Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3          http://cinnamon.linuxmint.com/
+[Unity](https://unity.ubuntu.com/ "unity")            UnityNext       https://unity.ubuntu.com/  
+----------------------------------------------------- --------------- ---------------------
+ 
 
 There are more Desktop environemnts but these are the major ones you will enconter.   You can install all of these themes of both Ubuntu and Fedora.  There are usally packages that come pre-themed based on each desktop as well as you can install the generic desktops without direct distro themeing - though in that way they often look visually jaringly.
 
@@ -240,5 +272,26 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
   [^26]: Diagram provdied by: http://wayland.freedesktop.org/architecture.html
   
   [^27]: [http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016](http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016)
+  
+  [^28]: <a href="https://commons.wikimedia.org/wiki/File:Miguel_de_Icaza.jpg#/media/File:Miguel_de_Icaza.jpg">Miguel de Icaza</a> 
+     Licensed under <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a> 
+     via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
+  
+  [^29]: <a href="https://blogs.gnome.org/otte/2012/07/27/staring-into-the-abyss/">https://blogs.gnome.org/otte/2012/07/27/staring-into-the-abyss/</a>
+  
+  [^30]: <a href="http://www.osnews.com/story/22225/RMS_De_Icaza_Traitor_to_Free_Software_Community/">http://www.osnews.com/story/22225/RMS_De_Icaza_Traitor_to_Free_Software_Community/</a>
+  
+  [^31]: Qt 5 / KDE 5 split into three seperate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5<a/>
+  
+  [^32]: KDE Plasma 5 retired KDM as the default display manager in favor of SDDM.  
+    <a href="http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU">http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU</a>
+  
+  [^33]: Comparison of X Windows Desktop Environments 
+      <a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
+  
+  [^34] <a href="http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/">http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/</a>
+  
+  [^35] Miguel's responce to Stallman's accusation
+      <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
   
   
