@@ -121,14 +121,14 @@ __Apple MacIntosh__ [^23]
 ### Minimalistic 
 
 *  [IceWM](http://www.icewm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager 
-*  [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel 
-*  [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager  
+*  [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
+*  [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager 
 *  [Pekwm](https://www.pekwm.org/projects/pekwm/ "Pekwm") - Originally based on the aewm++ window manager 
 
 ### Tiling 
 
 *  [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell 
-*  [Ratpoison](http://www.nongnu.org/ratpoison/shot2.png "Ratpoison") - Keyboard-only window manager 
+*  [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support. 
 *  [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Common Lisp window manager and Keyboard-only
 *  [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager 
 *  [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support.
@@ -136,22 +136,26 @@ __Apple MacIntosh__ [^23]
 ### Other 
 
 *  [evilwm](http://www.6809.org.uk/evilwm/ "evilwm") - Maximises screen real estate and provides good keyboard control 
-*  [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window Manager for the KDE Desktop Environment
-*  [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window Manager for the GNOME Desktop Environment
+*  [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
+*  [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME Desktop Environment
 
 ## Desktop Environments
   
-   About the time that the OSI movement was launching in late 1990s a growing need for more than just window managers was growing too.  Modern processors at that time were gaining in processing power and multimedia extensions began to appear by [1997, called collectively MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and window managers? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop enviroment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM [^32].  On top of that all the elements of the desktop have a changable but consistent usage pattern and look-and-feel.  Let us look at the history of the two main desktop environments.
+   About the time that the OSI movement was launching in late 1990s a growing need for more than just window managers was growing too.  x86 Intel and AMD CPUs at that time were gaining in processing power and processor based multimedia extensions began to appear by 1997, [collectively called MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and a window manager? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop enviroment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM [^32].  On top of that all the elements of the desktop have a changable but consistent usage pattern and look-and-feel.  Let us look first at the development history of the two main desktop environments followed by a few other desktop environments.
   
 ### KDE [^33]
  
-The KDE project (originally the K Desktop Environment) was the first open Linux desktop environment.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usablity in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have these capabilities--just a mix of window mangers and independant applictions.  At the time of development there were only a few toolkits available that could be used for created desktop environments.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*, developed initially by a company called Trolltech. In 1998 Qt was not available under a complete opensource license but had modified license stating that non-commercial software projects for Unix were allowable. Qt was a good choice for developers because it had C++ language bindings as opposed to C only. Matthias Ettrich chose the best technology at the time for developing GUIs. By 2000 Trolltech relicensed Qt to be GPL compliant.  But this still upset Richard Stallman [^33] who never forgave KDE for initially using a non-GPL compatible license. As an aside Nokia bought Trolltech in 2008 but Qt remained under GPL license.[^34]
+The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usablity in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window mangers and independant applictions.  At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech. In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman [^33] who never forgave KDE for initially using a non-GPL compatible license. As an aside Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2009.
 
-KDE is unique because allthough it is vendor backed, it is a GPL project so it is not tied directly to the vendor.  It is also not tied to a single Linux distro, with distros such as openSUSE, Mageia, Kubuntu and even PC-BSD using KDE by default. Qt recently split itself during the 5.0 release from one entire library into three seperate sub-components.  The 3 library parts are called collectively [Plasma](https://www.kde.org/workspaces/plasmadesktop/ "Plasma").  
+KDE is unique because allthough Qt has vendor input to the project KDE itself is not vendor backed. KDE is also not tied to a single Linux distro in the way that GNOME and Red Hat are intricately tied together now. Distros such as openSUSE, Mageia, Kubuntu and even PC-BSD are using KDE by default. Qt recently split itself during the 5.0 release from one entire library into [three seperate sub-components](https://en.wikipedia.org/wiki/KDE_Software_Compilation#Post-fourth_series "KDE 5 split"): 
+
+  *  KDE Desktop - Desktop called [Plasma 5](https://www.kde.org/workspaces/plasmadesktop/ "Plasma") released every three months
+  *  KDE Applications - [KDE applications](https://en.wikipedia.org/wiki/KDE_Applications "KDE applications") updated and released every four months  
+  *  KDE Frameworks - [Common file, os, and services](https://en.wikipedia.org/wiki/KDE_Frameworks_5 "KDE Frameworks")  
 
 ### GNOME [^33]
 
-  Shortly after the initial release of KDE and its licensing confusion, an enterprising opensource advocate saw the need for a truly open and free desktop environment.  His name was [Miguel De Icaza](https://en.wikipedia.org/wiki/Miguel_de_Icaza "Miguel") 
+  Shortly after the initial release of KDE and its licensing confusion, an enterprising opensource advocate saw the need for a truly open and free desktop environment.  His name is [Miguel De Icaza](https://en.wikipedia.org/wiki/Miguel_de_Icaza "Miguel") 
 
 __Miguel de Icaza__ [^28]
 
@@ -305,13 +309,11 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
   
   [^31]: Qt 5 / KDE 5 split into three seperate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5<a/>
   
-  [^32]: KDE Plasma 5 retired KDM as the default display manager in favor of SDDM.  
-    <a href="http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU">http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU</a>
+  [^32]: KDE Plasma 5 retired KDM as the default display manager in favor of SDDM.  <a href="http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU">http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU</a>
   
-  [^33]: Comparison of X Windows Desktop Environments 
-      <a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
+  [^33]: Comparison of X Windows Desktop Environments <a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
   
-  [^34]: <a href="http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/">http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/</a>
+  [^34]:  [http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/](http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/)
   
   [^35]: Miguel's responce to Stallman's accusation
       <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
@@ -323,3 +325,5 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
    [^38]: [https://plus.google.com/115250422803614415116/posts/KygiWsQc4Wm](https://plus.google.com/115250422803614415116/posts/KygiWsQc4Wm)
   
    [^39]: <a href="http://lxde.org/lxde/index.html">http://lxde.org/lxde/index.html</a>
+   
+   
