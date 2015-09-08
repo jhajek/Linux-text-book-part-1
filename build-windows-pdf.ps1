@@ -1,3 +1,7 @@
+# How to allow Powershell scripts to run
+# From an elevated Powershell promt type: Set-ExecutionPolicy RemoteSigned
+# answer Yes to all
+
 #[Getting-Started](http://pandoc.org/getting-started.html)
 
 # http://stevehardie.com/2013/04/powershell-check-if-file-exists/

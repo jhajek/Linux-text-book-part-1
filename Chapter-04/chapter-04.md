@@ -38,7 +38,7 @@ __Outcomes__
 
 ### Virtual Consoles?
   
-  With the X system the idea of having discrete terminals went away.  Now you could have multiple *virtual terminals* on one system that emulated the features of a DEC VT-100 or VT-220 terminal.  IF you hit the  ```ctrl + alt + F1-F7``` within your Linux distro you will jump to 1 of 7 different virtual terminals enabled by default.  Usually F7 is the default GUI but it can vary from operating system to operating system.
+  With the X system the idea of having discrete terminals went away.  Now you could have multiple *virtual terminals* on one system that emulated the features of a DEC VT-100 or VT-220 terminal.  If you hit the  ```ctrl + alt + F1-F7``` within your Linux distro you will jump to 1 of 7 different virtual terminals enabled by default.  Usually F7 is the default GUI but it can vary from operating system to operating system.
    
 ## Along Comes an X
  
@@ -74,11 +74,11 @@ __Apple MacIntosh__ [^23]
   
 ![*Apple Macintosh 1984*](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Macintosh_128k_transparency.png/205px-Macintosh_128k_transparency.png "Apple Macintosh") 
   
-   X has a definate advantage in that it is very mature and very stable for better or worse.  In the diagram earlier in the chapter you can see one of X's major faults.  It was designed not with a desktop GUI in mind, those didn't exist at the time. Every desktop element is a client that has to make calls to the X server in order to render any changes to the screen.  This adds extra layers of overhead and also becomes a [security issue](http://www.windowsecurity.com/whitepapers/unix_security/Securing_X_Windows.html#3.0 "Security Issues") with an X client being able to connect unauthenticated in somecases to other X servers.
+   X has a definate advantage in that it is very mature and very stable for better or worse.  In the diagram earlier in the chapter you can see one of X's major faults.  It was designed not with a desktop GUI in mind, those didn't exist at the time. Every desktop element is a client that has to make calls to the X server in order to render any changes to the screen.  This adds extra layers of overhead and also becomes a [security issue](http://www.windowsecurity.com/whitepapers/unix_security/Securing_X_Windows.html#3.0 "Security Issues") with an X client being able to connect unauthenticated in somecases to other X servers remotely on the network.
       
 ### Project Wayland
   
-  In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began to reimagine the nature of the Linux GUI compositor with a simpler desktop driven protocol.  With the help of other senior X.Org developers they began to create a succsor proejct to the X project.  By 2012 they had their first code release usable for beta testing. This project was called [Wayland](http://wayland.freedesktop.org "Wayland").  The famous architect of the City of Chicago Daniel Burnham once said, *"Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized."*  Every single desktop environment and window manager runs on X--this means rewritting or extending every single graphical toolkit and graphical developemnt environemnt out there. The Wayland project had that just in mind. What is Wayland then?  
+  In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began to reimagine the nature of the Linux GUI compositor with a simpler desktop driven protocol.  With the help of other senior X.Org developers they began to create a successor proejct to the X project.  By 2012 they had their first code release usable for beta testing. This project was called [Wayland](http://wayland.freedesktop.org "Wayland").  The famous architect of the City of Chicago Daniel Burnham once said, *"Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized."*  Every single desktop environment and window manager runs on X--this means rewritting or extending every single graphical toolkit and graphical developemnt environemnt out there. The Wayland project had that just in mind. What is Wayland then?  
  
    > *"Wayland is a protocol for a compositor to talk to its clients as well as a C library implementation of that protocol. The compositor can be a standalone display server running on Linux kernel modesetting and evdev input devices, an X application, or a wayland client itself. The clients can be traditional applications, X servers (rootless or fullscreen) or other display servers."* [Wayland Project](http://wayland.freedesktop.org/ "Wayland Project")
   
@@ -145,9 +145,9 @@ __Apple MacIntosh__ [^23]
   
 ### KDE [^33]
  
-The KDE project (originally the K Desktop Environment) was the first open Linux desktop environment.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usablity in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have these capabilities--just a mix of window mangers and independant applictions.  At the time of development there were only a few toolkits available that could be used for created desktop environments.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *cute-ee*, developed initially by a company called Trolltech. In 1998 Qt was not available under a complete opensource license but had modified license stating that non-commercial software projects for Unix were allowable. Qt was a good choice for developers because it had C++ language bindings as opposed to C only. Matthias Ettrich chose the best technology at the time for developing GUIs. By 2000 Trolltech relicensed Qt to be GPL compliant.  But this still upset Richard Stallman [^33] who never forgave KDE for initially using a non-GPL compatible license. As an aside Nokia bought Trolltech in 2008 but Qt remained under GPL license.[^34]
+The KDE project (originally the K Desktop Environment) was the first open Linux desktop environment.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usablity in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have these capabilities--just a mix of window mangers and independant applictions.  At the time of development there were only a few toolkits available that could be used for created desktop environments.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*, developed initially by a company called Trolltech. In 1998 Qt was not available under a complete opensource license but had modified license stating that non-commercial software projects for Unix were allowable. Qt was a good choice for developers because it had C++ language bindings as opposed to C only. Matthias Ettrich chose the best technology at the time for developing GUIs. By 2000 Trolltech relicensed Qt to be GPL compliant.  But this still upset Richard Stallman [^33] who never forgave KDE for initially using a non-GPL compatible license. As an aside Nokia bought Trolltech in 2008 but Qt remained under GPL license.[^34]
 
-KDE is unique because allthough it is vendor backed, it is a GPL project so it is not tied directly to the vendor.  It is also not tied to a single Linux distro, with distros such as openSUSE, Mageia, Kubuntu and even PC-BSD using KDE by default. Qt recently split itself during the 5.0 release from one entire library into three seperate sub-components.  The 3 library parts are called colectively [Plasma](https://www.kde.org/workspaces/plasmadesktop/ "Plasma").  
+KDE is unique because allthough it is vendor backed, it is a GPL project so it is not tied directly to the vendor.  It is also not tied to a single Linux distro, with distros such as openSUSE, Mageia, Kubuntu and even PC-BSD using KDE by default. Qt recently split itself during the 5.0 release from one entire library into three seperate sub-components.  The 3 library parts are called collectively [Plasma](https://www.kde.org/workspaces/plasmadesktop/ "Plasma").  
 
 ### GNOME [^33]
 
@@ -169,39 +169,61 @@ In an intersting development Miguel ended up forming the company that became Xam
 
 In the early 2000s Sun and HP adopted the GNOME desktop as the replaceemtn for CDE for their Unix distros.  Red Hat Linux adopted GNOME as well.  The GNOME has recently come into some controversy.  
 
-GNOME 2 was released in early 2002 and the last GNOME 2 release was in 2010.  Over this 8 years GNOME developed itself as a mature desktop by using the traditional desktop metaphore: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds who is a Red Hat user came out against GNOME 3 hard.  GNOME 3 took on a different metaphor, that of the GNOME shell.  Think of the shell as a way to manage or view multiple tasks and applications happening.  Instead of a desktop, think of new metaphore as a table top using By 2012 GNOME community development had waned.  Coincidentially by that time their was 1 community developer working on GNOME full time and 10 Red Hat Employees.  In 2012 the GNOME project voted to include Lennart Poeterring's sysetmd as a hard dependency.  This had a two fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot.  We see that Debian, who adopted systemd, also was forced to swithc from GNOME 2 and Xfce back to GNOME 3 because of the hard dependency.  Perhaps more of Red Hat's plot to take over the Linux standard by copting the Linux desktop?  Who can say? [^29] 
+GNOME 2 was released in early 2002 and the last GNOME 2 release was in 2010.  Over this 8 years GNOME developed itself as a mature desktop by using the traditional desktop metaphore: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different metaphor, called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphore as a table top using the shell as a magnifying glass to view all tasks. 
 
+#### GNOME Forks: Unity, Mate, and Cinnamon
 
-
+  Linus Torvalds was quoted as saying: 
+> "People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done," [^38]
    
- Which is better?  Hard to say.  Both have had set backs and advancements over the years.  The look and feel of KDE resembles traditional Windows as it was designed to help ease of Windows users into Linux transition.  GNOME itstead went for the Mac route of floating windows.  
- 
-### Development Forks: Unity, Mate, and Cinnamon
- 
- Not to be outdone.  Ubuntu introduced their own Desktop Environment called Unity (date and time and link to Ubuntu)  This decision lead to a many Ubuntu based distros being formed just to replace the Desktop Environment.  The majority of Linux distros use GNOME as their standard desktop0 environment.  But as in Linux, you can customize or even replace or install side by side the Desktop evnrionemnt. 
+  GNOME 3 lead to the creation of alternatives in 2012. When GNOME moved from version 2 to version 3 the amount change was seen by some GNOME users as treason. The MATE project (pronounced *"ma-tay"* but many people incorrectly read it like it is spelled--mate) was a fork and continuation of the GNOME 2 code base.  The Cinnamon desktop was a fork of GNOME 3 with an added features set for the Linux Mint distro. Unity was Ubunut's reimplemntation of the GNOME shell to the Unity shell on top of GNOME 3.  These desktops, with the exception of Unity, can be deployed or installed on most Linux distrobutions. As a final thought Linus Torvalds has since reconcilled with GNOME 3 as of 2013 based on some additional 3rd party tools that allow the GNOME 3 experience to be customized to his liking. [^37] 
   
-  Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these Environemnts as the resources required were growing.  So a movement to create light desktop environements sprung up.  The first was XFCE and then LXDE (How is it related to LXQT)  There were also design revolts.  When GNOME moved from version 2 to version 3 the amount change was seen by some GNOME users as treason.  They foked the GNOME2 desktop code and it became known as something called MATE - which was integrated into a Desktop environment called Cinnamon.  All of these desktop environments are available for install.  Some are specifically packaged by Red Hat and Ubuntu to match a theme and style and some are avaialble to install but might not be in the most usable state.
+  Which is better GNOME or KDE?  Hard to say.  Both have had great set backs and great geature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer.  Try them both and choose the best one for your needs. 
   
-  [Qt](https://www.qt.io/ "Qt)(pronounced *cute-ee*) is developed in C++ and KWin the window manager can be extended in [QtScript](https://en.wikipedia.org/wiki/QtScript "QtScript") which is Javascript based.  
+### XFCE
+
+  Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environemnts as the resources required were growing.  So a movement to create a lightwight desktop environement sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999.  At one point Debian was considering it as an alternative to GNOME 3, but dropped it because of adopting systemd--forcing Debian to take GNOME 3 as their default desktop.  Xubuntu is a common derivative distro made up of Ubuntu using Xfce instead of GNOME or Unity.  Xfce was based on the GTK+ 2 and was looking to move to GTK+ 3, but disagreed with some of their design decisions.  Now Xfce is looking to be re-written in Qt 5.
+  
+### LXDE/LXQT 
+
+The LXDE project was started in 2006 by Hong Jen Yee 洪任諭.  This is a quote from the LXDE website: 
+  
+> "LXDE is an energy saving and extremely fast and performing desktop solution. It works well with computers on the low end of the performance spectrum such as new generation netbooks and other small mobile computers...It can be built on top of various Linux distributions such as Ubuntu, Debian or Fedora" [^39]
+
+LXDE is the dsesktop evironment of the Lubuntu distro which is a combination of LXDE and Ubuntu.  This desktop environment is even more spartan than Xfce but is still very usable. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux.  Recently the lead developer Hong Jen Yee also had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT.  LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.  LXQT and LXDE will remain in parallel development for the foreseeable future according to Hong Jen Yee. 
+
+### Enlightenment
+
+  This project started in 1997 and intended to be a virtual desktop window manager.  This would involve a grid of desktops a user coudl move windows around and onto.  The inital release was in 1999 called E16.  The second release E17 took 12 years.  But E17 had grown from just a window manager into a full-fledged desktop envrionemnt using its own libraries called Enlightnement Foundation Libraries.  Enlightenment can also be a shell that can sit on top of KDE and GNOME.    
+
+### Who Uses What?
      
-[Who uses what?](https://en.wikipedia.org/wiki/Category:Desktop_environments_based_on_GTK%2B "Development Environments")     
+[Who uses what?](https://en.wikipedia.org/wiki/Category:Desktop_environments_based_on_GTK%2B "Development Environments")  
      
------------------------------------------------------ --------------- ---------------------    
+----------------------------------------------------- --------------- -------------------------------    
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5            https://www.kde.org/ 
 [GNOME 3](https://www.GNome.org/ "GNOME")             GTK+ 3          https://GNome.org/
-[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3          http://www.xfce.org/
+[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3 -> Qt    http://www.xfce.org/
 [LXDE](http://lxde.org/ "LXDE")                       GTK+ 2 -> 3     http://lxde.org/
-[LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5            http://lxqt.org/about/
+[LXQT](http://lxqt.org/about/ "LXQT")                 Qt 4            http://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 2 -> 3     http://mate-desktop.org/
 [Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3          http://cinnamon.linuxmint.com/
-[Unity](https://unity.ubuntu.com/ "unity")            UnityNext       https://unity.ubuntu.com/  
------------------------------------------------------ --------------- ---------------------
+[Unity](https://unity.ubuntu.com/ "unity")            UnityNext       https://unity.ubuntu.com/
+[Enlightenment](https://www.enlightenment.org/ "E17") EFL             https://www.enlightenment.org/  
+----------------------------------------------------- --------------- -------------------------------
  
+Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well. 
 
-There are more Desktop environemnts but these are the major ones you will enconter.   You can install all of these themes of both Ubuntu and Fedora.  There are usally packages that come pre-themed based on each desktop as well as you can install the generic desktops without direct distro themeing - though in that way they often look visually jaringly.
+### GNOME Conspiracy?
+
+ By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environement and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentially. By the end 2012 the GNOME project voted to include Lennart Poeterring's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork.  We see that Debian, who adopted systemd, was now forced to switch from using GNOME 2 and even using the Xfce Desktop Environment back to GNOME 3 because of this hard dependency.  Perhaps more of Red Hat's plot to take over the Linux standard by co-opting the Linux desktop?   
+ 
+  Some people in the Linux world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of the Linux kernel.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop markey and even the Linux kernel.  What would that mean financially?  Remember what the old X-Files motto was (before it jumped the shark)?  "The Truth is Out There."
 
 ### Theming
 
+A desktop envrionment has themeing capabilities.  These go beyond just changing wallpapers.  They include modifying controls and menus changing fonts, contrast, even system appearance.
+ 
 Fun Ubuntu to Mac and Windows themes
 http://www.noobslab.com/p/themes-icons.html  
 
@@ -269,11 +291,11 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
   [^25]: By Jason Scott (Flickr: IMG_9976) <a href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, 
     <a href="https://commons.wikimedia.org/wiki/File%3ADEC_VT100_terminal.jpg">via Wikimedia Commons</a>   
     
-  [^26]: Diagram provdied by: http://wayland.freedesktop.org/architecture.html
+  [^26]: Diagram provdied by: <a href="http://wayland.freedesktop.org/architecture.html">http://wayland.freedesktop.org/architecture.html</a>
   
   [^27]: [http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016](http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016)
   
-  [^28]: <a href="https://commons.wikimedia.org/wiki/File:Miguel_de_Icaza.jpg#/media/File:Miguel_de_Icaza.jpg">Miguel de Icaza</a> 
+  [^28]: <a href="https://commons.wikimedia.org/wiki/File:Miguel_de_Icaza.jpg#/media/File:Miguel_de_Icaza.jpg">Miguel de Icaza</a>  
      Licensed under <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a> 
      via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
   
@@ -289,9 +311,15 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
   [^33]: Comparison of X Windows Desktop Environments 
       <a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
   
-  [^34] <a href="http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/">http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/</a>
+  [^34]: <a href="http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/">http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/</a>
   
-  [^35] Miguel's responce to Stallman's accusation
+  [^35]: Miguel's responce to Stallman's accusation
       <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
   
+   [^36]: <a href="http://www.zdnet.com/article/linus-torvalds-finds-gnome-3-4-to-be-a-total-user-experience-design-failure/#!">http://www.zdnet.com/article/linus-torvalds-finds-gnome-3-4-to-be-a-total-user-experience-design-failure/#!</a>
+    
+   [^37]: <a href="http://www.zdnet.com/article/linus-torvalds-switches-back-to-gnome-3-x-desktop/">http://www.zdnet.com/article/linus-torvalds-switches-back-to-gnome-3-x-desktop/</a>
   
+   [^38]: [https://plus.google.com/115250422803614415116/posts/KygiWsQc4Wm](https://plus.google.com/115250422803614415116/posts/KygiWsQc4Wm)
+  
+   [^39]: <a href="http://lxde.org/lxde/index.html">http://lxde.org/lxde/index.html</a>
