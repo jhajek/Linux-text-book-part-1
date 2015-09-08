@@ -2,6 +2,11 @@
 # From an elevated Powershell promt type: Set-ExecutionPolicy RemoteSigned
 # answer Yes to all
 
+# setup git user.name and user.email
+# http://www.git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+# git config --global user.name "John Doe"
+# git config --global user.email johndoe@example.com
+
 #[Getting-Started](http://pandoc.org/getting-started.html)
 
 # http://stevehardie.com/2013/04/powershell-check-if-file-exists/
