@@ -80,7 +80,7 @@ __Apple MacIntosh__ [^23]
   
   In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began to reimagine the nature of the Linux GUI compositor with a simpler desktop driven protocol.  With the help of other senior X.Org developers they began to create a successor proejct to the X project.  By 2012 they had their first code release usable for beta testing. This project was called [Wayland](http://wayland.freedesktop.org "Wayland").  The famous architect of the City of Chicago Daniel Burnham once said, *"Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized."*  Every single desktop environment and window manager runs on X--this means rewritting or extending every single graphical toolkit and graphical developemnt environemnt out there. The Wayland project had that just in mind. What is Wayland then?  
  
-   > *"Wayland is a protocol for a compositor to talk to its clients as well as a C library implementation of that protocol. The compositor can be a standalone display server running on Linux kernel modesetting and evdev input devices, an X application, or a wayland client itself. The clients can be traditional applications, X servers (rootless or fullscreen) or other display servers."* [Wayland Project](http://wayland.freedesktop.org/ "Wayland Project")
+> *"Wayland is a protocol for a compositor to talk to its clients as well as a C library implementation of that protocol. The compositor can be a standalone display server running on Linux kernel modesetting and evdev input devices, an X application, or a wayland client itself. The clients can be traditional applications, X servers (rootless or fullscreen) or other display servers."* [Wayland Project](http://wayland.freedesktop.org/ "Wayland Project")
   
   ![*Wayland Rendering Model*](images/Chapter-04/wayland-architecture.png "Wayland Architecture")
   
@@ -97,7 +97,7 @@ __Apple MacIntosh__ [^23]
   
   Not to be outdone Ubuntu saw an opportunity to come up with an X repalcement and announced the Mir project in early 2013.  Unfortuantely this has met with serious opposition from the X and Wayland communities seeing this as an outside effort to *"corner the market"*, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in it's Linux opensource graphic driver package. Unfortuantely Ubuntu is the only Linux operating system to support Mir and development has been delayed as the project has taken on the monumental task of replacing X.  Ubuntu was critcized for not joining the Wayland group's work but I think that may have been somewhat without warrent.  Ubuntu has a business use case--they are looking to make a compositor that could adapt based on form factor, something not unlike how Android works.  This would enable them to make Ubuntu for tablets, phones, TVs, even smaller devices electronic devices.  Mir would be custimoizable to Ubuntu's hardware dreams and they could sell hardware and perhaps make some money.  Will this strategy work? We will have to wait and see.
   
- > *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
+> *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
   
 ## Window Managers
 
@@ -178,7 +178,8 @@ GNOME 2 was released in early 2002 and the last GNOME 2 release was in 2010.  Ov
 #### GNOME Forks: Unity, Mate, and Cinnamon
 
   Linus Torvalds was quoted as saying: 
-> "People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done," [^38]
+
+> "People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done,"  [^38]
    
   GNOME 3 lead to the creation of alternatives in 2012. When GNOME moved from version 2 to version 3 the amount change was seen by some GNOME users as treason. The MATE project (pronounced *"ma-tay"* but many people incorrectly read it like it is spelled--mate) was a fork and continuation of the GNOME 2 code base.  The Cinnamon desktop was a fork of GNOME 3 with an added features set for the Linux Mint distro. Unity was Ubunut's reimplemntation of the GNOME shell to the Unity shell on top of GNOME 3.  These desktops, with the exception of Unity, can be deployed or installed on most Linux distrobutions. As a final thought Linus Torvalds has since reconcilled with GNOME 3 as of 2013 based on some additional 3rd party tools that allow the GNOME 3 experience to be customized to his liking. [^37] 
   
@@ -315,8 +316,7 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
   
   [^34]:  [http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/](http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/)
   
-  [^35]: Miguel's responce to Stallman's accusation
-      <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
+  [^35]: Miguel's responce to Stallman's accusation <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
   
    [^36]: <a href="http://www.zdnet.com/article/linus-torvalds-finds-gnome-3-4-to-be-a-total-user-experience-design-failure/#!">http://www.zdnet.com/article/linus-torvalds-finds-gnome-3-4-to-be-a-total-user-experience-design-failure/#!</a>
     
