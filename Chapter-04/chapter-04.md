@@ -227,21 +227,27 @@ Wikipedia has a sample gallery of all these desktop environments and more at [ht
 
 ### Theming
 
-A desktop envrionment has themeing capabilities.  These go beyond just changing wallpapers.  They include modifying controls and menus changing fonts, contrast, even system appearance.
+  Each desktop environment has the ability to modify and display a theme on top of its shell.  GNOME 3 has been notoriously hard to modify. The GNOME Tweak Tool allows for the adjustment of several advanced GNOME options that can't be configured in gnome-control-center. This includes things like:
+
+*  fonts used in user interface elements and titlebar
+*  font hinting and aliasing
+*  alternative user interface themes
+*  changes in window management behaviour
+*  behaviour on laptop lid close
+*  file manager desktop icons
+*  icons in menus and buttons
  
-Fun Ubuntu to Mac and Windows themes
-http://www.noobslab.com/p/themes-icons.html  
-
-and unique Ubuntu theming
-
-Windows Icons here
-http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html
-
-Have them install Ubuntu touch theme?
-
-Fedora moves to fast to really have a themeing community behind it but you can tweak the GNOME 3 settings.
-
+ Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBUnut") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions. 
+  
 ### - Gnome 3 Features  
+
+![*GNOME 3*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
+
+[GNOME 3](https://www.gnome.org/gnome-3/ "GNOME 3")
+
+[*Desktop*](images/Chapter-04/Gnome3-desktop.png "Desktop")
+
+Everything in GNOME 3 starts with the __Activities__ button in the upper left hand corner.  There is no traditional "Start Button."  Just this sense of activities to be launched.  There is also a __Find__ box for searching everything in GNOME 3 from documents to applications to even suggested software. THe is also a favorites bar on the left.  You will see a preinstalled icons for FireFox Web Browser, Evolution E-mail client, Rythem Box music player, Shotwell for photo managment, and then the 
 
 #### Fedora 22 package manager
 

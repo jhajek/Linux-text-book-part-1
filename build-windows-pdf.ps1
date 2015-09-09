@@ -36,9 +36,8 @@ pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Techn
 ######################
 # Debugging          #
 ######################
-
-# cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\pdf\*.pdf  C:\Users\palad\OneDrive\Documents\epub
-# cp -Force  C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\*.epub  C:\Users\palad\OneDrive\Documents\epub
+cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf  C:\Users\palad\OneDrive\Documents\epub
+cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.docx C:\Users\palad\OneDrive\Documents\epub
 
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #

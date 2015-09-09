@@ -15,7 +15,7 @@ date: 07/30/2015
 
   As you know there are many, many books on Linux out there.  This book strives to be different in trying to highlight two areas.  First the philosophy of Linux and its design.  Anyone can teach you how to push a button, but this book aims to go beyond that and help you understand the reason the button is there in the first place.  Above all Linux is merely a tool to help you get your work done.  Seeing as this book is self-published its exercises and sections can be updated rapidly to cover the ever-changing tools in Linux. I have found over the years understanding the history of Linux goes along way to understanding how it works.  This book strives to be different as well.  In addition to being pegged to the LPIC-I/Linux+ content it will go beyond being just a training book.  
   
-  For instructors - we are going beyond the traditional Powerpoint world, and looking into using new technologies like Microsoft Sway for presentations. The book is being publsihed on Github under a Creative Commons CC-SA Share alike license -- this way as things change code can be updated or removed and new digital versions can be published quickly.  
+  For instructors - we are going beyond the traditional PowerPoint world, and looking into using new technologies like Microsoft Sway for presentations. The book is being published on Github under a Creative Commons CC-SA Share alike license -- this way as things change code can be updated or removed and new digital versions can be published quickly.  
 
   Some of these chapters are heavier in content then others.  Some are lighter.  Feel free to combine and remix the chapters.  You are even welcome to fork the project on Github and remix it or contribute back patches and pull requests.
 
