@@ -1,4 +1,4 @@
-# Linux Basic Commands, Filesystem Structure, Permissions
+# Linux Basic Commands, Filesystem Structure, and Permissions
 ![*You are not authorized*](http://imgs.xkcd.com/comics/authorization.png  "File Permissions")
 
   The main use and power of an operating system to this day is still the Shell.  The shell is a way for a user to directly interface with the operating system.    We will cover more about specific shells and features in Chapter 8.  
@@ -267,6 +267,6 @@ Answer said questions:
 
 ### Lab
 
- * Lab goes here 
-   
-   
+Final deliverable is to place all of the above screenshots, 23 total) into a single zip file named: __lastname-firstname-chapter-05-lab.zip__   
+
+#### Footnotes   
