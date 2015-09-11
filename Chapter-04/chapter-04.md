@@ -147,7 +147,7 @@ __Apple MacIntosh__ [^23]
 
 ### KDE [^33]
 
-The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window mangers and independent applications.  At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech. In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman [^33] who never forgave KDE for initially using a non-GPL compatible license. As an aside Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2009.
+The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window mangers and independent applications.  At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech. In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2009.
 
 KDE is unique because although Qt has vendor input to the project KDE itself is not vendor owned. KDE is also not tied to a single Linux distro in the way that GNOME and Red Hat are intricately tied together now. Distros such as openSUSE, Mageia, Kubuntu and even PC-BSD are using KDE by default. Qt recently split itself during the 5.0 release from one entire library into [three separate sub-components](https://en.wikipedia.org/wiki/KDE_Software_Compilation#Post-fourth_series "KDE 5 split"):
 
@@ -319,7 +319,88 @@ What is the goal of Unity?  "The ultimate goal of the next generation of Unity (
   
 ### Review Questions
 
-  * Questions go here
+Linux Desktop and GUI 
+Chapter 04 review questions
+
+1) What was the original and most popular Unix “Smart Terminal?” 
+  a.	VIC-100
+  b.	VT-100
+  c.	VT-220
+  d.	VC-100
+2) What is the three letter abbreviation still in use today in modern Linux to refer to “terminal 
+devices?”
+  a.	TCY
+  b.	TTY
+  c.	VT-100
+  d.	Virtual Terminal
+3)	Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by 
+default?
+  a.	The technology cannot process any larger size
+  b.	The technology doesn’t need to have any larger screen size
+  c.	The developers of these technologies were seeking to emulate the popular VT-100 and 
+VT-220 terminals they used prior.
+  d.	Hey its Windows, do they need a reason?
+4)	What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
+  a.	```Alt + Ctrl + Del```
+  b.	```Alt + Ctrl + F1 - F7```
+  c.	```Right Ctrl```
+  d.	```Shift 5 times```
+5)	What is the name of the original Unix based GUI that came out of MIT in ~1984?
+  a.	W
+  b.	X
+  c.	Y
+  d.	Z
+6)	True or False – X was originally not opensourced by MIT in 1984
+
+7)	What is the official name in the Ubuntu Unity desktop environment for the launcher icon? (The 
+Icon in the upper left hand corner that looks like circle with 3 dots?)
+
+8)	What is the name of the successor GUI compositor to X being created by the X.org foundation?
+  a.	KDE
+  b.	Y
+  c.	Wayland Project
+  d.	Jennings Project
+9)	What is the name of Ubuntu’s own GUI compositor replacement for X? (Just the name)
+
+10)	There are 5 types of Linux window managers: Compositing, Minimalistic, Tiling, and Other.  
+What is the name of the missing category?
+
+11)	There are 4 major Linux desktop environments in use today: which grouping is correct?
+  a.	KDE, GNOME, CDE, LXDE
+  b.	KDE, GNOME, E17, GNUSTEP
+  c.	KDE, GNOME, X, LXDE
+  d.	KDE, GNOME, Xfce, LXDE
+12)	What is the name of the windowing toolkit that KDE uses? (Two letters)
+
+13)	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign)
+
+14)	What is the name of the founder of the GNOME project? 
+
+15)	When the GNOME 3 desktop environment was released in early 2012, many people were 
+unhappy that many changes were made.  There were 3 major projects started to either preserve 
+GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
+  a.	Enlightenment, LXDE, Xfce
+  b.	Mint, Unity, Mate
+  c.	Unity, Mate, Cinnamon
+  d.	Cinnamon, Mint, Mate
+16)	When released in 2006, what was the main development goal of the LXDE desktop environment?
+  a.	GUI desktop features
+  b.	Multi-desktop paradigm
+  c.	Energy saving and extremely fast 
+  d.	Made for high end gaming systems
+17)	Which of these statements are true in regards to Linux desktop environments? (choose all that 
+apply)
+  a.	Desktop environments have a File Manager
+  b.	Desktop Environments have start or action buttons and task and notification bars 
+  c.	Desktop environments have a changeable but consistent look-and-feel
+  d.	Desktop environments have system configuration tools and user applications built in
+  e.	Desktop environments have lower memory requirements than window managers
+18)	What is the default desktop environment for Fedora 22? (Name and versions)
+
+19)	What is the name of the button on the upper left hand corner of the GNOME 3 desktop in 
+Fedora 22 that you use to “launch applications?”
+
+20)	What is the name of the default Ubuntu desktop environment?
 
 ### Podcast Questions
 
@@ -447,11 +528,13 @@ Final __deliverable__ is to place all of the above screenshots, 23 total) into a
 
   [^30]: <a href="http://www.osnews.com/story/22225/RMS_De_Icaza_Traitor_to_Free_Software_Community/">http://www.osnews.com/story/22225/RMS_De_Icaza_Traitor_to_Free_Software_Community/</a>
 
-  [^31]: Qt 5 / KDE 5 split into three seperate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5<a/>
+  [^31]: Qt 5 / KDE 5 split into three separate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5<a/>
 
-  [^32]: KDE Plasma 5 retired KDM as the default display manager in favor of SDDM.  <a href="http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU">http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU</a>
+  [^32]: KDE Plasma 5 retired KDM as the default display manager in favor of SDDM.  
+     <a href="http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU">http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU</a>
 
-  [^33]: Comparison of X Windows Desktop Environments <a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
+  [^33]: Comparison of X Windows Desktop Environments 
+    <a  href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
 
   [^34]:  [http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/](http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/)
 
