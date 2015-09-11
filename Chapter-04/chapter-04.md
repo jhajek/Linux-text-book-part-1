@@ -341,10 +341,10 @@ default?
 VT-220 terminals they used prior.
   d.	Hey its Windows, do they need a reason?
 4)	What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
-  a.	```Alt + Ctrl + Del```
-  b.	```Alt + Ctrl + F1 - F7```
-  c.	```Right Ctrl```
-  d.	```Shift 5 times```
+  a.	Alt + Ctrl + Del
+  b.	Alt + Ctrl + F1 - F7
+  c.	Right Ctrl
+  d.	Shift 5 times
 5)	What is the name of the original Unix based GUI that came out of MIT in ~1984?
   a.	W
   b.	X
@@ -440,7 +440,7 @@ You will need to install 2 GMONE 3 extensions.  The first one is the example in 
 
 __Ubuntu 15.04__
 
-  You will be installing an assortment of Desktop Environments, Window Managers, and Themes in this exercise.  From the Ubuntu Software Center you will need to install the following applications and take screenshots of the applications open on the desktop. GIMP, netbeans, Chrome (called Chromium of Linux), Stellarium, VLC, and the GNOME Tweak Tool.  For the __deliverable__ take a screenshot of the desktop with each application open and name the screenshots as follows:
+  You will be installing an assortment of Desktop Environments, Window Managers, and Themes in this exercise.  From the Ubuntu Software Center you will need to install the following applications and take screenshots of the applications open on the desktop. GIMP, Eclipse, Chrome (called Chromium of Linux), Stellarium, VLC, and the GNOME Tweak Tool.  For the __deliverable__ take a screenshot of the desktop with each application open and name the screenshots as follows:
   
 *  lastname-firstname-ubuntu-gimp.(jpeg or png)
 *  lastname-firstname-ubuntu-netbeans.(jpeg or png)
