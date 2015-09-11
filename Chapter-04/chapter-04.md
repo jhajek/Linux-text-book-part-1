@@ -58,7 +58,7 @@ __X__ [^25]
 
  > *"...in 1987-1988 X established itself as the standard graphics engine for Unix machines, a hardware-independent neutral platform on top of which to build GUIs"* [Eric S. Raymond writings](http://www.catb.org/~esr/writings/taouu/html/ch02s06.html "Early history of Unix").
 
- > "X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface — this is handled by individual programs."*  [https://en.wikipedia.org/wiki/X_Window_System](https://en.wikipedia.org/wiki/X_Window_System "X Windows")
+ > *"X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface — this is handled by individual programs."*  [https://en.wikipedia.org/wiki/X_Window_System](https://en.wikipedia.org/wiki/X_Window_System "X Windows")
 
    By 1987 version 11 had been released of the protocol, being commonly referred to as X11.  The industry wanted ot prevent fragmentation and they asked MIT to form a steering consortium for the project.  MIT X Consortium became the X Consortium Inc in 1993.  By 1996 the X Consortium, with vendor input, released one of the first standard Unix GUIs called the __CDE__ *Common Desktop Environment*. By 1997 the X Consortium transformed into the Open Group.  The Open Group angered many people by relicensing the project under stricter commercial terms in an effort to make some money to support the project--but this action backfired amongst the community.  By 1999 the Open Group has ceased functioning and ceased really developing X. The Open Group created *X.Org* to maintain the X11 standard.
 
@@ -167,11 +167,11 @@ GNOME initially stood for GNU Network Object Model Environment but the acronym i
 
 In an interesting development Miguel ended up forming the company that became Xamarin, a cross development mobile platform company using c# to develop for Android and iOS--shortly after Microsoft began opensourcing the C# language.  Miguel has always been a software pragmatist - always chasing the best technology and open sourcing it.  He took much criticism because he started the Mono project in bringing Microsoft's C# and .NET platform to Linux, because he saw C# as the best language to develop in cross platform.   This brought about the comdemnation of Richard Stallman, calling Miguel, "*A traitor to free software.*" [^30]  Miguel's response to Stallman was a beautiful example of how to diffuse an inflammatory situation:
 
-> "I want to say that God loves all creatures. From the formidable elephant to the tiniest ant. And that includes Richard Stallman.
+> *"I want to say that God loves all creatures. From the formidable elephant to the tiniest ant. And that includes Richard Stallman.
 >
 > As for me, I think that there is a world of possibility, and if Richard wants to discuss how we can improve the pool of open source/free software in the world he has my email address.
 >
-> Love, Miguel." [^35]
+> Love, Miguel."* [^35]
 
 In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros.  Red Hat Linux adopted GNOME as well.  The GNOME has recently come into some controversy.
 
