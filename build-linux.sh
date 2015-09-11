@@ -13,6 +13,7 @@ rm -f ./output/pdf/*.pdf
 rm -f ./output/epub/*.epub
 rm -f ./output/html/*.html
 rm -f ./output/docx/*.docx
+rm -f ./output/odt/*.odt
 
 #######################################################################################################################
 # PDF - #If you want to create a PDF, you’ll need to have LaTeX installed. (See MacTeX on OS X, MiKTeX on Windows, or
