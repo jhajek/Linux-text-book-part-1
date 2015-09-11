@@ -15,6 +15,7 @@
 If (Test-Path ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I*){
   Remove-Item -force -v -path ./output/test-pdf-docx/*.pdf
   Remove-Item -force -v -path ./output/test-pdf-docx/*.docx
+  Remove-Item -force -v -path ./output/test-pdf-docx/*.odt
 }Else{
   echo "Filez don't exist =("
 }
@@ -34,12 +35,16 @@ pandoc --toc -V geometry:margin=1in --number-sections --include-in-header ./titl
 # DOCX - [Convert your Markdown file to Word (docx):](http://bob.yexley.net/generate-a-word-document-from-markdown-on-os-x/)#############################################################################################################################
 #############################################################################################################################
 pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.docx -f markdown -t docx ./title/title.txt  ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md 
+
+#############################################################################################################################
+pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.odt -f markdown ./title/title.txt  ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md 
+
 ######################
 # Debugging          #
 ######################
 cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf  C:\Users\palad\OneDrive\Documents\epub
 cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.docx C:\Users\palad\OneDrive\Documents\epub
-
+cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.odt C:\Users\palad\OneDrive\Documents\epub
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #
 ###########################################
