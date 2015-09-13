@@ -176,7 +176,7 @@ int main(void)
 }
 ``` 
  
-Since Ritchie created "C" to solve all the problems Unix had -- it became the defacto language of Unix and from that point on pretty much all operating systems are designed in "C" after Thompson and Ritchie showed that you could use a high level language to make Unix portable across many platforms.  
+Since Ritchie created "C" to solve all the problems Unix had -- it became the defacto language of Unix and from that point on pretty much all operating systems are designed in "C" after Thompson and Ritchie showed that you could use a high level language to make Unix portable across many platforms.  Recently a project to restore the original UNIX assembly code from a tape and documents recovered from 1972 has begun and is [hosted on Google code](https://code.google.com/p/unix-jun72/source/browse/trunk/src/cmd/init.s "Initial Unix Code").
 
 __Brian Kernighan__ [^4]
 
