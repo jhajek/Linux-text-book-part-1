@@ -19,7 +19,7 @@ __Outcomes__
 
 *Conventions*
 
-   The terms commandline and shell have discrete and different meanings but in this chapter and in the vernacular sense the words are often used interchangably.
+   The terms commandline, terminal, and shell have been used so far interchangibly to mean the same thing, the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI beign a generic word refering to anyhting where commmands are entered in text.
 
 ## File System Structure
    
@@ -31,11 +31,13 @@ In Linux the filesyste is designed as an __upside down tree__.  What is at the b
 
 ![*Fedora 22 root directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora 22 root directory listing")
 
-Notice that both of the outputs are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using.  Open a terminal and type the command ``` ls /```, what is the output compared to the two images above?  Why is it different?  The answer is complicated.  It goes back to the 40+ years of history of Unix we are carrying with us.  As commercial Unix began to become a reality by 1984, there was a concern, especially from Ricahrd Stallman that his GNU project would get short circuited by UNix vendors changing the Unix implementation as to make GNU software incompatable.  Basically making Unix not Unix.  Stallman spurred on a nacent IEEE standards group to create something called POSIX ( pronounced *pah-zicks*). The Portable Operating System Interface.  "This is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems." [^49] In this way a Unix vendor could not "run away" with the market and insures a level of interoperatibility between Unix software.  The first official POSIX standard was released in 1988, a few years a head of the creation of Linux (1991).   
+Notice that both of the outputs are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using and try running the same command..  Open a terminal and type the command ```ls /```, what is the output you see compared to the two images above?  Why is the filesystem hierarchy different?  The answer is complicated.  It goes back to the 40+ years of history of Unix we are carrying with us.  As commercial Unix began to become a reality by 1984, there was a concern, especially from Ricahrd Stallman that his GNU project would get short circuited by UNix vendors changing the Unix implementation as to make GNU software incompatable--basically making Unix not Unix.  
+
+RIchard Stallman spurred on a nacent IEEE standards group to create something called POSIX ( pronounced *pah-zicks*), The Portable Operating System Interface.  "This is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems.[^49]"  In this way a Unix vendor could not "run away" with the market and POSIX insures a level of interoperatibility between software accross Unix distros that have POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7.   
 
 ### POSIX Standard
 
-The best place I found a short summary of what POSIX is and does was from an answer on Stackoverflow question [http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix](http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix "Attribution") [^48]
+The best place I found a short (trust me this is short) summary of what POSIX is and does was from an answer on Stackoverflow [http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix](http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix "Attribution").[^48]
 
 __Most important things POSIX 7 defines__
 
@@ -44,7 +46,7 @@ __Most important things POSIX 7 defines__
   * Extends ANSI C with things like: networking, process and thread management, file IO, regular expressions, ...
     + E.g.: write, open, read, ...
   * Those APIs also determine underlying system concepts on which they depend.
-  * Many Linux system calls exist to implement a specific POSIX C API function and make Linux compliant, e.g. sys_write, sys_read, ...
+  * Many Linux system calls exist to implement a specific POSIX C API function and make Linux compliant, e.g. ```sys_write, sys_read, ...```
   * Major Linux desktop implementation: glibc.
 
 2)  [CLI utilities](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.html "CLI utilities")
@@ -94,8 +96,8 @@ __Most important things POSIX 7 defines__
 
   * Not mandatory, used by POSIX, but almost nowhere else, notably not in GNU. But true, it is too restrictive, e.g. single letter flags only.
   * A few widely used conventions:
-    + ```-``` means stdin where a file is expected
-    + ```--``` terminates flags
+    +) __-__ means stdin where a file is expected
+    +) __--__ terminates flags
   * See also: [Are there standards for Linux command line switches and arguments?](http://stackoverflow.com/questions/8957222/are-there-standards-for-linux-command-line-switches-and-arguments)
 
 Who conforms to POSIX?
@@ -165,13 +167,63 @@ Leonart Poettering has some things to say about POSIX and LSB:
   
   No not these shells... [^45]
   
-### History of the Shell 
-  
-![*Basic structure of what a shell does*](images/Chapter-05/shells/figure1.png "Shell Diagram") 
+### Difference Between a Shell and a Terminal  
+
+  If you remmber from chapter 04 that the word *"terminal"* came from the actual Dec VT-100 terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text.   Shells provided much needed functionality like the ability to create scripts for executing multiple commands, command completion, command history, and others.
 
 ![*Shell/OS interaction diagram*](images/Chapter-05/shells/figure2.png "Shell Interaction Diagram")
+  
+### History of the Shell 
+  
+The shell most commonly used on pretty much all Linux distros is called the [Bash Shell](http://www.gnu.org/software/bash/ "Bash Shell"). It was created in parallel with the rise of Linux so the two are almost tied together.  But to understand how we got to the modern Bash Shell we have to go back to the beginning. As always the history of anyhting on Unix/Linux goes back to Ken Thompson[^46].  By 1972 there was a single shell in Unix in use, referred to by others as the [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell "Thompson Shell").  This shell being written by Ken Thompson was written for Ken Thompson solving the technical problems he had back in 1972.  By 1979 in the Unix world computer processing and computing tasks were light years away from where they had been. *"The shell's design was intentionally minimalistic; even the if and goto statements, essential for control of program flow, were implemented as separate commands[^55]."* A new shell was needed. 
 
-As always the history of anyhting un Unix/Linux goes back to Ken Thompson[^46].  
+Two simultanious efforts on different sides of the country were happening to replace the Thompson shell.  Remember that Unix had split into the BSD Unix out at Berkley California and also AT&T owned the commercial UNix back out in New York/New Jersey.  The BSD group was developing the C shell (csh)under Bill Joy.  AT&T out east was developing the Bourne Shell (sh) under Steven Bourne.       
+ 
+![*Timeline history of Unix/Linux Shells*](images/Chapter-05/shells/figure1.png "Timeline history") 
+
+#### C Shell
+
+The __C Shell__ was written by [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") almost single handed while working on the BSD UNix distro in 1978/79.  Joy realized that since UNix was written in the C language and most programs at the time were written using C, it didn't make sense to change the language one was using in their shell to something other than C. So Joy implemented the shell concept Thompson had started with vastly improved features and using the C language based syntax.  
+
+Criticsm of C Shell: "Although Stephen Bourne himself acknowledged that csh was superior to his shell for interactive use, it has never been as popular for scripting. Initially, and through the 1980s, csh could not be guaranteed to be present on all Unix systems, but sh could, which made it a better choice for any scripts that might have to run on other machines. By the mid-1990s, csh was widely available, but the use of csh for scripting faced new criticism by the POSIX committee, which specified that there should only be one preferred shell, the Korn Shell, for both interactive and scripting purposes. The C shell also faced criticism from others over the C shell's alleged defects in syntax, missing features, and poor implementation.[^56]" 
+
+#### Bourne Shell
+
+  Steven Bourne was a researcher at AT&T Bell labs implemented his own shell to replace the Thompson Shell in 1977.  The Bourne Shell was distributed in standard Unix from Version 7, SystemIII, SVR2, SVR3, SVR4[^57].
+
+*  Built-in test command – System III shell (1981)
+*  ```#``` as comment character – System III shell (1981)
+*  Colon in parameter substitutions ```"${parameter:=word}"``` – System III shell (1981)
+*  Functions and the return builtin – SVR2 shell (1984)
+*  Built-ins unset, echo, type – SVR2 shell (1984)
+*  Source code de-ALGOL68-ized – SVR2 shell (1984)
+*  Modern "$@" – SVR3 shell (1986)
+*  Built-in getopts – SVR3 shell (1986)
+*  Cleaned up parameter handling allows recursively callable functions – SVR3 shell (1986)
+*  8-bit clean – SVR3 shell (1986)
+*  Job control – SVR4 shell (1989)
+*  Multi-byte support – SVR4 shell (1989)
+
+#### Korn Shell
+
+  By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  Unix users were requesting each others feature set to be added to each shell.  A researcher at Bell Labs began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the features of the C Shell.  This was called the Korn Shell (ksh) and released in 1983.  In parallel their was an improved C Shell called the tcsh released in 1984 that fixed the deficincies of the original C Shell and added features.  This was only available on some BSD varients.  The Bourne Shell was standard on all Unix so that any Shell Scripts written for the Bourne shell could guarentee that __sh__ would be present.  The Korn Shell was soon included on AT&T Unix as well.  In 1991/1992 the POSIX standard adopted KSH as teh standard shell that any Unix system claming POSIX compliance requried to have.  
+  
+#### GNU Bash Shell
+
+The ksh was a sutiable replacement for the Bourne Shell and C Shell, but from the Free Software Foundation's view there was one main problem.  All of these shells were propriatry.  This lead Richard Stallman and the FSF to fund development seeing that having a free softare licensed shell was central to their dream of a completely free operating system.  Work was begun in 1989 and completed in 1991.  The shell was named the Bash Shell.  It is a clever hack.  Bash was completly a superset of the Bourne Shell and feeling as though they were "freeing" the Bourne Shell from its past life of closed software, they named is Bourne Again Shell--Bash.  Bash is the GNU Project's shell. Bash is the Bourne Again SHell. Bash is an sh-compatible shell that incorporates useful features from the Korn shell (ksh) and C shell (csh). It is intended to conform to the IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard. It offers functional improvements over sh for both programming and interactive use. In addition, most sh scripts can be run by Bash without modification[^58].
+
+The improvements offered by Bash include:
+  
+  * Command line editing
+  * Unlimited size command history
+  * Job Control
+  * Shell Functions and Aliases
+  * Indexed arrays of unlimited size
+  * Integer arithmetic in any base from two to sixty-four
+
+#### Open Source sh Replacements
+
+  Just as Bash provided a *"free"* sh compatible shell for the GNU system that was also adopted by Linux distros as standard.  They had no choice there were no other shells to adopt because of licensing.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and ope sourced version of the bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional /bin/sh 
 
 ## Linux Shell Commands
 
@@ -282,16 +334,24 @@ man
 ```bash
 man wget
 ```
-
-__(show screen shot of ls command with ls ls -la ls -la /etc/  man ls__
-
-  There is a common nomenclature of commands in Linux.  There is an executable that is part of the system function located in /bin, files such as ls cd touch are all precompiled binaries located on the system.  To enter a command you type the name of the binary, as you use Linux more and more you will begin to memorize the tool names.  Each command can have options or sometimes called flags and then may or may not accept arguments.
   
 ### Command nomenclature
   
 ```bash
 ls -la /etc
 ```
+
+  There is a common nomenclature of commands in Linux.  There is an executable that is part of the system function located in /bin, files such as ls cd touch are all precompiled binaries located on the system.  To enter a command you type the name of the binary, as you use Linux more and more you will begin to memorize the tool names.  Each command can have options or sometimes called flags and then may or may not accept arguments.
+
+![*Listing of the /home/controller directory*](images/Chapter-05/commands/ls-home.png "ls /home/controller")
+
+![*Long and hidden Listing of the /home/controller directory*](images/Chapter-05/commands/ls-la-home.png "ls -la /home/controller")
+
+Commands contain three parts:
+
+*  command (or binary) name  
+*  options                   
+*  arguments
   
   The first two letters __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. Then next letters are preceeded by a __dash__, to tell the shell interpreter that these letters are options.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the ls command to give a long listing of a directory with details and the __"-a"__ tells the shell to print all files in the directory including hidden files.  Options can be combined in most cases into a single string preceeded bya dash.  So __```-la```__ can also be writted as __```-l -a```__.  Additonally there are options that use full english lanugage structure, which are usually preceeded by __two dashes__ and then a more descriptive english phrase.  Ask the students to find one?
    
@@ -301,11 +361,11 @@ ls -la /etc
 
   In working with many excellent people over the years I have found that there is a common Linux language.  When talking to others, you find that for the most part the standard Linux filesystem has been memorized.  As well as the most common Linux tools through repeated usage.  With this in mind you can "speak" a command without mentionig certain aspects--they are implied.  
   
-  For instance: 
+  Let's take a simple command to list the contents of the /etc directory with a long listing and showing all, inlcuding hidden filed for instance.  How would you verbalize the command to your co-worker? 
   ```bash
   ls -la /etc
   ```
-  You would say "*el-es el-a eee tee cee*".  Note that I didn't mention any dashes or slases.  Why? Because the context of ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  I assume that you are giving a absolute path because ```/etc``` is under the root and a standard defined Linux directory.  
+  You would say "*el-es el-a eee tee cee*".  Note that I didn't mention any dashes or slashes.  Why? Because the context of ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  I assume that you are giving a absolute path because ```/etc``` is under the root and a standard defined Linux directory.  
   
   Let's take a look at this one.  As you remember the cp command takes two arguments: __source__ and __destination__.  
   ```bash
@@ -394,7 +454,9 @@ rwx
 
 There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter Y.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's).
 
-  ```chmod```  allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  
+  ```chmod``` 
+  Pronounced *"chuh-mod"*
+   This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  
   The outputs look like this:
   Insert picture of chmod 755 and chmod +x 
   
@@ -488,4 +550,10 @@ Final deliverable is to place all of the above screenshots, 23 total) into a sin
 
 [^54]: [https://archive.fosdem.org/2011/interview/lennart-poettering](https://archive.fosdem.org/2011/interview/lennart-poettering)
 
+[^55]: [https://en.wikipedia.org/wiki/Thompson_shell#cite_note-Mashey1976-10-13-1](https://en.wikipedia.org/wiki/Thompson_shell#cite_note-Mashey1976-10-13-1)
 
+[^56]: [https://en.wikipedia.org/wiki/C_shell#Criticism](https://en.wikipedia.org/wiki/C_shell#Criticism)
+
+[^57]: [https://en.wikipedia.org/wiki/Bourne_shell#Features_introduced_after_1979](https://en.wikipedia.org/wiki/Bourne_shell#Features_introduced_after_1979)
+
+[^58]: [http://www.gnu.org/software/bash/](http://www.gnu.org/software/bash/)
