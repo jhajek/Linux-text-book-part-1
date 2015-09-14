@@ -1,5 +1,5 @@
 # System Administration 
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*Permissions are all messed up...*](http://imgs.xkcd.com/comics/authorization.png  "Permissions")
 
 __Chapter 11 Objectives__
 

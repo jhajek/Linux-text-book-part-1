@@ -1,4 +1,4 @@
-# Commandline Variables, Shell Meta-Characters, Search Tools
+# Shell Variables, Shell Meta-Characters, Search Tools
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 6 Objectives__

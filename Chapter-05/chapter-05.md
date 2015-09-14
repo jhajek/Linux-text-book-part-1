@@ -1,7 +1,7 @@
-# Linux Basic Commands, Filesystem Structure, and Permissions
-![*You are not authorized*](http://imgs.xkcd.com/comics/authorization.png  "File Permissions")
+# The Linux Filesystem Structure, Basic Shell Commands, and File Permissions
+![*The power of sudo*](http://imgs.xkcd.com/comics/sandwich.png "Sandwhich")
 
-  The main use and power of a Linux operating system to this day is still the Shell.  The shell is a way for a user to directly interface with the operating system.    We will cover more about specific shells and features in Chapter 8.  
+  This chapter we will cover how the user interacts with the operating system via a tool called the shell.   
 
 __Chapter 5 Objectives__
 
@@ -21,6 +21,8 @@ __Outcomes__
 *Conventions*
 
    The terms __commandline__, __terminal__, and __shell__ have been used interchangibly so far to mean the same thing, the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI beign a generic word refering to anyhting where system commmands are entered in text.
+   
+   You will also notice a tag __Exercise:__ in blockquotes in the chapter with little exercises that will let you follow along as you read.  
 
 ## File System Structure
    
@@ -32,9 +34,9 @@ In Linux the filesystem has a hierarchy in order to be able to describe the loca
 
 ![*Fedora 22 root directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora 22 root directory listing")
 
-> __Exercise:__ Notice that both of the screenshots above are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using and try running the same command.  Use the Ubuntu Sash button or the GNOME Activities button to search for the phrase __terminal__ launch it and and type the command ```ls /```. What is the output you see compared to the two images above?  Try it on some other distros or even FreeBSD. 
+> __Exercise:__ Notice that both of the screenshots above are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using and try running the same command.  Use the Ubuntu Dash button or the GNOME Activities button to search for the phrase __terminal__ and launch it by clicking on the terminal icon. Then type the command ```ls /``` in the terminal. What is the output you see compared to the two images above?  Try it on some other distros or even FreeBSD and compare the output. 
 
-How does this compare to other operating systems? Windows operates on a serparate idea of distinct letter drives, C, D, E mapping to discrete disk drives and that is the __root__ of each drive.  Unix was created before it was even technologically possible to have multiple disk drives.  Mac OSX is a different case since it is BSD based, it operates on the same principle as Linux but tries to hide it from you by just giving you icons and finders. You can get terminal access to the commandline and see Mac's Unix heritage too.  
+How does this compare to other operating systems? Windows operates on a serparate idea of distinct letter drives, C, D, and E for example, each mapping to a discrete disk drives and that is the __root__ of each drive.  Unix was created before it was even technologically possible to have multiple disk drives.  Mac OSX is a different case since it is BSD based, it operates on the same principle as Linux but tries to hide it from you by just giving you icons and finders. You can get terminal access to the commandline and see Mac's Unix heritage too.  
 
 Why is the filesystem hierarchy different?  The answer goes back to the dawn of commercial Unix in the early 1980s.  By 1985 there was a growing concern, especially from Richard Stallman, that the GNU project would get short-circuited by Unix vendors who would subtly change the way Unix interfaced with software and make GNU software incompatable and not desirable for use. Richard Stallman spurred on a nacent IEEE standards group to create something called __POSIX__ (pronounced *pah-zicks*), the __Portable Operating System Interface__.  
 
@@ -122,42 +124,46 @@ Most Linux distros are very POSIX compliant, but not certified because they don'
 
 ### Linux Standard Base
 
-  Seeing the iterative standardizing issues that Unix went through, in order to encourage standardization and ensure enterprise adoption the LSB, [Linux Stanadrd Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), was formed.  The LSB is an industry group standard put together for two main purposes. First it is for application vendors (Oracle, Postgress, Sun, JBoss, IBM, etc, etc) to certify their products will work accross different Linux distros that are LSB certified.  Second it is for creating a central Linux identity and reference guide for distros to comply with.  The LSB extends POSIX to include items specific to Linux.  The LSB specifies for example: standard libraries, system commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system (including spoolers such as CUPS) and tools like Foomatic, and several extensions to the X Window System [^50]. This initial standard body came together and was published in January of 1991. <-- that can't be right? maybe 2001?
+  Seeing the iterative standardizing issues that Unix went through, in order to encourage standardization and ensure enterprise adoption the LSB, [Linux Stanadrd Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), was formed.  The LSB is an industry group standard put together for two main purposes. First it is for application vendors (Oracle, Postgress, Sun, JBoss, IBM, etc, etc) to certify their products will work accross different Linux distros that are LSB certified.  Second it is for creating a central Linux identity and reference guide for distros to comply with.  The LSB extends POSIX to include items specific to Linux.  The LSB specifies for example: standard libraries, system commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system (including spoolers such as CUPS) and tools like Foomatic, and several extensions to the X Window System [^50]. This initial standard body came together and was published in January of 2001.
   
   Most importantly the LSB sought to create an __ABI__, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which just assumes that there will be the same standard libraries to code against on every Linux distro.  The ABI gives assurance that code __compiled__ using a standard C compiler with the ABI compatability feature turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows .exe package you create, it runs on all Windows platforms from XP all the way to Windows 10, those operating systems are ABI compliant.  The LSB wanted to gaurentee this so that major vendors of software would not have to maintain multiple different versions, but could build one version and maintain ABI compatability, thus preventing a barrier from adopting Linux as an enterprise platform.
   
-  The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the induvidual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
+  The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the induvidual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.  All this work on API, ABI, and standard packaging sounds wonderful but here is the problem, while most distros tend to try to adhere to POSIX and LSB, the dream of a unified Linux standard never really appeared because there is no forcing function.  __No one implments LSB the way it was intended__. This post from the Debian LSB mainling list marked July 3rd 2015 says it all:  
+  
+  > The crux of the issue is, I think, whether this whole game is worth the  work: I am yet to hear about software distribution happening through LSB  packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4. [^59]
 
 #### Linux Filesystem Hierarchy
 
-In addition to the API and ABI of the Linux standard base, the most important part of the LSB is the *LFH*, __Linux Filesystem Hierarchy__.  This is a hierarchy of directories that exist under the __root directory__ that are standard across all Linux distros.  To be able to function in the Linux world you need *memorize* each name and its general function.  All these directories will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required in /.  [^47]
+The most important item to come out of the LSB is the *LFH*, __Linux Filesystem Hierarchy__.  This is a hierarchy of directories that exist under the __root directory__ that are standard across all Linux distros.  To be able to function in the Linux world you need *memorize* each name and its general function.  All these directories will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required in under the __root__.  [^47]
 
 Directory           Function
----------- -----------------------------------------------------------------------------------
-bin        Essential command binaries 
-boot       Static files of the boot loader that copy the kernel into memory on boot
-dev        Device file handles 
-etc        Host-specific system configuration files 
-lib        Essential shared libraries and kernel modules 
-media      Mount point for removable media 
-mnt        Mount point for mounting a filesystem temporarily 
-opt        Add-on application software packages 
-run        Data relevant to running processes 
-sbin       Essential system binaries added by each operating system
-srv        Data for services provided by this system 
-tmp        Temporary files 
-usr        Secondary hierarchy 
-var        Variable data - used for storing databases, webserver files, and application logs
----------- -----------------------------------------------------------------------------------
+----------  -----------------------------------------------------------------------------------
+bin         Essential command binaries 
+boot        Static files of the boot loader that copy the kernel into memory on boot
+dev         Device file handles 
+etc         Host-specific system configuration files 
+lib         Essential shared libraries and kernel modules 
+media       Mount point for removable media 
+mnt         Mount point for mounting a filesystem temporarily 
+opt         Add-on application software packages 
+run         Data relevant to running processes 
+sbin        Essential system binaries added by each operating system
+srv         Data for services provided by this system 
+tmp         Temporary files 
+usr         Secondary hierarchy 
+var         Variable data - used for storing databases, webserver files, and application logs
+----------  -----------------------------------------------------------------------------------
 
  This filesystem layout harkons back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this knowledge is wide spread and well known.  The downside is a sense of tradition and nostalgia ha crept in about this filesystem structure has crept in too. Note that Red Hat based distros have made a move to change this, seeing as it is a very Unix based list and includes many directories that could be combined. Also there is little strict resaoning to where a file or folder should go leaving it up to the system to have to architect a bunch of links to make sure that all programs can find it.  Red Hat maintains this directory hierarchy but symlinks most of them to /usr.  [^52]  It is not just a move just to be different but also a move to unify development.  Making applications built for Unix easier to port over to Red Hat based distros.  There are many companies still using comercial Unix, especially people using SolarisOS looking to get away from Oracle, and this is a way they can transition everything to Linux without having to rewrite all the paths of their binaries.
 
-> Improved compatibility with other Unixes/Linuxes in behavior: After the /usr merge all binaries become available in both /bin and /usr/bin, resp. both /sbin and /usr/sbin (simply because /bin becomes a symlink to /usr/bin, resp. /sbin to /usr/sbin). That means scripts/programs written for other Unixes or other Linuxes and ported to your distribution will no longer need fixing for the file system paths of the binaries called, which is otherwise a major source of frustration. /usr/bin and /bin (resp. /usr/sbin and /sbin) become entirely equivalent. [^52]
+> "Improved compatibility with other Unixes/Linuxes in behavior: After the /usr merge all binaries become available in both /bin and /usr/bin, resp. both /sbin and /usr/sbin (simply because /bin becomes a symlink to /usr/bin, resp. /sbin to /usr/sbin). That means scripts/programs written for other Unixes or other Linuxes and ported to your distribution will no longer need fixing for the file system paths of the binaries called, which is otherwise a major source of frustration. /usr/bin and /bin (resp. /usr/sbin and /sbin) become entirely equivalent[^52]."
 
-  * ```/bin → /usr/bin```
-  * ```/sbin → /usr/sbin```
-  * ```/lib → /usr/lib```
+  * ```/bin   → /usr/bin```
+  * ```/sbin  → /usr/sbin```
+  * ```/lib   → /usr/lib```
   * ```/lib64 → /usr/lib64``` 
+
+By using the command ```ls -l /``` you can see the light blue colored softlinks or called shortcuts in Windows to the actual directories.  
 
 ![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-full-listing.png "Ubuntu 15.04 root directory listing")
 
@@ -567,3 +573,7 @@ Final deliverable is to place all of the above screenshots, 23 total) into a sin
 [^57]: [https://en.wikipedia.org/wiki/Bourne_shell#Features_introduced_after_1979](https://en.wikipedia.org/wiki/Bourne_shell#Features_introduced_after_1979)
 
 [^58]: [http://www.gnu.org/software/bash/](http://www.gnu.org/software/bash/)
+
+[^59]: [https://lists.debian.org/debian-lsb/2015/07/msg00000.html](https://lists.debian.org/debian-lsb/2015/07/msg00000.html)
+
+
