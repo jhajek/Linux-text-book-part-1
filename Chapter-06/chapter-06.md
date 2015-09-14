@@ -21,7 +21,7 @@ Does stdin and std out and std err go here?
 
 ### Review Questions
 
-  * Questions go here
+  Questions go here
 
 ### Podcast Questions
 
@@ -45,6 +45,7 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
 
 ### Lab
 
- * Lab goes here 
+  Lab goes here 
  
- 
+#### Footnotes
+

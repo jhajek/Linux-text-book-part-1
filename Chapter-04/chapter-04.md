@@ -265,11 +265,11 @@ In order to find the window commands for open, close, resize, tiling, and so for
 
    This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called Software. There is a wide selection of free and opensource software to choose from. But many of the items you will search for won't yet appear in the store.  For instance the many window managers listed above in this chapter you won't find or IDEs such as Netbeans.  Remember this is because Fedora 22 is cutting edge and requires all packages to have an AppData meta data file for it to appear in their Software store.  In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
    
-   In addition there is additional software that comes packaged for Fedora (and all Red Hat derived distros) from a site called [RPMfusion.org](http://rpmfusion.org/Configuration) Here you will find free and non-free repositories of additional software to add to your system.  You can click on the downloads and the files will launch automatically with the Software Store for install.
+   In addition there is additional software that comes packaged for Fedora (and all Red Hat derived distros) from a site called [RPMfusion.org](http://rpmfusion.org/Configuration). Here you will find free and non-free repositories of additional software to add to your system.  You can click on the downloads and the files will launch automatically with the Software Store for install.
    
    Finally there is a Settings icon that will bring up good old system categories for finding and editing system settings.  Look for X icon of a screwdriver and a wrench.
    
-   There is also a [GNOME 3 extensions website](https://extensions.gnome.org "GNOME 3 extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME 3 enabled site and you allow the GNOME plugin to run in your Fire Fox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar?
+   To extend the fucntionality of GNOME 3 there is a [GNOME 3 extensions website](https://extensions.gnome.org "GNOME 3 extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME 3 enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor")
    
    ![*GNOME 3 Extensions*](images/Chapter-04/extensions.png "Extensions")
 
@@ -443,7 +443,7 @@ __Ubuntu 15.04__
   You will be installing an assortment of Desktop Environments, Window Managers, and Themes in this exercise.  From the Ubuntu Software Center you will need to install the following applications and take screenshots of the applications open on the desktop. GIMP, Eclipse, Chrome (called Chromium of Linux), Stellarium, VLC, and the GNOME Tweak Tool.  For the __deliverable__ take a screenshot of the desktop with each application open and name the screenshots as follows:
   
 *  lastname-firstname-ubuntu-gimp.(jpeg or png)
-*  lastname-firstname-ubuntu-netbeans.(jpeg or png)
+*  lastname-firstname-ubuntu-eclipse.(jpeg or png)
 *  lastname-firstname-ubuntu-chromium.(jpeg or png)
 *  lastname-firstname-ubuntu-vlc.(jpeg or png)
 *  lastname-firstname-ubuntu-stellarium.(jpeg or png)

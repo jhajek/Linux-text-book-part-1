@@ -111,7 +111,7 @@ Most Linux distros are very compliant, but not certified because they don't want
 
 ### Linux Standard Base
 
-  Seeing the iterative issues that Unix went through, in order to encourage adoption the LSB, [Linux Stanadrd Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), was formed so that application vendors could certify their product would work accross Linux and that a central Linux identity could be set for all distros to comply with.  The LSB extends POSIX to include items specific to Linux.  The LSB specifies for example: standard libraries, a number of commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system, including spoolers such as CUPS and tools like Foomatic and several extensions to the X Window System [^50]. The initial standard body came together and was published in January of 1991.  \
+  Seeing the iterative issues that Unix went through, in order to encourage adoption the LSB, [Linux Stanadrd Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), was formed so that application vendors could certify their product would work accross Linux and that a central Linux identity could be set for all distros to comply with.  The LSB extends POSIX to include items specific to Linux.  The LSB specifies for example: standard libraries, a number of commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system, including spoolers such as CUPS and tools like Foomatic and several extensions to the X Window System [^50]. The initial standard body came together and was published in January of 1991. 
   
   Most importantly the LSB sought to create an ABI, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which just assumes that there will be standard libraries available.  The ABI gives assurance that code compiled using a standard C compiler with the ABI compatability turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows exe package I create will run on all Windows platforms from XP all the way to 10.  Linux wanted to gaurentee that so that major vendors of software would not have to maintain multiple different versions, but could build 1 version and maintain ABI compatability.
   The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as way to distribute packages but did not specify how they would be installed, leaving this up to the induvisual distro.  This caused Debian based distros-to create an conversion layer package manager called *Alien* which will convert translate the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
@@ -120,22 +120,23 @@ Most Linux distros are very compliant, but not certified because they don't want
 
 In addition to the API and ABI of the Linux standard base, the most important thing we were given was the LFH, Linux Filesystem Hierarchy.  This is a list of directories that exist under root that are standard across all Linux distros.  These you have to memorize, their name and their function.  All these will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required in /.  [^47]
 
------- ---------------------------------------------------
-bin    Essential command binaries 
-boot   Static files of the boot loader 
-dev    Device files 
-etc    Host-specific system configuration 
-lib    Essential shared libraries and kernel modules 
-media  Mount point for removable media 
-mnt    Mount point for mounting a filesystem temporarily 
-opt    Add-on application software packages 
-run    Data relevant to running processes 
-sbin   Essential system binaries 
-srv    Data for services provided by this system 
-tmp    Temporary files 
-usr    Secondary hierarchy 
-var    Variable data 
------- ---------------------------------------------------
+Directory           Function
+---------- ---------------------------------------------------
+bin        Essential command binaries 
+boot       Static files of the boot loader 
+dev        Device files 
+etc        Host-specific system configuration 
+lib        Essential shared libraries and kernel modules 
+media      Mount point for removable media 
+mnt        Mount point for mounting a filesystem temporarily 
+opt        Add-on application software packages 
+run        Data relevant to running processes 
+sbin       Essential system binaries 
+srv        Data for services provided by this system 
+tmp        Temporary files 
+usr        Secondary hierarchy 
+var        Variable data 
+---------- ---------------------------------------------------
 
  This filesystem harkons back to Ken Thompson's original Unix design nearly 30+ years ago.  This means that this knowledge is wide spread and well known.  The downside is a sense of tradition and nostalgia ha crept in about this filesystem structure has crept in too. Note that Red Hat based distros have made a move to change this, seeing as it is a very Unix based list and includes many directories that could be combined. Also there is little strict resaoning to where a file or folder should go leaving it up to the system to have to architect a bunch of links to make sure that all programs can find it.  Red Hat maintains this directory hierarchy but symlinks most of them to /usr.  [^52]  It is not just a move just to be different but also a move to unify development.  Making applications built for Unix easier to port over to Red Hat based distros.  There are many companies still using comercial Unix, especially people using SolarisOS looking to get away from Oracle, and this is a way they can transition everything to Linux without having to rewrite all the paths of their binaries.
 
@@ -180,16 +181,14 @@ Many may say, *"Hey I have a nice point and click GUI why do I need to use the c
 
 In the shell is where we can enter basic commands for navigation and manipulation of text files.  Some of the basic commands we will cover are as follows:
 
--------------------- ----- ----- ----- ------ ------ ------ ----- 
-meta-commands        cd    ls    pwd   file   date
-file-related         cp    mv    mkdir touch  wget   rmdir  rm 
-file-ownership       chmod chown chgrp 
-display-related      cat   less  more  tac    head   tail
-display-augmentation grep  awk   sed      
-help commands        man   info  find  which  locate
--------------------- ----- ----- ----- ------ ------ ------ ------
-
-Table: *These are a subset of the most common commands you need to know by heart*
+-------------------- ------- ------- ------ ------ -------- ------- ----- 
+meta-commands          cd      ls     pwd    file    date
+file-related           cp      mv     mkdir  touch   wget    rmdir   rm 
+file-ownership        chmod   chown   chgrp 
+display-related        cat     less   more    tac    head    tail
+display-augmentation   grep    awk    sed      
+help commands          man    info    find   which  locate
+-------------------- ------- ------- ------ ------ -------- ------- ----- 
 
   In the course of your career you need to memorize at least these commands by name and what they do.  THey have been broken down into 5 helpful categories.  They are essential to the use of any Linux operating system.  
 
@@ -197,7 +196,7 @@ cd
 
 : This command is used to help you change the directory location.  The shell can only be pointed at one file location at a time.  In a GUI you are used to *"clickling"* on folders to navigate up and down the filesystem hierchy.  What you are actually doing when you click is issuing __cd__ commands to the kernel which is returning instructions of what the GUI should now render.  __Usage examples:__ 
 ```bash 
-cd /tmp  cd ../conf   cd ~/Documents
+cd /tmp 
 ```
 
 ls
@@ -209,71 +208,94 @@ ls /etc
 
 cp 
  
-: used to cp the contents of a file, can also be used to copy and rename a file.  
-__Usage examples:__ 
+: This command is used to cp the contents of a file, can also be used to copy and rename a file.  __Usage examples:__ 
+```bash
+cp *.txt /home/user/Documents
+```
 
 mv
  
-: used to rename or move a file in-place, though the actions are technically the same.  By renaming a file you are essentially moving its contents to a new file in-place. 
-__Usage examples:__ 
+: This command is used to rename or move a file in-place, though the actions are technically the same.  By renaming a file you are essentially moving its contents to a new file in-place. __Usage examples:__ 
+```bash
+mv ./secret-passwords.txt ./new-secret-passwords.txt
+```
  
 mkdir 
  
-: used to create or make a new directory  
-__Usage examples:__ 
+: This command is used to create or make a new directory. __Usage examples:__ 
+```bash
+mkdir ~/legally-downloaded-music
+```
  
 touch
  
-: used to create a new blank file or to update the timestamp of an existing file without opening it.  
-__Usage examples:__ 
+: This command is used to create a new blank file or to update the timestamp of an existing file without opening it.   __Usage examples:__ 
+```bash
+touch todolist.txt
+``` 
  
- cat
+cat
  
-: Used to display the content of a file to the scree.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a file content to the screen.  
-__Usage examples:__  ```bash cat /etc/apache2/sites-available/000-default```
+: This command is used to display the content of a file to the screen.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a filename content and output it to the screen.  There are lengthy articles discussing if this is the [correct method or a superaltive way](http://stackoverflow.com/questions/11710552/useless-use-of-cat "UUoC").  We will use it through out the textbook becausae of readability and common usage acceptance.  __Usage examples:__  
+```bash 
+cat /etc/apache2/sites-available/000-default
+```
  
 less
  
-: Pagination that goes up and down. 
-__Usage examples:__ 
+: This command is a *hack* on the __more__ command which allows for scrolling the text of a file using the enter key or page down, and space bar or arrow down key for single line scroll.  The __more__ command only went down, niot up.  Hence the more powerful command __less__ which pages and line scrolls up and down a document.  Less is more. __Usage examples:__ 
+```bash
+less /var/log/apache2/error.log
+```
  
 date 
  
-: Copy here.  __Usage examples:__ 
+: This command displays the common date and time format. It has full formatting customization so you can display date and time exactly as you need to.  __Usage examples:__ 
+```bash
+date '+%m%d%y' 
+```
  
 file 
  
-: Copy here.  __Usage examples:__ 
- 
+: This command has been in Unix since at least 1973 records show.  Its use is to help you identify what type of file something is.  It will out put the type of file if it is text, a directory, a binary, or something else.  __Usage examples:__ 
+```bash
+file self-destruct
+``` 
+
 pwd 
  
-: Copy here.  __Usage examples:__ 
+: This command tells you your __present working directory__ on the Linux filesystem tree.  __Usage examples:__ 
+```bash
+pwd
+```
  
 wget 
  
-: Copy here.  __Usage examples:__  
+: This command is used to retrieve files over the internet via an HTTP GET request.  If you are using the commandline you cannot "click" on a link but when you click on a link you are sending an HTTP GET request in reality.  This gives you control without having to leave the commandline.  The sample below will you download the markdown files used to build this textbook.  __Usage examples:__  
+```bash
+wget https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip
+```
 
 man
  
-: Copy here.  __Usage examples:__ 
- 
-(show screen shot of ls command with ls ls -la ls -la /etc/  man ls
+: This is the command you use when you can't remember how to use other commands.  just type the word man and then any other command name and you will automatically drop into a __less__ session which will explain the use and history of that command.  This is a very helpful tool as no one can memorize every single command.  From here on out in the class when you ask a question, the instructor's first answer will be, *"Check the man page."* As you progress in your Linux journey the __man__ command will be your best friend--use it wisely young Jedi.  __Usage examples:__ 
+```bash
+man wget
+```
+
+__(show screen shot of ls command with ls ls -la ls -la /etc/  man ls__
 
   There is a common nomenclature of commands in Linux.  There is an executable that is part of the system function located in /bin, files such as ls cd touch are all precompiled binaries located on the system.  To enter a command you type the name of the binary, as you use Linux more and more you will begin to memorize the tool names.  Each command can have options or sometimes called flags and then may or may not accept arguments.
   
-#### Manual (man) command - your best friend
-
- __Purpose of manual command__
- 
- __history of maunal command
-
 ### Command nomenclature
   
-  ```ls -la /etc```
+```bash
+ls -la /etc
+```
   
   The first two letters __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. Then next letters are preceeded by a __dash__, to tell the shell interpreter that these letters are options.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the ls command to give a long listing of a directory with details and the __"-a"__ tells the shell to print all files in the directory including hidden files.  Options can be combined in most cases into a single string preceeded bya dash.  So __```-la```__ can also be writted as __```-l -a```__.  Additonally there are options that use full english lanugage structure, which are usually preceeded by __two dashes__ and then a more descriptive english phrase.  Ask the students to find one?
    
-  The final value of __/etc__ in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the ls command to list the contents of the ___/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location/.
+  The final value of ```__/etc__``` in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the ls command to list the contents of the ___/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location/.
         
 ### How to Read Commands and "Speak Linux"
 
