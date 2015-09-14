@@ -282,7 +282,7 @@ Network
     sudo apt-get update
     sudo apt-get install build-essential dkms linux-headers-$(uname -r)
     cd /media/$USER/VBOXGUESTADDITIONS_5.0.2_102096/
-    sudo VBoxLinuxAdditions.run
+    sudo ./VBoxLinuxAdditions.run
     sudo reboot
 
  __Red Hat__
@@ -296,7 +296,7 @@ Network
      sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers dkms make bzip2 perl
      cd /media/VirtualBoxGuestAdditions
      # 32-bit and 64-bit systems run following
-     ./VBoxLinuxAdditions.run
+     sudo ./VBoxLinuxAdditions.run
      sudo reboot
      
  On Centos, RHEL, and older Fedora distros using yum
@@ -308,7 +308,7 @@ Network
      sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions 
      cd /media/VirtualBoxGuestAdditions
      # 32-bit and 64-bit systems run following
-     ./VBoxLinuxAdditions.run
+     sudo ./VBoxLinuxAdditions.run
      sudo reboot
 
  If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.  If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:

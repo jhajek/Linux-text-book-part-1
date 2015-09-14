@@ -12,9 +12,10 @@
 # http://stevehardie.com/2013/04/powershell-check-if-file-exists/
 # http://www.powershelladmin.com/wiki/Powershell_multi-line_comments
 #delete previous build artifacts but not the README.md
-If (Test-Path ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I*){
+If (Test-Path "./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I*"){
   Remove-Item -force -v -path ./output/test-pdf-docx/*.pdf
   Remove-Item -force -v -path ./output/test-pdf-docx/*.docx
+  Remove-Item -force -v -path ./output/test-pdf-docx/*.epub
   Remove-Item -force -v -path ./output/test-pdf-docx/*.odt
 }Else{
   echo "Filez don't exist =("
@@ -28,7 +29,7 @@ $STAMP=[Math]::Floor([decimal](Get-Date(Get-Date).ToUniversalTime()-uformat "%s"
 # install the texlive package in linux.) Then do                
 ########################################################################################################################
 #pandoc --toc -V geometry:margin=1in --number-sections --include-in-header ./title/titlesec.tex -s -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md 
-pandoc --toc -V geometry:margin=1in --number-sections --include-in-header ./title/titlesec.tex -s -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md 
+pandoc --toc -V geometry:margin=1in --number-sections --include-in-header ./title/titlesec.tex -s -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md
 # http://stackoverflow.com/questions/19397100/adding-a-title-page-page-headers-and-footers-using-pandoc
 
 #############################################################################################################################
@@ -42,17 +43,14 @@ pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Techn
 #################################################################
 # EPUB - To convert it to EPUB, use this command:               #
 #################################################################
-
-pandoc --toc --number-sections --epub-cover-image=images/John_Calvin_by_Holbein.png -S -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md  
+pandoc --toc --number-sections --epub-cover-image=images/John_Calvin_by_Holbein.png -S -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md 
  
-
-
 ######################
 # Debugging          #
 ######################
-cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf  C:\Users\palad\OneDrive\Documents\epub
-cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.docx C:\Users\palad\OneDrive\Documents\epub
-cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.odt C:\Users\palad\OneDrive\Documents\epub
+#cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf  C:\Users\palad\OneDrive\Documents\epub
+#cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.docx C:\Users\palad\OneDrive\Documents\epub
+#cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\test-pdf-docx\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.odt C:\Users\palad\OneDrive\Documents\epub
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #
 ###########################################
