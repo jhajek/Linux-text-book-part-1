@@ -6,11 +6,10 @@ Tar xkcd cartoon
 __Chapter 10 Objectives__
 
   * Learn the features of dnf, yum, and apt to install packages and dependecies in Linux
-  * Understand the nature of gcc and GNU tools make 
-  * Undderstand how to use the Python lanuguage interpreter in order to run python based install scripts 
+  * Understand the nature of GNU tools gcc and make 
+  * Understand how to use the Python lanuguage interpreter in order to run python based install scripts 
   * Understand how to use tar, gzip, and bzip2 for extracting packages containing source code
   * Compiling code from source
-  * Using Python setup.py install tools
   
 __Outcomes__
 

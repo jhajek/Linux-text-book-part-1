@@ -12,6 +12,7 @@ __Chapter 5 Objectives__
   *  Understand the difference between absolute and relative pathing.
   *  Know basic tools for traversing and modifying the contents of the filesystem.
   *  Understand the nomenclature describing file permissions and security
+  *  Understand the sudo command and root user paradigm
   
 __Outcomes__
 
@@ -19,25 +20,33 @@ __Outcomes__
 
 *Conventions*
 
-   The terms commandline, terminal, and shell have been used so far interchangibly to mean the same thing, the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI beign a generic word refering to anyhting where commmands are entered in text.
+   The terms __commandline__, __terminal__, and __shell__ have been used interchangibly so far to mean the same thing, the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI beign a generic word refering to anyhting where system commmands are entered in text.
 
 ## File System Structure
    
-__What is a Filesystem?__  A filesystem is a way for the opertaing system to manage and access files.  It is how data is segragated and the mechanism in how you rerieve and write data.  The benefit of a filesytem is you do not need to keep track of the locations in memory of your files, the filesystem will do that for you.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table and looks up the memory address of the file.  That address is given to the kernel which then passes it to the disk controller for the actual retrieval portion.  The bits are returned to the operating system from the kernel and the image is rendered to the screen.  Specific Linux filesystem and their commands will be covered in chapter 12.  
+__What is a Filesystem?__  A filesystem is a way for the opertaing system to manage and access files.  It is how data is segragated and the mechanism the operating system uses to retreive and write data.  The benefit of a filesytem is it will keep track of the locations in memory of your files.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table of all files location in memory and looks up the address of the file.  That address is given to the kernel which then passes it to the disk controller for the data retrieval portion.  The bits are effdctuively returned to the operating system from the kernel and the image is rendered to the screen.  Specific Linux filesystem and their commands will be covered in chapter 12.  
 
-In Linux the filesyste is designed as an __upside down tree__.  What is at the bottom of a tree?  The root is at the bottom.  In the Linux case the __root__ or also written as __/__ sometimes called *slash*, is at the top of our tree.  Windows operates on a serparate idea of distinct letter drives, C, D, E and that is the root of each drive.  Mac since it is Unix based operates on the same principle as Linux but tries to hide from you by just giving you icons to commonly used places but you can get terminal access to the command line and see this hierarchy too.  The root is located at the top of the file system, you cannot go any higher.  You can only go down from the root.  The root directory contains many folders that vary from Linux distro to Linux distro, but all Linux ditros have to have a common core in order to be called a Linux distro officially.  
+In Linux the filesystem has a hierarchy in order to be able to describe the location of any file in human addressable terms. The Linux filesystek was designed as an __upside down tree__ by Ken Thompson.  What is at the bottom of a tree? The __root__ is at the bottom.  This is an important concept, remember it.  In Linux the __root__ or written as __"/"__ sometimes called *slash*, is at the top of our upside down tree.  The root is located at the top of the file system, you cannot go any higher.  You can only go down from the root.  The root directory contains many folders that vary from Linux distro to Linux distro, but all Linux ditros have to have a common core in order to be called a Linux distro officially.  Let us take a look at Ubuntu 15.04 file heirarchy and compare it to Fedora 22.
 
 ![*Ubuntu 15.04 root directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu 15.04 root directory listing")
 
 ![*Fedora 22 root directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora 22 root directory listing")
 
-Notice that both of the outputs are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using and try running the same command..  Open a terminal and type the command ```ls /```, what is the output you see compared to the two images above?  Why is the filesystem hierarchy different?  The answer is complicated.  It goes back to the 40+ years of history of Unix we are carrying with us.  As commercial Unix began to become a reality by 1984, there was a concern, especially from Ricahrd Stallman that his GNU project would get short circuited by UNix vendors changing the Unix implementation as to make GNU software incompatable--basically making Unix not Unix.  
+> __Exercise:__ Notice that both of the screenshots above are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using and try running the same command.  Use the Ubuntu Sash button or the GNOME Activities button to search for the phrase __terminal__ launch it and and type the command ```ls /```. What is the output you see compared to the two images above?  Try it on some other distros or even FreeBSD. 
 
-RIchard Stallman spurred on a nacent IEEE standards group to create something called POSIX ( pronounced *pah-zicks*), The Portable Operating System Interface.  "This is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems.[^49]"  In this way a Unix vendor could not "run away" with the market and POSIX insures a level of interoperatibility between software accross Unix distros that have POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7.   
+How does this compare to other operating systems? Windows operates on a serparate idea of distinct letter drives, C, D, E mapping to discrete disk drives and that is the __root__ of each drive.  Unix was created before it was even technologically possible to have multiple disk drives.  Mac OSX is a different case since it is BSD based, it operates on the same principle as Linux but tries to hide it from you by just giving you icons and finders. You can get terminal access to the commandline and see Mac's Unix heritage too.  
+
+Why is the filesystem hierarchy different?  The answer goes back to the dawn of commercial Unix in the early 1980s.  By 1985 there was a growing concern, especially from Richard Stallman, that the GNU project would get short-circuited by Unix vendors who would subtly change the way Unix interfaced with software and make GNU software incompatable and not desirable for use. Richard Stallman spurred on a nacent IEEE standards group to create something called __POSIX__ (pronounced *pah-zicks*), the __Portable Operating System Interface__.  
+
+> "This is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems.[^49]"  
+
+In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX insures a level of interoperatibility between software accross Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7 or POSIX 7.   
 
 ### POSIX Standard
 
-The best place I found a short (trust me this is short) summary of what POSIX is and does was from an answer on Stackoverflow [http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix](http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix "Attribution").[^48]
+It is great to have a standard but what exactly does POSIX do?  Even in that question the answer varies widely, since Unix was already in use at the time for over 15+ years before a standard was in place.  This requried them to back define some issues and cave on other issues. POSIX defines at a minimum what a certified Unix based system must support feature and API wise, no more, no less.  It does not restrict extra non-POSIX features from being included.  In reality there is no POSIX Unix version as there is a GPL compliant GNU/Linux in gNewSense or Trisquel.
+
+The best place I found a short (trust me this is short) summary of what POSIX is and does was from an answer on Stackoverflow, I encourage you to read the entire post and see if you can tell me what POSIX is in 3 sentences.  From the discussion I highlighted this one answer that does the best.[http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix](http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix "Attribution").[^48]
 
 __Most important things POSIX 7 defines__
 
@@ -96,8 +105,8 @@ __Most important things POSIX 7 defines__
 
   * Not mandatory, used by POSIX, but almost nowhere else, notably not in GNU. But true, it is too restrictive, e.g. single letter flags only.
   * A few widely used conventions:
-    +) __-__ means stdin where a file is expected
-    +) __--__ terminates flags
+    + single dash means stdin where a file handle is expected: __-__ 
+    + double dash terminates flags:  __--__ 
   * See also: [Are there standards for Linux command line switches and arguments?](http://stackoverflow.com/questions/8957222/are-there-standards-for-linux-command-line-switches-and-arguments)
 
 Who conforms to POSIX?
@@ -109,38 +118,39 @@ Many systems follow POSIX closely, but few are actually certified by the Open Gr
   * Solaris (Oracle)
   * OSX (Apple)
   
-Most Linux distros are very compliant, but not certified because they don't want to pay the compliance check.
+Most Linux distros are very POSIX compliant, but not certified because they don't want to pay the compliance check fee.
 
 ### Linux Standard Base
 
-  Seeing the iterative issues that Unix went through, in order to encourage adoption the LSB, [Linux Stanadrd Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), was formed so that application vendors could certify their product would work accross Linux and that a central Linux identity could be set for all distros to comply with.  The LSB extends POSIX to include items specific to Linux.  The LSB specifies for example: standard libraries, a number of commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system, including spoolers such as CUPS and tools like Foomatic and several extensions to the X Window System [^50]. The initial standard body came together and was published in January of 1991. 
+  Seeing the iterative standardizing issues that Unix went through, in order to encourage standardization and ensure enterprise adoption the LSB, [Linux Stanadrd Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), was formed.  The LSB is an industry group standard put together for two main purposes. First it is for application vendors (Oracle, Postgress, Sun, JBoss, IBM, etc, etc) to certify their products will work accross different Linux distros that are LSB certified.  Second it is for creating a central Linux identity and reference guide for distros to comply with.  The LSB extends POSIX to include items specific to Linux.  The LSB specifies for example: standard libraries, system commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system (including spoolers such as CUPS) and tools like Foomatic, and several extensions to the X Window System [^50]. This initial standard body came together and was published in January of 1991. <-- that can't be right? maybe 2001?
   
-  Most importantly the LSB sought to create an ABI, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which just assumes that there will be standard libraries available.  The ABI gives assurance that code compiled using a standard C compiler with the ABI compatability turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows exe package I create will run on all Windows platforms from XP all the way to 10.  Linux wanted to gaurentee that so that major vendors of software would not have to maintain multiple different versions, but could build 1 version and maintain ABI compatability.
-  The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as way to distribute packages but did not specify how they would be installed, leaving this up to the induvisual distro.  This caused Debian based distros-to create an conversion layer package manager called *Alien* which will convert translate the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
+  Most importantly the LSB sought to create an __ABI__, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which just assumes that there will be the same standard libraries to code against on every Linux distro.  The ABI gives assurance that code __compiled__ using a standard C compiler with the ABI compatability feature turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows .exe package you create, it runs on all Windows platforms from XP all the way to Windows 10, those operating systems are ABI compliant.  The LSB wanted to gaurentee this so that major vendors of software would not have to maintain multiple different versions, but could build one version and maintain ABI compatability, thus preventing a barrier from adopting Linux as an enterprise platform.
+  
+  The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the induvidual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
 
 #### Linux Filesystem Hierarchy
 
-In addition to the API and ABI of the Linux standard base, the most important thing we were given was the LFH, Linux Filesystem Hierarchy.  This is a list of directories that exist under root that are standard across all Linux distros.  These you have to memorize, their name and their function.  All these will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required in /.  [^47]
+In addition to the API and ABI of the Linux standard base, the most important part of the LSB is the *LFH*, __Linux Filesystem Hierarchy__.  This is a hierarchy of directories that exist under the __root directory__ that are standard across all Linux distros.  To be able to function in the Linux world you need *memorize* each name and its general function.  All these directories will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required in /.  [^47]
 
 Directory           Function
----------- ---------------------------------------------------
+---------- -----------------------------------------------------------------------------------
 bin        Essential command binaries 
-boot       Static files of the boot loader 
-dev        Device files 
-etc        Host-specific system configuration 
+boot       Static files of the boot loader that copy the kernel into memory on boot
+dev        Device file handles 
+etc        Host-specific system configuration files 
 lib        Essential shared libraries and kernel modules 
 media      Mount point for removable media 
 mnt        Mount point for mounting a filesystem temporarily 
 opt        Add-on application software packages 
 run        Data relevant to running processes 
-sbin       Essential system binaries 
+sbin       Essential system binaries added by each operating system
 srv        Data for services provided by this system 
 tmp        Temporary files 
 usr        Secondary hierarchy 
-var        Variable data 
----------- ---------------------------------------------------
+var        Variable data - used for storing databases, webserver files, and application logs
+---------- -----------------------------------------------------------------------------------
 
- This filesystem harkons back to Ken Thompson's original Unix design nearly 30+ years ago.  This means that this knowledge is wide spread and well known.  The downside is a sense of tradition and nostalgia ha crept in about this filesystem structure has crept in too. Note that Red Hat based distros have made a move to change this, seeing as it is a very Unix based list and includes many directories that could be combined. Also there is little strict resaoning to where a file or folder should go leaving it up to the system to have to architect a bunch of links to make sure that all programs can find it.  Red Hat maintains this directory hierarchy but symlinks most of them to /usr.  [^52]  It is not just a move just to be different but also a move to unify development.  Making applications built for Unix easier to port over to Red Hat based distros.  There are many companies still using comercial Unix, especially people using SolarisOS looking to get away from Oracle, and this is a way they can transition everything to Linux without having to rewrite all the paths of their binaries.
+ This filesystem layout harkons back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this knowledge is wide spread and well known.  The downside is a sense of tradition and nostalgia ha crept in about this filesystem structure has crept in too. Note that Red Hat based distros have made a move to change this, seeing as it is a very Unix based list and includes many directories that could be combined. Also there is little strict resaoning to where a file or folder should go leaving it up to the system to have to architect a bunch of links to make sure that all programs can find it.  Red Hat maintains this directory hierarchy but symlinks most of them to /usr.  [^52]  It is not just a move just to be different but also a move to unify development.  Making applications built for Unix easier to port over to Red Hat based distros.  There are many companies still using comercial Unix, especially people using SolarisOS looking to get away from Oracle, and this is a way they can transition everything to Linux without having to rewrite all the paths of their binaries.
 
 > Improved compatibility with other Unixes/Linuxes in behavior: After the /usr merge all binaries become available in both /bin and /usr/bin, resp. both /sbin and /usr/sbin (simply because /bin becomes a symlink to /usr/bin, resp. /sbin to /usr/sbin). That means scripts/programs written for other Unixes or other Linuxes and ported to your distribution will no longer need fixing for the file system paths of the binaries called, which is otherwise a major source of frustration. /usr/bin and /bin (resp. /usr/sbin and /sbin) become entirely equivalent. [^52]
 
@@ -167,17 +177,17 @@ Leonart Poettering has some things to say about POSIX and LSB:
   
   No not these shells... [^45]
   
-### Difference Between a Shell and a Terminal  
+### Difference Between a Shell, Terminal, and Commandline  
 
-  If you remmber from chapter 04 that the word *"terminal"* came from the actual Dec VT-100 terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text.   Shells provided much needed functionality like the ability to create scripts for executing multiple commands, command completion, command history, and others.
+  If you remmber from chapter 04 that the word *"terminal"* came from the actual Dec VT-100 terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 line screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text.   Seing this there are many types of shells that have different features.  Shells provide much needed functionality to Unix/Linux. For instance they give the user theability to create scripts for executing multiple commands, command completion, command history, command aliases, and more.  You open a terminal and in a terminal session you use a shell.  You can have multiple terminal sessions and use different shells on each one if you preferred.   In total the combination of using a terminal to access a shell can be called using the "commandline."  
 
 ![*Shell/OS interaction diagram*](images/Chapter-05/shells/figure2.png "Shell Interaction Diagram")
   
 ### History of the Shell 
   
-The shell most commonly used on pretty much all Linux distros is called the [Bash Shell](http://www.gnu.org/software/bash/ "Bash Shell"). It was created in parallel with the rise of Linux so the two are almost tied together.  But to understand how we got to the modern Bash Shell we have to go back to the beginning. As always the history of anyhting on Unix/Linux goes back to Ken Thompson[^46].  By 1972 there was a single shell in Unix in use, referred to by others as the [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell "Thompson Shell").  This shell being written by Ken Thompson was written for Ken Thompson solving the technical problems he had back in 1972.  By 1979 in the Unix world computer processing and computing tasks were light years away from where they had been. *"The shell's design was intentionally minimalistic; even the if and goto statements, essential for control of program flow, were implemented as separate commands[^55]."* A new shell was needed. 
+The shell most commonly used on pretty much all Linux distros today is called the [Bash Shell](http://www.gnu.org/software/bash/ "Bash Shell"). It was created in parallel with the rise of Linux--the two are practically tied together.  But to understand how we got to the modern Bash Shell we have to go back to the beginning. As always the history of anyhting on Unix/Linux goes back to Ken Thompson[^46].  By 1972 there was a single shell in Unix in use, referred to by others as the [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell "Thompson Shell").  This shell being written by Ken Thompson was written for Ken Thompson solving the technical problems he had back in 1972.  By 1979 in the Unix world computer processing and computing tasks were light years away from where they had been. *"The shell's design was intentionally minimalistic; even the if and goto statements, essential for control of program flow, were implemented as separate commands[^55]."* A new shell was needed. 
 
-Two simultanious efforts on different sides of the country were happening to replace the Thompson shell.  Remember that Unix had split into the BSD Unix out at Berkley California and also AT&T owned the commercial UNix back out in New York/New Jersey.  The BSD group was developing the C shell (csh)under Bill Joy.  AT&T out east was developing the Bourne Shell (sh) under Steven Bourne.       
+Two almost simultanious efforts on different sides of the country were happening to replace the Thompson shell.  Remember that Unix had split into the BSD Unix out at Berkley California and also AT&T owned the commercial Unix back east.  The BSD group was developing the C shell (csh)under Bill Joy.  AT&T researcher Steven Bourne was developing the Bourne Shell (sh).       
  
 ![*Timeline history of Unix/Linux Shells*](images/Chapter-05/shells/figure1.png "Timeline history") 
 

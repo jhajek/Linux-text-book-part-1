@@ -3,12 +3,18 @@
 
 __Chapter 11 Objectives__
 
-  *  logging  /var/log  rsyslog
+  *  logging  /var/log  
+    + syslog 
+    + rsyslog
     + dmesg
-  * top, atop
-  * sudo 
-  * privilleges
+    + dtrace/strace
+  * top, atop, htop
   * adduser, userdel, usermod
+  * watchdogs, tail -f
+  * logrotation
+  *  systemd 
+    + binary logs
+    + other systemd tools
   
 
 __Outcomes__
