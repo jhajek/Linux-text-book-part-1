@@ -1,4 +1,4 @@
-# Basic Shell Scripting
+# Writing Basic Shell Scripts
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 

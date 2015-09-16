@@ -1,5 +1,0 @@
-# Glossary A
-
-hello
-
-

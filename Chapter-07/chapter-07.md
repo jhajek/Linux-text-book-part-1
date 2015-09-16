@@ -1,4 +1,4 @@
-# Introduction to Bash Shell, Linux Editors, and User Profiles  
+# Introduction to Linux Editors, Shell Scripts, and User Profiles  
 ![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 Vi cartoon goes here

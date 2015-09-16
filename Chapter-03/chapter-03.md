@@ -20,7 +20,7 @@ __Outcomes__
   
   ![*UNetbootin initial screen*](images/Chapter-03/unetbootin.png "UNetbootin")
   
-  This tools takes away the difficulty out of making install media and with two clicks makes it happen.  It even includes an option to manually just-in-time download whichever ISO you are looking for and "burn" the it to the media of your choice.  You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source.
+  This tools takes away the difficulty out of making install media and with two clicks makes it happen.  It even includes an option to manually just-in-time download whichever ISO you are looking for and "burn" it to the media of your choice.  You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source.
 
   While you can burn ISO files to media for installation on a desktop or laptop, ISO files also have utility for installing a Linux distribution into a virtualization Platform.
 
@@ -65,7 +65,7 @@ __Hypervisor Levels__ [^21]
   
   __Oracle VirtualBox__
  
-   This prodcut was originally an opensource project that was purchased by Sun and then inherited by Oracle. Though the name is on the project, Oracle has been surprisingly hands off of this project.  Because of that it has grown in usage, features, and utility to become the defacto desktop virtualization tool.  It can run on Mac, Windows, and Linux and allows for seamless transfer of virtual machines across platforms
+   This product was originally an opensource project that was purchased by Sun and then inherited by Oracle. Though the name is on the project, Oracle has been surprisingly hands off of this project.  Because of that it has grown in usage, features, and utility to become the defacto desktop virtualization tool.  It can run on Mac, Windows, and Linux and allows for seamless transfer of virtual machines across platforms
   
   __VMware Workstation__
 
@@ -103,7 +103,7 @@ __Links to get you started__
      + [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
    * [Get VirtualBox](http://virtualbox.org "VirtualBox")
 
-Here are the commands to execute in Windows in powershell:
+Here are the commands to execute in Windows in Powershell:
    
 ```powershell
 Get-FileHash .\ubuntu-15.04-desktop-amd64.iso -Algorithm MD5 | format-list
