@@ -1,34 +1,28 @@
-# The Linux Filesystem Structure, Sysetm Path, and Basic Shell Commands
-![*The power of sudo*](http://imgs.xkcd.com/comics/sandwich.png "Sandwhich")
-
-  This chapter we will cover how the user interacts with the operating system via a tool called the shell.   
+# The Linux Filesystem, Path, and Basic Shell Commands
+![*Linux Shells*](http://imgs.xkcd.com/comics/seashell.png "Understanding the Technology and Philosophy of Unix/Linux")
 
 __Chapter 5 Objectives__
 
+  *  Understand the structure of the Linux Filesystem
+  *  Understand the difference between absolute and relative paths.
   *  Understand the function of the Linux Shell and its relation to the operating system.
   *  Understand how to read the structure of commands on the commandline.
   *  Learn the Linux commandline nomenclature.
-  *  Understand the Linux Standard Base and what makes a distro a Linux distro.
-  *  Understand the difference between absolute and relative pathing.
   *  Know basic tools for traversing and modifying the contents of the filesystem.
-  *  Understand the nomenclature describing file permissions and security
-  *  Understand the sudo command and root user paradigm
   
 __Outcomes__
 
-  At the completion of this chapter you will understand how to use the Linux shell for modifying the contents of the operating system.  You will understand the nature of the filesystem and how to navigate it.  You will be able to demonstrate full awareness of absolute and relative paths and understand the system path.  You will know basic shell commands for manipulating content in the filesystem.  You will be able to read and change file permissions using the appropriate commandline tools.
+  At the completion of this chapter you will understand how to use the Linux shell for modifying the contents of the operating system.  You will understand the nature of the filesystem and how to navigate it.  You will be able to demonstrate full awareness of absolute and relative paths and understand the system path.  You will know basic shell commands for manipulating content in the filesystem.  
 
 *Conventions*
 
    The terms __commandline__, __terminal__, and __shell__ have been used interchangably so far to mean the same thing, the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
    
-   The term files, folders, and directories can be used interchangably.  Remember from Chapter 02, everything in Unix is a __file__, meaning that a folder which is also a directory is also a file from the operating systems point of view.
-   
-   You will also notice a tag __Exercise:__ in block quotes in the chapter with little exercises that will let you follow along as you read.  
+   The term files, folders, and directories can be used interchangably.  Remember from Chapter 2, everything in Unix is a __file__, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in block quotes in the chapter with little exercises that will let you follow along as you read.  
 
-## File System Structure
+## What is a Filesystem?
    
-__What is a Filesystem?__  A filesystem is a way for the operating system to manage and access files.  It is how data is segregated and the mechanism the operating system uses to retrieve and write data.  The benefit of a filesytem is it will keep track of the locations in memory of your files.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table of all files location in memory and looks up the address of the file.  That address is given to the kernel which then passes it to the disk controller for the data retrieval portion.  The bits are effectively returned to the operating system from the kernel and the image is rendered to the screen.  Specific Linux filesystem and their commands will be covered in chapter 12.  
+A filesystem is a way for the operating system to manage and access files.  It is how data is segregated and the mechanism the operating system uses to retrieve and write data.  The benefit of a filesytem is it will keep track of the locations in memory of your files.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table of all files location in memory and looks up the address of the file.  That address is given to the kernel which then passes it to the disk controller for the data retrieval portion.  The bits are effectively returned to the operating system from the kernel and the image is rendered to the screen.  Specific Linux filesystem and their commands will be covered in chapter 12.  
 
 The Linux filesystem was designed as an __upside down tree__ by Ken Thompson.  What is at the bottom of a tree? The __root__ is at the bottom.  This is an important concept to remember in Linux.  In Linux the __root__ or written as __"/"__ (pronounced *slash*), is at the top of our upside down tree.  From the __root__ you navigate down the file hierarchy using the ```cd``` commandline tool. You cannot go any higher in the tree than __root__, you can only go down.  When you type the command ```ls /``` you see a directory listing of the contents of the root directory. As you can see below the root directory contains subfolders, and those subfolders can have many more subfolders.  This first level below the __root__ has a common core of directories across each Linux distro. Let us take a closer look at Ubuntu 15.04 and Fedora 22 root folder file hierarchy.
 
@@ -36,7 +30,7 @@ The Linux filesystem was designed as an __upside down tree__ by Ken Thompson.  W
 
 ![*Fedora 22 root directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora 22 root directory listing")
 
-> __Exercise:__ Notice that both of the screenshots above are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using and try running the same command.  Use the Ubuntu Dash button or the GNOME Activities button to search for the phrase __terminal__ and launch it by clicking on the terminal icon. Then type the command ```ls /``` in the terminal. What is the output you see compared to the two images above?  Try it on some other distros or even FreeBSD and compare the output. 
+> __Exercise:__ Notice that both of the screenshots above are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using and try running the same command.  Use the Ubuntu Dash button or the GNOME Activities button to search for the phrase __terminal__ and launch it by clicking on the terminal icon. Then type the command ```ls /``` in the terminal. What is the output you see compared to the two images above?  Try it on some other distros and compare the output. 
 
 How does this compare to other operating systems? Windows operates on a separate idea of distinct letter drives, C, D, and E for example, each mapping to a discrete disk drives and that is the __root__ of each drive.  Unix was created before it was even technologically possible to have multiple disk drives.  Mac OSX is a different case since it is BSD based, it operates on the same principle as Linux but tries to hide it from you by just giving you icons and finders. You can get terminal access to the commandline and see Mac's Unix heritage too.  
 
@@ -46,13 +40,11 @@ Why are the two filesystem hierarchies different?  The answer goes back to the d
 
 > "This is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems.[^49]"  
 
-In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX insures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7 or POSIX 7.   
-
-For more details on the specifics of POSIX and what is does see APPENDIX A at the back of the book.
+In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX insures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7 or POSIX 7.   For more details on the specifics of POSIX and what is does see APPENDIX A at the back of the book.
 
 It is great to have a standard but what exactly does POSIX do?  Even in that question the answer varies widely, since Unix was already in use at the time for over 15+ years before a standard was in place.  This required them to back define some issues and cave on other issues. POSIX defines at a minimum what a certified Unix based system must support feature and API wise, no more, no less.  It does not restrict extra non-POSIX features from being included.  In reality there is no POSIX Unix version like there is GPL compliant GNU/Linux distros: gNewSense or Trisquel. Most Linux distros are very POSIX compliant by nature, but very few systems are certified POSIX compatible.
 
-### Linux Standard Base
+### The Linux Standard Base
 
   Seeing the good that POSIX standardization brought to the Unix world, a similar industry group formed the [Linux Stanadrd Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), or LSB.  The LSB was put together for two main purposes. First it was hoped that application vendors (Oracle, Postgress, Sun, JBoss, IBM, etc, etc) would certify their products to work across different Linux distros that are LSB certified.  Vendors pay a significant amount of money to Microsoft to get drivers certified across Windows for instance.  Second was for creating a central Linux identity and reference guide for distros to comply with.  The LSB started by extending POSIX and inclided new items unique to Linux.  The LSB specifies for example: standard libraries, system commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system (including spoolers such as CUPS) and tools like Foomatic, and several extensions to the X Window System [^50]. This initial standard body came together and was published in January of 2001.
   
@@ -60,15 +52,15 @@ It is great to have a standard but what exactly does POSIX do?  Even in that que
   
   The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the individual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
   
-  ### The Problem with the LSB 
+### The Problem with the LSB 
   
-  All this work on API, ABI, and standard packaging sounds wonderful but here is the problem, while most distros tend to try to adhere to POSIX and LSB, the dream of a unified Linux standard never really appeared because there is no forcing function.  __No one implements LSB the way it was intended__. This post from the Debian LSB mainling list marked July 3rd 2015 says it all:  
+The dream of a unified Linux standard never really occured. __No one implements LSB the way it was intended__. This post from the Debian LSB mainling list marked July 3rd 2015 says it all:  
   
-  > The crux of the issue is, I think, whether this whole game is worth the  work: I am yet to hear about software distribution happening through LSB  packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4. [^59]
+> The crux of the issue is, I think, whether this whole game is worth the  work: I am yet to hear about software distribution happening through LSB  packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4. [^59]
 
 #### Linux Filesystem Hierarchy
 
-The one useful thing that came out of the LSB is the __Linux Filesystem Hierarchy__, or *LFH*.  This is a hierarchy of directories that exist under the __root directory__ that are standard across all Linux distros.  To be able to function in the Linux world you need *memorize* each name and its general function.  All these directories will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required to be under the __root__.  [^47]
+The one useful thing that came out of the LSB is the __Linux Filesystem Hierarchy__, or *LFH*.  This is a hierarchy of directories that exist under the __root directory__ that are standard across all Linux distros.  You should *memorize* each directory name and its general function.  All these directories will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required to be under the __root__.  [^47]
 
 Directory           Function
 ----------  -----------------------------------------------------------------------------------
@@ -88,9 +80,9 @@ usr         Secondary hierarchy
 var         Variable data - used for storing databases, webserver files, and application logs
 ----------  -----------------------------------------------------------------------------------
 
- This filesystem layout harkons back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is how the splitting of directories came about.  
+ This filesystem layout harkons back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
  
- Red Hat is arguing that this distribution is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatability.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to there actual location now stored in ```/usr```[^52].  Red Hat also says this makes Linux more applications capatible with Unix and SolarisOS, therefore making it easier for customers and companies to port over their software or migrate to Red Hat based distros.  There are many companies still using commercial Unix, especially people using SolarisOS looking to get away from Oracle and the Red Hat sharks are circling.
+ Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatability.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to there actual location now stored in ```/usr```[^52].  Red Hat also says this makes Linux more applications capatible with Unix and SolarisOS, therefore making it easier for customers and companies to port over their software or migrate to Red Hat based distros.  There are many companies still using commercial Unix, especially people using SolarisOS looking to get away from Oracle and the Red Hat sharks are circling.
 
 By using the command ```ls -l /``` you can see the light blue colored softlinks to the actual directories.  
 
@@ -106,72 +98,77 @@ Leonart Poettering, the Red Hat engineer and leader of the systemd init system h
     
 > "In fact, the way I see things the Linux API has been taking the role of the POSIX API and Linux is the focal point of all Free Software development. Due to that I can only recommend developers to try to hack with only Linux in mind and experience the freedom and the opportunities this offers you. So, get yourself a copy of The Linux Programming Interface, ignore everything it says about POSIX compatibility and hack away your amazing Linux software. It's quite relieving!" [^54]
 
-## Explanation of System Path
+## Path
 
-When typing Linux commands one may wonder how the system can tell real commands from non-existant ones?  The key to this is the commandline parser.  After you type any text and hit enter on the commandline the entire command is parsed looking for commands, options, and arguments with spaces being the sperators.  The command line is looking for the names of binaries that are kept in its sysetm path, if a name is found then that binary is executed and passed any option or arguments for that binary to further execute.
+Now that we have a filesystem that is an upside down tree, we now have a way of addressing every single file, folder, and directory on the filesystem has a __path__ to it.  This path can be referred to in two ways: __absolute path__ and __relative path__.  There are also certain paths that have well known names, such as __root__ and a users __home directory__.  
 
-So how does the operating system know where to look?   That is something called the __PATH__. The path is a variable that holds the directories where the oerpating sysetm shoudl look to execute a binary.  What is your path?  Go ahead and open a terminal and on the command line type ```echo $PATH``` (caps are required - this is a system variable convention that will be explained in more details in chapter 06.  What is the output of the command?  Does it look similar to this path on Ubuntu 15.04 or Fedora 22
+### Absolute Path and Relative Path 
 
-[Fedora 22]
+Think of your school or home address.  If I said I live at [324 W 35th Street Chicago Illinois 60616, United States of America](https://en.wikipedia.org/wiki/Comiskey_Park "Comiskey Park") that would be my __absolute__ address and very helpful, right?
 
-[Ubuntu 15.04]
+But what if you already lived in the US and in the city of Chicago?  What if you lived on the same street as the address listed above, there would be no need to repeat all the detailed information.  Perhaps I would just say I live at *"325 W"* and you would know where to go.  This concept is called __relative path__. Let us see this concept in action.  Later in this chapter we will cover shell commands in detail but for now we will introduce a few basic ones.  
+  * cd - used to change directory and move up and down the filesystem tree.
+  * pwd - used to check what your present location is on the filesystem tree.
+  * ls - used to list the content of the directory where you are located on the filesystem tree.
+  * echo - used to print out the content of a system variable.
 
-[Fedora 21]
+When the terminal window opens you are automatically deposited at a specific location on the filesystem tree.  You are placed in your __HOME__ directory.  In this case the absolute path to that location is ```/home/jeremy``` (my username being jeremy in this example.)  You can always come back to this directory by using the short cut of ```~``` like this:  ```cd ~```. Let us open a terminal window and try this ourselves.
 
-[Ubuntu 14.04.3]
+> __Exercise:__ Figure out what your pwd is.  You would do this by simply typing ```pwd``` on the commandline. Try it and see what happens.
 
-Your path may look a bit different depending on what packages are installed or removed and even what version of a Linux distro you are using
+> __Exercise:__ The next thing we need to do is a listing of the contents in our current directory.  We do this by issuing an ```ls``` command.  Try it, what do you see?
 
-Everythinig on a Linux system is a file and can be accessed or addressed in two ways.  __Absolute Path__ and __Relative Path__ 
+> __Exercise:__ Let's learn how to use the ```cd``` command which allows us to change our current directory.  Let's change our location into the Documents folder.  Do so by typing ```cd Documents```.  Type an ```pwd``` and ```ls``` command.  What do you see? 
 
-You learned in the section above about the filesystem tree and bit about pathing works.  The ```ls``` command for instance is located in ```/bin/something``, lets take a look at that path in more detail.
+> __Exercise:__ Finally we are going to print out the content of the PATH system variable.  You can see this value by typing ```echo $PATH```.  What is the value that prints out?  Try it on Ubuntu and Fedora and see if the output is different or the same?
 
-Note that this is an absolute path.  Why?  You see  __/__ as the first charecter, (pronounced *root* but usually referred to as *slash*) this is telling you the pathing scheme to get to the binary executable of __ls__.  Since / is the "root" of the filesytem tree all paths have to start there.  From root the next level we learned are the system directories, in this case bin is below root so the address is __/bin__ then the __ls__ binary is contained in the bin directory so the absolute path to the executable is /bin/ls.
+> __Exercise:__ Let's learn about the ```cd``` command to change our directory location. Type ```cd /etc/network``` if you are on Ubuntu 15.04 and ```cd /etc/sysconfig/network-scripts```.  Type the ls commands--what do you see?  Also are these path absolute or relative?
 
-Think of your school or work place address.  If I said I live at [10 W Addison Street Chicago Illinois 60101, United States of America](add wrigly field address) that would be my absolute address and very helpful.
- 
-So use the echo commmand again and list out your system PATH variable.  cd Into some of those directories and see the contents - get to know the absolute path of some of the system executables.
+In all Linux and Unix systems an absolute path will always start with __/__ as the first charecter. Much like the address example this is telling you the directries absolute location in relation to the __root__.  The network directory can be found by traversing the tree from ```/``` down to a system directory called ```etc``` and then to a subdirectory located in etc called ```network```.  In this case, ```network``` is a sub-directory of etc and contains all the files related to configuring your network card settings.  
 
-But what if you already lived in the US and in the city of Chicago?  What if you lived on the same street as me, there would be no need to repeat this all the detailed information.  Perhaps I would just say I live at 10 W addison and you would know how to find my house.  This concept is called a __relative path__  For instance if I cd /etc   and do an ls -la I find many subdirectories.  If I am using Fedora 22 and want to enter the system-config directory so I can edit my network card configuration, I can type ```cd /etc/system-config``` or since my pwd is already ```/etc``` I would simplty type ```cd system-config```.  The reason I can do this is remember in the previous section is that the parser sees just the name ```system-config``` and assumes to look in the current directory first.  What would happen if I typed ```cd system-cnfig``` (notice the typo) What output would you expect to see?  
+A relative path assumes the pwd portion of the absolute path.  From the exercise example above we notice a few things about relative paths.  __First__ our pwd when we open a shell is our home directory.  In my case /home/jeremy. If we see the hierarchy the directory Documents is under the jeremy directory.  the ```cd``` command takes us down one directory by default.  How can we "cd" into that directory?  By simply typing ```cd Documents```.  This is a __relative path__. Why?  Notice that there is no __/__ in front of the directory name.  This tells the cd command that you are assuming that the system should start looking for the directory name we passed in the directory we currently are.  Could we have typed ```cd /home/jeremy/Documents```?  Yes we could have, but the first two parts of the absolute path were irrelevent to us because we were already in that location.
 
-You would see this:
-[screen shot of non-existant directory]  
+How would we navigate back up the tree?  What is we want to return to our home directory?  There are a few options, assuming that our pwd is ```/home/jeremy/Documents``` which of these would be the best choice?
 
-Let's see how this would look with some other commands.
+----------------------  ----------------------------
+```cd /home/jeremy```    abosulte or relative path?
+```cd ~```               abosulte or relative path?
+```cd ../```             abosulte or relative path?  
+----------------------  ----------------------------
 
-The most common command you use this with is probably the ```ls``` command 
+The first two options are absolute paths, the third option is a relative path with something new.  Here we are introduced to the __double-dot__ operator.  The __double-dot__ and __single-dot__ (sometimes just called *dot*) are the way you can reference locations up the tree or in your current directory.  The command ```cd ../``` is a short cut to take you up one level in the filesystem tree.  Double-dots can be chained together to traverse up multiple directories all at once.  
 
-But other commands can use it to.   Let's type this ```touch /tmp/todo-list```  What does it do?  What command would I use to delete it?  What are two ways I could delete this file.
+> __Exercise:__ If you pwd is /home/jeremy/Documents  (replace "jeremy" with whatever your username is--you can replace the $USRE with your username or use it as is) and you want to change directory to /home.  What command would you use?  What happens when you type ```cd ../../``` on the commandline?  What is your pwd?
 
-Retrun to your home directory.
+> __Exercise:__ Assume your pwd is /home/jeremy/Documents and you want to change directory to /home/jeremy/Downloads what would be the command to do so in one single command?  
 
-Let's create a text file that has the current date and time in it.  type ```date > timestampfile```  (The ```> ``` is a shell meta character that redirects output from the screen to another file. We will learn more about this in chapter 06.)
+You could do this:
 
-Now copy that file to the ```/tmp``` directory - what would be the commands?
+*  ```cd ../`` 
+*  and then ```cd Downloads``` which would get the job done.  
+*  In one single command: ```cd ../Downloads``` 
+  +  This command will be interpreted as: ```../``` means go up one directory 
+  +  The next directory name ```Downloads``` means go down one directory.  
 
-Now let us make a new directroy under our home directory (remmber the filesystem is an upsidedown tree so you travel down when creating new folders) What command would we use?  ```mkdir notes```.  Now let us copy the file ```timestampfile``` into the notes directroy.  What command would you use? What would the full command and arguments look like?  How would you change directroy and list the content of the notes directory (hint cd and ls)?
+![*Path demonstration*](images/Chapter-05/path/path-commands.png "Path Commands")
 
-In this chapter's lab you will do work with creating and moving files around from the command line.  
+What happens if you try to cd into a directory that doesn't exist?
 
-*Important note* - if you do not master the concept of Absolute and Relative path then you will struggle with using Linux beyond all but a simplistic level.  Path is one of the key concepts to how the shell works and must be mastered.  It also is often the number one source of problem or file not found errors.  There are actually 3 main issues that describe 99% of the problems you will encounter on a Linux system.  By going through this mental check list you will at least have done the sruface trouble-shooting.  Also from experience I have learned if you ask a season Linux admin to help with a problem they will ask you to run through these steps anyway.
+![*File or Directory not found*](images/Chapter-05/path/file-not-found.png "File not found")
 
-*NOTE if you get lost in the Linux filesystem tree you can always tpye cd $HOME and you will be taken back to your initial home directroy that you are placed in when the terminal starts.*
+> __Exercise:__ Let's use the touch command to create a file called todo-list in the /tmp directory: ```touch /tmp/todo-list.txt```  What does it do? How would you list (ls) the content of the /tmp directory if your pwd is /home/jeremy?
 
 ## The Linux Shell
-
- ![*Shells*](https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Shell_Island_1985.jpg/282px-Shell_Island_1985.jpg "Sea Shells") 
-  
-  No not these shells... [^45]
   
 ### Difference Between a Shell, Terminal, and Commandline  
 
-  If you remember from chapter 04 that the word *"terminal"* came from the actual Dec VT-100 terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 line screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text.   Seeing this there are many types of shells that have different features.  Shells provide much needed functionality to Unix/Linux. For instance they give the user the ability to create scripts for executing multiple commands, command completion, command history, command aliases, and more.  You open a terminal and in a terminal session you use a shell.  You can have multiple terminal sessions and use different shells on each one if you preferred.   In total the combination of using a terminal to access a shell can be called using the "commandline."  
+  If you remember from chapter 04 that the word *"terminal"* came from the actual Dec VT-100 terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 line screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text.   Seeing this there are many types of shells that have different features.  Shells provide much needed functionality to Unix/Linux. For instance they give the user the ability to create scripts for executing multiple commands, command completion, command history, command aliases, and more.  You open a terminal and in a terminal session you use a shell.  You can have multiple terminal sessions and use different shells on each one if you preferr.   In total the combination of using a terminal to access a shell can be called using the "commandline."  
 
 ![*Shell/OS interaction diagram*](images/Chapter-05/shells/figure2.png "Shell Interaction Diagram")
   
 ### History of the Shell 
   
-The shell most commonly used on pretty much all Linux distros today is called the [Bash Shell](http://www.gnu.org/software/bash/ "Bash Shell"). It was created in parallel with the rise of Linux--the two are practically tied together.  But to understand how we got to the modern Bash Shell we have to go back to the beginning. As always the history of anything on Unix/Linux goes back to Ken Thompson[^46].  By 1972 there was a single shell in Unix in use, referred to by others as the [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell "Thompson Shell").  This shell being written by Ken Thompson was written for Ken Thompson solving the technical problems he had back in 1972.  By 1979 in the Unix world computer processing and computing tasks were light years away from where they had been. *"The shell's design was intentionally minimalistic; even the if and goto statements, essential for control of program flow, were implemented as separate commands[^55]."* A new shell was needed. 
+The shell most commonly used on pretty much all Linux distros today is called the [Bash Shell](http://www.gnu.org/software/bash/ "Bash Shell"). It was created in parallel with the rise of Linux--the two are practically tied together.  But to understand how we got to the modern Bash Shell we have to go back to the beginning. As always the history of anything on Unix/Linux goes back to Ken Thompson [^46].  By 1972 there was a single shell in Unix in use, referred to by others as the [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell "Thompson Shell").  This shell being written by Ken Thompson was written for Ken Thompson solving the technical problems he had back in 1972.  By 1979 in the Unix world computer processing and computing tasks were light years away from where they had been. *"The shell's design was intentionally minimalistic; even the if and goto statements, essential for control of program flow, were implemented as separate commands [^55]."* A new shell was needed. 
 
 Two almost simultaneous efforts on different sides of the country were happening to replace the Thompson shell.  Remember that Unix had split into the BSD Unix out at Berkley California and also AT&T owned the commercial Unix back east.  The BSD group was developing the C shell (csh)under Bill Joy.  AT&T researcher Steven Bourne was developing the Bourne Shell (sh).       
  
@@ -181,11 +178,11 @@ Two almost simultaneous efforts on different sides of the country were happening
 
 The __C Shell__ was written by [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") almost single handed while working on the BSD Unix distro in 1978/79.  Joy realized that since Unix was written in the C language and most programs at the time were written using C, it didn't make sense to change the language one was using in their shell to something other than C. So Joy implemented the shell concept Thompson had started with vastly improved features and using the C language based syntax.  
 
-Criticism of C Shell: "Although Stephen Bourne himself acknowledged that csh was superior to his shell for interactive use, it has never been as popular for scripting. Initially, and through the 1980s, csh could not be guaranteed to be present on all Unix systems, but sh could, which made it a better choice for any scripts that might have to run on other machines. By the mid-1990s, csh was widely available, but the use of csh for scripting faced new criticism by the POSIX committee, which specified that there should only be one preferred shell, the Korn Shell, for both interactive and scripting purposes. The C shell also faced criticism from others over the C shell's alleged defects in syntax, missing features, and poor implementation.[^56]" 
+Criticism of C Shell: "Although Stephen Bourne himself acknowledged that csh was superior to his shell for interactive use, it has never been as popular for scripting. Initially, and through the 1980s, csh could not be guaranteed to be present on all Unix systems, but sh could, which made it a better choice for any scripts that might have to run on other machines. By the mid-1990s, csh was widely available, but the use of csh for scripting faced new criticism by the POSIX committee, which specified that there should only be one preferred shell, the Korn Shell, for both interactive and scripting purposes. The C shell also faced criticism from others over the C shell's alleged defects in syntax, missing features, and poor implementation. [^56]" 
 
 #### Bourne Shell
 
-  Steven Bourne was a researcher at AT&T Bell labs implemented his own shell to replace the Thompson Shell in 1977.  The Bourne Shell was distributed in standard Unix from Version 7, SystemIII, SVR2, SVR3, SVR4[^57].
+  Steven Bourne was a researcher at AT&T Bell labs implemented his own shell to replace the Thompson Shell in 1977.  The Bourne Shell was distributed in standard Unix from Version 7, SystemIII, SVR2, SVR3, SVR4 [^57].
 
 *  Built-in test command – System III shell (1981)
 *  ```#``` as comment character – System III shell (1981)
@@ -330,120 +327,65 @@ man
 ```bash
 man wget
 ```
+
+> __Exercises:__ Let's create a text file that has the current date and time in it.  Type ```date > timestampfile```  (The ```> ``` is a shell meta character that redirects output from the screen to another file. We will learn more about this in chapter 06.)
+
+  *  Now copy that file to the ```/tmp``` directory--what would be the commands?
+  *  Now let us make a new directroy under our home directory called notes (remember the filesystem is an upsidedown tree) 
+  *  What command would we use?  ```mkdir notes```.  
+  *  Now let us copy the file ```timestampfile``` into the notes directory.  
+  *  What command would you use? What would the full command and arguments look like?  
+  *  How would you change directroy and list the content of the notes directory (hint cd and ls)?
+
+*Note* if you get lost in the Linux filesystem tree you can always tpye cd ~ (tilde) and you will be taken back to your user home directory.
   
-### Command nomenclature
-  
+### Command Nomenclature
+ 
 ```bash
 ls -la /etc
 ```
 
-  There is a common nomenclature of commands in Linux.  There is an executable that is part of the system function located in /bin, files such as ls cd touch are all precompiled binaries located on the system.  To enter a command you type the name of the binary, as you use Linux more and more you will begin to memorize the tool names.  Each command can have options or sometimes called flags and then may or may not accept arguments.
+Commands contain three parts in this order:
+
+*  command or binary name (required)
+*  options (may or may not be required)
+*  arguments (may or may not be required)
+    
+  All shell commands have a common structure in Linux. The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are preceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string preceeded bya dash.  So __```-la```__ can also be writted as __```-l -a```__.  Additonally there are options that use full english lanugage preceeded by __two dashes__ and are more descriptive english phrases.  You can use the ```man``` command to see all of the usage options.  
+   
+  The final value of ```__/etc__``` in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the __ls__ command to list the contents of the __/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location in the filesystem.
 
 ![*Listing of the /home/controller directory*](images/Chapter-05/commands/ls-home.png "ls /home/controller")
 
 ![*Long and hidden Listing of the /home/controller directory*](images/Chapter-05/commands/ls-la-home.png "ls -la /home/controller")
-
-Commands contain three parts:
-
-*  command (or binary) name  
-*  options                   
-*  arguments
-  
-  The first two letters __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. Then next letters are preceeded by a __dash__, to tell the shell interpreter that these letters are options.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the ls command to give a long listing of a directory with details and the __"-a"__ tells the shell to print all files in the directory including hidden files.  Options can be combined in most cases into a single string preceeded bya dash.  So __```-la```__ can also be writted as __```-l -a```__.  Additonally there are options that use full english lanugage structure, which are usually preceeded by __two dashes__ and then a more descriptive english phrase.  Ask the students to find one?
-   
-  The final value of ```__/etc__``` in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the ls command to list the contents of the ___/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location/.
         
 ### How to Read Shell Commands and "Speak Linux"
 
-  In working with many excellent people over the years I have found that there is a common Linux language.  When talking to others, you find that for the most part the standard Linux filesystem has been memorized.  As well as the most common Linux tools through repeated usage.  With this in mind you can "speak" a command without mentionig certain aspects--they are implied.  
+  In working with many excellent people over the years I have also found that there is a common Linux spoken language.  When talking to others, you find that for the most part the standard Linux filesystem has been memorized.  As well as the most common Linux tools through repeated usage.  With this in mind you can "speak" a command without mentionig certain aspects--they are implied.  
   
   Let's take a simple command to list the contents of the /etc directory with a long listing and showing all, inlcuding hidden filed for instance.  How would you verbalize the command to your co-worker? 
   ```bash
   ls -la /etc
   ```
-  You would say "*el-es el-a eee tee cee*".  Note that I didn't mention any dashes or slashes.  Why? Because the context of ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  I assume that you are giving a absolute path because ```/etc``` is under the root and a standard defined Linux directory.  
+  You would say "*el-es el-aaa eee tee cee*".  *Note* I didn't mention any dashes or slashes.  Why? Because the context of the ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  The shell assumes that you are giving an absolute path because of the slash preceeding ```/etc```.  
   
-  Let's take a look at this one.  As you remember the cp command takes two arguments: __source__ and __destination__.  
-  ```bash
-  cp -iv .bash_profile /tmp
-  ```
-  
-  How would you read and say this command?
-  ```bash
-  ps -ef | grep systemd
-  ```
-  
-  (the | symbol is called a *"pipe"* the key right above the ```enter``` key on most standard US keyboards.) The pipe will be explained in the next chapter - just know that it is used to redirect the output of one command to input of another command.
+> __Exercise:__  As you remember the cp command takes two arguments: __source__ and __destination__.  How would you read and say this command?
+```bash
+cp -iv .bash_profile /tmp
+```
 
-## File Permissions and Ownership
-
-  Linux has a simple security model.  There are simply three types of permission that every file has: __read__, __write__, __execute__.  These files give a combination of permissions.  With read you can display the content of a file or copy it, but cannot delete or rename it.  For that you need write permission.  If a file is a shell script or an executable binary it needs the execute permission.  How can you tell what permissions a file has?  Type ```ls -la``` and lets see.  We have seen this output before and now we will explain it. 
-
-The first category is a listing of a files permissions:  See the screenshot below.
-
-Notice that there are 3 groupings of the letters __rwx__ looking like this _rw_r__r__ find a way to escape this.  In addition to inducidualy permissions there are three categories of permission.  These three categories are __owner__,__group__,__other__  Each of these groups has its own read write execute permissions.  
-
-Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -la``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter X.
-
-Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of rw_r__r__ can be read as 644.  The permissions for rwxrwxrwx is 777.  Numberic value for this is rw_______ is 600.
-  
-### Read, Write, Execute
-
-rwx
-
-### Owner, Group, Other (World)
-
-
-
-### Tools 
-
-There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter Y.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's).
-
-  ```chmod``` 
-  Pronounced *"chuh-mod"*
-   This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  
-  The outputs look like this:
-  Insert picture of chmod 755 and chmod +x 
-  
-  Why would you change permissions?  PErhaps to allow all users of a system a shell script that backsup the content of your home directory.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.
-  
-  ```chown``` 
-  Pronounced *"chuh-own"*
-  This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner.  Try it 
-  
-  touch todolist
-  
-  ls -la todolist - who is the owner of the file?  Who is the group owner?
-  
-  Change it so that the file is owned by root and the group owner is root
-  
-  ```chgrp```
-  Pronounced *"Chuh-gerp"*  
-  This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
-
-### ACLs
-
-IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them.  Here is what sticky bits do...
-
-
-
-## The 3 P's Describing 95% of all Linux Problems
-
-Find how to do definitions in markdown
-  * Path 
-   + If you get an error message telling you that ```file not found``` or ```path does not exist```  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
-  * Permission
-   +  This is discussed below, every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la
-  * dePendencies
-     +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
+> __Exercise:__ How would you read and say this command?   
+```bash
+mkdir -p /mnt/new-data-drive
+```
 
 ## Chapter Conclusions and Review
 
-  In this chapter we discovered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file create and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative PATH.  FInally we covered file permissions and the tools used to change or modify them. 
+  In this chapter we covered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file creation and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative path and a number of the basic shell commands. 
 
 ### Review Questions
 
-  * Questions go here
+  TBD
 
 ### Podcast Questions
 
