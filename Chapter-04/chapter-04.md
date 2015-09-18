@@ -187,7 +187,7 @@ GNOME 2 was released in early 2002 and the last GNOME 2 release was in 2010.  Ov
 
   Which is better GNOME or KDE?  Hard to say.  Both have had great set backs and great feature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer.  Try them both and choose the best one for your needs.
 
-### XFCE
+### Xfce
 
   Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environments as the resources required were growing.  So a movement to create a lightweight desktop environment sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999.  At one point Debian was considering it as an alternative to GNOME 3, but dropped it because of adopting systemd--forcing Debian to take GNOME 3 as their default desktop.  Xubuntu is a common derivative distro made up of Ubuntu using Xfce instead of GNOME or Unity.  Xfce was based on the GTK+ 2 and was looking to move to GTK+ 3, but disagreed with some of their design decisions.  Now Xfce is looking to be re-written in Qt 5.
 
@@ -267,7 +267,7 @@ In order to find the window commands for open, close, resize, tiling, and so for
    
    In addition there is additional software that comes packaged for Fedora (and all Red Hat derived distros) from a site called [RPMfusion.org](http://rpmfusion.org/Configuration). Here you will find free and non-free repositories of additional software to add to your system.  You can click on the downloads and the files will launch automatically with the Software Store for install.
    
-   Finally there is a Settings icon that will bring up good old system categories for finding and editing system settings.  Look for X icon of a screwdriver and a wrench.
+   Finally there is a Settings icon that will bring up good old system categories for finding and editing system settings.  Look for "X" icon of a screwdriver and a wrench.
    
    To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](https://extensions.gnome.org "GNOME 3 extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME 3 enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor")
    

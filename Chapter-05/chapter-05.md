@@ -16,9 +16,9 @@ __Outcomes__
 
 *Conventions*
 
-   The terms __commandline__, __terminal__, and __shell__ have been used interchangably so far to mean the same thing, the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
+   The terms __commandline__, __terminal__, and __shell__ have been used interchangably so far to convey the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
    
-   The term files, folders, and directories can be used interchangably.  Remember from Chapter 2, everything in Unix is a __file__, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in block quotes in the chapter with little exercises that will let you follow along as you read.  
+   The term __files__, __folders__, and __directories__ can be used interchangably inregards to this chapter's contents.  Remember from Chapter 2, everything in Unix is a *file*, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in block quotes throughout the chapter with little exercises that will let you follow along as you read.  
 
 ## What is a Filesystem?
    
