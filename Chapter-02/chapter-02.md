@@ -413,17 +413,15 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
 
   The key to RHEL's success in the enterprise is its long term stability.  Much like the version of Windows Servers it competes with - the application platform is expected to run for 5+ years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red Hat instead takes "snapshots" from Fedora and freezes them in time.  As of today (fall 2015) the current version of RHEL is 7.1 which is a freeze of the technology from Fedora 19, which was released July of 2013.  This way the developers get to know the platform and software versions that will be maintained and supported long term. How successful is this strategy? By 2012 they became the first Linux based company to make a billion dollars in a physical year.  But this success brought about a serious opensource question, if you have a successful product like RHEL, since you are using GPL based opensource code--you have to opensource your code--that means anyone else can redistribute your code freely, in theory eating your lunch.     
  
- #### CentOS
+#### CentOS
   
 ![*CentOS*](https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png "CentOS logo")
     
   By 2004 many people began to see the utility and success of Red Hat Linux, and being opensource they began to fork the code and make their own distributions.  CentOS is one of them [^14].  By 2010 they emerged as one of the two remaining RHEL derivatives.  Their developers, like Debian, are entirely volunteer based and not backed by a company.  Their motive was to take the solidness of RHEL and just update a few features and add more modern software packages sooner then the 5 year RHEL cycle.   Initially Red Hat didn't support CentOS--taking them to court numerous times, as CentOS had not removed all of Red Hat's trademarked logos in all the code.  Eventually all of Red Hat's copyrighted material was removed and CentOS has a leagal copy of RHEL to redistribute and use.  This made Red Hat angry as they were loosing sales to enterprises using CentOS instead of RHEL.  By 2014, Red Hat and Centos came to terms to work together--with Red Hat offering to sell support contracts to CentOS users.  Is CentOS doing anything illegal?  Not according to the GPL and the spirit of opensource, but it does bring up the financial issue again.
    
 #### Oracle Linux
-    
-[Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux "Oracle Linux")
-  
-  Did you think that Oracle would allow their logo to be displayed under an open license? Not to be out done.  Oracle who saw that many of their customers were paying Red Hat for operating systems licenses, buying support contracts, and then running their database on top of it wanted a piece of the action.  Oracle now owns Java--which is the primary tool used to interface with all the Oracle and its supporting products.  Oracle made a fork of RHEL's opensource code and placed their logos, Oracle specific tools, and made their own software tweaks in this fork and called it Oracle Linux.
+      
+  Did you think that Oracle Linux would allow their logo to be displayed under an open license? Not to be out done.  Oracle who saw that many of their customers were paying Red Hat for operating systems licenses, buying support contracts, and then running their database on top of it wanted a piece of the action.  Oracle now owns Java--which is the primary tool used to interface with all the Oracle and its supporting products.  Oracle made a fork of RHEL's opensource code and placed their logos, Oracle specific tools, and made their own software tweaks in this fork and called it Oracle Linux.
   
  [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can install and run unchanged. One may ask, isn't this illegal? Is Oracle breaking the law?  Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.   
     
@@ -434,16 +432,17 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
 ![*FreeBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/128px-Freebsd_logo.svg.png)
    
    * Released in November 1994
-   * Essentially the inheritor of the BSD code base and the largest BSD implementation.  
+   * Essentially the inheritor of the BSD code base
+   * Largest BSD implementation.  
    * Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
      
-__PC-BSD__
+#### PC-BSD
 
    *  FreeBSD based distro with a focus on user interface and experience. 
    *  Provides friendly installers and package managers for users 
    *  Created new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
 
-__Ghost BSD__
+#### Ghost BSD
 
    *  FreeBSD based distro with a focus on user interface and experience. 
    *  Provides friendly installers and package managers for users

@@ -45,7 +45,7 @@ The best place I found a short (trust me this is short) summary of what POSIX is
   * Those are implemented by C API functions, and used throughout CLI utilities, e.g. grep accepts BREs by default, and EREs with -E.
     + E.g.: ```echo 'a.1' | grep -E 'a.[[:digit:]]'```
 
-7) [Directory struture](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap10.html#tag_10 "Directory Structure")
+7) [Directory structure](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap10.html#tag_10 "Directory Structure")
 
   * E.g.: ```/dev/null, /tmp```
   * The [Linux FHS](http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch01.html "FHS" greatly extends POSIX.
