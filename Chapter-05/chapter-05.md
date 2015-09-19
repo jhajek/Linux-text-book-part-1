@@ -1,5 +1,5 @@
 # The Linux Filesystem, Path, and Basic Shell Commands
-![*The Shells*](images/Chapter-Header/seashell2.png "Linux Shells")
+![*The Shells*](images/Chapter-Header/Chapter-05/seashell2.png "Linux Shells")
 
 __Chapter 5 Objectives__
 
@@ -82,7 +82,9 @@ var         Variable data - used for storing databases, webserver files, and app
 
  This filesystem layout harkons back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
  
- Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatability.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to there actual location now stored in ```/usr```[^52].  Red Hat also says this makes Linux more applications capatible with Unix and SolarisOS, therefore making it easier for customers and companies to port over their software or migrate to Red Hat based distros.  There are many companies still using commercial Unix.
+ [*Linux Filesystem Heirarchy 550 by 250*](images/Chapter-05/path/sample-file-system-heirarchy.png "Sample image")
+ 
+ Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatability.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr```[^52].  Red Hat also says this makes Linux more applications capatible with Unix and SolarisOS, therefore making it easier for customers and companies using Unix and SolarisOS to port over their software or migrate to Red Hat based distros.  
 
 By using the command ```ls -l /``` you can see the light blue colored softlinks to the actual directories.  
 
@@ -100,35 +102,32 @@ Leonart Poettering, the Red Hat engineer and leader of the systemd init system h
 
 ## Path
 
-Now that we have learned that our filesystem is an upside down tree, we now have a way of addressing every single file, folder, and directory on the filesystem.  This is via the __path__.  This path can be referred to in two ways: __absolute path__ and __relative path__.  There are also certain paths that have well known names, such as __root__ and a user's __home directory__.  
+Remember that our filesystem is an upside down tree?  That means we can traverse up and down the tree to arrive at file locations.  We now have a way of addressing every single file, folder, and directory on the filesystem.  We call this the __path__.  This path can be referred to in two ways: __absolute path__ and __relative path__.  There are also certain locations in the path that have well known names, such as __root__ and a user's __home directory__.  
 
 ### Absolute Path and Relative Path 
 
-Think of your school or home address.  If I told you I live at [324 W 35th Street Chicago Illinois 60616, United States of America](https://en.wikipedia.org/wiki/Comiskey_Park "Comiskey Park") that would be my __absolute__ address and very helpful, right?
+What is the difference? Think of your school or home address.  If I told you I live at [324 W 35th Street Chicago Illinois 60616, United States of America](https://en.wikipedia.org/wiki/Comiskey_Park "Comiskey Park") that would be my __absolute__ address and very helpful, right?
 
 But what if you already lived in the US and in the city of Chicago?  What if you lived on the same street as the address listed above, there would be no need to repeat all the detailed information.  Perhaps I would just say I live at *"325 West"* and you would know where to go.  This concept is called __relative path__. Let us see this concept in action.  Later in this chapter we will cover shell commands in detail but for now we will introduce a few basic ones.  
   * cd - used to change directory and move up and down the filesystem tree.
   * pwd - used to check what your present location is on the filesystem tree.
   * ls - used to list the content of the directory where you are located on the filesystem tree.
-  * echo - used to print out the content of a system variable.
 
 When the terminal window opens you are automatically deposited at a specific location on the filesystem tree.  You are placed in your __HOME__ directory.  In this case the absolute path to that location is ```/home/jeremy``` (my username being jeremy in this example.)  You can always come back to this directory by using the shortcut of ```~``` like this:  ```cd ~```. Let us open a terminal window and try this ourselves.
 
-> __Exercise:__ Figure out what your pwd (present working directory) is.  You would do this by simply typing ```pwd``` on the commandline. Try it and see what happens.
+> __Exercise:__ Figure out what your pwd (present working directory) is.  You would do this by simply typing ```pwd``` on the commandline. Try it and what is the output?
 
-> __Exercise:__ The next thing we need to do is a listing of the contents in our current directory.  We do this by issuing an ```ls``` command.  Try it, what do you see?
+> __Exercise:__ The next thing we should do is a listing of the contents in our current directory.  We do this by issuing an ```ls``` command.  Try it, what do you see?
 
-> __Exercise:__ Let's learn how to use the ```cd``` command which allows us to change our current directory.  Let's change our location into the Documents folder.  Do so by typing ```cd Documents```.  Type ```pwd``` and ```ls``` command.  What do you see? 
+> __Exercise:__ Let's learn how to use the ```cd``` command, which allows us to change our current directory location.  Let's change our location into the Documents folder, which is under our current pwd.  Do so by typing ```cd Documents```.  Once we have changed the directory, type ```pwd``` and then ```ls``` command.  What do you see? 
 
-> __Exercise:__ Finally we are going to print out the content of the PATH system variable.  You can see this value by typing ```echo $PATH```.  What is the value that prints out?  Try it on Ubuntu and Fedora and see if the output is different or the same?
+> __Exercise:__ Let's learn about the ```cd``` command to change our directory location. Type ```cd /etc/network``` if you are on Ubuntu 15.04 and ```cd /etc/sysconfig/network-scripts``` if you are Fedora 21 or 22.  Type the ```ls``` commands--what do you see?  Also are these path absolute or relative?
 
-> __Exercise:__ Let's learn about the ```cd``` command to change our directory location. Type ```cd /etc/network``` if you are on Ubuntu 15.04 and ```cd /etc/sysconfig/network-scripts```.  Type the ls commands--what do you see?  Also are these path absolute or relative?
-
-In all Linux and Unix systems an absolute path will always start with __/__ as the first charecter. Much like the address example this is telling you the directries absolute location in relation to the __root__.  The network directory can be found by traversing the tree from ```/``` down to a system directory called ```etc``` and then to a subdirectory located in etc called ```network```.  In this case, ```network``` is a sub-directory of etc and contains all the files related to configuring your network card settings.  
+The way to determine is that an absolute path will always start with __/__ as the first charecter. Much like the address example this is telling you the directries absolute location in relation to the __root__.  On Ubuntu for instance, the network directory can be found by traversing the tree from ```/``` down to a system directory called ```etc``` and then to a subdirectory located in etc called ```network```.  In this case, ```network``` is a sub-directory of etc and contains all the files related to configuring your network card settings.  
 
 A relative path assumes the pwd portion of the absolute path.  From the exercise example above we notice a few things about relative paths.  __First__ our pwd when we open a shell is our home directory.  In my case /home/jeremy. If we see the hierarchy the directory Documents is under the jeremy directory.  the ```cd``` command takes us down one directory by default.  How can we "cd" into that directory?  By simply typing ```cd Documents```.  This is a __relative path__. Why?  Notice that there is no __/__ in front of the directory name.  This tells the cd command that you are assuming that the system should start looking for the directory name we passed in the directory we currently are.  Could we have typed ```cd /home/jeremy/Documents```?  Yes we could have, but the first two parts of the absolute path were irrelevent to us because we were already in that location.
 
-How would we navigate back up the tree?  What is we want to return to our home directory?  There are a few options, assuming that our pwd is ```/home/jeremy/Documents``` which of these would be the best choice?
+How would we navigate back up the tree?  What if we want to return to our home directory?  There are a few options, assuming that our pwd is ```/home/jeremy/Documents``` which of these would be the best choice?
 
 ----------------------  ----------------------------
 ```cd /home/jeremy```    abosulte or relative path?
@@ -136,7 +135,7 @@ How would we navigate back up the tree?  What is we want to return to our home d
 ```cd ../```             abosulte or relative path?  
 ----------------------  ----------------------------
 
-The first two options are absolute paths, the third option is a relative path with something new.  Here we are introduced to the __double-dot__ operator.  The __double-dot__ and __single-dot__ (sometimes just called *dot*) are the way you can reference locations up the tree or in your current directory.  The command ```cd ../``` is a short cut to take you up one level in the filesystem tree.  Double-dots can be chained together to traverse up multiple directories all at once.  
+The first two options are absolute paths, the third option is a relative path with something new.  Here we are introduced to the __double-dot__ operator.  The __double-dot__ and __single-dot__ (sometimes just called *dot*) are the way you can reference locations up the tree or in your current directory.  The command ```cd ../``` is a short cut to take you __up__ one level in the filesystem tree.  Double-dots can be chained together to traverse up multiple directories all at once.  
 
 > __Exercise:__ If you pwd is /home/jeremy/Documents  (replace "jeremy" with whatever your username is) and you want to change directory to /home.  What command would you use?  What happens when you type ```cd ../../``` on the commandline?  What is your pwd now?
 
@@ -144,11 +143,11 @@ The first two options are absolute paths, the third option is a relative path wi
 
 You could do this:
 
-*  ```cd ../`` 
-*  and then ```cd Downloads``` which would get the job done.  
-*  In one single command: ```cd ../Downloads``` 
-  +  This command will be interpreted as: ```../``` means go up one directory 
-  +  The next directory name ```Downloads``` means go down one directory.  
+1)  ```cd ../`` 
+2)  and then ```cd Downloads``` which would get the job done.
+3)  In one single command: ```cd ../Downloads``` 
+4)  This command will be interpreted as: ```../``` means go up one directory 
+5)  The next directory name ```Downloads``` means go down one directory.  
 
 ![*Path demonstration*](images/Chapter-05/path/path-commands.png "Path Commands")
 
@@ -156,7 +155,7 @@ What happens if you try to cd into a directory that doesn't exist?
 
 ![*File or Directory not found*](images/Chapter-05/path/file-not-found.png "File not found")
 
-> __Exercise:__ Let's use the touch command to create a file called todo-list.txt in the /tmp directory: ```touch /tmp/todo-list.txt```  What does it do? How would you list (ls) the content of the /tmp directory if your pwd is /home/jeremy?
+> __Exercise:__ You can use the ```touch``` command to create an empty file called todo-list.txt in the /tmp directory. Try this command assuming your pwd is your Home directory. From the commandline type: ```touch /tmp/todo-list.txt```.  Now type: ```ls```, do you see the file todo-list.txt?  Why or why not? How would you list (ls) the contents of the /tmp directory if your pwd is /home/jeremy/Documents?
 
 ## The Linux Shell
   

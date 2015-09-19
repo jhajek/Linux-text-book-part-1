@@ -1,5 +1,5 @@
 # Shell Variables, Shell Meta-Characters, Search Tools, File Permissions
-![*The power of sudo*](http://imgs.xkcd.com/comics/sandwich.png "Sandwhich")
+![*The power of sudo*](images/Chapter-Header/Chapter-06/sandwich.png "Sandwich")
 
 __Chapter 6 Objectives__
 

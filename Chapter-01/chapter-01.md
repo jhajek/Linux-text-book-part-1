@@ -28,16 +28,16 @@ date: 07/30/2015
  Will get to that once the content is done...
  
  * Chapter 1 image - 
- * Chapter 2 image -
- * Chapter 3 image -
+ * Chapter 2 image - [http://imgs.xkcd.com/comics/open_source.png](http://imgs.xkcd.com/comics/open_source.png "Open Source")
+ * Chapter 3 image - [http://imgs.xkcd.com/comics/surgery.png](http://imgs.xkcd.com/comics/surgery.png "surgery")
  * Chapter 4 image - [http://imgs.xkcd.com/comics/supported_features.png](http://imgs.xkcd.com/comics/supported_features.png "Features")
  * Chapter 5 image - [http://imgs.xkcd.com/comics/seashell.png](http://imgs.xkcd.com/comics/seashell.png  "Linux Shells")
- * Chapter 6 image -
- * Chapter 7 image -
+ * Chapter 6 image - [http://imgs.xkcd.com/comics/sandwich.png](http://imgs.xkcd.com/comics/sandwich.png "Sandwich")
+ * Chapter 7 image - 
  * Chapter 8 image -
  * Chapter 9 image -
  * Chapter 10 image -
- * Chapter 11 image -
+ * Chapter 11 image - [http://imgs.xkcd.com/comics/authorization.png](http://imgs.xkcd.com/comics/authorization.png "Authorization")
  * Chapter 12 image -
  * Chapter 13 image -
  * Chapter 14 image -

@@ -45,7 +45,7 @@ pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Techn
 #################################################################
 # EPUB - To convert it to EPUB, use this command:               #
 #################################################################
-pandoc --toc --number-sections --epub-cover-image=images/John_Calvin_by_Holbein.png -S -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md 
+pandoc --toc --number-sections --epub-cover-image=images/Chapter-Header/Cover/John_Calvin_by_Holbein.png -S -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md 
 
 ######################
 # Debugging          #
