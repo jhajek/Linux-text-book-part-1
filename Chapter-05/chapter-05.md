@@ -1,5 +1,5 @@
 # The Linux Filesystem, Path, and Basic Shell Commands
-![*The Shells*](http://imgs.xkcd.com/comics/seashell.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*The Shells*](images/Chapter-Header/seashell2.png "Linux Shells")
 
 __Chapter 5 Objectives__
 
@@ -201,15 +201,13 @@ By 1984 there was an improved C Shell called the tcsh that fixed the deficincies
 
 #### Korn Shell
 
-  By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  There is an American experession, "The grass is always greener on the other side of the fence." The C shell users wanted features from the Bourne Shell and vis-a-versa.  Another researcher at Bell Labs, named David Korn, began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the newer features of the C Shell.  This was called the Korn Shell (ksh) and released in 1983.  The Bourne Shell was standard on all AT&T Unix so any new shell had to gaurentee backwards compatability otherwise that shell was never going to receive adoption.  The imporvements the Korn Shell made were apparent and it was soon included as well on on AT&T Unix standard.  In 1991/1992 the POSIX standard adopted KSH as teh standard shell that any Unix system claming POSIX compliance requried to have.  
-  
-  List of  ksh improvements
+  By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  There is an American experession, "The grass is always greener on the other side of the fence." The C shell users wanted features from the Bourne Shell and vis-a-versa.  Another researcher at Bell Labs, named David Korn, began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the newer features of the C Shell.  This was called the [Korn Shell](http://kornshell.com/ "ksh") (ksh) and released in 1983.  The Bourne Shell was standard on all AT&T Unix so any new shell had to gaurentee backwards compatability otherwise that shell was never going to receive adoption.  The imporvements the Korn Shell made were apparent and it was soon included as well on on AT&T Unix standard.  In 1991/1992 the POSIX standard adopted KSH as the standard shell that any Unix system claming POSIX compliance is requried to have.  By 2005 the Korn Shell was opensourced under a free license.  
   
 #### GNU Bash Shell
 
-The ksh was a sutiable replacement for the Bourne Shell and C Shell, but from the Free Software Foundation's view there was one main problem.  All of these shells were propriatry.  This lead Richard Stallman and the FSF to fund development seeing that having a free softare licensed shell was central to their dream of a completely free operating system.  Work was begun in 1989 and completed in 1991.  The shell was named the Bash Shell.  It is a clever hack.  Bash was completly a superset of the Bourne Shell and feeling as though they were "freeing" the Bourne Shell from its past life of closed software, they named is Bourne Again Shell--Bash.  Bash is the GNU Project's shell. Bash is the Bourne Again SHell. Bash is an sh-compatible shell that incorporates useful features from the Korn shell (ksh) and C shell (csh). It is intended to conform to the IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard. It offers functional improvements over sh for both programming and interactive use. In addition, most sh scripts can be run by Bash without modification[^58].
+The ksh was a sutiable replacement for the Bourne Shell and C Shell, but from the Free Software Foundation's view there was one main problem.  All of these shells were propriatry.  This led Richard Stallman and the FSF to fund development seeing that having a free softare licensed shell was central to their dream of a completely free operating system.  Work was begun in 1989 and completed in 1991.  The shell was named the Bash Shell.  It was a clever hack on the Bourne Shell name.  Bash was a superset of the Bourne Shell and feeling as though they were "freeing" the Bourne Shell from its past life of closed software, they named it the "*Bourne Again Shell*"--Bash.  Bash is the GNU Project's shell. It is intended to conform to the IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard. It offers functional improvements over sh for both programming and interactive use. In addition, most sh scripts can be run by Bash without modification [^58].
 
-The improvements offered by Bash include:
+The improvements offered by Bash over sh, csh, and ksh include:
   
   * Command line editing
   * Unlimited size command history
