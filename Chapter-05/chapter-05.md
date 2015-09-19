@@ -266,6 +266,13 @@ wget
 wget https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip
 ```
 
+unzip 
+
+: This command is used to extract a compressed file of type zip.  There is a GNU version of this named gzip that extracts gzip files.  __Usage examples:__
+```bash
+unzip music.zip
+```
+
 man
  
 : This is the command you use when you can't remember how to use other commands.  just type the word man and then any other command name and you will automatically drop into a __less__ session which will explain the use and history of that command.  This is a very helpful tool as no one can memorize every single command.  From here on out in the class when you ask a question, the instructor's first answer will be, *"Check the man page."* As you progress in your Linux journey the __man__ command will be your best friend--use it wisely young Jedi.  __Usage examples:__ 
@@ -489,20 +496,50 @@ The outcome will be that you will be able to succesfully use the Linux Shell for
 The final deliverable will be one text file with the commands to execute each numbered step along with a screenshot if required.
 
 1) Navigate from your home directory to your Downloads directory
-  i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-1.(jpg or png)
+  i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
 
 1) Use the wget command to download the source code for the text book down to your local Downloads folder.  The code is located at this URL: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip "URL")
 
+1) Use the file command to determine the type of file that the master.zip download is
+  i) Take a screenshot of the output of the file command.  Name the file Name the file lastname-firstname-screenshot-week-5-file.(jpg or png)
+  
 1) Use the unzip command to extract the files to a new directory called __book__ (you will need to use the ```man wget``` command to find out the usage option in order to accomplish this.
-  i) Take a screenshot of the output of the new directory listed to the commandline screen.  Name the file lastname-firstname-screenshot-week-5-2.(jpg or png)
+  i) Take a screenshot of the output of the new directory listed to the commandline screen.  Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png)
 
-1) Use the cd command to change the directory into the book/images directory. 
-  i) Take a screenshot of the output of an ls command in this directory. Name the file lastname-firstname-screenshot-week-5-3.(jpg or png)
+1) Use the cd command to change the directory to the book/Linux-text-book-part-1-master/images directory. 
+  i) Take a screenshot of the output of an ls command in this directory. Name the file lastname-firstname-screenshot-week-5-cd.(jpg or png)
   
-1) Use the mv command to move the images AndrewTanenbaum.jpg, Dennis_Ritchie_2011.jpg, and Ken_n_dennis.jpg into the Chapter-02 directory. (issue the commands to move the images one at a time)
-  i) cd into the images/Chapter-02 directory.    
+1) Execute a pwd command to show your present working directory is /home/username/Downloads/book/Linux-text-book-part-1-master/iamges
+  i) Take a screenshot of the output of the pwd command. Name the file lastname-firstname-screenshot-week-5-pwd.(jpg or png) 
+
+1) In the images directory you will notice that there is no Chapter-02 directroy.  Use the mkdir command to create it.
+  i) Take a screenshot of the output of an ls command showing the newly created directory.  Name the file lastname-firstname-screenshot-week-5-mkdir.(jpg or png)
   
-Final deliverable is to place all of the above screenshots, 23 total) into a single zip file named: __lastname-firstname-chapter-05-lab.zip__   
+1) Use the mv command to move the images AndrewTanenbaum.jpg, Dennis_Ritchie_2011.jpg, and Ken_n_dennis.jpg into the Chapter-02 directory. (issue the commands to move the images one at a time.)
+  i) cd into the images/Chapter-02 directory and take a screenshot of the output of an ls command. Name the file lastname-firstname-screenshot-week-5-mv.(jpg or png)
+  
+1) What would be the command to move from you pwd back to your home directory?  
+  i)  Take a screenshot of the output of pwd command showing you are located in the Chapter-02 images directory, then issue the cd command to return to your home directory (include all these commands in one screenshot).  
+  
+1) There is a file named Readme.md under images/Appendix-A.  Use the cat command to display the content of that file.
+  i) Take a screenshot of the files output and it's message to you. Name the file lastname-firstname-screenshot-week-5-cat.(jpg or png)  
+  
+1) Assume your pwd is book/Linux-text-book-part-1-master/images/Chapter-04/X  (cd to that directory) what would be the single cd command to move your pwd location to Chapter-05/shells (relative paths)?
+  i) Take a screenshot of the pwd command showing your initial location, the cd command to change to the Chapter-05/shells directory, then another pwd command (all in one screenshot). Name the file lastname-firstname-screenshot-week-5-cd1.(jpg or png)
+  
+1) Assume your pwd is book/Linux-text-book-part-1-master/images/Chapter-05/shells and you want to move your pwd over to Chapter-05/path.  What would be the single cd command to move yoru pwd location to Chapter-05/path (relative paths)?
+  i) Take a screenshot of the pwd command showing yor initial locationm, then cd command to change the Chapter-05/path directory, then another pwd command (all in one screen). Name the file lastname-firstname-screenshot-week-5-cd2.(jpg or png)     
+
+1) Assume your pwd is book/Linux-text-book-part-1-master/images/Chapter-05/path.  You realize that you want to delete an image named figure1.gif located in the Chapter-05/shells directory.  What would be the command to remove the file using a relative path to it's location?
+  i) Take a screenshot of the single command to remove the figure1.gif file using relative paths from the location mentioned above.  Name the file lastname-firstname-screenshot-week-5-mv.(jpg or png)
+
+1) Use the mkdir command to create a new directory called Chapter-16 in book/Linux-text-book-part-1-master.
+  i) Take a screenshot of the output of an ls command after you have created the new directory in book/Linux-text-book-part-1-master. Name the file lastname-firstname-screenshot-week-5-mkdir.(jpg or png)
+
+1) Use the touch command to create a file named chapter-16.md under the Chapter-16 folder created in the previous step. Execute the command assuming that your pwd is book/Linux-text-book-part-1-master
+  i)  Take a screenshot of the output of an ls command after you have created the new file in the Chapter-16 directory.  Name the file lastname-firstname-screenshot-week-5-touch.(jpg or png)   
+
+Final deliverable is to place all of the above screenshots, and all commands into a single text file named lastname-firstname-week-5-commands.txt) into a single zip file named: __lastname-firstname-chapter-05-lab.zip__   
 
 #### Footnotes   
 
