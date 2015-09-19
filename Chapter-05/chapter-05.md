@@ -420,34 +420,6 @@ sockets                     s
   
 ![*Highlighting the file owner and group owner*](images/Chapter-05/permissions/ownership-2.png "Ownership")
 
-### Tools 
-
-There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter X.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's). This command will be covered in depth in chapter 6.
-
-#### chmod
- 
-Pronounced *"chuh-mod"*. This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  The outputs look like this:
-   
- ![*Standard file permissions are 644 - very conservative and secure*](images/Chapter-05/permissions/standard-permission.png "Standard Permissions")
-   
-  Why would you want to change permissions?  Perhaps to allow all users of a system a shell script that backsup the content of your home directory.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.  Or to give a shell script execute permission so it can be run by other.
-  
- ![*Same file with write and execute permission enabled*](images/Chapter-05/permissions/standard-permission-chmod.png "Standard Permissions")
-  
-#### chown
-
- Pronounced *"chuh-own"*. This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a shorthand feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner. 
-  
-> __Exercise:__  based on the previous todo-list.txt created in /tmp, issue an ```ls -l``` command - who is the owner of the file?  Who is the group owner? Change it so that the file is owned by root and the group owner is root (remember to use ```sudo```.)
-  
-#### chgrp
-
-Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
-
-### ACLs
-
-IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them and will be covered in Chapter X.
-
 ### The 3 P's Describing 99% of all Linux Problems
 
   * Path 
@@ -489,21 +461,16 @@ Answer said questions:
 
 ### Lab
 
-The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns.
-
-The outcome will be that you will be able to succesfully use the Linux Shell for navigation, file creation, and file modifcation. 
-
-The final deliverable will be one text file with the commands to execute each numbered step along with a screenshot if required.
+The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to succesfully use the Linux Shell for navigation, file creation, and file modifcation. Resist the temptation to use the GUI file manger and a web browser.  All actions will be done through the shell.
 
 1) Navigate from your home directory to your Downloads directory
-  i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
-
-1) Use the wget command to download the source code for the text book down to your local Downloads folder.  The code is located at this URL: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip "URL")
-
+    i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
+1) Use the wget command to download the source code for the text book down to your local Downloads folder.  The code URL is: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip "URL")
+    i) Take a screen shot of the output of an ls command in the Downloads directory showing you have succesfully downloaded the zip file. Name the file Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png) 
 1) Use the file command to determine the type of file that the master.zip download is
     i) Take a screenshot of the output of the file command.  Name the file Name the file lastname-firstname-screenshot-week-5-file.(jpg or png)  
-1) Use the unzip command to extract the files to a new directory called __book__ (you will need to use the ```man wget``` command to find out the usage option in order to accomplish this.
-    i) Take a screenshot of the output of the new directory listed to the commandline screen.  Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png)
+1) Use the unzip command to extract the files to a new directory called __book__ (you will need to use the ```man unzip``` command to find out the usage option in order to accomplish this.
+    i) Take a screenshot of the output of the new directory listed to the commandline screen.  Name the file lastname-firstname-screenshot-week-5-unzip.(jpg or png)
 1) Use the cd command to change the directory to the book/Linux-text-book-part-1-master/images directory. 
     i) Take a screenshot of the output of an ls command in this directory. Name the file lastname-firstname-screenshot-week-5-cd.(jpg or png)
 1) Execute a pwd command to show your present working directory is /home/username/Downloads/book/Linux-text-book-part-1-master/iamges

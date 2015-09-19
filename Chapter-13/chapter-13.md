@@ -1,5 +1,5 @@
 # Basic Networking in Linux
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*Some people just have aquariums...*](images/Chapter-Header/Chapter-13/network-2.png "Virus Aquarium")
 
 __Chapter 13 Objectives__
 

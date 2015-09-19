@@ -1,5 +1,5 @@
 # The Future of Linux
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*Creating technology to support technology.*](images/Chapter-Header/Chapter-15/tech_loops-2.png "Tech Loops")
 
 __Chapter 15 Objectives__
 

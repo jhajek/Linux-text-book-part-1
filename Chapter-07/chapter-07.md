@@ -1,15 +1,11 @@
 # Introduction to Linux Editors, Shell Scripts, and User Profiles  
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
-
-Vi cartoon goes here
+![*Real programmers...](images/Chapter-Header/Chapter-07/real_programmers-2.png "vi")
 
 __Chapter 7 Objectives__
 
 
 
 __Outcomes__
-
-XKCD vi cartoon goes here
 
 ## History of vi
 

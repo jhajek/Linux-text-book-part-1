@@ -1,5 +1,5 @@
 # Init Services, Daemons, and Processes
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*You never know what is enabled...*](images/Chapter-Header/Chapter-09/security_holes-2.png "Security Holes")
 
 __Chapter 09 Objectives__
 

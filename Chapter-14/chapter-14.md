@@ -1,5 +1,5 @@
 # Remote Access and Firewall Technologies
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*Good thing we avoided that one...*](images/Chapter-Header/Chapter-14/2038-2.png "2038")
 
 __Chapter 14 Objectives__
 

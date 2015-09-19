@@ -1,6 +1,5 @@
 # Package Managers and Package Installation
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
-Tar xkcd cartoon
+![*Always check the package dependencies...*](images/Chapter-Header/Chapter-10/debian-main-2.png "Dependencies")
 
 
 __Chapter 10 Objectives__

@@ -1,5 +1,6 @@
-# Shell Variables, Shell Meta-Characters, Search Tools, File Permissions
-![*The power of sudo*](images/Chapter-Header/Chapter-06/sandwich.png "Sandwich")
+# Shell Variables, Meta-Characters, and Search Tools
+![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
+
 
 __Chapter 6 Objectives__
 

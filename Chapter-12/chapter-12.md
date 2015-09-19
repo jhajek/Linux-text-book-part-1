@@ -1,5 +1,5 @@
 # Creating, Partitioning, and Mounting Filesystems
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*Easy as cake...*](images/Chapter-Header/Chapter-12/server_problem.png-2 "Server Problem")
 
 __Chapter 12 Objectives__
 

@@ -1,5 +1,5 @@
 # Writing Basic Shell Scripts
-![Understanding the Technology and Philosophy of Unix/Linux](http://imgs.xkcd.com/comics/2038.png "Understanding the Technology and Philosophy of Unix/Linux")
+![*The power of sudo*](images/Chapter-Header/Chapter-08/sandwich.png "Sandwich")
 
 
 
