@@ -482,6 +482,26 @@ Answer said questions:
 
 ### Lab
 
+The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns.
+
+The outcome will be that you will be able to succesfully use the Linux Shell for navigation, file creation, and file modifcation. 
+
+The final deliverable will be one text file with the commands to execute each numbered step along with a screenshot if required.
+
+1) Navigate from your home directory to your Downloads directory
+  i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-1.(jpg or png)
+
+1) Use the wget command to download the source code for the text book down to your local Downloads folder.  The code is located at this URL: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip "URL")
+
+1) Use the unzip command to extract the files to a new directory called __book__ (you will need to use the ```man wget``` command to find out the usage option in order to accomplish this.
+  i) Take a screenshot of the output of the new directory listed to the commandline screen.  Name the file lastname-firstname-screenshot-week-5-2.(jpg or png)
+
+1) Use the cd command to change the directory into the book/images directory. 
+  i) Take a screenshot of the output of an ls command in this directory. Name the file lastname-firstname-screenshot-week-5-3.(jpg or png)
+  
+1) Use the mv command to move the images AndrewTanenbaum.jpg, Dennis_Ritchie_2011.jpg, and Ken_n_dennis.jpg into the Chapter-02 directory. (issue the commands to move the images one at a time)
+  i) cd into the images/Chapter-02 directory.    
+  
 Final deliverable is to place all of the above screenshots, 23 total) into a single zip file named: __lastname-firstname-chapter-05-lab.zip__   
 
 #### Footnotes   
@@ -514,5 +534,5 @@ Final deliverable is to place all of the above screenshots, 23 total) into a sin
 
 [^59]: [https://lists.debian.org/debian-lsb/2015/07/msg00000.html](https://lists.debian.org/debian-lsb/2015/07/msg00000.html)
 
-[^60]" [https://en.wikipedia.org/wiki/Unix_file_types](https://en.wikipedia.org/wiki/Unix_file_types "Unix File Types")
+[^60]: [https://en.wikipedia.org/wiki/Unix_file_types](https://en.wikipedia.org/wiki/Unix_file_types "Unix File Types")
 
