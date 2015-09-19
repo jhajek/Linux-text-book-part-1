@@ -41,6 +41,14 @@ If (Test-Path "./output/odt/Understanding-the-Technology-and-Philosophy-of-Linux
 }Else{
   echo "./output/odt/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.odt - File does not exist =("
 }
+# Debugging - you may not need this
+If (Test-Path "C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I*.epub"){
+  echo "Removing previous epub version"
+  rm -v C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I*.epub
+}Else{
+  echo "C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.epub - File does not exist =("
+}
+
 
 <#
 If (Test-Path ./output/mobi/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.mobi){
@@ -87,7 +95,7 @@ pandoc --toc --number-sections -o ./output/odt/Understanding-the-Technology-and-
 ######################
 
 # cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\pdf\*.pdf  C:\Users\palad\OneDrive\Documents\epub
-# cp -Force  C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\*.epub  C:\Users\palad\OneDrive\Documents\epub
+cp -Force  C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\*.epub  C:\Users\palad\OneDrive\Documents\epub
 
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #
