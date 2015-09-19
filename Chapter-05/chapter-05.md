@@ -384,40 +384,42 @@ The improvements offered by bash over sh, csh, and ksh include:
 
 ![*ls -l listing of the home directory in Fedora 22*](images/Chapter-05/permissions/ls-l-fedora.png "Fedora 22 ls -l listing") 
 
-The first column is a listing of the permissions for a file. Notice that there are actually 3 groupings of the letters __rwx__ combined into one long string like this:  ```rw-r--r--```.  In addition to inducidualy permissions there are three categories of permission.  These three categories are __owner__, __group__, __other__  Each of these groups has its own read write execute permissions.  
+The first column is a listing of the permissions for a file. Notice that there are actually 3 groupings of the letters __rwx__ combined into one long string like this:  ```rw-r--r--```.  In addition to inducidualy permissions there are three categories of permission.  These three categories are __owner__, __group__, __other__  Each of these groups has its own read, write, and execute permissions.  
 
-Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -la``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter X.
-
-Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numberic value for this is ```rw-------``` is 600.
+Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -l``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter X. Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numberic value for this is ```rw-------``` is 600.
   
-There is one character either a "-" or a "d" proceeding the file permissions, and this tells "d" for directory and "-" for a file.  There are additional file type characters that I will list here, only the first three we will be dealing with directly in this book [^60].  
+There is one character either a "-" or a "d" generally proceeding the file permissions, and this tells "d" for directory and "-" for a file.  There are additional file type characters that I will list here, only the first three we will be dealing with directly in this book [^60].  
 
- *  files
- *  directories
- *  symbolic links
- *  named pipes
- *  devices (character or block)
- *  sockets 
+File type                 Symbol
+------------------       --------
+__file__                    -
+__directory__               d 
+__symbolic link__           l
+named pipe                  p 
+devices                   b or c 
+sockets                     s
   
 ![*4 most common file types*](images/Chapter-05/permissions/file-types.png "File types") 
  
 ### Owner, Group, Other (World)
 
-  In addition to the rwx permissions, each file has three group permissions associated with it.  The first triad of rwx is the files owner permission--meaning what the person who owns the file can do to it.  These permission are usually more liberal because you trust yourself.
+  In addition to the rwx permissions, each file has three groupings of permissions associated with it.  The first triad of rwx is the file's __owner__ permission--meaning what the person who owns the file can do to it.  These permission are usually more liberal because you trust yourself.
   
-  The second triad of rwx permissions is group permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
+  The second triad of rwx permissions is __group__ permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
   
-  The final triad of rwx permissions is considered "other" or "world".  It means what permissions does someone who is not the owner or in the group that owns the file have?  Usually this column is conservatively "read-ony." 
+  The final triad of rwx permissions is considered __other__ or soemtimes called unofficially __world__.  This covers the permissions for a user who is not the owner nor in the group that owns the file. Usually this column is conservatively "read-ony." 
   
-![*Owner, Group, Other*](images/Chapter-05/permissions/ownership.png "Ownership")
+![*Highlighting the permissions in ls -l command*](images/Chapter-05/permissions/full-permissions-2.png "Full Permissions")
+  
+![*Highlighting the file owner and group owner*](images/Chapter-05/permissions/ownership-2.png "Ownership")
 
 ### Tools 
 
-There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter Y.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's). This command will be covered in depth in chapter 6.
+There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter X.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's). This command will be covered in depth in chapter 6.
 
-  ```chmod``` 
-  Pronounced *"chuh-mod"*
-   This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  The outputs look like this:
+#### chmod
+ 
+Pronounced *"chuh-mod"*. This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  The outputs look like this:
    
  ![*Standard file permissions are 644 - very conservative and secure*](images/Chapter-05/permissions/standard-permission.png "Standard Permissions")
    
@@ -425,15 +427,15 @@ There are a series of commands that can be used to change or augment the owner, 
   
  ![*Same file with write and execute permission enabled*](images/Chapter-05/permissions/standard-permission-chmod.png "Standard Permissions")
   
-  ```chown``` 
-  Pronounced *"chuh-own"*
-  This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a shorthand feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner. 
+#### chown
+
+ Pronounced *"chuh-own"*. This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a shorthand feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner. 
   
 > __Exercise:__  based on the previous todo-list.txt created in /tmp, issue an ```ls -l``` command - who is the owner of the file?  Who is the group owner? Change it so that the file is owned by root and the group owner is root (remember to use ```sudo```.)
   
-  ```chgrp```
-  Pronounced *"Chuh-gerp"*  
-  This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
+#### chgrp
+
+Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
 
 ### ACLs
 
