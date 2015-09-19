@@ -419,11 +419,11 @@ There are a series of commands that can be used to change or augment the owner, 
   Pronounced *"chuh-mod"*
    This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  The outputs look like this:
    
- ![*Standard file permissions are 644 - very conservative and secure*](images/Chapter-05/permissions/standard-permissions.png "Standard Permissions")
+ ![*Standard file permissions are 644 - very conservative and secure*](images/Chapter-05/permissions/standard-permission.png "Standard Permissions")
    
   Why would you want to change permissions?  Perhaps to allow all users of a system a shell script that backsup the content of your home directory.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.  Or to give a shell script execute permission so it can be run by other.
   
- ![*Same file with write and execute permission enabled*](images/Chapter-05/permissions/standard-permissions-chmod.png "Standard Permissions")
+ ![*Same file with write and execute permission enabled*](images/Chapter-05/permissions/standard-permission-chmod.png "Standard Permissions")
   
   ```chown``` 
   Pronounced *"chuh-own"*
