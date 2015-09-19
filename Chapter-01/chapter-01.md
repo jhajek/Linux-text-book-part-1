@@ -26,8 +26,26 @@ date: 07/30/2015
 ## Cover Image
   
  Will get to that once the content is done...
-
-## Background of Author
+ 
+ * Chapter 1 image - 
+ * Chapter 2 image -
+ * Chapter 3 image -
+ * Chapter 4 image - [http://imgs.xkcd.com/comics/supported_features.png](http://imgs.xkcd.com/comics/supported_features.png "Features")
+ * Chapter 5 image - [http://imgs.xkcd.com/comics/seashell.png](http://imgs.xkcd.com/comics/seashell.png  "Linux Shells")
+ * Chapter 6 image -
+ * Chapter 7 image -
+ * Chapter 8 image -
+ * Chapter 9 image -
+ * Chapter 10 image -
+ * Chapter 11 image -
+ * Chapter 12 image -
+ * Chapter 13 image -
+ * Chapter 14 image -
+ * Chapter 15 image -
+ * Chapter 16 image -
+ * Appendix A image - [http://imgs.xkcd.com/comics/iso_8601.png](http://imgs.xkcd.com/comics/iso_8601.png  "Dates")
+ 
+## Author(s)
 
 My name is Enigo Montoya...
 
