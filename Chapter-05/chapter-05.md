@@ -1,4 +1,4 @@
-# The Linux Filesystem, Path, and Basic Shell Commands
+# The Linux Filesystem, Path, Shell, and File Permissions
 ![*The Shells*](images/Chapter-Header/Chapter-05/seashell2.png "Linux Shells")
 
 __Chapter 5 Objectives__
@@ -9,6 +9,7 @@ __Chapter 5 Objectives__
   *  Understand how to read the structure of commands on the commandline.
   *  Learn the Linux commandline nomenclature.
   *  Know basic tools for traversing and modifying the contents of the filesystem.
+  *  Understand the nomenclature describing file permissions and security
   
 __Outcomes__
 
@@ -82,13 +83,13 @@ var         Variable data - used for storing databases, webserver files, and app
 
  This filesystem layout harkens back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
  
-![*Linux Filesystem Heirarchy 550 by 150*](images/Chapter-05/path/sample-file-system-heirarchy.png "Sample Image")
+![*Linux Filesystem Heirarchy 650 by 150*](images/Chapter-05/path/sample-file-system-heirarchy.png "Sample Image")
  
- Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatibility.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr```[^52].  Red Hat also says this makes Linux more applications compatible with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros.  By using the command ```ls -l /``` you can see the light blue colored soft links to the actual directories.  
-
 ![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-full-listing.png "Ubuntu 15.04 root directory listing")
 
 ![*Fedora 22 root full directory listing*](images/Chapter-05/filesystems/fedora-22-root-full-listing.png "Fedora 22 root directory listing")
+ 
+ Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatibility.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr``` [^52].  Red Hat also says this makes Linux more applications compatible with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros.  By using the command ```ls -l /``` you can see the light blue colored soft links to the actual directories. 
   
 Leonart Poettering, the Red Hat engineer and leader of the systemd init system has some things to say about POSIX and LSB:  
 
@@ -170,7 +171,7 @@ Many may say, *"Hey I have a nice point and click GUI why do I need to use the c
 
 ### Basic Shell Commands 
 
-The Shell is where we enter commands for navigation, manipulation, and creation of text files.  Some of the basic commands covered in chapter 5 and 6 are in the table below.  In the course of your career you need to memorize at least these commands by name and what they do.  They have been broken down into 6 helpful categories by function.   
+The Shell is where we enter commands for navigation, manipulation, and creation of text files.  Some of the basic commands covered in chapter 5 and 6 are in the table below.  In the course of your career you need to memorize at least these commands by name and what they do.   
 
 -------------------- ------- ------- ------ ------ -------- ------- ----- 
 meta-commands          cd      ls     pwd    file    date
@@ -362,7 +363,7 @@ Criticism of C Shell: "*Although Stephen Bourne himself acknowledged that csh wa
 
 The ksh was a suitable replacement for the Bourne Shell and C Shell, but from the Free Software Foundation's view there was one main problem.  All of these shells were under proprietary AT&T licenses.  This led Richard Stallman and the FSF to fund development seeing that having a free software licensed shell was central to their dream of a completely free operating system.  Work was begun in 1989 and completed in 1991.  The shell was named the Bash Shell.  It was a clever hack on the Bourne Shell name.  Bash was a superset of the Bourne Shell and feeling as though they were "freeing" the Bourne Shell from its past life of closed software, they named it the "*Bourne Again Shell*"--Bash.  Bash is the GNU Project's shell. It is intended to conform to the IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard. It offers functional improvements over sh for both programming and interactive use. In addition, most sh scripts can be run by Bash without modification [^58].
 
-The improvements offered by Bash over sh, csh, and ksh include:
+The improvements offered by bash over sh, csh, and ksh include:
   
   * Command line editing
   * Unlimited size command history
@@ -375,7 +376,83 @@ The improvements offered by Bash over sh, csh, and ksh include:
 
   Just as Bash provided a *"free"* sh compatible shell for the GNU system that was also adopted by Linux distros as standard.  They had no choice there were no other shells to adopt because of licensing.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and ope sourced version of the Bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional /bin/sh 
 
-## Chapter Conclusions and Review
+## File Permissions and Ownership
+
+  Seeing that everything in Linux is file, there is a simple security model.  There are three types of permission per file: __read__, __write__, __execute__.  These files give a combination of permissions.  With __read permission__ you can display the content of a file or copy it, but cannot delete or rename it.  For that you need __write permission__.  If a file is a shell script or an executable binary you will need __execute permission__ for it to run.  How can you tell what permissions a file has?  Type ```ls -l``` see the output.  We have seen this output before and now we will explain it. 
+  
+![*ls -l listing of the home directory in Ubuntu 15.04*](images/Chapter-05/permissions/ls-l-ubuntu.png "Ubuntu 15.04 ls -l listing")
+
+![*ls -l listing of the home directory in Fedora 22*](images/Chapter-05/permissions/ls-l-fedora.png "Fedora 22 ls -l listing") 
+
+The first column is a listing of the permissions for a file. Notice that there are actually 3 groupings of the letters __rwx__ combined into one long string like this:  ```rw-r--r--```.  In addition to inducidualy permissions there are three categories of permission.  These three categories are __owner__, __group__, __other__  Each of these groups has its own read write execute permissions.  
+
+Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -la``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter X.
+
+Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numberic value for this is ```rw-------``` is 600.
+  
+There is one character either a "-" or a "d" proceeding the file permissions, and this tells "d" for directory and "-" for a file.  There are additional file type characters that I will list here, only the first three we will be dealing with directly in this book [^60].  
+
+ *  files
+ *  directories
+ *  symbolic links
+ *  named pipes
+ *  devices (character or block)
+ *  sockets 
+  
+![*4 most common file types*](images/Chapter-05/permissions/file-types.png "File types") 
+ 
+### Owner, Group, Other (World)
+
+  In addition to the rwx permissions, each file has three group permissions associated with it.  The first triad of rwx is the files owner permission--meaning what the person who owns the file can do to it.  These permission are usually more liberal because you trust yourself.
+  
+  The second triad of rwx permissions is group permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
+  
+  The final triad of rwx permissions is considered "other" or "world".  It means what permissions does someone who is not the owner or in the group that owns the file have?  Usually this column is conservatively "read-ony." 
+  
+![*Owner, Group, Other*](images/Chapter-05/permissions/ownership.png "Ownership")
+
+### Tools 
+
+There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter Y.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's).
+
+  ```chmod``` 
+  Pronounced *"chuh-mod"*
+   This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  
+  The outputs look like this:
+  Insert picture of chmod 755 and chmod +x 
+  
+  Why would you change permissions?  PErhaps to allow all users of a system a shell script that backsup the content of your home directory.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.
+  
+  ```chown``` 
+  Pronounced *"chuh-own"*
+  This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner.  Try it 
+  
+  touch todolist
+  
+  ls -la todolist - who is the owner of the file?  Who is the group owner?
+  
+  Change it so that the file is owned by root and the group owner is root
+  
+  ```chgrp```
+  Pronounced *"Chuh-gerp"*  
+  This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
+
+### ACLs
+
+IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them.  Here is what sticky bits do...
+
+### The 3 P's Describing 95% of all Linux Problems
+
+Find how to do definitions in markdown
+  * Path 
+   + If you get an error message telling you that ```file not found``` or ```path does not exist```  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
+  * Permission
+   +  This is discussed below, every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la
+  * dePendencies
+     +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
+
+
+## Chapter Conclusion and Review
 
   In this chapter we covered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file creation and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative path and a number of the basic shell commands. 
 
@@ -438,4 +515,5 @@ Final deliverable is to place all of the above screenshots, 23 total) into a sin
 
 [^59]: [https://lists.debian.org/debian-lsb/2015/07/msg00000.html](https://lists.debian.org/debian-lsb/2015/07/msg00000.html)
 
+[^60]" [https://en.wikipedia.org/wiki/Unix_file_types](https://en.wikipedia.org/wiki/Unix_file_types "Unix File Types")
 
