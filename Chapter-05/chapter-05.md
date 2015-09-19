@@ -82,7 +82,7 @@ var         Variable data - used for storing databases, webserver files, and app
 
  This filesystem layout harkons back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
  
- [*Linux Filesystem Heirarchy 550 by 250*](images/Chapter-05/path/sample-file-system-heirarchy.png "Sample image")
+![*Linux Filesystem Heirarchy 550 by 250*](images/Chapter-05/path/sample-file-system-heirarchy.png "Sample Image")
  
  Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatability.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr```[^52].  Red Hat also says this makes Linux more applications capatible with Unix and SolarisOS, therefore making it easier for customers and companies using Unix and SolarisOS to port over their software or migrate to Red Hat based distros.  
 
