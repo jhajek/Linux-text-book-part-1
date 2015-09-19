@@ -286,19 +286,19 @@ man wget
   
 ### Command Nomenclature
  
-```bash
-ls -la /etc
-```
-
 Commands contain three parts in this order:
 
 *  command or binary name (required)
 *  options (may or may not be required)
 *  arguments (may or may not be required)
     
-  All shell commands have a common structure in Linux. The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are proceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string proceeded by a dash.  So __```-la```__ can also be written as __```-l -a```__.  Additonally there are options that use full English language words insteaf of single letters proceeded by __two dashes__.  You can use the ```man``` command followed by the name of the command in question to see all of it's usage options.  
+  All shell commands have a common structure in Linux.  Let's take this command for instnace:
+```bash
+ls -la /etc
+```
+  The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are proceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string proceeded by a dash.  So __```-la```__ can also be written as __```-l -a```__.  Additonally there are options that use full English language words insteaf of single letters proceeded by __two dashes__.  You can use the ```man``` command followed by the name of the command in question to see all of it's usage options.  
    
-  The final value of ```__/etc__``` in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the __ls__ command to list the contents of the __/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location in the filesystem.
+  The final value of __```/etc```__ in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the __ls__ command to list the contents of the __/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location in the filesystem.
 
 ![*Listing of the /home/controller directory*](images/Chapter-05/commands/ls-home.png "ls /home/controller")
 
@@ -321,7 +321,7 @@ cp -iv .bash_profile /tmp
 
 > __Exercise:__ How would you read and say this command?   
 ```bash
-mkdir -p /mnt/new-data-drive
+mkdir -p /mnt/datadrive
 ```
 
 ### History of the Shell 
@@ -413,25 +413,23 @@ There is one character either a "-" or a "d" proceeding the file permissions, an
 
 ### Tools 
 
-There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter Y.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's).
+There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter Y.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's). This command will be covered in depth in chapter 6.
 
   ```chmod``` 
   Pronounced *"chuh-mod"*
-   This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  
-  The outputs look like this:
-  Insert picture of chmod 755 and chmod +x 
+   This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  The outputs look like this:
+   
+ ![*Standard file permissions are 644 - very conservative and secure*](images/Chapter-05/permissions/standard-permissions.png "Standard Permissions")
+   
+  Why would you want to change permissions?  Perhaps to allow all users of a system a shell script that backsup the content of your home directory.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.  Or to give a shell script execute permission so it can be run by other.
   
-  Why would you change permissions?  PErhaps to allow all users of a system a shell script that backsup the content of your home directory.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.
+ ![*Same file with write and execute permission enabled*](images/Chapter-05/permissions/standard-permissions-chmod.png "Standard Permissions")
   
   ```chown``` 
   Pronounced *"chuh-own"*
-  This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner.  Try it 
+  This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a shorthand feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner. 
   
-  touch todolist
-  
-  ls -la todolist - who is the owner of the file?  Who is the group owner?
-  
-  Change it so that the file is owned by root and the group owner is root
+> __Exercise:__  based on the previous todo-list.txt created in /tmp, issue an ```ls -l``` command - who is the owner of the file?  Who is the group owner? Change it so that the file is owned by root and the group owner is root (remember to use ```sudo```.)
   
   ```chgrp```
   Pronounced *"Chuh-gerp"*  
@@ -439,11 +437,10 @@ There are a series of commands that can be used to change or augment the owner, 
 
 ### ACLs
 
-IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them.  Here is what sticky bits do...
+IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them and will be covered in Chapter X.
 
-### The 3 P's Describing 95% of all Linux Problems
+### The 3 P's Describing 99% of all Linux Problems
 
-Find how to do definitions in markdown
   * Path 
    + If you get an error message telling you that ```file not found``` or ```path does not exist```  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
   * Permission
