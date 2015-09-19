@@ -52,7 +52,7 @@ __Outcomes__
 
 __X__ [^25]
 
-![*X Diagram*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/X_client_server_example.svg/200px-X_client_server_example.svg.png)
+![*X Diagram*](images/Chapter-04/X/X_client_server_example.svg-3.png "X diagram")
 
    Even in the mid 1980s the dream of having your own desktop PC was a bit of a ways off.  Large single Unix systems were still the nature of computing so the X system fit in, especially in the idea of remote terminals or underpowered system connecting remotely to a central server and running their own *X Window* remotely. X is often misnamed as X Windows, but the name for the project is *"X"*.
 

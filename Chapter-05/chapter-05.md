@@ -16,15 +16,15 @@ __Outcomes__
 
 *Conventions*
 
-   The terms __commandline__, __terminal__, and __shell__ have been used interchangably so far to convey the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
+   The terms __commandline__, __terminal__, and __shell__ have been used interchangeably so far to convey the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
    
-   The term __files__, __folders__, and __directories__ can be used interchangably inregards to this chapter's contents.  Remember from Chapter 2, everything in Unix is a *file*, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in block quotes throughout the chapter with little exercises that will let you follow along as you read.  
+   The term __files__, __folders__, and __directories__ can be used interchangeably in regards to this chapter's contents.  Remember from Chapter 2, everything in Unix is a *file*, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in block quotes throughout the chapter with little exercises that will let you follow along as you read.  
 
 ## What is a Filesystem?
    
 A filesystem is a way for the operating system to manage and access files.  It is how data is segregated and the mechanism the operating system uses to retrieve and write data.  The benefit of a filesytem is it will keep track of the locations in memory of your files.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table of all files location in memory and looks up the address of the file.  That address is given to the kernel which then passes it to the disk controller for the data retrieval portion.  The bits are effectively returned to the operating system from the kernel and the image is rendered to the screen.  Specific Linux filesystem and their commands will be covered in chapter 12.  
 
-The Linux filesystem was designed as an __upside down tree__ by Ken Thompson.  What is at the bottom of a tree? The __root__ is at the bottom.  This is an important concept to remember in Linux.  In Linux the __root__ or written as __"/"__ (pronounced *slash*), is at the top of our upside down tree.  From the __root__ you navigate down the file hierarchy using the ```cd``` commandline tool. You cannot go any higher in the tree than __root__, you can only go down.  When you type the command ```ls /``` you see a directory listing of the contents of the root directory. As you can see below the root directory contains subfolders, and those subfolders can have many more subfolders.  This first level below the __root__ has a common core of directories across each Linux distro. Let us take a closer look at Ubuntu 15.04 and Fedora 22 root folder file hierarchy.
+The Linux filesystem was designed as an __upside down tree__ by Ken Thompson.  What is at the bottom of a tree? The __root__ is at the bottom.  This is an important concept to remember in Linux.  In Linux the __root__ or written as __"/"__ (pronounced *slash*), is at the top of our upside down tree.  From the __root__ you navigate down the file hierarchy using the ```cd``` commandline tool. You cannot go any higher in the tree than __root__, you can only go down.  When you type the command ```ls /``` you see a directory listing of the contents of the root directory. As you can see below the root directory contains sub-folders, and those sub-folders can have many more sub-folders.  This first level below the __root__ has a common core of directories across each Linux distro. Let us take a closer look at Ubuntu 15.04 and Fedora 22 root folder file hierarchy.
 
 ![*Ubuntu 15.04 root directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu 15.04 root directory listing")
 
@@ -48,13 +48,13 @@ It is great to have a standard but what exactly does POSIX do?  Even in that que
 
   Seeing the good that POSIX standardization brought to the Unix world, a similar industry group formed the [Linux Standard Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), or LSB.  The LSB was put together for two main purposes. First it was hoped that application vendors (Oracle, Postgress, Sun, JBoss, IBM, etc, etc) would certify their products to work across different Linux distros that are LSB certified.  Vendors pay a significant amount of money to Microsoft to get drivers certified across Windows for instance.  Second was for creating a central Linux identity and reference guide for distros to comply with.  The LSB started by extending POSIX and inclided new items unique to Linux.  *"The LSB specifies for example: standard libraries, system commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system (including spoolers such as CUPS) and tools like Foomatic, and several extensions to the X Window System."* [^50] This initial standard body came together and was published in January of 2001.
   
-  Most importantly the LSB sought to create an __ABI__, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which assumes that there will be the same standard libraries to code against on every Linux distro.  The ABI gives assurance that code __compiled__ using a C compiler with the ABI comptibility feature turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows .exe package you create. It runs on all Windows platforms from XP all the way to Windows 10, those operating systems are ABI compliant.  The LSB wanted to guarantee this so that major vendors of software would not have to maintain multiple software versions, just maintain one version with ABI compatibility, thus preventing a barrier Linux enterprise adoption.
+  Most importantly the LSB sought to create an __ABI__, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which assumes that there will be the same standard libraries to code against on every Linux distro.  The ABI gives assurance that code __compiled__ using a C compiler with the ABI compatibility feature turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows .exe package you create. It runs on all Windows platforms from XP all the way to Windows 10, those operating systems are ABI compliant.  The LSB wanted to guarantee this so that major vendors of software would not have to maintain multiple software versions, just maintain one version with ABI compatibility, thus preventing a barrier Linux enterprise adoption.
   
   The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the individual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
   
 ### The Problem with the LSB 
   
-The dream of a unified Linux standard never really occured. __No one implements LSB the way it was intended__. This post from the Debian LSB mainling list marked July 3rd 2015 says it all:  
+The dream of a unified Linux standard never really occurred. __No one implements LSB the way it was intended__. This post from the Debian LSB mailing list marked July 3rd 2015 says it all:  
   
 > The crux of the issue is, I think, whether this whole game is worth the work: I am yet to hear about software distribution happening through LSB packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4. [^59]
 
@@ -80,13 +80,11 @@ usr         Secondary hierarchy
 var         Variable data - used for storing databases, webserver files, and application logs
 ----------  -----------------------------------------------------------------------------------
 
- This filesystem layout harkons back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
+ This filesystem layout harkens back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
  
-![*Linux Filesystem Heirarchy 550 by 250*](images/Chapter-05/path/sample-file-system-heirarchy.png "Sample Image")
+![*Linux Filesystem Heirarchy 550 by 150*](images/Chapter-05/path/sample-file-system-heirarchy.png "Sample Image")
  
- Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatability.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr```[^52].  Red Hat also says this makes Linux more applications capatible with Unix and SolarisOS, therefore making it easier for customers and companies using Unix and SolarisOS to port over their software or migrate to Red Hat based distros.  
-
-By using the command ```ls -l /``` you can see the light blue colored softlinks to the actual directories.  
+ Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatibility.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr```[^52].  Red Hat also says this makes Linux more applications compatible with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros.  By using the command ```ls -l /``` you can see the light blue colored soft links to the actual directories.  
 
 ![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-full-listing.png "Ubuntu 15.04 root directory listing")
 
@@ -108,7 +106,8 @@ Remember that our filesystem is an upside down tree?  That means we can traverse
 
 What is the difference? Think of your school or home address.  If I told you I live at [324 W 35th Street Chicago Illinois 60616, United States of America](https://en.wikipedia.org/wiki/Comiskey_Park "Comiskey Park") that would be my __absolute__ address and very helpful, right?
 
-But what if you already lived in the US and in the city of Chicago?  What if you lived on the same street as the address listed above, there would be no need to repeat all the detailed information.  Perhaps I would just say I live at *"325 West"* and you would know where to go.  This concept is called __relative path__. Let us see this concept in action.  Later in this chapter we will cover shell commands in detail but for now we will introduce a few basic ones.  
+But what if you already lived in the US and in the city of Chicago?  What if you lived on the same street as the address listed above, there would be no need to repeat all the detailed information.  Perhaps I would just say I live at *"325 West"* and you would know where to go.  This concept is called __relative path__. Let us see this concept in action.  Later in this chapter we will cover shell commands in detail but for now we will introduce a few basic ones.
+  
   * cd - used to change directory and move up and down the filesystem tree.
   * pwd - used to check what your present location is on the filesystem tree.
   * ls - used to list the content of the directory where you are located on the filesystem tree.
@@ -123,16 +122,16 @@ When the terminal window opens you are automatically deposited at a specific loc
 
 > __Exercise:__ Let's learn about the ```cd``` command to change our directory location. Type ```cd /etc/network``` if you are on Ubuntu 15.04 and ```cd /etc/sysconfig/network-scripts``` if you are Fedora 21 or 22.  Type the ```ls``` commands--what do you see?  Also are these path absolute or relative?
 
-The way to determine is that an absolute path will always start with __/__ as the first charecter. Much like the address example this is telling you the directries absolute location in relation to the __root__.  On Ubuntu for instance, the network directory can be found by traversing the tree from ```/``` down to a system directory called ```etc``` and then to a subdirectory located in etc called ```network```.  In this case, ```network``` is a sub-directory of etc and contains all the files related to configuring your network card settings.  
+The way to determine is that an absolute path will always start with __/__ as the first character. Much like the address example this is telling you the directories absolute location in relation to the __root__.  On Ubuntu for instance, the network directory can be found by traversing the tree from ```/``` down to a system directory called ```etc``` and then to a sub-directory located in etc called ```network```.  In this case, ```network``` is a sub-directory of etc and contains all the files related to configuring your network card settings.  
 
-A relative path assumes the pwd portion of the absolute path.  From the exercise example above we notice a few things about relative paths.  __First__ our pwd when we open a shell is our home directory.  In my case /home/jeremy. If we see the hierarchy the directory Documents is under the jeremy directory.  the ```cd``` command takes us down one directory by default.  How can we "cd" into that directory?  By simply typing ```cd Documents```.  This is a __relative path__. Why?  Notice that there is no __/__ in front of the directory name.  This tells the cd command that you are assuming that the system should start looking for the directory name we passed in the directory we currently are.  Could we have typed ```cd /home/jeremy/Documents```?  Yes we could have, but the first two parts of the absolute path were irrelevent to us because we were already in that location.
+A relative path assumes the pwd portion of the absolute path.  From the exercise example above we notice a few things about relative paths.  __First__ our pwd when we open a shell is our home directory.  In my case /home/jeremy. If we see the hierarchy the directory Documents is under the jeremy directory.  the ```cd``` command takes us down one directory by default.  How can we "cd" into that directory?  By simply typing ```cd Documents```.  This is a __relative path__. Why?  Notice that there is no __/__ in front of the directory name.  This tells the cd command that you are assuming that the system should start looking for the directory name we passed in the directory we currently are.  Could we have typed ```cd /home/jeremy/Documents```?  Yes we could have, but the first two parts of the absolute path were irrelevant to us because we were already in that location.
 
 How would we navigate back up the tree?  What if we want to return to our home directory?  There are a few options, assuming that our pwd is ```/home/jeremy/Documents``` which of these would be the best choice?
 
 ----------------------  ----------------------------
-```cd /home/jeremy```    abosulte or relative path?
-```cd ~```               abosulte or relative path?
-```cd ../```             abosulte or relative path?  
+```cd /home/jeremy```    aboslute or relative path?
+```cd ~```               aboslute or relative path?
+```cd ../```             aboslute or relative path?  
 ----------------------  ----------------------------
 
 The first two options are absolute paths, the third option is a relative path with something new.  Here we are introduced to the __double-dot__ operator.  The __double-dot__ and __single-dot__ (sometimes just called *dot*) are the way you can reference locations up the tree or in your current directory.  The command ```cd ../``` is a short cut to take you __up__ one level in the filesystem tree.  Double-dots can be chained together to traverse up multiple directories all at once.  
@@ -161,71 +160,17 @@ What happens if you try to cd into a directory that doesn't exist?
   
 ### Difference Between a Shell, Terminal, and Commandline  
 
-  If you remember from chapter 4 that the word *"terminal"* came from the actual DEC VT-100 physical terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 line screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text and allow the user to interact with the Kernel via commands.   There are many types of shells that have different features.  Shells give the user the ability to create scripts for executing multiple commands, command completion, command history, command aliases, and more.  You open a terminal and in a terminal session you use a shell.  You can have multiple terminal sessions and use different shells on each one if you preferr.   In total the combination of using a terminal to access a shell can be called using the *commandline*.  
+  If you remember from chapter 4 that the word *"terminal"* came from the actual DEC VT-100 physical terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 line screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text and allow the user to interact with the Kernel via commands.   There are many types of shells that have different features.  Shells give the user the ability to create scripts for executing multiple commands, command completion, command history, command aliases, and more.  You open a terminal and in a terminal session you use a shell.  You can have multiple terminal sessions and use different shells on each one if you prefer.   In total the combination of using a terminal to access a shell can be called using the *commandline*.  The diagram below shows hwo the commands you type in the terminal are processed by the shell, given to the kernel and then output is returned to the user.
 
 ![*Shell/OS interaction diagram*](images/Chapter-05/shells/figure2.png "Shell Interaction Diagram")
   
-### History of the Shell 
-  
-On modern Linux there is one standard shell in place on pretty much all major Linux distros, the [GNU Bash Shell](http://www.gnu.org/software/bash/ "Bash Shell"). It was created in parallel with the rise of Linux--the two are practically tied together.  But to understand how we got to the modern Bash Shell we have to go back to the beginning. As always the history of anything on Unix/Linux goes back to Ken Thompson [^46].  By 1972 there was a single shell in Unix in use, referred to by others as the [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell "Thompson Shell").  This shell was written by Ken Thompson and was written for Ken Thompson solving the technical problems he had back in 1972.  By 1979 computer processing power and the nature of computing tasks were light years away from where they had been when THompson started his shell. *"The shell's design was intentionally minimalistic; even the if and goto statements, essential for control of program flow, were implemented as separate commands [^55]."* A new shell was needed. 
+### Linux Shell Commands
 
-Two almost simultaneous efforts on different sides of the country were happening to replace the Thompson shell.  Remember that Unix had split into BSD Unix out at Berkley California and AT&T Unix which was the commercial Unix back east.  The BSD group was developing the C shell (csh) under Bill Joy.  AT&T researcher Steven Bourne was developing the Bourne Shell (sh).       
- 
-![*Timeline history of Unix/Linux Shells*](images/Chapter-05/shells/figure1.png "Timeline history") 
-
-#### C Shell
-
-The __C Shell__ was written by [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") almost single handedly while working on the BSD Unix distro in 1978/79.  Joy conlcuded that since Unix was written in the C language and most programs at the time were written using C, it didn't make sense to change the language one was using in their shell to something other than C. So Joy implemented the shell concept Thompson had started with vastly improved features and using the C language based syntax.  
-
-Criticism of C Shell: "*Although Stephen Bourne himself acknowledged that csh was superior to his shell for interactive use, it has never been as popular for scripting. Initially, and through the 1980s, csh could not be guaranteed to be present on all Unix systems, but sh could, which made it a better choice for any scripts that might have to run on other machines. By the mid-1990s, csh was widely available, but the use of csh for scripting faced new criticism by the POSIX committee, which specified that there should only be one preferred shell, the Korn Shell, for both interactive and scripting purposes. The C shell also faced criticism from others over the C shell's alleged defects in syntax, missing features, and poor implementation.* [^56]" 
-
-By 1984 there was an improved C Shell called the tcsh that fixed the deficincies of the original C Shell and added features.  This was only available on some BSD varients at the time.
-
-#### Bourne Shell
-
-  Steven Bourne was a researcher at AT&T Bell labs implemented his own shell to replace the Thompson Shell in 1977.  The Bourne Shell was distributed in standard Unix from Version 7, SystemIII, SVR2, SVR3, SVR4 [^57].
-
-*  Built-in test command – System III shell (1981)
-*  ```#``` as comment character – System III shell (1981)
-*  Colon in parameter substitutions ```"${parameter:=word}"``` – System III shell (1981)
-*  Functions and the return builtin – SVR2 shell (1984)
-*  Built-ins unset, echo, type – SVR2 shell (1984)
-*  Source code de-ALGOL68-ized – SVR2 shell (1984)
-*  Modern "$@" – SVR3 shell (1986)
-*  Built-in getopts – SVR3 shell (1986)
-*  Cleaned up parameter handling allows recursively callable functions – SVR3 shell (1986)
-*  8-bit clean – SVR3 shell (1986)
-*  Job control – SVR4 shell (1989)
-*  Multi-byte support – SVR4 shell (1989)
-
-#### Korn Shell
-
-  By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  There is an American experession, "The grass is always greener on the other side of the fence." The C shell users wanted features from the Bourne Shell and vis-a-versa.  Another researcher at Bell Labs, named David Korn, began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the newer features of the C Shell.  This was called the [Korn Shell](http://kornshell.com/ "ksh") (ksh) and released in 1983.  The Bourne Shell was standard on all AT&T Unix so any new shell had to gaurentee backwards compatability otherwise that shell was never going to receive adoption.  The imporvements the Korn Shell made were apparent and it was soon included as well on on AT&T Unix standard.  In 1991/1992 the POSIX standard adopted KSH as the standard shell that any Unix system claming POSIX compliance is requried to have.  By 2005 the Korn Shell was opensourced under a free license.  
-  
-#### GNU Bash Shell
-
-The ksh was a sutiable replacement for the Bourne Shell and C Shell, but from the Free Software Foundation's view there was one main problem.  All of these shells were propriatry.  This led Richard Stallman and the FSF to fund development seeing that having a free softare licensed shell was central to their dream of a completely free operating system.  Work was begun in 1989 and completed in 1991.  The shell was named the Bash Shell.  It was a clever hack on the Bourne Shell name.  Bash was a superset of the Bourne Shell and feeling as though they were "freeing" the Bourne Shell from its past life of closed software, they named it the "*Bourne Again Shell*"--Bash.  Bash is the GNU Project's shell. It is intended to conform to the IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard. It offers functional improvements over sh for both programming and interactive use. In addition, most sh scripts can be run by Bash without modification [^58].
-
-The improvements offered by Bash over sh, csh, and ksh include:
-  
-  * Command line editing
-  * Unlimited size command history
-  * Job Control
-  * Shell Functions and Aliases
-  * Indexed arrays of unlimited size
-  * Integer arithmetic in any base from two to sixty-four
-
-#### Open Source sh Replacements
-
-  Just as Bash provided a *"free"* sh compatible shell for the GNU system that was also adopted by Linux distros as standard.  They had no choice there were no other shells to adopt because of licensing.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and ope sourced version of the bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional /bin/sh 
-
-## Linux Shell Commands
-
-Many may say, *"Hey I have a nice point and click GUI why do I need to use the crusty old commandline?"*  That is a valid question.  In reality the GUI not separate from the shell.  It is syntactic sugar on top of the Shell. Anything you click on in a GUI in reality is executing a command in the shell anyway.  In most cases using the shell may have more avaialble features for your command then in the GUI.  The GUI by definition cannot have more capability than the shell.  
+Many may say, *"Hey I have a nice point and click GUI why do I need to use the crusty old commandline?"*  That is a valid question.  In reality the GUI is not separate from the shell.  It is a *"visual sugar"* built on top of the Shell. Anything you click on in a GUI in reality is in reality __executing a command through the shell__.  In most cases using the Shell has more features for your command then in the GUI.  The GUI by definition cannot have more capability than the shell.  
 
 ### Basic Shell Commands 
 
-In the shell is where we can enter basic commands for navigation and manipulation of text files.  Some of the basic commands we will cover are as follows:
+The Shell is where we enter commands for navigation, manipulation, and creation of text files.  Some of the basic commands covered in chapter 5 and 6 are in the table below.  In the course of your career you need to memorize at least these commands by name and what they do.  They have been broken down into 6 helpful categories by function.   
 
 -------------------- ------- ------- ------ ------ -------- ------- ----- 
 meta-commands          cd      ls     pwd    file    date
@@ -236,11 +181,9 @@ display-augmentation   grep    awk    sed
 help commands          man    info    find   which  locate
 -------------------- ------- ------- ------ ------ -------- ------- ----- 
 
-  In the course of your career you need to memorize at least these commands by name and what they do.  THey have been broken down into 5 helpful categories.  They are essential to the use of any Linux operating system.  
-
 cd
 
-: This command is used to help you change the directory location.  The shell can only be pointed at one file location at a time.  In a GUI you are used to *"clickling"* on folders to navigate up and down the filesystem hierchy.  What you are actually doing when you click is issuing __cd__ commands to the kernel which is returning instructions of what the GUI should now render.  __Usage examples:__ 
+: This command is used to help you change the directory location.  The shell can only be pointed at one file location at a time.  In a GUI you are used to *"clicking"* on folders to navigate up and down the filesystem hierarchy.  What you are actually doing when you click is issuing __cd__ commands to the kernel which is returning instructions of what the GUI should now render.  __Usage examples:__ 
 ```bash 
 cd /tmp 
 ```
@@ -282,7 +225,7 @@ touch todolist.txt
  
 cat
  
-: This command is used to display the content of a file to the screen.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a filename content and output it to the screen.  There are lengthy articles discussing if this is the [correct method or a superaltive way](http://stackoverflow.com/questions/11710552/useless-use-of-cat "UUoC").  We will use it through out the textbook becausae of readability and common usage acceptance.  __Usage examples:__  
+: This command is used to display the content of a file to the screen.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a filename content and output it to the screen.  There are lengthy articles discussing if this is the [correct method or a superlative way](http://stackoverflow.com/questions/11710552/useless-use-of-cat "UUoC").  We will use it through out the textbook because of readability and common usage acceptance.  __Usage examples:__  
 ```bash 
 cat /etc/apache2/sites-available/000-default
 ```
@@ -329,14 +272,14 @@ man
 man wget
 ```
 
-> __Exercises:__ Let's create a text file that has the current date and time in it.  Type ```date > timestampfile```  (The ```> ``` is a shell meta character that redirects output from the screen to another file. We will learn more about this in chapter 06.)
+> __Exercises:__ Let's create a text file that has the current date and time in it.  Type ```date > timestampfile```  (The ```> ``` is a shell meta character that redirects output from the screen to another file. We will learn more about this in chapter 6.)
 
   *  Now copy that file to the ```/tmp``` directory--what would be the commands?
-  *  Now let us make a new directroy under our home directory called notes (remember the filesystem is an upsidedown tree) 
+  *  Now let us make a new directory under our home directory called notes (remember the filesystem is an upside down tree) 
   *  What command would we use?  ```mkdir notes```.  
   *  Now let us copy the file ```timestampfile``` into the notes directory.  
   *  What command would you use? What would the full command and arguments look like?  
-  *  How would you change directroy and list the content of the notes directory (hint cd and ls)?
+  *  How would you change directory and list the content of the notes directory (hint cd and ls)?
 
 *Note* if you get lost in the Linux filesystem tree you can always tpye cd ~ (tilde) and you will be taken back to your user home directory.
   
@@ -352,7 +295,7 @@ Commands contain three parts in this order:
 *  options (may or may not be required)
 *  arguments (may or may not be required)
     
-  All shell commands have a common structure in Linux. The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are preceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string preceeded bya dash.  So __```-la```__ can also be writted as __```-l -a```__.  Additonally there are options that use full english lanugage preceeded by __two dashes__ and are more descriptive english phrases.  You can use the ```man``` command to see all of the usage options.  
+  All shell commands have a common structure in Linux. The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are proceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string proceeded by a dash.  So __```-la```__ can also be written as __```-l -a```__.  Additonally there are options that use full English language words insteaf of single letters proceeded by __two dashes__.  You can use the ```man``` command followed by the name of the command in question to see all of it's usage options.  
    
   The final value of ```__/etc__``` in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the __ls__ command to list the contents of the __/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location in the filesystem.
 
@@ -362,13 +305,13 @@ Commands contain three parts in this order:
         
 ### How to Read Shell Commands and "Speak Linux"
 
-  In working with many excellent people over the years I have also found that there is a common Linux spoken language.  When talking to others, you find that for the most part the standard Linux filesystem has been memorized.  As well as the most common Linux tools through repeated usage.  With this in mind you can "speak" a command without mentionig certain aspects--they are implied.  
+  In working with many excellent people over the years I have also found that there is a common Linux spoken language.  When talking to others, you find that for the most part the standard Linux filesystem has been memorized.  As well as the most common Linux tools through repeated usage.  With this in mind you can "speak" a command without mentioning certain aspects--they are implied.  
   
-  Let's take a simple command to list the contents of the /etc directory with a long listing and showing all, inlcuding hidden filed for instance.  How would you verbalize the command to your co-worker? 
+  Let's take a simple command to list the contents of the /etc directory with a long listing and showing all, including hidden filed for instance.  How would you verbalize the command to your co-worker? 
   ```bash
   ls -la /etc
   ```
-  You would say "*el-es el-aaa eee tee cee*".  *Note* I didn't mention any dashes or slashes.  Why? Because the context of the ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  The shell assumes that you are giving an absolute path because of the slash preceeding ```/etc```.  
+  You would say "*el-es el-aaa eee tee cee*".  *Note* I didn't mention any dashes or slashes.  Why? Because the context of the ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  The shell assumes that you are giving an absolute path because of the slash proceeding ```/etc```.  
   
 > __Exercise:__  As you remember the cp command takes two arguments: __source__ and __destination__.  How would you read and say this command?
 ```bash
@@ -379,6 +322,58 @@ cp -iv .bash_profile /tmp
 ```bash
 mkdir -p /mnt/new-data-drive
 ```
+
+### History of the Shell 
+  
+On modern Linux there is one standard shell in place on pretty much all major Linux distros, the [GNU Bash Shell](http://www.gnu.org/software/bash/ "Bash Shell"). It was created in parallel with the rise of Linux--the two are practically tied together.  But to understand how we got to the modern Bash Shell we have to go back to the beginning. As always the history of anything on Unix/Linux goes back to Ken Thompson [^46].  By 1972 there was a single shell in Unix in use, referred to by others as the [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell "Thompson Shell").  This shell was written by Ken Thompson and was written for Ken Thompson solving the technical problems he had back in 1972.  By 1979 computer processing power and the nature of computing tasks were light years away from where they had been when Thompson started his shell. *"The shell's design was intentionally minimalistic; even the if and goto statements, essential for control of program flow, were implemented as separate commands [^55]."* A new shell was needed. 
+
+Two almost simultaneous efforts on different sides of the country were happening to replace the Thompson shell.  Remember that Unix had split into BSD Unix out at Berkeley California and AT&T Unix which was the commercial Unix back east.  The BSD group was developing the C shell (csh) under Bill Joy.  AT&T researcher Steven Bourne was developing the Bourne Shell (sh).       
+ 
+![*Timeline history of Unix/Linux Shells*](images/Chapter-05/shells/figure1.png "Timeline history") 
+
+#### C Shell
+
+The __C Shell__ was written primarily by [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") while working on the BSD Unix distro in 1978/79.  Joy concluded that since Unix was written in the C language and most programs at the time were written using C, it didn't make sense to change the language one was using in their shell to something other than C. So Joy implemented the shell concept Thompson had started with vastly improved features and using the C language based syntax.  By 1984 there was an improved C Shell called the tcsh that fixed the deficencies of the original C Shell and added features.  This was only available on some BSD varients at the time.  
+
+Criticism of C Shell: "*Although Stephen Bourne himself acknowledged that csh was superior to his shell for interactive use, it has never been as popular for scripting. Initially, and through the 1980s, csh could not be guaranteed to be present on all Unix systems, but sh could, which made it a better choice for any scripts that might have to run on other machines. By the mid-1990s, csh was widely available, but the use of csh for scripting faced new criticism by the POSIX committee, which specified that there should only be one preferred shell, the Korn Shell, for both interactive and scripting purposes. The C shell also faced criticism from others over the C shell's alleged defects in syntax, missing features, and poor implementation.* [^56]" 
+
+#### Bourne Shell
+
+  Steven Bourne was a researcher at AT&T Bell labs implemented his own shell to replace the Thompson Shell in 1977.  The Bourne Shell was distributed in standard Unix from Version 7, SystemIII, SVR2, SVR3, SVR4 [^57].
+
+*  Built-in test command – System III shell (1981)
+*  ```#``` as comment character – System III shell (1981)
+*  Colon in parameter substitutions ```"${parameter:=word}"``` – System III shell (1981)
+*  Functions and the return builtin – SVR2 shell (1984)
+*  Built-ins unset, echo, type – SVR2 shell (1984)
+*  Source code de-ALGOL68-ized – SVR2 shell (1984)
+*  Modern "$@" – SVR3 shell (1986)
+*  Built-in getopts – SVR3 shell (1986)
+*  Cleaned up parameter handling allows recursively callable functions – SVR3 shell (1986)
+*  8-bit clean – SVR3 shell (1986)
+*  Job control – SVR4 shell (1989)
+*  Multi-byte support – SVR4 shell (1989)
+
+#### Korn Shell
+
+  By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  There is an American expression, "The grass is always greener on the other side of the fence." The C shell users wanted features from the Bourne Shell and vis-a-versa.  Another researcher at Bell Labs, named David Korn, began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the newer features of the C Shell.  This was called the [Korn Shell](http://kornshell.com/ "ksh") (ksh) and released in 1983.  The Bourne Shell was standard on all AT&T Unix so any new shell had to guarantee backwards compatability otherwise that shell was never going to receive adoption.  The improvements the Korn Shell made were apparent and it was soon included as well on on AT&T Unix standard.  In 1991/1992 the POSIX standard adopted KSH as the standard shell that any Unix system claiming POSIX compliance was required to have.  By 2005 the Korn Shell was opensourced under a free license but it was too late.  
+  
+#### GNU Bash Shell
+
+The ksh was a suitable replacement for the Bourne Shell and C Shell, but from the Free Software Foundation's view there was one main problem.  All of these shells were under proprietary AT&T licenses.  This led Richard Stallman and the FSF to fund development seeing that having a free software licensed shell was central to their dream of a completely free operating system.  Work was begun in 1989 and completed in 1991.  The shell was named the Bash Shell.  It was a clever hack on the Bourne Shell name.  Bash was a superset of the Bourne Shell and feeling as though they were "freeing" the Bourne Shell from its past life of closed software, they named it the "*Bourne Again Shell*"--Bash.  Bash is the GNU Project's shell. It is intended to conform to the IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard. It offers functional improvements over sh for both programming and interactive use. In addition, most sh scripts can be run by Bash without modification [^58].
+
+The improvements offered by Bash over sh, csh, and ksh include:
+  
+  * Command line editing
+  * Unlimited size command history
+  * Job Control
+  * Shell Functions and Aliases
+  * Indexed arrays of unlimited size
+  * Integer arithmetic in any base from two to sixty-four
+
+#### Open Source sh Replacements
+
+  Just as Bash provided a *"free"* sh compatible shell for the GNU system that was also adopted by Linux distros as standard.  They had no choice there were no other shells to adopt because of licensing.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and ope sourced version of the Bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional /bin/sh 
 
 ## Chapter Conclusions and Review
 
