@@ -1,5 +1,5 @@
 # Introduction to Linux Editors, Shell Scripts, and User Profiles  
-![*Real programmers...](images/Chapter-Header/Chapter-07/real_programmers-2.png "vi")
+![*Real programmers...*](images/Chapter-Header/Chapter-07/real_programmers-2.png "vi")
 
 __Chapter 7 Objectives__
 

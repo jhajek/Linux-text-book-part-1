@@ -1,5 +1,5 @@
 # Writing Basic Shell Scripts
-![*The power of sudo*](images/Chapter-Header/Chapter-08/sandwich.png "Sandwich")
+![*The power of sudo*](images/Chapter-Header/Chapter-08/sandwich-2.png "Sandwich")
 
 
 
