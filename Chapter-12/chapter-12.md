@@ -1,5 +1,5 @@
 # Creating, Partitioning, and Mounting Filesystems
-![*Easy as cake...*](images/Chapter-Header/Chapter-12/server_problem.png-2 "Server Problem")
+![*Easy as cake...*](images/Chapter-Header/Chapter-12/server_problem-2.png "Server Problem")
 
 __Chapter 12 Objectives__
 

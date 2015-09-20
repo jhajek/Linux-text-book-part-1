@@ -397,7 +397,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
   
 #### Fedora Project
 
-![*Fedora Project*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fedora_logo_and_wordmark.svg/128px-Fedora_logo_and_wordmark.svg.png "Fedora Project")
+![*Fedora Project*](images/Chapter-02/Linux-logos/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
  
    The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable but from Red Hat's point of view outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies.  
    

@@ -7,7 +7,7 @@ date: 07/30/2015
 
 # Introduction to the Technology and Philosophy of Linux Part I
 
-![*One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. "This," one of them finally says, "This is a man who BELIEVED in something."*](iamges/Chapter-Header/Chapter-01/operating_systems.png "Operating Systems")
+![*One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. "This," one of them finally says, "This is a man who BELIEVED in something."*](images/Chapter-Header/Chapter-01/operating_systems.png "Operating Systems")
 
 [*"I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones..." Linus Torvalds 1991*](https://groups.google.com/forum/?hl=en#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ "Initial Post About Linux.")
 
@@ -23,10 +23,9 @@ date: 07/30/2015
 
  This book doubles as a university text book.  It has a 16 week semester structure, along with review questions, podcast assignments, and lab exercises.  But the book can be used beyond that.  There is a wealth of other material that is can be covered in depth depending on your needs. 
 
-## Cover Image
+## Book Images
   
- Will get to that once the content is done...
- 
+ * ePub cover image -  
  * Chapter 1 image - [http://imgs.xkcd.com/comics/operating_systems.png](http://imgs.xkcd.com/comics/operating_systems.png "Operating Systems")
  * Chapter 2 image - [http://imgs.xkcd.com/comics/open_source.png](http://imgs.xkcd.com/comics/open_source.png "Open Source")
  * Chapter 3 image - [http://imgs.xkcd.com/comics/surgery.png](http://imgs.xkcd.com/comics/surgery.png "surgery")

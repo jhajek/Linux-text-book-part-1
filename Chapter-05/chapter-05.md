@@ -420,23 +420,102 @@ sockets                     s
   
 ![*Highlighting the file owner and group owner*](images/Chapter-05/permissions/ownership-2.png "Ownership")
 
-### The 3 P's Describing 99% of all Linux Problems
-
-  * Path 
-     + If you get an error message telling you that ```file not found``` or ```path does not exist```  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
-  * Permission
-     +  This is discussed below, every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la
-  * dePendencies
-     +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
-
-
 ## Chapter Conclusion and Review
 
-  In this chapter we covered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file creation and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative path and a number of the basic shell commands. 
+  In this chapter we covered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file creation and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative path and a number of the basic shell commands. Finally we covered file permissions.
 
 ### Review Questions
 
-  TBD
+1)	 What is the numeric value of a file with the permissions rwxr--r--?
+    a.	777
+    b.	700
+    c.	766
+    d.	744
+2)	What is the numeric value of a file with the permissions rw-----?
+    a.	700 
+    b.	400
+    c.	600
+    d.	007
+3)	What is the numeric value of a file with the permission rwx-r-xr-x?
+    a.	711
+    b.	755
+    c.	644
+    d.	227
+4)	What is the name of the command you use to list the contents of a directory?
+    a.	lst
+    b.	/p
+    c.	man
+    d.	ls
+5)	What is the name of the command you use to display the content of a file to the screen?
+    a.	dg
+    b.	tac
+    c.	ls
+    d.	cat
+6)	What is the name of the command you use to display the content of a file to the screen that allows you to page up and down?
+    a.	more
+    b.	less
+    c.	ls
+    d.	page
+7)	Every shell command has three components:
+    a.	Command, arguments, flags
+    b.	Command, options, arguments
+    c.	Commands, arguments, options
+    d.	Commands, flags, options
+8)	What does the user use to issue commands to the kernel?
+    a.	Terminal
+    b.	Commandline
+    c.	Magic
+    d.	Shell
+9)	What is the name of the GNU shell that is standard across all Linux Distros
+    a.	ksh
+    b.	sh
+    c.	csh
+    d.	bash
+10)	Based on the ls command, what is the option to do a long listing?
+    a.	ls --all
+    b.	ls -n
+    c.	list
+    d.	ls –l
+11)	What is the command you can use to find out additional usage information about a shell command?
+    a.	about
+    b.	man
+    c.	F1
+    d.	/?
+12)	Which of these directories is not part of the LSB LFH?
+    a.	bin
+    b.	media
+    c.	temp
+    d.	opt
+13)	The Linux Filesystem is an upside down what?
+    a.	root
+    b.	object
+    c.	tree
+    d.	mess
+14)	What is the name for the top node in the Linux Filesystem?
+    a.	root (or /)
+    b.	top
+    c.	node 0
+    d.	slashdot
+15)	Everything (directories, files, devices) in Unix/Linux is a what?
+
+16)	What is the name of the Unix system standard developed in ~1985 that defines at a minimum what a certified Unix based system must support?
+    a.	Xenix
+    b.	LSB
+    c.	POSIX
+    d.	Linux
+17)	What is the directory where all configuration files are stored in Linux?
+    a.	bin
+    b.	sbin
+    c.	etc
+    d.	conf
+18)	What is the directory where all system binaries are stored?
+    a.	bin
+    b.	sbin
+    c.	usr/sbin
+    d.	usr/bin
+19)	What is the directory that holds all of the user’s home directories? (no slash, just the name)
+
+20)	True or False - Leonart Poettering supports POSIX
 
 ### Podcast Questions
 
@@ -493,6 +572,11 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     i) Take a screenshot of the output of an ls command after you have created the new directory in book/Linux-text-book-part-1-master. Name the file lastname-firstname-screenshot-week-5-mkdir.(jpg or png)
 1) Use the touch command to create a file named chapter-16.md under the Chapter-16 folder created in the previous step. Execute the command assuming that your pwd is book/Linux-text-book-part-1-master
     i)  Take a screenshot of the output of an ls command after you have created the new file in the Chapter-16 directory.  Name the file lastname-firstname-screenshot-week-5-touch.(jpg or png)   
+1) Use the ls -l command to find the permission levels of the chapter-16.md file you just created.  Use an absolute path to the file's location
+    i) Take a screenshot of the output of an ls -l command with the absolute path to the chapter-16.md file.  Name the file lastname-firstname-screenshot-week-5-lsl.(jpg or png)
+1) What is the command to display the man page for ls?
+    i) Take a screen shot of the output of the command above (initial page only remember 'q' to quit.) Name the file lastname-firstname-screenshot-week-5-manls.(jpg or png)
+
 
 Final deliverable is to place all of the above screenshots, and all commands into a single text file named lastname-firstname-week-5-commands.txt) into a single zip file named: __lastname-firstname-chapter-05-lab.zip__   
 

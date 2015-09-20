@@ -16,13 +16,23 @@ __Chapter 11 Objectives__
   *  systemd 
     + binary logs
     + other systemd tools
-  
+  * sudo
+    + visudoers
+  * 3P's 
 
 __Outcomes__
 
-## Types
 
-  * Intro to regex
+  
+  ### The 3 P's Describing 99% of all Linux Problems
+
+  * Path 
+     + If you get an error message telling you that ```file not found``` or ```path does not exist```  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
+  * Permission
+     +  This is discussed below, every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la
+  * dePendencies
+     +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
+  
   
   ### Tools 
 
