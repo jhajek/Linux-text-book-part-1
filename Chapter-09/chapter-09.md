@@ -18,6 +18,7 @@ __Chapter 11 Objectives__
     + other systemd tools
   * sudo
     + visudoers
+    + Understand the sudo command and root user paradigm    
   * 3P's 
 
 __Outcomes__

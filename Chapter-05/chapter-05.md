@@ -68,18 +68,18 @@ Directory           Function
 bin         Essential command binaries 
 boot        Static files of the boot loader that copy the kernel into memory on boot
 dev         Device file handles 
-etc         Host-specific system configuration files 
+etc         System configuration files 
 lib         Essential shared libraries and kernel modules 
 media       Mount point for removable media 
 mnt         Mount point for mounting a filesystem temporarily, called *"mount"* 
 opt         Add-on application software packages 
 run         Data relevant to running processes 
-sbin        Essential system binaries added by each operating system
+sbin        System binaries added by each operating system for management  
 srv         Data for services provided by this system 
-tmp         Temporary files 
-usr         Secondary hierarchy 
+tmp         Temporary files - some distros clear this directory upon reboot 
+usr         Secondary hierarchy - contains X, KDe or GNOME, plus documentation 
 var         Variable data - used for storing databases, webserver files, and application logs
-proc        Not an actual directory, created at runtime to house metadata about the running system
+proc        Virtual filesystem created at runtime containing system information in text files. 
 ----------  ---------------------------------------------------------------------------------------
 
  This filesystem layout harkens back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
@@ -509,7 +509,7 @@ sockets                     s
     b.	sbin
     c.	etc
     d.	conf
-18)	What is the directory where all system binaries are stored?
+18)	What is the directory where all the essential command binaries are stored?
     a.	bin
     b.	sbin
     c.	usr/sbin

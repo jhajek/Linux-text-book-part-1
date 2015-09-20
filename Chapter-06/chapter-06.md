@@ -7,7 +7,6 @@ __Chapter 6 Objectives__
    * redirection < > | tee
    * Find and grep
    * {} ! # $ and escape sequences
-   * Understand the sudo command and root user paradigm   
    * tar, bzip, xz 
    
 __Outcomes__

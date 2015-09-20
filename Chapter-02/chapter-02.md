@@ -180,7 +180,7 @@ Since Ritchie created "C" to solve all the problems Unix had -- it became the de
 
 __Brian Kernighan__ [^4]
 
-![*Brian Kernighan in 2012 at Bell Labs 1*](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Brian_Kernighan_in_2012_at_Bell_Labs_2.jpg/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2.jpg "Brian Kernighan in 2012 at Bell Labs 1")
+![*Brian Kernighan in 2012 at Bell Labs 1*](images/Chapter-02/People/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs 1")
   
   Thompson didn't have a name for his project initially, another related figure, Brian Kernighan, can be credited with giving it the name UNIX.  This was a play on words--MULTI vs UNI in the name. Kernighan also helped write the original C language text book along with Dennis Ritchie (called K&R C -- some of you might have used when in school).
   
