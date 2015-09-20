@@ -1,4 +1,4 @@
-# Remote Access and Firewall Technologies
+# Remote Access, Firewall Technologies, and Opensource applications
 ![*Good thing we avoided that one...*](images/Chapter-Header/Chapter-14/2038-2.png "2038")
 
 __Chapter 14 Objectives__
@@ -10,8 +10,9 @@ __Chapter 14 Objectives__
   * Firewall
     + iptables
     + ufw
+  * apache 2
+  * mysql
   
-
 __Outcomes__
 
    
