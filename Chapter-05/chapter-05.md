@@ -443,8 +443,8 @@ sockets                     s
     d.	227
 4)	What is the name of the command you use to list the contents of a directory?
     a.	lst
-    b.	/p
-    c.	man
+    b.	less
+    c.	cat
     d.	ls
 5)	What is the name of the command you use to display the content of a file to the screen?
     a.	dg
@@ -491,10 +491,10 @@ sockets                     s
     b.	object
     c.	tree
     d.	mess
-14)	What is the name for the top node in the Linux Filesystem?
-    a.	root (or /)
-    b.	top
-    c.	node 0
+14)	What is the name of the top of the Linux Filesystem?
+    a.	/
+    b.	./
+    c.	../
     d.	slashdot
 15)	Everything (directories, files, devices) in Unix/Linux is a what?
 
