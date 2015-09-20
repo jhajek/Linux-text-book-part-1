@@ -1,14 +1,13 @@
 # Shell Variables, Meta-Characters, Search and Tools
 ![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
 
-
 __Chapter 6 Objectives__
 
    * std in, out, err
    * redirection < > | tee
    * Find and grep
-   * {} ! # $ \
-   *  Understand the sudo command and root user paradigm   
+   * {} ! # $ and escape sequences
+   * Understand the sudo command and root user paradigm   
    * tar, bzip, xz 
    
 __Outcomes__
