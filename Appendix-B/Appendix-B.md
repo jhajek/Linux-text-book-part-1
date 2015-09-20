@@ -5,6 +5,61 @@
 ## Chapter 03
 
 ## Chapter 04
+Linux Desktop and GUI 
+Chapter 04 review questions
+
+1.	 What was the original and most popular Unix “Smart Terminal?” 
+b.	VT-100
+2.	What is the three letter abbreviation still in use today in modern Linux to refer to “terminal 
+devices?”
+b.	TTY
+3.	Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by 
+default?
+c.	The developers of these technologies were seeking to emulate the popular VT-100 and 
+VT-0220 terminals they used prior.
+4.	What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
+b.	Alt + Ctrl + F1 - F7
+5.	What is the name of the original Unix based GUI that came out of MIT in ~1984?
+b.	X
+6.	True or False – X was originally not opensourced by MIT in 1984
+a.	False
+7.	What is the official name in the Ubuntu Unity desktop environment for the launcher icon? (The 
+Icon in the upper left hand corner that looks like circle with 3 dots?)
+a.	Dash Icon
+8.	What is the name of the successor GUI compositor to X being created by the X.org foundation?
+c.	Wayland Project
+9.	What is the name of Ubuntu’s own GUI compositor replacement for X? (Just the name)
+a.	Mir
+10.	There are 5 types of Linux window managers: Compositing, Minimalistic, Tiling, and Other.  
+What is the name of the missing category?
+a.	Stacking
+11.	There are 4 major Linux desktop environments in use today: which grouping is correct?
+d.	KDE, GNOME, Xfce, LXDE
+12.	What is the name of the windowing toolkit that KDE uses? (Two letters)
+a.	Qt
+13.	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign)
+a.	GTK+
+14.	What is the name of the founder of the GNOME project? 
+a.	Miguel de Icaza
+15.	When the GNOME 3 desktop environment was released in early 2012, many people were 
+unhappy that many changes were made.  There were 3 major projects started to either preserve 
+GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
+c.	Unity, Mate, Cinnamon
+16.	When released in 2006, what was the main development goal of the LXDE desktop environment?
+c.	Energy saving and extremely fast
+17.	Which of these statements are true in regards to Linux desktop environments? (choose all that 
+apply)
+a.	Desktop environments have a File Manager
+b.	Desktop Environments have start or action buttons and task and notification bars
+c.	Desktop environments have a changeable but consistent look-and-feel
+d.	Desktop environments have system configuration tools and user applications built in
+18.	What is the default desktop environment for Fedora 22? (Name and versions)
+a.	GNOME 3
+19.	What is the name of the button on the upper left hand corner of the GNOME 3 desktop in 
+Fedora 22 that you use to “launch applications?”
+a.	Activities
+20.	What is the name of the default Ubuntu desktop environment?
+a.	Unity
 
 ## Chapter 05
 
