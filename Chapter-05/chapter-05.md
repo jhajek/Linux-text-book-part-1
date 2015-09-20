@@ -64,14 +64,14 @@ The dream of a unified Linux standard never really occurred. __No one implements
 The one useful thing that came out of the LSB is the __Linux Filesystem Hierarchy__, or *LFH*.  This is a hierarchy of directories that exist under the __root directory__ that are standard across all Linux distros.  You should *memorize* each directory name and its general function.  All these directories will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required to be under the __root__.  [^47]
 
 Directory           Function
-----------  -----------------------------------------------------------------------------------
+----------  --------------------------------------------------------------------------------------
 bin         Essential command binaries 
 boot        Static files of the boot loader that copy the kernel into memory on boot
 dev         Device file handles 
 etc         Host-specific system configuration files 
 lib         Essential shared libraries and kernel modules 
 media       Mount point for removable media 
-mnt         Mount point for mounting a filesystem temporarily 
+mnt         Mount point for mounting a filesystem temporarily, called *"mount"* 
 opt         Add-on application software packages 
 run         Data relevant to running processes 
 sbin        Essential system binaries added by each operating system
@@ -79,11 +79,12 @@ srv         Data for services provided by this system
 tmp         Temporary files 
 usr         Secondary hierarchy 
 var         Variable data - used for storing databases, webserver files, and application logs
-----------  -----------------------------------------------------------------------------------
+proc        Not an actual directory, created at runtime to house metadata about the running system
+----------  ---------------------------------------------------------------------------------------
 
  This filesystem layout harkens back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
  
-![*Linux Filesystem Heirarchy 650 by 150*](images/Chapter-05/path/sample-file-system-heirarchy.png "Sample Image")
+![*Linux Filesystem Hierarchy - blue means you won't interact with much*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
  
 ![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-full-listing.png "Ubuntu 15.04 root directory listing")
 
