@@ -136,7 +136,7 @@ How would we navigate back up the tree?  What if we want to return to our home d
 ```cd ../```             aboslute or relative path?  
 ----------------------  ----------------------------
 
-The first two options are absolute paths, the third option is a relative path with something new.  Here we are introduced to the __double-dot__ operator.  The __double-dot__ and __single-dot__ (sometimes just called *dot*) are the way you can reference locations up the tree or in your current directory.  The command ```cd ../``` is a short cut to take you __up__ one level in the filesystem tree.  Double-dots can be chained together to traverse up multiple directories all at once.  
+The first two options are absolute paths, the third option is a relative path with something new.  Here we are introduced to the __double-dot__ operator.  The __double-dot__ and __single-dot__ (sometimes just called *dot*) are the way you can reference locations up the tree or in your current directory (same level).  The command ```cd ../``` is a shortcut to take you __up__ one level in the filesystem tree.  Double-dots can be chained together to traverse up multiple directories all at once.  
 
 > __Exercise:__ If you pwd is /home/jeremy/Documents  (replace "jeremy" with whatever your username is) and you want to change directory to /home.  What command would you use?  What happens when you type ```cd ../../``` on the commandline?  What is your pwd now?
 
