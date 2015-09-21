@@ -300,7 +300,7 @@ Commands contain three parts in this order:
 *  options (may or may not be required)
 *  arguments (may or may not be required)
     
-  All shell commands have a common structure in Linux.  Let's take this command for instnace:
+Let's take this command for instance:
 ```bash
 ls -la /etc
 ```

@@ -235,21 +235,19 @@ __GNU HURD__
   
 ### Minix, Linus Torvalds, and Linux 
 
-__Andrew Tanenbaum and Minix__
+#### Professor Andrew Tanenbaum and Minix__
 
   Before we talk about the Linux kernel, we need to talk about the Minix operating system.  With the closing off of the AT&T Unix source code by 1984 to academics and researchers in the university - they were left without source code to show as examples in classes.  
   
-  __Professor Andrew S. Tanenbaum__ [^6]
-
-  ![*Professor Andrew S. Tanenbaum*](https://upload.wikimedia.org/wikipedia/commons/3/33/AndrewTanenbaum2.png "Professor Andrew S. Tanenbaum")
+  ![*Professor Andrew S. Tanenbaum*](images/Chapter-02/People/AndrewTanenbaum2-2.png "Professor Andrew S. Tanenbaum")
   
-  [Professor Tanenbaum](http://www.cs.vu.nl/~ast/ "Tanebaum's website") was teaching at Vrije Universiteit in Amsterdam - and began to write and implement his own Unix-like operating system but only for teaching and research purposes.  It was 12,000 lines of C code and system call compatible with commercial Unix.  The name [Minix](http://www.minix3.org/ "Minix 3 website") was a combination of "minimal" and "Unix."  Minix 1.0 and 1.5 were released in 1987 and 1991 respectively with the original purpose as only a teaching tool. Minix 1.0 and 1.5 were freely available to anyone as the source code came in the appendix to a text book about operating systems written by Tanenbaum in 1987.  Minix was designed to run initially on older x86 Intel processors (286 and 386) and in version Minix 1.5 Sun Sparc processors.  These were common desktop stations in use at the university at that time.  Any enterprising student could find and old 8086 PC or old Sun Sparc Station to run it on. The source code for Minix 3 is currently available in a [Git repository](http://git.minix3.org/index.cgi "Minix Git") and is still being developed and researched.  In 1991 many people believed that Minix could have been a viable alternative to commercial Unix and become the still missing GNU Hurd kernel.  But the Minix creator, Professor Tanenbaum, was not interested in moving into this space and the code was no where near as mature as the Unix code base, which by 1991 had been in existence for almost 20 years!  Minix appears on the radar but was not the missing piece to the GNU puzzle.   
+  [Professor Tanenbaum](http://www.cs.vu.nl/~ast/ "Tanebaum's website") [^6] was teaching at Vrije Universiteit in Amsterdam - and began to write and implement his own Unix-like operating system but only for teaching and research purposes.  It was 12,000 lines of C code and system call compatible with commercial Unix.  The name [Minix](http://www.minix3.org/ "Minix 3 website") was a combination of "minimal" and "Unix."  Minix 1.0 and 1.5 were released in 1987 and 1991 respectively with the original purpose as only a teaching tool. Minix 1.0 and 1.5 were freely available to anyone as the source code came in the appendix to a text book about operating systems written by Tanenbaum in 1987.  Minix was designed to run initially on older x86 Intel processors (286 and 386) and in version Minix 1.5 Sun Sparc processors.  These were common desktop stations in use at the university at that time.  Any enterprising student could find and old 8086 PC or old Sun Sparc Station to run it on. The source code for Minix 3 is currently available in a [Git repository](http://git.minix3.org/index.cgi "Minix Git") and is still being developed and researched.  In 1991 many people believed that Minix could have been a viable alternative to commercial Unix and become the still missing GNU Hurd kernel.  But the Minix creator, Professor Tanenbaum, was not interested in moving into this space and the code was no where near as mature as the Unix code base, which by 1991 had been in existence for almost 20 years!  Minix appears on the radar but was not the missing piece to the GNU puzzle.   
     
-__Linux and Linus Torvalds__ [^7]
+#### Linux and Linus Torvalds
 
 ![*Linus Torvalds*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/512px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
 
-  The Linux kernel comes to us from a graduate student named Linus Torvalds who developed it while at the University of Helsinki in Finland in 1991.  As a student Torvalds was using Unix on the universities Sun Sparc Stations.  He was not pleased with SunOS but felt it was the best of the commercial Unixes.  His real dream was to set out to run his own Unix like operating system on his own personal PC.  He had recently purchased an Intel x386 processor based desktop PC.  Linus tried Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement.  In a fashion not unlike Ken Thompson, Torvalds set out in the early part of 1991 deciding to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.  
+  The Linux kernel comes to us from a graduate student named Linus Torvalds [^7] who developed it while at the University of Helsinki in Finland in 1991.  As a student Torvalds was using Unix on the universities Sun Sparc Stations.  He was not pleased with SunOS but felt it was the best of the commercial Unixes.  His real dream was to set out to run his own Unix like operating system on his own personal PC.  He had recently purchased an Intel x386 processor based desktop PC.  Linus tried Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement.  In a fashion not unlike Ken Thompson, Torvalds set out in the early part of 1991 deciding to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.  
  
   This was very impressive feat for a single person. Torvalds himself acknowledged that if GNU Hurd had been ready or if at this time AT&T hadn't been suing BSD, he would have re-used their kernel work and not built his own. By August 25th of 1991 the initial release of the Linux kernel was posted online.  The quote from the beginning of the chapter was the basis of the initial post to Minix Usenet Newsgroup-(bulletin board like precursor to the actual Internet - like Google Groups -- today you would use twitter). His initial work was not quite a full-fledged system but really just a small kernel, a user shell (GNU Bash), a C Compiler (GCC) but it was like a crack in a damn - it would only get wider and bigger.
   
@@ -433,7 +431,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
    
    * Released in November 1994
    * Essentially the inheritor of the BSD code base
-   * Largest BSD implementation.  
+   * Largest BSD implementation.
    * Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
      
 #### PC-BSD
@@ -448,16 +446,15 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
    *  Provides friendly installers and package managers for users
    *  Tries to match the usability of Mac or Windows with the foundation and principals of FreeBSD
 
+#### DragonFly BSD 
+
 ![*DragonFly BSD*](http://www.dragonflybsd.org/images/small_logo.png)
    
    * Fork of FreeBSD in April of 2005 by Matthew Dillon.
    * Focused on unique techniques in handling multiprocessing in the FreeBSD kernel
    * Introduced a new filesystem called [HAMMER](https://en.wikipedia.org/wiki/HAMMER "HAMMER FS") and HAMMER2
 
-![*NetBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/128px-NetBSD.svg.png) 
-   
-   * Released October of 1994 as another version of the BSD code after the lawsuit.
-   * Focuses on portability to run this OS on nearly every platform you can think of.
+#### OpenBSD
    
  ![*OpenBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
 
@@ -469,46 +466,48 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
      + [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
      + Recognizing the standard of SSH (secure shell) they are moving to port and integrate SSH natively to Windows. 
    * Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most secure OS.
+
+#### NetBSD
+
+![*NetBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/128px-NetBSD.svg.png) 
    
-[__Minix 3__](https://en.wikipedia.org/wiki/MINIX_3 "Minix 3") 
+   * Released October of 1994 as another version of the BSD code after the lawsuit.
+   * Focuses on portability to run this OS on nearly every platform you can think of.
    
-   * Released October of 2005 
-   * Since then the OS went from a teaching tool to a product being used commercially.  
+#### Minix 3 
+   
+   * [__Minix 3__](https://en.wikipedia.org/wiki/MINIX_3 "Minix 3") released October of 2005 
+   * Since then the OS went from a teaching tool to a product being used commercially.
    * Began using NetBSD user space applications to give it a GUI and make it a viable commercial product. 
 
-#### Solaris Based Unix Distros
+### Solaris Based Unix Distros
         
-__OpenSolaris__ [^16]
+#### OpenSolaris 
      
-![*OpenSolaris*](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/OpenSolaris_Logo.svg/128px-OpenSolaris_Logo.svg.png "Open Solaris")
+![*OpenSolaris*](images/Chapter-02/Linux-logos/128px-OpenSolaris_Logo-2.svg.png "Open Solaris")
 
-   * In 2006 Sun had experiemented with creating and opensource user based distro from their Unix based Solaris OS
+   * In 2006 Sun had experiemented with creating and opensource user based distro from their Unix based Solaris OS [^16]
    * They hired Ian Murdock (the guy who started Debian) to oversee this project
    * Project was called OpenSolaris but was killed when Oracle purchased Sun in 2010
    * [Explanation of how OpenSolaris forked](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Fork")
- __OpenIndiana__ [^15]
+ 
+#### OpenIndiana 
    
-![*Open Indiana*](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/OpenIndiana_logo_large.svg/128px-OpenIndiana_logo_large.svg.png "Open Indiana")
+![*Open Indiana*](images/Chapter-02/Linux-logos/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
        
-   *  All the OpenSolaris developers left Oracle soon after the purchase and continued the OpenSolaris spirit with this project
+   *  All the OpenSolaris developers left Oracle soon after the purchase and continued the OpenSolaris spirit with this project [^15]
    *  Eventually all the technologies that had been forked were moved into a project called Illumios - which was not a distro but a reference implementation.
       
-__Joyent__ [^17]  
+#### SmartOS   
    
-![*Joyent*](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Joyent-logo.png/128px-Joyent-logo.png "Joyent")
-   
-[SmartOS](https://smartos.org/ "SmartOS")
-   
-  *  Full of ex-Sun engineers who worked on Solaris.  
-      + Combines the best of the BSD underpinnings but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
+  *  [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
+      + Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
         
 ### The Impending Linux Civil War
 
-![*Lennart Poettering*](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lennart_poettering.jpg/640px-Lennart_poettering.jpg "Lennart Poettering")
+![*Lennart Poettering*](images/Chapter-02/People/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
-__Lennart Poettering__ [^18]
-
-  Not since Linux Torvalds has a man been so loved or reviled in the Linux community.  Lennart is a name you need to know as well.  He is currently a developer for Red Hat and having worked on many opensource projects.  His current project is systemd.  Systemd is a replacement for the traditional SysVinit program that started all of the Operating Systems process upon boot.  
+  Not since Linux Torvalds has a man been so loved or reviled in the Linux community.  Lennart is a name you need to know as well [^18].  He is currently a developer for Red Hat and having worked on many opensource projects.  His current project is systemd.  Systemd is a replacement for the traditional SysVinit program that started all of the Operating Systems process upon boot.  
   
   Poettering has angered many people by breaking certain Unix traditions and conventions in the name of speed and features.  The Unix philosophy of having little programs do one thing well goes right out the window. Poettering argues that philosophy is a byproduct of an era where computing was slow and disk space was precious.  If Linux wants to be taken serious like Mac and Windows--it needs to think like Mac and Windows.  Poettering is young and wants to push the development of the operating system of Linux forward rapidly.  
   
