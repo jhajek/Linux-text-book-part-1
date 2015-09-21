@@ -90,7 +90,7 @@ Directory       Function
 ----------  -----------------------------------------------------------------------------------------
 __home__        Users' home directories, containing saved files, personal settings, place that you own.
 __root__        Home directory for the root user - not to be confused with /
-__lib64__       ALternate home for 64 bit libraries 
+__lib64__       Alternate home for 64 bit libraries 
 ----------  -----------------------------------------------------------------------------------------  
  
 ![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu 15.04 root directory listing")
@@ -533,7 +533,7 @@ sockets                     s
     b.	LSB
     c.	POSIX
     d.	Linux
-17)	What is the directory where all configuration files are stored in Linux?
+17)	What is the directory where configuration files are stored in Linux?
     a.	bin
     b.	sbin
     c.	etc
