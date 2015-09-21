@@ -43,7 +43,7 @@ Why are the two filesystem hierarchies different?  The answer goes back to the d
 
 In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX insures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7 or POSIX 7.   For more details on the specifics of POSIX and what is does see APPENDIX A at the back of the book.
 
-It is great to have a standard but what exactly does POSIX do?  Even in that question the answer varies widely, since Unix was already in use at the time for over 15+ years before a standard was in place.  This required them to back define some issues and cave on other issues. POSIX defines at a minimum what a certified Unix based system must support feature and API wise, no more, no less.  It does not restrict extra non-POSIX features from being included.  In reality there is no POSIX Unix version like there is GPL compliant GNU/Linux distros: gNewSense or Trisquel. Most Linux distros are very POSIX compliant by nature, but very few systems are certified POSIX compatible.
+It is great to have a standard but what exactly does POSIX do?  Even in that question the answer varies widely, since Unix was already in use at the time for over 15+ years before a standard was in place.  This required them to back define some issues and cave on other issues. POSIX defines at a minimum what a certified Unix based system must support feature and API wise, no more, no less.  It does not restrict extra non-POSIX features from being included.  In reality there is no POSIX Unix version like there is GPL compliant GNU/Linux distros: gNewSense or Trisquel. Most Linux distros are very POSIX compliant by nature, but very few systems are certified POSIX compatible.  POSIX doesn't define a default filesystem other than requiring / /tmp and /dev be present.  
 
 ### The Linux Standard Base
 
@@ -59,38 +59,60 @@ The dream of a unified Linux standard never really occurred. __No one implements
   
 > The crux of the issue is, I think, whether this whole game is worth the work: I am yet to hear about software distribution happening through LSB packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4. [^59]
 
-#### Linux Filesystem Hierarchy
+#### Linux Filesystem Standard Hierarchy
 
-The one useful thing that came out of the LSB is the __Linux Filesystem Hierarchy__, or *LFH*.  This is a hierarchy of directories that exist under the __root directory__ that are standard across all Linux distros.  You should *memorize* each directory name and its general function.  All these directories will be present in any Linux distro you use.  The following directories, or symbolic links to directories, are required to be under the __root__.  [^47]
-
+The one useful thing that came out of the LSB is the __Filesystem Hierarchy Standard__, or *FHS* [^47][^61].  This is a voluntary standard maintained by the [Linux Foundation](http://www.linuxfoundation.org/ "Linux Foundation") that includes a standard hierarchy of directories that exists under the __root directory__ in a standard Linux distro.  You should *memorize* each directory name and its general function. 
+ 
 Directory           Function
-----------  --------------------------------------------------------------------------------------
+----------  ----------------------------------------------------------------------------------------
 bin         Essential command binaries 
 boot        Static files of the boot loader that copy the kernel into memory on boot
 dev         Device file handles 
-etc         System configuration files 
+etc         System configuration files, pronounced *"et-cee"* or *"ee-tee-cee"*
+home        Users' home directories, containing saved files, personal settings, place that you own.
 lib         Essential shared libraries and kernel modules 
 media       Mount point for removable media 
-mnt         Mount point for mounting a filesystem temporarily, called *"mount"* 
+mnt         Mount point for mounting a filesystem temporarily, pronounced *"mount"* 
 opt         Add-on application software packages 
+proc        Virtual filesystem created at runtime providing process and kernel information as files.
+root        Home directory for the root user
 run         Data relevant to running processes 
 sbin        System binaries added by each operating system for management  
 srv         Data for services provided by this system 
-tmp         Temporary files - some distros clear this directory upon reboot 
-usr         Secondary hierarchy - contains X, KDe or GNOME, plus documentation 
+tmp         Temporary files - some distros clear this directory upon reboot (pronounced *"temp"* 
+usr         Secondary hierarchy - contains X, KDE or GNOME, plus documentation 
 var         Variable data - used for storing databases, webserver files, and application logs
-proc        Virtual filesystem created at runtime containing system information in text files. 
-----------  ---------------------------------------------------------------------------------------
-
- This filesystem layout harkens back to Ken Thompson's original Unix design of nearly 30+ years ago.  This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure. Note that Red Hat based distros have made a move to change this.  When Thompson first designed his system, he had a small single hard drive.  As features were added Unix grew in size and additional disks needed to be bolted on.  That is why the directories were split.  
- 
-![*Linux Filesystem Hierarchy - blue means you won't interact with much*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
+----------  -----------------------------------------------------------------------------------------
+  
+![*Linux Filesystem Hierarchy Standard - blue items will not be covered in this book*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
  
 ![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-full-listing.png "Ubuntu 15.04 root directory listing")
 
 ![*Fedora 22 root full directory listing*](images/Chapter-05/filesystems/fedora-22-root-full-listing.png "Fedora 22 root directory listing")
  
- Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They wanted to update the filesystem hierarchy but need to maintain backwards compatibility.  They do have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr``` [^52].  Red Hat also says this makes Linux more applications compatible with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros.  By using the command ```ls -l /``` you can see the light blue colored soft links to the actual directories. 
+#### /usr standard subdirectories
+
+There are a series of standard directory locations that are under /usr that you need to know as well.
+
+/usr
+
+: Secondary hierarchy for read-only user data; contains the majority of (multi-)user utilities and applications.
+
+sub-directory                                      Function
+--------------  ----------------------------------------------------------------------------------
+bin              Non-essential command binaries (not needed in single user mode); for all users. 
+lib              Libraries for the binaries in /usr/bin/ and /usr/sbin/. 
+local             Tertiary hierarchy for local data, specific to this host. 
+sbin              Non-essential system binaries, e.g., daemons for various network-services. 
+src               Source code, e.g., the kernel source code with its header files. 
+X11R6             X Window System, Version 11, Release 6 (up to FHS-2.3, optional). 
+---------  ------------------------------------------------------------------------------------
+ 
+#### Red Hat vs POSIX and LSB
+ 
+  Over the years and by tradition inherited from Unix, this is the generally accepted Linux standard filesystem.  This layout harkens back to Ken Thompson's original Unix design of nearly ~40 years ago. This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure.   Note that Red Hat based distros have made a move to change this arguing that when Unix was designed it was constrained by hardware resrictions that no longer exist and should not be maintained for tradition's sake.  
+  
+  Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They want to update the filesystem hierarchy but need to maintain backwards compatibility.  They may have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr``` [^52].  Red Hat also says this makes Linux more applications compatible with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros.  By using the command ```ls -l /``` you can see the light blue colored soft links to the actual directories. 
   
 Leonart Poettering, the Red Hat engineer and leader of the systemd init system has some things to say about POSIX and LSB:  
 
@@ -213,7 +235,7 @@ mv ./secret-passwords.txt ./new-secret-passwords.txt
  
 mkdir 
  
-: This command is used to create or make a new directory. __Usage examples:__ 
+: This command is used to create or make a new directory. Pronounced *"make-dur"* __Usage examples:__ 
 ```bash
 mkdir ~/legally-downloaded-music
 ```
@@ -555,7 +577,7 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     i) Take a screenshot of the output of an ls command in this directory. Name the file lastname-firstname-screenshot-week-5-cd.(jpg or png)
 1) Execute a pwd command to show your present working directory is /home/username/Downloads/book/Linux-text-book-part-1-master/iamges
     i) Take a screenshot of the output of the pwd command. Name the file lastname-firstname-screenshot-week-5-pwd.(jpg or png) 
-1) In the images directory you will notice that there is no Chapter-02 directroy.  Use the mkdir command to create it.
+1) In the images directory you will notice that there is no Chapter-01 directroy.  Use the mkdir command to create it.
     i) Take a screenshot of the output of an ls command showing the newly created directory.  Name the file lastname-firstname-screenshot-week-5-mkdir.(jpg or png)
 1) Use the mv command to move the images AndrewTanenbaum.jpg, Dennis_Ritchie_2011.jpg, and Ken_n_dennis.jpg into the Chapter-02 directory. (issue the commands to move the images one at a time.)
     i) cd into the images/Chapter-02 directory and take a screenshot of the output of an ls command. Name the file lastname-firstname-screenshot-week-5-mv.(jpg or png)  
@@ -612,4 +634,6 @@ Final deliverable is to place all of the above screenshots, and all commands int
 [^59]: [https://lists.debian.org/debian-lsb/2015/07/msg00000.html](https://lists.debian.org/debian-lsb/2015/07/msg00000.html)
 
 [^60]: [https://en.wikipedia.org/wiki/Unix_file_types](https://en.wikipedia.org/wiki/Unix_file_types "Unix File Types")
+
+[^61]: [http://www.linuxfoundation.org/collaborate/workgroups/lsb/fhs-30](http://www.linuxfoundation.org/collaborate/workgroups/lsb/fhs-30 "FHS")
 

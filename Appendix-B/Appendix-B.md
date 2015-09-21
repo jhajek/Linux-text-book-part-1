@@ -4,6 +4,40 @@
 
 ## Chapter 03
 
+Hardware and Linux Installation
+Chapter 03
+
+1. What is the term for the industry standard file format that is used to install a Linux distro?
+a. ISO
+
+2. What is currently the most common Linux install media type?
+c. USB
+
+3. What is the name of the most common tool used to create bootable Linux install media?
+c. UNetbootin
+
+4. What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
+A: hypervisor
+
+5. The operating system that the hypervisor resides on is called the _________ system?
+A: host
+
+6. Hosted or desktop virtualization is called what type of hypervisor?
+A: Type II
+
+7. Bare Metal or Native Virtualization is called what type of hypervisor?
+A: Type I
+
+8. Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
+b. check sum
+
+9. What is the name of the driver package you can install in VirtualBox in order to enable features such as shared clipboard, larger screen resolution, and mouse pointer integration?
+d. VirtualBox Guest Additions 
+
+10. What is the name for a Linux installation that runs in memory?
+b. Live ISO 
+
+
 ## Chapter 04
 Linux Desktop and GUI 
 Chapter 04 review questions
