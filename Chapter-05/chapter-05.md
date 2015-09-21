@@ -51,7 +51,7 @@ It is great to have a standard but what exactly does POSIX do?  Even in that que
   
   Most importantly the LSB sought to create an __ABI__, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which assumes that there will be the same standard libraries to code against on every Linux distro.  The ABI gives assurance that code __compiled__ using a C compiler with the ABI compatibility feature turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows .exe package you create. It runs on all Windows platforms from XP all the way to Windows 10, those operating systems are ABI compliant.  The LSB wanted to guarantee this so that major vendors of software would not have to maintain multiple software versions, just maintain one version with ABI compatibility, thus preventing a barrier Linux enterprise adoption.
   
-  The Linux Standard Base chose RPM (Red Hat Package Man  ager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the individual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
+  The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the individual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
   
 ### The Problem with the LSB 
   
@@ -61,34 +61,41 @@ The dream of a unified Linux standard never really occurred. __No one implements
 
 #### Linux Filesystem Standard Hierarchy
 
-The one useful thing that came out of the LSB is the __Filesystem Hierarchy Standard__, or *FHS* [^47][^61].  This is a voluntary standard maintained by the [Linux Foundation](http://www.linuxfoundation.org/ "Linux Foundation") that includes a standard hierarchy of directories that exists under the __root directory__ in a standard Linux distro.  You should *memorize* each directory name and its general function. 
+The one useful thing that came out of the LSB is the __Filesystem Hierarchy Standard__, or *FHS* [^47][^61].  This is a voluntary standard maintained by the [Linux Foundation](http://www.linuxfoundation.org/ "Linux Foundation") that includes a standard hierarchy of directories and optional directories that exists under the __root__ in a standard Linux distro.  You should *memorize* each directory name and its general function [^63].  
  
 Directory           Function
 ----------  ----------------------------------------------------------------------------------------
-bin         Essential command binaries 
-boot        Static files of the boot loader that copy the kernel into memory on boot
-dev         Device file handles 
-etc         System configuration files, pronounced *"et-cee"* or *"ee-tee-cee"*
-home        Users' home directories, containing saved files, personal settings, place that you own.
-lib         Essential shared libraries and kernel modules 
-media       Mount point for removable media 
-mnt         Mount point for mounting a filesystem temporarily, pronounced *"mount"* 
+__bin__         Essential command binaries 
+__boot__        Static files of the boot loader that copy the kernel into memory on boot
+__dev__         Device file handles 
+__etc__         System configuration files, pronounced *"et-cee"* or *"ee-tee-cee"*
+__lib__         Essential shared libraries and kernel modules 
+__media__       Mount point for removable media 
+__mnt__         Mount point for mounting a filesystem temporarily, pronounced *"mount"* 
 opt         Add-on application software packages 
-proc        Virtual filesystem created at runtime providing process and kernel information as files.
-root        Home directory for the root user
 run         Data relevant to running processes 
-sbin        System binaries added by each operating system for management  
+__sbin__        System binaries added by each operating system for management  
 srv         Data for services provided by this system 
-tmp         Temporary files - some distros clear this directory upon reboot (pronounced *"temp"* 
-usr         Secondary hierarchy - contains X, KDE or GNOME, plus documentation 
-var         Variable data - used for storing databases, webserver files, and application logs
+__tmp__         Temporary files - some distros clear this directory upon reboot (pronounced *"temp"* 
+__usr__         Secondary hierarchy - contains X, KDE or GNOME, plus documentation 
+__var__         Variable data - used for storing databases, webserver files, and application logs
+*proc*        Virtual filesystem created at runtime providing process and kernel information as files.
 ----------  -----------------------------------------------------------------------------------------
-  
-![*Linux Filesystem Hierarchy Standard - blue items will not be covered in this book*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
- 
-![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-full-listing.png "Ubuntu 15.04 root directory listing")
 
-![*Fedora 22 root full directory listing*](images/Chapter-05/filesystems/fedora-22-root-full-listing.png "Fedora 22 root directory listing")
+![*Linux Filesystem Hierarchy Standard - items not bold from above will not be included*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
+
+There are 3 additional libraries that are non-standard but appear on pretty much all Linux distros [^62].  You can see a screenshot below.
+
+Directory       Function
+----------  -----------------------------------------------------------------------------------------
+__home__        Users' home directories, containing saved files, personal settings, place that you own.
+__root__        Home directory for the root user - not to be confused with /
+__lib64__       ALternate home for 64 bit libraries 
+----------  -----------------------------------------------------------------------------------------  
+ 
+![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu 15.04 root directory listing")
+
+![*Fedora 22 root full directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora 22 root directory listing")
  
 #### /usr standard subdirectories
 
@@ -636,4 +643,9 @@ Final deliverable is to place all of the above screenshots, and all commands int
 [^60]: [https://en.wikipedia.org/wiki/Unix_file_types](https://en.wikipedia.org/wiki/Unix_file_types "Unix File Types")
 
 [^61]: [http://www.linuxfoundation.org/collaborate/workgroups/lsb/fhs-30](http://www.linuxfoundation.org/collaborate/workgroups/lsb/fhs-30 "FHS")
+
+[^62]: [http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s02.html](http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s02.html "FHS Spec")
+
+[^63]: [http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s03.html](http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s03.html)
+
 
