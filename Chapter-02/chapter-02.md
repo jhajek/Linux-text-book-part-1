@@ -486,7 +486,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
      
 ![*OpenSolaris*](images/Chapter-02/Linux-logos/128px-OpenSolaris_Logo-2.svg.png "Open Solaris")
 
-   * In 2006 Sun had experiemented with creating and opensource user based distro from their Unix based Solaris OS [^16]
+   * In 2006 Sun had experimented with creating and opensource user based distro from their Unix based Solaris OS [^16]
    * They hired Ian Murdock (the guy who started Debian) to oversee this project
    * Project was called OpenSolaris but was killed when Oracle purchased Sun in 2010
    * [Explanation of how OpenSolaris forked](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Fork")
@@ -530,7 +530,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
 
 Get into groups and answer/discuss these questions
 
-1. Based on the movie's tone and time - why would you think there is a definite anti-microsoft tone?
+1. Based on the movie's tone and time - why would you think there is a definite anti-Microsoft tone?
 
 1. What influence did Bill Gates' 1976 *"Open Letter to Hobbyists"* influence the opensource movement, if any?
 
