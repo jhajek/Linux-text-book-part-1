@@ -70,7 +70,7 @@ __X__ [^25]
 
    A final GUI note that in parallel the most break through commercial GUI available in the early 80s was released by Apple in 1984.  Here is a [link to an article](http://www.folklore.org/StoryView.py?story=Busy_Being_Born.txt "Mac") from the developers about how it came to be.
 
-__Apple MacIntosh__ [^23]
+__Apple Macintosh__ [^23]
 
 ![*Apple Macintosh 1984*](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Macintosh_128k_transparency.png/205px-Macintosh_128k_transparency.png "Apple Macintosh")
 
@@ -448,7 +448,7 @@ __Ubuntu 15.04__
 *  lastname-firstname-ubuntu-stellarium.(jpeg or png)
 *  lastname-firstname-ubuntu-tweak-tool.(jpeg or png)  
 
-__Ubuntu 15.04 window mangers and desktop environemnt__
+__Ubuntu 15.04 window mangers and desktop environment__
 
   You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  You need to open a text editor and commandline and take a screenshot containing your name and the name of the window manager. *Note* in regards to the other category - chose the evilwm. 
   
