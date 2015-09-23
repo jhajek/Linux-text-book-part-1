@@ -1,6 +1,11 @@
 # Appendix B
+![*Git commit messages.  After developing this book I understand this completely*](images/Chapter-Header/Appendix-B/git_commit-2.png "Git Commit")
+
+This section contains the answers to the chapter review questions
 
 ## Chapter 02
+
+TBA
 
 ## Chapter 03
 
