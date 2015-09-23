@@ -6,9 +6,8 @@ __Chapter 5 Objectives__
   *  Understand the structure of the Linux Filesystem
   *  Understand the difference between absolute and relative paths.
   *  Understand the function of the Linux Shell and its relation to the operating system.
-  *  Understand how to read the structure of commands on the commandline.
+  *  Understand the fundamental shell commands for traversing and modifying the contents of the filesystem. 
   *  Learn the Linux commandline nomenclature.
-  *  Know basic tools for traversing and modifying the contents of the filesystem.
   *  Understand the nomenclature describing file permissions and security
   
 __Outcomes__
@@ -191,7 +190,7 @@ What happens if you try to cd into a directory that doesn't exist?
   
 ### Difference Between a Shell, Terminal, and Commandline  
 
-  If you remember from chapter 4 that the word *"terminal"* came from the actual DEC VT-100 physical terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 line screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text and allow the user to interact with the Kernel via commands.   There are many types of shells that have different features.  Shells give the user the ability to create scripts for executing multiple commands, command completion, command history, command aliases, and more.  You open a terminal and in a terminal session you use a shell.  You can have multiple terminal sessions and use different shells on each one if you prefer.   In total the combination of using a terminal to access a shell can be called using the *commandline*.  The diagram below shows hwo the commands you type in the terminal are processed by the shell, given to the kernel and then output is returned to the user.
+  If you remember from chapter 4 that the word *"terminal"* came from the actual DEC VT-100 physical terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 line screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text and allow the user to interact with the Kernel via commands.   There are many types of shells that have different features.  Shells give the user the ability to create scripts for executing multiple commands, command completion, command history, command aliases, and more.  You open a terminal and in a terminal session you use a shell.  You can have multiple terminal sessions and use different shells on each one if you prefer.   In total the combination of using a terminal to access a shell can be called using the *commandline*.  The diagram below shows how the commands you type in the terminal are processed by the shell, given to the kernel and then output is returned to the user.
 
 ![*Shell/OS interaction diagram*](images/Chapter-05/shells/figure2.png "Shell Interaction Diagram")
   
@@ -312,14 +311,9 @@ man wget
 
 > __Exercises:__ Let's create a text file that has the current date and time in it.  Type ```date > timestampfile```  (The ```> ``` is a shell meta character that redirects output from the screen to another file. We will learn more about this in chapter 6.)
 
-  *  Now copy that file to the ```/tmp``` directory--what would be the commands?
-  *  Now let us make a new directory under our home directory called notes (remember the filesystem is an upside down tree) 
-  *  What command would we use?  ```mkdir notes```.  
-  *  Now let us copy the file ```timestampfile``` into the notes directory.  
-  *  What command would you use? What would the full command and arguments look like?  
-  *  How would you change directory and list the content of the notes directory (hint cd and ls)?
-
-*Note* if you get lost in the Linux filesystem tree you can always tpye cd ~ (tilde) and you will be taken back to your user home directory.
+ > __Exercise:__ Now copy that file to the ```/tmp``` directory--what would be the commands? Now let us make a new directory under our home directory called notes (remember the filesystem is an upside down tree) 
+  
+  > __Exercise:__ What command would we use?  ```mkdir notes```.  Now let us copy the file ```timestampfile``` into the notes directory. What command would you use? What would the full command and arguments look like?  How would you change directory and list the content of the notes directory (hint cd and ls)? *Note* if you get lost in the Linux filesystem tree you can always tpye cd ~ (tilde) and you will be taken back to your user home directory.
   
 ### Command Nomenclature
  
@@ -351,14 +345,19 @@ ls -la /etc
   ```
   You would say "*el-es el-aaa eee tee cee*".  *Note* I didn't mention any dashes or slashes.  Why? Because the context of the ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  The shell assumes that you are giving an absolute path because of the slash proceeding ```/etc```.  
   
-> __Exercise:__  As you remember the cp command takes two arguments: __source__ and __destination__.  How would you read and say this command?
+> __Exercise:__  How would you read and say this command?
 ```bash
-cp -iv .bash_profile /tmp
+rm -rf /tmp/topsecret
 ```
 
 > __Exercise:__ How would you read and say this command?   
 ```bash
 mkdir -p /mnt/datadrive
+```
+
+> __Exercise:__ How would you read and say this command?   
+```bash
+ls -la /etc/network/interfaces
 ```
 
 ### History of the Shell 
@@ -423,7 +422,7 @@ The improvements offered by bash over sh, csh, and ksh include:
 
 The first column is a listing of the permissions for a file. Notice that there are actually 3 groupings of the letters __rwx__ combined into one long string like this:  ```rw-r--r--```.  In addition to inducidualy permissions there are three categories of permission.  These three categories are __owner__, __group__, __other__  Each of these groups has its own read, write, and execute permissions.  
 
-Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -l``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter X. Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numberic value for this is ```rw-------``` is 600.
+Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -l``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter 9. Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numeric value for this is ```rw-------``` is 600.
   
 There is one character either a "-" or a "d" generally proceeding the file permissions, and this tells "d" for directory and "-" for a file.  There are additional file type characters that I will list here, only the first three we will be dealing with directly in this book [^60].  
 
