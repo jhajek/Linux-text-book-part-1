@@ -311,9 +311,9 @@ man wget
 
 > __Exercises:__ Let's create a text file that has the current date and time in it.  Type ```date > timestampfile```  (The ```> ``` is a shell meta character that redirects output from the screen to another file. We will learn more about this in chapter 6.)
 
- > __Exercise:__ Now copy that file to the ```/tmp``` directory--what would be the commands? Now let us make a new directory under our home directory called notes (remember the filesystem is an upside down tree) 
+> __Exercise:__ Now copy that file to the ```/tmp``` directory--what would be the commands? Now let us make a new directory under our home directory called notes (remember the filesystem is an upside down tree) 
   
-  > __Exercise:__ What command would we use?  ```mkdir notes```.  Now let us copy the file ```timestampfile``` into the notes directory. What command would you use? What would the full command and arguments look like?  How would you change directory and list the content of the notes directory (hint cd and ls)? *Note* if you get lost in the Linux filesystem tree you can always tpye cd ~ (tilde) and you will be taken back to your user home directory.
+> __Exercise:__ What command would we use?  ```mkdir notes```.  Now let us copy the file ```timestampfile``` into the notes directory. What command would you use? What would the full command and arguments look like?  How would you change directory and list the content of the notes directory (hint cd and ls)? *Note* if you get lost in the Linux filesystem tree you can always tpye cd ~ (tilde) and you will be taken back to your user home directory.
   
 ### Command Nomenclature
  
