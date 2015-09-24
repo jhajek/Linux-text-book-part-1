@@ -4,6 +4,7 @@ set -e
 
 #[Getting-Started](http://pandoc.org/getting-started.html)
 # Dependency needed http://tex.stackexchange.com/questions/43108/texlive-does-not-find-sty-file
+# Hello from ITMO 544-444
 
 STAMP=`date +%m%d%y-%k%M%S`
 
