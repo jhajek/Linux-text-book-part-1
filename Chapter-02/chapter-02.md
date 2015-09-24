@@ -530,9 +530,9 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
 
 Get into groups and answer/discuss these questions
 
-1. Based on the movie's tone and time - why would you think there is a definite anti-Microsoft tone?
+1. Based on the movie's tone and time - why would you think there was a definite anti-Microsoft tone at the time of the movies making (~2002)?
 
-1. What influence did Bill Gates' 1976 *"Open Letter to Hobbyists"* influence the opensource movement, if any?
+1. What influence did Bill Gates' 1976 *"Open Letter to Hobbyists"* have later on for the Free Software/Opensource movement, if any?
 
 1. Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
 

@@ -444,10 +444,6 @@ sockets                     s
   The second triad of rwx permissions is __group__ permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
   
   The final triad of rwx permissions is considered __other__ or sometimes called unofficially __world__.  This covers the permissions for a user who is not the owner nor in the group that owns the file. Usually this column is conservatively "read-ony." 
-  
-![*Highlighting the permissions in ls -l command*](images/Chapter-05/permissions/full-permissions-2.png "Full Permissions")
-  
-![*Highlighting the file owner and group owner*](images/Chapter-05/permissions/ownership-2.png "Ownership")
 
 ## Chapter Conclusion and Review
 
@@ -465,7 +461,7 @@ sockets                     s
     b.	400
     c.	600
     d.	007
-3)	What is the numeric value of a file with the permission rwx-r-xr-x?
+3)	What is the numeric value of a file with the permission rwxr-xr-x?
     a.	711
     b.	755
     c.	644
