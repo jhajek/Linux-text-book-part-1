@@ -27,24 +27,38 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
 \&\& 
                   
-: The ampersand character (shft-7) when doubled is an and command allowing you to string two or more commands together.  Note the && requires each succesive command to return succesfully or else the entire string will stop at the command that failed.
-__Usage example:__ ```unzip -d book master.zip && cd book && cat Readme.md```
+: The ampersand character (shft-7) when doubled is an and command allowing you to string two or more commands together.  Note the && requires each succesive command to return succesfully or else the entire string will stop at the command that failed. __Usage example:__ 
+```bash
+unzip -d book master.zip && cd book && cat Readme.md
+```
 
 \;
 
-: Unlike the ampersand character the semi-colon __";"__ allows you to chain commands together that will execute in sequence regardless of the previous commands return status. The example command will execute and return two errors tellingyou the file or directory doesn't exist, but the third command will execute showing the data. __Usage example:__ ```ls /topsecret; cd /topsecret; date``` 
+: Unlike the ampersand character the semi-colon __";"__ allows you to chain commands together that will execute in sequence regardless of the previous commands return status. The example command will execute and return two errors tellingyou the file or directory doesn't exist, but the third command will execute showing the data. __Usage example:__ 
+```bash 
+ls /topsecret; cd /topsecret; date
+``` 
 
 \|
 
-:  This character is called the "pipe" because it looks like a vertical bar or a piece of a pipe.  It serves the function of connecting the output of one command to the input of another commmand--not unlike a pipe under your sink.  The character is typed by pressing the shift+the key located directly above the enter key.  In this example here we display the content of the chapter-05.md and *pipe* it to the grep command which filters the file showing us only the lines containing the term *shell*. __Usage example:__ ```cat Chapter-05/chapter-05.md | grep shell```
+:  This character is called the "pipe" because it looks like a vertical bar or a piece of a pipe.  It serves the function of connecting the output of one command to the input of another commmand--not unlike a pipe under your sink.  The character is typed by pressing the shift+the key located directly above the enter key.  In this example here we display the content of the chapter-05.md and *pipe* it to the grep command which filters the file showing us only the lines containing the term *shell*. __Usage example:__ 
+```bash 
+cat Chapter-05/chapter-05.md | grep shell
+```
 
 \*
 
-:  The asterik (shift+8) is the wildcard representative.  It can be used in any shell command when you want to let the computer to the work or when you are not quite sure of a files spelling. __Usage example:__ ```ls *.md``` ```cat Linux-*.pdf```  ```rm -rf *```  ```rm -rf ./*```
+:  The asterik (shift+8) is the wildcard representative.  It can be used in any shell command when you want to let the computer to the work or when you are not quite sure of a files spelling. __Usage example:__ 
+```bash 
+ls *.md cat Linux-*.pdf rm -rf * rm -rf ./*
+```
 
 \?
 
-: The character question mark is a single character wildcard.  __Usage example:__ ```ls memo?``` ```ls vegetalbe-?-report.txt```
+: The character question mark is a single character wildcard.  __Usage example:__ 
+```bash
+ls memo? ls vegetalbe-?-report.txt
+```
 
 \"
 
