@@ -3,7 +3,9 @@
 
 __Chapter 7 Objectives__
 
+http://tldp.org/LDP/abs/html/internalvariables.html#OLDPWD
 
+http://tldp.org/LDP/abs/html/special-chars.html
 
 __Outcomes__
 
