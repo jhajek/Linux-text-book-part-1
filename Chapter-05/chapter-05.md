@@ -418,8 +418,6 @@ The improvements offered by bash over sh, csh, and ksh include:
   
 ![*ls -l listing of the home directory in Ubuntu 15.04*](images/Chapter-05/permissions/ls-l-ubuntu.png "Ubuntu 15.04 ls -l listing")
 
-![*ls -l listing of the home directory in Fedora 22*](images/Chapter-05/permissions/ls-l-fedora.png "Fedora 22 ls -l listing") 
-
 The first column is a listing of the permissions for a file. Notice that there are actually 3 groupings of the letters __rwx__ combined into one long string like this:  ```rw-r--r--```.  In addition to individual permissions there are three categories of permission.  These three categories are __owner__, __group__, __other__  Each of these groups has its own read, write, and execute permissions.  
 
 Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -l``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter 9. Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numeric value for this is ```rw-------``` is 600.
