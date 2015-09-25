@@ -25,62 +25,81 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User") 
   When the shell parses the three components of a command there is a square that talks about variable replacement.  We sort of skimmed that part in the last chapter but here is what is happening.  
 
-&&                   
+\&\& 
+                  
 : The ampersand character (shft-7) when doubled is an and command allowing you to string two or more commands together.  Note the && requires each succesive command to return succesfully or else the entire string will stop at the command that failed.
 __Usage example:__ ```unzip -d book master.zip && cd book && cat Readme.md```
 
-;
+\;
+
 : Unlike the ampersand character the semi-colon __";"__ allows you to chain commands together that will execute in sequence regardless of the previous commands return status. The example command will execute and return two errors tellingyou the file or directory doesn't exist, but the third command will execute showing the data. __Usage example:__ ```ls /topsecret; cd /topsecret; date``` 
 
-|
+\|
+
 :  This character is called the "pipe" because it looks like a vertical bar or a piece of a pipe.  It serves the function of connecting the output of one command to the input of another commmand--not unlike a pipe under your sink.  The character is typed by pressing the shift+the key located directly above the enter key.  In this example here we display the content of the chapter-05.md and *pipe* it to the grep command which filters the file showing us only the lines containing the term *shell*. __Usage example:__ ```cat Chapter-05/chapter-05.md | grep shell```
 
 \*
+
 :  The asterik (shift+8) is the wildcard representative.  It can be used in any shell command when you want to let the computer to the work or when you are not quite sure of a files spelling. __Usage example:__
 
-?
+\?
+
 : The character question mark is a single character wildcard.
 
-'
+\'
+
 : single tic or single quote.  Any characters or variables surrounded by a single tic will be interpreted literally.  
  
-"
+\"
+
 : double tic or double quote. Any characters or variables surrounded by double tics will interpret shell variables that inside of the string before passing the contents to a command.
 
-`
+\`
+
 : back tic key to left of number 1
 
-[]
+\[\]
+
 : square brackers - range can indicate a range values to be passed to a shell command.  
 
-()
+\(\)
+
 : Parentesis
 
-$
+\$
+
 : Dollard sign allows for reference of shell variables
 
-<>
+\<\>
+
 : Angle brackets or less than greater than - allow for input and output to be redirected.  Think of them as arrows pointing.
 
-{}
+\{\}
+
 : Curly braces  expansion braces also for decalring variables with variables in them  ${my-name}
 
-#
+\#
+
 : Pound sign or hash
 
-^
+\^
+
 : Carot
 
-!
+\!
+
 : Exclamation or usually pronounced as *bang*
 
-~
-: The tilde or tilda (shift+the key to the left of the number 1) is a shortcut representing your user's home directory.  
+\~
 
-<tab>
+: The tilde or tilda (shift+the key to the left of the number 1) is a shortcut representing your user's home directory. ```~-``` 
+
+\<tab>
+
 : Tab key is used for autocomplete. 
 
-\
+\\
+
 : escape sequence
 
 
