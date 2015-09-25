@@ -50,7 +50,13 @@ cat Chapter-05/chapter-05.md | grep shell
 
 :  The asterik (shift+8) is the wildcard representative.  It can be used in any shell command when you want to let the computer to the work or when you are not quite sure of a files spelling. __Usage example:__ 
 ```bash 
-ls *.md cat Linux-*.pdf rm -rf * rm -rf ./*
+ls *.md
+```
+```bash 
+cat Linux-*.pdf 
+```
+```bash 
+rm -rf ./*
 ```
 
 \?
