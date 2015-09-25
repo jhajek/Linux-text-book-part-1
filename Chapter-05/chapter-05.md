@@ -566,9 +566,9 @@ Answer said questions:
 The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manger and a web browser.  All actions will be done through the shell.
 
 1) Navigate from your home directory to your Downloads directory
-    *) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
+    i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
 1) Use the wget command to download the source code for the text book down to your local Downloads folder.  The code URL is: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip "URL")
-    *) Take a screen shot of the output of an ls command in the Downloads directory showing you have succesfully downloaded the zip file. Name the file Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png) 
+    i) Take a screen shot of the output of an ls command in the Downloads directory showing you have succesfully downloaded the zip file. Name the file Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png) 
 1) Use the file command to determine the type of file that the master.zip download is
     i) Take a screenshot of the output of the file command.  Name the file Name the file lastname-firstname-screenshot-week-5-file.(jpg or png)  
 1) Use the unzip command to extract the files to a new directory called __book__ (you will need to use the ```man unzip``` command to find out the usage option in order to accomplish this.
