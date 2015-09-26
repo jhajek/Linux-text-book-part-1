@@ -22,7 +22,8 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
   In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We learned a series of essential commands in order to create and maniplulate the content of our file system.   Now we are going to extend that knowledge by introducing shell meta-characters.   In creating the shell, Thompson and other later on realized they needed to be able to perform certain features that would be repeated often.  The concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.   In this idea instead of having to write a C language program each time - common punction/non alphanumberic characters were adopted to represent the most common repetitive tasks done on the commandline.
     
-![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User") 
+![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
+ 
   When the shell parses the three components of a command there is a square that talks about variable replacement.  We sort of skimmed that part in the last chapter but here is what is happening. Here is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website. 
 
 \&\& 
@@ -41,9 +42,9 @@ ls /topsecret; cd /topsecret; date
 
 \|
 
-:  This character is called the "pipe" because it looks like a vertical bar or a piece of a pipe.  It serves the function of connecting the output of one command to the input of another commmand--not unlike a pipe under your sink.  The character is typed by pressing the shift+the key located directly above the enter key.  In this example here we display the content of the chapter-05.md and *pipe* it to the grep command which filters the file showing us only the lines containing the term *shell*. __Usage example:__ 
+:  This character is called the "pipe" because it looks like a vertical bar or a piece of a pipe.  It serves the function of connecting the output of one command to the input of another commmand--not unlike a pipe under your sink.  The character is typed by pressing the shift+the key located directly above the enter key.  In this example here we display the content of the chapter-05.md and *pipe* it to the grep command which filters the file showing us only the lines containing the term *permission*. __Usage example:__ 
 ```bash 
-cat Chapter-05/chapter-05.md | grep shell
+cat Chapter-05/chapter-05.md | grep permission
 ```
 
 \*
@@ -63,50 +64,106 @@ rm -rf ./*
 
 : The character question mark is a single character wildcard.  __Usage example:__ 
 ```bash
-ls memo? ls vegetalbe-?-report.txt
+ls memo? 
+```
+```bash
+ls vegetalbe-?-report.txt
+```
+
+\$
+
+: Dollar sign allows for reference of shell variables.  __Usage example:__ 
+```bash
+DIR=/etc/network/interfaces
+```
+```bash
+echo $DIR
+```
+```bash
+DT=`date`; echo $DT
 ```
 
 \"
 
-: double tic or double quote. Any characters or variables surrounded by double tics will interpret shell variables that inside of the string before passing the contents to a command.
+: double tic or double quote. Any characters or variables surrounded by double tics will interpret shell variables that inside of the string before passing the contents to a command. This command will print the content of the date command from the previous example along with some text to the screen. __Usage example:__
+```bash
+echo "Today's date is $DT"
+```
 
 \'
 
-: single tic or single quote.  Any characters or variables surrounded by a single tic will be interpreted literally.  
- 
-
+: single tic or single quote.  Any characters or variables surrounded by a single tic will be interpreted literally.  Unlike the previous example this command will only print the literal characters $DT not expand the variable's contents.  __Usage exmaple:__ 
+```bash
+echo 'Today's date is $DT'
+```
 
 \`
 
-: back tic key to left of number 1
+: back tic key to left of number 1.  The back tic is used for encasing Linux binary command names.  The back tic tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__ 
+```bash
+DT=`date`
+```
+```bash
+CONTENTS=`cat /etc/services`
+```
 
 \[\]
 
-: square brackers - range can indicate a range values to be passed to a shell command.  
+: square brackets indicate sets or ranges of characters to be processed.  In a sense it is a mini-for loop for processing files names.  We can present multiple character sets or if we use ```-``` we can present a numeric or alphabetic range of values to be passed to a shell command. __Usage example:__
+```bash
+ls file[24]
+```
+```bash
+ls file[1-4]
+```
+```bash
+ls file[!a-z]
+```
 
 \(\)
 
-: Parentesis
+: Parenthesis are used to start a sub-shell.  The parent shell doesn't have memory access to this sub-shell. We will cover this more in detail in the next chapter. __Usage example:__ 
+```bash
+(a=hello; echo $a)
+```
 
-\$
+\< \> \>\>
 
-: Dollard sign allows for reference of shell variables
+: Angle brackets or less than greater than - allow for input and output to be redirected.  Think of them as arrows pointing. Single arrow is destructive meaning if the filename exists the previous contents will be destroyed and the file recreated.  Double arrow is an append operation and will append the content to the end of the filename given as an argument. The arrows can be combined with the ```&``` to help suppress output and that will be described in the next section in detail.  Note how the normal output to the screen is being redirected to these files by the arrow operators. __Usage example:__
+```bash
+date > /tmp/todaysdate.txt
+```
+```bash
+echo "Buy milks and eggs!" >> ~/Documents/my-shopping-list.txt
+```
 
-\<\>
-
-: Angle brackets or less than greater than - allow for input and output to be redirected.  Think of them as arrows pointing.
 
 \{\}
 
-: Curly braces  expansion braces also for decalring variables with variables in them  ${my-name}
+: Curly braces  expansion braces also for decalring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it.  The second command example from chapter 03 uses ```()``` to execute a sub-shell to get the value of ```uname -r```.  The final example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
+```bash
+echo ${username-`whoami`}
+```
+```bash
+sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+```
+```bash
+mkdir chapter-0{1..9}
+```
 
 \#
 
-: Pound sign or hash
+: Pound sign or hash is used to comment out the lines in a shell script. We will cover this in detail in the next chapter.
 
 \^
 
-: Carot
+: The carot (shift+6) is a meta-character used in conjunction with the ```[]``` range brackets in order to tell the shell to look for the pattern enclosed in the brackets at the beginning of the line only. __Usage exmaple:__ 
+```bash
+ls [^tsq]*
+```
+```bash
+ls [^b-d]
+```
 
 \!
 
@@ -128,6 +185,11 @@ ls memo? ls vegetalbe-?-report.txt
 ## Std in out err
 
 0 1 2
+
+command &>filename redirects both the stdout and the stderr of command to filename.
+
+command >&2 redirects stdout of command to stderr.
+
 
 ## I/O redirect
  
