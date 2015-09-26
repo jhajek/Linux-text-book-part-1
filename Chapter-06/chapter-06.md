@@ -20,20 +20,20 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
 ## Shell metacharacters
 
-  In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We learned a series of essential commands in order to create and maniplulate the content of our file system.   Now we are going to extend that knowledge by introducing shell meta-characters.   In creating the shell, Thompson and other later on realized they needed to be able to perform certain features that would be repeated often.  The concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.   In this idea instead of having to write a C language program each time - common punction/non alphanumberic characters were adopted to represent the most common repetitive tasks done on the commandline.
-    
+  In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and maniplulate the contents of our file system.  The next layer to be introduced is something called __shell metacharacters__.  When Ken Thompson Was creating Unix and the first user shell, he quickly realized a need to be able to perform certain tasks that would be repeated often.  For example, the concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command read a directories content and feed it any filenames that match the first two characters "Do" plus any number of other characters, (including 0 charactrers), represented with the star or asterik (*).   The concept of the shell meta-character is intended to replace you having to write a C language program each time to create this functionality.  There are 14 punctuation and non-alphanumberic characters that are standard across Linux shells[^64] - common punction/non alphanumberic characters were adopted to represent the most common repetitive tasks done on the commandline.
+      
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
  
-  When the shell parses the three components of a command there is a square that talks about variable replacement.  We sort of skimmed that part in the last chapter but here is what is happening. Here is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website. 
+  When the shell parses the three components of a command there is a square that talks about variable replacement.  We sort of skimmed that part in the last chapter but here is what is happening. Here is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.   Remember that everything in Unix is a file, and all files are text based. 
 
 \&\& 
                   
-: The ampersand character (shft-7) when doubled is an and command allowing you to string two or more commands together.  Note the && requires each succesive command to return succesfully or else the entire string will stop at the command that failed. __Usage example:__ 
+: The double ampersand character (shift+7)command allows you to execute two or more commands together in sequence.  Note the && requires each succesive command to return succesfully or else the entire string will stop at the command that failed. __Usage example:__ 
 ```bash
 unzip -d book master.zip && cd book && cat Readme.md
 ```
 
-\;
+\;    
 
 : Unlike the ampersand character the semi-colon __";"__ allows you to chain commands together that will execute in sequence regardless of the previous commands return status. The example command will execute and return two errors tellingyou the file or directory doesn't exist, but the third command will execute showing the data. __Usage example:__ 
 ```bash 
@@ -236,4 +236,7 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
   Lab goes here 
  
 #### Footnotes
+
+[^64]: [http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html](http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html "POSIX Shell metacharacters")
+
 
