@@ -1,7 +1,7 @@
 # The Linux Filesystem, Path, Shell, and File Permissions
 ![*The Shells*](images/Chapter-Header/Chapter-05/seashell2.png "Linux Shells")
 
-__Chapter 5 Objectives__
+## Chapter 5 Objectives
 
   *  Understand the structure of the Linux Filesystem
   *  Understand the difference between absolute and relative paths.
@@ -10,11 +10,11 @@ __Chapter 5 Objectives__
   *  Learn the Linux commandline nomenclature.
   *  Understand the nomenclature describing file permissions and security
   
-__Outcomes__
+### Outcomes
 
   At the completion of this chapter you will understand how to use the Linux shell for modifying the contents of the operating system.  You will understand the nature of the filesystem and how to navigate it.  You will be able to demonstrate full awareness of absolute and relative paths and understand the system path.  You will know basic shell commands for manipulating content in the filesystem.  
 
-*Conventions*
+#### Chapter Conventions
 
    The terms __commandline__, __terminal__, and __shell__ have been used interchangeably so far to convey the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
    

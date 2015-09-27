@@ -1,11 +1,9 @@
 # Shell Variables, Meta-Characters, Search and Tools
 ![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
 
-__Chapter 6 Objectives__
+## Chapter Objectives
 
 In this chapter we will be continuing our exploration of the commandline.  We will be expanding our exerpience of the original paradigm that Thompson and Ritchie envisioned when designing Unix.
-
-## Chapter Objectives
 
    * Understand the nature of shell metacharacters and how they enhance the shell capabilities
    * Understand the concept of standard in, standard out, and standard error
@@ -24,7 +22,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
       
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
  
-  When the shell parses the three components of a command there is a square that talks about variable replacement.  We sort of skimmed that part in the last chapter but here is what is happening. Here is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.   Remember that everything in Unix is a file, and all files are text based. 
+  When the shell parses the three components of a command there is a square that talks about variable replacement.  We sort of skimmed that part in the last chapter but here is what is happening. Here is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.   Remember that everything in Unix is a file, and all files are text based.
 
 \&\& 
                   
@@ -62,12 +60,15 @@ rm -rf ./*
 
 \?
 
-: The character question mark is a single character wildcard.  __Usage example:__ 
+: The character question mark is a single character wildcard. Multiple question marks can be combined but are single wildcards. ```???.txt``` will list all files with three characters and the .txt extension.  __Usage example:__ 
 ```bash
 ls memo? 
 ```
 ```bash
 ls vegetalbe-?-report.txt
+```
+```bash
+ls ???.txt
 ```
 
 \$
@@ -107,9 +108,9 @@ DT=`date`
 CONTENTS=`cat /etc/services`
 ```
 
-\[\]
+```[]```
 
-: square brackets indicate sets or ranges of characters to be processed.  In a sense it is a mini-for loop for processing files names.  We can present multiple character sets or if we use ```-``` we can present a numeric or alphabetic range of values to be passed to a shell command. __Usage example:__
+: Square brackets indicate sets or ranges of characters to be processed.  In a sense it is a mini-for loop for processing files names.  We can present multiple character sets or if we use ```-``` we can present a numeric or alphabetic range of values to be passed to a shell command. __Usage example:__
 ```bash
 ls file[24]
 ```
@@ -137,7 +138,6 @@ date > /tmp/todaysdate.txt
 echo "Buy milks and eggs!" >> ~/Documents/my-shopping-list.txt
 ```
 
-
 \{\}
 
 : Curly braces  expansion braces also for decalring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it.  The second command example from chapter 03 uses ```()``` to execute a sub-shell to get the value of ```uname -r```.  The final example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
@@ -157,9 +157,9 @@ mkdir chapter-0{1..9}
 
 \^
 
-: The carot (shift+6) is a meta-character used in conjunction with the ```[]``` range brackets in order to tell the shell to look for the pattern enclosed in the brackets at the beginning of the line only. __Usage exmaple:__ 
+: The carot (shift+6) is a meta-character used in conjunction with the ```[]``` range brackets in order to tell the shell to negate the range included in the square brackets. ```ls [^r]*``` will find file1-file4, but will not list the files named rfile1-rfile4. __Usage exmaple:__ 
 ```bash
-ls [^tsq]*
+ls [^r]*
 ```
 ```bash
 ls [^b-d]
@@ -167,41 +167,141 @@ ls [^b-d]
 
 \!
 
-: Exclamation or usually pronounced as *bang*
+: Exclamation or usually pronounced as *bang*.  This is used to negate a test condition.  This will be covered more in the next chapter when we cover bash shell scripts.
 
 \~
 
-: The tilde or tilda (shift+the key to the left of the number 1) is a shortcut representing your user's home directory. ```~-``` 
+: The tilde or tilda (shift+the key to the left of the number 1) is a shortcut representing your user's home directory.  ```~-``` is a combination that references the previous directory you were in. __Usage example:__
+```bash
+cd ~
+``` 
+```bash
+cd ~/Documents
+```
+```bash
+cd ~-
+```
 
 \<tab>
 
-: Tab key is used for autocomplete. 
+: Tab key is used for autocomplete on the commandline.  This is a feature of bash, not present in sh, csh, and ksh. 
 
 \\
 
-: escape sequence
+: By placing a ```\``` in front of any character, the shell will *escape* that characters function.  This is helpful if you want to print out the text of commands without having the shell execute them.
+```bash
+echo "To assign the content of the date command to a variable type: DT=\`date\`\; echo \$DT"
+```
 
+## Standard input, output, and error 
 
-## Std in out err
+### Standard In
 
-0 1 2
+  Standard in would be the way you get text input into the terminal.  This happens to be the keyboard.  Though you can use the reversed angle bracket ```<``` to send stanard in from a file. The example below writes the output of the date command and redirects the output to a file.  The second command will take the content of that same file as standard in--in place of the keyboard and redirect the input from the file to the cat command to display its content.  You can send the content of anyfile to a command with input redirection only if it accepts input from __standard in__ to begin with.
+  ```bash
+  date > todaysdate.txt
+  ```
+  ```bash
+  cat < todaysdate.txt
+  ```
+  ```bash
+  mail < complete-works-of-shakespere.txt
+  ```
+### Standard Out
 
-command &>filename redirects both the stdout and the stderr of command to filename.
+  When Unix was developed Ken Thompson took the direction that all devices were files.  In a short sense, the screen, or teletype, or terminal, is nothing more that a file that is located in the /dev directory.  By typing the ```who``` command from the commandline you will see which accounts are logged into the syste.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
 
-command >&2 redirects stdout of command to stderr.
+  This device allowed Unix and eventually Linux to exchange standard output devices yet not have top modify the output structure of the operating system.  Notice to that the outputs are refered to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to standard out which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file.
+  A single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will append, and is non-destructive.
+```bash
+date > /tmp/todaysdate
+```
+```bash
+cat log.old >> log.new
+```
+  
+  When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file.  
 
+### Standard Error
 
-## I/O redirect
+  When you type a command and ther is an error message, perhaps "file or directory not found:" though that is printed to the screen, that is not part of __standard out__ it is part of __standard error__.  Standard error can be useful for logging.  If you have a command you want to execute but you want to suppress the standard error from showing on the screen, yet log it to a file, you can do so. 
+
+#### Surpressing Standard Out and Error
+
+  Each of the standards can be referenced numberically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  These numbers combined with a single ```&``` allow you to redirect the output of a command.
+  
+> __Exercise:__ Use the single angle bracket to redirct the output of a command to a file.  Techncally this command is a "1" followed by an angle bracket ">" but the one is implied and can be left out.  What happens when you try this command: ```ls -l > ./dir-list.txt; cat ./dir-list.txt```
+
+> __Exercise:__ You can surpress the standard error output as well by redirecting it to a file. What happens when you type this? ```ls -l /new-top-secret 2> ./error-report.txt; cat ./error-report.txt```
+
+> __Exercise:__ Both standard out and standard error can be redirected together.  This is useful if you are running a script as a system process or as part of a scheduled task.  What happens when you type these commands? ```ls -l ~; ls -l /new-top-secret &> error-and-out.txt ```
+
+> __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existance of a command binary or file.  You just want the afirmation that the file exists not any output. What happens when you type ```ls -l > /dev/null```
+
+### Pipes and tee
+
+#### Douglas McIlroy
+
+![*Douglas McIlroy*](images/Chapter-06/people/Douglas_McIlroy-2.jpg "Douglas McIlroy")
+
+  Douglas McIlroy was the manager of the Bell Labs Computing Techniques Research Department from 1965 to 1986 where Ken Thompson, Dennis Ritchie, and Brian Kernighan worked under him.  He gave the tacit green light to Unix and encouraged its development.  He even built several Unix commandline binaries such as spell, diff, sort, join, graph, speak, and tr[^66]. Most importantly McIlroy envisioned the concepts of __pipes__ or __pipelines__. This idea allowed for the output of one command to be directed as the input of another command--making a pipeline.  This was in compliance with Thompson's idea of small command binaries doing only one thing.  So by 1973 McIlroy had convinced Thompson to modify and add this feature to Unix.  
+
+> "Pipes were first suggested by [M. Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Douglas McIlroy"), when he was a department head in the Computing Science Research Center at Bell Labs, the research arm of AT&T (American Telephone and Telegraph Company), the former U.S. telecommunications monopoly. McIlroy had been working on macros since the latter part of the 1950s, and he was a ceaseless advocate of linking macros together as a more efficient alternative to series of discrete commands. A macro is a series of commands (or keyboard and mouse actions) that is performed automatically when a certain command is entered or key(s) pressed. 
+
+> McIlroy's persistence led Ken Thompson, who developed the original UNIX at Bell Labs in 1969, to rewrite portions of his operating system in 1973 to include pipes. This implementation of pipes was not only extremely useful in itself, but it also made possible a central part of the Unix philosophy, the most basic concept of which is modularity (i.e., a whole that is created from independent, replaceable parts that work together efficiently).[^65]" 
  
-  < > | tee
+[2005 audio presentaion by Doug McIlroy about the early history of Unix development](http://www.dlslug.org/past_meetings.html "Interview with Doug McIlroy")
 
-## find locate
+#### Pipes
 
-## grep
+  The best way to envision pipes is to think of them as exactly what they are called--physical pipes in which things travel through.  To maximize the use of pipes we are going introduce a series of additional commands to the list of essential command binaries that was introduced in last chapter and then show you some combined examples.  
+
+who
+
+:  Allows a user to query which accounts are logged into the system at the current time.  __Usage example:__
+```bash
+who
+```
+
+sort
+
+:  Similar to the ```cat``` command, ```sort``` will display the content of a file to standard out with the added feature of sorting the content alphabetically.  Note that what is sorted is just a copy of the output to the screen.  The original file is left uneffected.  __Usage example:__
+```bash
+echo -e "orange \npeach \ncherry" > fruit.txt; sort fruits.txt  
+```
+uniq
+
+:  __Usage example:__
+
+wc
+
+: __Usage example:__
+
+cut
+
+: __Usage example:__
+
+echo 
+: __Usage example:__
+
+dmesg
+
+: __Usage example:__
+
+
+
+
+## find locate and grep
+
+### grep
 
 ## Compression and Archive tools
 
 tar, bzip, xz
+
+##  Hidden files and single dot operator
+
+./   .ssh
 
 ## Chapter Conclusions and Review
 
@@ -239,4 +339,7 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
 
 [^64]: [http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html](http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html "POSIX Shell metacharacters")
 
+[^65]: [http://www.linfo.org/pipe.html](http://www.linfo.org/pipe.html "History of Unix Pipes")
+
+[^66]: [https://en.wikipedia.org/wiki/Douglas_McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy)
 

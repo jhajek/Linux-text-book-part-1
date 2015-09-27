@@ -1,7 +1,7 @@
 # Desktop Linux and GUIs
 ![*GUIs??? NIH*](images/Chapter-Header/Chapter-04/supported_features2.png "GUIs NIH")
 
-__Chapter 4 Objectives__
+## Objectives
 
   In this chapter you will:
 
@@ -12,7 +12,7 @@ __Chapter 4 Objectives__
   *  Understand GUI package managers
   *  Understand theming on the Linux Desktop
 
-__Outcomes__
+### Outcomes
 
   At the conclusion of this chapter you will have a strong knowledge of the X Windows system and why it is the foundation of Desktop Linux.  You will be able to implement various window managers and desktop environments, selecting the proper environment to utilize and suit your hardware needs.  You will be comfortable using and recognizing the features of GNOME 3 and Unity desktop environments.
 
