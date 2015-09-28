@@ -16,11 +16,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
   At the conclusion of this chapter you will have a definate understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the __find__ and __locate__ commands that are used to find and filter files on the system.   We will use the __grep__ tool for find and replace options and advanced parsing of file content beyonf what __find__ and __locate__ can do.   FInally we will use compression tools and for creating archives and for extracting them. 
 
-#### Conventions
-
-  This chapter will refer to two text files error.log and deny.hosts. 
-
-## Shell Meta-characters
+## Shell Meta-Characters
 
   In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and maniplulate the contents of our file system.  The next layer to be introduced is something called __shell meta-characters__.  When Ken Thompson Was creating Unix and the first user shell, he quickly realized a need to be able to perform certain tasks that would be repeated often.  For example, the concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command read a directories content and feed it any filenames that match the first two characters "Do" plus any number of other characters, (including 0 charactrers), represented with the star or asterik (*).   The concept of the shell meta-character is intended to replace you having to write a C language program each time to create this functionality.  There are 14 punctuation and non-alphanumberic characters that are standard across Linux shells[^64] - common punction/non alphanumberic characters were adopted to represent the most common repetitive tasks done on the commandline.
       
@@ -102,7 +98,9 @@ echo "Today's date is $DT"
 echo 'Today's date is $DT'
 ```
 
-```\````
+```bash
+`
+```
 
 : back tic key to left of number 1.  The back tic is used for encasing Linux binary command names.  The back tic tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__ 
 ```bash
@@ -292,14 +290,14 @@ uniq
 :  The uniq command is used for reporting or filtering out repeated lines in a file. Though __uniq__ is a full command binary it is mostly used as a filter through which input has been piped [^67]. For example if we had an webserver error log file with this content, we have duplicated lines, we would use ```uniq``` to filter out duplicated lines. The below ```uniq``` command would collapse the first 5 lines into one unique line for output. The -c option will add a count after each unique line and the -d will only show a line if it has two or more occurances. __Usage example:__  
 ```bash
 cat error.log
-[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
-[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
-[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
-[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
-[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
-[Sun Mar 16 16:35:30 2014] [error] [client 157.55.33.126] File does not exist: /var/www/robots.txt
-[Sun Mar 16 17:49:05 2014] [error] [client 216.152.249.242] File does not exist: /var/www/voip
-[Sun Mar 16 18:05:54 2014] [error] [client 75.148.238.204] Invalid method in request \x80g\x01\x03\x01
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
+[Sun Mar 16 16:35:30 2014] [error] [client 157.55.33.126] File does not exist:
+[Sun Mar 16 17:49:05 2014] [error] [client 216.152.249.242] File does not exist:
+[Sun Mar 16 18:05:54 2014] [error] [client 75.148.238.204] Invalid method 
 ```
 ```bash
 uniq error.log
@@ -330,6 +328,7 @@ echo "hello world!:
 ```bash
 for i in {0..180}; do echo -ne '.'; sleep 1; done
 ```
+
 tee
 
 : The ```tee``` command is used to read from standard input and write to standard output. The command below will sort the output of the hosts.deny file and well as save that sorted output to a file name ./sorted.txt. Then that output will be further passed to a ```wc``` command.  Think of the ```tee``` command as like a t-shaped pipe that lets water flow down as well as across. __Usage example:__
@@ -339,7 +338,10 @@ cat hosts.deny | sort | tee ./sorted.txt | wc
   
 dmesg
 
-: __Usage example:__
+: The ```dmesg``` command is a shortcut to display the kernel ring buffer--or in otherwords the kernel's output messages for debugging. __Usage example:__
+```bash
+dmesg
+```
 
 tail
 
@@ -358,6 +360,9 @@ head hosts.deny
 tac
 
 : The ```tac``` command is another *clever hack* in that is does the exact same thing as the ```cat``` command except that it does it in reverse (cat backwards). __Usage example:__
+```bash
+tac hosts.deny
+```
 
 ### Pipe Usage
 
@@ -387,9 +392,9 @@ Pipes can be used to chain as many commands together as necessary. This is one o
  * The -v (or --invert-match) option filters out matches.
  * The -c (--count) option gives a numerical count of matches, rather than actually listing the matches.
  
-![*Format of the deny.hosts file*](images/Chapter-06/pipes/hosts-deny.png "Structure of hosts.deny")
-
 > __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.  With over 3000+ entries you can use pipes and filters to narrow down the output.  For example let us say that you are looking for every line that has an IP that starts with 216.* and then count those number of occurances? ```cat hosts.deny | grep "sshd: 210" | wc``` 
+
+![*Format of the deny.hosts file*](images/Chapter-06/pipes/hosts-deny.png "Structure of hosts.deny")
 
 > What would happen if you added a ``` | less``` command to the end like this?  ```cat hosts.deny | grep "sshd: 210" | less``` ?
 
