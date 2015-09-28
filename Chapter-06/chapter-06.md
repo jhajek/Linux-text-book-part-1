@@ -195,12 +195,15 @@ echo "To assign the content of the date command to a variable type: DT=\`date\`\
 
 ## Standard input, output, and error 
 
+  The original concept behind defining standard input and output devices comes from the idea that Unix grew over the course of 40 years of output and input technology.  Originally there were no keyboards--just teletypes.  Originally there were no screens just ttys to print out on paper.  Then came *glass ttys* and terminals.  Then came Line and Dot Matrix printers.  Standard keyboards via the ISA input bus were invented.  At one time on a busy shared sysetm (remember the central server development paradigm for Unix) a sysadmin would perhaps want to send output of a command or any errors so that they could be debugged on paper.  Not environmentally friendly but sometimes just seeing it in writing solves your issue. Every *device* has a file handle and you can see all the *standards* are located by listing the ```/dev``` directory.      
+    
+  ![*Standard I/O, ls -l /dev/std\**](images/Chapter-06/standard/standard.png "Standard I/O")
+  
+  ![*Trail of standard location*](images/Chapter-06/standard/standard-out-location.png "Standard Out Location")
+
 ### Standard In
 
-  Standard in would be the way you get text input into the terminal.  This happens to be the keyboard.  Though you can use the reversed angle bracket ```<``` to send stanard in from a file. The example below writes the output of the date command and redirects the output to a file.  The second command will take the content of that same file as standard in--in place of the keyboard and redirect the input from the file to the cat command to display its content. You can see standard in and where is it located by listing the ```/dev``` directory.    
-  
-  
-  
+  Standard in would be the way you get text input into the terminal.  This happens to be the keyboard.  Though you can use the reversed angle bracket ```<``` to send stanard in from a file. The example below writes the output of the date command and redirects the output to a file.  The second command will take the content of that same file as standard in--in place of the keyboard and redirect the input from the file to the cat command to display its content.    
   You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with.
   ```bash
   date > todaysdate.txt
