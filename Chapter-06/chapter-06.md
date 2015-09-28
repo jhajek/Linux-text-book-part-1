@@ -214,11 +214,12 @@ echo "To assign the content of the date command to a variable type: DT=\`date\`\
   ```bash
   mail < complete-works-of-shakespere.txt
   ```
+  
 ### Standard Out
 
   When Unix was developed Ken Thompson took the direction that all devices were files.  In a short sense, the screen, or teletype, or terminal, is nothing more that a file that is located in the /dev directory.  By typing the ```who``` command from the commandline you will see which accounts are logged into the syste.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
 
-  This device allowed Unix and eventually Linux to exchange standard output devices yet not have top modify the output structure of the operating system.  Notice to that the outputs are refered to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to standard out which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file.
+  This device allowed Unix and eventually Linux to exchange standard output devices yet not have to modify the output structure of the operating system.  Notice to that the outputs are refered to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to standard out which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file.
   A single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will append, and is non-destructive.
 ```bash
 date > /tmp/todaysdate
@@ -235,7 +236,13 @@ cat log.old >> log.new
 
 #### Surpressing Standard Out and Error
 
-  Each of the standards can be referenced numberically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  These numbers combined with a single ```&``` allow you to redirect the output of a command.
+  Each of the standards can be referenced numberically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to seperate file which can be used for debugging our shell script later on.  
+```bash
+sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err
+sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err
+service nginx start 1>/tmp/03.out 2>/tmp/03.err
+```
+  Standard out and standard error and be redirected together in the bash shell with a single ```&```.
   
 > __Exercise:__ Use the single angle bracket to redirct the output of a command to a file.  Techncally this command is a "1" followed by an angle bracket ">" but the one is implied and can be left out.  What happens when you try this command: ```ls -l > ./dir-list.txt; cat ./dir-list.txt```
 
@@ -243,7 +250,7 @@ cat log.old >> log.new
 
 > __Exercise:__ Both standard out and standard error can be redirected together.  This is useful if you are running a script as a system process or as part of a scheduled task.  What happens when you type these commands? ```ls -l ~; ls -l /new-top-secret &> error-and-out.txt ```
 
-> __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existance of a command binary or file.  You just want the afirmation that the file exists not any output. What happens when you type ```ls -l > /dev/null```
+> __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existance of a command binary or file.  You just want the afirmation that the file exists not any output. What happens when you type the ```ls -l > /dev/null``` command.
 
 ### Pipes and tee
 
@@ -272,31 +279,66 @@ who
 
 sort
 
-:  Similar to the ```cat``` command, ```sort``` will display the content of a file to standard out with the added feature of sorting the content alphabetically.  Note that what is sorted is just a copy of the output to the screen.  The original file is left uneffected.  __Usage example:__
+:  Similar to the ```cat``` command, ```sort``` will display the content of a file to standard out with the added feature of sorting the content alphabetically.  Note that what is sorted is just a copy of the output to the screen.  The original file is left uneffected. The ```sort``` and ```uniq``` commands are often used together. __Usage example:__
 ```bash
 echo -e "orange \npeach \ncherry" > fruit.txt; sort fruits.txt  
 ```
 uniq
 
-:  __Usage example:__
+:  The uniq command is used for reporting or filtering out repeated lines in a file. Though __uniq__ is a full command binary it is mostly used as a filter through which input has been piped [^67]. For example if we had an webserver error log file with this content, we have duplicated lines, we would use ```uniq``` to filter out duplicated lines. The below ```uniq``` command would collapse the first 5 lines into one unique line for output. The -c option will add a count after each unique line and the -d will only show a line if it has two or more occurances. __Usage example:__  
+```bash
+cat error.log
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
+[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist: /var/www/rd-cd
+[Sun Mar 16 16:35:30 2014] [error] [client 157.55.33.126] File does not exist: /var/www/robots.txt
+[Sun Mar 16 17:49:05 2014] [error] [client 216.152.249.242] File does not exist: /var/www/voip
+[Sun Mar 16 18:05:54 2014] [error] [client 75.148.238.204] Invalid method in request \x80g\x01\x03\x01
+```
+```bash
+uniq error.log
+```
 
 wc
 
-: __Usage example:__
+: The ```wc``` command stands for word count and is used for printing out the number of newlines,  words,  and  byte  count for a file or standard in passed to it.  You can use ```wc``` as part of a filter to count only specific occurances of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  There IPs have been placed on the hosts.deny list which the system will deny a TCP connection to.  How many have been naded?  You can count the lines by executing the commands below. __Usage example:__
+```bash
+cat hosts.deny | wc 
+```
 
 cut
 
-: __Usage example:__
+: The ```cut``` command will allow you to *cut* up your output based on a delimeter, space, dash, comma, and so forth. The command will print selected parts of lines from a file to standard output[^68]. The -d option is the delimeter to *cut* on and the -f is the field number(s) to retrieve. __Usage example:__
+```bash
+cut -d ' ' -f1,2 /etc/mtab
+```
+```bash
+uname -a | cut -d" " -f1,3,11,12
+```
 
 echo 
-: __Usage example:__
+: This command is used for displaying a line of text.  By using the -e option you can enable escape sequences to be interpreted. The first example will print out a line of text.  The second example uses a for loop to print out a single period and then sleep for 1 second. __Usage example:__
+```bash
+echo "hello world!:
+```
+```bash
+for i in {0..180}; do echo -ne '.'; sleep 1; done
+```
 
 dmesg
 
 : __Usage example:__
 
 
+> __Exercise:__
 
+> __Exercise:__
+
+> __Exercise:__
+
+> __Exercise:__
 
 ## find locate and grep
 
@@ -349,4 +391,8 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
 [^65]: [http://www.linfo.org/pipe.html](http://www.linfo.org/pipe.html "History of Unix Pipes")
 
 [^66]: [https://en.wikipedia.org/wiki/Douglas_McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy)
+
+[^67]: [http://www.computerhope.com/unix/uuniq.htm](http://www.computerhope.com/unix/uuniq.htm "uniq command")
+
+[^68]: [http://www.tldp.org/LDP/abs/html/textproc.html](http://www.tldp.org/LDP/abs/html/textproc.html "cut command")
 
