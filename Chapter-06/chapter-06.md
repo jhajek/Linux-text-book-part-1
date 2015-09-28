@@ -197,7 +197,11 @@ echo "To assign the content of the date command to a variable type: DT=\`date\`\
 
 ### Standard In
 
-  Standard in would be the way you get text input into the terminal.  This happens to be the keyboard.  Though you can use the reversed angle bracket ```<``` to send stanard in from a file. The example below writes the output of the date command and redirects the output to a file.  The second command will take the content of that same file as standard in--in place of the keyboard and redirect the input from the file to the cat command to display its content.  You can send the content of anyfile to a command with input redirection only if it accepts input from __standard in__ to begin with.
+  Standard in would be the way you get text input into the terminal.  This happens to be the keyboard.  Though you can use the reversed angle bracket ```<``` to send stanard in from a file. The example below writes the output of the date command and redirects the output to a file.  The second command will take the content of that same file as standard in--in place of the keyboard and redirect the input from the file to the cat command to display its content. You can see standard in and where is it located by listing the ```/dev``` directory.    
+  
+  
+  
+  You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with.
   ```bash
   date > todaysdate.txt
   ```
