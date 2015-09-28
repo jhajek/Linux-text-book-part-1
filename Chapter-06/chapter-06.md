@@ -205,15 +205,15 @@ echo "To assign the content of the date command to a variable type: DT=\`date\`\
 
   Standard in would be the way you get text input into the terminal.  This happens to be the keyboard.  Though you can use the reversed angle bracket ```<``` to send stanard in from a file. The example below writes the output of the date command and redirects the output to a file.  The second command will take the content of that same file as standard in--in place of the keyboard and redirect the input from the file to the cat command to display its content.    
   You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with.
-  ```bash
-  date > todaysdate.txt
-  ```
-  ```bash
-  cat < todaysdate.txt
-  ```
-  ```bash
-  mail < complete-works-of-shakespere.txt
-  ```
+```bash
+date > todaysdate.txt
+```
+```bash
+cat < todaysdate.txt
+```
+```bash
+mail < complete-works-of-shakespere.txt
+```
   
 ### Standard Out
 
@@ -252,9 +252,9 @@ service nginx start 1>/tmp/03.out 2>/tmp/03.err
 
 > __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existance of a command binary or file.  You just want the afirmation that the file exists not any output. What happens when you type the ```ls -l > /dev/null``` command.
 
-### Pipes and tee
+## History and Usage of Pipes
 
-#### Douglas McIlroy
+### Douglas McIlroy
 
 ![*Douglas McIlroy*](images/Chapter-06/people/Douglas_McIlroy-2.jpg "Douglas McIlroy")
 
@@ -266,9 +266,9 @@ service nginx start 1>/tmp/03.out 2>/tmp/03.err
  
 [2005 audio presentaion by Doug McIlroy about the early history of Unix development](http://www.dlslug.org/past_meetings.html "Interview with Doug McIlroy")
 
-#### Pipes
+### Additional Commands Used for Manipluating Standard Out
 
-  The best way to envision pipes is to think of them as exactly what they are called--physical pipes in which things travel through.  To maximize the use of pipes we are going introduce a series of additional commands to the list of essential command binaries that was introduced in last chapter and then show you some combined examples.  
+  The best way to envision pipes is to think of them as exactly what they are called--physical pipes in which things travel through.  To maximize your understanding of the concepts of *piping* output we will introduce a series of additional commands to the list of essential command binaries that was introduced in last chapter and show you combined examples.  
 
 who
 
@@ -303,9 +303,9 @@ uniq error.log
 
 wc
 
-: The ```wc``` command stands for word count and is used for printing out the number of newlines,  words,  and  byte  count for a file or standard in passed to it.  You can use ```wc``` as part of a filter to count only specific occurances of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  There IPs have been placed on the hosts.deny list which the system will deny a TCP connection to.  How many have been naded?  You can count the lines by executing the commands below. __Usage example:__
+: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines,  words,  and  byte  count for a file or for what is passed by standard in.  You can use ```wc``` as part of a filter to count only specific occurances of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  There IPs have been placed on the hosts.deny list which the system will deny a TCP connection to.  How many have been naded?  You can count the lines by executing the commands below. __Usage example:__
 ```bash
-cat hosts.deny | wc 
+wc hosts.deny; tail hosts.deny | wc 
 ```
 
 cut
@@ -326,27 +326,66 @@ echo "hello world!:
 ```bash
 for i in {0..180}; do echo -ne '.'; sleep 1; done
 ```
+tee
 
+: The ```tee``` command is used to read from standard input and write to standard output. The command below will sort the output of the hosts.deny file and well as save that sorted output to a file name ./sorted.txt. Then that output will be further passed to a ```wc``` command.  Think of the ```tee``` command as like a t-shaped pipe that lets water flow down as well as across. __Usage example:__
+```bash
+cat hosts.deny | sort | tee ./sorted.txt | wc
+```
+  
 dmesg
 
 : __Usage example:__
 
+tail
 
-> __Exercise:__
+: Capitalizing on the *clever hack* mantra of Richard Stallman, the ```tail``` command produces the same output as the ```cat``` commnad yet does it by showing the last line 10 lines (by default) of a file fist. Note the Unix humor as tail is the opposite of head.  Also a cat has a tail...  __Usage example:__
+```bash
+tail hosts.deny
+```
 
-> __Exercise:__
+head
 
-> __Exercise:__
+: The ```head``` command is used to show the first 10 lines (by default) of a command.  It is useful for getting a *peek* at what is in a file if you can remember without having to display the entire contents of a file. __Usage example:__
+```bash
+head hosts.deny
+```
 
-> __Exercise:__
+tac
 
-## find locate and grep
+: The ```tac``` command is another *clever hack* in that is does the exact same thing as the ```cat``` command except that it does it in reverse (cat backwards). __Usage example:__
+
+### Pipe Usage
+
+Pipes can be used to chain as many commands together as necessary. This is one of the three main design principles of Unix.
+
+> __Exercise:__    In the previous ```cut``` example we see the ```uname``` command which is used to print system information to standard out being piped to the cut command and only certain fields of the information being displayed. Try it.  Type ```uname -a``` and then ```uname -a | cut -d" " -f1,3,11,12```. What is different about the output?
+
+> __Exercise:__ You can also add input redirection to a pipe.  ```tail dmesg > system-output.txt```  This command will take the tail (or last 10 lines) of the dmesg kernel output buffer and redirect them to a text file for later analysis.  We can also pipe data and redirect as well.  ```cat deny.hosts | uniq -c > deny-results.txt```  Multiple commands can be chained together.  Try this command, ``cat deny.hosts | uniq -c | sort -nr``` and then try it again omitting the ```| sort -nr``` what is the difference? 
+
+> __Exercise:__ The chaining process can grow pretty extensive.  The ```ps``` command is used to list system processes that are running and will be covered in detail in a later chapter.  This command will look for every running process that has the system+wildcard name in it, sort it, pipe that output to a tee--which saves that formated output to a file.  Then that sorted text will be passed on as standard in for a cut command to filter out columns via spaces and cut the first column and display this text to standard out.```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1``` 
+
+> __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurences of the```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1  | tee ~/columns.txt | wc```
+
+> __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.
+
+## Commands for Finding, Locating, and Pattern Matching 
+
+### find and locate commands
 
 ### grep
 
 ## Compression and Archive tools
 
-tar, bzip, xz
+### tar
+
+### compression
+
+#### gzip
+
+#### bzip
+
+#### xz
 
 ##  Hidden files and single dot operator
 
@@ -362,7 +401,7 @@ tar, bzip, xz
 
 ### Podcast Questions
 
- FreeBSD
+__FreeBSD__
 
 Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit.tv/show/floss-weekly/104 "FreeBSD")
 
@@ -374,10 +413,10 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
   * What project did Randi take on that no one else wanted? ~19:10
   * What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
   * Are there any large companies that sponser FreeBSD?  ~ 31:00
-  * How could you get involved in helping the FreeBSD community? ~38:15
+  * How can you get involved in helping the FreeBSD community? ~38:15
   * What is Randi's opinion about "getting more women in open-source?"  ~40:00
   * What is Randi saying that is the wrong focus? ~49:00
-  * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles doed FreeBSD have?  ~50:25
+  * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
   * Would you like to try/use FreeBSD or PC-BSD?
 
 ### Lab
