@@ -16,6 +16,10 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
   At the conclusion of this chapter you will have a definate understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the __find__ and __locate__ commands that are used to find and filter files on the system.   We will use the __grep__ tool for find and replace options and advanced parsing of file content beyonf what __find__ and __locate__ can do.   FInally we will use compression tools and for creating archives and for extracting them. 
 
+#### Conventions
+
+  This chapter will refer to two text files error.log and deny.hosts. 
+
 ## Shell Meta-characters
 
   In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and maniplulate the contents of our file system.  The next layer to be introduced is something called __shell meta-characters__.  When Ken Thompson Was creating Unix and the first user shell, he quickly realized a need to be able to perform certain tasks that would be repeated often.  For example, the concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command read a directories content and feed it any filenames that match the first two characters "Do" plus any number of other characters, (including 0 charactrers), represented with the star or asterik (*).   The concept of the shell meta-character is intended to replace you having to write a C language program each time to create this functionality.  There are 14 punctuation and non-alphanumberic characters that are standard across Linux shells[^64] - common punction/non alphanumberic characters were adopted to represent the most common repetitive tasks done on the commandline.
@@ -367,13 +371,98 @@ Pipes can be used to chain as many commands together as necessary. This is one o
 
 > __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurences of the```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1  | tee ~/columns.txt | wc```
 
-> __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.
-
 ## Commands for Finding, Locating, and Pattern Matching 
+
+### grep
+
+  The ```grep``` command is a powerful pattern matching and searching tool for the shell.  Originally a feature of the ``ed`` line editor program - it stood for g/re/p--global regualr expression print.  A grep command will search inside of a given text file or directory looking for lines of text that match the pattern you give it.  You can use shell meta-characters from above or literal text strings as the searching parameters.   There are even more advanced search patterns called *regular expression* which is almmost a programming language in itself that allows for complex text queries.  We will not cover *regular expression* in depth in this book but talk about it as it relates to helping us complete our jobs. 
+
+  The grep command [^69] has many options to modify the returned output. Some of the more common ones are listed here [^70]: 
+  
+ * The -i option causes a case-insensitive search.
+ * The -w option matches only whole words.
+ * The -l option lists only the files in which matches were found, but not the matching lines.
+ * The -r (recursive) option searches files in the current working directory and all subdirectories below it.
+ * The -n option lists the matching lines, together with line numbers.
+ * The -v (or --invert-match) option filters out matches.
+ * The -c (--count) option gives a numerical count of matches, rather than actually listing the matches.
+ 
+![*Format of the deny.hosts file*](images/Chapter-06/pipes/hosts-deny.png "Structure of hosts.deny")
+
+> __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.  With over 3000+ entries you can use pipes and filters to narrow down the output.  For example let us say that you are looking for every line that has an IP that starts with 216.* and then count those number of occurances? ```cat hosts.deny | grep "sshd: 210" | wc``` 
+
+> What would happen if you added a ``` | less``` command to the end like this?  ```cat hosts.deny | grep "sshd: 210" | less``` ?
+
+> Can we rewrite the above command to be more efficient?  What if we use the ```cut``` command?  ```cat hosts.deny | cut -d ' ' -f2 | grep ^210 | less```  This will cut out the first column, search for all lines starting with 210 (the ^  in this expression tells grep to look only at the beginning of the line), and then pass the results to the ```less``` command.  
 
 ### find and locate commands
 
-### grep
+  The ```find``` command is used to search for files in a directory hierarchy.  This command has additional parameters that can be used to find files based on time or size criteria.  This is useful searching for files based on when it was created or for finding large files that might be cluttering up the system.   The ```find``` command can also recieve shell-metacharacters as part of the search pattern. All numeric values can be denoted in this fashion:
+  
+ Character          Value
+-----------  -----------------------
+    +n        for greater than n,
+    -n        for less than n,
+     n        for exactly n.
+-----------  -----------------------
+
+Some of the common categories you can use for find are: file time parameters, file size paramaters, user ownership parameters, and permission parameters.   
+
+__TIME__
+
+-amin n
+           
+: File was last accessed n minutes ago.
+
+-anewer file
+              
+: File was last accessed more recently than file was modified.  If file is a symbolic link and the -H option or the -L option is in effect, the access time of the file it points to is always used.
+
+-atime n
+             
+: File was last accessed n*24 hours ago.  When find figures out how many 24-hour periods ago the file was last accessed, any fractional part is ignored, so to match -atime +1, a file has to have been accessed at least two days ago.
+
+-cmin n
+              
+: File's status was last changed n minutes ago.
+
+-cnewer file
+   
+: File's status was last changed more recently than file was modified.  If file is a symbolic link and the -H option or the  -L  option  is  in effect, the status-change time of the file it points to is always used.
+
+-ctime n
+              
+: File's  status  was  last  changed n*24 hours ago.  See the comments for -atime to understand how rounding affects the interpretation of file status change times.
+
+__SIZE__
+
+-size n\[cwbkMG\]
+              
+: File uses n units of space.  The following suffixes can be used:
+`b'    for 512-byte blocks (this is the default if no suffix is used)
+`c'    for bytes
+`w'    for two-byte words
+`k'    for Kilobytes (units of 1024 bytes)
+`M'    for Megabytes (units of 1048576 bytes)
+`G'    for Gigabytes (units of 1073741824 bytes)
+
+__USER__
+
+-user uname
+
+: File is owned by user uname (numeric user ID allowed).
+
+-perm 000
+
+: File is owned by user uname (numeric user ID allowed).
+
+> __Exercise:__ find . -perm 664
+
+> __Exercise:__ find ~ -mtime 0
+
+> __Exercise:__ find ~ -size +100M  
+
+> __Exercise:__ find ./ -size +1M
 
 ## Compression and Archive tools
 
@@ -434,4 +523,8 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
 [^67]: [http://www.computerhope.com/unix/uuniq.htm](http://www.computerhope.com/unix/uuniq.htm "uniq command")
 
 [^68]: [http://www.tldp.org/LDP/abs/html/textproc.html](http://www.tldp.org/LDP/abs/html/textproc.html "cut command")
+
+[^69]: [http://www.tldp.org/LDP/abs/html/textproc.html](http://www.tldp.org/LDP/abs/html/textproc.html "grep command")
+
+[^70]:[https://www.gnu.org/software/grep/manual/grep.html](https://www.gnu.org/software/grep/manual/grep.html "GNU grep")
 
