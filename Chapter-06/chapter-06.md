@@ -91,14 +91,14 @@ DT=`date`; echo $DT
 echo "Today's date is $DT"
 ```
 
-\'
+```'```
 
 : single tic or single quote.  Any characters or variables surrounded by a single tic will be interpreted literally.  Unlike the previous example this command will only print the literal characters $DT not expand the variable's contents.  __Usage exmaple:__ 
 ```bash
 echo 'Today's date is $DT'
 ```
 
-\`
+```\````
 
 : back tic key to left of number 1.  The back tic is used for encasing Linux binary command names.  The back tic tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__ 
 ```bash
