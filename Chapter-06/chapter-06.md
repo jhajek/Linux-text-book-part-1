@@ -480,13 +480,9 @@ An alternative to using find is the locate command. This command is often quicke
   
  There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system.  Thereby making lookups faster.  You simply run the sudo updatedb command to update the index (done everytime on reboot).  
  
- sudo updatedb
- 
- locate *.png
- locate chapter-05.md
- compare the output and amount of time this command takes: sudo find / -name chapter-05.md
-locate is clearly faster because databases are good at looking these kind of things up quickly.  
+> __Example usage:__ ```sudo updatedb; locate *.png; locate chapter-05.md```
 
+> __Example usage:__ Compare the output and amount of time this command takes: ```sudo find / -name chapter-05.md``` and ```locate chapter-05.md```--locate is clearly faster because databases are good at looking these kind of things up quickly.  
 ## Compression and Archiving tools
 
 If you remember the history of Unix and history of technology you remember that hard drive space was at a premium for many many years.  Under those conditions compression of files was a big plus.  Things we take for granted now--such as attaching a file an emailing it were unthinkable in 1979.
@@ -495,13 +491,13 @@ If you remember the history of Unix and history of technology you remember that 
 
  when the ```tar``` command was created.  The overhead for copying many little files made a large impression time and resource wise on small modems and the initial foundations of TCP/IP.  
 
-The ```tar``` command was originally a way to represent the contents of a __t__ape __ar__chive and preserve the directory structure.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead but retaining a heirarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then complie the code knowing that the directory structure of included files was correctly preserved.  
+The ```tar``` command was originally a way to represent the contents of a **t**ape **ar**chive and preserve the directory structure.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead but retaining a heirarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then complie the code knowing that the directory structure of included files was correctly preserved.  
 
 The tar command only does archiving and does not do any compression only preserving of file structure in the same way that an ISO file preserves structure.  The tar archive is assigned a file extension of __.tar__ by convention but is not added automatically.
 
->  __Example Usage: ```tar -cvf code.tar ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
+>  __Example Usage:__ ```tar -cvf code.tar ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
 
->  __Example Usage: ```tar -xvf code.tar``` This command will unpack or extract a ```tar``` archive of the dirctory called code-directory and place it in the ```pwd```.
+>  __Example Usage:__ ```tar -xvf code.tar``` This command will unpack or extract a ```tar``` archive of the dirctory called code-directory and place it in the ```pwd```.
 
 ### compress
 
@@ -527,7 +523,7 @@ For GNU undertandably so. They began the gzip project was released in October of
 
   An archive that is additionaly compressed by another compression tool is called a __tar ball__ and the compression method is usually appended to the end of the filename.  
 
->  __Example Usage: ```tar -cvzf code.tar.gz ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions. 
+>  __Example Usage:__ ```tar -cvzf code.tar.gz ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions. 
 
 > __Example usage:__ Each one of these tar archives has been further compressed by one of the 4 Unix/Linux compression methods ```file linux-4.3-rc3.tar.Z; file linux-4.3-rc3.tar.gzip; file linux-4.3-rc3.tar.bzip2; file linux-4.3-rc3.tar.xz``` 
 
