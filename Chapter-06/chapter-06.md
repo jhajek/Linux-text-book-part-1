@@ -1,18 +1,18 @@
 # Shell Variables, Meta-Characters, Search and Tools
 ![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
 
-## Chapter Objectives
+## Chapter 6 Objectives
 
 In this chapter we will be continuing our exploration of the commandline.  We will be expanding our exerpience of the original paradigm that Thompson and Ritchie envisioned when designing Unix.
 
    * Understand the nature of shell meta-characters and how they enhance the shell capabilities
    * Understand the concept of standard in, standard out, and standard error
    * Understand the concept of input/output redirection and piping using *"< > | tee"*
-   * Understand how to search the file system for the location of files
+   * Understand how to search the file system for files and directories
    * Understand how to use the grep command for detailed search and replace options using shell meta-characters
-   * Understand compression archive tools and their use on the command line 
+   * Understand compression and archiving tools and their use on the command line 
    
-### Chapter Outcomes
+### Chapter 6 Outcomes
 
   At the conclusion of this chapter you will have a definate understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the __find__ and __locate__ commands that are used to find and filter files on the system.   We will use the __grep__ tool for find and replace options and advanced parsing of file content beyonf what __find__ and __locate__ can do.   FInally we will use compression tools and for creating archives and for extracting them. 
 
@@ -543,9 +543,11 @@ For GNU undertandably so. They began the gzip project was released in October of
   
 > __Example usage:__ Comprare the output of these two commands: ```ls -l ~``` and ```ls -la ~```--what new files or directories appear?
 
+> __Example usage:__ You can create a hidden file by prefixing a filename or directory with a single dot: ```touch .top-secret.txt``` or ```mkdir ~/.topper-secret```
+
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
+  In this chapter we covered and explored the power-tools of the commandline.  We learned about shell meta-characters and how they enhance the usability of the commandline.  We examined additional command binaries used for manipulation and modification of output to the screen.  We learned about the standard input, output, and error devices and how input can be redirected to them via the arrow operators.  Finally we coved find, locate, and grep tools for searching in files and for files.  Lastly we covered the archiving tool tar and the 4 different compression algorithms in use today in Linux.  This next chapter is preparing us to combine of these features into a shell script.
 
 ### Review Questions
 
@@ -575,7 +577,6 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
 
 Compression comparison of git kernel
 gzip bzip2 xz
-
 
  
 #### Footnotes
