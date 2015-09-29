@@ -480,20 +480,62 @@ __USER__
 
 An alternative to using find is the locate command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your system but usually is.  You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```.  locate  reads  one or more databases prepared by updatedb(8) and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
   
-
-
+ There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system.  Thereby making lookups faster.  You simply run the sudo updatedb command to update the index (done everytime on reboot).  
+ 
+ sudo updatedb
+ 
+ locate *.png
+ locate chapter-05.md
+ compare the output and amount of time this command takes: sudo find / -name chapter-05.md
+locate is clearly faster because databases are good at looking these kind of things up quickly.  
 
 ## Compression and Archive tools
 
+If you remember the history of Unix and history of technology you remember that hard drive space was at a premium for many many years.  Under those conditions compression of files was a big plus.  Things we take for granted now--such as attaching a file an emailing it were unthinkable in 1979.
+
 ### tar
 
-### compression
+ when the ```tar``` command was created.  The overhead for copying many little files made a large impression time and resource wise on small modems and the initial foundations of TCP/IP.  
+
+The ```tar``` command was originally a way to represent the contents of a __t__ape __ar__chive and preserve the directory structure.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead but retaining a heirarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then complie the code knowing that the directory structure of included files was correctly preserved.  
+
+The tar command only does archiving and does not do any compression only preserving of file structure in the same way that an ISO file preserves structure.  The tar archive is assigned a file extension of __.tar__ by convention but is not added automatically.
+
+>  __Example Usage: ```tar -cvf code.tar ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
+
+>  __Example Usage: ```tar -xvf code.tar``` This command will unpack or extract a ```tar``` archive of the dirctory called code-directory and place it in the ```pwd```.
+
+### compress
+
+  The original compression tool on Unix was called ```compress```.  But it was encumbered by a patent, the same patent on the LZW patent scheme that caused the users of the .gif format to pay royalties.  Because of this compress was never *free* and outside of its invention and inclusion in commercial Unix in 1985, use never caught on. 
+  
+> Compress (Uncompress) is a Unix shell compression program based on the LZW compression algorithm. Compared to more modern compression utilities such as gzip and bzip2, compress performs faster and with less memory usage, at the cost of a significantly lower compression ratio [^72].
 
 #### gzip
 
-#### bzip
+For GNU undertandably so. They began the gzip project was released in October of 1992. 
+
+> gzip is based on the DEFLATE algorithm, which is a combination of LZ77 and Huffman coding. DEFLATE was intended as a replacement for LZW and other patent-encumbered data compression algorithms which, at the time, limited the usability of compress and other popular archivers [^73].     
+
+#### bzip2
+
+  This is a similar algorithm to gzip in that they do compression only.  It differs from gzip in that it uses the LZMA compression algorithm which produces smaller sized files but take more CPU time and memory to compress.  Decompression is very fast compared to compression.  It was released in 2001.  [^74]
 
 #### xz
+
+  The xz format is using the LZMA2 compression algorithm which is superior in decreasing size at the expense of compute time.  Which makes sense.  Back in 1985 when the first Compress program was created processing power was slow compared to the speed of the networks.  Now the true is reversed, we have very fast processors and very large files, and we are moving multiple gigabytes around at a time.  The xz compression tool is the tool for the future.  In December 2013, kernel.org announced the addition of xz compressed files and ending bzip2 compressed files for distributing kernel archive files.  xz works only on single files and cannot be used for archiving.  In this case you would compress an archive file (like a tar file) to maximize usage. 
+
+#### tarball
+
+  An archive that is additionaly compressed by another compression tool is called a __tar ball__ and the compression method is usually appended to the end of the filename.  
+
+>  __Example Usage: ```tar -cvzf code.tar.gz ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions. 
+
+> __Example usage:__ Each one of these tar archives has been further compressed by one of the 4 Unix/Linux compression methods ```file linux-4.3-rc3.tar.Z; file linux-4.3-rc3.tar.gzip; file linux-4.3-rc3.tar.bzip2; file linux-4.3-rc3.tar.xz``` 
+
+> __Example usage:__  Previously you had to pass a flag to the ```tar``` command to tell it what type of compression algorithm to decompress with but now ```tar``` is smart and will autodetect for you.  The flags you need to simply pass are -x for extract, -v for verbose (optional), and -f for force (optional) ```wget https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz; tar -xvf linux-4.3-rc3.tar.xz```  
+
+![*Archive and Compress*](images/Chapter-06/tar/640px-Targzip-svg-xcf.png "Archive and Compress")
 
 ##  Hidden files and single dot operator
 
@@ -548,4 +590,12 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
 [^70]: [https://www.gnu.org/software/grep/manual/grep.html](https://www.gnu.org/software/grep/manual/grep.html "GNU grep")
 
 [^71]: [http://manpages.ubuntu.com/manpages/utopic/man1/mlocate.1.html](http://manpages.ubuntu.com/manpages/utopic/man1/mlocate.1.html "Locate man page")
+
+[^72]: [https://en.wikipedia.org/wiki/Compress](https://en.wikipedia.org/wiki/Compress "Compress")
+
+[^73]: [https://en.wikipedia.org/wiki/Gzip](https://en.wikipedia.org/wiki/Gzip "gzip")
+
+[^74]: [https://en.wikipedia.org/wiki/Bzip2](https://en.wikipedia.org/wiki/Bzip2 "bzip2")
+
+[^75]: ["<a href="https://commons.wikimedia.org/wiki/File:Targzip.svg#/media/File:Targzip.svg">Targzip</a>" by <a href="//commons.wikimedia.org/w/index.php?title=User:Th0msn80&amp;action=edit&amp;redlink=1" class="new" title="User:Th0msn80 (page does not exist)">Th0msn80</a> - <span class="int-own-work" xml:lang="en" lang="en">Own work</span>. Licensed under <a title="Creative Commons Attribution 3.0" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
 
