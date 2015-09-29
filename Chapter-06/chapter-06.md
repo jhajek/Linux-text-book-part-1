@@ -571,7 +571,10 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
 
 ### Lab
 
-  Lab goes here 
+Compression comparison of git kernel
+gzip bzip2 xz
+
+
  
 #### Footnotes
 
