@@ -305,9 +305,12 @@ uniq error.log
 
 wc
 
-: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines,  words,  and  byte  count for a file or for what is passed by standard in.  You can use ```wc``` as part of a filter to count only specific occurances of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  There IPs have been placed on the hosts.deny list which the system will deny a TCP connection to.  How many have been naded?  You can count the lines by executing the commands below. __Usage example:__
+: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines,  words,  and  byte  count for a file or for what is passed by standard in.  You can use ```wc``` as part of a filter to count only specific occurances of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  There IPs have been placed on the hosts.deny list which the system will deny a TCP connection to.  How many have been added?  You can count the lines, words, and bytes by executing the command below or just the number of lines by using the ```-l``` option. __Usage example:__
 ```bash
 wc hosts.deny; tail hosts.deny | wc 
+```
+```bash
+wc -l hosts.deny
 ```
 
 cut
@@ -469,6 +472,17 @@ __USER__
 
 > __Exercise:__ find ./ -size +1M
 
+> __Exercise:__ find ./ -name "*.log"
+
+> __Exercise:__ find ./ -size +1M
+
+#### Locate
+
+An alternative to using find is the locate command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your system but usually is.  You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```.  locate  reads  one or more databases prepared by updatedb(8) and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
+  
+
+
+
 ## Compression and Archive tools
 
 ### tar
@@ -531,5 +545,7 @@ Listen or watch this podcast: [http://twit.tv/show/floss-weekly/104](http://twit
 
 [^69]: [http://www.tldp.org/LDP/abs/html/textproc.html](http://www.tldp.org/LDP/abs/html/textproc.html "grep command")
 
-[^70]:[https://www.gnu.org/software/grep/manual/grep.html](https://www.gnu.org/software/grep/manual/grep.html "GNU grep")
+[^70]: [https://www.gnu.org/software/grep/manual/grep.html](https://www.gnu.org/software/grep/manual/grep.html "GNU grep")
+
+[^71]: [http://manpages.ubuntu.com/manpages/utopic/man1/mlocate.1.html](http://manpages.ubuntu.com/manpages/utopic/man1/mlocate.1.html "Locate man page")
 
