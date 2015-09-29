@@ -539,7 +539,9 @@ For GNU undertandably so. They began the gzip project was released in October of
 
 ##  Hidden files and single dot operator
 
-./   .ssh
+  In the previous chapter we talked about the single-dot operator--which is a short cut for *right here* or your present working directory.  If the single-dot preceeds a file or directory name that file or directory becomes hidden.  Not completely invisible but by using the ``ls`` or ```ls -l``` commands you will not see these files.  You need to add the -a option to see all hidden directories.  Usually hidden directories are reserved for important user configuration files or system files.  It is a convention not a rule, but as you have seen so far, tradition is rule in Unix.
+  
+> __Example usage:__ Comprare the output of these two commands: ```ls -l ~``` and ```ls -la ~```--what new files or directories appear?
 
 ## Chapter Conclusions and Review
 
