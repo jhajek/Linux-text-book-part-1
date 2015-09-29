@@ -7,7 +7,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
    * Understand the nature of shell meta-characters and how they enhance the shell capabilities
    * Understand the concept of standard in, standard out, and standard error
-   * Understand the concept of input/output redirection and piping using *"< > | tee"*
+   * Understand the concept of input/output redirection and piping
    * Understand how to search the file system for files and directories
    * Understand how to use the grep command for detailed search and replace options using shell meta-characters
    * Understand compression and archiving tools and their use on the command line 
@@ -18,7 +18,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
 ## Shell Meta-Characters
 
-  In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and maniplulate the contents of our file system.  The next layer to be introduced is something called __shell meta-characters__.  When Ken Thompson Was creating Unix and the first user shell, he quickly realized a need to be able to perform certain tasks that would be repeated often.  For example, the concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command read a directories content and feed it any filenames that match the first two characters "Do" plus any number of other characters, (including 0 charactrers), represented with the star or asterik (*).   The concept of the shell meta-character is intended to replace you having to write a C language program each time to create this functionality.  There are 14 punctuation and non-alphanumberic characters that are standard across Linux shells[^64] - common punction/non alphanumberic characters were adopted to represent the most common repetitive tasks done on the commandline.
+  In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and maniplulate the contents of our file system.  The next layer to be introduced is something called __shell meta-characters__.  When Ken Thompson was creating Unix and the first user shell, he quickly realized a need to be able to perform certain tasks that would be repeated often.  For example, the concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command read a directories content and feed it any filenames that match the first two characters "Do" plus any number of other characters, (including 0 charactrers), represented with the star or asterik (*).   The concept of the shell meta-character is intended to replace you having to write a C language program each time to create this functionality.  There are 14 punctuation and non-alphanumberic characters that are standard across Linux shells[^64] - common punction/non alphanumberic characters were adopted to represent the most common repetitive tasks done on the commandline.
       
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
  
@@ -98,7 +98,7 @@ echo "Today's date is $DT"
 echo 'Today's date is $DT'
 ```
 
-```\````
+\`date\`
 
 : The backtick key is to left of number 1.  The backtick is used for encasing Linux binary command names.  The backtick tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__ 
 ```bash
@@ -110,12 +110,12 @@ CONTENTS=`cat /etc/services`
 
 ```[]```
 
-: Square brackets indicate sets or ranges of characters to be processed.  In a sense it is a mini-for loop for processing files names.  We can present multiple character sets or if we use ```-``` we can present a numeric or alphabetic range of values to be passed to a shell command. __Usage example:__
+: Square brackets indicate sets or ranges of characters to be processed.  In a sense it is a mini-for loop for processing files names.  We can present multiple character sets or if we use a ```-``` we can present a numeric or alphabetic range of values to be passed to a shell command. __Usage example:__
 ```bash
 ls file[24]
 ```
 ```bash
-ls file[1-4]
+touch file[1-4]
 ```
 ```bash
 ls file[!a-z]
