@@ -98,7 +98,7 @@ echo "Today's date is $DT"
 echo 'Today's date is $DT'
 ```
 
-<pre>`</pre>
+    `
 
 : back tic key to left of number 1.  The back tic is used for encasing Linux binary command names.  The back tic tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__ 
 ```bash
