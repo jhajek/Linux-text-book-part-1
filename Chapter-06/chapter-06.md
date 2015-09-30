@@ -98,16 +98,6 @@ echo "Today's date is $DT"
 echo 'Today's date is $DT'
 ```
 
-\`date\`
-
-: The backtick key is to left of number 1.  The backtick is used for encasing Linux binary command names.  The backtick tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__ 
-```bash
-DT=`date`
-```
-```bash
-CONTENTS=`cat /etc/services`
-```
-
 ```[]```
 
 : Square brackets indicate sets or ranges of characters to be processed.  In a sense it is a mini-for loop for processing files names.  We can present multiple character sets or if we use a ```-``` we can present a numeric or alphabetic range of values to be passed to a shell command. __Usage example:__
@@ -193,9 +183,17 @@ cd ~-
 echo "To assign the content of the date command to a variable type: DT=\`date\`\; echo \$DT"
 ```
 
+There is a final meta-character called the backtick or formally the grave accent. The backtick key is to left of number 1.  The backtick is used for encasing Linux binary command names.  The backtick tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__ 
+```bash
+DT=`date`
+```
+```bash
+CONTENTS=`cat /etc/services`
+``` 
+
 ## Standard input, output, and error 
 
-  The original concept behind defining standard input and output devices comes from the idea that Unix grew over the course of 40 years of output and input technology.  Originally there were no keyboards--just teletypes.  Originally there were no screens just ttys to print out on paper.  Then came *glass ttys* and terminals.  Then came Line and Dot Matrix printers.  Standard keyboards via the ISA input bus were invented.  At one time on a busy shared sysetm (remember the central server development paradigm for Unix) a sysadmin would perhaps want to send output of a command or any errors so that they could be debugged on paper.  Not environmentally friendly but sometimes just seeing it in writing solves your issue. Every *device* has a file handle and you can see all the *standards* are located by listing the ```/dev``` directory.      
+  The original concept behind defining standard input and output devices came from the idea that Unix grew over the course of 40 years of output and input technology.  Originally there were no keyboards--just teletypes.  Originally there were no screens just ttys to print out on paper.  Then came *glass ttys* and terminals.  Then came Line and Dot Matrix printers.  Standard keyboards via the ISA input bus were invented.  At one time on a busy shared sysetm (remember the central server development paradigm for Unix) a sysadmin would perhaps want to send output of a command or any errors so that they could be debugged to paper.  Not environmentally friendly but sometimes just seeing it in writing solves your issue. Every *device* has a file handle and you can see all the *standards* are located by listing the ```/dev``` directory.      
     
   ![*Standard I/O, ls -l /dev/std\**](images/Chapter-06/standard/standard.png "Standard I/O")
   
@@ -203,13 +201,9 @@ echo "To assign the content of the date command to a variable type: DT=\`date\`\
 
 ### Standard In
 
-  Standard in would be the way you get text input into the terminal.  This happens to be the keyboard.  Though you can use the reversed angle bracket ```<``` to send stanard in from a file. The example below writes the output of the date command and redirects the output to a file.  The second command will take the content of that same file as standard in--in place of the keyboard and redirect the input from the file to the cat command to display its content.    
-  You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with.
+  The __standard in__ is the default mehtod of getting text input into the terminal.  Currently this happens to be the keyboard.  The __standard in__ from the keyboard can be overridden by using the reversed angle bracket ```<``` to read __standard in__ from a file. You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with. Why might you want to send __standard in__ from anywhere other then the keyboard?  Here are a couple of examples.
 ```bash
-date > todaysdate.txt
-```
-```bash
-cat < todaysdate.txt
+wc < state-of-the-union-address.txt
 ```
 ```bash
 mail < complete-works-of-shakespere.txt
@@ -217,10 +211,11 @@ mail < complete-works-of-shakespere.txt
   
 ### Standard Out
 
-  When Unix was developed Ken Thompson took the direction that all devices were files.  In a short sense, the screen, or teletype, or terminal, is nothing more that a file that is located in the /dev directory.  By typing the ```who``` command from the commandline you will see which accounts are logged into the syste.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
+  When Unix was developed, Ken Thompson amde the design decision that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more that a file that is located in the /dev directory.  By typing the ```who``` command you will see which accounts are logged into the syste.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
 
-  This device allowed Unix and eventually Linux to exchange standard output devices yet not have to modify the output structure of the operating system.  Notice to that the outputs are refered to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to standard out which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file.
-  A single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will append, and is non-destructive.
+![*Output TTYs of who command*](images/Chapter-06/standard/who.png "Output of TTYs of who command")
+
+  By having a __standard out__ device handle instead of a hard coded driver, this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are refered to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file. Be careful, a single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file. 
 ```bash
 date > /tmp/todaysdate
 ```
@@ -228,21 +223,19 @@ date > /tmp/todaysdate
 cat log.old >> log.new
 ```
   
-  When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file.  
-
 ### Standard Error
 
-  When you type a command and ther is an error message, perhaps "file or directory not found:" though that is printed to the screen, that is not part of __standard out__ it is part of __standard error__.  Standard error can be useful for logging.  If you have a command you want to execute but you want to suppress the standard error from showing on the screen, yet log it to a file, you can do so. 
+  When you type a command that does not execute succesfully it returns an error message to the __standard out__. Perhaps the message is *"file or directory not found:"* that is printed to the screen.  But that error is not part of the __standard out__, it is part of __standard error__.  Standard error can be useful for logging and debiggin purposes.  If you have a command you want to execute but you want to suppress the __standard error__ from showing on the screen, yet log it to a file, you can do so. 
 
 #### Surpressing Standard Out and Error
 
-  Each of the standards can be referenced numberically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to seperate file which can be used for debugging our shell script later on.  
+  Each of the standards can be referenced numberically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to seperate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
 ```bash
 sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err
 sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err
 service nginx start 1>/tmp/03.out 2>/tmp/03.err
 ```
-  Standard out and standard error and be redirected together in the bash shell with a single ```&```.
+
   
 > __Exercise:__ Use the single angle bracket to redirct the output of a command to a file.  Techncally this command is a "1" followed by an angle bracket ">" but the one is implied and can be left out.  What happens when you try this command: ```ls -l > ./dir-list.txt; cat ./dir-list.txt```
 
@@ -250,7 +243,7 @@ service nginx start 1>/tmp/03.out 2>/tmp/03.err
 
 > __Exercise:__ Both standard out and standard error can be redirected together.  This is useful if you are running a script as a system process or as part of a scheduled task.  What happens when you type these commands? ```ls -l ~; ls -l /new-top-secret &> error-and-out.txt ```
 
-> __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existance of a command binary or file.  You just want the afirmation that the file exists not any output. What happens when you type the ```ls -l > /dev/null``` command.
+> __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existance of a command binary or file.  You just want the afirmation that the file exists not any output. What happens when you type the ```ls -l /topsecrect 2> /dev/null``` command?
 
 ## History and Usage of Pipes
 
@@ -258,17 +251,17 @@ service nginx start 1>/tmp/03.out 2>/tmp/03.err
 
 ![*Douglas McIlroy*](images/Chapter-06/people/Douglas_McIlroy-2.jpg "Douglas McIlroy")
 
-  Douglas McIlroy was the manager of the Bell Labs Computing Techniques Research Department from 1965 to 1986 where Ken Thompson, Dennis Ritchie, and Brian Kernighan worked under him.  He gave the tacit green light to Unix and encouraged its development.  He even built several Unix commandline binaries such as spell, diff, sort, join, graph, speak, and tr[^66]. Most importantly McIlroy envisioned the concepts of __pipes__ or __pipelines__. This idea allowed for the output of one command to be directed as the input of another command--making a pipeline.  This was in compliance with Thompson's idea of small command binaries doing only one thing.  So by 1973 McIlroy had convinced Thompson to modify and add this feature to Unix.  
+  Douglas McIlroy was the manager of the Bell Labs Computing Techniques Research Department from 1965 to 1986 where Ken Thompson, Dennis Ritchie, and Brian Kernighan worked under his direction.  He gave support to Unix and encouraged its development.  He even built several Unix commandline binaries such as spell, diff, sort, join, graph, speak, and tr[^66]. Most importantly McIlroy envisioned the concepts of __pipes__ or __pipelines__. This idea allowed for the output of one command to be directed as the input of another command--making a pipeline.  This was in compliance with Thompson's idea of small command binaries doing only one thing.  So by 1973 McIlroy had convinced Thompson to modify and add this feature to Unix.  
 
 > "Pipes were first suggested by [M. Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Douglas McIlroy"), when he was a department head in the Computing Science Research Center at Bell Labs, the research arm of AT&T (American Telephone and Telegraph Company), the former U.S. telecommunications monopoly. McIlroy had been working on macros since the latter part of the 1950s, and he was a ceaseless advocate of linking macros together as a more efficient alternative to series of discrete commands. A macro is a series of commands (or keyboard and mouse actions) that is performed automatically when a certain command is entered or key(s) pressed. 
 
 > McIlroy's persistence led Ken Thompson, who developed the original UNIX at Bell Labs in 1969, to rewrite portions of his operating system in 1973 to include pipes. This implementation of pipes was not only extremely useful in itself, but it also made possible a central part of the Unix philosophy, the most basic concept of which is modularity (i.e., a whole that is created from independent, replaceable parts that work together efficiently).[^65]" 
  
-[2005 audio presentaion by Doug McIlroy about the early history of Unix development](http://www.dlslug.org/past_meetings.html "Interview with Doug McIlroy")
+[2005 audio presentation by Doug McIlroy about the early history of Unix development](http://www.dlslug.org/past_meetings.html "Interview with Doug McIlroy")
 
 ### Additional Commands Used for Manipluating Standard Out
 
-  The best way to envision pipes is to think of them as exactly what they are called--physical pipes in which things travel through.  To maximize your understanding of the concepts of *piping* output we will introduce a series of additional commands to the list of essential command binaries that was introduced in last chapter and show you combined examples.  
+  The best way to envision pipes is to think of them as exactly what they are called--physical pipes in which water travels through.  To maximize your understanding of the concept of *piping* output we will introduce a series of additional command binaries to the list of essential command binaries that was introduced in last chapter and show you combined examples.  
 
 who
 
@@ -283,9 +276,13 @@ sort
 ```bash
 echo -e "orange \npeach \ncherry" > fruit.txt; sort fruits.txt  
 ```
+```bash
+who | sort
+```
+
 uniq
 
-:  The uniq command is used for reporting or filtering out repeated lines in a file. Though __uniq__ is a full command binary it is mostly used as a filter through which input has been piped [^67]. For example if we had an webserver error log file with this content, we have duplicated lines, we would use ```uniq``` to filter out duplicated lines. The below ```uniq``` command would collapse the first 5 lines into one unique line for output. The -c option will add a count after each unique line and the -d will only show a line if it has two or more occurances. __Usage example:__  
+:  The uniq command is used for reporting or filtering out repeated lines in a file. Though __uniq__ is a full command binary it is mostly used as a filter through which input has been piped [^67]. For example if we had an webserver error log file with the content below, we would use ```uniq``` to filter out duplicated lines. The ```uniq``` command would collapse the first 5 lines into one unique line for output. The -c option will add a count after each unique line and the -d will only show a line if it has two or more occurances. __Usage example:__  
 ```bash
 cat error.log
 [Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
@@ -303,7 +300,7 @@ uniq error.log
 
 wc
 
-: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines,  words,  and  byte  count for a file or for what is passed by standard in.  You can use ```wc``` as part of a filter to count only specific occurances of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  There IPs have been placed on the hosts.deny list which the system will deny a TCP connection to.  How many have been added?  You can count the lines, words, and bytes by executing the command below or just the number of lines by using the ```-l``` option. __Usage example:__
+: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines,  words,  and  byte  count for a file or for standard in.  You can use ```wc``` as part of a filter to count only specific occurances of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  The banned IPs have been placed in the hosts.deny file for which the system will deny a TCP connection from any address listed in that file.  How many have been added?  You can count the lines, words, and bytes by executing the command below or just the number of lines by using the ```-l``` option. __Usage example:__
 ```bash
 wc hosts.deny; tail hosts.deny | wc 
 ```
@@ -313,7 +310,7 @@ wc -l hosts.deny
 
 cut
 
-: The ```cut``` command will allow you to *cut* up your output based on a delimeter, space, dash, comma, and so forth. The command will print selected parts of lines from a file to standard output[^68]. The -d option is the delimeter to *cut* on and the -f is the field number(s) to retrieve. __Usage example:__
+: The ```cut``` command will allow you to *cut* up your output based on a delimeter: space, dash, comma, and so forth. The command will print selected parts of lines from a file to standard output[^68]. The -d option is the delimeter to *cut* on and the -f is the field or column number(s) to retrieve. __Usage example:__
 ```bash
 cut -d ' ' -f1,2 /etc/mtab
 ```
@@ -346,7 +343,7 @@ dmesg
 
 tail
 
-: Capitalizing on the *clever hack* mantra of Richard Stallman, the ```tail``` command produces the same output as the ```cat``` commnad yet does it by showing the last line 10 lines (by default) of a file fist. Note the Unix humor as tail is the opposite of head.  Also a cat has a tail...  __Usage example:__
+: Capitalizing on the *clever hack* mantra of Richard Stallman, the ```tail``` command produces the same output as the ```cat``` command yet does it so by showing the last line 10 lines (by default) of a file fist. Note the Unix humor as tail is the opposite of head.  Also a cat has a tail...  __Usage example:__
 ```bash
 tail hosts.deny
 ```
@@ -369,7 +366,7 @@ tac hosts.deny
 
 Pipes can be used to chain as many commands together as necessary. This is one of the three main design principles of Unix.
 
-> __Exercise:__    In the previous ```cut``` example we see the ```uname``` command which is used to print system information to standard out being piped to the cut command and only certain fields of the information being displayed. Try it.  Type ```uname -a``` and then ```uname -a | cut -d" " -f1,3,11,12```. What is different about the output?
+> __Exercise:__  In the previous ```cut``` example we see the ```uname``` command which is used to print system information to standard out being piped to the cut command and only certain fields of the information being displayed. Try it.  Type ```uname -a``` and then ```uname -a | cut -d" " -f1,3,11,12```. What is different about the output?
 
 > __Exercise:__ You can also add input redirection to a pipe.  ```tail dmesg > system-output.txt```  This command will take the tail (or last 10 lines) of the dmesg kernel output buffer and redirect them to a text file for later analysis.  We can also pipe data and redirect as well.  ```cat deny.hosts | uniq -c > deny-results.txt```  Multiple commands can be chained together.  Try this command, ``cat deny.hosts | uniq -c | sort -nr``` and then try it again omitting the ```| sort -nr``` what is the difference? 
 
@@ -476,7 +473,7 @@ __USER__
 
 #### Locate
 
-An alternative to using find is the locate command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your system but usually is.  You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```.  locate  reads  one or more databases prepared by updatedb(8) and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
+An alternative to using ```find``` is the ```locate``` command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your Linux distro by default.  You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```.  The ```locate``` command reads one or more databases prepared by ```updatedb``` and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
   
  There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system.  Thereby making lookups faster.  You simply run the sudo updatedb command to update the index (done everytime on reboot).  
  
