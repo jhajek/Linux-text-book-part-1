@@ -18,11 +18,13 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
 ## Shell Meta-Characters
 
-  In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and manipulate the contents of our file system.  The next layer to be introduced is something called __shell meta-characters__.  When Ken Thompson was creating Unix and the first user shell, he quickly realized a need to be able to perform certain tasks that would be repeated often.  For example, the concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directoy's content and feeds it any filenames that match the first two characters "Do" plus any number of other characters, (including 0 characters), represented with the star or asterisk (*).   The concept of the shell meta-character is intended to replace you having to write a C language program each time to create this functionality.  There are 14 punctuation and punctuation characters that are standard across Linux shells[^64] - common punctuation/non alphanumeric characters were adopted to represent the most common repetitive tasks done on the commandline.
+  In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *syntactic sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and manipulate the contents of our file system.  The next layer within the shell to be introduced is something called __shell meta-characters__.  When Ken Thompson was creating Unix and the first user shell, he quickly realized a need to be able to perform certain repetative tasks.  For example, the concept of using wildcards to do pattern matching.  
+  
+  Or to use negation or ranges to look for particular filenames or directories.  One of the advantages of making everything is Unix a file is that a the file only had one data type, adn that was of type __text__.  Since everything is text, any file or directory can be searched for or filtered based on text patterns.  Enter shell meta-characters which extend the normal capabilites of the shell.  If you wanted to list the contents of the __home__ directory and any directory starting with the letters *"Do"*, how would you do it? By adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directory's content and feeds it any filenames that match the first two characters *"Do"* and any number of other characters, (including 0 characters), represented by the star or asterisk (*).   Shell meta-characters serve the purpose of replacing having to write a C program to recreate this same functionality.  There are 18 characters that are standard across the bash shell[^64]--common punctuation/non alphanumeric characters that were adopted to represent these common repetitive text modifcation tasks done in the shell.
       
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
  
-  When the shell parses the three components of a command there is a square that talks about variable replacement.  We sort of skimmed that part in the last chapter but here is what is happening. Here is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.   Remember that everything in Unix is a file, and all files are text based.
+  In the above diagram, in the box labeled *Expansion*, is where the shell *expands* any meta-characters into text that can be interpreted by the shell.  The following is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.
 
 \&\& 
                   
@@ -69,19 +71,6 @@ ls vegetable-?-report.txt
 ```
 ```bash
 ls ???.txt
-```
-
-\$
-
-: Dollar sign allows for reference of shell variables.  __Usage example:__ 
-```bash
-DIR=/etc/network/interfaces
-```
-```bash
-echo $DIR
-```
-```bash
-DT=`date`; echo $DT
 ```
 
 \"
