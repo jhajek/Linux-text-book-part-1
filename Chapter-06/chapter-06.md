@@ -689,7 +689,55 @@ Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](
 Compression comparison of git kernel
 gzip bzip2 xz
 
+Compare the output and amount of time this command takes: ```sudo find / -name chapter-05.md``` and ```locate chapter-05.md```--locate is clearly faster because databases are good at looking these kind of things up quickly.  
  
+The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will succesfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manger and a web browser.  All actions will be done through the shell.
+ 
+__Final deliverable__ is to place all commands into a single text file named lastname-firstname-week-6-commands.txt), and all of the above screenshots into a single zip file named: __lastname-firstname-chapter-06-lab.zip__    
+ 
+1. (Assuming that you still have the content of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip), extract it into the Documents directory. Type the command that will list all of the files with an .md extension 
+    i)  Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-1.(jpg or png)
+2.  Type the command that will create folders named Chapter-16..31.
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-2.(jpg or png)
+3. Type the command that will execute a string of commands even if one of the commands fails
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-3.(jpg or png)
+4. What command will list every file in the textbook directory that has any number of charecters and a two character dot file extension of any name?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-4.(jpg or png)
+5. What command inside the textbook directory will do a long listing of Chapters-02,04,06, and 08 only?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-5.(jpg or png)
+6. What command will copy the content of file Chapter-02/chapter-02 to a directory named Chapter-00/chapter-02.  Use meta-characters to string together commands.
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-6.(jpg or png)
+7. Creat a shell varaible named UT, assign the contents of the command uptime to UT and print a string to the screen with its value and a message describing what it is.
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-7.(jpg or png)
+8. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```service nx start 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora 21 replace apt-get with yum and on Fedora 22 replace it with dnf.  Display the contents of the \*.out files in one commmand and send its output to the ```less``` command. Display the contents of the \*.err files in one commmand and send its output to the ```less``` command.  
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-8.(jpg or png)
+9. You are typing the command ```ls -l /topsecret``` and you want to redirect both standard out and standard error to a file named /tmp/out-and-error.txt, how would you do it?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-9.(jpg or png)
+10. You will find a file named hosts.deny located in the files directory of the download of the textbook (new since chapter 05) It contains a list of IP addresses - what command would you use to count ONLY the number of lines?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-10.(jpg or png)
+11. Using the error.log file located in the files directory - what commmand would you use to count only unique lines and to display their count and only if there is more than 1 occurence?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-11.(jpg or png)
+12. What command would let you display the content of the hosts.deny file, cut out the the second category and sort it?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-12.(jpg or png)
+13. What command would let you search the file error.log for the lines that contain the term "robots.txt"?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-13.(jpg or png)
+14. What commmand would let you count the number of lines that have the term "robots.txt" in the file error.log?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-14.(jpg or png)
+15. Using the find command and starting from the \~ directory what would be the command to find all files with the name .md?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-15.(jpg or png)
+16. Using the find command and starting from the \~ directory what would be the command to find all the files that have been modified at least 1 day (24 hours) prior?
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-16.(jpg or png)
+17. Using the command line install the git client, ```sudo apt-get install git``` or ```sudo dnf install git``` Then clone down these two repositories: ```git clone https://github.com/jhajek/C_Space.git``` and ``git clone https://github.com/jhajek/Space_java.git```  Use the tar command to create a tape archive of each of the directories.  Name them with their file name plus the .tar extension
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-17.(jpg or png)
+18. Again create a tar archive and this time add compression for the gzip standard for Space_java.tar 
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-18.(jpg or png)
+19. Again create a tar archive and this time add compression for the bzip2 standard for Space_java.tar
+    i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-19.(jpg or png)
+20. Download the linux kernel archive via wget from: [https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz "kernel.org") Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the commmand to tar and compress it with xzip.     
+     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-20.(jpg or png)
+21.  1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
+     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-ec.(jpg or png)
+
 #### Footnotes
 
 [^64]: [http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html](http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html "POSIX Shell meta-characters")

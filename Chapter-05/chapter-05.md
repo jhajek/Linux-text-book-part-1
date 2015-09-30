@@ -600,8 +600,7 @@ The objectives of this lab is to use the shell commands we learned in this chapt
 1) What is the command to display the man page for ls?
     i) Take a screen shot of the output of the command above (initial page only remember 'q' to quit.) Name the file lastname-firstname-screenshot-week-5-manls.(jpg or png)
 
-
-Final deliverable is to place all of the above screenshots, and all commands into a single text file named lastname-firstname-week-5-commands.txt) into a single zip file named: __lastname-firstname-chapter-05-lab.zip__   
+Final deliverable is to place all commands into a single text file named lastname-firstname-week-5-commands.txt), and all of the above screenshots into a single zip file named: __lastname-firstname-chapter-05-lab.zip__   
 
 #### Footnotes   
 
