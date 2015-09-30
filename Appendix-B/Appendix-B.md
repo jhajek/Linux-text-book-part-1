@@ -1,7 +1,11 @@
 # Appendix B
-![*Git commit messages.  After developing this book I understand this completely*](images/Chapter-Header/Appendix-B/git_commit-2.png "Git Commit")
+![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-B/git_commit-2.png "Git Commit")
 
 This section contains the answers to the chapter review questions
+
+## Chapter 01
+
+NA
 
 ## Chapter 02
 
@@ -63,20 +67,20 @@ b.	X
 6.	True or False – X was originally not opensourced by MIT in 1984
 a.	False
 7.	What is the official name in the Ubuntu Unity desktop environment for the launcher icon? (The 
-Icon in the upper left hand corner that looks like circle with 3 dots?)
+Icon in the upper left hand corner that looks like circle with 3 dots?.
 a.	Dash Icon
 8.	What is the name of the successor GUI compositor to X being created by the X.org foundation?
 c.	Wayland Project
-9.	What is the name of Ubuntu’s own GUI compositor replacement for X? (Just the name)
+9.	What is the name of Ubuntu’s own GUI compositor replacement for X? (Just the name.
 a.	Mir
 10.	There are 5 types of Linux window managers: Compositing, Minimalistic, Tiling, and Other.  
 What is the name of the missing category?
 a.	Stacking
 11.	There are 4 major Linux desktop environments in use today: which grouping is correct?
 d.	KDE, GNOME, Xfce, LXDE
-12.	What is the name of the windowing toolkit that KDE uses? (Two letters)
+12.	What is the name of the windowing toolkit that KDE uses? (Two letters.
 a.	Qt
-13.	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign)
+13.	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign.
 a.	GTK+
 14.	What is the name of the founder of the GNOME project? 
 a.	Miguel de Icaza
@@ -87,12 +91,12 @@ c.	Unity, Mate, Cinnamon
 16.	When released in 2006, what was the main development goal of the LXDE desktop environment?
 c.	Energy saving and extremely fast
 17.	Which of these statements are true in regards to Linux desktop environments? (choose all that 
-apply)
+apply.
 a.	Desktop environments have a File Manager
 b.	Desktop Environments have start or action buttons and task and notification bars
 c.	Desktop environments have a changeable but consistent look-and-feel
 d.	Desktop environments have system configuration tools and user applications built in
-18.	What is the default desktop environment for Fedora 22? (Name and versions)
+18.	What is the default desktop environment for Fedora 22? (Name and versions.
 a.	GNOME 3
 19.	What is the name of the button on the upper left hand corner of the GNOME 3 desktop in 
 Fedora 22 that you use to “launch applications?”
@@ -135,7 +139,7 @@ c.	temp
 c.	tree
 14.	What is the name of the top of the Linux Filesystem?
 a.	/
-15.	Everything (directories, files, devices) in Unix/Linux is a what?
+15.	Everything (directories, files, devices. in Unix/Linux is a what?
 a.	file 
 16.	What is the name of the Unix system standard developed in ~1985 that defines at a minimum 
 what a certified Unix based system must support?
@@ -144,12 +148,110 @@ c.	POSIX
 c.	etc
 18.	What is the directory where all system binaries are stored?
 a.	bin
-19.	What is the directory that holds all of the user’s home directories? (no slash, just the name)
+19.	What is the directory that holds all of the user’s home directories? (no slash, just the name.
 a.	home
 20.	True or False - Leonart Poettering supports POSIX
 a.	False
-
-
-
+	
 ## Chapter 06
+
+Shell Meta-Characters, Pipes, Search, and Tools
+Chapter 06 review questions
+
+1.  What is the name for characters that have special meanings in the Linux shell?
+d. shell meta-characters
+
+2. Assume your pwd is ~. If you wanted to list every directory only that started with the letters "Do" what would be the command?
+d. ls -l Do*
+
+3. In figure 95 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
+d. Expansion
+
+4. Which meta-character allows you to string commands together regardless of the successful execution of the previous command?
+b. \;
+
+5. Which meta-character allows you to string commands together but will exit if one of the commands fails?
+a. &&
+
+6. Which meta-character is the wildcard (0 or more matches.?
+d. \*
+
+7. Which meta-character is the single character wildcard?
+a. \?
+
+8. Square braces [] indicate sets or ______ of characters to be processed
+d. ranges
+
+9. If you wanted to use brace expansion and create a series of nine files named: file1, file2, file3, etc etc all at once--what command would you use?  (type the full command using touch .
+a. touch file{1..9}
+
+10. If you wanted to assign the value of /etc/alternatives/java to a shell variable named JAVA_HOME--what would be the proper syntax?
+c. JAVA_HOME=/etc/alternatives/java
+
+11. What would be the proper syntax to display the content of a variable named JAVA_HOME in the shell?
+d. echo $JAVA_HOME
+
+12. There are 3 standard I/O devices in a Linux system, standard in, standard out, and ________
+d. standard error
+
+13. Standard In is what device by default?
+d. keyboard
+
+14. Standard Out is what device be default?
+b.  screen
+
+15. What meta-character can you use to redirect standard out to a file? (Choose all that apply.
+a. \>
+b. \>\>
+
+16. What meta-character is used to redirect the standard output of one command as the standard input of another command?
+d. | 
+
+17. Which command is a shortcut to display the kernel's output messages?
+d. dmesg
+
+18. Which command is used to search within files using textual filter patterns?
+d. grep
+
+19. When you combine a tar (tape archive. and an additional compression method--what is the name for the resulting file?
+d. tarball
+
+20. What is the name of the GNU compression tool project released in 1992?
+d. gzip
+
+## Chapter 07
+
+TBA
+
+## Chapter 08
+
+TBA
+
+## Chapter 09
+
+TBA
+
+## Chapter 10
+
+TBA
+
+## Chapter 11
+
+TBA
+
+## Chapter 12
+
+TBA
+
+## Chapter 13
+
+TBA
+
+## Chapter 14
+
+TBA
+
+## Chapter 15
+
+TBA
 
