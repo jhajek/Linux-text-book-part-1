@@ -1,9 +1,9 @@
-# Shell Variables, Meta-Characters, Search and Tools
+# Shell Meta-Characters, Pipes, Search and Tools
 ![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
 
 ## Chapter 6 Objectives
 
-In this chapter we will be continuing our exploration of the commandline.  We will be expanding our exerpience of the original paradigm that Thompson and Ritchie envisioned when designing Unix.
+In this chapter we will be continuing our exploration of the commandline.  We will be expanding our experience of the original paradigm that Thompson and Ritchie envisioned when designing Unix.
 
    * Understand the nature of shell meta-characters and how they enhance the shell capabilities
    * Understand the concept of standard in, standard out, and standard error
@@ -14,11 +14,11 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
    
 ### Chapter 6 Outcomes
 
-  At the conclusion of this chapter you will have a definate understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the __find__ and __locate__ commands that are used to find and filter files on the system.   We will use the __grep__ tool for find and replace options and advanced parsing of file content beyonf what __find__ and __locate__ can do.   FInally we will use compression tools and for creating archives and for extracting them. 
+  At the conclusion of this chapter you will have a definite understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the __find__ and __locate__ commands that are used to find and filter files on the system.   We will use the __grep__ tool for find and replace options and advanced parsing of file content beyond what __find__ and __locate__ can do.   Finally we will use compression tools and for creating archives and for extracting them. 
 
 ## Shell Meta-Characters
 
-  In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and maniplulate the contents of our file system.  The next layer to be introduced is something called __shell meta-characters__.  When Ken Thompson was creating Unix and the first user shell, he quickly realized a need to be able to perform certain tasks that would be repeated often.  For example, the concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command read a directories content and feed it any filenames that match the first two characters "Do" plus any number of other characters, (including 0 charactrers), represented with the star or asterik (*).   The concept of the shell meta-character is intended to replace you having to write a C language program each time to create this functionality.  There are 14 punctuation and non-alphanumberic characters that are standard across Linux shells[^64] - common punction/non alphanumberic characters were adopted to represent the most common repetitive tasks done on the commandline.
+  In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and manipulate the contents of our file system.  The next layer to be introduced is something called __shell meta-characters__.  When Ken Thompson was creating Unix and the first user shell, he quickly realized a need to be able to perform certain tasks that would be repeated often.  For example, the concept of adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directoy's content and feeds it any filenames that match the first two characters "Do" plus any number of other characters, (including 0 characters), represented with the star or asterisk (*).   The concept of the shell meta-character is intended to replace you having to write a C language program each time to create this functionality.  There are 14 punctuation and punctuation characters that are standard across Linux shells[^64] - common punctuation/non alphanumeric characters were adopted to represent the most common repetitive tasks done on the commandline.
       
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
  
@@ -26,7 +26,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
 \&\& 
                   
-: The double ampersand character (shift+7)command allows you to execute two or more commands together in sequence.  Note the && requires each succesive command to return succesfully or else the entire string will stop at the command that failed. __Usage example:__ 
+: The double ampersand character (shift+7)command allows you to execute two or more commands together in sequence.  Note the && requires each successive command to return successfully or else the entire string will stop at the command that failed. __Usage example:__ 
 ```bash
 unzip -d book master.zip && cd book && cat Readme.md
 ```
@@ -40,14 +40,14 @@ ls /topsecret; cd /topsecret; date
 
 \|
 
-:  This character is called the "pipe" because it looks like a vertical bar or a piece of a pipe.  It serves the function of connecting the output of one command to the input of another commmand--not unlike a pipe under your sink.  The character is typed by pressing the shift+the key located directly above the enter key.  In this example here we display the content of the chapter-05.md and *pipe* it to the grep command which filters the file showing us only the lines containing the term *permission*. __Usage example:__ 
+:  This character is called the "pipe" because it looks like a vertical bar or a piece of a pipe.  It serves the function of connecting the output of one command to the input of another command--not unlike a pipe under your sink.  The character is typed by pressing the shift+the key located directly above the enter key.  In this example here we display the content of the chapter-05.md and *pipe* it to the grep command which filters the file showing us only the lines containing the term *permission*. __Usage example:__ 
 ```bash 
 cat Chapter-05/chapter-05.md | grep permission
 ```
 
 \*
 
-:  The asterik (shift+8) is the wildcard representative.  It can be used in any shell command when you want to let the computer to the work or when you are not quite sure of a files spelling. __Usage example:__ 
+:  The asterisk (shift+8) is the wildcard representative.  It can be used in any shell command when you want to let the computer to the work or when you are not quite sure of a files spelling. __Usage example:__ 
 ```bash 
 ls *.md
 ```
@@ -65,7 +65,7 @@ rm -rf ./*
 ls memo? 
 ```
 ```bash
-ls vegetalbe-?-report.txt
+ls vegetable-?-report.txt
 ```
 ```bash
 ls ???.txt
@@ -93,7 +93,7 @@ echo "Today's date is $DT"
 
 ```'```
 
-: single tic or single quote.  Any characters or variables surrounded by a single tic will be interpreted literally.  Unlike the previous example this command will only print the literal characters $DT not expand the variable's contents.  __Usage exmaple:__ 
+: single tic or single quote.  Any characters or variables surrounded by a single tic will be interpreted literally.  Unlike the previous example this command will only print the literal characters $DT not expand the variable's contents.  __Usage example:__ 
 ```bash
 echo 'Today's date is $DT'
 ```
@@ -130,7 +130,7 @@ echo "Buy milks and eggs!" >> ~/Documents/my-shopping-list.txt
 
 \{\}
 
-: Curly braces  expansion braces also for decalring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it.  The second command example from chapter 03 uses ```()``` to execute a sub-shell to get the value of ```uname -r```.  The final example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
+: Curly braces  expansion braces also for declaring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it.  The second command example from chapter 03 uses ```()``` to execute a sub-shell to get the value of ```uname -r```.  The final example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
 ```bash
 echo ${username-`whoami`}
 ```
@@ -147,7 +147,7 @@ mkdir chapter-0{1..9}
 
 \^
 
-: The carot (shift+6) is a meta-character used in conjunction with the ```[]``` range brackets in order to tell the shell to negate the range included in the square brackets. ```ls [^r]*``` will find file1-file4, but will not list the files named rfile1-rfile4. __Usage exmaple:__ 
+: The caret (shift+6) is a meta-character used in conjunction with the ```[]``` range brackets in order to tell the shell to negate the range included in the square brackets. ```ls [^r]*``` will find file1-file4, but will not list the files named rfile1-rfile4. __Usage example:__ 
 ```bash
 ls [^r]*
 ```
@@ -161,7 +161,7 @@ ls [^b-d]
 
 \~
 
-: The tilde or tilda (shift+the key to the left of the number 1) is a shortcut representing your user's home directory.  ```~-``` is a combination that references the previous directory you were in. __Usage example:__
+: The tilde (shift+the key to the left of the number 1) is a shortcut representing your user's home directory.  ```~-``` is a combination that references the previous directory you were in. __Usage example:__
 ```bash
 cd ~
 ``` 
@@ -183,6 +183,19 @@ cd ~-
 echo "To assign the content of the date command to a variable type: DT=\`date\`\; echo \$DT"
 ```
 
+\$
+
+:  The dollar sign (shift+4) is used to refernce shell variables.  You can declare a local variable by assigning a value with the equal sign-just like you can in C or Java.  But in this case space matters (no spaces) and you only use the ```$``` sign the reference that varaible.  There are a number of preset system environment variables that the os sets for you and you can make your own as well. The command ```printenv``` will display all of the system environment variables.  By convention shell variables are usually declared all capital letters.  Note that shell variables only "live" for the time that the terminal window in which they were declared is open.  
+```bash
+echo $PATH
+```
+```bash
+DT=`date`; echo $DT
+```
+```bash
+JAVA_HOME="/usr/bin/java"; echo $JAVA_HOME
+```
+
 There is a final meta-character called the backtick or formally the grave accent. The backtick key is to left of number 1.  The backtick is used for encasing Linux binary command names.  The backtick tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__ 
 ```bash
 DT=`date`
@@ -193,7 +206,7 @@ CONTENTS=`cat /etc/services`
 
 ## Standard input, output, and error 
 
-  The original concept behind defining standard input and output devices came from the idea that Unix grew over the course of 40 years of output and input technology.  Originally there were no keyboards--just teletypes.  Originally there were no screens just ttys to print out on paper.  Then came *glass ttys* and terminals.  Then came Line and Dot Matrix printers.  Standard keyboards via the ISA input bus were invented.  At one time on a busy shared sysetm (remember the central server development paradigm for Unix) a sysadmin would perhaps want to send output of a command or any errors so that they could be debugged to paper.  Not environmentally friendly but sometimes just seeing it in writing solves your issue. Every *device* has a file handle and you can see all the *standards* are located by listing the ```/dev``` directory.      
+  The original concept behind defining standard input and output devices came from the idea that Unix grew over the course of 40 years of output and input technology.  Originally there were no keyboards--just teletypes.  Originally there were no screens just ttys to print out on paper.  Then came *glass ttys* and terminals.  Then came Line and Dot Matrix printers.  Standard keyboards via the ISA input bus were invented.  At one time on a busy shared system (remember the central server development paradigm for Unix) a sysadmin would perhaps want to send output of a command or any errors so that they could be debugged to paper.  Not environmentally friendly but sometimes just seeing it in writing solves your issue. Every *device* has a file handle and you can see all the *standards* are located by listing the ```/dev``` directory.      
     
   ![*Standard I/O, ls -l /dev/std\**](images/Chapter-06/standard/standard.png "Standard I/O")
   
@@ -201,7 +214,7 @@ CONTENTS=`cat /etc/services`
 
 ### Standard In
 
-  The __standard in__ is the default mehtod of getting text input into the terminal.  Currently this happens to be the keyboard.  The __standard in__ from the keyboard can be overridden by using the reversed angle bracket ```<``` to read __standard in__ from a file. You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with. Why might you want to send __standard in__ from anywhere other then the keyboard?  Here are a couple of examples.
+  The __standard in__ is the default method of getting text input into the terminal.  Currently this happens to be the keyboard.  The __standard in__ from the keyboard can be overridden by using the reversed angle bracket ```<``` to read __standard in__ from a file. You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with. Why might you want to send __standard in__ from anywhere other then the keyboard?  Here are a couple of examples.
 ```bash
 wc < state-of-the-union-address.txt
 ```
@@ -211,11 +224,11 @@ mail < complete-works-of-shakespere.txt
   
 ### Standard Out
 
-  When Unix was developed, Ken Thompson amde the design decision that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more that a file that is located in the /dev directory.  By typing the ```who``` command you will see which accounts are logged into the syste.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
+  When Unix was developed, Ken Thompson made the design decision that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more that a file that is located in the /dev directory.  By typing the ```who``` command you will see which accounts are logged into the system.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
 
 ![*Output TTYs of who command*](images/Chapter-06/standard/who.png "Output of TTYs of who command")
 
-  By having a __standard out__ device handle instead of a hard coded driver, this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are refered to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file. Be careful, a single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file. 
+  By having a __standard out__ device handle instead of a hard coded driver, this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are referred to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file. Be careful, a single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file. 
 ```bash
 date > /tmp/todaysdate
 ```
@@ -225,25 +238,24 @@ cat log.old >> log.new
   
 ### Standard Error
 
-  When you type a command that does not execute succesfully it returns an error message to the __standard out__. Perhaps the message is *"file or directory not found:"* that is printed to the screen.  But that error is not part of the __standard out__, it is part of __standard error__.  Standard error can be useful for logging and debiggin purposes.  If you have a command you want to execute but you want to suppress the __standard error__ from showing on the screen, yet log it to a file, you can do so. 
+  When you type a command that does not execute successfully it returns an error message to the __standard out__. Perhaps the message is *"file or directory not found:"* that is printed to the screen.  But that error is not part of the __standard out__, it is part of __standard error__.  Standard error can be useful for logging and debugging purposes.  If you have a command you want to execute but you want to suppress the __standard error__ from showing on the screen, yet log it to a file, you can do so. 
 
-#### Surpressing Standard Out and Error
+#### Suppressing Standard Out and Error
 
-  Each of the standards can be referenced numberically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to seperate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
+  Each of the standards can be referenced numerically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to separate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
 ```bash
 sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err
 sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err
 service nginx start 1>/tmp/03.out 2>/tmp/03.err
 ```
 
-  
 > __Exercise:__ Use the single angle bracket to redirct the output of a command to a file.  Techncally this command is a "1" followed by an angle bracket ">" but the one is implied and can be left out.  What happens when you try this command: ```ls -l > ./dir-list.txt; cat ./dir-list.txt```
 
 > __Exercise:__ You can surpress the standard error output as well by redirecting it to a file. What happens when you type this? ```ls -l /new-top-secret 2> ./error-report.txt; cat ./error-report.txt```
 
 > __Exercise:__ Both standard out and standard error can be redirected together.  This is useful if you are running a script as a system process or as part of a scheduled task.  What happens when you type these commands? ```ls -l ~; ls -l /new-top-secret &> error-and-out.txt ```
 
-> __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existance of a command binary or file.  You just want the afirmation that the file exists not any output. What happens when you type the ```ls -l /topsecrect 2> /dev/null``` command?
+> __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existence of a command binary or file.  You just want the confirmation that the file exists not any output. What happens when you type the ```ls -l /topsecrect 2> /dev/null``` command?
 
 ## History and Usage of Pipes
 
@@ -259,7 +271,7 @@ service nginx start 1>/tmp/03.out 2>/tmp/03.err
  
 [2005 audio presentation by Doug McIlroy about the early history of Unix development](http://www.dlslug.org/past_meetings.html "Interview with Doug McIlroy")
 
-### Additional Commands Used for Manipluating Standard Out
+### Additional Commands Used for Manipulating Standard Out
 
   The best way to envision pipes is to think of them as exactly what they are called--physical pipes in which water travels through.  To maximize your understanding of the concept of *piping* output we will introduce a series of additional command binaries to the list of essential command binaries that was introduced in last chapter and show you combined examples.  
 
@@ -272,7 +284,7 @@ who
 
 sort
 
-:  Similar to the ```cat``` command, ```sort``` will display the content of a file to standard out with the added feature of sorting the content alphabetically.  Note that what is sorted is just a copy of the output to the screen.  The original file is left uneffected. The ```sort``` and ```uniq``` commands are often used together. __Usage example:__
+:  Similar to the ```cat``` command, ```sort``` will display the content of a file to standard out with the added feature of sorting the content alphabetically.  Note that what is sorted is just a copy of the output to the screen.  The original file is left unaffected. The ```sort``` and ```uniq``` commands are often used together. __Usage example:__
 ```bash
 echo -e "orange \npeach \ncherry" > fruit.txt; sort fruits.txt  
 ```
@@ -282,7 +294,7 @@ who | sort
 
 uniq
 
-:  The uniq command is used for reporting or filtering out repeated lines in a file. Though __uniq__ is a full command binary it is mostly used as a filter through which input has been piped [^67]. For example if we had an webserver error log file with the content below, we would use ```uniq``` to filter out duplicated lines. The ```uniq``` command would collapse the first 5 lines into one unique line for output. The -c option will add a count after each unique line and the -d will only show a line if it has two or more occurances. __Usage example:__  
+:  The uniq command is used for reporting or filtering out repeated lines in a file. Though __uniq__ is a full command binary it is mostly used as a filter through which input has been piped [^67]. For example if we had an webserver error log file with the content below, we would use ```uniq``` to filter out duplicated lines. The ```uniq``` command would collapse the first 5 lines into one unique line for output. The -c option will add a count after each unique line and the -d will only show a line if it has two or more occurences. __Usage example:__  
 ```bash
 cat error.log
 [Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
@@ -300,7 +312,7 @@ uniq error.log
 
 wc
 
-: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines,  words,  and  byte  count for a file or for standard in.  You can use ```wc``` as part of a filter to count only specific occurances of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  The banned IPs have been placed in the hosts.deny file for which the system will deny a TCP connection from any address listed in that file.  How many have been added?  You can count the lines, words, and bytes by executing the command below or just the number of lines by using the ```-l``` option. __Usage example:__
+: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines,  words,  and  byte  count for a file or for standard in.  You can use ```wc``` as part of a filter to count only specific occurences of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  The banned IPs have been placed in the hosts.deny file for which the system will deny a TCP connection from any address listed in that file.  How many have been added?  You can count the lines, words, and bytes by executing the command below or just the number of lines by using the ```-l``` option. __Usage example:__
 ```bash
 wc hosts.deny; tail hosts.deny | wc 
 ```
@@ -310,7 +322,7 @@ wc -l hosts.deny
 
 cut
 
-: The ```cut``` command will allow you to *cut* up your output based on a delimeter: space, dash, comma, and so forth. The command will print selected parts of lines from a file to standard output[^68]. The -d option is the delimeter to *cut* on and the -f is the field or column number(s) to retrieve. __Usage example:__
+: The ```cut``` command will allow you to *cut* up your output based on a delimiter: space, dash, comma, and so forth. The command will print selected parts of lines from a file to standard output[^68]. The -d option is the delimiter to *cut* on and the -f is the field or column number(s) to retrieve. __Usage example:__
 ```bash
 cut -d ' ' -f1,2 /etc/mtab
 ```
@@ -378,7 +390,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
 
 ### grep
 
-  The ```grep``` command is a powerful pattern matching and searching tool for the shell.  Originally a feature of the ``ed`` line editor program - it stood for g/re/p--global regualr expression print.  A grep command will search inside of a given text file or directory looking for lines of text that match the pattern you give it.  You can use shell meta-characters from above or literal text strings as the searching parameters.   There are even more advanced search patterns called *regular expression* which is almmost a programming language in itself that allows for complex text queries.  We will not cover *regular expression* in depth in this book but talk about it as it relates to helping us complete our jobs. 
+  The ```grep``` command is a powerful pattern matching and searching tool for the shell.  Originally a feature of the ``ed`` line editor program - it stood for g/re/p--global regular expression print.  A grep command will search inside of a given text file or directory looking for lines of text that match the pattern you give it.  You can use shell meta-characters from above or literal text strings as the searching parameters.   There are even more advanced search patterns called *regular expression* which is almost a programming language in itself that allows for complex text queries.  We will not cover *regular expression* in depth in this book but talk about it as it relates to helping us complete our jobs. 
 
   The grep command [^69] has many options to modify the returned output. Some of the more common ones are listed here [^70]: 
   
@@ -390,7 +402,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
  * The -v (or --invert-match) option filters out matches.
  * The -c (--count) option gives a numerical count of matches, rather than actually listing the matches.
  
-> __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.  With over 3000+ entries you can use pipes and filters to narrow down the output.  For example let us say that you are looking for every line that has an IP that starts with 216.* and then count those number of occurances? ```cat hosts.deny | grep "sshd: 210" | wc``` 
+> __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.  With over 3000+ entries you can use pipes and filters to narrow down the output.  For example let us say that you are looking for every line that has an IP that starts with 216.* and then count those number of occurences? ```cat hosts.deny | grep "sshd: 210" | wc``` 
 
 ![*Format of the deny.hosts file*](images/Chapter-06/pipes/hosts-deny.png "Structure of hosts.deny")
 
@@ -400,7 +412,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
 
 ### find and locate commands
 
-  The ```find``` command is used to search for files in a directory hierarchy.  This command has additional parameters that can be used to find files based on time or size criteria.  This is useful searching for files based on when it was created or for finding large files that might be cluttering up the system.   The ```find``` command can also recieve shell-metacharacters as part of the search pattern. All numeric values can be denoted in this fashion:
+  The ```find``` command is used to search for files in a directory hierarchy.  This command has additional parameters that can be used to find files based on time or size criteria.  This is useful searching for files based on when it was created or for finding large files that might be cluttering up the system.   The ```find``` command can also receive shell meta-characters as part of the search pattern. All numeric values can be denoted in this fashion:
   
  Character          Value
 -----------  -----------------------
@@ -409,7 +421,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
      n        for exactly n.
 -----------  -----------------------
 
-Some of the common categories you can use for find are: file time parameters, file size paramaters, user ownership parameters, and permission parameters.   
+Some of the common categories you can use for find are: file time parameters, file size parameters, user ownership parameters, and permission parameters.   
 
 __TIME__
 
@@ -442,12 +454,13 @@ __SIZE__
 -size n\[cwbkMG\]
               
 : File uses n units of space.  The following suffixes can be used:
-`b'    for 512-byte blocks (this is the default if no suffix is used)
-`c'    for bytes
-`w'    for two-byte words
-`k'    for Kilobytes (units of 1024 bytes)
-`M'    for Megabytes (units of 1048576 bytes)
-`G'    for Gigabytes (units of 1073741824 bytes)
+
+ * b    for 512-byte blocks (this is the default if no suffix is used)
+ * c    for bytes
+ * w    for two-byte words
+ * k    for Kilobytes (units of 1024 bytes)
+ * M    for Megabytes (units of 1048576 bytes)
+ * G    for Gigabytes (units of 1073741824 bytes)
 
 __USER__
 
@@ -475,7 +488,7 @@ __USER__
 
 An alternative to using ```find``` is the ```locate``` command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your Linux distro by default.  You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```.  The ```locate``` command reads one or more databases prepared by ```updatedb``` and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
   
- There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system.  Thereby making lookups faster.  You simply run the sudo updatedb command to update the index (done everytime on reboot).  
+ There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system.  Thereby making lookups faster.  You simply run the sudo updatedb command to update the index (done every time on reboot).  
  
 > __Example usage:__ ```sudo updatedb; locate *.png; locate chapter-05.md```
 
@@ -486,37 +499,37 @@ If you remember the history of Unix and history of technology you remember that 
 
 ### tar
 
- By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The ```tar``` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seektime but retain a heirarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then complie the code knowing that the directory structure of the included files was correctly preserved.  
+ By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The ```tar``` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a heirarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
 
 The tar command only does archiving and does not do any compression--only preserving of file structure in the same way that an ISO file preserves structure.  The tar archive by convention is assigned a file extension of __.tar__ but this is not added automatically.
 
->  __Example Usage:__ ```tar -cvf code.tar ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
+>  __Example Usage:__ ```tar -cvf code.tar ./code-directory``` This command will create a ```tar``` archive of the directory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
 
->  __Example Usage:__ ```tar -xvf code.tar``` This command will unpack or extract a ```tar``` archive of the dirctory called code-directory and place it in the ```pwd```.
+>  __Example Usage:__ ```tar -xvf code.tar``` This command will unpack or extract a ```tar``` archive of the directory called code-directory and place it in the ```pwd```.
 
 ### compress
 
-  As file sizes grew the need to compress redundant data became apparant.  In dealing with compression you have two sides and you have to choose one.  Either the fast time to compress and larger file sizes, or slower time to compress and smaller file sizes. The intial compression algorithms went for the faster compression but larger file option.  The original compression tool on Unix was called ```compress```.  But it was encumbered by a patent onits compression algorithm, the same patent on the [LZW](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch "LZW) compression algorithm that lead to the creation of the jpeg image standard to replace the encumbered GIF image format.  Because of this compress was never *free* and outside of its invention and inclusion in commercial Unix in 1985, use could never catch on. 
+  As file sizes grew the need to compress redundant data became apparent.  In dealing with compression you have two sides and you have to choose one.  Either the fast time to compress and larger file sizes, or slower time to compress and smaller file sizes. The initial compression algorithms went for the faster compression but larger file option.  The first compression tool on Unix was called ```compress```.  But it was encumbered by a patent on the [LZW](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch "LZW) compression algorithm, the same patent on that lead to the creation of the jpeg image standard to replace the encumbered GIF image format.  Because of this compress was never *free* and outside of its invention and inclusion in commercial Unix in 1985, use could never catch on. 
   
 > Compress (Uncompress) is a Unix shell compression program based on the LZW compression algorithm. Compared to more modern compression utilities such as gzip and bzip2, compress performs faster and with less memory usage, at the cost of a significantly lower compression ratio [^72].
 
 ### gzip
 
-For GNU undertandably so. They began the gzip project was released in October of 1992. By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLATE](https://en.wikipedia.org/wiki/DEFLATE "DEFLATE")  This was the basis of the popular PKZip and the origin of the .zip compression extension.  The [GNU project](https://en.wikipedia.org/wiki/Gzip "GNU") began it own GPL based implementation using DEFLATE algorithm and compeleted it by October of 1992.  It was named gzip [(GNU zip)](https://www.gnu.org/software/gzip/ "GNU zip").
+By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLATE](https://en.wikipedia.org/wiki/DEFLATE "DEFLATE").  This was the basis of the popular PKZip program and the origin of the .zip compression extension.  The [GNU project](https://en.wikipedia.org/wiki/Gzip "GNU") began it own GPL based implementation using the DEFLATE algorithm and compeleted it by October of 1992.  It was named gzip [(GNU zip)](https://www.gnu.org/software/gzip/ "GNU zip").
 
 > gzip is based on the DEFLATE algorithm, which is a combination of LZ77 and Huffman coding. DEFLATE was intended as a replacement for LZW and other patent-encumbered data compression algorithms which, at the time, limited the usability of compress and other popular archivers [^73].     
 
 ### bzip2
 
-  This is a similar algorithm to gzip in that they do compression only.  It differs from gzip in that it uses the [LZMA](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA") compression algorithm which produces smaller sized files but take more CPU time and memory to compress.  This is deemed an exceptable tradeoff as computers are only getting faster.  Decompression is very fast compared to compression.  It was released in 2001[^74] and is available under a BSD-like license.  
+  This is a similar algorithm to gzip in that they do compression only.  It differs from gzip in that it uses the [LZMA](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA") compression algorithm which produces smaller sized files but take more CPU time and memory to compress.  This is deemed an acceptable trade off as computers are only getting faster.  Decompression is very fast compared to compression.  It was released in 2001[^74] and is available under a BSD-like license.  
 
 ### xz
 
-  The [xz](http://tukaani.org/xz/format.html "xz") compression tool is using the [LZMA2](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA2") compression algorithm which is superior in decreasing size at the expense of compute time.  The xz algorithm uses LZMA2 which has support for multithreading in compressing and decompressing in parallel. Back in 1985 when the first Compress program was created processing power was slow compared to the speed of the networks.  Now the speed of the processor is much faster relative to the speed of our networks. In addtion we are moving multiple gigabytes around at a time.  The xz compression tool is the tool for the future.  In December 2013, [kernel.org](http://kernel.org "kernel.org") announced the addition of xz compressed files and ending bzip2 compressed files for distributing the Linux kernel archive files. The xz tool works only on single files and cannot be used for archiving.  In this case you would compress an archive file (like a tar file) to maximize usage. 
+  The [xz](http://tukaani.org/xz/format.html "xz") compression tool is using the [LZMA2](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA2") compression algorithm which is superior in decreasing size at the expense of compute time.  The xz algorithm uses LZMA2 which has support for multithreading in compressing and decompressing in parallel. Back in 1985 when the first Compress program was created processing power was slow compared to the speed of the networks.  Now the speed of the processor is much faster relative to the speed of our networks. On today's networks we are moving multiple gigabytes around at a time.  The xz compression tool is the tool for the future.  In December 2013, [kernel.org](http://kernel.org "kernel.org") announced the addition of xz compressed files and ending bzip2 compressed files for distributing the Linux kernel archive files. The xz tool works only on single files and cannot be used for archiving.  In this case you would compress an archive file (like a tar file) to maximize usage. 
 
 ### tarballs
 
-  A tape archive that is additionaly compressed by another tool is called a __tar ball__ and the compression method is usually appended to the end of the filename.  
+  A tape archive that is additionally compressed by another tool is called a __tar ball__ and the compression method is usually appended to the end of the filename.  
 
 >  __Example Usage:__ ```tar -cvzf code.tar.gz ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions. 
 
@@ -528,9 +541,9 @@ For GNU undertandably so. They began the gzip project was released in October of
 
 ##  Hidden files and single dot operator
 
-  In the previous chapter we talked about the single-dot operator--which is a short cut for *right here* or your present working directory.  If the single-dot preceeds a file or directory name that file or directory becomes hidden.  Not completely invisible but by using the ``ls`` or ```ls -l``` commands you will not see these files.  You need to add the -a option to see all hidden directories.  Usually hidden directories are reserved for important user configuration files or system files.  It is a convention not a rule, but as you have seen so far, tradition is rule in Unix.
+  In the previous chapter we talked about the single-dot operator--which is a short cut for *right here* or your present working directory.  If the single-dot proceeds a file or directory name that file or directory becomes hidden.  Not completely invisible but by using the ``ls`` or ```ls -l``` commands you will not see these files.  You need to add the -a option to see all hidden directories.  Usually hidden directories are reserved for important user configuration files or system files.  It is a convention not a rule, but as you have seen so far, tradition is rule in Unix.
   
-> __Example usage:__ Comprare the output of these two commands: ```ls -l ~``` and ```ls -la ~```--what new files or directories appear?
+> __Example usage:__ Compare the output of these two commands: ```ls -l ~``` and ```ls -la ~```--what new files or directories appear?
 
 > __Example usage:__ You can create a hidden file by prefixing a filename or directory with a single dot: ```touch .top-secret.txt``` or ```mkdir ~/.topper-secret```
 
