@@ -94,7 +94,7 @@ echo 'Today's date is $DT'
 ls file[24]
 ```
 ```bash
-touch file[1-4]
+rm file[1-4]
 ```
 ```bash
 ls file[!a-z]
