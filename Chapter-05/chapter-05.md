@@ -22,7 +22,7 @@
 
 ## What is a Filesystem?
    
-A filesystem is a way for the operating system to manage and access files.  It is how data is segregated and the mechanism the operating system uses to retrieve and write data.  The benefit of a filesytem is it will keep track of the locations in memory of your files.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table of all files location in memory and looks up the address of the file.  That address is given to the kernel which then passes it to the disk controller for the data retrieval portion.  The bits are effectively returned to the operating system from the kernel and the image is rendered to the screen.  Specific Linux filesystem and their commands will be covered in chapter 12.  
+A filesystem is a way for the operating system to manage and access files.  It is how data is segregated and the mechanism the operating system uses to retrieve and write data.  The benefit of a filesystem is it will keep track of the locations in memory of your files.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table of all files location in memory and looks up the address of the file.  That address is given to the kernel which then passes it to the disk controller for the data retrieval portion.  The bits are effectively returned to the operating system from the kernel and the image is rendered to the screen.  Specific Linux filesystem and their commands will be covered in chapter 12.  
 
 The Linux filesystem was designed as an __upside down tree__ by Ken Thompson.  What is at the bottom of a tree? The __root__ is at the bottom.  This is an important concept to remember in Linux.  In Linux the __root__ or written as __"/"__ (pronounced *slash*), is at the top of our upside down tree.  From the __root__ you navigate down the file hierarchy using the ```cd``` commandline tool. You cannot go any higher in the tree than __root__, you can only go down.  When you type the command ```ls /``` you see a directory listing of the contents of the root directory. As you can see below the root directory contains sub-folders, and those sub-folders can have many more sub-folders.  This first level below the __root__ has a common core of directories across each Linux distro. Let us take a closer look at Ubuntu 15.04 and Fedora 22 root folder file hierarchy.
 
@@ -50,7 +50,7 @@ It is great to have a standard but what exactly does POSIX do?  Even in that que
   
   Most importantly the LSB sought to create an __ABI__, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which assumes that there will be the same standard libraries to code against on every Linux distro.  The ABI gives assurance that code __compiled__ using a C compiler with the ABI compatibility feature turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows .exe package you create. It runs on all Windows platforms from XP all the way to Windows 10, those operating systems are ABI compliant.  The LSB wanted to guarantee this so that major vendors of software would not have to maintain multiple software versions, just maintain one version with ABI compatibility, thus preventing a barrier Linux enterprise adoption.
   
-  The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the individual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manger of Debian based distros.
+  The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the individual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manager of Debian based distros.
   
 ### The Problem with the LSB 
   
@@ -159,9 +159,9 @@ A relative path assumes the pwd portion of the absolute path.  From the exercise
 How would we navigate back up the tree?  What if we want to return to our home directory?  There are a few options, assuming that our pwd is ```/home/jeremy/Documents``` which of these would be the best choice?
 
 ----------------------  ----------------------------
-```cd /home/jeremy```    aboslute or relative path?
-```cd ~```               aboslute or relative path?
-```cd ../```             aboslute or relative path?  
+```cd /home/jeremy```    absolute or relative path?
+```cd ~```               absolute or relative path?
+```cd ../```             absolute or relative path?  
 ----------------------  ----------------------------
 
 The first two options are absolute paths, the third option is a relative path with something new.  Here we are introduced to the __double-dot__ operator.  The __double-dot__ and __single-dot__ (sometimes just called *dot*) are the way you can reference locations up the tree or in your current directory (same level).  The command ```cd ../``` is a shortcut to take you __up__ one level in the filesystem tree.  Double-dots can be chained together to traverse up multiple directories all at once.  
@@ -327,7 +327,7 @@ Let's take this command for instance:
 ```bash
 ls -la /etc
 ```
-  The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are proceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string proceeded by a dash.  So __```-la```__ can also be written as __```-l -a```__.  Additionally there are options that use full English language words insteaf of single letters proceeded by __two dashes__.  You can use the ```man``` command followed by the name of the command in question to see all of it's usage options.  
+  The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are proceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string proceeded by a dash.  So __```-la```__ can also be written as __```-l -a```__.  Additionally there are options that use full English language words instead of single letters proceeded by __two dashes__.  You can use the ```man``` command followed by the name of the command in question to see all of it's usage options.  
    
   The final value of __```/etc```__ in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the __ls__ command to list the contents of the __/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location in the filesystem.
 
@@ -393,7 +393,7 @@ Criticism of C Shell: "*Although Stephen Bourne himself acknowledged that csh wa
 
 #### Korn Shell
 
-  By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  There is an American expression, "The grass is always greener on the other side of the fence." The C shell users wanted features from the Bourne Shell and vis-a-versa.  Another researcher at Bell Labs, named David Korn, began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the newer features of the C Shell.  This was called the [Korn Shell](http://kornshell.com/ "ksh") (ksh) and released in 1983.  The Bourne Shell was standard on all AT&T Unix so any new shell had to guarantee backwards compatability otherwise that shell was never going to receive adoption.  The improvements the Korn Shell made were apparent and it was soon included as well on on AT&T Unix standard.  In 1991/1992 the POSIX standard adopted KSH as the standard shell that any Unix system claiming POSIX compliance was required to have.  By 2005 the Korn Shell was opensourced under a free license but it was too late.  
+  By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  There is an American expression, "The grass is always greener on the other side of the fence." The C shell users wanted features from the Bourne Shell and vis-a-versa.  Another researcher at Bell Labs, named David Korn, began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the newer features of the C Shell.  This was called the [Korn Shell](http://kornshell.com/ "ksh") (ksh) and released in 1983.  The Bourne Shell was standard on all AT&T Unix so any new shell had to guarantee backwards compatibility otherwise that shell was never going to receive adoption.  The improvements the Korn Shell made were apparent and it was soon included on AT&T Commercial Unix as the standard shell.  In 1991/1992 the POSIX standard adopted KSH as the standard shell that any Unix system claiming POSIX compliance was required to have.  By 2005 the Korn Shell was opensourced under a free license but it was too late.  
   
 #### GNU Bash Shell
 
@@ -437,7 +437,7 @@ sockets                     s
  
 ### Owner, Group, Other (World)
 
-  In addition to the rwx permissions, each file has three groupings of permissions associated with it.  The first triad of rwx is the file's __owner__ permission--meaning what the person who owns the file can do to it.  These permission are usually more liberal because you trust yourself.
+  In addition to the rwx permissions, each file has three groupings of permissions associated with it.  The first triad of rwx is the file's __owner__ permission--meaning what the person who owns the file can do to it.  These permissions are usually more liberal because you trust yourself.
   
   The second triad of rwx permissions is __group__ permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
   
@@ -563,12 +563,12 @@ Answer said questions:
 
 ### Lab
 
-The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manger and a web browser.  All actions will be done through the shell.
+The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell.
 
 1) Navigate from your home directory to your Downloads directory
     i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
 1) Use the wget command to download the source code for the text book down to your local Downloads folder.  The code URL is: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip "URL")
-    i) Take a screen shot of the output of an ls command in the Downloads directory showing you have succesfully downloaded the zip file. Name the file Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png) 
+    i) Take a screen shot of the output of an ls command in the Downloads directory showing you have successfully downloaded the zip file. Name the file Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png) 
 1) Use the file command to determine the type of file that the master.zip download is
     i) Take a screenshot of the output of the file command.  Name the file Name the file lastname-firstname-screenshot-week-5-file.(jpg or png)  
 1) Use the unzip command to extract the files to a new directory called __book__ (you will need to use the ```man unzip``` command to find out the usage option in order to accomplish this.
@@ -587,8 +587,8 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     i) Take a screenshot of the files output and it's message to you. Name the file lastname-firstname-screenshot-week-5-cat.(jpg or png)  
 1) Assume your pwd is book/Linux-text-book-part-1-master/images/Chapter-04/X  (cd to that directory) what would be the single cd command to move your pwd location to Chapter-05/shells (relative paths)?
     i) Take a screenshot of the pwd command showing your initial location, the cd command to change to the Chapter-05/shells directory, then another pwd command (all in one screenshot). Name the file lastname-firstname-screenshot-week-5-cd1.(jpg or png) 
-1) Assume your pwd is book/Linux-text-book-part-1-master/images/Chapter-05/shells and you want to move your pwd over to Chapter-05/path.  What would be the single cd command to move yoru pwd location to Chapter-05/path (relative paths)?
-    i) Take a screenshot of the pwd command showing yor initial locationm, then cd command to change the Chapter-05/path directory, then another pwd command (all in one screen). Name the file lastname-firstname-screenshot-week-5-cd2.(jpg or png)     
+1) Assume your pwd is book/Linux-text-book-part-1-master/images/Chapter-05/shells and you want to move your pwd over to Chapter-05/path.  What would be the single cd command to move your pwd location to Chapter-05/path (relative paths)?
+    i) Take a screenshot of the pwd command showing your initial location, then cd command to change the Chapter-05/path directory, then another pwd command (all in one screen). Name the file lastname-firstname-screenshot-week-5-cd2.(jpg or png)     
 1) Assume your pwd is book/Linux-text-book-part-1-master/images/Chapter-05/path.  You realize that you want to delete an image named figure1.gif located in the Chapter-05/shells directory.  What would be the command to remove the file using a relative path to it's location?
     i) Take a screenshot of the single command to remove the figure1.gif file using relative paths from the location mentioned above.  Name the file lastname-firstname-screenshot-week-5-rm.(jpg or png)
 1) Use the mkdir command to create a new directory called Chapter-16 in book/Linux-text-book-part-1-master.

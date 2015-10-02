@@ -20,7 +20,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
   In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *syntactic sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and manipulate the contents of our file system.  The next layer within the shell to be introduced is something called __shell meta-characters__.  When Ken Thompson was creating Unix and the first user shell, he quickly realized a need to be able to perform certain repetitive tasks.  For example, the concept of using wildcards to do pattern matching.  
   
-  Or to use negation or ranges to look for particular filenames or directories.  One of the advantages of making everything is Unix a file is that a the file only had one data type, adn that was of type __text__.  Since everything is text, any file or directory can be searched for or filtered based on text patterns.  Enter shell meta-characters which extend the normal capabilites of the shell.  If you wanted to list the contents of any directory starting with the letters *"Do"*, how would you do it? By adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directory's content and feeds it any filenames that match the first two characters *"Do"* and any number of other characters, (including 0 characters), represented by the star or asterisk (*).   Shell meta-characters serve the purpose of replacing having to write a C program to recreate this same functionality.  There are 18 characters that are standard across the bash shell[^64]--common punctuation/non alphanumeric characters that were adopted to represent these common repetitive text modifcation tasks done in the shell.
+  Or to use negation or ranges to look for particular filenames or directories.  One of the advantages of making everything is Unix a file is that a the file only had one data type, adn that was of type __text__.  Since everything is text, any file or directory can be searched for or filtered based on text patterns.  Enter shell meta-characters which extend the normal capabilities of the shell.  If you wanted to list the contents of any directory starting with the letters *"Do"*, how would you do it? By adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directory's content and feeds it any filenames that match the first two characters *"Do"* and any number of other characters, (including 0 characters), represented by the star or asterisk (*).   Shell meta-characters serve the purpose of replacing having to write a C program to recreate this same functionality.  There are 18 characters that are standard across the bash shell[^64]--common punctuation/non alphanumeric characters that were adopted to represent these common repetitive text modification tasks done in the shell.
       
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
  
@@ -35,7 +35,7 @@ unzip -d book master.zip && cd book && cat Readme.md
 
 \;    
 
-: Unlike the ampersand character the semi-colon __";"__ allows you to chain commands together that will execute in sequence regardless of the previous commands return status. The example command will execute and return two errors tellingyou the file or directory doesn't exist, but the third command will execute showing the data. __Usage example:__ 
+: Unlike the ampersand character the semi-colon __";"__ allows you to chain commands together that will execute in sequence regardless of the previous commands return status. The example command will execute and return two errors telling you the file or directory doesn't exist, but the third command will execute showing the data. __Usage example:__ 
 ```bash 
 ls /topsecret; cd /topsecret; date
 ``` 
@@ -213,7 +213,7 @@ mail < complete-works-of-shakespere.txt
   
 ### Standard Out
 
-  When Unix was developed, Ken Thompson made the design decision that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more that a file that is located in the /dev directory.  By typing the ```who``` command you will see which accounts are logged into the system.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
+  When Unix was developed, Ken Thompson made the design decision that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more than a file that is located in the /dev directory.  By typing the ```who``` command you will see which accounts are logged into the system.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
 
 ![*Output TTYs of who command*](images/Chapter-06/standard/who.png "Output of TTYs of who command")
 
@@ -238,13 +238,13 @@ sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err
 service nginx start 1>/tmp/03.out 2>/tmp/03.err
 ```
 
-> __Exercise:__ Use the single angle bracket to redirct the output of a command to a file.  Techncally this command is a "1" followed by an angle bracket ">" but the one is implied and can be left out.  What happens when you try this command: ```ls -l > ./dir-list.txt; cat ./dir-list.txt```
+> __Exercise:__ Use the single angle bracket to redirect the output of a command to a file.  Technically this command is a "1" followed by an angle bracket ">" but the one is implied and can be left out.  What happens when you try this command: ```ls -l > ./dir-list.txt; cat ./dir-list.txt```
 
-> __Exercise:__ You can surpress the standard error output as well by redirecting it to a file. What happens when you type this? ```ls -l /new-top-secret 2> ./error-report.txt; cat ./error-report.txt```
+> __Exercise:__ You can suppress the standard error output as well by redirecting it to a file. What happens when you type this? ```ls -l /new-top-secret 2> ./error-report.txt; cat ./error-report.txt```
 
 > __Exercise:__ Both standard out and standard error can be redirected together.  This is useful if you are running a script as a system process or as part of a scheduled task.  What happens when you type these commands? ```ls -l ~; ls -l /new-top-secret &> error-and-out.txt```
 
-> __Exercise:__  As a final convention anytime you want to *throw away* or completely surpress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existence of a command binary or file.  You just want the confirmation that the file exists not any output. What happens when you type the ```ls -l /topsecrect 2> /dev/null``` command?
+> __Exercise:__  As a final convention anytime you want to *throw away* or completely suppress output you can redirect it to ```/dev/null```.  This directory is called the *bit bucket* or the *black hole* any output directed to it is destroyed irrevocably.  It is useful if you just want a command to execute but not display and output or error messages. This is best used in shell script when looking for the existence of a command binary or file.  You just want the confirmation that the file exists not any output. What happens when you type the ```ls -l /topsecrect 2> /dev/null``` command?
 
 ## History and Usage of Pipes
 
@@ -283,7 +283,7 @@ who | sort
 
 uniq
 
-:  The uniq command is used for reporting or filtering out repeated lines in a file. Though __uniq__ is a full command binary it is mostly used as a filter through which input has been piped [^67]. For example if we had an webserver error log file with the content below, we would use ```uniq``` to filter out duplicated lines. The ```uniq``` command would collapse the first 5 lines into one unique line for output. The -c option will add a count after each unique line and the -d will only show a line if it has two or more occurences. __Usage example:__  
+:  The uniq command is used for reporting or filtering out repeated lines in a file. Though __uniq__ is a full command binary it is mostly used as a filter through which input has been piped [^67]. For example if we had an webserver error log file with the content below, we would use ```uniq``` to filter out duplicated lines. The ```uniq``` command would collapse the first 5 lines into one unique line for output. The -c option will add a count after each unique line and the -d will only show a line if it has two or more occurrences. __Usage example:__  
 ```bash
 cat error.log
 [Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
@@ -322,7 +322,7 @@ uname -a | cut -d" " -f1,3,11,12
 echo 
 : This command is used for displaying a line of text.  By using the -e option you can enable escape sequences to be interpreted. The first example will print out a line of text.  The second example uses a for loop to print out a single period and then sleep for 1 second. __Usage example:__
 ```bash
-echo "hello world!:
+echo "hello world!"
 ```
 ```bash
 for i in {0..180}; do echo -ne '.'; sleep 1; done
@@ -337,7 +337,7 @@ cat hosts.deny | sort | tee ./sorted.txt | wc
   
 dmesg
 
-: The ```dmesg``` command is a shortcut to display the kernel ring buffer--or in otherwords the kernel's output messages for debugging. __Usage example:__
+: The ```dmesg``` command is a shortcut to display the kernel ring buffer--or in other words the kernel's output messages for debugging. __Usage example:__
 ```bash
 dmesg
 ```
@@ -373,7 +373,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
 
 > __Exercise:__ The chaining process can grow pretty extensive.  The ```ps``` command is used to list system processes that are running and will be covered in detail in a later chapter.  This command will look for every running process that has the system+wildcard name in it, sort it, pipe that output to a tee--which saves that formated output to a file.  Then that sorted text will be passed on as standard in for a cut command to filter out columns via spaces and cut the first column and display this text to standard out.```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1``` 
 
-> __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurences of the```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1  | tee ~/columns.txt | wc```
+> __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurrences of the```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1  | tee ~/columns.txt | wc```
 
 ## Commands for Finding, Locating, and Pattern Matching 
 
@@ -391,7 +391,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
  * The -v (or --invert-match) option filters out matches.
  * The -c (--count) option gives a numerical count of matches, rather than actually listing the matches.
  
-> __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.  With over 3000+ entries you can use pipes and filters to narrow down the output.  For example let us say that you are looking for every line that has an IP that starts with 216.* and then count those number of occurences? ```cat hosts.deny | grep "sshd: 210" | wc``` 
+> __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.  With over 3000+ entries you can use pipes and filters to narrow down the output.  For example let us say that you are looking for every line that has an IP that starts with 216.* and then count those number of occurrences? ```cat hosts.deny | grep "sshd: 210" | wc``` 
 
 ![*Format of the deny.hosts file*](images/Chapter-06/pipes/hosts-deny.png "Structure of hosts.deny")
 
@@ -489,7 +489,7 @@ If you remember the history of Unix and history of technology you remember that 
 
 ### tar
 
- By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The ```tar``` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a heirarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
+ By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The ```tar``` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a hierarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
 
 The tar command only does archiving and does not do any compression--only preserving of file structure in the same way that an ISO file preserves structure.  The tar archive by convention is assigned a file extension of __.tar__ but this is not added automatically.
 
@@ -499,13 +499,13 @@ The tar command only does archiving and does not do any compression--only preser
 
 ### compress
 
-  As file sizes grew the need to compress redundant data became apparent.  In dealing with compression you have two sides and you have to choose one.  Either the fast time to compress and larger file sizes, or slower time to compress and smaller file sizes. The initial compression algorithms went for the faster compression but larger file option.  The first compression tool on Unix was called ```compress```.  But it was encumbered by a patent on the [LZW](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch "LZW) compression algorithm, the same patent on that lead to the creation of the jpeg image standard to replace the encumbered GIF image format.  Because of this compress was never *free* and outside of its invention and inclusion in commercial Unix in 1985, use could never catch on. 
+  As file sizes grew the need to compress redundant data became apparent.  In dealing with compression you have two sides and you have to choose one.  Either the fast time to compress and larger file sizes, or slower time to compress and smaller file sizes. The initial compression algorithms went for the faster compression but larger file option.  The first compression tool on Unix was called ```compress```.  But it was encumbered by a patent on the [LZW](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch "LZW") compression algorithm, the same patent on that lead to the creation of the jpeg image standard to replace the encumbered GIF image format.  Because of this compress was never *free* and outside of its invention and inclusion in commercial Unix in 1985, use could never catch on. 
   
 > Compress (Uncompress) is a Unix shell compression program based on the LZW compression algorithm. Compared to more modern compression utilities such as gzip and bzip2, compress performs faster and with less memory usage, at the cost of a significantly lower compression ratio [^72].
 
 ### gzip
 
-By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLATE](https://en.wikipedia.org/wiki/DEFLATE "DEFLATE").  This was the basis of the popular PKZip program and the origin of the .zip compression extension.  The [GNU project](https://en.wikipedia.org/wiki/Gzip "GNU") began it own GPL based implementation using the DEFLATE algorithm and compeleted it by October of 1992.  It was named gzip [(GNU zip)](https://www.gnu.org/software/gzip/ "GNU zip").
+By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLATE](https://en.wikipedia.org/wiki/DEFLATE "DEFLATE").  This was the basis of the popular PKZip program and the origin of the .zip compression extension.  The [GNU project](https://en.wikipedia.org/wiki/Gzip "GNU") began it own GPL based implementation using the DEFLATE algorithm and completed it by October of 1992.  It was named gzip [(GNU zip)](https://www.gnu.org/software/gzip/ "GNU zip").
 
 > gzip is based on the DEFLATE algorithm, which is a combination of LZ77 and Huffman coding. DEFLATE was intended as a replacement for LZW and other patent-encumbered data compression algorithms which, at the time, limited the usability of compress and other popular archivers [^73].     
 
@@ -521,7 +521,7 @@ By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLA
 
   A tape archive that is additionally compressed by another tool is called a __tar ball__ and the compression method is usually appended to the end of the filename.  
 
->  __Example Usage:__ ```tar -cvzf code.tar.gz ./code-directory``` This command will create a ```tar``` archive of the dirctory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions. 
+>  __Example Usage:__ ```tar -cvzf code.tar.gz ./code-directory``` This command will create a ```tar``` archive of the directory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions. 
 
 > __Example usage:__ Each one of these tar archives has been further compressed by one of the 4 Unix/Linux compression methods ```file linux-4.3-rc3.tar.Z; file linux-4.3-rc3.tar.gzip; file linux-4.3-rc3.tar.bzip2; file linux-4.3-rc3.tar.xz``` 
 
@@ -622,7 +622,7 @@ b. screen
 c. tty
 d. keyboard
 
-14. Standard Out is what device be default?
+14. Standard Out is what device by default?
 a.  mouse
 b.  screen
 c.  X
@@ -677,7 +677,7 @@ Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](
   * Using Mac OSX - what OS do you have under the hood? ~16:10
   * What project did Randi take on that no one else wanted? ~19:10
   * What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
-  * Are there any large companies that sponser FreeBSD?  ~ 31:00
+  * Are there any large companies that sponsor FreeBSD?  ~ 31:00
   * How can you get involved in helping the FreeBSD community? ~38:15
   * What is Randi's opinion about "getting more women in open-source?"  ~40:00
   * What is Randi saying that is the wrong focus? ~49:00
@@ -685,13 +685,8 @@ Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](
   * Would you like to try/use FreeBSD or PC-BSD?
 
 ### Lab
-
-Compression comparison of git kernel
-gzip bzip2 xz
-
-Compare the output and amount of time this command takes: ```sudo find / -name chapter-05.md``` and ```locate chapter-05.md```--locate is clearly faster because databases are good at looking these kind of things up quickly.  
  
-The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will succesfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manger and a web browser.  All actions will be done through the shell.
+The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manger and a web browser.  All actions will be done through the shell.
  
 __Final deliverable__ is to place all commands into a single text file named lastname-firstname-week-6-commands.txt), and all of the above screenshots into a single zip file named: __lastname-firstname-chapter-06-lab.zip__    
  
@@ -701,7 +696,7 @@ __Final deliverable__ is to place all commands into a single text file named las
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-2.(jpg or png)
 3. Type the command that will execute a string of commands even if one of the commands fails
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-3.(jpg or png)
-4. What command will list every file in the textbook directory that has any number of charecters and a two character dot file extension of any name?
+4. What command will list every file in the textbook directory that has any number of characters and a two character dot file extension of any name?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-4.(jpg or png)
 5. What command inside the textbook directory will do a long listing of Chapters-02,04,06, and 08 only?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-5.(jpg or png)
@@ -715,13 +710,13 @@ __Final deliverable__ is to place all commands into a single text file named las
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-9.(jpg or png)
 10. You will find a file named hosts.deny located in the files directory of the download of the textbook (new since chapter 05) It contains a list of IP addresses - what command would you use to count ONLY the number of lines?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-10.(jpg or png)
-11. Using the error.log file located in the files directory - what commmand would you use to count only unique lines and to display their count and only if there is more than 1 occurence?
+11. Using the error.log file located in the files directory - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-11.(jpg or png)
 12. What command would let you display the content of the hosts.deny file, cut out the the second category and sort it?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-12.(jpg or png)
 13. What command would let you search the file error.log for the lines that contain the term "robots.txt"?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-13.(jpg or png)
-14. What commmand would let you count the number of lines that have the term "robots.txt" in the file error.log?
+14. What command would let you count the number of lines that have the term "robots.txt" in the file error.log?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-14.(jpg or png)
 15. Using the find command and starting from the \~ directory what would be the command to find all files with the name .md?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-15.(jpg or png)
@@ -733,7 +728,7 @@ __Final deliverable__ is to place all commands into a single text file named las
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-18.(jpg or png)
 19. Again create a tar archive and this time add compression for the bzip2 standard for Space_java.tar
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-19.(jpg or png)
-20. Download the linux kernel archive via wget from: [https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz "kernel.org") Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the commmand to tar and compress it with xzip.     
+20. Download the Linux kernel archive via wget from: [https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz "kernel.org") Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the command to tar and compress it with xzip.     
      i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-20.(jpg or png)
 21.  1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
      i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-ec.(jpg or png)

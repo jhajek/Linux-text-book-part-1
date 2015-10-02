@@ -5,7 +5,7 @@ __Chapter 3 Objectives__
 
   * Know how the Linux install process works for the two major Linux Distribution families
   * Know what a Linux distribution (distro) is
-  * Know about Linux 32-bit and 64-bit architectures an the standard installation format for a distribution
+  * Know about Linux 32-bit and 64-bit architectures and the standard installation format for a distribution
   * Understand how to use virtualization platforms for installing Linux distributions
 
 __Outcomes__
@@ -42,7 +42,7 @@ __Outcomes__
   ![*Virtulization Diagram*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Hyper-V.png/640px-Hyper-V.png "Virtulization Diagram")
   
   
-  By having the hypervisor intercepting system calls from the virtualized operating system this allows for multiple operating systems to co-exist one one computer unaware of each other.  The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two attendees.  The hypervisor essentially creates two classes of operating systems.  The "*host*" and potentially multiple "*guests*".  The *"guest"* operating system thinks it has complete control of the hardware - but the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available.  The hypervisor offers a *"pretend kernel"* to the guest virtualized system.  In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands.  
+  By having the hypervisor intercepting system calls from the virtualized operating system this allows for multiple operating systems to co-exist on one computer unaware of each other.  The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two attendees.  The hypervisor essentially creates two classes of operating systems.  The "*host*" and potentially multiple "*guests*".  The *"guest"* operating system thinks it has complete control of the hardware - but the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available.  The hypervisor offers a *"pretend kernel"* to the guest virtualized system.  In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands.  
   
   For example if we are running an Ubuntu Desktop virtualized guest system on a Windows 10 host, the Linux desktop has no way of knowing how to issue a command to use the network card to request a website because Linux knows its own OS and kernel and Windows is a completely different kernel and operating system.  The virtualization layer will do the translation for you -- allowing the *"host"* system to think that your guest virtualized operating system is nothing more than a native application, and allowing your guest virtualized operating system to think that it owns the entire set of hardware.  
   
@@ -77,7 +77,7 @@ __Parallels Desktop for Mac__
 
 __TYPE I Hypervisor - Bare Metal or Native Virtualization__
 
-   TYPE I is used in server environments on hardware utilizing multiple core CPUs, mutli-terabytes of RAM, and multi-terabytes of hard drive space.  A TYPE I hypervisor includes a kernel and tiny purpose driven mini-operating system tuned just for managing and interfacing with virtual machines.  The kernel itself is the hypervisor also tuned with all unnecessary features removed.  This book will not cover TYPE II hypervisors or commercial implementations of them.
+   TYPE I is used in server environments on hardware utilizing multiple core CPUs, mutltiple terabytes of RAM, and multiple terabytes of hard drive space.  A TYPE I hypervisor includes a kernel and tiny purpose driven mini-operating system tuned just for managing and interfacing with virtual machines.  The kernel itself is the hypervisor also tuned with all unnecessary features removed.  This book will not cover TYPE II hypervisors or commercial implementations of them.
      
    *  [Microsoft Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx "Hyper-V")
    
@@ -273,7 +273,7 @@ Network
 
   You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is.  So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware.  In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system.  These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.     
   
-  VirtualBox guest additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image."  For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions iso appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
+  VirtualBox guest additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image."  For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
   
   __Ubuntu__
   

@@ -35,11 +35,11 @@ __Outcomes__
     
   Unix includes a kernel - a hardware abstraction layer that handles all the interfaces from the operating system to the hardware.  The kernel is the portion of the Operating system abstracts access to your hardware; this is done through *"drivers"*.  Without software drivers and a kernel, you would have to recompile the operating system for each processor architecture and again for each different brand of hardware architectures.  
   
-  Take Windows for instance - you have just one version, 7, 8, 10, etc. etc.  Yet it runs on Intel processors, AMD processors, ARM processors, Marvell networking cards, Broadcom wireless cards, Macbook, and many others manufacturers devices.  But there is no need to buy a special version of Windows, Mac, or Linux specific to a set of hardware.  The software drivers are written so that a piece of hardware can be accessed through the kernel by the operating system. Ultimately the kernels job is to handle complex tasks such as memory management, task scheduling, input/output and allocation of resources.  
+  Take Windows for instance - you have just one version, 7, 8, 10, etc. etc.  Yet it runs on Intel processors, AMD processors, ARM processors, Marvell networking cards, Broadcom wireless cards, MacBook, and many others manufacturers devices.  But there is no need to buy a special version of Windows, Mac, or Linux specific to a set of hardware.  The software drivers are written so that a piece of hardware can be accessed through the kernel by the operating system. Ultimately the kernels job is to handle complex tasks such as memory management, task scheduling, input/output and allocation of resources.  
   
 2. __User Interface and User Tools__
  
-  All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user applications"* (sometimes called userland) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface but it always had a shell. The time era of development in the 1970s precluded this. Once CRT monitors became prevalent the GUI command line shell became the standard interface.  This allowed you to type commands directly on a screen and see the results back--no paper tape involved.  Eventually the [X Windows System](https://en.wikipedia.org/wiki/X_Window_System) came along giving you the familiar desktop windows you are most likely used to, allowing for mouse and keyboard input.  X Windows is the standard windowing toolkit that pretty much all versions of Linux GUI build upon today.   
+  All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user applications"* (sometimes called user land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface but it always had a shell. The time era of development in the 1970s precluded this. Once CRT monitors became prevalent the GUI command line shell became the standard interface.  This allowed you to type commands directly on a screen and see the results back--no paper tape involved.  Eventually the [X Windows System](https://en.wikipedia.org/wiki/X_Window_System) came along giving you the familiar desktop windows you are most likely used to, allowing for mouse and keyboard input.  X Windows is the standard windowing toolkit that pretty much all versions of Linux GUI build upon today.   
 
   User tools include all simple tooling or commands you take for granted: copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, or redirect output from the screen to a file.  
   
@@ -271,7 +271,7 @@ __GNU HURD__
   
   __Personality__
   
-  Linus Torvalds has a renowned personality.  Some people thing it is a shtick or a comedy persona he puts on.  But he is very uncaring in relating to others and can be really mean and aggressivly mean spirited to those who he has disagreements.  When approached about this Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
+  Linus Torvalds has a renowned personality.  Some people thing it is a shtick or a comedy persona he puts on.  But he is very uncaring in relating to others and can be really mean and aggressively mean spirited to those who he has disagreements.  When approached about this Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
   
 *  [Torvald's right to offend](http://www.wired.com/2013/07/linus-torvalds-right-to-offend/ "rights")
 *  [Torvald doesn't care](http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/ "Doesn't care")
@@ -338,7 +338,7 @@ The Debian distribution (pronounced *"deb-ian"*) was founded in 1993 By Ian Murd
  
  These are the main points of Debian and the key I believe to their long term success and usage across the Linux landscape:
    
-   * Initial release scheudle was yearly but as Debian project has grown now is two year release schedule
+   * Initial release schedule was yearly but as Debian project has grown now is two year release schedule
    * Releases are named after characters from the Toy Story movie.
    * It is the only major distribution not backed by a corporation.  
    * All volunteer project and organization -- project leader is elected on a rotating basis
@@ -371,7 +371,7 @@ The Debian distribution (pronounced *"deb-ian"*) was founded in 1993 By Ian Murd
 
 ![*Devuan Linux*](images/Devuan-logo.png "Devuan")
 
-  [Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of a "Debian Civil War" with half of the Debian developers leaving in the Debian project in the beginning of 2015 to begin this distribution from scratch.  It is a direct fork with fundamental changes to the core operating system.  Other distros change application look and feel but to change the core operating system is a monumental task.  The state of the OS is in late Alpha or early beta as of August 2015 with VM images available for download.  We will talk about this more in detail under the topic "LInux Civil War" later in this chapter. 
+  [Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of a "Debian Civil War" with half of the Debian developers leaving in the Debian project in the beginning of 2015 to begin this distribution from scratch.  It is a direct fork with fundamental changes to the core operating system.  Other distros change application look and feel but to change the core operating system is a monumental task.  The state of the OS is in late Alpha or early beta as of August 2015 with VM images available for download.  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter. 
 
 #### Other Debian Based Distros
 
