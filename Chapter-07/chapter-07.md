@@ -25,19 +25,20 @@ __Outcomes__
 
 ### Emacs
 
- 1976 on the MIT AI Lab (same place Richard Stallman came from).  GNU Emacs was released in 1984 developed by Richard Stallman himself.  1980 James Gosling (father of Java Language) created his own Emacs in the spirit of opensource, but sold his project to a company who relicensed it with a propriatery license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) but we will not be focusing on it in this book, but not to its detriment.   
- In its normal editing mode, GNU Emacs behaves like other text editors and allows the user to insert characters with the corresponding keys and to move the editing point with the arrow keys. Escape key sequences or pressing the control key and/or the meta key, alt key or super keys in conjunction with a regular key produces modified keystrokes that invoke functions from the Emacs Lisp environment. Commands such as save-buffer and save-buffers-kill-emacs combine multiple modified keystrokes [^80].
+ 1976 on the MIT AI Lab (same place Richard Stallman came from).  GNU Emacs was released in 1984 developed by Richard Stallman himself.  1980 James Gosling (father of Java Language) created his own Emacs in the spirit of opensource, but sold his project to a company who re-licensed it with a propriatery license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of anu defficency, I recommend you to try it out at least once.   
  
- GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing. The features of GNU Emacs include[^78] [^79]:
+> In it normal editing mode, GNU Emacs behaves like other text editors and allows the user to insert characters with the corresponding keys and to move the editing point with the arrow keys. Escape key sequences or pressing the control key and/or the meta key, alt key or super keys in conjunction with a regular key produces modified keystrokes that invoke functions from the Emacs Lisp environment. Commands such as save-buffer and save-buffers-kill-emacs combine multiple modified keystrokes [^80].
+ 
+> GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing. The features of GNU Emacs include[^78] [^79]:
+
+Emacs features include: 
 
 *  Content-sensitive editing modes, including syntax coloring, for a variety of file types including plain text, source code, and HTML.
 *  Complete built-in documentation, including a tutorial for new users.
 *  Full Unicode support for nearly all human languages and their scripts.
 *  Highly customizable, using Emacs Lisp code or a graphical interface.
 *  A large number of extensions that add other functionality, including a project planner, mail and news reader, debugger interface, calendar, and more.
-
-![*Emacs demonstration*](images/Chapter-07/editors/636px-Emacs_Dired_buffers.png "GNU Emacs")  
-
+  
 ### The vi Editor
 
   On the other hand, the family of the __vi editor__ is not as extensive as Emacs beign focused more on extending the original ideas behind Thompson's editor.  The __vi__ editor is written in C language but doesn't expose any of that programatically.  It's history varies widely from that of Emacs because it was not a GNU sponsored proejct.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.   
