@@ -160,8 +160,11 @@ p                pastes the current line or lines that are in the clipboard
 > __Example usage:__ What command sequence would you use to move the cursor position to the end of the current line? You would switch to COMMAND mode by typing ```ESC $```
 
 ## vi/ex Mode
-After typing the ```ESC``` key then typing a __:__ colon brings you into *ex* mode.  This is where you can use grep like search and replace directly within __vi__.
-
+  
+  In addition to COMMAND mode and INSERT mode there is also one other mode.  This is called __ex__ mode.  This mode is the original __ex__ editor.  By hitting the ```ESC``` key and then the colon ```:``` you will now have the ability to enter additional commands not directly available in the other modes.  There are a series of commands you can execute while in __ex__ mode.  The most important is how to save and how to quit.
+  
+![*vi ex mode*](images/Chapter-07/editors/vi/vi-ex.png "vi in ex mode")  
+  
 : Save and Quit Commands
 
   Command                 Command Description
@@ -182,15 +185,19 @@ After typing the ```ESC``` key then typing a __:__ colon brings you into *ex* mo
  :$               move the cursor to the end of the file 
 -----------   --------------------------------------------------
 
-/hello 
+__ex__ mode also contains the ability to search for occurences of text patterns within a text file while using __vi__.  By typing the combo ```ESC + /``` you see a slash line at the bottom of __vi__ this allows you to search for a pattern going down from your current cursor position.  You can type ```ESC + ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.
 
-: will search forwards for the word *hello* and highlight each occurance in the file you are editing in __vi__.
+/mozilla 
 
-?hello 
+: will search forwards for the word *hello* and highlight each occurance in the file you are editing in __vi__. 
+
+
+
+?mozilla 
 
 : will search the file backwords for the word *hello*.
 
-/[Tt]opsecret.*
+/[Tt]opsecret?
 
 :  This is where we can combine shell meta-characters inside of __vi__ for searching.
 
