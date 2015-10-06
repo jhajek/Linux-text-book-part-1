@@ -3,6 +3,8 @@
 
 
 
+http://shop.oreilly.com/product/9780596009656.do   bash book
+
 __Chapter 8 Objectives__
 
 

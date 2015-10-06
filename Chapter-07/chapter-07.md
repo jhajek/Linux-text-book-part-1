@@ -151,7 +151,7 @@ p                pastes the current line or lines that are in the clipboard
 
 > __Example usage:__  Remember the previous example where we inserted text?  Now let's insert a new line of text.  How would we do it based the tables above?   We need to switch from INSERT mode back to COMMAND mode.  This time we type ```ESC + o``` to insert a newline below our cursor.  
 
-![*vi newline insert*](images/Chapter-07/editors/vi/vi-shift-o.png "vi newline insert*) 
+![*vi newline insert*](images/Chapter-07/editors/vi/vi-shift-o.png "vi newline insert") 
 
 > __Example usage:__ What is the command sequence to delete a single character? You would switch to COMMAND mode by typing ```ESC + x```.   
 
@@ -159,7 +159,7 @@ p                pastes the current line or lines that are in the clipboard
 
 > __Example usage:__ What command sequence would you use to move the cursor position to the end of the current line? You would switch to COMMAND mode by typing ```ESC $```
 
-## vi/ex Mode
+### vi/ex Mode
   
   In addition to COMMAND mode and INSERT mode there is also one other mode.  This is called __ex__ mode.  This mode is the original __ex__ editor.  By hitting the ```ESC``` key and then the colon ```:``` you will now have the ability to enter additional commands not directly available in the other modes.  There are a series of commands you can execute while in __ex__ mode.  The most important is how to save and how to quit.
   
@@ -185,56 +185,58 @@ p                pastes the current line or lines that are in the clipboard
  :$               move the cursor to the end of the file 
 -----------   --------------------------------------------------
 
-__ex__ mode also contains the ability to search for occurences of text patterns within a text file while using __vi__.  By typing the combo ```ESC + /``` you see a slash line at the bottom of __vi__ this allows you to search for a pattern going down from your current cursor position.  You can type ```ESC + ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.
+#### Search Forward 
 
-/mozilla 
+__ex__ mode also contains the ability to search for occurences of text patterns within a text file while using __vi__.  By typing the combo ```ESC /``` you see a slash line at the bottom of __vi__ this allows you to search for a pattern going down from your current cursor position.  You can type ```ESC ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.  The next examples can call be recreated using the log file locatd in the Chapter-07 directory of the included code under the files directory.  This example uses the file named u\_ex150911\_.log which is an IIS webserver log for a Wordpress Installation.
 
-: will search forwards for the word *hello* and highlight each occurance in the file you are editing in __vi__. 
+![*vi search*](images/Chapter-07/editors/vi/vi-search.png "vi search")
 
+/[Mm]ozilla 
 
+: will search forwards for any lines containing either *Mozilla* or *mozilla* and highlight each occurance in the file you are editing in __vi__. 
 
-?mozilla 
+#### Search Backwards
 
-: will search the file backwords for the word *hello*.
+?Mozilla 
 
-/[Tt]opsecret?
+: will search the file backwords for the word *Mozilla*.
+
+/MSIE?[?.?]
 
 :  This is where we can combine shell meta-characters inside of __vi__ for searching.
 
-?print[2-5]
+```?MSIE\+[6-8]*```
 
-:  This allows for backwards shell meta-character search.
+:  This allows for backwards shell meta-character search. In this case notice the introduction of the escape character __\\__. Normally the __+__ sign has meaning but in our pattern we want to find all the old versions of Internet Explorer 6-8 that are visiting our blog.  To do this we pass the line escaping the __+__ because we want it to match as a text character not as a shell meta-character. 
 
 ### vi/ex Mode Find and Replace Globally
 
-g/topsecret
+  __vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.
 
-:  The letter g tells us this is a global search 
+s/Tuesday/Wednesday
 
-s/topsecret/supersecret
+:  The *s* tells us it is a single find and replace or substitute.  This is a single instance repalcement.
 
-:  The *s* tells us it is a single find and replace -> substitute
+s/rice/sat/g
 
-g/topsecret/s/supersecret
+:  This command the *s* tells us to substitute the word *rice* for the word *sat* and the trailing *g* means every occurence on that line.
 
-:  find out
+1,$s/rice/sat/g
 
-g/topsecret/s//supersecret/g
+:  This command has a range prefix the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurences (replace all).
 
-:  find out
+10,20s/rice/sat/g
 
-g/topsecret/s//supersecret/gp
+:  This command tells us to do the replacement of lines 10-20 only.
 
-:  find out
+g/Tuesday/s/Tuesday/Wednesday/g
+
+:  This command is a bit more complicated global search and the find replace.  The first *g* tells us to search globally for the occurence of the pattern following it.  Once it finds that pattern then substitute the old value (Tuesday in this case) for the new value (Wendesday in this case).   It seems a little redundant so their is a short cut of a double space to omit the repeated pattern: ```g/Tuesday/s//Wednesday/g```
 
 ### Why keybindings are as they are
 
-  The type of terminal and keyboard at the time was XYZ and it happened to have the ESC (escape key) in the place where the TAB key is now.  The convention just stuck with the introdcution and standardization of the IBM keyboard around 1984.
+  When looking at the patterns of the keybindings in __vi__ they seem a little strange.  The reason they were created the way they were had to due with the brand of terminal that __vi__ was created on.  Remember the standard IBM keyboard we are used to using wasn't created until 1981 on the [IBM PC 5150](https://en.wikipedia.org/wiki/IBM_Personal_Computer "5150"). The type of terminal and keyboard in use at UC Berkely by Bill Joy was, at that time a competitor to the DEC VT 100 terminals, called the [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") [^81]. It happened that the ESC key was where the modern caps lock key is and that is why ESC is the key used to change modes. The convention just stuck, Unix is more about tradition than reason one could say.
 
- You editing by typing a command, then call another command to have the screen update to show the result of your command. Vi's “modal editing” is evolved from this
- 
-Taken from [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") keyboard layout [^81]. 
- 
 ![*Orginal ADM-3A Keyboard Layout*](images/Chapter-07/systems/640px-KB_Terminal_ADM3A-svg.png "ADM-3A layout") 
 
 #### A Note About Bill Joy 
@@ -243,17 +245,25 @@ Taken from [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") keyb
     
   In some ways Bill Joy could be seen as the west coast version of Ken Thompson.  Before Stallman left MIT and started GNU Bill Joy was working hard as a graduate student at Berkeley out in California.  He played a large part in helping to further develop BSD Unix.  Last chapter we mentioned that he created the C shell and he is also the creator of the vi editor.   He left Berkely in 1982 with 3 other grads from Stanford to form Sun Microsystems, which would play a large role in the commercial Unix world and innovated many technologies (Java). Joy stayed on t SUN until 2003.
 
-  In the year 2000 Bill Joy wrote a seminal paper called, "[The Future Doesn't Need Us](http://archive.wired.com/wired/archive/8.04/joy_pr.html "The Future Doesn't Need Us")".  In the paper he was shocked by the speed of the progress scientific futurist community lead by [Ray Kurzweil](https://en.wikipedia.org/wiki/Ray_Kurzweil "Kurzweil")  coupled with how little they were examinig ethics in the face of technological challenges. Ironically Ray Kurzweil is currently employeed by Google. Whose corporate motto until recently was "Don't be evil".  Bill Joy said in quote,
+  In the year 2000 Bill Joy wrote a seminal paper called, "[The Future Doesn't Need Us](http://archive.wired.com/wired/archive/8.04/joy_pr.html "The Future Doesn't Need Us")".  In the paper he was shocked by the speed of the progress scientific futurist community lead by [Ray Kurzweil](https://en.wikipedia.org/wiki/Ray_Kurzweil "Kurzweil")  coupled with how little they were examinig ethics in the face of technological challenges. Ironically Ray Kurzweil is currently employeed by Google, whose corporate motto until recently was [*Don't be evil*](https://en.wikipedia.org/wiki/Don%27t_be_evil "Googel Motto").  Bill Joy said in quote,
   
->  *"From the moment I became involved in the creation of new technologies, their ethical dimensions have concerned me, but it was only in the autumn of 1998 that I became anxiously aware of how great are the dangers facing us in the 21st century. I can date the onset of my unease to the day I met Ray Kurzweil, the deservedly famous inventor of the first reading machine for the blind and many other amazing things."*   
+>  *"From the moment I became involved in the creation of new technologies, their ethical dimensions have concerned me, but it was only in the autumn of 1998 that I became anxiously aware of how great are the dangers facing us in the 21st century. I can date the onset of my unease to the day I met Ray Kurzweil, the deservedly famous inventor of the first reading machine for the blind and many other amazing things."*  
 
 ### Screen Editors
 
-  The second family of editors differs from the first in that they were created after X was fully implemented and are fully screen oriented.  There is a second sub-category of screen editors called GUI editors.
+  The second family of editors differs from the first in that they were created after X was fully implemented and are fully screen oriented, menu driven and have no concepts of what vi and emacs do in the way of line editor functions.  There is a second sub-category of screen editors called GUI editors.
 
-* [JOE](https://en.wikipedia.org/wiki/Joe%27s_Own_Editor "Joe") 1992
-* [JED](https://en.wikipedia.org/wiki/JED_\(text_editor\) "JED") 1990 
-* [GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "GNU Nano") 1999 
+#### JOE
+
+![*JOE editor - created in 1992*](images/Chapter-07/editors/joe/joe.png "JOE")
+
+#### JED
+
+![*JED editor - created in 1990 - multiplatform*](images/Chapter-07/editors/jed/jed.png "JED")
+
+#### GNU Nano
+
+![*GNU Nano - created 1999 non-gui version of notepad*](images/Chapter-07/editors/nano/nano.png "Nano")
 
 ## GUI Text Editors
 
@@ -289,6 +299,9 @@ cp file22.{txt,backup}
 
 
 
+### Find more information
+
+[vi books](http://shop.oreilly.com/product/9781565924260.do "vi books")
 
 ## Chapter Conclusions and Review
 
