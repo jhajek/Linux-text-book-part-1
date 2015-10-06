@@ -41,7 +41,7 @@ Emacs features include:
   
 ### The vi Editor
 
-  On the other hand, the family of the __vi editor__ is not as extensive as Emacs beign focused more on extending the original ideas behind Thompson's editor.  The __vi__ editor is written in C language but doesn't expose any of that programatically.  It's history varies widely from that of Emacs because it was not a GNU sponsored proejct.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.   
+  The other major family of stream editors is the __vi editor__ or just __vi__.  The __vi editor__ took a different route than emacs as it had an intended differetn purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programatically unlike emacs which exposes its LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU proejct.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.   
 
 The chart below shows the history of the __vi editor__.
 
@@ -53,89 +53,134 @@ The chart below shows the history of the __vi editor__.
    vi                  1978                   Bill Joy 
    vim                 1991                   [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar "Vim") 
 
-Ken Thompson's original shell *ed* is still available for [download and use](http://linuxclues.blogspot.com/2012/09/ed-tutorial-line-editor-unix.html "ed")
+  Initally Ken Thompon's editor worked well for what he needed.  But the commands were very cryptic and made using the Thompson editor very difficult.  Ken Thompson's original shell *ed* is still available for [download on Ubuntu and Fedora](http://linuxclues.blogspot.com/2012/09/ed-tutorial-line-editor-unix.html "ed") if you are intereted to see what it was like to use Unix back in the early 70's
 
-em is The em editor was designed for display terminals and was a single-line-at-a-time visual editor
+  After some time in 1976 an AT&T co-worker George Coulouris, while working on sabbatical at Queen Mary's college London extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have deidcated ram (expensive at the time).  The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor").  Because of slow screens and the high price of memeory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
+  
+  Bill Joy came into the picture out at Berkely.  He helped make an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permenantly launch in __vi__ mode.
 
-> Eventually it was observed that most ex users were spending all their time in visual mode, and thus in ex 2.0 (released as part of Second Berkeley Software Distribution in May, 1979), Joy created vi as a hard link to ex,[14] such that when invoked as vi, ex would automatically start up in its visual mode. Thus, vi is not the evolution of ex, vi is ex.
+> Joy created vi as a hard link to ex, such that when invoked as vi, ex would automatically start up in its visual mode. Thus, vi is not the evolution of ex, vi is ex [^82].
 
-### Bill Joy and BSD
+### Relationship of vi and vim
 
-![*Bill Joy - creator of vi*](images/Chapter-07/people/384px-Bill_joy-2.png "Bill Joy") 
-    
->  *"From the moment I became involved in the creation of new technologies, their ethical dimensions have concerned me, but it was only in the autumn of 1998 that I became anxiously aware of how great are the dangers facing us in the 21st century. I can date the onset of my unease to the day I met Ray Kurzweil, the deservedly famous inventor of the first reading machine for the blind and many other amazing things."*   
+ In January of 1983 AT&T's UNIX System V adopted __vi__ as their standard editor.  This put __vi__ in the hands of everyone using commercial Unix from AT&T as well as anyone using BSD Unix--which up to that point meant almost everyone in the commercial world.  But it was not until June of 1987 that [Stevie](https://en.wikipedia.org/wiki/Stevie_\(text_editor\) "STEVIE") (ST editor for VI enthusiasts), a limited vi clone appeared. In early January, 1990, Steve Kirkendall posted a new clone of vi, Elvis, to the Usenet newsgroup comp.os.minix, aiming for a more complete and more faithful clone of vi than Stevie. It quickly attracted considerable interest in a number of enthusiast communities[^83]. Andrew Tanenbaum quickly asked the community to decide one of these two editors to be the vi clone in Minix;[^84] Elvis was chosen, and remains the vi clone for Minix today.
 
-  In some ways Bill Joy could be seen as the west coast version of Ken Thompson.  Before Stallman left MIT and started GNU Bill Joy was working hard as a graduate student at Berkeley out in California.  He played a large part in helping to further develop BSD Unix.  Last chapter we mentioned that he created the C shell and he is also the creator of the vi editor.   He left Berkely in 1982 with 3 other grads from Stanford to form Sun Microsystems, which would play a large role in the commercial Unix world and innovated many technologies (Java). Joy stayed on t SUN until 2003.
+ But at UC Berkeley, Keith Bostic wanted a "bug for bug compatible" replacement for Joy's vi for BSD 4.4 Lite, because the original __vi__ was encumbered by AT&T licensing because Joy had extended Thompson's original code--vi technically belonged to AT&T. Using Kirkendall's Elvis (version 1.8) as a starting point, Bostic created [nvi](https://en.wikipedia.org/wiki/Nvi "nvi"), releasing it in Spring of 1994.[^85] FreeBSD and NetBSD continue to use nvi to this day.
 
-  In the year 2000 Bill Joy wrote a seminal paper called, "[The Future Doesn't Need Us](http://archive.wired.com/wired/archive/8.04/joy_pr.html "The Future Doesn't Need Us")".  In the paper he was shocked by the speed of the scientific futurist community lead by [Ray Kurzweil](https://en.wikipedia.org/wiki/Ray_Kurzweil "Kurzweil")  and how little they were examinig ethics in the face of technological challenges. Ironically Ray Kurzweil is currently employeed by Google.
+ In 1991, Bram Moolenaar created a port of __vi__ called __vim__ *vi imporived*. Vim was created under a GPL compatible free license and it is compatible with the large majority of __vi__ functionality and extends to add some modern features like unlimeted undo/redo for example.  Because of this __vim__ is available for all Linux based sytems.  Some distros link __vim__ to __vi__ replacing it out right.  
    
 ### vi has a Sharp learning curve 
 
-  Many people will say that the __vi editor__ has a sharp learning curve.  It's learning curve is steep but with use vi becomes fast, elegant, and powerful.  The power of __vi editor__ is in the ability to shift modes, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard and constantly moving keeps your fingers and mind occupied.  You can think faster than you can write - this evens out the playing field.  This way you are constantly moving.  Keeping your fingers on the keyboard always speeds up your work as well.  Nothing takes more time then to "context" change. Use a mouse.  You will increase in speed and don't abandon it because it is hard.  You will eventually be working on systems that have no GUI at all (FreeBSD) Ubuntu Server RHEL CentOS Fedora Server you will have to use vi.
+  Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurrious argument.  Learning to play the guitar is difficult in the beginning but once your have the memory muscle to do it you can become an expert player that can make beatuiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to "context" change. Use a mouse.  You will increase in speed and don't abandon it because it is hard.  You will eventually be working on systems that have no GUI at all (FreeBSD) Ubuntu Server RHEL CentOS Fedora Server you will have to use vi.
 
-### vi Cheat Sheet
+#### vi or vim?
 
-List about 20 neccesary commands
+ By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  
+  
+  ![*vim Ubuntu 15.04*](images/Chapter-07/editors/vi/ubuntu-vi.png "vim Ubuntu")
+   
+  ![*vim Fedora 22*](images/Chapter-07/editors/vi/fedora-vi.png "vim Fedora")
 
-Input Mode vs Command Mode 
+### The 3 vi Modes 
+  
+> __Example Usage:__ Let's invoke vi from the shell.  Open up a terminal and type ```vim notes.txt```--what happens?  You see a screen like this.  All those tilde marks (\~) mean that those lines don't exist--they are visual place holders.
 
-> __Example usage:__
+![*vi initial screen*](images/Chapter-07/editors/vi/vi-blank.png "vi blank")
+   
+   The __vi editor__ has 3 modes.
+   
+  *  Command mode used to positon the cursor
+  *  Insert mode used to insert/delete text
+  *  ex mode used to issue commands that edit lines and change the display of the vi editor.
+   
+To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modfication commands will automatically take you to __insert mode__.  You will know you are in insert mode because the bottom of the screen will say INSERT.
 
-positional commands 
-a
-A
-i
-I
-o
-O
+![*vi insert*](images/Chapter-07/editors/vi/vi-insert.png "vi-insert")
+   
+> __Example usage:__  Let's type a hello world message in the vi editor. Continuing from the example above, to be able to insert text to the file you need to switch modes to INSERT mode.  Hit ESC + i and then type  ```hello world!``` 
 
-line position commands
-w
-W
-b
-B
-0
-$
-H
-M
-L
+> __Example usage:__ What happens when you hit an arrow key after typing ```hello world!```?  Why is this? Remember we need to switch modes between COMMAND mode and INSERT command.
 
+## vi Command Cheat Sheet
 
-modify text
-x
-X
-ndd
-nyy
-p
-\.
+  There are actually over 150 distinct commands in vi.   But to be proficient you need to memorize only about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger insert mode after you execute them.  For instance the ```ESC + a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT command after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard.
 
-Save and quit
-```ESC``` ZZ
-```ESC``` :w
-```ESC``` :q!
-```ESC``` :wq
-```ESC``` :wq!
+: Positional Commands That Trigger Insert Mode
 
-set nu
- 
-will number all your lines 
- 
+  Command                 Command Description
+-----------   ---------------------------------------------------
+    a             add(append) text to the right of the cursor
+    A             add(append) text to the left of the cursor
+    i             insert text to the left of the cursor
+    I           insert text at the beginning of the line of text
+    o             add a new blank line below the cursor
+    O             add a new blank line above the cursor
+-----------   ---------------------------------------------------
 
+: Line Position Commands That Trigger Insert Mode
 
-set nonu
- 
-turn off line numbering 
+  Command                 Command Description
+-----------   ----------------------------------------------------------
+w               moves the cursor to the beginning of the next word
+W               same as above but space delimited
+b               moves the cursor to the beginning of the previous word
+B               same as above but space delimited
+0               moves the cursor to the beginning of the current line
+$               moves the cursor to the end of the current line
+H               moves the cursor to the upper left corner
+M               moves the cursor to the middle left position
+L               moves the cursor to the lower left position
+-----------   ----------------------------------------------------------
 
-:5 jump to line 5 
-:$ jump to end of file 
+: Text Modification Commands That Do Not Trigger Insert Mode
 
-```ESC``` u undo
-```ESC``` Ctrl + r - redo
-```ESC``` Ctrl + g file info
-```ESC``` Ctrl + G go to last line of file
+  Command                 Command Description
+-----------   ----------------------------------------------------------------
+x                delete character
+X                delete character before the cursor position
+dd               deletes the line of the current cursor position 
+yy               yanks or copies the current line to the clipboard
+p                pastes the current line or lines that are in the clipboard
+\.                 repeats the previous command executed
+ u                      undo previous command (unlimited)
+ Ctrl + r               redo previous command (unlimited)
+ Ctrl + g                       file info
+ Ctrl + G                  go to last line of file
+ ZZ              shortcut to save the current file and quit out of vi
+-----------   ----------------------------------------------------------------
+
+> __Example usage:__  Remember the previous example where we inserted text?  Now let's insert a new line of text.  How would we do it based the tables above?   We need to switch from INSERT mode back to COMMAND mode.  This time we type ```ESC + o``` to insert a newline below our cursor.  
+
+![*vi newline insert*](images/Chapter-07/editors/vi/vi-shift-o.png "vi newline insert*) 
+
+> __Example usage:__ What is the command sequence to delete a single character? You would switch to COMMAND mode by typing ```ESC + x```.   
+
+> __Example usage:__ What is the command sequence to delete an entire line?  You would switch to COMMAND mode by typing ```ESC + dd```.
+
+> __Example usage:__ What command sequence would you use to move the cursor position to the end of the current line? You would switch to COMMAND mode by typing ```ESC $```
 
 ## vi/ex Mode
 After typing the ```ESC``` key then typing a __:__ colon brings you into *ex* mode.  This is where you can use grep like search and replace directly within __vi__.
+
+: Save and Quit Commands
+
+  Command                 Command Description
+-----------   ----------------------------------------------------------------
+ :w                  write the contents of a file (save)
+ :q!                 force quit out of the vi editor ignoring any changes 
+ :wq                 write and quit a file in vi
+ :wq!                force write and quit a file in vi
+-----------   ----------------------------------------------------------------
+
+: Additional Meta-Commands
+
+  Command                 Command Description
+-----------   --------------------------------------------------
+ :set nu               make line numbers appear in vi 
+ :set nonu             turn off line numbering in vi 
+ :5               move the cursor to a specific line number 
+ :$               move the cursor to the end of the file 
+-----------   --------------------------------------------------
 
 /hello 
 
@@ -185,19 +230,15 @@ Taken from [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") keyb
  
 ![*Orginal ADM-3A Keyboard Layout*](images/Chapter-07/systems/640px-KB_Terminal_ADM3A-svg.png "ADM-3A layout") 
 
-### Relationship of vi and vim
+#### A Note About Bill Joy 
 
-AT&T's UNIX System V (January, 1983) adopting vi but it was not until June, 1987 that Stevie (ST editor for VI enthusiasts), a limited vi clone appeared.[19][20] In early January, 1990, Steve Kirkendall posted a new clone of vi, Elvis, to the Usenet newsgroup comp.os.minix, aiming for a more complete and more faithful clone of vi than Stevie. It quickly attracted considerable interest in a number of enthusiast communities.[21][22] Andrew Tanenbaum quickly asked the community to decide one of these two editors to be the vi clone in Minix;[22] Elvis was chosen, and remains the vi clone for Minix today.
+![*Bill Joy - creator of vi*](images/Chapter-07/people/384px-Bill_joy-2.png "Bill Joy") 
+    
+  In some ways Bill Joy could be seen as the west coast version of Ken Thompson.  Before Stallman left MIT and started GNU Bill Joy was working hard as a graduate student at Berkeley out in California.  He played a large part in helping to further develop BSD Unix.  Last chapter we mentioned that he created the C shell and he is also the creator of the vi editor.   He left Berkely in 1982 with 3 other grads from Stanford to form Sun Microsystems, which would play a large role in the commercial Unix world and innovated many technologies (Java). Joy stayed on t SUN until 2003.
 
- But at UC Berkeley, Keith Bostic wanted a "bug for bug compatible" replacement for Joy's vi for BSD 4.4 Lite. Using Kirkendall's Elvis (version 1.8) as a starting point, Bostic created nvi, releasing it in Spring of 1994.[23] When FreeBSD and NetBSD resynchronized the 4.4-Lite2 codebase, they too switched over to Bostic's nvi, which they continue to use today.[23]
-
-Over the years since its creation, vi became the de facto standard Unix editor and a nearly undisputed hacker favorite[citation needed] outside of MIT until the rise of Emacs after about 1984. The Single UNIX Specification specifies vi, so every conforming system must have it.
-
-Vim is included with almost every Linux distribution (and is also shipped with every copy of Apple OS X). Vim also has a vi compatibility mode, in which Vim is more compatible with vi than it would be otherwise, although some vi features, such as open mode, are missing in Vim, even in compatibility mode. 
-
-### The King has Left the Building
-
-elvis and vi nvi and vim  Stevie
+  In the year 2000 Bill Joy wrote a seminal paper called, "[The Future Doesn't Need Us](http://archive.wired.com/wired/archive/8.04/joy_pr.html "The Future Doesn't Need Us")".  In the paper he was shocked by the speed of the progress scientific futurist community lead by [Ray Kurzweil](https://en.wikipedia.org/wiki/Ray_Kurzweil "Kurzweil")  coupled with how little they were examinig ethics in the face of technological challenges. Ironically Ray Kurzweil is currently employeed by Google. Whose corporate motto until recently was "Don't be evil".  Bill Joy said in quote,
+  
+>  *"From the moment I became involved in the creation of new technologies, their ethical dimensions have concerned me, but it was only in the autumn of 1998 that I became anxiously aware of how great are the dangers facing us in the 21st century. I can date the onset of my unease to the day I met Ray Kurzweil, the deservedly famous inventor of the first reading machine for the blind and many other amazing things."*   
 
 ### Screen Editors
 
@@ -294,4 +335,12 @@ https://gist.github.com/dannguyen/26e5922614dc22053745  write a script in vi tha
 [^80]:[https://en.wikipedia.org/wiki/GNU_Emacs](https://en.wikipedia.org/wiki/GNU_Emacs "GNU Emacs"
 
 [^81]: "<a href="https://commons.wikimedia.org/wiki/File:KB_Terminal_ADM3A.svg#/media/File:KB_Terminal_ADM3A.svg">KB Terminal ADM3A</a>" by No machine-readable author provided. <a title="User:StuartBrady" href="//commons.wikimedia.org/wiki/User:StuartBrady">StuartBrady</a> assumed (based on copyright claims). - No machine-readable source provided. Own work assumed (based on copyright claims).. Licensed under <a title="Creative Commons Attribution-Share Alike 3.0" href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
+
+[^82]: [https://en.wikipedia.org/wiki/Vi#Distribution](https://en.wikipedia.org/wiki/Vi#Distribution "vi is ex")
+
+[^83]: [https://en.m.wikipedia.org/wiki/Vi#Ports_and_clones](https://en.m.wikipedia.org/wiki/Vi#Ports_and_clones "VI")
+
+[^84]: [https://en.wikipedia.org/wiki/Elvis_\(text_editor\)](https://en.wikipedia.org/wiki/Elvis_(text_editor) "elvis")
+
+[^85]: [https://en.wikipedia.org/wiki/Vi#Ports_and_clones](https://en.wikipedia.org/wiki/Vi#Ports_and_clones "nvi")
 
