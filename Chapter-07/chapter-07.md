@@ -7,13 +7,12 @@ __Chapter 7 Objectives__
 
 *  Understand the difference between stream editors and text editors
 *  Understand and learn how to use the vi editor
-*  Understand how to write and use basic shell scripts
 *  Understand how to use shell scripts to automate tasks
-*  Understand how to modify a users profile 
+*  Understand how to use the system PATH and modify a users profile 
 
 __Outcomes__
  
-  At the outcome of this chapter a user will be able to use the vi editor for creating and manipulating text files and shell scripts.  This will give you mastery over the data on your system.  You will be comfortable creating a shell script to automate system administration tasks and you will understand how a user's profile is modified and loaded.  This will open up the remaining chapters where we introduce additional complexity in writing shell scripts and enable greater system administration via shell scripts and using the vi editor.
+  At the outcome of this chapter a user will be able to use the vi editor for creating and manipulating text files and shell scripts.  This will give you mastery over the data on your system.  You will be comfortable creating a shell script to automate system administration tasks and you will understand how a user's system PATH and profile is modified and loaded.  This will open up the remaining chapters where we introduce additional complexity in writing shell scripts and enable greater system administration via shell scripts and using the vi editor.
 
 ## History of Unix/Linux Editors
 
@@ -255,49 +254,143 @@ g/Tuesday/s/Tuesday/Wednesday/g
 
 #### JOE
 
-![*JOE editor - created in 1992*](images/Chapter-07/editors/joe/joe.png "JOE")
+[JOE - Joe's own editor](https://en.wikipedia.org/wiki/Joe%27s_Own_Editor "JOE") was released back in 1991 as a simplified editor based on the [WordStar](https://en.wikipedia.org/wiki/WordStar "WordStar") key bindings.  WordStar was one of the first wordprocessors released inintially back in 1978.  JOE is a very basic editor and very small in size.  It is often used in Linux distros as the shell in the recovery or read-only mode because of its small size.
 
 #### JED
 
-![*JED editor - created in 1990 - multiplatform*](images/Chapter-07/editors/jed/jed.png "JED")
+[JED](https://en.wikipedia.org/wiki/JED_\(text_editor\) is a text editor that has its roots in early MS-DOS style editors.  It supports menus and even has mouse support.  It is available on all Linux/Unix/Windows/Mac platforms.
 
 #### GNU Nano
 
-![*GNU Nano - created 1999 non-gui version of notepad*](images/Chapter-07/editors/nano/nano.png "Nano")
+  [GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the Univerity of Washington called PINE.  Nano relies on using the *Control*
+key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file. 
 
-## GUI Text Editors
+### GUI Text Editors
 
-[gedit](https://wiki.gnome.org/Apps/Gedit "gedit")
-[Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code")
-[mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") Xfce GTK3+ 
-[leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") GTK+
-[Sublime](http://www.sublimetext.com/ "Sublime") Multi platform - free to evaluate but need to buy a license.
-[Kate](http://kate-editor.org/about-kate/ "Kate KDE") 2001 Part of KDE environment 
+#### gedit
 
+ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1999 -shortly before the GNOME desktop was released.  It is a full fledged text editor with plugin support and syntax highlighting.  It is currently part of the GNOME core applications and you will find it installed anywhere GNOME3 is installed. 
 
+#### Vidual Studio Code
+ 
+  [Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code") is a new comer to this field.  It is a text editor that has builtin support for Git and syntax highlighting.  As it is very new its features are somewhat thin.  The advantage is that you can download VS Code for Windows, Mac, and Linux.  
 
-http://tldp.org/LDP/abs/html/special-chars.html
+#### Mousepad
 
-cp file22.{txt,backup}
-# Copies "file22.txt" to "file22.backup"
+  [Mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") comes standard in Xfce as a notepad clone.  It is built using GTK3+ 
 
+#### Leafpad 
 
+  [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released intially in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for LXDE and was for Xfce until its replacement by mousepad. Leafpad is built using GTK+.
+
+#### Sublime
+
+[Sublime](http://www.sublimetext.com/ "Sublime") is the missing editor for the Mac platform.  It is free to download but requries a license to be purchased.  It is a great product and if you will be doing any significant coding on the Mac platform this is really your only choice.  It is available on Windows and Linux as well.
+  
+#### Kate 
+
+[Kate](http://kate-editor.org/about-kate/ "Kate KDE") is the standard editor for KDE based desktops.  The KDE equivilant of gedit but more than gedit--Kate can be used as components of larger applications not unlike Emacs.  You can install this on any Linux based distro but it requires that KDE components be installed too.  If you are using Fedora or Ubuntu this makes the download and install much larger and may add files you don't neccisarily want to your system.  If you desire to use Kate you may want to look at installing Kubuntu-desktop or finding a KDE based Fedora spin. 
 
 ## Creating Shell Scripts
 
+  Let's open up a terminal and create a shell script.  To do this type: ```vi list-ip.sh``` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive.  Allthough we are using the *bash* shell you can create scripts that can be run in other shells.  The first line of a shell script overrides the default shell and runs the script with the shell you determine.
+ 
+  The first line of any shell script should (but is not required) to include:  ```#!/bin/bash``` to make sure that our script is executed with the bash shell.  Normall the ```#``` means a comment, but with the ```!``` after it followed by a path, the comment function is overruled.   ```#!``` can also be pronounced *crunch* *bang*.  
+  
+  Not all systems store the bash binary in ```/bin/bash```.  You will need to check before you hard code that value.  You can use the ```which``` command that will show you the paths to the binaries.  
+  
+  ![*which bash on Ubuntu*](images/Chapter-07/editors/bash/which-ubuntu.png "which Ubuntu")  
+  
+  ![*which bash on Fedora*](images/Chapter-07/editors/bash/which-fedora.png "which Fedora")  
 
+  Remember the command to insert a new line?  That would be ```ESC shift + o```.  The rest of creating a shell script is the same as you have been doing on the command line.  The shell script will execute lines in sequential order allowing you to chain commands together.  Let's type some commands to display the last 10 lines of the hosts.deny file provided from chapter 6 and add in a message to the user. 
+  
+```bash
+#!/usr/bin/bash
+  
+echo "Here is the content of the ~/Documents/hosts.deny file" 
+echo "********************************************************"
+tail ~/Documents/hosts.deny
+echo "********************************************************"
+```
+
+Now we need to save the file (w) and quit out of vi (q).  You can move to __ex__ mode by hitting ```ESC :wq``` to save and quit.   Now let us run our shell script.  Type ```list-ip.sh``` on the command line.   What happens? Why?
+
+![*Command not found*](images/Chapter-07/editors/bash/command-not-found.png "Command Not Found")      
+
+### System Path
+
+The file is correctly named but we have a problem.  The system only knows about command binaries in certain locations.  It doesn't know about our user created binaries.  How does the operating system know where to look?  Simple, type ```echo $PATH``` and what do you see?
+
+![*echo $PATH*](images/Chapter-07/editors/bash/system-path.png "System Path")
+
+  There is a system variable named $PATH that is constructed upon boot.  It includes the default locations that the essential command binaries, additional commmand binaries, and user install binaries are located.  
+  
+```/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/jeremyhajek/local/bin```
+  
+  Everytime you execute a command, the system parses the command name and looks down this path to try to find the correspinding binary.  Note the absolute paths are chained together with colons ```:```. When the shell parser finds the first occurence--it passes that location and executes that mathcing binary name.  In our case the shell script ```list-ip.sh``` is located in ```~/Documents``` which is not in the system path listed in the image above.  So how can we reference it?   Remember the single-dot operator ```./```--that tells the operating system to look here--overriding the system path.  Try and type ```./list-ip.sh``` what happens now?
+
+![*Permission Denied!*](images/Chapter-07/editors/bash/permission-denied.png "Permission Denied")
+
+  This is the last surprise error I promise.
 
 ### Changing Permissions for Execution
 
 
+  The error message tells us that we have ```permission denied```.  Remember back to chapter 6 when we dealt with file permissions?  It appears that in order for a shell script to be executable we need to give it ```rexecute``` permission.
+  
+![*ls -l list-ip.sh*](images/Chapter-07/editors/bash/permissions.png "Permissions")
 
-## Scheduling Shell Scripts With Cron Tab
+  We can change permissions by using the ```chmod``` command.  What is the current numeric value of the permissions for the file list-ip.sh?  What would we need to change it to at a minimum?  If you said 764 you would be correct?  Why?  The minimum we need to do is add the __execute__ permission to the owner's permission section.
+  We would go from this ```rw-rw-r--``` to this ```rwxrw-r--```.  We could do that by typing ```chmod 765 list-ip.sh```.  There is an easier way with group and letter shortcuts.
+  
+: Permission Shortcuts
 
+    Group             Description
+-------------   -----------------------------------
+     u               Owner of the file
+     g               Group owner of the file 
+     o               Other (everyone else)
+-------------   -----------------------------------
+
+: Permission can be added or negated and combined
+
+    Group                         Description
+-------------------------   -----------------------------------------------------------
+```chmod u+x list-ip.sh```    Gives the owner of the file execute permission
+```chmod g+x list-ip.sh```    Gives the group owner of the file execute permission 
+```chmod o+x list-ip.sh```    Gives the other group execute permission (everyone else)
+```chmod u-x list-ip.sh```    Removes file execute permission from the group owner
+```chmod o-wx list-ip.sh```   Removes write and file execute permission from other
+-------------------------   -----------------------------------------------------------
+
+![*Execute Permission enabled - turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
+
+  You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be makred with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script. 
+  
+  In addition to creating a shell script you can chain the commmand to change the permissions of the shell scriptby using the ```&&```.   You can chain those two commands together like this: ```vim sort-ip.sh && chmod 755 script1.sh```  This will execute the vi command and once you save and exit the file then the next command to change mode or chmod will take place and grant the file execute permissions. 
+
+  
+    count the number of IP addresses (or lines) in a the file hosts.deny.  Then we will sort all the content and use the ```grep``` commmand to find only lines that start with *210*. 
 
 
 ## Understanding .bashrc
 
+  When your system first boot up how does it know how to define system environment variables and system PATH variables?  Part of the boot process is to read and source the ```/etc/profile``` file.  This is a system wide profile so all users accounts created will inherit from this file.
+  
+  Next there is local login profile.  This is additional customization added to your account after you log in either remotely or locally via username/password.  There could be any number of files from this list in this order: ```~/.bash_profile``` or ```~/.bash_login``` or ```~/.profile``` (.profile is a hold over from the korn shell--since bash is ksh compatible).
+  
+  Then once logged in upon laucnhing a terminal there is another set of profiles to be processed. The ```~/.bashrc``` file is processed.   The template for this file is generally located in ```/etc/bashrc``` if you want to customize or replace a ```~/.bashrc``` file.  There is one final file that you can use to modify a system environment upon logout and that is the ```~/.bash_loggout``` file.
+  
+  If you wanted to make modification to your $PATH variable to include a directory for the newly made shell scripts you can modify the PATH directly on the commmand line.  The problem is that this variable will only stay in memory for the duration of the terminal window--as soon as it is closed the PATH reverts to the one it started with.  In order to permanently modify the PATH we need to modfiy it in one of the profile files.  The best place to make user specific changes is in the ```~/.bashrc``` file.  
+  
+![*.bashrc*](images/Chapter-07/editors/bash/bashrc.png ".bashrc")
 
+  As you can see the file is very sparse.  There is a specific header allowing you to add user logic at the end of the file.   Let's try to add to the PATH.  When updating a shell variable we need to use the ```export``` commmand so that the system is aware of the new varaible value.  Think of it as a *refresh* command.
+  
+> __Exmaple Usage:__ Type ```mkdir ~/Documents/scripts```. Now copy your ```list-ip.sh``` to this directory. Let's add this directory to our PATH in our ```~/.bashrc``` file. Finally before we edit let's print out the content of the PATH system variable so we can see our changes later.  How would you do that? Let us open our ```~/.bashrc``` file in vi.  Now move the cursor position to the bottom of the file.  Type ```ESC shift+o``` to insert a new line.   Now type ```ESC i``` to change to INSERT mode.   Type the line ```PATH=$PATH:~/Documents/scripts``` followed by a new line (vim cheats and will accept the ENTER key in addition to ```ESC shift+o```) and then let's export the new vairable content by typing ```export PATH```  now exit __vi__.
+
+>  __Example Usage:__ To make the changes we just made register we can do two things.  We can reboot the sysetem so all the profiles are re-read but that is a little drastic.   A shortcut to re-read and process just the ```~/.bashrc``` file is to add a single-dot separated by a space.  Type ```. ~/.bashrc``` and then display the content of the PATH variable: ```echo $PATH``` and you should see your new addition appended to the PATH variable permanently.
 
 ### Find more information
 
@@ -337,13 +430,32 @@ http://twit.tv/show/floss-weekly/219
   * ~44:35  What is the "No butthead rule?"  **note translated from French
   * ~49:00 Why is it delightful for Adam to work at OpsCode?
 
-### Lab
+### Lab Chapter 7
 
-https://gist.github.com/dannguyen/26e5922614dc22053745  write a script in vi that does this analysis
+__Objectives:__ The objective of this lab is to master the command and control of the vim editor.  In addition you will use your vim editor skills to modify the system path to allow for two custom apps to be launched directly from you command.
 
-  complete vi tutor example
+__Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
- 
+*Prereqs:*  You will need to install the program vimtutor for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim``` and on Fedora by typing ```sudo dnf install vim```
+
+1) To begin just type vimtutor from the commandline. Warning - vimtutor requires you to read.
+    i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
+    i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/lastname-firstname-lab-7-vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor applicataion again.  Note you need to use vim for this assignment.
+    i) __Deliverable:__ Submit the completed vimtutorial file named as above.
+
+2) Download the precompiled Linux binary for the Visual Studio Code Editor (Fedora or Ubuntu either one is ok)  Place this binary in a folder called ~/Documents/apps  
+     i) Modify the PATH variable via the .bashrc file to add this directory to your PATH.
+     Source (.) the new .bashrc profile and execute the binary from the command line.
+     Deliverable: Take a screenshot of the terminal with the command you used to launch VS Code and position the launched Code over the terminal so that just the single line is showing.   Name the file: __lastname-firstname-lab-7-vscode.(jpg or png)__
+
+3) You must create a shell script named “cat”  that when executed it opens a webbrowser with a picture of a cute cat. (Attached to this post and available in the files directory of the book source code)   Note – to open a file in FireFox from the command line just type:  firefox /path/to/file
+    i) Use the cat picture attached in blackboard to make your own cat command that when typed opens a webbrowser showing the cat picture.   
+    i) You will need to modify the PATH – hint think about order and what the book said about how a command binary is detected.
+    i) Deliverable: Submit a screenshot with the shell script being executed and the output with the webbrowser layerd over it.  Name the file: lastname-fistname-lab-7-cat.(jpg or png)
+
+__FINAL DELIVERABLE:__ Submit a zip file named: __lastname-firstname-lab-7-.zip__ containing the text file from step 1 and the two screenshots from step 2 and 3.
+
+
 #### Footnotes
 
 [^77]: <a href="https://commons.wikimedia.org/wiki/File:Bill_joy.jpg#/media/File:Bill_joy.jpg">Bill joy</a> by Original uploader was <a title="en:User:SqueakBox" class="extiw" href="//en.wikipedia.org/wiki/User:SqueakBox">SqueakBox</a> at <a class="external text" href="http://en.wikipedia.org">en.wikipedia</a> - Transferred from <a class="external text" href="http://en.wikipedia.org">en.wikipedia</a>; Transfer was stated to be made by <a title="User:Jalo" href="//commons.wikimedia.org/wiki/User:Jalo">User:Jalo</a>.. Licensed under <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.

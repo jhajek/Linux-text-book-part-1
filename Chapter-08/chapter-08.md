@@ -3,20 +3,36 @@
 
 
 
-http://shop.oreilly.com/product/9780596009656.do   bash book
 
 __Chapter 8 Objectives__
 
-
-
-__Outcomes__
-
-## types
-
+   *  Understand how to write and use basic shell scripts
    * if statements
    * for loops
    * System variables
    * Passing Variables into scripts
+   * Scheduling Shell Scripts With Cron Tab
+
+__Outcomes__
+
+  At the conclusion of this chapter...
+
+
+## if statements
+
+## for loops
+
+## System variables
+
+## Passing Variables into scripts
+
+## Scheduling Shell Scripts With Cron Tab
+
+
+## Where to find more
+
+http://shop.oreilly.com/product/9780596009656.do   bash book
+
 
 ## Chapter Conclusions and Review
 
