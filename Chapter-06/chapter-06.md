@@ -20,7 +20,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
   In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *syntactic sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and manipulate the contents of our file system.  The next layer within the shell to be introduced is something called __shell meta-characters__.  When Ken Thompson was creating Unix and the first user shell, he quickly realized a need to be able to perform certain repetitive tasks.  For example, the concept of using wildcards to do pattern matching.  
   
-  Or to use negation or ranges to look for particular filenames or directories.  One of the advantages of making everything is Unix a file is that a the file only had one data type, adn that was of type __text__.  Since everything is text, any file or directory can be searched for or filtered based on text patterns.  Enter shell meta-characters which extend the normal capabilities of the shell.  If you wanted to list the contents of any directory starting with the letters *"Do"*, how would you do it? By adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directory's content and feeds it any filenames that match the first two characters *"Do"* and any number of other characters, (including 0 characters), represented by the star or asterisk (*).   Shell meta-characters serve the purpose of replacing having to write a C program to recreate this same functionality.  There are 18 characters that are standard across the bash shell[^64]--common punctuation/non alphanumeric characters that were adopted to represent these common repetitive text modification tasks done in the shell.
+  Or to use negation or ranges to look for particular filenames or directories.  One of the advantages of making everything in Unix a file is that a file only had one data type, and that is of type __text__.  Since everything is text, any file or directory can be searched for or filtered based on text patterns.  Enter shell meta-characters which extend the normal capabilities of the shell.  If you wanted to list the contents of any directory starting with the letters *"Do"*, how would you do it? By adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directory's content and feeds it any filenames that match the first two characters *"Do"* and any number of other characters, (including 0 characters), represented by the star or asterisk (*).   Shell meta-characters serve the purpose of replacing having to write a C program to recreate this same functionality.  There are 18 characters that are standard across the bash shell[^64]--common punctuation/non alphanumeric characters that were adopted to represent these common repetitive text modification tasks done in the shell.
       
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
  
@@ -28,7 +28,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
 \&\& 
                   
-: The double ampersand character (shift+7)command allows you to execute two or more commands together in sequence.  Note the && requires each successive command to return successfully or else the entire string will stop at the command that failed. __Usage example:__ 
+: The double ampersand character (shift+7) command allows you to execute two or more commands together in sequence.  Note the && requires each successive command to return successfully or else the entire string will stop at the command that failed. __Usage example:__ 
 ```bash
 unzip -d book master.zip && cd book && cat Readme.md
 ```
@@ -119,7 +119,7 @@ echo "Buy milks and eggs!" >> ~/Documents/my-shopping-list.txt
 
 \{\}
 
-: Curly braces  expansion braces also for declaring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it.  The second command example from chapter 03 uses ```()``` to execute a sub-shell to get the value of ```uname -r```.  The final example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
+: Curly braces are expansion braces for declaring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it and passes it to the echo command.  The second command example from chapter 03 uses ```()``` to execute a sub-shell to get the value of ```uname -r```.  The final example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
 ```bash
 echo ${username-`whoami`}
 ```
@@ -174,7 +174,7 @@ echo "To assign the content of the date command to a variable type: DT=\`date\`\
 
 \$
 
-:  The dollar sign (shift+4) is used to reference shell variables.  You can declare a local variable by assigning a value with the equal sign-just like you can in C or Java.  But in this case space matters (no spaces) and you only use the ```$``` sign the reference that varaible.  There are a number of preset system environment variables that the os sets for you and you can make your own as well. The command ```printenv``` will display all of the system environment variables.  By convention shell variables are usually declared all capital letters.  Note that shell variables only "live" for the time that the terminal window in which they were declared is open.  
+:  The dollar sign (shift+4) is used to reference shell variables.  You can declare a local variable by assigning a value with the equal sign-just like you can in C or Java.  But in this case space matters (no spaces) and you only use the ```$``` sign the reference that variable.  There are a number of preset system environment variables that the os sets for you and you can make your own as well. The command ```printenv``` will display all of the system environment variables.  By convention shell variables are usually declared all capital letters.  Note that shell variables only "live" for the time that the terminal window in which they were declared is open.  
 ```bash
 echo $PATH
 ```
@@ -373,7 +373,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
 
 > __Exercise:__ The chaining process can grow pretty extensive.  The ```ps``` command is used to list system processes that are running and will be covered in detail in a later chapter.  This command will look for every running process that has the system+wildcard name in it, sort it, pipe that output to a tee--which saves that formated output to a file.  Then that sorted text will be passed on as standard in for a cut command to filter out columns via spaces and cut the first column and display this text to standard out.```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1``` 
 
-> __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurrences of the```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1  | tee ~/columns.txt | wc```
+> __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurrences of the ```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1  | tee ~/columns.txt | wc```
 
 ## Commands for Finding, Locating, and Pattern Matching 
 
@@ -393,7 +393,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
  
 > __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.  With over 3000+ entries you can use pipes and filters to narrow down the output.  For example let us say that you are looking for every line that has an IP that starts with 216.* and then count those number of occurrences? ```cat hosts.deny | grep "sshd: 210" | wc``` 
 
-![*Format of the deny.hosts file*](images/Chapter-06/pipes/hosts-deny.png "Structure of hosts.deny")
+![*Format of the hosts.deny file*](images/Chapter-06/pipes/hosts-deny.png "Structure of hosts.deny")
 
 > What would happen if you added a ``` | less``` command to the end like this?  ```cat hosts.deny | grep "sshd: 210" | less``` ?
 
@@ -501,11 +501,11 @@ The tar command only does archiving and does not do any compression--only preser
 
   As file sizes grew the need to compress redundant data became apparent.  In dealing with compression you have two sides and you have to choose one.  Either the fast time to compress and larger file sizes, or slower time to compress and smaller file sizes. The initial compression algorithms went for the faster compression but larger file option.  The first compression tool on Unix was called ```compress```.  But it was encumbered by a patent on the [LZW](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch "LZW") compression algorithm, the same patent on that lead to the creation of the jpeg image standard to replace the encumbered GIF image format.  Because of this compress was never *free* and outside of its invention and inclusion in commercial Unix in 1985, use could never catch on. 
   
-> Compress (Uncompress) is a Unix shell compression program based on the LZW compression algorithm. Compared to more modern compression utilities such as gzip and bzip2, compress performs faster and with less memory usage, at the cost of a significantly lower compression ratio [^72].
+> Compress/Uncompress is a Unix shell compression program based on the LZW compression algorithm. Compared to more modern compression utilities such as gzip and bzip2, compress performs faster and with less memory usage, at the cost of a significantly lower compression ratio [^72].
 
 ### gzip
 
-By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLATE](https://en.wikipedia.org/wiki/DEFLATE "DEFLATE").  This was the basis of the popular PKZip program and the origin of the .zip compression extension.  The [GNU project](https://en.wikipedia.org/wiki/Gzip "GNU") began it own GPL based implementation using the DEFLATE algorithm and completed it by October of 1992.  It was named gzip [(GNU zip)](https://www.gnu.org/software/gzip/ "GNU zip").
+By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLATE](https://en.wikipedia.org/wiki/DEFLATE "DEFLATE").  This was the basis of the popular PKZip program and the origin of the .zip compression extension.  The [GNU project](https://en.wikipedia.org/wiki/Gzip "GNU") began its own GPL based implementation using the DEFLATE algorithm and completed it by October of 1992.  It was named gzip [(GNU zip)](https://www.gnu.org/software/gzip/ "GNU zip").
 
 > gzip is based on the DEFLATE algorithm, which is a combination of LZ77 and Huffman coding. DEFLATE was intended as a replacement for LZW and other patent-encumbered data compression algorithms which, at the time, limited the usability of compress and other popular archivers [^73].     
 
@@ -686,7 +686,7 @@ Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](
 
 ### Lab
  
-The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manger and a web browser.  All actions will be done through the shell.
+The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell.
  
 __Final deliverable__ is to place all commands into a single text file named lastname-firstname-week-6-commands.txt), and all of the above screenshots into a single zip file named: __lastname-firstname-chapter-06-lab.zip__    
  

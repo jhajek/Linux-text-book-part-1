@@ -20,15 +20,15 @@ __Outcomes__
 
 ### Stream Editors
 
-   The reason we call them __stream editors__ is that at their time of development at the dawn of Unix and the dawn of commercial Unix, there modern day 30 inch screen we have, and even X for that matter, didn't exist.  So editing was done not via text editors or word processors, but it was done by editing single lines at a time.  One line would follow another line - hence a *stream*.   The two main families represented in this category are __emacs__ and __vi__.  Each of these has evolved a distinct following.  The __vi editor__ (pronounced *vee-eye*) currently is a Unix Posix standard and the only editor that you will find installed by default on all Unix and Linux distros gaurenteed.  So learning __vi__ gives you the ability create shell scripts on any Unix/Linux system.   In addition both families have a storied history.
+   The reason we call them __stream editors__ is that at their time of development at the dawn of Unix and the dawn of commercial Unix, the modern day 30 inch screen we have, and even X for that matter, didn't exist.  So editing was done not via text editors or word processors, but it was done by editing single lines at a time.  One line would follow another line - hence a *stream*.  The two main families represented in this category are __emacs__ and __vi__.  Each of these has evolved a distinct following.  The __vi editor__ (pronounced *vee-eye*) currently is a Unix Posix standard and the only editor that you will find installed by default on all Unix and Linux distros gaurenteed.  So learning __vi__ gives you the ability create shell scripts on any Unix/Linux system.   In addition both families have a storied history.
 
 ### Emacs
 
- 1976 on the MIT AI Lab (same place Richard Stallman came from).  GNU Emacs was released in 1984 developed by Richard Stallman himself.  1980 James Gosling (father of Java Language) created his own Emacs in the spirit of opensource, but sold his project to a company who re-licensed it with a propriatery license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of anu defficency, I recommend you to try it out at least once.   
+ Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Stallman came from.  GNU Emacs was released in 1984 and developed entirely by Richard Stallman himself.  In 1980 James Gosling (father of the Java Language) had created his own Emacs in the spirit of opensource called gmacs, but sold his project to a company who re-licensed it with a propriatery license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of anu defficency, I recommend you to try it out at least once.   
  
-> In it normal editing mode, GNU Emacs behaves like other text editors and allows the user to insert characters with the corresponding keys and to move the editing point with the arrow keys. Escape key sequences or pressing the control key and/or the meta key, alt key or super keys in conjunction with a regular key produces modified keystrokes that invoke functions from the Emacs Lisp environment. Commands such as save-buffer and save-buffers-kill-emacs combine multiple modified keystrokes [^80].
+> *In it normal editing mode, GNU Emacs behaves like other text editors and allows the user to insert characters with the corresponding keys and to move the editing point with the arrow keys. Escape key sequences or pressing the control key and/or the meta key, alt key or super keys in conjunction with a regular key produces modified keystrokes that invoke functions from the Emacs Lisp environment. Commands such as save-buffer and save-buffers-kill-emacs combine multiple modified keystrokes [^80]*.
  
-> GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing. The features of GNU Emacs include[^78] [^79]:
+> *GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing [^78] [^79].*
 
 Emacs features include: 
 
@@ -74,7 +74,7 @@ The chart below shows the history of the __vi editor__.
 
 #### vi or vim?
 
- By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  
+ By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  The reason they are different sized is that there are different versions of vim that have different levels of features pre-compiled in. 
   
   ![*vim Ubuntu 15.04*](images/Chapter-07/editors/vi/ubuntu-vi.png "vim Ubuntu")
    
@@ -88,9 +88,9 @@ The chart below shows the history of the __vi editor__.
    
    The __vi editor__ has 3 modes.
    
-  *  Command mode used to positon the cursor
-  *  Insert mode used to insert/delete text
-  *  ex mode used to issue commands that edit lines and change the display of the vi editor.
+  *  COMMAND mode used to positon the cursor
+  *  INSERT mode used to insert/delete text
+  *  EX mode used to issue commands that edit lines and change the display of the vi editor.
    
 To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modfication commands will automatically take you to __insert mode__.  You will know you are in insert mode because the bottom of the screen will say INSERT.
 
@@ -190,19 +190,19 @@ __ex__ mode also contains the ability to search for occurences of text patterns 
 
 ![*vi search*](images/Chapter-07/editors/vi/vi-search.png "vi search")
 
-/[Mm]ozilla 
+```/[Mm]ozilla```
 
 : will search forwards for any lines containing either *Mozilla* or *mozilla* and highlight each occurance in the file you are editing in __vi__. 
 
 #### Search Backwards
 
-?Mozilla 
+```?Mozilla``` 
 
 : will search the file backwords for the word *Mozilla*.
 
-/MSIE?[?.?]
+```/Mozilla\/?\.0```
 
-:  This is where we can combine shell meta-characters inside of __vi__ for searching.
+:  This is where we can combine shell meta-characters inside of __vi__ for searching for Mozilla versions 
 
 ```?MSIE\+[6-8]*```
 
@@ -232,6 +232,10 @@ g/Tuesday/s/Tuesday/Wednesday/g
 
 :  This command is a bit more complicated global search and the find replace.  The first *g* tells us to search globally for the occurence of the pattern following it.  Once it finds that pattern then substitute the old value (Tuesday in this case) for the new value (Wendesday in this case).   It seems a little redundant so their is a short cut of a double space to omit the repeated pattern: ```g/Tuesday/s//Wednesday/g```
 
+s/Tuesday//g
+
+: This command will find the word *Tuesday* and globally replace it with '' or basaically remove it.
+
 ### Why keybindings are as they are
 
   When looking at the patterns of the keybindings in __vi__ they seem a little strange.  The reason they were created the way they were had to due with the brand of terminal that __vi__ was created on.  Remember the standard IBM keyboard we are used to using wasn't created until 1981 on the [IBM PC 5150](https://en.wikipedia.org/wiki/IBM_Personal_Computer "5150"). The type of terminal and keyboard in use at UC Berkely by Bill Joy was, at that time a competitor to the DEC VT 100 terminals, called the [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") [^81]. It happened that the ESC key was where the modern caps lock key is and that is why ESC is the key used to change modes. The convention just stuck, Unix is more about tradition than reason one could say.
@@ -258,7 +262,7 @@ g/Tuesday/s/Tuesday/Wednesday/g
 
 #### JED
 
-[JED](https://en.wikipedia.org/wiki/JED_\(text_editor\) is a text editor that has its roots in early MS-DOS style editors.  It supports menus and even has mouse support.  It is available on all Linux/Unix/Windows/Mac platforms.
+[JED](https://en.wikipedia.org/wiki/JED_\(text_editor\) "JED") is a text editor that has its roots in early MS-DOS style editors.  It supports menus and even has mouse support.  It is available on all Linux/Unix/Windows/Mac platforms.
 
 #### GNU Nano
 
@@ -271,7 +275,7 @@ key in combination with other keys for action.  For example ```^O``` to save and
 
  The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1999 -shortly before the GNOME desktop was released.  It is a full fledged text editor with plugin support and syntax highlighting.  It is currently part of the GNOME core applications and you will find it installed anywhere GNOME3 is installed. 
 
-#### Vidual Studio Code
+#### Visual Studio Code
  
   [Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code") is a new comer to this field.  It is a text editor that has builtin support for Git and syntax highlighting.  As it is very new its features are somewhat thin.  The advantage is that you can download VS Code for Windows, Mac, and Linux.  
 
@@ -355,24 +359,21 @@ The file is correctly named but we have a problem.  The system only knows about 
 
 : Permission can be added or negated and combined
 
-    Group                         Description
--------------------------   -----------------------------------------------------------
-```chmod u+x list-ip.sh```    Gives the owner of the file execute permission
-```chmod g+x list-ip.sh```    Gives the group owner of the file execute permission 
-```chmod o+x list-ip.sh```    Gives the other group execute permission (everyone else)
-```chmod u-x list-ip.sh```    Removes file execute permission from the group owner
-```chmod o-wx list-ip.sh```   Removes write and file execute permission from other
--------------------------   -----------------------------------------------------------
-
-![*Execute Permission enabled - turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
+    Group                                            Description
+------------------------------   -----------------------------------------------------------
+```chmod u+x list-ip.sh```              Gives the owner of the file execute permission
+```chmod g+x list-ip.sh```            Gives the group owner of the file execute permission 
+```chmod o+x list-ip.sh```         Gives the other group execute permission (everyone else)
+```chmod u-x list-ip.sh```           Removes file execute permission from the group owner
+```chmod o-wx list-ip.sh```          Removes write and file execute permission from other
+```chmod ug+rwx list-ip.sh```         Owner adn group are give rwx permissions together.
+------------------------------   -----------------------------------------------------------
 
   You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be makred with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script. 
+
+![*Execute Permission enabled - turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
   
   In addition to creating a shell script you can chain the commmand to change the permissions of the shell scriptby using the ```&&```.   You can chain those two commands together like this: ```vim sort-ip.sh && chmod 755 script1.sh```  This will execute the vi command and once you save and exit the file then the next command to change mode or chmod will take place and grant the file execute permissions. 
-
-  
-    count the number of IP addresses (or lines) in a the file hosts.deny.  Then we will sort all the content and use the ```grep``` commmand to find only lines that start with *210*. 
-
 
 ## Understanding .bashrc
 
@@ -386,23 +387,93 @@ The file is correctly named but we have a problem.  The system only knows about 
   
 ![*.bashrc*](images/Chapter-07/editors/bash/bashrc.png ".bashrc")
 
-  As you can see the file is very sparse.  There is a specific header allowing you to add user logic at the end of the file.   Let's try to add to the PATH.  When updating a shell variable we need to use the ```export``` commmand so that the system is aware of the new varaible value.  Think of it as a *refresh* command.
+  As you can see the file is very sparse.  There is a specific header allowing you to add user logic at the end of the file.   Let's try to add to the PATH.  When updating a shell variable we need to use the ```export``` commmand so that the system is aware of the new varaible value.  Think of it as a *refresh* command.  In addition to the PATH variable to see all the system variables your distro sets, type ```printenv``` from the shell.
   
 > __Exmaple Usage:__ Type ```mkdir ~/Documents/scripts```. Now copy your ```list-ip.sh``` to this directory. Let's add this directory to our PATH in our ```~/.bashrc``` file. Finally before we edit let's print out the content of the PATH system variable so we can see our changes later.  How would you do that? Let us open our ```~/.bashrc``` file in vi.  Now move the cursor position to the bottom of the file.  Type ```ESC shift+o``` to insert a new line.   Now type ```ESC i``` to change to INSERT mode.   Type the line ```PATH=$PATH:~/Documents/scripts``` followed by a new line (vim cheats and will accept the ENTER key in addition to ```ESC shift+o```) and then let's export the new vairable content by typing ```export PATH```  now exit __vi__.
 
 >  __Example Usage:__ To make the changes we just made register we can do two things.  We can reboot the sysetem so all the profiles are re-read but that is a little drastic.   A shortcut to re-read and process just the ```~/.bashrc``` file is to add a single-dot separated by a space.  Type ```. ~/.bashrc``` and then display the content of the PATH variable: ```echo $PATH``` and you should see your new addition appended to the PATH variable permanently.
 
-### Find more information
-
-[vi books](http://shop.oreilly.com/product/9781565924260.do "vi books")
-
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
+ In this chapter we learned about the vi editor and mastered its three modes.  We learned how to created a shell script with vi and how to navigate and change modes within vi.  We learned about the basic set of vi commands needed to be productive.  We learned how to create a shell script, the shortcuts to change the file permissions, and how user profiles are loaded and used.
 
 ### Review Questions
 
- Questions go here
+Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles 
+
+Chapter 07 review questions
+
+1.  What are the two main representatives of stream editors  
+a. gedit and kate
+b. Nano and Joe
+c. vi and Nano
+d. vi and Emacs
+
+2. Which family of editors came first?
+a. Screen editors
+b. Butterfly editors
+c. GUI editors
+d. Stream Editors
+
+3. Emacs at it's core is what?
+a. A great program
+b. The heart and sould of hackers
+c. An interpreter for Emacs Lisp
+d. A C program
+
+4. Who created the vi editor?
+a. Richard Stallman
+b. Douglas mcIlroy
+c. Bill Joy
+d. Dave McKenzie
+
+4. What year was vi release in?
+a. 1972
+b. 1976
+c. 1999
+d. 1978
+
+5. Which of the following sequences of the history of vi is correct? 
+a. Emacs -> ed -> ex -> vi
+b. ed -> em -> ex -> vi -> vim
+c. em -> ex -> vi
+d. em -> ed -> vi -> vim
+
+6.  What are the three modes in vi?  ( sperate each answer via a comma)
+
+7.  What is the key you use in vi to transition bewteen COMMAND MODE and INSERT mode? (Just three letters)
+
+8.  What command sequence (key) in vi will add text to the right of the current cursor position?  (just the letter)
+
+9.  What command sequence (key) in vi will move you to the beginning of the next word? (just the letter)
+
+10. What command sequence in vi will delete a single line based on the current cursor position? (just the letters)
+
+11. What command sequence in vi will delete 10 lines from the current cursor position? (just the numbers and letters)
+
+12. Which command in ex mode (vi) will save the current file you are working on and exit the vi editor? (include the :)
+
+13.  In the log file u_ex150911_.log what would be the ex command to search forward for occurences of xmlrpc.php? (include the forward slash) 
+
+14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurences of linux with Linux?
+
+15.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurences of Linux with GNU/Linux? (remember to escape the /)
+
+16.  Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to remove all occurences of the word Windows?
+
+17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give the owner of the file permission to execute the script?
+
+18. Assuming a file named moretopsecret.sh has a permission of 757 - w2hat is the shortcut to remove all permissions from the the other (everyone else) group (0)? 
+
+19. What is the correct sequence of profile inheritance?
+a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
+b. ~/.bashrc -> ~/.bash_profile or ~/.bash_login or ~/.profile -> /etc/profile
+
+20.  What is the command to display the contents of the PATH system variable on the command line?
+a. echo PATH
+b. echo $PATH
+c. echo path
+d. $PATH
 
 ### Podcast Questions
 
