@@ -366,7 +366,7 @@ The file is correctly named but we have a problem.  The system only knows about 
 ```chmod o+x list-ip.sh```         Gives the other group execute permission (everyone else)
 ```chmod u-x list-ip.sh```           Removes file execute permission from the group owner
 ```chmod o-wx list-ip.sh```          Removes write and file execute permission from other
-```chmod ug+rwx list-ip.sh```         Owner adn group are give rwx permissions together.
+```chmod ug+rwx list-ip.sh```         Owner and group are give rwx permissions together.
 ------------------------------   -----------------------------------------------------------
 
   You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be makred with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script. 
