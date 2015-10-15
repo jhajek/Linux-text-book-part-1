@@ -236,7 +236,7 @@ s/Tuesday//g
 
 : This command will find the word *Tuesday* and globally replace it with '' or basaically remove it.
 
-### Why keybindings are as they are
+### Why Keybindings are as They Are
 
   When looking at the patterns of the keybindings in __vi__ they seem a little strange.  The reason they were created the way they were had to due with the brand of terminal that __vi__ was created on.  Remember the standard IBM keyboard we are used to using wasn't created until 1981 on the [IBM PC 5150](https://en.wikipedia.org/wiki/IBM_Personal_Computer "5150"). The type of terminal and keyboard in use at UC Berkely by Bill Joy was, at that time a competitor to the DEC VT 100 terminals, called the [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") [^81]. It happened that the ESC key was where the modern caps lock key is and that is why ESC is the key used to change modes. The convention just stuck, Unix is more about tradition than reason one could say.
 
@@ -328,20 +328,13 @@ The file is correctly named but we have a problem.  The system only knows about 
 
 ![*echo $PATH*](images/Chapter-07/editors/bash/system-path.png "System Path")
 
-  There is a system variable named $PATH that is constructed upon boot.  It includes the default locations that the essential command binaries, additional commmand binaries, and user install binaries are located.  
-  
-```/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/jeremyhajek/local/bin```
-  
-  Everytime you execute a command, the system parses the command name and looks down this path to try to find the correspinding binary.  Note the absolute paths are chained together with colons ```:```. When the shell parser finds the first occurence--it passes that location and executes that mathcing binary name.  In our case the shell script ```list-ip.sh``` is located in ```~/Documents``` which is not in the system path listed in the image above.  So how can we reference it?   Remember the single-dot operator ```./```--that tells the operating system to look here--overriding the system path.  Try and type ```./list-ip.sh``` what happens now?
+  There is a system variable named $PATH that is constructed upon boot.  It includes the default locations that the essential command binaries, additional commmand binaries, and user install binaries are located.  Everytime you execute a command, the system parses the command name and looks down this path to try to find the correspinding binary.  Note the absolute paths are chained together with colons ```:```. When the shell parser finds the first occurence--it passes that location and executes that mathcing binary name.  In our case the shell script ```list-ip.sh``` is located in ```~/Documents``` which is not in the system path listed in the image above.  So how can we reference it?   Remember the single-dot operator ```./```--that tells the operating system to look here--overriding the system path.  Try and type ```./list-ip.sh``` what happens now?
 
 ![*Permission Denied!*](images/Chapter-07/editors/bash/permission-denied.png "Permission Denied")
 
-  This is the last surprise error I promise.
-
 ### Changing Permissions for Execution
 
-
-  The error message tells us that we have ```permission denied```.  Remember back to chapter 6 when we dealt with file permissions?  It appears that in order for a shell script to be executable we need to give it ```rexecute``` permission.
+  The error message tells us that we have ```permission denied```.  Remember back to chapter 6 when we dealt with file permissions?  In order for a shell script to be executable we need to give it __execute__ permission.
   
 ![*ls -l list-ip.sh*](images/Chapter-07/editors/bash/permissions.png "Permissions")
 
@@ -366,7 +359,7 @@ The file is correctly named but we have a problem.  The system only knows about 
 ```chmod o+x list-ip.sh```         Gives the other group execute permission (everyone else)
 ```chmod u-x list-ip.sh```           Removes file execute permission from the group owner
 ```chmod o-wx list-ip.sh```          Removes write and file execute permission from other
-```chmod ug+rwx list-ip.sh```         Owner adn group are give rwx permissions together.
+```chmod ug+rwx list-ip.sh```         Owner and group are give rwx permissions together.
 ------------------------------   -----------------------------------------------------------
 
   You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be makred with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script. 

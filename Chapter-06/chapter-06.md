@@ -712,7 +712,7 @@ __Final deliverable__ is to place all commands into a single text file named las
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-10.(jpg or png)
 11. Using the error.log file located in the files directory - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-11.(jpg or png)
-12. What command would let you display the content of the hosts.deny file, cut out the the second category and sort it?
+12. What command would let you display the content of the hosts.deny file, cut out the the second column and sort it?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-12.(jpg or png)
 13. What command would let you search the file error.log for the lines that contain the term "robots.txt"?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-13.(jpg or png)
