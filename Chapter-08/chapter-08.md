@@ -24,30 +24,85 @@ __Outcomes__
    
    Segway to control structures
  
-### Bash Shell Control Structures 
+### Bash Shell
 
    Just like any programming language we cannot have complex logic if we don't have control structures.  The two basic ones we want to cover are if statements and for loops.  There are the other traditional control structures but are used less commonly because of the nature of a shell script is a single execution not as a repeated process or system service.
    
-### Structures
+   The BASH shell scripting language resembles a trasitional programming language.  But it is key to remember that it was not designed to be a complete programming language.  As you push shell scripts to their limits you begin to see the end of what they are capable of.  That is where you see languages like Perl or Python coming in to extend and replace BASH.  (Note if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this.)
+   
+   BASH is a tool to help automate the repetition of commands.
+   
+### Control Structures
  
    Variables - explain the scope
-   Arrays in bash +4.0 (macs even 10.11 have 3.2 by default. (Add link to fix it)
-   Commandline variables $1 $2...  $# ands $@   
    
-### if statements
+   As we learned previously we can define variables in BASH.  These variables are prefixed with a ```$``` when referenced.   In the previous chapter in the ```.bashrc``` file used to modify the system path, we assigned a new value to the ```PATH``` variable like this: 
+   ```bash
+   PATH=$PATH:/home/user/Documents/apps
+   ```
+   
+   Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  
+   
+   Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables.
+   
+   Put picture of some printenv here:
+   
+   You can also define your own variables in a shell script--just as you could do on the command line.   Often this is a good idea when you want to assign the output of one command and reuse that value later.  
+   
+> __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.
+```bash
+#!/bin/bash
+
+# This is a comment - usually by convention variables are in all caps - no spaces, ever!
+DT=`date`
+# This command outputs the date in a format of our specifications
+MDY=`date +%m%d%Y` 
+echo "****************"
+echo "today's date is: $DT"
+echo "****************"
+echo "Making a folder named MMDDYYYY"
+mkdir ~/Documents/$MDY 
+echo "Finished"
+```
+
+In this example we see how the value of $MDY is interpretted first and then passed to the argument attached to the ```mkdir``` command.  Note that the ```mkdir``` command did not have any backticks around it like the comand to assign the output of ```date``` to the variable ```DT```.  This is because the Shell sees that mkdir is a command and begins to interpret the line as such (followed by options and arguments).  If you want to encapsulate the output of one command into a shell variable then you need to enclose them in backticks ```\`\````.
+
+Any variables that are declared have a scope of this scripts execution.  This means that once the script has finished executing any variables are tossed from memory.  If I wanted a variables name and value to life after the completion of my shell script I can always add the __export__ command.  The __export__ command will take the content of this variable and move it from the memory space of the script's execution and move it into the memory space of the launching shell.  This way the variable will live only as long as that terminal session is open--once the window closes those variables disappear from memory because the process that was holding them in a piece of memory is gone too. 
+   
+> __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.  Upon completion of that execution, type ```echo $DT``` what value do you see and why?   
+```bash
+#!/bin/bash
+
+# This is a comment - usually by convention variables are in all caps - no spaces, ever!
+DT=`date`
+# This command outputs the date in a format of our specifications
+MDY=`date +%m%d%Y` 
+echo "****************"
+echo "today's date is: $DT"
+echo "****************"
+echo "Making a folder named MMDDYYYY"
+mkdir ~/Documents/$MDY 
+export DT
+echo "Finished"
+```
+   
+   Arrays in bash +4.0 (macs even 10.11 have 3.2 by default. (Add link to fix it)
+   Commandline variables $1 $2...  $# ands $@  what they do.  
+   
+### IF Statements
 
   Get chart from tldp for options
   
   note about structure of spaces and how if handle numeric comparisons.  
 
-### for loops
+### FOR Loops
 
   used to loop through contents - files, arrays
    using $@ and $# for length variables and sentinels.
 
 ## Scheduling Shell Scripts With Cron Tab
 
-   crontab 
+   crontab where it came from and how it was improved - and what it does today.
 
 ## Where to find more
 
@@ -60,14 +115,14 @@ http://shop.oreilly.com/product/9780596009656.do   bash book
 
 ### Review Questions
 
-  * Questions go here
+  Questions go here
 
 ### Podcast Questions
 
- * Questions go here
+ Questions go here
 
 ### Lab
 
- * Lab goes here 
+ Lab goes here 
  
  
