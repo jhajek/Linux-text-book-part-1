@@ -32,7 +32,7 @@ __Outcomes__
    
    BASH is a tool to help automate the repetition of commands.
    
-### Control Structures
+### Shell Script Variables 
  
    Variables - explain the scope
    
@@ -87,7 +87,19 @@ echo "Finished"
 ```
    
    Arrays in bash +4.0 (macs even 10.11 have 3.2 by default. (Add link to fix it)
+
+mapfile -t 
+
+and declare -a varname
+   
    Commandline variables $1 $2...  $# ands $@  what they do.  
+
+./addinput X Y Z
+
+There are other structures for creating full scale shell scripts that parse user input and create menu like functions.  That is beyond the scope of this book.
+
+### Control Structures
+
    
 ### IF Statements
 
@@ -103,6 +115,7 @@ echo "Finished"
 ## Scheduling Shell Scripts With Cron Tab
 
    crontab where it came from and how it was improved - and what it does today.
+pixie cron
 
 ## Where to find more
 
