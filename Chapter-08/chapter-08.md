@@ -195,3 +195,4 @@ http://shop.oreilly.com/product/9780596009656.do   bash book
 #### Footnotes
 
 [^86]: [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
+
