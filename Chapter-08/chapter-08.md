@@ -1,5 +1,5 @@
 # Writing Basic Shell Scripts
-![*The power of sudo*](images/Chapter-Header/Chapter-08/sandwich-2.png "Sandwich")
+![*Bash Escape*](images/Chapter-Header/Chapter-08/escape_artist-2.png "Bash Escape")
 
 __Chapter 8 Objectives__
 
