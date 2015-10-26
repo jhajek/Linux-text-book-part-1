@@ -302,7 +302,6 @@ or something unique like this will start at 3 minutes after and then execute eve
 
 Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line.  This also allows for redirection of standard out and standard error as well.
  
-
 : Nonstandard predefined scheduling definitions [^88]
 
 Entry	       Description	                                           Equivalent to
