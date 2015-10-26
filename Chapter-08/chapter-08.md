@@ -81,20 +81,78 @@ export DT
 echo "Finished"
 ```
    
-   Arrays in bash +4.0 (macs even 10.11 have 3.2 by default. (Add link to fix it)
+#### Array Support in Bash
+      
+  Arrays are a data-type that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for arrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data. You can declare an array by simple using the ```declare -a NAMEOFYOURARRAY``` syntax.  The ```-a``` makes your variable an array.  As of Bash 4.x bash gained support for the ```mapfile``` variable. The new mapfile builtin makes it possible to load an array with the contents of a text file without using a loop or command substitution.  Note that Mac as of OSX 10.11 release with Bash 3.2 as the standard.
+```bash
+#!/bin/bash4
 
-mapfile -t 
+mapfile Arr1 < $0
+# Same result as     Arr1=( $(cat $0) )
+echo "${Arr1[@]}"  # Copies this entire script out to stdout.
 
-and declare -a varname
+echo "--"; echo
+
+# But, not the same as   read -a   !!!
+read -a Arr2 < $0
+echo "${Arr2[@]}"  # Reads only first line of script into the array.
+
+exit
+```  
+
+This example below creates a Bash array and stores the redirected output (note the ```< <```) of an Amazon Webservices cli command to create some virtual instances and store their returned Instnace-Ids back in an array.
+
+```bash
+declare -a instanceARR
+
+mapfile -t instanceARR < <(aws ec2 run-instances --image-id ami-d05e75b8 --count $1 --instance-type t2.micro --key-name itmo544-spring-virtualbox
+```
+
+How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from bein interpretted as shell meta-characters.  As usual elements of an array can be accessed by positional parameters.  ```echo Array[0]; echo Array [1]; echo Array[2]```.  Remember that arrays like in C and Java are __0 indexed__.
+```bash
+echo ${instanceARR[@]}
+LENGTH=${#instanceARR[@]}
+echo "ARRAY LENGTH IS $LENGTH"
+```
+
+#### Positional Parameters
    
-   Commandline variables $1 $2...  $# ands $@  what they do.  
+In the case of the command binary ```ls -l /etc``` the command takes options and arguments.  Shell scripts you create have the same ability to accept and parse input from the commandline.  Note that this is different from ```getopts``` which allows you to make a complicated option and argument passing scheme for shell scripts.  This is for simple variable parameters to be passed into a script: For example:
+```bash
+./delete-directory.sh ~/Documents/text-book Jeremy
+```
 
-./addinput X Y Z
+The content of the shell script is as follows:
+```bash
+#!/bin/bash
 
-There are other structures for creating full scale shell scripts that parse user input and create menu like functions.  That is beyond the scope of this book.
+echo "***************************"
+echo "The dirctory to be deleted is: $1"
+rm -rf $1
+echo "***************************"
+echo "It was deleted by: $2"
+echo $2 > ~/Documents/deletion-log.txt
+```
+
+Note that each postional parameter that is passed in to the shell script is simply acceesed by a number prefixed by a ```$```.  What do you think would be the value of ```$0```?  You can similarly access the number of variables that are passed into the command line by using the built-in variable: For example:
+```bash
+#!/bin/bash
+# posparam.sh
+
+echo "This is \$0: $0"
+echo "This is the length of the number of items passed in \$\# (not counting \$0): $#"
+echo "This is the entire array of items passed in \$\@: $@"
+```
+
+Upon giving the shell script above execution permission and then executing the line below, what will the three lines output?
+
+```bash
+posparam.sh domo origoto Mr. Roboto
+```  
 
 ### Control Structures
 
+There are other structures for creating full scale shell scripts that parse user input and create menu like functions.  That is beyond the scope of this book.
    
 ### IF Statements
 
@@ -198,7 +256,18 @@ fi
 ### FOR Loops
 
   used to loop through contents - files, arrays
-   using $@ and $# for length variables and sentinels.
+
+```bash
+LENGTH=${#cleanupLBARR[@]}
+echo "ARRAY LENGTH IS $LENGTH"
+
+for (( i=0; i<${LENGTH}; i++));
+  do
+  aws elb delete-load-balancer --load-balancer-name ${cleanupLBARR[i]} --output text
+  sleep 1
+done
+```
+
 
 ## Scheduling Shell Scripts With Cron Tab
 
