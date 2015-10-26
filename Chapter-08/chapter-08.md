@@ -37,7 +37,21 @@ __Outcomes__
 As we learned previously we can define variables in BASH.  These variables are prefixed with a ```$``` when referenced.   In the previous chapter in the ```.bashrc``` file used to modify the system path, we assigned a new value to the ```PATH``` variable like this: 
 ```bash
 PATH=$PATH:/home/user/Documents/apps
+
+echo $PATH; echo $path; $PATH=PATH??? 
+
+ut=`uptime`
+
 ```
+
+```bash
+UT=(`ls -l star[1-3]`)
+USA="United States of America"
+echo $USA
+DIR="monthly-reports-winter-quarter-north-america"
+ls $DIR
+```
+
 Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables.
    
 [*Output of printenv command*](images/Chapter-08/bash-shell/printenv.png "printenv")
@@ -84,27 +98,11 @@ echo "Finished"
 #### Array Support in Bash
       
   Arrays are a data-type that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for arrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data. You can declare an array by simple using the ```declare -a NAMEOFYOURARRAY``` syntax.  The ```-a``` makes your variable an array.  As of Bash 4.x bash gained support for the ```mapfile``` variable. The new mapfile builtin makes it possible to load an array with the contents of a text file without using a loop or command substitution.  Note that Mac as of OSX 10.11 release with Bash 3.2 as the standard.
-```bash
-#!/bin/bash4
-
-mapfile Arr1 < $0
-# Same result as     Arr1=( $(cat $0) )
-echo "${Arr1[@]}"  # Copies this entire script out to stdout.
-
-echo "--"; echo
-
-# But, not the same as   read -a   !!!
-read -a Arr2 < $0
-echo "${Arr2[@]}"  # Reads only first line of script into the array.
-
-exit
-```  
 
 This example below creates a Bash array and stores the redirected output (note the ```< <```) of an Amazon Webservices cli command to create some virtual instances and store their returned Instnace-Ids back in an array.
 
 ```bash
 declare -a instanceARR
-
 mapfile -t instanceARR < <(ls -l /etc)
 ```
 
@@ -140,14 +138,16 @@ Note that each postional parameter that is passed in to the shell script is simp
 # posparam.sh
 
 echo "This is \$0: $0"
-echo "This is the length of the number of items passed in \$\# (not counting \$0): $#"
-echo "This is the entire array of items passed in \$\@: $@"
+echo "This is the length of the number of items passed in \$# (not counting \$0): $#"
+echo "This is the entire array of items passed in \$@: $@"
+echo "This is the first parameter: $1"
+echo "This is the fourth parameter: $4"
 ```
 
 Upon giving the shell script above execution permission and then executing the line below, what will the three lines output?
 
 ```bash
-posparam.sh domo origoto Mr. Roboto
+posparam.sh domo origato Mr. Roboto
 ```  
 
 ### Control Structures
@@ -199,19 +199,19 @@ The __IF__ command starts with a test condition or command.  It is followed by a
 : Primary expressions
 
    Primary	                            Meaning
----------------------------- ---------------------------------------------------------------------
-```[ FILE1 -nt FILE2 ]```	    Newer than or if FILE1 exists and FILE2 does not.
-```[ FILE1 -ot FILE2 ]```	    Older than FILE2, or is FILE2 exists and FILE1 does not.
-```[ FILE1 -ef FILE2 ]```     True if FILE1 and FILE2 refer to the same device and inode numbers.
-```[ -o OPTIONNAME ]```	      True if shell option "OPTIONNAME" is enabled.
-```[ -z STRING ]```	          True of the length if "STRING" is zero.
-```[ -n STRING ]```       	  True if the length of "STRING" is non-zero.
-```[ STRING1 == STRING2 ]```	True if the strings are equal. 
-```[ STRING1 != STRING2 ]``` 	True if the strings are not equal.
-```[ STRING1 < STRING2 ]```	  True if "STRING1" sorts before "STRING2" 
-```[ STRING1 > STRING2 ]```	  True if "STRING1" sorts after "STRING2" 
-```[ ARG1 OP ARG2 ]```	      "OP" is one of -eq, -ne, -lt, -le, -gt or -ge. 
----------------------------- ---------------------------------------------------------------------
+------------------------------ ---------------------------------------------------------------------
+```[ FILE1 -nt FILE2 ]```	      Newer than or if FILE1 exists and FILE2 does not.
+```[ FILE1 -ot FILE2 ]```	      Older than FILE2, or is FILE2 exists and FILE1 does not.
+```[ FILE1 -ef FILE2 ]```       True if FILE1 and FILE2 refer to the same device and inode numbers.
+```[ -o OPTIONNAME ]```	        True if shell option "OPTIONNAME" is enabled.
+```[ -z STRING ]```	            True of the length if "STRING" is zero.
+```[ -n STRING ]```       	    True if the length of "STRING" is non-zero.
+```[ STRING1 == STRING2 ]```	  True if the strings are equal. 
+```[ STRING1 != STRING2 ]``` 	  True if the strings are not equal.
+```[ STRING1 < STRING2 ]```	    True if "STRING1" sorts before "STRING2" 
+```[ STRING1 > STRING2 ]```	    True if "STRING1" sorts after "STRING2" 
+```[ ARG1 OP ARG2 ]```	        "OP" is one of ```-eq, -ne, -lt, -le, -gt or -ge```. 
+------------------------------ ---------------------------------------------------------------------
  
  : Boolean Operators
  
@@ -255,8 +255,25 @@ fi
 
 ### FOR Loops
 
-  used to loop through contents - files, arrays
+  A FOR loop is used to loop incrementily through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimeted list of items.  The syntax of a FOR loop is:
+```bash
+for arg in [LIST]
+do 
+ # code here
+done
+```
 
+If the ```do``` portion of the for loop is on the same line as the for loop a single ```;``` is needed between them.
+
+```bash
+#!/bin/bash
+# Listing the planets.
+
+for planet in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto
+do
+  echo $planet  # Each planet on a separate line.
+done
+```
 ```bash
 LENGTH=${#cleanupLBARR[@]}
 echo "ARRAY LENGTH IS $LENGTH"
@@ -268,6 +285,13 @@ for (( i=0; i<${LENGTH}; i++));
 done
 ```
 
+This is also a valid 1 line for loop that prints out a single dot to indicate a meter.
+
+```bash
+echo -e "\nFinished launching and sleeping 25 seconds"
+for i in {0..25}; do echo -ne '.'; sleep 1;done
+echo "\n"
+```
 
 ## Scheduling Shell Scripts With Cron Tab
 
@@ -291,29 +315,27 @@ In this case the script above would execute every night of the week at the 20th 
 ```bash 
 */15 * * * * ~/Documents/script.sh
 ```
-or 
+
 ```bash
 0,15,30,45 * * * *  ~/Documents/script.sh
 ```
-or something unique like this will start at 3 minutes after and then execute every 10 minutes (13,23,33,43,53 minutes)
+Something unique like this will start at 3 minutes after and then execute every 10 minutes (13,23,33,43,53 minutes)
+
 ```bash
 3/10 * * * * ~/Documents/script.sh
 ```
 
 Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line.  This also allows for redirection of standard out and standard error as well.
- 
 
-: Nonstandard predefined scheduling definitions [^88]
-
-Entry	       Description	                                           Equivalent to
----------  ------------------------------------------------------  -------------------
-@yearly     Run once a year at midnight of January 1	                0 0 1 1 *
-@monthly	  Run once a month at midnight on 1st day of the month	    0 0 1 * *
-@weekly	    Run once a week at midnight on Sunday morning	            0 0 * * 0
-@daily	    Run once a day at midnight	                              0 0 * * *
-@hourly	    Run once an hour at the beginning of the hour	            0 * * * *
-@reboot	    Run at startup                      	                    @reboot
----------  ------------------------------------------------------  -------------------
+Entry                                Description                          Equivalent to
+-------------------- ------------------------------------------------- -----------------------
+&#64;yearly           Run once a year at midnight of January 1st           ```0 0 1 1 *``` 
+&#64;monthly          Run once a month, midnight 1st day of the month      ```0 0 1 * *``` 
+&#64;weekly           Run once a week at midnight on Sunday morning        ```0 0 * * 0``` 
+&#64;daily            Run once a day at midnight                           ```0 0 * * *``` 
+&#64;hourly           Run once an hour at the beginning of the hour        ```0 * * * *``` 
+&#64;reboot           Run at startup                                       &#64;reboot 
+-------------------- ------------------------------------------------- -----------------------
 
 ## Where to find more
 
