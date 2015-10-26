@@ -1,41 +1,36 @@
 # System Administration 
 ![*Permissions are all messed up...*](images/Chapter-Header/Chapter-09/authorization-2.png  "Permissions")
 
-__Chapter 11 Objectives__
+__Chapter 09 Objectives__
 
+  * sudo
+    + visudoers
+    + Understand the sudo command and root user paradigm    
   *  logging  /var/log  
     + syslog 
     + rsyslog
     + dmesg
     + dtrace/strace
-  * top, atop, htop
-  * adduser, userdel, usermod
-    + chown, chgrp, chmod 
-  * watchdogs, tail -f
-  * logrotation
+    + top, atop, htop
+    + watchdogs, tail -f
+    + logrotation
+  * User Administration
+    + adduser, userdel, usermod
+    + chown, chgrp, chmod   
   *  systemd 
     + binary logs
     + other systemd tools
-  * sudo
-    + visudoers
-    + Understand the sudo command and root user paradigm    
   * 3P's 
 
 __Outcomes__
 
+  At the completion of this chapter...
 
-  
-  ### The 3 P's Describing 99% of all Linux Problems
+### Sudo and the Root user paradigm
 
-  * Path 
-     + If you get an error message telling you that ```file not found``` or ```path does not exist```  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
-  * Permission
-     +  This is discussed below, every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la
-  * dePendencies
-     +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
-  
-  
-  ### Tools 
+### Logging and monitoring
+
+### User Administration 
 
 There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter X.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's). This command will be covered in depth in chapter 6.
 
@@ -63,20 +58,37 @@ Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like 
 
 IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them and will be covered in Chapter X.
 
+### systemd
+
+ 
+### The 3 P's Describing 99% of all Linux Problems
+
+  * Path 
+     + If you get an error message telling you that ```file not found``` or ```path does not exist```  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
+  * Permission
+     +  This is discussed below, every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la
+  * dePendencies
+     +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
+
+
 ## Chapter Conclusions and Review
 
   Conclusion goes here
 
 ### Review Questions
 
-  * Questions go here
+  Questions go here
 
 ### Podcast Questions
 
- * Questions go here
+ Questions go here
 
 ### Lab
 
- * Lab goes here 
+ Lab goes here 
+ 
+#### Footnotes
+ 
+ 
  
  

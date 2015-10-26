@@ -329,12 +329,12 @@ Any command that is executed obeys general shell meta-characters and variables a
 
 Entry                                Description                          Equivalent to
 -------------------- ------------------------------------------------- -----------------------
-&#64;yearly           Run once a year at midnight of January 1st           ```0 0 1 1 *``` 
-&#64;monthly          Run once a month, midnight 1st day of the month      ```0 0 1 * *``` 
-&#64;weekly           Run once a week at midnight on Sunday morning        ```0 0 * * 0``` 
-&#64;daily            Run once a day at midnight                           ```0 0 * * *``` 
-&#64;hourly           Run once an hour at the beginning of the hour        ```0 * * * *``` 
-&#64;reboot           Run at startup                                       &#64;reboot 
+@yearly               Run once a year at midnight of January 1st           ```0 0 1 1 *``` 
+@monthly              Run once a month, midnight 1st day of the month      ```0 0 1 * *``` 
+@weekly               Run once a week at midnight on Sunday morning        ```0 0 * * 0``` 
+@daily                Run once a day at midnight                           ```0 0 * * *``` 
+@hourly               Run once an hour at the beginning of the hour        ```0 * * * *``` 
+@reboot               Run at startup                                        @reboot 
 -------------------- ------------------------------------------------- -----------------------
 
 ## Where to find more
