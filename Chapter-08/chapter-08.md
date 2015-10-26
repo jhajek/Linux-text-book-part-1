@@ -105,7 +105,7 @@ This example below creates a Bash array and stores the redirected output (note t
 ```bash
 declare -a instanceARR
 
-mapfile -t instanceARR < <(aws ec2 run-instances --image-id ami-d05e75b8 --count $1 --instance-type t2.micro --key-name itmo544-spring-virtualbox
+mapfile -t instanceARR < <(ls -l /etc)
 ```
 
 How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from bein interpretted as shell meta-characters.  As usual elements of an array can be accessed by positional parameters.  ```echo Array[0]; echo Array [1]; echo Array[2]```.  Remember that arrays like in C and Java are __0 indexed__.
@@ -199,19 +199,19 @@ The __IF__ command starts with a test condition or command.  It is followed by a
 : Primary expressions
 
    Primary	                            Meaning
----------------------------- ----------------------------------------------------------------------------------------------------
-```[ FILE1 -nt FILE2 ]```	    True if FILE1 has been changed more recently than FILE2, or if FILE1 exists and FILE2 does not.
-```[ FILE1 -ot FILE2 ]```	    True if FILE1 is older than FILE2, or is FILE2 exists and FILE1 does not.
+---------------------------- ---------------------------------------------------------------------
+```[ FILE1 -nt FILE2 ]```	    Newer than or if FILE1 exists and FILE2 does not.
+```[ FILE1 -ot FILE2 ]```	    Older than FILE2, or is FILE2 exists and FILE1 does not.
 ```[ FILE1 -ef FILE2 ]```     True if FILE1 and FILE2 refer to the same device and inode numbers.
 ```[ -o OPTIONNAME ]```	      True if shell option "OPTIONNAME" is enabled.
 ```[ -z STRING ]```	          True of the length if "STRING" is zero.
 ```[ -n STRING ]```       	  True if the length of "STRING" is non-zero.
-```[ STRING1 == STRING2 ]```	True if the strings are equal. "=" may be used instead of "==" for strict POSIX compliance.
+```[ STRING1 == STRING2 ]```	True if the strings are equal. 
 ```[ STRING1 != STRING2 ]``` 	True if the strings are not equal.
-```[ STRING1 < STRING2 ]```	  True if "STRING1" sorts before "STRING2" lexicographically in the current locale.
-```[ STRING1 > STRING2 ]```	  True if "STRING1" sorts after "STRING2" lexicographically in the current locale.
+```[ STRING1 < STRING2 ]```	  True if "STRING1" sorts before "STRING2" 
+```[ STRING1 > STRING2 ]```	  True if "STRING1" sorts after "STRING2" 
 ```[ ARG1 OP ARG2 ]```	      "OP" is one of -eq, -ne, -lt, -le, -gt or -ge. 
----------------------------- ----------------------------------------------------------------------------------------------------
+---------------------------- ---------------------------------------------------------------------
  
  : Boolean Operators
  
@@ -271,12 +271,53 @@ done
 
 ## Scheduling Shell Scripts With Cron Tab
 
-   crontab where it came from and how it was improved - and what it does today.
-vixie cron
+Now that we have sufficiently complex shell scripts the idea of automating their execution come into play. The concept of the __cron__ command and the __crontab__ files frist came into use in Unix System V release ~1983.  Each user can set their own scheduled tasks by editing the __crontab__ file by typting ```crontab -e```.  The contents of the crontab file are initially blank.  The language of the crontab is that of 5 columns and then a command to be executed. Multiple commands can be executed using ```; or &&``` And multiple different times can be listed in the crontab.  The five (and sometimes a sixth fields) are as follows:
+
+Time Unit              Values
+-------------  -----------------------
+minute           0 - 59
+hour             0 - 23
+day of month     1 - 31
+month            1 - 12
+day of week      0 - 6 (0 is Sunday)
+-------------  -----------------------
+
+The cron service scans for your combination of jobs and if a pattern matches the current time then that job executes.  For example:
+```bash
+* 20 * * * /home/jeremy/backup.sh
+```
+
+In this case the script above would execute every night of the week at the 20th hour [^87]. The values of cron can be combined to get specific times and dates.  There is also syntax for executing on every 15 minutes.
+```bash 
+*/15 * * * * ~/Documents/script.sh
+```
+or 
+```bash
+0,15,30,45 * * * *  ~/Documents/script.sh
+```
+or something unique like this will start at 3 minutes after and then execute every 10 minutes (13,23,33,43,53 minutes)
+```bash
+3/10 * * * * ~/Documents/script.sh
+```
+
+Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line.  This also allows for redirection of standard out and standard error as well.
+ 
+
+: Nonstandard predefined scheduling definitions [^88]
+
+Entry	       Description	                                           Equivalent to
+---------  ------------------------------------------------------  -------------------
+@yearly     Run once a year at midnight of January 1	                0 0 1 1 *
+@monthly	  Run once a month at midnight on 1st day of the month	    0 0 1 * *
+@weekly	    Run once a week at midnight on Sunday morning	            0 0 * * 0
+@daily	    Run once a day at midnight	                              0 0 * * *
+@hourly	    Run once an hour at the beginning of the hour	            0 * * * *
+@reboot	    Run at startup                      	                    @reboot
+---------  ------------------------------------------------------  -------------------
 
 ## Where to find more
 
-http://shop.oreilly.com/product/9780596009656.do   bash book
+[http://shop.oreilly.com/product/9780596009656.do](http://shop.oreilly.com/product/9780596009656.do "Bash Book")
 
 
 ## Chapter Conclusions and Review
@@ -298,4 +339,8 @@ http://shop.oreilly.com/product/9780596009656.do   bash book
 #### Footnotes
 
 [^86]: [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
+
+[^87]: [https://en.wikipedia.org/wiki/Cron#Examples](https://en.wikipedia.org/wiki/Cron#Examples)
+
+[^88]: [https://en.wikipedia.org/wiki/Cron#Nonstandard_predefined_scheduling_definitions](https://en.wikipedia.org/wiki/Cron#Nonstandard_predefined_scheduling_definitions)
 
