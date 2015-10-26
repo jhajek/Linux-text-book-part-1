@@ -103,9 +103,14 @@ There are other structures for creating full scale shell scripts that parse user
    
 ### IF Statements
 
-  Get chart from tldp for options[^86]
+The structure of the Bash __IF__ command is as follows: 
+```bash
+if TEST-COMMANDS; then CONSEQUENT-COMMANDS; fi
+```
+
+The __IF__ command starts with a test condition or command.  It is followed by a ```then``` condition which will execute if the test command is *true*. The entire __IF__ command is closed by the letters ```fi```.  Since the scope of BASH is limited compared to a full programming language, __IF__ statements are mostly used to test for conditions or the existance of a condition.  These common __TEST COMMANDS__ are available as built in to BASH in order to accomplish just that. These are called *primaries* and are placed between sqaure braces--space is important [^86].
   
-: Primary expressions
+: Primary expressions 
 
    Primary	            Meaning
 ------------------ --------------------------------------------------------------
