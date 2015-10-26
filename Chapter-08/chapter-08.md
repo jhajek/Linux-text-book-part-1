@@ -33,21 +33,16 @@ __Outcomes__
    BASH is a tool to help automate the repetition of commands.
    
 ### Shell Script Variables 
- 
-   Variables - explain the scope
+
+As we learned previously we can define variables in BASH.  These variables are prefixed with a ```$``` when referenced.   In the previous chapter in the ```.bashrc``` file used to modify the system path, we assigned a new value to the ```PATH``` variable like this: 
+```bash
+PATH=$PATH:/home/user/Documents/apps
+```
+Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables.
    
-   As we learned previously we can define variables in BASH.  These variables are prefixed with a ```$``` when referenced.   In the previous chapter in the ```.bashrc``` file used to modify the system path, we assigned a new value to the ```PATH``` variable like this: 
-   ```bash
-   PATH=$PATH:/home/user/Documents/apps
-   ```
+[*Output of printenv command*](images/Chapter-08/bash-shell/printenv.png "printenv")
    
-   Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  
-   
-   Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables.
-   
-   Put picture of some printenv here:
-   
-   You can also define your own variables in a shell script--just as you could do on the command line.   Often this is a good idea when you want to assign the output of one command and reuse that value later.  
+You can also define your own variables in a shell script--just as you could do on the command line.   Often this is a good idea when you want to assign the output of one command and reuse that value later.  
    
 > __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.
 ```bash
