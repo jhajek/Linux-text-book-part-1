@@ -474,7 +474,7 @@ Adam Jacobs - Chef
 Please listen to or view this podcast and answer these questions: 
 **Warning there is a little foul language in the podcast,** but far less than a standard PG-13 movie =)
 
-http://twit.tv/show/floss-weekly/219
+[http://twit.tv/show/floss-weekly/219](http://twit.tv/show/floss-weekly/219 "Adam Jacobs")
 
   * ~3:22 What does Chef do?
   * ~7:50 What problem did Adam have with each company he was dealing with in regards to infrastructure?

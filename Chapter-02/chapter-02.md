@@ -27,7 +27,7 @@ __Outcomes__
 
 ## Where it Began and Why it Matters Now 
  
-  Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Where as a square is a rectangle but a rectangle is not a square, Linux is Unix in spirit, but Unix is not Linux.  Let's look at this in detail. The first main difference between Unix and Linux is that *"Unix"* is an entire operating system.  An operating system can be boiled down into three main parts.   
+  Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Whereas a square is a rectangle but a rectangle is not a square, Linux is Unix in spirit, but Unix is not Linux.  Let's look at this in detail. The first main difference between Unix and Linux is that *"Unix"* is an entire operating system.  An operating system can be boiled down into three main parts.   
 
 1. __The Kernel__  [^1]
          
@@ -89,7 +89,7 @@ __PDP-7__ [^3]
 
 ![*PDP-7 restored and running*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pdp7-oslo-2005.jpeg/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
 
-For this time, 1969-70, this is something radically new. Thompson had no idea that his pet work project was going to become part of a computing revolution.  Where as MULTICS and other computer systems were designed by committees and based on marketable features--due to the nature of the up front financial investment, Unix was simple and easy to build because it solved only a small set of problems--which turned out to be the same problems every engineer had.  The overall reason that Unix took hold was that it was designed by engineers to solve other problems that engineers were having--enabling them to get work done.  This was pure genius and this is how Ken Thompson's mind worked.  
+For this time, 1969-70, this is something radically new. Thompson had no idea that his pet work project was going to become part of a computing revolution.  Whereas MULTICS and other computer systems were designed by committees and based on marketable features--due to the nature of the up front financial investment, Unix was simple and easy to build because it solved only a small set of problems--which turned out to be the same problems every engineer had.  The overall reason that Unix took hold was that it was designed by engineers to solve other problems that engineers were having--enabling them to get work done.  This was pure genius and this is how Ken Thompson's mind worked.  
 
 Unix differences from existing commercial Operating Systems
 
@@ -165,7 +165,7 @@ _start:
         syscall
 ```
 
-[C Language equivilent of above code](https://en.wikipedia.org/wiki/List_of_Hello_world_program_examples#C "C Hello World")
+[C Language equivalent of above code](https://en.wikipedia.org/wiki/List_of_Hello_world_program_examples#C "C Hello World")
 
 ```c
 #include <stdio.h>
@@ -196,7 +196,7 @@ By 1980, with many copies of Thompson's Unix now in circulation and nearly a dec
 
 ![*Richard Stallman*](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG/320px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG "Richard Stallman")
 
-Before beginning anything in dealing with Richard Stallman there is one critical concept you need to understand: "software freedom."  Often times you hear as a selling point that Linux is a good operating system to use because it is free -- as in there is no cost.  Stallman is not advocating about cost or the ability to charge money for software.  This is a common confusion.  He is advocating that the software itself is *"free"* as in freedom and that the user has the freedom to modify and or inspect its content and redistribute the original source.  Ricahrd Stallman believes this is not a question of legality but of moral consequence and thereby will not use any non-free software period.  When dealing with Stallman this is the fundamental fact you need to know.
+Before beginning anything in dealing with Richard Stallman there is one critical concept you need to understand: "software freedom."  Often times you hear as a selling point that Linux is a good operating system to use because it is free -- as in there is no cost.  Stallman is not advocating about cost or the ability to charge money for software.  This is a common confusion.  He is advocating that the software itself is *"free"* as in freedom and that the user has the freedom to modify and or inspect its content and redistribute the original source.  Richard Stallman believes this is not a question of legality but of moral consequence and thereby will not use any non-free software period.  When dealing with Stallman this is the fundamental fact you need to know.
 
 Richard Stallman was a student and a researcher at MIT in the early 1980's.  He was part of what you would call today a hacker culture that was constantly researching and developing new tools and applications.  As Richard Stallman progressed in his time at MIT he began to encounter events that he saw as counter intuitive hacker culture that had been created at MIT by 1984.  The spirit of Ken Thompson and the free and sharing culture of Unix was strong with these Jedi.  Small things such as the addition of usernames and passwords on the school computer networks were seen as obstacles. Stallman saw the removal of the capability to modify a network printer's firmware to send an email feature in case of a paper jam as well as the beginning of proprietary software lock in--hindering the ability of the users to inspect the code and improve it to serve their needs.  By 1984 AT&T began to withhold the source code of Unix and restricted access of those in the academic world to be able to use the AT&T source code. By 1983 Stallman began to argue that the users of the software's freedom were being trampled on. Users were now beholden to the closed nature of the products they were using--even if they had paid for the software.  Stallman saw this as more than an inconvenience and set about making it his life's work to rectify this issue.
 
@@ -235,7 +235,7 @@ __GNU HURD__
   
 ### Minix, Linus Torvalds, and Linux 
 
-#### Professor Andrew Tanenbaum and Minix__
+#### Professor Andrew Tanenbaum and Minix
 
   Before we talk about the Linux kernel, we need to talk about the Minix operating system.  With the closing off of the AT&T Unix source code by 1984 to academics and researchers in the university - they were left without source code to show as examples in classes.  
   

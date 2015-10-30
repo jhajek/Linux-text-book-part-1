@@ -6,25 +6,20 @@ __Chapter 8 Objectives__
 This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenants of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus  on the using the opensource technology of Linux.  The Objectes of this chapter are as follows:
 
    * Understand how to write and use basic shell scripts
-   * if statements
-   * for loops
-   * System environment variables
-   * Passing Variables into scripts
-   * Scheduling Shell Scripts With Cron Tab
-
+   * Understand how to use conditional statements in Bash scripts
+   * Understand how to declare system environment variables and their scope of existance
+   * Understand how to use positional parameters as variables into shell scripts
+   * Understand how to use the scheduling service ```cron``` for managing shell script automation
+   
 __Outcomes__
 
   At the conclusion of this chapter you will have furthered your understanding of the vi editor and be able to demonstrate how to use control structures in shell scripts.  You will also learn about command line variables and how they extend the ability of a shell script to accpet dynamic input.  You will be able to schedule a shell script to run at a scheduled time by using cron service increasing your ability to reduce work by automating repetative tasks.
 
-## Basic Shell Scripts Part II
+## Basic Shell Scripts - Part II
  
    In the previous chapter we were introduced to the simplist of shell scripts.  In this chapter we are going to increase the depth of our knowledge.
-
-   Add some samples here
-   
-   Segway to control structures
  
-### Bash Shell
+### The Bash Shell
 
    Just like any programming language we cannot have complex logic if we don't have control structures.  The two basic ones we want to cover are if statements and for loops.  There are the other traditional control structures but are used less commonly because of the nature of a shell script is a single execution not as a repeated process or system service.
    
@@ -74,7 +69,7 @@ mkdir ~/Documents/$MDY
 echo "Finished"
 ```
 
-In this example we see how the value of $MDY is interpretted first and then passed to the argument attached to the ```mkdir``` command.  Note that the ```mkdir``` command did not have any backticks around it like the comand to assign the output of ```date``` to the variable ```DT```.  This is because the Shell sees that mkdir is a command and begins to interpret the line as such (followed by options and arguments).  If you want to encapsulate the output of one command into a shell variable then you need to enclose them in backticks ```\`\````.
+In this example we see how the value of $MDY is interpretted first and then passed to the argument attached to the ```mkdir``` command.  Note that the ```mkdir``` command did not have any backticks around it like the comand to assign the output of ```date``` to the variable ```DT```.  This is because the Shell sees that mkdir is a command and begins to interpret the line as such (followed by options and arguments).  If you want to encapsulate the output of one command into a shell variable then you need to enclose them in backticks ```\`\```.
 
 Any variables that are declared have a scope of this scripts execution.  This means that once the script has finished executing any variables are tossed from memory.  If I wanted a variables name and value to life after the completion of my shell script I can always add the __export__ command.  The __export__ command will take the content of this variable and move it from the memory space of the script's execution and move it into the memory space of the launching shell.  This way the variable will live only as long as that terminal session is open--once the window closes those variables disappear from memory because the process that was holding them in a piece of memory is gone too. 
    
@@ -161,7 +156,32 @@ The structure of the Bash __IF__ command is as follows:
 if TEST-COMMANDS; then CONSEQUENT-COMMANDS; fi
 ```
 
-The __IF__ command starts with a test condition or command.  It is followed by a ```then``` condition which will execute if the test command is *true*. The entire __IF__ command is closed by the letters ```fi```.  Since the scope of BASH is limited compared to a full programming language, __IF__ statements are mostly used to test for conditions or the existance of a condition.  These common __TEST COMMANDS__ are available as built in to BASH in order to accomplish just that. These are called *primaries* and are placed between sqaure braces--space is important [^86].
+The __IF__ command starts with a test condition or command.  It is followed by a ```then``` condition which will execute if the test command is *true*. The entire __IF__ command is closed by the letters ```fi```.  Since the scope of BASH is limited compared to a full programming language, __IF__ statements are mostly used to test for conditions or the existance of a condition.  These common __TEST COMMANDS__ are available as built in to BASH in order to accomplish just that. These are called *primaries* and are placed between sqaure braces--space is important [^86].  Remember that spaces matter in writing __IF__ statements.  Unlike C an Java, the Bash interpreter needs those spaces so it can recognize that there is an __IF__ statement otherwise it gets confused thinking the characters are just a string.  Also the ```[]``` needs to have the space otherwise the commandline parser will thing that they are shell meta-characters and not delimeters for the test condition.
+
+```bash
+#!/bin/bash
+# This is a valid IF statement
+
+if [ -r ~/Documents/final-exam-answers.txt ]
+then
+  cat ~/Documents/final-exam-answers.txt
+else
+  echo "File is not readable."
+fi
+```
+
+```bash
+#!/bin/bash
+# This is NOT a valid IF statement because the spaces are improper
+
+if [-r ~/Documents/final-exam-answers.txt]
+then
+  cat ~/Documents/final-exam-answers.txt
+else
+  echo "File is not readable."
+fi
+```  
+  
   
 : Primary expressions 
 
@@ -223,8 +243,41 @@ The __IF__ command starts with a test condition or command.  It is followed by a
  ```-o```             Primary Expression OR
 --------------      -------------------------
  
-If statements in BASH have support for nested IFs, IF ELSE constructs, and even [CASE](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html "Case Statements") statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book - see the previous link for a good tutorial.  Note at this level of complexity it might be better to try to engineer a CASE statement of rearchitect what you are trying to do in to smaller steps to reduce complexity.  Completity is the enemy of the programmer.  
+If statements in BASH have support for nested IFs, IF ELSE constructs, and even [CASE](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html "Case Statements") statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book - see the previous link for a good tutorial.  Note at this level of complexity it might be better to try to engineer a CASE statement of rearchitect what you are trying to do in to smaller steps to reduce complexity.  Complexity is the enemy of the programmer.  
 
+```bash
+#!/bin/bash
+
+if [ -a ~/Documents ]
+    then
+      echo "The documents directory exists"
+fi
+```
+
+```bash
+#!/bin/bash
+
+if [ $# -gt 5 ]
+    then
+      echo "You need to type only 5 positional paramters - you entered more!"
+else
+   echo "Good job you typed in 5 paramters"
+fi
+```
+
+```bash
+#!/bin/bash
+
+if [ -a $1 && -x ]
+    then
+      echo "File exists and is executable"
+else
+  echo "File does not exist and/or is not executable"
+fi
+```   
+
+Here is a complex example of nested IF, ELIFs, and ELSE statements.
+   
 ```bash
 #!/bin/bash
                                                                                                  
@@ -257,7 +310,7 @@ fi
 
   A FOR loop is used to loop incrementily through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimeted list of items.  The syntax of a FOR loop is:
 ```bash
-for arg in [LIST]
+for arg in [LIST];
 do 
  # code here
 done
@@ -274,13 +327,18 @@ do
   echo $planet  # Each planet on a separate line.
 done
 ```
+
 ```bash
-LENGTH=${#cleanupLBARR[@]}
+#!/bin/bash
+
+declare -a planetARRAY
+planetARRAY=( mars earth mercury )
+LENGTH=${#planetARRAY[@]}
 echo "ARRAY LENGTH IS $LENGTH"
 
 for (( i=0; i<${LENGTH}; i++));
-  do
-  aws elb delete-load-balancer --load-balancer-name ${cleanupLBARR[i]} --output text
+do
+  echo ${planetARRAY[$i]} 
   sleep 1
 done
 ```
@@ -327,39 +385,184 @@ Something unique like this will start at 3 minutes after and then execute every 
 
 Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line.  This also allows for redirection of standard out and standard error as well.
  
-: Nonstandard predefined scheduling definitions [^88]
-
 Entry                                Description                          Equivalent to
 -------------------- ------------------------------------------------- -----------------------
-@yearly               Run once a year at midnight of January 1st           ```0 0 1 1 *``` 
-@monthly              Run once a month, midnight 1st day of the month      ```0 0 1 * *``` 
-@weekly               Run once a week at midnight on Sunday morning        ```0 0 * * 0``` 
-@daily                Run once a day at midnight                           ```0 0 * * *``` 
-@hourly               Run once an hour at the beginning of the hour        ```0 * * * *``` 
-@reboot               Run at startup                                        @reboot 
+&#64;yearly            Run once a year at midnight of January 1st           ```0 0 1 1 *``` 
+&#64;monthly           Run once a month, midnight 1st day of the month      ```0 0 1 * *``` 
+&#64;weekly            Run once a week at midnight on Sunday morning        ```0 0 * * 0``` 
+&#64;daily             Run once a day at midnight                           ```0 0 * * *``` 
+&#64;hourly            Run once an hour at the beginning of the hour        ```0 * * * *``` 
+&#64;reboot            Run at startup                                        &#64;reboot 
 -------------------- ------------------------------------------------- -----------------------
 
 ## Where to find more
 
-[http://shop.oreilly.com/product/9780596009656.do](http://shop.oreilly.com/product/9780596009656.do "Bash Book")
-
+  [O'Reilly media](http://shop.oreilly.com/home.do "O\'Reilly Media") has many old but good books about Bash, vi, and shell scripting.
+  
+* Bash [http://shop.oreilly.com/product/9780596009656.do](http://shop.oreilly.com/product/9780596009656.do "Bash Book")
+* Bash Cookbook [http://shop.oreilly.com/product/9780596526788.do](http://shop.oreilly.com/product/9780596526788.do "Bash Cookbook")
+* vi and vim [http://shop.oreilly.com/product/9780596529833.do](http://shop.oreilly.com/product/9780596529833.do "vi and vim")
 
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
+  Through this chapter we learned about how to extend and improve our ability to write shell scripts.  We learned about system variables and their scope.  We also learned about positional paramteres and how to pass values into a shell script.  We learned about basic Bash control structures IF and FOR, and finally concluded learning about automating shell script launches using the cron service via cron tab.
 
 ### Review Questions
 
-  Questions go here
+1) True or False The Bash shell scripting language has traditional language constructs like C or Java?
+
+2) What meta-character do you use to access the content of a shell variable?
+a.  ```$```
+b.  ```#```
+c.  ```!```
+d.  No character - trick questions
+
+3) When assigning the standard output of a command to a variable what characters do you encase the command in?
+a. \`\`
+b. ```$``` 
+c. ```""```
+d. No characters - trick questions
+
+4) True or False - You can include shell meta-charecters inside of two backticks ```\`\```` - example: ```ANS=`ls -l test[1-5]````
+
+5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
+a.  ```DIR='ls -l ./test[1-4].txt'```
+b.  ```DIR = \`ls -l ./test[1-4].txt\````
+c.  ```$DIR=\`ls -l ./test[1-4].txt\````
+d.  ```DIR=\`ls -l ./test[1-4].txt\````
+
+6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables) 
+a. ```#!/bin/bash```
+b. ```!#/bin/bash```
+c. ```#!/user/loca/bin/bash```
+d. ```#/bin/bash```
+e. ```#!/bin/ksh```
+
+7) If you stored the output of the command hostname into a variable named sys-hostname, what would be the command to print the content to the screen?
+a.  ```echo $HOSTNAME```
+b.  ```echo $hostname```
+c.  ```echo $SYS-HOSTNAME```
+d.  ```echo $sys-hostname```
+
+8) What is the name of the command to print out all the predefined system variables?
+
+
+9) What is the name of the command that allows you to take stdout of a command and insert the lines of output into an array?
+a. arrayfile
+b. declare
+c. for loop
+d. mapfile
+
+10)  Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one) 
+a. ```mapfile SEARCHARRAY = (find ~ -name mozilla*)```
+b. ```mapfile SEARCHARRAY < < (find ~ -name mozilla*)```
+c. ```mapfile -t SEARCHARRAY < <(find ~ -name mozilla*)```
+d. ```mapfile -t SEARCHARRY < (find ~ -name mozilla*)```
+
+11)  Which below is a valid command to find the LENGTH of an array?
+a. ```${#SEARCHARRAY[@]}```
+b. ```${SEARCHARRAY[@]}```
+c. ```${SEARACHARRAY[#]}```
+d. ```${@SEARCHARRAY[#]}```
+
+12)Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy``` 
+a.  ```echo $0```
+b.  ```echo $1```
+c.  ```echo args[1]```
+d.  ```echo {$1}```
+
+13) Based on this shell script and positional parameters, what would the command be to print out the entire content of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```
+a.  ```echo $#```
+b.  ```echo @!```
+c.  ```echo $0```
+d.  ```echo $@```
+
+14) Based on this shell script and positional parameters, what would the command be to print out the LENGTH of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```
+a.  ```echo $#```
+b.  ```echo @!```
+c.  ```echo $0```
+d.  ```echo $@```
+
+15) In a Bash IF statement, what is the name for the pre-made test conditions?
+a. Primaries
+b. Secondary expressions
+c. Expression
+d. Primary expressions
+
+16) All values in a Bash IF statement are of what data type by default?
+a. INT
+b. STRING
+c. NULL
+d. CHAR
+
+17) Which of these answers will execute a shell script named ~/backup.sh at 2 am every night of the week?
+a. ```* * * * * ~/backup.sh```
+b. ```2 * * * * ~/backup.sh```
+c. ```* 2 * * * ~/backup.sh```
+d. ```* * * 2 * ~/backup.sh```
+
+18) Which of these answers will execute a shell script named ~/clean-directory.sh every 15 minutes?
+a. ```3/15 * * * * ~/clean-directory.sh```
+b. ```*/15 * * * * ~/clean-directory.sh```
+c. ```* 3/15 * * * ~/clean-directory.sh```
+d. ```* */15 * * * ~/clean-directory.sh```
+
+19) Which of the crontab builtins would you use to execute a cron job 1 time a year on midnight of January 1st?  The name of the script is ~/give-free-cash-to-students.sh
+a. ```* * * * 1 ~/give-free-cash-to-students.sh```
+b. ```1 * * * * ~/give-free-cash-to-students.sh```
+c. ```1 1 1 1 1 ~/give-free-cash-to-students.sh```
+d. &#64;```yearly ~/give-free-cash-to-students.sh```
+
+20) What is the name of the control structure that allows you to incrementally through the contents of an array? 
+a. IF
+b. CASE
+c. UNTIL
+d. FOR
 
 ### Podcast Questions
 
- Questions go here
+X2GO
+
+[https://twit.tv/shows/floss-weekly/episodes/295](https://twit.tv/shows/floss-weekly/episodes/295 "X2GO")
+
+Answer these questions:
+  * ~3:45 What is X2GO and what does it do?
+  * ~5:13 + 5:50 Where and why was X2GO first implemented?
+  * ~7:25 What is NX11 by the Nomachine corporation?
+  * ~12:30 How did X2GO 
+  * ~14:45 Is it possible to run X2GO server on X11 for Microsoft Windows?
+  * ~15:25 How does the client and in X2GO work?
+  * ~19:20 What is the size of the hardware on the server supporting the school in Germany using X2GO?
+  * ~21:00 How long does it take to compile the X2GO server?
+  * ~22:58 What is the problem X2GO has with being used on certain Linux Desktop Environments?
+  * ~34:00 Using X2GO can you play remote sounds and print from the remote system to the local system?
+  * ~39:54 How does X2GO handle authentication?
+  * ~44:30 How is X2GO compressed and cached over the "wire?" Using X11 compression of ssh compression?
+  * ~45:00 Why is X2GO not purely GPL?
 
 ### Lab
 
- Lab goes here 
- 
+__Objectives__
+
+  This lab will allow you to create shell scripts.  Use positional paramters, control structures, and write cron jobs.
+
+__Outcomes__
+
+  At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts. 
+
+  1) What would be the command to create an array in Bash named itemARRAY?
+  1) Declare an array in Bash named dirarr. Using the mapfile command - redirect the output of the ls -l ~ command into the array previously named.  
+  1) Based on the previous question, echo out the 3rd and 4th elements of that array.
+  1) Write a for loop to iterate through that array and print every element of the line out on the screen.  (Make sure you detect the length of the array and use a $LENGTH variable as your sentinel condition.
+  1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
+  1) Write a shell script that contains an if statement checking the number of positional parameters passed into it.  Pass a congratulatory message if the quantity of positional parameters is more than 3.  Silently fail if there are less than 3.
+  1) Repeating the previous exercise: Write a shell script that contains an if statement checking the number of positional parameters passed into it.  Pass a congratulatory message if the quantity of positional parameters is more than 3 and print out all 3 positional paramters.  This is include an else condition notifying the user that they have less than 3 positional parameters and exit the shell scrtpt.
+  1) Create a directory in your ~ named topsecret.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
+  1) Write a shell script to check in the ~/topsecret directory to see if a given file name exists.  If TRUE print a message else print an error message with the given file name being passed.
+  1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
+  1) Write a shell script that take 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
+  1) Repeat the previous cron command but this time redirect the standard out and standard error to a file named ~/Documents/my.log
+  
 #### Footnotes
 
 [^86]: [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
