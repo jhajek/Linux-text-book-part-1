@@ -17,15 +17,13 @@ __Outcomes__
 
 ## Basic Shell Scripts - Part II
  
-   In the previous chapter we were introduced to the simplist of shell scripts.  In this chapter we are going to increase the depth of our knowledge.
+   In the previous chapter we were introduced to the simplist of shell scripts.  In this chapter we are going to increase the depth of our knowledge.  
  
 ### The Bash Shell
 
    Just like any programming language we cannot have complex logic if we don't have control structures.  The two basic ones we want to cover are if statements and for loops.  There are the other traditional control structures but are used less commonly because of the nature of a shell script is a single execution not as a repeated process or system service.
    
-   The BASH shell scripting language resembles a trasitional programming language.  But it is key to remember that it was not designed to be a complete programming language.  As you push shell scripts to their limits you begin to see the end of what they are capable of.  That is where you see languages like Perl or Python coming in to extend and replace BASH.  (Note if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this.)
-   
-   BASH is a tool to help automate the repetition of commands.
+   The BASH shell scripting language resembles a trasitional programming language.  But it is key to remember that it was not designed to be a complete programming language.  As you push shell scripts to their limits you begin to see the end of what they are capable of.  That is where you see languages like Perl or Python coming in to extend and replace BASH.  (Note: if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this.) BASH is a tool to help automate the repetition of commands.
    
 ### Shell Script Variables 
 
@@ -243,7 +241,9 @@ fi
  ```-o```             Primary Expression OR
 --------------      -------------------------
  
-If statements in BASH have support for nested IFs, IF ELSE constructs, and even [CASE](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html "Case Statements") statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book - see the previous link for a good tutorial.  Note at this level of complexity it might be better to try to engineer a CASE statement of rearchitect what you are trying to do in to smaller steps to reduce complexity.  Complexity is the enemy of the programmer.  
+#### IF, ELSE, ELIF
+
+__IF__ statements in BASH have support for nested IFs, IF ELSE constructs. Note at this level of complexity it might be better to try to engineer a CASE statement of rearchitect what you are trying to do in to smaller steps to reduce complexity.  Complexity is the enemy of the programmer.  
 
 ```bash
 #!/bin/bash
@@ -251,9 +251,21 @@ If statements in BASH have support for nested IFs, IF ELSE constructs, and even 
 if [ -a ~/Documents ]
     then
       echo "The documents directory exists"
+    else
+     echo "Directory doesn't exist"
 fi
 ```
+```bash
+#!/bin/bash
 
+if [ -a ~/Documents ]
+    then
+      echo "The documents directory exists"
+    else
+     # This will fail silently
+     echo "Directory doesn't exist" &> ~/Documents/script.log
+fi
+```
 ```bash
 #!/bin/bash
 
@@ -305,6 +317,41 @@ else
   fi
 fi  
 ```
+
+#### CASE Statement
+
+  Sometimes called a switch statement in C or Java,  a __case statement__ is really just a way to simplify complicated nested IF statements [^89]. []() statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book but I wanted to make you aware of them.
+  
+```bash
+case "$1" in
+        start)
+            start
+            ;;
+         
+        stop)
+            stop
+            ;;
+         
+        status)
+            status anacron
+            ;;
+        restart)
+            stop
+            start
+            ;;
+        condrestart)
+            if test "x`pidof anacron`" != x; then
+                stop
+                start
+            fi
+            ;;
+         
+        *)
+            echo $"Usage: $0 {start|stop|restart|condrestart|status}"
+            exit 1
+ 
+esac  
+```  
 
 ### FOR Loops
 
@@ -383,6 +430,10 @@ Something unique like this will start at 3 minutes after and then execute every 
 3/10 * * * * ~/Documents/script.sh
 ```
 
+```bash
+@monthly ~/Documents/backup-data-to-off-site.sh
+```
+
 Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line.  This also allows for redirection of standard out and standard error as well.
  
 Entry                                Description                          Equivalent to
@@ -434,7 +485,7 @@ d.  ```DIR=\`ls -l ./test[1-4].txt\````
 6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables) 
 a. ```#!/bin/bash```
 b. ```!#/bin/bash```
-c. ```#!/user/loca/bin/bash```
+c. ```#!/usr/local/bin/bash```
 d. ```#/bin/bash```
 e. ```#!/bin/ksh```
 
@@ -445,7 +496,6 @@ c.  ```echo $SYS-HOSTNAME```
 d.  ```echo $sys-hostname```
 
 8) What is the name of the command to print out all the predefined system variables?
-
 
 9) What is the name of the command that allows you to take stdout of a command and insert the lines of output into an array?
 a. arrayfile
@@ -570,4 +620,6 @@ __Outcomes__
 [^87]: [https://en.wikipedia.org/wiki/Cron#Examples](https://en.wikipedia.org/wiki/Cron#Examples)
 
 [^88]: [https://en.wikipedia.org/wiki/Cron#Nonstandard_predefined_scheduling_definitions](https://en.wikipedia.org/wiki/Cron#Nonstandard_predefined_scheduling_definitions)
+
+[^89]: [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html "Case Statements")
 
