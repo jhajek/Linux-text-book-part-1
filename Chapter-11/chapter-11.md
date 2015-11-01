@@ -1,7 +1,7 @@
 # Init Services, Daemons, and Processes
 ![*You never know what is enabled...*](images/Chapter-Header/Chapter-11/security_holes-2.png "Security Holes")
 
-__Chapter 09 Objectives__
+__Chapter 11 Objectives__
 
 
 
@@ -20,14 +20,14 @@ __Outcomes__
 
 ### Review Questions
 
-  * Questions go here
+ Questions go here
 
 ### Podcast Questions
 
- * Questions go here
+ Questions go here
 
 ### Lab
 
- * Lab goes here 
+ Lab goes here 
  
  

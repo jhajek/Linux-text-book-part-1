@@ -22,14 +22,17 @@ __Outcomes__
 
 ### Review Questions
 
-  * Questions go here
+  Questions go here
 
 ### Podcast Questions
 
- * Questions go here
+ Questions go here
 
 ### Lab
 
- * Lab goes here 
+ Lab goes here 
  
+#### Footnotes
+ 
+
  
