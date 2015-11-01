@@ -3,7 +3,7 @@
 
 __Chapter 11 Objectives__
 
-
+* Understand the nature of the /proc virtual-filesystem
 
 __Outcomes__
 
@@ -11,7 +11,22 @@ __Outcomes__
 
    * Starting stopping
    * Systemd vs sysVInit
-   * Cron jobs
+   *  systemd 
+    + binary logs
+    + other systemd tools
+        + dtrace/strace
+        + ps ps -ef 
+        + kill
+        + nice
+   * proc
+   
+   
+## proc
+
+  Get from tldp   and screen shot from Linux
+  
+ * lspci 
+ * lsmod
 
 
 ## Chapter Conclusions and Review

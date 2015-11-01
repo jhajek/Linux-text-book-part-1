@@ -3,6 +3,13 @@
 
 __Chapter 09 Objectives__
 
+  * Discuss standard trouble shooting procedures for system admins.
+  * Understanding basic admin tools and the Linux concept of logging
+  * Understand how to use basic system tools for reporting
+  * Understanding user administration
+  * Understand the 3P method of troubleshooting
+
+  * 3P's
   * sudo
     + visudoers
     + Understand the sudo command and root user paradigm    
@@ -10,31 +17,62 @@ __Chapter 09 Objectives__
     + syslog 
     + rsyslog
     + dmesg
-    + dtrace/strace
+  * System Administration  
     + top, atop, htop
-    + watchdogs, tail -f
+    + tail -f
     + logrotation
   * User Administration
     + adduser, userdel, usermod
-    + chown, chgrp, chmod   
-  *  systemd 
-    + binary logs
-    + other systemd tools
-  * 3P's 
+    + chown, chgrp, chmod
+
 
 __Outcomes__
 
   At the completion of this chapter...
 
-### Sudo and the Root user paradigm
+## Sudo and the Root user paradigm
 
-### Logging and monitoring
+### visudo
 
-### User Administration 
+## Logging and monitoring
+
+### /var/log/\*
+
+### syslog
+
+### rsyslog
+
+### Log rotation
+
+/etc/logrotate.conf
+
+/var/log directory screenshot of multiple logs
+
+tail -f
+
+## System Administration 
+
+### top
+
+ * top
+ * htop 
+ * atop
+ * https://github.com/p-e-w/ranwhen
+ 
+### dmesg systat memfree 
+
+  * sar
+  * http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326
+  * vmstat
+  * memfree
+  * cpufree
+  * sysstat - iostate
+
+## User Administration 
 
 There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter X.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's). This command will be covered in depth in chapter 6.
 
-#### chmod
+### chmod
  
 Pronounced *"chuh-mod"*. This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  The outputs look like this:
    
@@ -44,22 +82,25 @@ Pronounced *"chuh-mod"*. This command allows you to change the permissions or mo
   
  ![*Same file with write and execute permission enabled*](images/Chapter-05/permissions/standard-permission-chmod.png "Standard Permissions")
   
-#### chown
+### chown
 
  Pronounced *"chuh-own"*. This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a shorthand feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner. 
   
 > __Exercise:__  based on the previous todo-list.txt created in /tmp, issue an ```ls -l``` command - who is the owner of the file?  Who is the group owner? Change it so that the file is owned by root and the group owner is root (remember to use ```sudo```.)
   
-#### chgrp
+### chgrp
 
 Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
 
-### ACLs
+### adduser 
+
+### userdel
+
+### usermod
+
+#### ACLs
 
 IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them and will be covered in Chapter X.
-
-### systemd
-
  
 ### The 3 P's Describing 99% of all Linux Problems
 
