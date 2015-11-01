@@ -70,7 +70,6 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
   * dePendencies
      +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
 
-
 ## Chapter Conclusions and Review
 
   Conclusion goes here

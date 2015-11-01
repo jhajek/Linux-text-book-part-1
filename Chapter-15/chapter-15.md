@@ -21,8 +21,8 @@ __Outcomes__
 
 ### Review Questions
 
-  * Questions go here
-
+  Questions go here
+ 
 ### Podcast Questions
 
 Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
@@ -41,6 +41,9 @@ Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show
   
 ### Lab
 
- * Lab goes here 
+ Lab goes here 
+ 
+#### Footnotes
+
  
  

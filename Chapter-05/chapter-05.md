@@ -188,7 +188,7 @@ What happens if you try to cd into a directory that doesn't exist?
 
 ## The Linux Shell
   
-### Difference Between a Shell, Terminal, and Commandline  
+### Shell, Terminal, and Commandline  
 
   If you remember from chapter 4 that the word *"terminal"* came from the actual DEC VT-100 physical terminals that were in use in the late 70's and early 80's for use in interfacing to Unix systems.  A terminal is a way to display text in 80 by 25 line screens of text.  The __Shell__ is the actual application that runs on the terminal to display that screen of text and allow the user to interact with the Kernel via commands.   There are many types of shells that have different features.  Shells give the user the ability to create scripts for executing multiple commands, command completion, command history, command aliases, and more.  You open a terminal and in a terminal session you use a shell.  You can have multiple terminal sessions and use different shells on each one if you prefer.   In total the combination of using a terminal to access a shell can be called using the *commandline*.  The diagram below shows how the commands you type in the terminal are processed by the shell, given to the kernel and then output is returned to the user.
 

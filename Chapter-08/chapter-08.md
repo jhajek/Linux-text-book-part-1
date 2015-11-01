@@ -3,27 +3,37 @@
 
 __Chapter 8 Objectives__
 
-This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenants of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus  on the using the opensource technology of Linux.  The Objectes of this chapter are as follows:
+This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenants of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus  on the using the opensource technology of Linux.  The Objectives of this chapter are as follows:
 
    * Understand how to write and use basic shell scripts
    * Understand how to use conditional statements in Bash scripts
-   * Understand how to declare system environment variables and their scope of existance
+   * Understand how to declare system environment variables and their scope of existence
    * Understand how to use positional parameters as variables into shell scripts
    * Understand how to use the scheduling service ```cron``` for managing shell script automation
    
 __Outcomes__
 
-  At the conclusion of this chapter you will have furthered your understanding of the vi editor and be able to demonstrate how to use control structures in shell scripts.  You will also learn about command line variables and how they extend the ability of a shell script to accpet dynamic input.  You will be able to schedule a shell script to run at a scheduled time by using cron service increasing your ability to reduce work by automating repetative tasks.
+  At the conclusion of this chapter you will have furthered your understanding of the vi editor and be able to demonstrate how to use control structures in shell scripts.  You will also learn about command line variables and how they extend the ability of a shell script to accpet dynamic input.  You will be able to schedule a shell script to run at a scheduled time by using cron service increasing your ability to reduce work by automating repetitive tasks.
 
 ## Basic Shell Scripts - Part II
  
+<<<<<<< HEAD
    In the previous chapter we were introduced to the simplist of shell scripts.  In this chapter we are going to increase the depth of our knowledge.  
+=======
+   In the previous chapter we were introduced to the simplest of shell scripts.  In this chapter we are going to increase the depth of our knowledge.
+>>>>>>> 2384b6f051d8565a88c541ed3880b41b74857f49
  
 ### The Bash Shell
 
    Just like any programming language we cannot have complex logic if we don't have control structures.  The two basic ones we want to cover are if statements and for loops.  There are the other traditional control structures but are used less commonly because of the nature of a shell script is a single execution not as a repeated process or system service.
    
+<<<<<<< HEAD
    The BASH shell scripting language resembles a trasitional programming language.  But it is key to remember that it was not designed to be a complete programming language.  As you push shell scripts to their limits you begin to see the end of what they are capable of.  That is where you see languages like Perl or Python coming in to extend and replace BASH.  (Note: if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this.) BASH is a tool to help automate the repetition of commands.
+=======
+   The BASH shell scripting language resembles a traditional programming language.  But it is key to remember that it was not designed to be a complete programming language.  As you push shell scripts to their limits you begin to see the end of what they are capable of.  That is where you see languages like Perl or Python coming in to extend and replace BASH.  (Note if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this.)
+   
+   BASH is a tool to help automate the repetition of commands.
+>>>>>>> 2384b6f051d8565a88c541ed3880b41b74857f49
    
 ### Shell Script Variables 
 
@@ -34,7 +44,6 @@ PATH=$PATH:/home/user/Documents/apps
 echo $PATH; echo $path; $PATH=PATH??? 
 
 ut=`uptime`
-
 ```
 
 ```bash
@@ -45,11 +54,9 @@ DIR="monthly-reports-winter-quarter-north-america"
 ls $DIR
 ```
 
-Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables.
-   
-[*Output of printenv command*](images/Chapter-08/bash-shell/printenv.png "printenv")
-   
-You can also define your own variables in a shell script--just as you could do on the command line.   Often this is a good idea when you want to assign the output of one command and reuse that value later.  
+Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables. You can also define your own variables in a shell script--just as you could do on the command line.   Often this is a good idea when you want to assign the output of one command and reuse that value later.  
+
+![*Output of printenv command on Fedora 22*](images/Chapter-08/bash-shell/printenv2.png "printenv")
    
 > __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.
 ```bash
@@ -67,7 +74,7 @@ mkdir ~/Documents/$MDY
 echo "Finished"
 ```
 
-In this example we see how the value of $MDY is interpretted first and then passed to the argument attached to the ```mkdir``` command.  Note that the ```mkdir``` command did not have any backticks around it like the comand to assign the output of ```date``` to the variable ```DT```.  This is because the Shell sees that mkdir is a command and begins to interpret the line as such (followed by options and arguments).  If you want to encapsulate the output of one command into a shell variable then you need to enclose them in backticks ```\`\```.
+In this example we see how the value of $MDY is interpreted first and then passed to the argument attached to the ```mkdir``` command.  Note that the ```mkdir``` command did not have any backticks around it like the command to assign the output of ```date``` to the variable ```DT```.  This is because the Shell sees that ```mkdir``` is a command and begins to interpret the line as such (followed by options and arguments).  If you want to encapsulate the output of one command into a shell variable then you need to enclose them in backticks ```\`\```.
 
 Any variables that are declared have a scope of this scripts execution.  This means that once the script has finished executing any variables are tossed from memory.  If I wanted a variables name and value to life after the completion of my shell script I can always add the __export__ command.  The __export__ command will take the content of this variable and move it from the memory space of the script's execution and move it into the memory space of the launching shell.  This way the variable will live only as long as that terminal session is open--once the window closes those variables disappear from memory because the process that was holding them in a piece of memory is gone too. 
    
@@ -90,16 +97,16 @@ echo "Finished"
    
 #### Array Support in Bash
       
-  Arrays are a data-type that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for arrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data. You can declare an array by simple using the ```declare -a NAMEOFYOURARRAY``` syntax.  The ```-a``` makes your variable an array.  As of Bash 4.x bash gained support for the ```mapfile``` variable. The new mapfile builtin makes it possible to load an array with the contents of a text file without using a loop or command substitution.  Note that Mac as of OSX 10.11 release with Bash 3.2 as the standard.
+  Arrays are a data-type that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for ArrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data. You can declare an array by simple using the ```declare -a NAMEOFYOURARRAY``` syntax.  The ```-a``` makes your variable an array.  As of Bash 4.x bash gained support for the ```mapfile``` variable. The new mapfile builtin makes it possible to load an array with the contents of a text file without using a loop or command substitution.  Note that Mac as of OSX 10.11 release with Bash 3.2 as the standard.
 
-This example below creates a Bash array and stores the redirected output (note the ```< <```) of an Amazon Webservices cli command to create some virtual instances and store their returned Instnace-Ids back in an array.
+This example below creates a Bash array and stores the redirected output (note the ```< <```) of an ```ls -l /etc``` command storing every line of the listing as an element of an array.
 
 ```bash
 declare -a instanceARR
 mapfile -t instanceARR < <(ls -l /etc)
 ```
 
-How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from bein interpretted as shell meta-characters.  As usual elements of an array can be accessed by positional parameters.  ```echo Array[0]; echo Array [1]; echo Array[2]```.  Remember that arrays like in C and Java are __0 indexed__.
+How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by positional parameters.  ```echo Array[0]; echo Array [1]; echo Array[2]```.  Remember that arrays like in C and Java are __0 indexed__.
 ```bash
 echo ${instanceARR[@]}
 LENGTH=${#instanceARR[@]}
@@ -125,7 +132,7 @@ echo "It was deleted by: $2"
 echo $2 > ~/Documents/deletion-log.txt
 ```
 
-Note that each postional parameter that is passed in to the shell script is simply acceesed by a number prefixed by a ```$```.  What do you think would be the value of ```$0```?  You can similarly access the number of variables that are passed into the command line by using the built-in variable: For example:
+Note that each positional parameter that is passed in to the shell script is simply accessed by a number prefixed by a ```$```.  What do you think would be the value of ```$0```?  You can similarly access the number of variables that are passed into the command line by using the built-in variable: For example:
 ```bash
 #!/bin/bash
 # posparam.sh
@@ -154,7 +161,7 @@ The structure of the Bash __IF__ command is as follows:
 if TEST-COMMANDS; then CONSEQUENT-COMMANDS; fi
 ```
 
-The __IF__ command starts with a test condition or command.  It is followed by a ```then``` condition which will execute if the test command is *true*. The entire __IF__ command is closed by the letters ```fi```.  Since the scope of BASH is limited compared to a full programming language, __IF__ statements are mostly used to test for conditions or the existance of a condition.  These common __TEST COMMANDS__ are available as built in to BASH in order to accomplish just that. These are called *primaries* and are placed between sqaure braces--space is important [^86].  Remember that spaces matter in writing __IF__ statements.  Unlike C an Java, the Bash interpreter needs those spaces so it can recognize that there is an __IF__ statement otherwise it gets confused thinking the characters are just a string.  Also the ```[]``` needs to have the space otherwise the commandline parser will thing that they are shell meta-characters and not delimeters for the test condition.
+The __IF__ command starts with a test condition or command.  It is followed by a ```then``` condition which will execute if the test command is *true*. The entire __IF__ command is closed by the letters ```fi```.  Since the scope of BASH is limited compared to a full programming language, __IF__ statements are mostly used to test for conditions or the existence of a condition.  These common __TEST COMMANDS__ are available as built in to BASH in order to accomplish just that. These are called *primaries* and are placed between square braces--space is important [^86].  Remember that spaces matter in writing __IF__ statements.  Unlike C an Java, the Bash interpreter needs those spaces so it can recognize that there is an __IF__ statement otherwise it gets confused thinking the characters are just a string.  Also the ```[]``` needs to have the space otherwise the commandline parser will thing that they are shell meta-characters and not delimiters for the test condition.
 
 ```bash
 #!/bin/bash
@@ -241,9 +248,13 @@ fi
  ```-o```             Primary Expression OR
 --------------      -------------------------
  
+<<<<<<< HEAD
 #### IF, ELSE, ELIF
 
 __IF__ statements in BASH have support for nested IFs, IF ELSE constructs. Note at this level of complexity it might be better to try to engineer a CASE statement of rearchitect what you are trying to do in to smaller steps to reduce complexity.  Complexity is the enemy of the programmer.  
+=======
+If statements in BASH have support for nested IFs, IF ELSE constructs, and even [CASE](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html "Case Statements") statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book - see the previous link for a good tutorial.  Note at this level of complexity it might be better to try to engineer a CASE statement to re-architect what you are trying to do in to smaller steps to reduce complexity.  Complexity is the enemy of the programmer.  
+>>>>>>> 2384b6f051d8565a88c541ed3880b41b74857f49
 
 ```bash
 #!/bin/bash
@@ -271,9 +282,9 @@ fi
 
 if [ $# -gt 5 ]
     then
-      echo "You need to type only 5 positional paramters - you entered more!"
+      echo "You need to type only 5 positional parameters - you entered more!"
 else
-   echo "Good job you typed in 5 paramters"
+   echo "Good job you typed in 5 parameters"
 fi
 ```
 
@@ -355,7 +366,7 @@ esac
 
 ### FOR Loops
 
-  A FOR loop is used to loop incrementily through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimeted list of items.  The syntax of a FOR loop is:
+  A FOR loop is used to loop incrementally through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimited list of items.  The syntax of a FOR loop is:
 ```bash
 for arg in [LIST];
 do 
@@ -398,9 +409,9 @@ for i in {0..25}; do echo -ne '.'; sleep 1;done
 echo "\n"
 ```
 
-## Scheduling Shell Scripts With Cron Tab
+## Scheduling Shell Scripts With Cron
 
-Now that we have sufficiently complex shell scripts the idea of automating their execution come into play. The concept of the __cron__ command and the __crontab__ files frist came into use in Unix System V release ~1983.  Each user can set their own scheduled tasks by editing the __crontab__ file by typting ```crontab -e```.  The contents of the crontab file are initially blank.  The language of the crontab is that of 5 columns and then a command to be executed. Multiple commands can be executed using ```; or &&``` And multiple different times can be listed in the crontab.  The five (and sometimes a sixth fields) are as follows:
+Now that we have sufficiently complex shell scripts the idea of automating their execution come into play. The concept of the __cron__ command and the __crontab__ files frist came into use in Unix System V release ~1983.  Each user can set their own scheduled tasks by editing the __crontab__ file by typing ```crontab -e```.  The contents of the crontab file are initially blank.  The language of the crontab is that of 5 columns and then a command to be executed. Multiple commands can be executed using ```; or &&``` And multiple different times can be listed in the crontab.  The five (and sometimes a sixth fields) are as follows:
 
 Time Unit              Values
 -------------  -----------------------
@@ -576,10 +587,11 @@ X2GO
 [https://twit.tv/shows/floss-weekly/episodes/295](https://twit.tv/shows/floss-weekly/episodes/295 "X2GO")
 
 Answer these questions:
+
   * ~3:45 What is X2GO and what does it do?
   * ~5:13 + 5:50 Where and why was X2GO first implemented?
   * ~7:25 What is NX11 by the Nomachine corporation?
-  * ~12:30 How did X2GO 
+  * ~12:30 How did X2GO come about?
   * ~14:45 Is it possible to run X2GO server on X11 for Microsoft Windows?
   * ~15:25 How does the client and in X2GO work?
   * ~19:20 What is the size of the hardware on the server supporting the school in Germany using X2GO?
@@ -594,7 +606,7 @@ Answer these questions:
 
 __Objectives__
 
-  This lab will allow you to create shell scripts.  Use positional paramters, control structures, and write cron jobs.
+  This lab will allow you to create shell scripts.  Use positional parameters, control structures, and write cron jobs.
 
 __Outcomes__
 
@@ -606,7 +618,7 @@ __Outcomes__
   1) Write a for loop to iterate through that array and print every element of the line out on the screen.  (Make sure you detect the length of the array and use a $LENGTH variable as your sentinel condition.
   1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
   1) Write a shell script that contains an if statement checking the number of positional parameters passed into it.  Pass a congratulatory message if the quantity of positional parameters is more than 3.  Silently fail if there are less than 3.
-  1) Repeating the previous exercise: Write a shell script that contains an if statement checking the number of positional parameters passed into it.  Pass a congratulatory message if the quantity of positional parameters is more than 3 and print out all 3 positional paramters.  This is include an else condition notifying the user that they have less than 3 positional parameters and exit the shell scrtpt.
+  1) Repeating the previous exercise: Write a shell script that contains an if statement checking the number of positional parameters passed into it.  Pass a congratulatory message if the quantity of positional parameters is more than 3 and print out all 3 positional parameters.  This is include an else condition notifying the user that they have less than 3 positional parameters and exit the shell scrtpt.
   1) Create a directory in your ~ named topsecret.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
   1) Write a shell script to check in the ~/topsecret directory to see if a given file name exists.  If TRUE print a message else print an error message with the given file name being passed.
   1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
