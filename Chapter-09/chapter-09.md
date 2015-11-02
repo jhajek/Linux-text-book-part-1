@@ -184,6 +184,9 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 > Filter based on time range - note how difficult this would be with using grep, sort, and awk because everything is text. But since journald can be thought of a similar to a SQL database, then these types of queries are possible.
 ```journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"```
 
+> See log entries created only by the SSH service
+```journalctl _COMM=sshd```
+
 ### Log rotation
 
   The concept of logrotation existed under syslog and rsyslog but no longer specifically exist under journald.  Before you could use the ```/etc/logrotate.conf``` file but it is no longer needed.   Also each application may still write to a discrete syslog, but all those logs are then copied up by journald trying to be the single central repository for logs.
