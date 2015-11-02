@@ -1,5 +1,5 @@
 # System Administration 
-![*This generation's Your Money or Your Life!*](images/Chapter-Header/Chapter-09/sandwich-2.png  "Permissions")
+![*This generation's 'Who's in First?'*](images/Chapter-Header/Chapter-09/sandwich-2.png  "Permissions")
 
 __Chapter 09 Objectives__
 
@@ -27,19 +27,21 @@ __Outcomes__
  
   AS the great philosopher Spiderman once said, "With great power comes great responsibility."  Seeing as __root__ had unintentiaonally dangerous uses potentially.  So a temporary system was devised to blunt the power of the __root__ account as it is neccesary to use it sometimes. Sudo was created by researchers at SUNY/Buffalo in New York in 1980 to allow users to run specific commands as a different user.  Sudo was not designed for file editing. It was more designed for service management. From 1986 to 1991, development of sudo moved to CU-Boulder in Colorado and gained the cu-sudo prefix. In 1991, the code was moved to GPL.  In 1996 Todd C. Miller (one of the early maintainers) took the project under his wing moving a version of sudo to his own servers, to differentiate from cu-sudo.  By 1999 the code base was moved to the ISC license (Internet Systems Consortium), the same license dhcp and dns servers are under, it is the preferred license of the OpenBSD project and is GPL compatiple free license.  Todd C. Miller is paid by Dell to maintain sudo as part of his day job.  The sudo project homepage is located at [http://www.sudo.ws](http://www.sudo.ws). [A brief history of sudo](http://www.sudo.ws/history.html "Brief history of sudo") [^91].
   
-  The tool is often mispronounced "*su - doh*".  But actual pronunciation is "*su - do*".  Either one is acceptable.  To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis. 
+  The tool is often mispronounced "*su - doh*".  But actual pronunciation is "*su - do*".  Either one is acceptable.  
 
 #### Ubuntu
 
   Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo.  They firmly believe not to have a root account as a point of differentiaition.  They rely on ```sudo``` hence the cartoon above.  The first user you create (like in Windows and Mac) is automatically added to the __sudo__ usergroup and has sudo privillege.  Then any command you need *superuser* privilleges you can simply ellevate to that privillege by typing the word ```sudo``` in front on any command.  Upon successful entry of your own password you will be ellevated up to full system authority.  Some refer to this as *god mode* but I think using that term is a bit presumptous as you do have absolute power over the system but ```sudo``` doesn't let you create the world in seven days.  
   
-  One example us you can assign the value 000 to a file.  Who can access that file?  According to the permissions not even the owner can access it?  But the ```sudo``` user can.    You can find out on a system which users have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privillege).  Here is a sample screen shot. Here is where you define which users can be in the sudo group.  You may not want to give admin privillege to every user.  Also under the *user* section below you may want to give a user admin privilleges but only to execute certain commands.  This is where that would be enumerated.      
-
+  One example us you can assign the value 000 to a file.  Who can access that file?  According to the permissions not even the owner can access it?  But the ```sudo``` user can.    You can find out on a system which users have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privillege).  Here is a sample screen shot. Here is where you define which users can be in the sudo group.  You may not want to give admin privillege to every user.  Also under the *user* section below you may want to give a user admin privilleges but only to execute certain commands.  This is where that would be enumerated.   
+    
 ![*Ubuntu 15.04 /etc/sudoers*](images/Chapter-09/root/etc-sudoers.png)
 
 Let's look at the contents in more detail.  First to edit the ```/etc/sudoers``` file you do not directly edit the file, but through a special tool called ```visudo```. The ```visudo``` command edits the sudoers file in a safe fashion. visudo locks the sudoers file against multiple simultaneous edits, provides basic sanity checks, and checks for parse errors.  If the sudoers file is currently being edited you will receive a message to try again later [^92]. You can invoke visudo from anywhere on the system.  
 
-The first line of significance is: ```Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"```  This is where you set the system path a user recieves when they become a sudo user.  
+The first line of significance is: 
+```Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"```  
+This is where you set the system path a user recieves when they become a sudo user.  
 
 > __Example Usage:__  Using either Fedora 22 or Ubuntu 15.04: as your user account from the commandline type ```echo $PATH``` now type ```sudo sh``` and then ```echo $PATH``` notice what happens to the prompt?  Are the paths different?  Why?  Type ```exit``` to exit back to the normal user. 
 
@@ -65,29 +67,42 @@ The next line allows you to add groupnames to recieve sudo access.  Any useracco
 
 This last entry is a catch-all command for backward compatability.  Ubuntu versions previous to 14.04 used the admin group instead of the sudo group.  
 
-: sudoers man page sudoers(5)
+#### sudoers values
 
-  Group                    Hosts                    Target User                  Group Access
---------------- -----------------------------    ------------------   -----------------------------------
-   %sudo           Any machine can run this         All (root)           You can be in any primary usergroup
+  What do the values ```%admin  ALL=(ALL:ALL) ALL```  mean?  This particular command gives every command on any system root access.  It essentially turns the root account superuser privilleges over temporarily to the user account that has that privillege.
 
+The first column is either a user account (no %) or preceded by a % sign mean a user group name.  The second column (or the first ALL) is the hostname of the systems that can allow ellevation to *superuser*.  Now if this is your only system the value can be left at ALL.  But if you are preparing enterprise-wide /etc/sudoers configurations then you may want to specify *superuser* access only on particular systems.  The third column (second ALL) is the user that you will turn into when you use the *sudo* command.  By default it is __root__ but you may want it to be another specific user.  The fourth column after the : (fourth all) is the comma separated list of commands that user can execute. The fifth column (fourth ALL) is optional but it is an access control feature allowing only memebers of certain groups to sudo 
 
+  Group                    Hosts                    Target User                      Commands
+--------------- -----------------------------    ------------------   -----------------------------------------
+   %sudo             server-1, db-server              root               /usr/sbin/postfix /usr/sbin/doveadm
+   %admin                ALL                          root                               ALL
+   %meninblack           ALL                           ALL                               ALL
+--------------- -----------------------------    ------------------   -----------------------------------------
 
+After the useraccount you can add an additional parameter to remove the password requirement.  This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users.  It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
+
+> __Example Usage:__   The two commands below give the user ```nobody``` the ability to become sudo without requiring a password and only the power to execute the copy command.  The second command gives any user who is a memeber of the admin group the ability to sudo with out any password.
+```
+nobody ALL=(root) NOPASSWD: /bin/cp 
+```
+```
 %admin  ALL=(ALL) NOPASSWD:ALL
-
-
-
-This is the same action as adding them directly to the sudo users group--which is discussd at the end of this chapter.  
+```
 
 #### Fedora and other Linux
 
    All other Linux distributions have a __root__ account user made at install time. Some minimal distributions or in FreeBSD case may only allow you to create a __root__ user at install time and make aditional users your job to create.  In Fedora you can log into an GNOME session using the root account, there might be warnings from the operating system, as it is not expecting you to be logged in as __root__.  The __root__ user has its own home directory located at ```/root```.  Even if you are going to use the __root__ account it is still advised to log in as a regular user and then use the ```sudo``` or ```su``` commands to elevate and then exit those privilleges.
 
-That is sudo in a nutshell, be careful and happy sudo-ing.
+   Fedora and other Linux/Unix/Mac use different groups for sudo and *superuser* access.  That group is called *wheel*.  If you look at the ```/etc/sudoers``` output below from Fedora 22 system you see the groups and file content is slightly different.
+
+#### sudo usage examples and conclusion
 
 > __Example Usage:__ After installing the apache webserver (httpd) on Fedora 22 - the html files are served out of the default directory ```/var/www/html```.  Now if you cd to that ```/var/www/``` what do you notice about group and other ownership of ```html```?  How would you write a new ```*.html``` file?
 
 > __Example Usage:__ To install a service: ```sudo dnf install httpd```, then you need to start the service (on Ubuntu they autostart for you, Fedora family they don't autostart), ```sudo systemctl start httpd```.
+
+That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis. 
 
 ## Logging and monitoring
 
