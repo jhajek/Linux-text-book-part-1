@@ -228,9 +228,17 @@ SystemMaxFiles= and RuntimeMaxFiles=
 
 ### System Monitoring
 
-  The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occuring on our system is a command called ```top``.  This stands for *table of processes*. It produces a list of running processes selected by user-specific criteria [^100].
+  The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occuring on our system is a command called ```top``.  This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps).
   
- * top
+![*Fedora 22 top screenshot*](images/Chapter-09/monitoring/top.png "top") 
+ 
+   When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.)
+
+![*top usage*](images/Chapter-09/monioring/top/top-usage.png) 
+   
+   
+   
+ 
  * htop 
  * atop
  * https://github.com/p-e-w/ranwhen
@@ -238,6 +246,25 @@ SystemMaxFiles= and RuntimeMaxFiles=
  
  
 ### dmesg systat memfree 
+
+The following programs are found in procps:
+free - Report the amount of free and used memory in the system
+kill - Send a signal to a process based on PID
+pgrep - List processes based on name or other attributes
+pkill - Send a signal to a process based on name or other attributes
+pmap - Report memory map of a process
+ps - Report information of processes
+pwdx - Report current directory of a process
+skill - Obsolete version of pgrep/pkill
+slabtop - Display kernel slab cache information in real time
+snice - Renice a process
+sysctl - Read or Write kernel parameters at run-time
+tload - Graphical representation of system load average
+top - Dynamic real-time view of running processes
+uptime - Display how long the system has been running
+vmstat - Report virtual memory statistics
+w - Report logged in users and what they are doing
+watch - Execute a program periodically, showing output fullscreen
 
   * sar
   * http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326
