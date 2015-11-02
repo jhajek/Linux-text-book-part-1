@@ -223,55 +223,94 @@ SystemMaxFiles= and RuntimeMaxFiles=
 
 :    control how many individual journal files to keep at maximum. Note that only archived files are deleted to reduce the number of files until this limit is reached; active files will stay around. This means that in effect there might still be more journal files around in total than this limit after a vacuuming operation is complete. This setting defaults to 100.
 
+## System Monitoring
 
-## System Administration 
+  The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occuring on our system is a command called ```top``.  This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps) [^102].
 
-### System Monitoring
-
-  The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occuring on our system is a command called ```top``.  This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps).
+### top
   
 ![*Fedora 22 top screenshot*](images/Chapter-09/monitoring/top.png "top") 
  
    When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.)
 
-![*top usage*](images/Chapter-09/monioring/top/top-usage.png) 
-   
-   
-   
- 
- * htop 
- * atop
- * https://github.com/p-e-w/ranwhen
- * systemd-cgtop http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html
- 
- 
-### dmesg systat memfree 
+![*top avg*](images/Chapter-09/monitoring/top/top-avg.png "Top average")
 
-The following programs are found in procps:
-free - Report the amount of free and used memory in the system
-kill - Send a signal to a process based on PID
-pgrep - List processes based on name or other attributes
-pkill - Send a signal to a process based on name or other attributes
-pmap - Report memory map of a process
-ps - Report information of processes
-pwdx - Report current directory of a process
-skill - Obsolete version of pgrep/pkill
-slabtop - Display kernel slab cache information in real time
-snice - Renice a process
-sysctl - Read or Write kernel parameters at run-time
-tload - Graphical representation of system load average
-top - Dynamic real-time view of running processes
-uptime - Display how long the system has been running
-vmstat - Report virtual memory statistics
-w - Report logged in users and what they are doing
-watch - Execute a program periodically, showing output fullscreen
+  This section displays the system average loads over longer rolling periods.  1 minute, 5 minutes, and 15 minute rolling average.  
+ 
+![*top usage*](images/Chapter-09/monitoring/top/top-usage.png "Top usage") 
 
-  * sar
-  * http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326
-  * vmstat
-  * memfree
-  * cpufree
-  * sysstat - iostate
+  This section tells you the number of proceses, how much memory and swap is in use and how much is free.  It also tells you the breakdown between users and system on who is using the CPU percentage wise.
+
+![*top processes*](images/Chapter-09/monitoring/top/top-process.png "Top process")   
+   
+   Finally this section shows the name and induvidual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
+   
+The ```top``` command also has the ability to sort and modify its output while running.  
+
+   Key                  Action in Top
+-----------  --------------------------------------------------------------------------------
+'d' or 's'     Plus a positive nubmer you can change the reporting cycle.   
+   'u'         Plus a user's name will filter only those processes they own
+   'k'         Sorts by \%CPU usage.  
+   'I'         Sorts by CPU time usage
+   'm'         Same as above but more granular
+   'n'         Percentage of memory that a task is using.
+'w' STATE      D=uninterruptable sleep, R=running, S=sleeping, T=traced or stopped, Z=zombie
+-----------  --------------------------------------------------------------------------------
+
+### htop 
+ 
+   The htop command is an extesnion to the Linux top command.  It is written in C using the ncurses grpahics library so it has mouse support.  It also has metered output-and uses all the same interactive commands as ```top```.  The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop")[^103].  The ```htop``` command needs to be installed via apt-get or yum/dnf.
+   
+![*htop*](images/Chapter-09/monitoring/top/htop.png "htop")
+
+### atop
+
+  There is one other monitoring tool named ```atop```.  The project is located at [http://www.atoptool.nl/](http://www.atoptool.nl/ "atop") The ```atop``` command can be installed via apt-get or yum/dnf.  The ```atop``` command has a series of features compared to other monitoring tools.  Here are the highligths.
+  
+  *  Resource consumption by all processes
+  *  Utilization of all relevant resources
+  *  Permanent logging of resource utilization
+  *  Highlight critical resources
+  *  Scalable window width
+   
+![*atop*](images/Chapter-09/monitoring/top/atop.png "atop")   
+   
+### systemd-cgtop
+
+  You were probably wondering if systemd had its own system monitoring tool.  And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd.  The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the ```/proc``` filesystem.
+ 
+### Additional Monitoring Tools
+
+  There are many additional standard Linux tools as well as many GitHub projects being launched all the time to solve specific monitoring problems.  Below is a list of some of the utilities that comes with Linux ```top``` under the procps and procps-ng packages.  
+
+   Command                              Function
+--------------  -------------------------------------------------------------
+    free          Report the amount of free and used memory in the system
+    load            Graphical representation of system load average
+    top              Dynamic real-time view of running processes
+   uptime            Display how long the system has been running
+   vmstat                 Report virtual memory statistics
+     w                Report logged in users and what they are doing
+   watch          Execute a program periodically, showing output fullscreen
+--------------  -------------------------------------------------------------
+
+#### Load Generators 
+
+The opposite side of system monitoring is sometime you want to generate a load to see hwo your system responds.  On modern system that are multi-core with fast memory. There is a tool called ```stress``` you can install it via The Ubuntu and Fedora software stores or form the commandline using apt-get and yum/dnf.  It is also available for the Mac via the Homebrew package manager.
+
+```stress --cpu 2 --timeout 60```  will cause two processors to max out for 60 seconds.  You would then be able to see this using an of the above top based commands.  There are some other ways to generate loads in bash as well located here: [http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326](http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326 "Bash load generator ideas")
+
+#### ranwhen
+
+Another interesting project is something called ranwhen.  It shows a visual representation of ```uptime``` on all your previous reboots.  This allows you to see in detail the amount of time your system ran for and also the time between restarts.  This project is written in Python 3 so you need to make sure that Python 3 is installed prior to running it. Simply clone the repo via git (may need to install git as well) via ```git clone https://github.com/p-e-w/ranwhen.git```  Once cloned, cd into the ranwhen directory and type ```python3 ranwhen.py```
+
+#### sar and iostat
+
+The ```sar``` command - system activity report -- is something that came from the BSD Unixes and was ported over to Linux.The sar command is used to sample and report various cumulative statistic counters maintained by the operating system.  You can take *n* 
+samples at *t* intervals. Finally the ```iostat``` command--which in Linux is part of the sysstat package--displays kernel I/O statistics on terminal, device and cpu operations. A common word for this is I/O measurement or throughput.  
+
+**Add iostat picture here:**
 
 ## User Administration 
 
@@ -281,11 +320,11 @@ There are a series of commands that can be used to change or augment the owner, 
  
 Pronounced *"chuh-mod"*. This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  The outputs look like this:
    
- ![*Standard file permissions are 644 - very conservative and secure*](images/Chapter-05/permissions/standard-permission.png "Standard Permissions")
+ ![*Standard file permissions are 644 - very conservative and secure*](images/Chapter-09/user-administration/standard-permission.png "Standard Permissions")
    
   Why would you want to change permissions?  Perhaps to allow all users of a system a shell script that backsup the content of your home directory.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.  Or to give a shell script execute permission so it can be run by other.
   
- ![*Same file with write and execute permission enabled*](images/Chapter-05/permissions/standard-permission-chmod.png "Standard Permissions")
+ ![*Same file with write and execute permission enabled*](images/Chapter-09/user-administration/standard-permission-chmod.png "Standard Permissions")
   
 ### chown
 
@@ -360,4 +399,9 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
 [^100]: [https://en.wikipedia.org/wiki/Top_(software)](https://en.wikipedia.org/wiki/Top_\(software\))
 
 [^101]: [http://www.freedesktop.org/software/systemd/man/journald.conf.html](http://www.freedesktop.org/software/systemd/man/journald.conf.html)
+
+[^102]: [http://www.rogerbinns.com/blog/linux-top-origins.html](http://www.rogerbinns.com/blog/linux-top-origins.html)
+
+[^103]: [http://hisham.hm/htop/](http://hisham.hm/htop/)
+
 
