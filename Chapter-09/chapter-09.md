@@ -96,6 +96,8 @@ nobody ALL=(root) NOPASSWD: /bin/cp
 
    Fedora and other Linux/Unix/Mac use different groups for sudo and *superuser* access.  That group is called *wheel*.  If you look at the ```/etc/sudoers``` output below from Fedora 22 system you see the groups and file content is slightly different.
 
+![*Fedora 22 /etc/sudoers*](images/Chapter-09/root/fedora-22-etc-sudoers/png "Fedora 22 sudoers")
+
 #### sudo usage examples and conclusion
 
 > __Example Usage:__ After installing the apache webserver (httpd) on Fedora 22 - the html files are served out of the default directory ```/var/www/html```.  Now if you cd to that ```/var/www/``` what do you notice about group and other ownership of ```html```?  How would you write a new ```*.html``` file?
