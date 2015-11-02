@@ -110,12 +110,13 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
 ![*Logging*](images/Chapter-09/logs/640px-PONDEROSA_PINE_LOGS_STACKED_AT_PINE_INDUSTRY_MILL_-_NARA_-_542596.jpg "Logs") [^93]  
 
-
   One of the most central functions of an operating system is logging.  Without logging facilites it would be difficult to keep track of what the system is doing.  The tehcnical term for this is __introspection__.  In the course of your Linux career you will find the logging system to be of immense help.  Not only can it be used to debug problems and find errors or security issues, but also to monitor and measure that changes made to the operating system are working to prevent issues.  From here on out when there is an application problem in Linux - your first trouble shooting step should be to go to the logs.  
 
 ### /var/log/\*
 
-  The default logging directory on all Linux systems is located in ```/var/log```.  This is the place where the kernel, the operating systems, and any default installed services will place its logs.  When you install additional packages, those packages too will add a directory for its own logs.  Note in the picture below there is a log called ```httpd``` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files.  Note with the systemd take-over the logging convention has been changed to a binary format and placed under the ```journalctl``` command which we will cover in chapter 11.  But for Fedora 21 and any Ubuntu or Debian distro 
+  The default logging directory on all Linux systems is located in ```/var/log```.  This is the place where the kernel, the operating system, and any default installed services will place its logs. For 30+ years this was the convetion and all common knowledge.  But with the recent adoption of systemd on all major Linux plaftorms, the logging facility that was once simple text, has now been moved into the ```journald``` and into a binary format. Note with the systemd take-over the logging convention has been changed to a binary format and placed under the ```journalctl``` command which we will cover in chapter 11.  But for Fedora 21 and any Ubuntu or Debian distro.
+  
+  When you install additional packages, those packages too will add a directory for its own logs.  Note in the picture below there is a log called ```httpd``` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files.  You will notice in these screenshots that there is a log entry for VBoxGuestAdditions--telling you that you are using VirtualBox.
   
 ![*Fedora 22 /var/log/\**](images/Chapter-09/logs/var-log.png "var log")
 
@@ -123,22 +124,25 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
 ### syslog
 
-  The operating system needs a convention on how all the logs are transferred and stored.  That method is called syslog.  Until 1980 there were various logging methods and schemes.  The one that caught on was called syslog and was actually part of an email program, Sendmail.  Syslog permits the consolidation of logging data from different types of systems in a central repository.  Syslog logs can also be transmitted remotely and aggregated on a central system.  Orginally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS.  Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to the journalctl.  The system logs that had been stored in: [^94]
+  The operating system needs a convention on how all the logs are transferred and stored.  That method was called syslog.  Until 1980 there were various logging methods and schemes.  The one that caught on was called syslog and was actually part of an email program, Sendmail, initially.  Syslog permits the consolidation of logging data from different types of systems in a central repository.  Syslog logs can also be transmitted remotely and aggregated on a central system.  Orginally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS.  Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to the journalctl.  The system logs that had been stored in: [^94]
   
   * "cat /var/log/messages" will now become "journalctl".
   * "tail -f /var/log/messages" will now become "journalctl -f".
   * "grep foobar /var/log/messages" will now become "journalctl | grep foobar". 
   
+  If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04 and prior you will not find the journald commands and will find the traditional syslog service.   Syslog can be installed along side of journald and run in the traditional sense.  Some argue that this is a violation of the Unix priniciple of small services doing one thing (systemd is not small and does everything).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs--perhaps positioning Fedora to be in a Windows style dominance over Linux?
 
 ### rsyslog
 
-  Rsyslog was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  
+  By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].  
 
 ### journald and systemd
 
-  Not to be outdone - systemd in its attempt to take over everything, has preplaced syslog with jounrald.  And this has happened in every system that has adopted systemd - Debian 8, Fedora 22, Ubuntu 15.04/15.10, Centos 7.
+  Not to be outdone - systemd in its attempt to take over everything, has preplaced syslog with jounrald.  And this has happened in every system that has adopted systemd - Debian 8, Fedora 22, Ubuntu 15.04/15.10, Centos 7.  You can read the initial journald announcement and [justification paper here](https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1 "Justification Paper") [^96]. 
 
-Journald annoucenment: https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1
+  In Lennart Poeterrings own words, *"If you are wondering what the journal is, here's an explanation in a few words to get you up to speed: the journal is a component of systemd, that captures Syslog messages, Kernel log messages, initial RAM disk and early boot messages as well as messages written to STDOUT/STDERR of all services, indexes them and makes this available to the user. It can be used in parallel, or in place of a traditional syslog daemon, such as rsyslog or syslog-ng."* [^97]
+
+  "One of the impetuses behind the systemd journal is to centralize the management of logs regardless of where the messages are originating. Since much of the boot process and service management is handled by the systemd process, it makes sense to standardize the way that logs are collected and accessed. The journald daemon collects data from all available sources and stores them in a binary format for easy and dynamic manipulation." [^98]
 
 ### Log rotation
 
@@ -238,6 +242,13 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
  
 [^93]: "<a href="https://commons.wikimedia.org/wiki/File:PONDEROSA_PINE_LOGS_STACKED_AT_PINE_INDUSTRY_MILL_-_NARA_-_542596.jpg#/media/File:PONDEROSA_PINE_LOGS_STACKED_AT_PINE_INDUSTRY_MILL_-_NARA_-_542596.jpg">PONDEROSA PINE LOGS STACKED AT PINE INDUSTRY MILL - NARA - 542596</a>" by <span class="fn value"> Daniels, Gene, photographer, Photographer (<a class="external text" href="//research.archives.gov/person/8463941" rel="nofollow">NARA record: 8463941</a>) </span> - <a title="en:U.S. National Archives and Records Administration" class="extiw" href="//en.wikipedia.org/wiki/U.S._National_Archives_and_Records_Administration">U.S. National Archives and Records Administration</a>. Licensed under Public Domain via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.
 
-[^94]: [https://fedoraproject.org/wiki/Changes/NoDefaultSyslog](  https://fedoraproject.org/wiki/Changes/NoDefaultSyslog)
+[^94]: [https://fedoraproject.org/wiki/Changes/NoDefaultSyslog](https://fedoraproject.org/wiki/Changes/NoDefaultSyslog)
 
+[^95]: [http://www.rsyslog.com/doc/history.html](http://www.rsyslog.com/doc/history.html)
+
+[^96]: [https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1](https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1)
+
+[^97]: [http://0pointer.de/blog/projects/journalctl.html](http://0pointer.de/blog/projects/journalctl.html)
+
+[^98]: [https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs](https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs)
 
