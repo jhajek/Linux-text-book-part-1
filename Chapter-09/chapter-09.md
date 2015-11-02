@@ -181,7 +181,8 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 > Filtering based on time
 ```journalctl --since=yesterday```
 
-
+> Filter based on time range - note how difficult this would be with using grep, sort, and awk because everything is text. But since journald can be thought of a similar to a SQL database, then these types of queries are possible.
+```journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"```
 
 ### Log rotation
 
