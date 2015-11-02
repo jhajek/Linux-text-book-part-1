@@ -172,6 +172,17 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 > Show a live log display from a system service apache.service:
 ```journalctl -f -u apache```
 
+> This will show you only the logs of the current boot, 
+```journalctl -b```
+
+> List all messages of priority levels ERROR and worse, from the current boot:
+```journalctl -b -p err```
+
+> Filtering based on time
+```journalctl --since=yesterday```
+
+
+
 ### Log rotation
 
   The concept of logrotation existed under syslog and rsyslog but no longer specifically exist under journald.  Before you could use the ```/etc/logrotate.conf``` file but it is no longer needed.   Also each application may still write to a discrete syslog, but all those logs are then copied up by journald trying to be the single central repository for logs.
