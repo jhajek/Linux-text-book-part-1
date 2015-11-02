@@ -110,7 +110,7 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
 ![*Logging*](images/Chapter-09/logs/Timber_floating.jpg "Logs")  
 
-  One of the most central functions of an operating system is logging.  In the course of your Linux career you will find the logging system to be of immense help.  Not only can it be used to debug problems and find errors or security issues, but also to monitor and measure that changes made to the operating system are working to prevent issues.  
+  One of the most central functions of an operating system is logging.  Without logging you   In the course of your Linux career you will find the logging system to be of immense help.  Not only can it be used to debug problems and find errors or security issues, but also to monitor and measure that changes made to the operating system are working to prevent issues.  
 
 ### /var/log/\*
 
