@@ -1,46 +1,82 @@
 # System Administration 
-![*Permissions are all messed up...*](images/Chapter-Header/Chapter-09/authorization-2.png  "Permissions")
+![*This generation's Your Money or Your Life!*](images/Chapter-Header/Chapter-09/sandwich-2.png  "Permissions")
 
 __Chapter 09 Objectives__
 
-  * Discuss standard trouble shooting procedures for system admins.
   * Understanding basic admin tools and the Linux concept of logging
-  * Understand how to use basic system tools for reporting
-  * Understanding user administration
-  * Understand the 3P method of troubleshooting
-
-  * 3P's
-  * sudo
-    + visudoers
-    + Understand the sudo command and root user paradigm    
-  *  logging  /var/log  
-    + syslog 
-    + rsyslog
-    + dmesg
-  * System Administration  
-    + top, atop, htop
-    + tail -f
-    + logrotation
-  * User Administration
-    + adduser, userdel, usermod
-    + chown, chgrp, chmod
-
+  * Understand how to use basic system tools for system reporting
+  * Understand using standard tools for user administration
+  * Discuss standard trouble shooting procedures for system admins.
+  * Understand the 3Ps method of troubleshooting
 
 __Outcomes__
 
-  At the completion of this chapter...
+  At the completion of this chapter you will have the ability to administer a Linux system.  You will have an understanding of Linux system logs, their standard locations, and their use.  You will have a knowledge of some basic reporting tools and how to understand their output.  You will be able to administer user accounts on a Linux system. Finally you will be able to enter trouble shooting procedures.
 
 ## Sudo and the Root user paradigm
 
-### visudo
+  On every Unix system dating back to Thompson's Unix, there has always been a single *superuser* account on every system.  This system is usually called the __root user__.   The __root user__ must be used with the utmost care, as that account has all the system privillege and authority to carry out any operation, even the ```rm -rf /*``` command.  Root is good for getting things done or overriding users, but is *dangerous* you should log into that account only sparingly.  Every single admin worth their salt will tell you not to use __root__ in almost any case [^90].  
+
+  This concept is *vital* enough that on the Ubuntu distribution their is no __root__ account availalbe. On the BSD distros, Debian, and the RedHat/Fedora family - there is still a __root__ account, partially because of tradition and partially because of the way system administration always worked.  Remember that Unix was developed in the environemnt of mulitple users accessing a large central Unix server.  So you always had to have a __root__ account to overrride any activities of the users and to enforce system policies, such as disk quotas, changing network configurations, or even system wide profiles. As a reminder when you are signed in as, or acting as "root", the shell prompt displays __#__ as the last character in bash and as seen in the image below.  You can use the ```whoami``` command to find out what user account you are logged in as well.
+ 
+![*Root User has the # sign as its shell*](images/Chapter-09/root/root.png "Root User Shell") 
+  
+  In order to change the user you are logged in as, without logging out, you use the ```su``` command.  Known as *superuser* or sometimes *switch user*.  By typing ```su root``` on the command line in Fedora Linux, you will be presented with a password prompt to enter the password you created during the install process for the root account.  
+
+### sudo  
+ 
+  AS the great philosopher Spiderman once said, "With great power comes great responsibility."  Seeing as __root__ had unintentiaonally dangerous uses potentially.  So a temporary system was devised to blunt the power of the __root__ account as it is neccesary to use it sometimes. Sudo was created by researchers at SUNY/Buffalo in New York in 1980 to allow users to run specific commands as a different user.  Sudo was not designed for file editing. It was more designed for service management. From 1986 to 1991, development of sudo moved to CU-Boulder in Colorado and gained the cu-sudo prefix. In 1991, the code was moved to GPL.  In 1996 Todd C. Miller (one of the early maintainers) took the project under his wing moving a version of sudo to his own servers, to differentiate from cu-sudo.  By 1999 the code base was moved to the ISC license (Internet Systems Consortium), the same license dhcp and dns servers are under, it is the preferred license of the OpenBSD project and is GPL compatiple free license.  Todd C. Miller is paid by Dell to maintain sudo as part of his day job.  The sudo project homepage is located at [http://www.sudo.ws](http://www.sudo.ws). [A brief history of sudo](http://www.sudo.ws/history.html "Brief history of sudo") [^91].
+  
+  The tool is often mispronounced "*su - doh*".  But actual pronunciation is "*su - do*".  Either one is acceptable.  To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis. 
+
+#### Ubuntu
+
+  Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo.  They firmly believe not to have a root account as a point of differentiaition.  They rely on ```sudo``` hence the cartoon above.  The first user you create (like in Windows and Mac) is automatically added to the __sudo__ usergroup and has sudo privillege.  Then any command you need *superuser* privilleges you can simply ellevate to that privillege by typing the word ```sudo``` in front on any command.  Upon successful entry of your own password you will be ellevated up to full system authority.  Some refer to this as *god mode* but I think using that term is a bit presumptous as you do have absolute power over the system but ```sudo``` doesn't let you create the world in seven days.  
+  
+  One example us you can assign the value 000 to a file.  Who can access that file?  According to the permissions not even the owner can access it?  But the ```sudo``` user can.    You can find out on a system which users have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privillege).  Here is a sample screen shot. Here is where you define which users can be in the sudo group.  You may not want to give admin privillege to every user.  Also under the *user* section below you may want to give a user admin privilleges but only to execute certain commands.  This is where that would be enumerated.    
+
+![*Ubuntu 15.04 /etc/sudoers*](images/Chapter-09/root/etc-sudoers.png)
+
+To edit the ```/etc/sudoers``` file you do not directly edit the file, but through a special tool called ```visudo```. The ```visudo``` command edits the sudoers file in a safe fashion. visudo locks the sudoers file against multiple simultaneous edits, provides basic sanity checks, and checks for parse errors.  If the sudoers file is currently being edited you will receive a message to try again later [^92]. You can invoke visudo from anywhere on the system.  This is the same action as adding them directly to the sudo users group--which is discussd at the end of this chapter.  
+
+That is sudo in a nutshell, be careful and happy sudo-ing.
+
+> __Example Usage:__ After installing the apache webserver (httpd) on Fedora 22 - the html files are served out of the default directory ```/var/www/html```.  Now if you cd to that ```/var/www/``` what do you notice about group and other ownership of ```html```?  How would you write a new ```*.html``` file?
+
+> __Example Usage:__ To install a service: ```sudo dnf install httpd```, then you need to start the service (on Ubuntu they autostart for you, Fedora family they don't autostart), ```sudo systemctl start httpd```.
 
 ## Logging and monitoring
 
+![*Logging*](images/Chapter-09/logs/Timber_floating.jpg "Logs")  
+
+  One of the most central functions of an operating system is logging.  In the course of your Linux career you will find the logging system to be of immense help.  Not only can it be used to debug problems and find errors or security issues, but also to monitor and measure that changes made to the operating system are working to prevent issues.  
+
 ### /var/log/\*
+
+  The default logging directory on all Linux systems is located in ```/var/log```.  This is the place where the kernel, the operating systems, and any default installed services will place its logs.  When you install additional packages, those packages too will add a directory for its own logs.  Note in the picture below there is a log called ```httpd``` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files.  Note with the systemd take-over the logging convention has been changed to a binary format and placed under the ```journalctl``` command which we will cover in chapter 11.  But for Fedora 21 and any Ubuntu or Debian distro 
+  
+![*Fedora 22 /var/log/\**](images/Chapter-09/logs/var-log.png "var log")
+
+![*Ubuntu 15.04 /var/log\**](images/Chapter-09/logs/ubuntu-var-log.png "varlog")
 
 ### syslog
 
+  The operating system needs a convention on how all the logs are transferred and stored.  That method is called syslog.  Until 1980 there were various logging methods and schemes.  The one that caught on was called syslog and was actually part of an email program, Sendmail.  Syslog permits the consolidation of logging data from different types of systems in a central repository.  Syslog logs can also be transmitted remotely and aggregated on a central system.  Orginally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS.  Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to the journalctl.  The system logs that had been stored in: [^94]
+  
+  * "cat /var/log/messages" will now become "journalctl".
+  * "tail -f /var/log/messages" will now become "journalctl -f".
+  * "grep foobar /var/log/messages" will now become "journalctl | grep foobar". 
+  
+
 ### rsyslog
+
+  Rsyslog was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  
+
+### journald and systemd
+
+  Not to be outdone - systemd in its attempt to take over everything, has preplaced syslog with jounrald.  And this has happened in every system that has adopted systemd - Debian 8, Fedora 22, Ubuntu 15.04/15.10, Centos 7.
+
+Journald annoucenment: https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1
 
 ### Log rotation
 
@@ -98,6 +134,9 @@ Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like 
 
 ### usermod
 
+http://askubuntu.com/questions/2214/how-do-i-add-a-user-to-the-sudo-group
+sudo usermod -aG sudo <username>
+
 #### ACLs
 
 IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them and will be covered in Chapter X.
@@ -129,6 +168,14 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
  
 #### Footnotes
  
+[^90]: [http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html]( http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html "tldp root")
  
+[^91]: [http://www.sudo.ws/history.html](http://www.sudo.ws/history.html "sudo") 
  
+[^92]: [http://manpages.ubuntu.com/manpages/dapper/man8/visudo.8.html](http://manpages.ubuntu.com/manpages/dapper/man8/visudo.8.html "visudo") 
  
+[^93]: By Petritap (Own work) [<a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a> or <a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a>], <a href="https://commons.wikimedia.org/wiki/File%3ATimber_floating.jpg">via Wikimedia Commons</a>
+
+[^94]: [https://fedoraproject.org/wiki/Changes/NoDefaultSyslog](  https://fedoraproject.org/wiki/Changes/NoDefaultSyslog)
+
+

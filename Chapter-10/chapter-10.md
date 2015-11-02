@@ -1,7 +1,6 @@
 # Package Managers and Package Installation
 ![*Always check the package dependencies...*](images/Chapter-Header/Chapter-10/debian_main-2.png "Dependencies")
 
-
 __Chapter 10 Objectives__
 
   * Learn the features of dnf, yum, and apt to install packages and dependecies in Linux
