@@ -21,7 +21,7 @@ __Outcomes__
  
 ![*Root User has the # sign as its shell*](images/Chapter-09/root/root.png "Root User Shell") 
   
-  In order to change the user you are logged in as, without logging out, you use the ```su``` command.  Known as *superuser* or sometimes *switch user*.  By typing ```su root``` on the command line in Fedora Linux, you will be presented with a password prompt to enter the password you created during the install process for the root account.  
+  In order to change the user you are logged in as, without logging out, you use the ```su``` command.  Known as *superuser* or sometimes *switch user*.  By typing ```su root``` on the command line in Fedora Linux, you will be presented with a password prompt to enter the password you created during the install process for the root account.  Sudo ellevates you for a default period of 15 minutes, but it is good habit to type ```sudo``` in front of any command that needs ellevated privilleges.
 
 ### sudo  
  
@@ -33,11 +33,55 @@ __Outcomes__
 
   Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo.  They firmly believe not to have a root account as a point of differentiaition.  They rely on ```sudo``` hence the cartoon above.  The first user you create (like in Windows and Mac) is automatically added to the __sudo__ usergroup and has sudo privillege.  Then any command you need *superuser* privilleges you can simply ellevate to that privillege by typing the word ```sudo``` in front on any command.  Upon successful entry of your own password you will be ellevated up to full system authority.  Some refer to this as *god mode* but I think using that term is a bit presumptous as you do have absolute power over the system but ```sudo``` doesn't let you create the world in seven days.  
   
-  One example us you can assign the value 000 to a file.  Who can access that file?  According to the permissions not even the owner can access it?  But the ```sudo``` user can.    You can find out on a system which users have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privillege).  Here is a sample screen shot. Here is where you define which users can be in the sudo group.  You may not want to give admin privillege to every user.  Also under the *user* section below you may want to give a user admin privilleges but only to execute certain commands.  This is where that would be enumerated.    
+  One example us you can assign the value 000 to a file.  Who can access that file?  According to the permissions not even the owner can access it?  But the ```sudo``` user can.    You can find out on a system which users have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privillege).  Here is a sample screen shot. Here is where you define which users can be in the sudo group.  You may not want to give admin privillege to every user.  Also under the *user* section below you may want to give a user admin privilleges but only to execute certain commands.  This is where that would be enumerated.      
 
 ![*Ubuntu 15.04 /etc/sudoers*](images/Chapter-09/root/etc-sudoers.png)
 
-To edit the ```/etc/sudoers``` file you do not directly edit the file, but through a special tool called ```visudo```. The ```visudo``` command edits the sudoers file in a safe fashion. visudo locks the sudoers file against multiple simultaneous edits, provides basic sanity checks, and checks for parse errors.  If the sudoers file is currently being edited you will receive a message to try again later [^92]. You can invoke visudo from anywhere on the system.  This is the same action as adding them directly to the sudo users group--which is discussd at the end of this chapter.  
+Let's look at the contents in more detail.  First to edit the ```/etc/sudoers``` file you do not directly edit the file, but through a special tool called ```visudo```. The ```visudo``` command edits the sudoers file in a safe fashion. visudo locks the sudoers file against multiple simultaneous edits, provides basic sanity checks, and checks for parse errors.  If the sudoers file is currently being edited you will receive a message to try again later [^92]. You can invoke visudo from anywhere on the system.  
+
+The first line of significance is: ```Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"```  This is where you set the system path a user recieves when they become a sudo user.  
+
+> __Example Usage:__  Using either Fedora 22 or Ubuntu 15.04: as your user account from the commandline type ```echo $PATH``` now type ```sudo sh``` and then ```echo $PATH``` notice what happens to the prompt?  Are the paths different?  Why?  Type ```exit``` to exit back to the normal user. 
+
+The next line of interest is: 
+```
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+```
+
+This line allows you to add specific users and then list specific commands that they have *superuser* access too.
+
+```
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+```
+
+The next line allows you to add groupnames to recieve sudo access.  Any useraccount that is a memeber of this group, in Ubuntu's case *sudo* can gain *superuser* permissions
+
+```
+# Members of the admin group may gain root privileges
+%admin  ALL=(ALL:ALL) ALL
+```
+
+This last entry is a catch-all command for backward compatability.  Ubuntu versions previous to 14.04 used the admin group instead of the sudo group.  
+
+: sudoers man page sudoers(5)
+
+  Group                    Hosts                    Target User                  Group Access
+--------------- -----------------------------    ------------------   -----------------------------------
+   %sudo           Any machine can run this         All (root)           You can be in any primary usergroup
+
+
+
+%admin  ALL=(ALL) NOPASSWD:ALL
+
+
+
+This is the same action as adding them directly to the sudo users group--which is discussd at the end of this chapter.  
+
+#### Fedora and other Linux
+
+   All other Linux distributions have a __root__ account user made at install time. Some minimal distributions or in FreeBSD case may only allow you to create a __root__ user at install time and make aditional users your job to create.  In Fedora you can log into an GNOME session using the root account, there might be warnings from the operating system, as it is not expecting you to be logged in as __root__.  The __root__ user has its own home directory located at ```/root```.  Even if you are going to use the __root__ account it is still advised to log in as a regular user and then use the ```sudo``` or ```su``` commands to elevate and then exit those privilleges.
 
 That is sudo in a nutshell, be careful and happy sudo-ing.
 
