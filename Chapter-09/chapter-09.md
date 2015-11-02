@@ -96,7 +96,7 @@ nobody ALL=(root) NOPASSWD: /bin/cp
 
    Fedora and other Linux/Unix/Mac use different groups for sudo and *superuser* access.  That group is called *wheel*.  If you look at the ```/etc/sudoers``` output below from Fedora 22 system you see the groups and file content is slightly different.
 
-![*Fedora 22 /etc/sudoers*](images/Chapter-09/root/fedora-22-etc-sudoers/png "Fedora 22 sudoers")
+![*Fedora 22 /etc/sudoers*](images/Chapter-09/root/fedora-22-etc-sudoers.png "Fedora 22 sudoers")
 
 #### sudo usage examples and conclusion
 
@@ -188,7 +188,7 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
   The concept of logrotation existed under syslog and rsyslog but no longer specifically exist under journald.  Before you could use the ```/etc/logrotate.conf``` file but it is no longer needed.   Also each application may still write to a discrete syslog, but all those logs are then copied up by journald trying to be the single central repository for logs.
   
-  When viewing a older syslog style text log you can use the ```tail -f``` command and it will auto-update if there is new content automatically.  Very helpful if you are watching a log for some particular output.
+  When viewing a older syslog style text log you can use the ```tail -f``` command and it will auto-update if there is new content automatically.  This command can be very helpful if you are watching a log for some particular output - can you find the journald equivilant?
 
 ## System Administration 
 
