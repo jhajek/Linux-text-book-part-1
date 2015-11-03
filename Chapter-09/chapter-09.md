@@ -229,7 +229,7 @@ SystemMaxFiles= and RuntimeMaxFiles=
 
 ### top
   
-![*Fedora 22 top screenshot*](images/Chapter-09/monitoring/top.png "top") 
+![*Fedora 22 top screenshot*](images/Chapter-09/monitoring/top/top.png "top") 
  
    When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.)
 
@@ -241,7 +241,7 @@ SystemMaxFiles= and RuntimeMaxFiles=
 
   This section tells you the number of proceses, how much memory and swap is in use and how much is free.  It also tells you the breakdown between users and system on who is using the CPU percentage wise.
 
-![*top processes*](images/Chapter-09/monitoring/top/top-process.png "Top process")   
+![*top processes*](images/Chapter-09/monitoring/top/top-processes.png "Top process")   
    
    Finally this section shows the name and induvidual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
    
