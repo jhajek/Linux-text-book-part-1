@@ -336,9 +336,32 @@ There are a series of commands that can be used to change or augment the owner, 
 
 ### useradd
 
-  The useradd command allows you to add a new user to the system.  You can set user defaults 
+  The useradd command allows you to add a new user to the system.  You can set user defaults by typing the command below.  The -D option reads from the ```/etc/default/useradd``` where you can set the default values a new user created will inherit.
+```bash
+useradd -D name-of-account-to-add
+```
 
-adduser 
+![*useradd*](images/Chapter-09/user-administration/default/etc-default.png "etc-default")
+
+You have the option as well to override the default values and set your own values for a new user.
+
+  Option         Function
+-------------   ----------------------------------------------------
+```-c```          Add a commment
+```-d```          User's home directory
+```-e```          Date in which a user account expires
+```-g```          Add user to a specific primary group
+```-G```          Add user to additional supplimentary groups
+```-m```          Create user's home directory if it doesn't exist
+```-s```          Assign the user's shell
+-------------   ----------------------------------------------------
+
+> __Example Usage:__ What do the options and arguments below do?  Type it in an see what happens.
+```bash
+sudo useradd -c "This is a user for ITMO-456-02 Fall 2015" -d /home/controller -G sudo -s /bin/ksh -m controller
+```
+In Debian distributions there is a abstraction layer called ```adduser``` and ```addgroup``` which are interfaces to the useradd and groupadd commands.  It is just a perl script that passes the values you enter in the menu to the useradd command.  On all other non-Debian distros ```adduser``` is a symlink to ```useradd``` command.
+
 
 ### userdel
 
