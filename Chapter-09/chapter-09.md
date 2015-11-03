@@ -377,7 +377,7 @@ In Debian distributions there is a abstraction layer called ```adduser``` and ``
 
   When a new user is created, the information passed into the ```adduser``` or ```useradd``` command is stored in the ```/etc/passwd``` file (yes it is missing the 'or').  This file originally stored user passwords which had been encrypted, but the file had read access and it was realized that it was a security flaw to allow access in this way.  The actual encrypted passwords were moved to a file called ```/etc/shadow``` and linked via the character *x* in the ```/etc/passwd``` file.  You can see this in the image below.  Also notice from the snippet that there are many many usernames that have been created but only two of them are by your hand.  That is because the system upon install creates many additional users that have single or even legacy purposes that the user will not touch.  At the very end of the screenshot below you see a user named controller, vboxadd, and joe.  Two of those I created, the vboxadd was entered when I installed the VirtualBox Guest Additions.  The syntax is as follows:  Username:password:user-id:group-id:comment-field:home-directory:default-shell.    You can see the encrypted and salted password hash if you have root or sudo privilleges by typing ```sudo cat /etc/shadow``` on the command line.   
   
-![*/etc/passwd*](images/Chapter-09/user-administrstion/default/etc-passwd.png "/etc/passwd")
+![*/etc/passwd*](images/Chapter-09/user-administration/default/etc-passwd.png "/etc/passwd")
 
 ### chmod
  
