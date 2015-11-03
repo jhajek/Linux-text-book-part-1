@@ -341,6 +341,8 @@ useradd -D name-of-account-to-add
 
 You have the option as well to override the default values and set your own values for a new user.
 
+: useradd command options
+
   Option         Function
 -------------   ----------------------------------------------------
 ```-c```          Add a comment
@@ -354,21 +356,24 @@ You have the option as well to override the default values and set your own valu
 
 > __Example Usage:__ What do the options and arguments below do?  Type it in and see what happens.
 ```bash
-sudo useradd -c "This is a user for ITMO-456-02 Fall 2015" -d /home/controller -G sudo -s /bin/ksh -m controller
+sudo useradd -c "This is a user for ITMO-456-02 Fall 2015" -d /home/controller \ 
+-G sudo -s /bin/ksh -m controller
 ```
+
 In Debian distributions there is an abstraction layer called ```adduser``` and ```addgroup``` which are interfaces to the useradd and groupadd commands.  It is just a perl script that passes the values you enter in the menu to the useradd command.  On all other non-Debian distros ```adduser``` is a symlink to ```useradd``` command.  The ```adduser``` command prompts you for information to fill out all the values and is recommended on Debian based systems, but if writing a shell script this is not portable to a non-Debian based distro.
 
 ![*adduser*](images/Chapter-09/user-administration/default/adduser.png "adduser")
 
 ### userdel and usermod
 
-  The same as above, the ```userdel``` command allows you to delete a user.  The ```usermod``` command allows you to modify a setting for a user without having to delete and re-create a user.  The most common scenario is changing the users supplementary groups so that they can be in the sudo, wheel, or admin group.   By default the system creates a usergroup with the same name as the usergroup and marks that as your users primary group. In this command -a means append and -G means append to the groups list.  For example: ```sudo usermod -aG sudo <username>```  is a handy command to remember.  In addition there is a Debian equivilent deluser which asks for a username and then deletes the user and all associated artifacts (home directory, primary group, and passwd file entry), but there is no modusercommand.   
+  The same as above, the ```userdel``` command allows you to delete a user.  The ```usermod``` command allows you to modify a setting for a user without having to delete and re-create a user.  The most common scenario is changing the users supplementary groups so that they can be in the sudo, wheel, or admin group.   By default the system creates a usergroup with the same name as the usergroup and marks that as your users primary group. In this command -a means append and -G means append to the groups list.  For example: ```sudo usermod -aG sudo <username>```  is a handy command to remember.  In addition there is a Debian equivilent deluser which asks for a username and then deletes the user and all associated artifacts (home directory, primary group, and passwd file entry), but there is no moduser command.   
   
 ### addgroup and groupadd
 
-   In the same way as a user is created and there is a Debian based shortcut, there is a similar command to create a new group.  You would want to do this if you needed to create a group that was not in existence.  The syntax is simply ```sudo addgroup name-of-group``` and that is it.  The opposite command exists as well groupdel and delgroup, with the syntax of ```sudo delgroup name-of-group```.
+In the same way as a user is created and there is a Debian based shortcut, there is a similar command to create a new group.  You would want to do this if you needed to create a group that was not in existence.  The syntax is simply ```sudo addgroup name-of-group``` and that is it.  The opposite command exists as well groupdel and delgroup, with the syntax of ```sudo delgroup name-of-group```.
    
-    You can list all the groups that exist on your system by executing the ```groups``` command.  If executed without any arguments it will show the current users group membership.  If you follow it up with a username it will return the group memberships of that user.  You can display the list of all the groups that exist on a system by typing ```cat /etc/group``` on the commandline.     
+You can list all the groups that exist on your system by executing the ```groups``` command.  If executed without any arguments it will show the current users group membership.  If you follow it up with a username it will return the group memberships of that user.  You can display the list of all the groups that exist on a system by typing ```cat /etc/group``` on the commandline.     
+
 ### /etc/passwd
 
   When a new user is created, the information passed into the ```adduser``` or ```useradd``` command is stored in the ```/etc/passwd``` file (yes it is missing the 'or').  This file originally stored user passwords which had been encrypted, but the file had read access and it was realized that it was a security flaw to allow access in this way.  The actual encrypted passwords were moved to a file called ```/etc/shadow``` and linked via the character *x* in the ```/etc/passwd``` file.  You can see this in the image below.  Also notice from the snippet that there are many many usernames that have been created but only two of them are by your hand.  That is because the system upon install creates many additional users that have single or even legacy purposes that the user will not touch.  At the very end of the screenshot below you see a user named controller, vboxadd, and joe.  Two of those I created, the vboxadd was entered when I installed the VirtualBox Guest Additions.  The syntax is as follows:  Username:password:user-id:group-id:comment-field:home-directory:default-shell.    You can see the encrypted and salted password hash if you have root or sudo privileges by typing ```sudo cat /etc/shadow``` on the command line.   
