@@ -1,5 +1,5 @@
 # System Administration 
-![*This generation's 'Who's in First?'*](images/Chapter-Header/Chapter-09/sandwich-2.png  "Permissions")
+![*This generation's 'Who's on First?'*](images/Chapter-Header/Chapter-09/sandwich-2.png  "Permissions")
 
 __Chapter 09 Objectives__
 
@@ -25,9 +25,7 @@ __Outcomes__
 
 ### sudo  
  
-  AS the great philosopher Spiderman once said, "With great power comes great responsibility."  Seeing as __root__ had unintentiaonally dangerous uses potentially.  So a temporary system was devised to blunt the power of the __root__ account as it is neccesary to use it sometimes. Sudo was created by researchers at SUNY/Buffalo in New York in 1980 to allow users to run specific commands as a different user.  Sudo was not designed for file editing. It was more designed for service management. From 1986 to 1991, development of sudo moved to CU-Boulder in Colorado and gained the cu-sudo prefix. In 1991, the code was moved to GPL.  In 1996 Todd C. Miller (one of the early maintainers) took the project under his wing moving a version of sudo to his own servers, to differentiate from cu-sudo.  By 1999 the code base was moved to the ISC license (Internet Systems Consortium), the same license dhcp and dns servers are under, it is the preferred license of the OpenBSD project and is GPL compatiple free license.  Todd C. Miller is paid by Dell to maintain sudo as part of his day job.  The sudo project homepage is located at [http://www.sudo.ws](http://www.sudo.ws). [A brief history of sudo](http://www.sudo.ws/history.html "Brief history of sudo") [^91].
-  
-  The tool is often mispronounced "*su - doh*".  But actual pronunciation is "*su - do*".  Either one is acceptable.  
+  AS the great philosopher Spiderman once said, "With great power comes great responsibility."  Seeing as __root__ had unintentiaonally dangerous uses potentially.  So a temporary system was devised to blunt the power of the __root__ account as it is neccesary to use it sometimes. Sudo was created by researchers at SUNY/Buffalo in New York in 1980 to allow users to run specific commands as a different user.  Sudo was not designed for file editing. It was more designed for service management. From 1986 to 1991, development of sudo moved to CU-Boulder in Colorado and gained the cu-sudo prefix. In 1991, the code was moved to GPL.  In 1996 Todd C. Miller (one of the early maintainers) took the project under his wing moving a version of sudo to his own servers, to differentiate from cu-sudo.  By 1999 the code base was moved to the ISC license (Internet Systems Consortium), the same license dhcp and dns servers are under, it is the preferred license of the OpenBSD project and is GPL compatiple free license.  Todd C. Miller is paid by Dell to maintain sudo as part of his day job.  The sudo project homepage is located at [http://www.sudo.ws](http://www.sudo.ws). [A brief history of sudo](http://www.sudo.ws/history.html "Brief history of sudo") [^91]. The tool is often mispronounced "*su - doh*".  But actual pronunciation is "*su - do*".  Either one is acceptable.  
 
 #### Ubuntu
 
@@ -39,9 +37,8 @@ __Outcomes__
 
 Let's look at the contents in more detail.  First to edit the ```/etc/sudoers``` file you do not directly edit the file, but through a special tool called ```visudo```. The ```visudo``` command edits the sudoers file in a safe fashion. visudo locks the sudoers file against multiple simultaneous edits, provides basic sanity checks, and checks for parse errors.  If the sudoers file is currently being edited you will receive a message to try again later [^92]. You can invoke visudo from anywhere on the system.  
 
-The first line of significance is: 
-```Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"```  
-This is where you set the system path a user recieves when they become a sudo user.  
+The first line is where you set the system path a user recieves when they become a sudo user.  
+ ```Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"```  
 
 > __Example Usage:__  Using either Fedora 22 or Ubuntu 15.04: as your user account from the commandline type ```echo $PATH``` now type ```sudo sh``` and then ```echo $PATH``` notice what happens to the prompt?  Are the paths different?  Why?  Type ```exit``` to exit back to the normal user. 
 
@@ -85,8 +82,6 @@ After the useraccount you can add an additional parameter to remove the password
 > __Example Usage:__   The two commands below give the user ```nobody``` the ability to become sudo without requiring a password and only the power to execute the copy command.  The second command gives any user who is a memeber of the admin group the ability to sudo with out any password.
 ```
 nobody ALL=(root) NOPASSWD: /bin/cp 
-```
-```
 %admin  ALL=(ALL) NOPASSWD:ALL
 ```
 
@@ -106,7 +101,7 @@ nobody ALL=(root) NOPASSWD: /bin/cp
 
 That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis. 
 
-## Logging and monitoring
+## Logging and Monitoring
 
 ![*Logging*](images/Chapter-09/logs/640px-PONDEROSA_PINE_LOGS_STACKED_AT_PINE_INDUSTRY_MILL_-_NARA_-_542596.jpg "Logs") [^93]  
 
@@ -126,9 +121,9 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
   The operating system needs a convention on how all the logs are transferred and stored.  That method was called syslog.  Until 1980 there were various logging methods and schemes.  The one that caught on was called syslog and was actually part of an email program, Sendmail, initially.  Syslog permits the consolidation of logging data from different types of systems in a central repository.  Syslog logs can also be transmitted remotely and aggregated on a central system.  Orginally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS.  Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to the journalctl.  The system logs that had been stored in: [^94]
   
-  * "cat /var/log/messages" will now become "journalctl".
-  * "tail -f /var/log/messages" will now become "journalctl -f".
-  * "grep foobar /var/log/messages" will now become "journalctl | grep foobar". 
+  * ```cat /var/log/messages``` will now become ```journalctl```
+  * ```tail -f /var/log/messages``` will now become ```journalctl -f```
+  * ```grep foobar /var/log/messages``` will now become ```journalctl | grep foobar``` 
   
   If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04 and prior you will not find the journald commands and will find the traditional syslog service.   Syslog can be installed along side of journald and run in the traditional sense.  Some argue that this is a violation of the Unix priniciple of small services doing one thing (systemd is not small and does everything).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs--perhaps positioning Fedora to be in a Windows style dominance over Linux?
 
@@ -149,43 +144,69 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 > __Example Usage:__ These examples have been taken from the [systemd website](http://www.freedesktop.org/software/systemd/man/journalctl.html "jounralctl examples"): [^99]
 
 > Without arguments, all collected logs are shown unfiltered:
-```journalctl```
+```bash
+journalctl
+```
 
 > With one match specified, all entries with a field matching the expression are shown:
-```journalctl _SYSTEMD_UNIT=avahi-daemon.service```
+```bash
+journalctl _SYSTEMD_UNIT=avahi-daemon.service
+```
 
 > If two different fields are matched, only entries matching both expressions at the same time are shown:
-```journalctl _SYSTEMD_UNIT=avahi-daemon.service _PID=28097```
+```bash
+journalctl _SYSTEMD_UNIT=avahi-daemon.service _PID=28097
+```
 
 > If two matches refer to the same field, all entries matching either expression are shown:
-```journalctl _SYSTEMD_UNIT=avahi-daemon.service _SYSTEMD_UNIT=dbus.service```
+```bash
+journalctl _SYSTEMD_UNIT=avahi-daemon.service _SYSTEMD_UNIT=dbus.service
+```
 
 > If the separator "+" is used, two expressions may be combined in a logical OR. The following will show all messages from the Avahi service process with the PID 28097 plus all messages from the D-Bus service (from any of its processes):
-```journalctl _SYSTEMD_UNIT=avahi-daemon.service _PID=28097 + _SYSTEMD_UNIT=dbus.service```
+```bash
+journalctl _SYSTEMD_UNIT=avahi-daemon.service _PID=28097 + _SYSTEMD_UNIT=dbus.service
+```
 
 > Show all logs generated by the D-Bus executable:
-```journalctl /usr/bin/dbus-daemon```
+```bash
+journalctl /usr/bin/dbus-daemon
+```
 
 > Show all kernel logs from previous boot:
-```journalctl -k -b -1```
+```bash
+journalctl -k -b -1
+```
 
 > Show a live log display from a system service apache.service:
-```journalctl -f -u apache```
+```bash
+journalctl -f -u apache
+```
 
 > This will show you only the logs of the current boot, 
-```journalctl -b```
+```bash
+journalctl -b
+```
 
 > List all messages of priority levels ERROR and worse, from the current boot:
-```journalctl -b -p err```
+```bash
+journalctl -b -p err
+```
 
 > Filtering based on time
-```journalctl --since=yesterday```
+```bash
+journalctl --since=yesterday
+```
 
 > Filter based on time range - note how difficult this would be with using grep, sort, and awk because everything is text. But since journald can be thought of a similar to a SQL database, then these types of queries are possible.
-```journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"```
+```bash
+journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
+```
 
 > See log entries created only by the SSH service
-```journalctl _COMM=sshd```
+```bash
+journalctl _COMM=sshd
+```
 
 ### Log rotation
 
@@ -201,27 +222,27 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
   
   Entries can be service specific and kept in subdirectories ```/etc/systemd/journald.conf.d/*.conf```  any configurations in these directories take precedance over the main journald.conf file.  
   
-Storage=
+Storage
 
 :     Controls where to store journal data. One of "volatile", "persistent", "auto" and "none". If "volatile", journal log data will be stored only in memory, i.e. below the /run/log/journal hierarchy (which is created if needed). If "persistent", data will be stored preferably on disk, i.e. below the /var/log/journal hierarchy (which is created if needed), with a fallback to /run/log/journal (which is created if needed), during early boot and if the disk is not writable. "auto" is similar to "persistent" but the directory /var/log/journal is not created if needed, so that its existence controls where log data goes. "none" turns off all storage, all log data received will be dropped. Forwarding to other targets, such as the console, the kernel log buffer, or a syslog socket will still work however. Defaults to "auto".
 
-SplitMode=
+SplitMode
 
 :   Controls whether to split up journal files per user. One of "uid", "login" and "none". If "uid", all users will get each their own journal files regardless of whether they possess a login session or not, however system users will log into the system journal. If "login", actually logged-in users will get each their own journal files, but users without login session and system users will log into the system journal. If "none", journal files are not split up by user and all messages are instead stored in the single system journal. Note that splitting up journal files by user is only available for journals stored persistently. If journals are stored on volatile storage (see above), only a single journal file for all user IDs is kept. Defaults to "uid".
 
-MaxLevelStore=, MaxLevelSyslog=, MaxLevelKMsg=, MaxLevelConsole=, MaxLevelWall=
+MaxLevelStore, MaxLevelSyslog, MaxLevelKMsg, MaxLevelConsole, MaxLevelWall
 
 :    Controls the maximum log level of messages that are stored on disk, forwarded to syslog, kmsg, the console or wall (if that is enabled, see above). As argument, takes one of "emerg", "alert", "crit", "err", "warning", "notice", "info", "debug", or integer values in the range of 0..7 (corresponding to the same levels). Messages equal or below the log level specified are stored/forwarded, messages above are dropped. Defaults to "debug" for MaxLevelStore= and MaxLevelSyslog=, to ensure that the all messages are written to disk and forwarded to syslog. Defaults to "notice" for MaxLevelKMsg=, "info" for MaxLevelConsole=, and "emerg" for MaxLevelWall=.
 
-SystemMaxFileSize= and RuntimeMaxFileSize= 
+SystemMaxFileSize and RuntimeMaxFileSize 
 
-:    control how large individual journal files may grow at maximum. This influences the granularity in which disk space is made available through rotation, i.e. deletion of historic data. Defaults to one eighth of the values configured with SystemMaxUse= and RuntimeMaxUse=, so that usually seven rotated journal files are kept as history.
+:    Control how large individual journal files may grow at maximum. This influences the granularity in which disk space is made available through rotation, i.e. deletion of historic data. Defaults to one eighth of the values configured with SystemMaxUse= and RuntimeMaxUse=, so that usually seven rotated journal files are kept as history.
 
     Specify values in bytes or use K, M, G, T, P, E as units for the specified sizes (equal to 1024, 1024²,... bytes). Note that size limits are enforced synchronously when journal files are extended, and no explicit rotation step triggered by time is needed.
 
-SystemMaxFiles= and RuntimeMaxFiles= 
+SystemMaxFiles and RuntimeMaxFiles 
 
-:    control how many individual journal files to keep at maximum. Note that only archived files are deleted to reduce the number of files until this limit is reached; active files will stay around. This means that in effect there might still be more journal files around in total than this limit after a vacuuming operation is complete. This setting defaults to 100.
+:    Control how many individual journal files to keep at maximum. Note that only archived files are deleted to reduce the number of files until this limit is reached; active files will stay around. This means that in effect there might still be more journal files around in total than this limit after a vacuuming operation is complete. This setting defaults to 100.
 
 ## System Monitoring
 
