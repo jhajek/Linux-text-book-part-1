@@ -287,6 +287,8 @@ The ```top``` command also has the ability to sort and modify its output while r
 
 ### atop
 
+![*atop*](images/Chapter-09/monitoring/top/atop.png "atop")   
+
   There is one other monitoring tool named ```atop```.  The project is located at [http://www.atoptool.nl/](http://www.atoptool.nl/ "atop") The ```atop``` command can be installed via apt-get or yum/dnf.  The ```atop``` command has a series of features compared to other monitoring tools.  Here are the highligths.
   
   *  Resource consumption by all processes
@@ -294,8 +296,6 @@ The ```top``` command also has the ability to sort and modify its output while r
   *  Permanent logging of resource utilization
   *  Highlight critical resources
   *  Scalable window width
-   
-![*atop*](images/Chapter-09/monitoring/top/atop.png "atop")   
    
 ### systemd-cgtop
 
@@ -307,20 +307,18 @@ The ```top``` command also has the ability to sort and modify its output while r
 
    Command                              Function
 --------------  -------------------------------------------------------------
-    free          Report the amount of free and used memory in the system
-    load            Graphical representation of system load average
-    top              Dynamic real-time view of running processes
-   uptime            Display how long the system has been running
-   vmstat                 Report virtual memory statistics
-     w                Report logged in users and what they are doing
-   watch          Execute a program periodically, showing output fullscreen
+  ```free```       Report the amount of free and used memory in the system
+  ```load```         Graphical representation of system load average
+  ```top```           Dynamic real-time view of running processes
+ ```uptime```         Display how long the system has been running
+ ```vmstat```              Report virtual memory statistics
+   ```w```            Report logged in users and what they are doing
+  ```watch```     Execute a program periodically, showing output fullscreen
 --------------  -------------------------------------------------------------
 
 #### Load Generators 
 
-The opposite side of system monitoring is sometime you want to generate a load to see hwo your system responds.  On modern system that are multi-core with fast memory. There is a tool called ```stress``` you can install it via The Ubuntu and Fedora software stores or form the commandline using apt-get and yum/dnf.  It is also available for the Mac via the Homebrew package manager.
-
-```stress --cpu 2 --timeout 60```  will cause two processors to max out for 60 seconds.  You would then be able to see this using an of the above top based commands.  There are some other ways to generate loads in bash as well located here: [http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326](http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326 "Bash load generator ideas")
+The opposite side of system monitoring is sometime you want to generate a load to see hwo your system responds.  On modern system that are multi-core with fast memory. There is a tool called ```stress``` you can install it via The Ubuntu and Fedora software stores or form the commandline using apt-get and yum/dnf.  It is also available for the Mac via the Homebrew package manager. The command ```stress --cpu 2 --timeout 60```  will cause two processors to max out for 60 seconds.  You would then be able to see this using an of the above top based commands.  There are some other ways to generate loads in bash as well located here: [http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326](http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326 "Bash load generator ideas")
 
 #### ranwhen
 
@@ -328,10 +326,9 @@ Another interesting project is something called ranwhen.  It shows a visual repr
 
 #### sar and iostat
 
-The ```sar``` command - system activity report -- is something that came from the BSD Unixes and was ported over to Linux.The sar command is used to sample and report various cumulative statistic counters maintained by the operating system.  You can take *n* 
-samples at *t* intervals. Finally the ```iostat``` command--which in Linux is part of the sysstat package--displays kernel I/O statistics on terminal, device and cpu operations. A common word for this is I/O measurement or throughput.  
+In addition to memory, CPU, and process information.  You can other commands to measure system I/O. The ```sar``` command - system activity report -- is something that came from the BSD Unixes and was ported over to Linux. It is used to sample and report various cumulative statistic counters maintained by the operating system.  You can take *n* samples at *t* intervals. Finally the ```iostat``` command, which in Linux is part of the sysstat package--displays kernel I/O statistics on terminal, device and cpu operations. A common word for this is I/O measurement or throughput.  These reports can then be used to change system configurations to better balance the input/output load between physical disks.  
 
-**Add iostat picture here:**
+![*iostat*](images/Chapter-09/monitoring/io/iostat.png "iostat")
 
 ## User Administration 
 
