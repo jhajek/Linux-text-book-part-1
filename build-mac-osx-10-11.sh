@@ -5,6 +5,11 @@ set -e
 #[Getting-Started](http://pandoc.org/getting-started.html)
 # Dependency needed http://tex.stackexchange.com/questions/43108/texlive-does-not-find-sty-file
 # Hello from ITMO 544-444
+#  You will need to add some packages from the tlmgr before this compiles correctly if you used the BasicTeX package
+# 
+# sudo tlmgr install collection-fontsrecommended
+# sudo tlmgr install titlesec
+# 
 
 STAMP=`date +%m%d%y-%k%M%S`
 

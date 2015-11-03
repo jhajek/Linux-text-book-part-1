@@ -288,13 +288,7 @@ The ```top``` command also has the ability to sort and modify its output while r
 ### atop
 
   There is one other monitoring tool named ```atop```.  The project is located at [http://www.atoptool.nl/](http://www.atoptool.nl/ "atop") The ```atop``` command can be installed via apt-get or yum/dnf.  The ```atop``` command has a series of features compared to other monitoring tools.
-  
-  *  Resource consumption by all processes
-  *  Utilization of all relevant resources
-  *  Permanent logging of resource utilization
-  *  Highlight critical resources
-  *  Scalable window width
-
+ 
 ![*atop*](images/Chapter-09/monitoring/top/atop.png "atop")   
    
 ### systemd-cgtop
