@@ -287,9 +287,7 @@ The ```top``` command also has the ability to sort and modify its output while r
 
 ### systemd-cgtop
 
-  You were probably wondering if systemd had its own system monitoring tool.  And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd.  The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the ```/proc``` filesystem.  You run the command ```systemd-cgtop``` from the commandline with preset flags like top or you run it in interactive mode.
-  
-  In interactive mode you would type ```%``` percent to toggle between CPU time as time or percentage.  You would type p, t, c, m, i to sort by path, number of tasks, CPU load, memory usage, or IO load.  The letter *q* is to quit.  There are other configuration options displayed by typing ```man systemd-cgtop```.
+  You were probably wondering if systemd had its own system monitoring tool.  And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd.  The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the ```/proc``` filesystem.  You run the command ```systemd-cgtop``` from the commandline with preset flags like top or you run it in interactive mode. In interactive mode you would type ```%``` percent to toggle between CPU time as time or percentage.  You would type p, t, c, m, i to sort by path, number of tasks, CPU load, memory usage, or IO load.  The letter *q* is to quit.  There are other configuration options displayed by typing ```man systemd-cgtop```.
 
 ### atop
 
@@ -354,6 +352,8 @@ You have the option as well to override the default values and set your own valu
 ```-s```          Assign the user's shell
 -------------   ----------------------------------------------------
 
+![*adduser*](images/Chapter-09/user-administration/default/adduser.png "adduser")
+
 > __Example Usage:__ What do the options and arguments below do?  Type it in and see what happens.
 ```bash
 sudo useradd -c "This is a user for ITMO-456-02 Fall 2015" -d /home/controller \ 
@@ -361,8 +361,6 @@ sudo useradd -c "This is a user for ITMO-456-02 Fall 2015" -d /home/controller \
 ```
 
 In Debian distributions there is an abstraction layer called ```adduser``` and ```addgroup``` which are interfaces to the useradd and groupadd commands.  It is just a perl script that passes the values you enter in the menu to the useradd command.  On all other non-Debian distros ```adduser``` is a symlink to ```useradd``` command.  The ```adduser``` command prompts you for information to fill out all the values and is recommended on Debian based systems, but if writing a shell script this is not portable to a non-Debian based distro.
-
-![*adduser*](images/Chapter-09/user-administration/default/adduser.png "adduser")
 
 ### userdel and usermod
 
