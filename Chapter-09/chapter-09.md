@@ -332,7 +332,20 @@ In addition to memory, CPU, and process information.  You can other commands to 
 
 ## User Administration 
 
-There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  User accounts and privilleges will be discussed in more detail in Chapter X.  But for right now we will use the ```sudo``` command in conjunction with these commands.  The ```sudo``` command allows us to temporarily elevate your user privillege from a user level to an admin level in order to modify the attributes of a file.  Just for experience try to execute one of these commands below without the ```sudo``` command.  You will see a permission denied error (number 2 in the 3P's). This command will be covered in depth in chapter 6.
+There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privillege.  The nature of the user commands allow you to do three operations.  The commands are: useradd, userdel, and usermod.   
+
+### useradd
+
+  The useradd command allows you to add a new user to the system.  You can set user defaults 
+
+adduser 
+
+### userdel
+
+### usermod
+
+http://askubuntu.com/questions/2214/how-do-i-add-a-user-to-the-sudo-group
+sudo usermod -aG sudo <username>
 
 ### chmod
  
@@ -354,14 +367,6 @@ Pronounced *"chuh-mod"*. This command allows you to change the permissions or mo
 
 Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
 
-### adduser 
-
-### userdel
-
-### usermod
-
-http://askubuntu.com/questions/2214/how-do-i-add-a-user-to-the-sudo-group
-sudo usermod -aG sudo <username>
 
 #### ACLs
 
