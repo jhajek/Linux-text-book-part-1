@@ -360,15 +360,22 @@ You have the option as well to override the default values and set your own valu
 ```bash
 sudo useradd -c "This is a user for ITMO-456-02 Fall 2015" -d /home/controller -G sudo -s /bin/ksh -m controller
 ```
-In Debian distributions there is a abstraction layer called ```adduser``` and ```addgroup``` which are interfaces to the useradd and groupadd commands.  It is just a perl script that passes the values you enter in the menu to the useradd command.  On all other non-Debian distros ```adduser``` is a symlink to ```useradd``` command.
+In Debian distributions there is a abstraction layer called ```adduser``` and ```addgroup``` which are interfaces to the useradd and groupadd commands.  It is just a perl script that passes the values you enter in the menu to the useradd command.  On all other non-Debian distros ```adduser``` is a symlink to ```useradd``` command.  The ```adduser``` command prompts you for information to fill out all the values and is recommended on Debian based systems, but if writing a shell script this is not portable to a non-Debian based distro.
 
+![*adduser*](images/Chapter-09/user-administration/default/adduser.png "adduser")
 
-### userdel
+### userdel and usermod
 
-### usermod
+  The same as above, the ```userdel``` command allows you to delete a user.  The ```usermod``` command allows you to modify a setting for a user without having to delete and re-create a user.  The most common scenario is changing the users supplimentary groups so that they can be in the sudo, wheel, or admin group.   By default the system creates a usergroup with the same name as the usergroup and marks that as your users primary group. In this command -a means append and -G means append to the groups list.  For example: ```sudo usermod -aG sudo <username>```  is a handy command to remember.  In addition there is a Debian equivilent deluser which asks for a username and then deletes the user and all associated artifacts (home directory, primary group, and passwd file entry), but there is no moduser commmand.   
+  
+### addgroup and groupadd
 
-http://askubuntu.com/questions/2214/how-do-i-add-a-user-to-the-sudo-group
-sudo usermod -aG sudo <username>
+   In the same way as a user is created and there is a Debian based shortcut, there is a similar command to create a new group.  You would want to do this if you needed to create a group that was not in existance.  The syntax is simply ```sudo addgroup name-of-group``` and that is it.  The opposite command exists as well groupdel and delgroup, with the syntax of ```sudo delgroup name-of-group```.
+   
+    You can list all the groups that exist on your system by executing the ```groups``` command.  If executed without any arguments it will show the current users group memebership.  If you follow it up with a username it will return the group memeberships of that user.  You can display the list of all the groups that exist on a system by typing ```cat /etc/group``` on the commandline.     
+### /etc/passwd
+
+  When a new user is created, the information passed into the ```adduser``` or ```useradd``` command is stored in the ```/etc/passwd``` file (yes it is missing the 'or').  
 
 ### chmod
  
