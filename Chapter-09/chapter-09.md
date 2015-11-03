@@ -375,7 +375,9 @@ In Debian distributions there is a abstraction layer called ```adduser``` and ``
     You can list all the groups that exist on your system by executing the ```groups``` command.  If executed without any arguments it will show the current users group memebership.  If you follow it up with a username it will return the group memeberships of that user.  You can display the list of all the groups that exist on a system by typing ```cat /etc/group``` on the commandline.     
 ### /etc/passwd
 
-  When a new user is created, the information passed into the ```adduser``` or ```useradd``` command is stored in the ```/etc/passwd``` file (yes it is missing the 'or').  
+  When a new user is created, the information passed into the ```adduser``` or ```useradd``` command is stored in the ```/etc/passwd``` file (yes it is missing the 'or').  This file originally stored user passwords which had been encrypted, but the file had read access and it was realized that it was a security flaw to allow access in this way.  The actual encrypted passwords were moved to a file called ```/etc/shadow``` and linked via the character *x* in the ```/etc/passwd``` file.  You can see this in the image below.  Also notice from the snippet that there are many many usernames that have been created but only two of them are by your hand.  That is because the system upon install creates many additional users that have single or even legacy purposes that the user will not touch.  At the very end of the screenshot below you see a user named controller, vboxadd, and joe.  Two of those I created, the vboxadd was entered when I installed the VirtualBox Guest Additions.  The syntax is as follows:  Username:password:user-id:group-id:comment-field:home-directory:default-shell.    You can see the encrypted and salted password hash if you have root or sudo privilleges by typing ```sudo cat /etc/shadow``` on the command line.   
+  
+![*/etc/passwd*](images/Chapter-09/user-administrstion/default/etc-passwd.png "/etc/passwd")
 
 ### chmod
  
@@ -389,7 +391,7 @@ Pronounced *"chuh-mod"*. This command allows you to change the permissions or mo
   
 ### chown
 
- Pronounced *"chuh-own"*. This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a shorthand feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner. 
+ Pronounced *"chuh-own"*. This command allows you to change the owner of a file.  The syntax would be ```sudo chown root todolist```  There is also a shorthand feature that allows you to change the group and the owner at the same time.  ```sudo chown root:root todolist``` the value following the semi-colon will be the new group owner.  Resist the temptation to go nuclear--if you are getting a permissions denied on a command figure out why it is being denied--instead of chown-ing everything as this could create subtler problems down the line for system processes expecting a certain pattern of ownership. 
   
 > __Exercise:__  based on the previous todo-list.txt created in /tmp, issue an ```ls -l``` command - who is the owner of the file?  Who is the group owner? Change it so that the file is owned by root and the group owner is root (remember to use ```sudo```.)
   
@@ -397,19 +399,21 @@ Pronounced *"chuh-mod"*. This command allows you to change the permissions or mo
 
 Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like ```chown``` but instead only changes the group ownership.
 
-
 #### ACLs
 
-IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced ack-els) __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  There are a few other permission features that can help simulate ACLs.   __Sticky Bits__ are one of them and will be covered in Chapter X.
+IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced "*ack-els*") __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  The difficulties of ACL's in Linux is that they are exclusive to RHEL and not portable to other Linux or Unix systems.
  
 ### The 3 P's Describing 99% of all Linux Problems
+
+  All my troubleshooting experience in Linux boils down to three things.  I have jokingly named them the 3P's (yes I know that they all don't start with *P*).  If you have an error message or cannot execute a command--run down these three troubleshooting steps:
 
   * Path 
      + If you get an error message telling you that ```file not found``` or ```path does not exist```  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
   * Permission
-     +  This is discussed below, every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la
+     +  Every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la or see if you need sudo.
   * dePendencies
-     +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?
+     +  The last thing is are all the correct software dependecies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?  For example in the sample above running runwhen, you need Python3 installed.  If you typed ```python runwhen.py``` you would receive a strange python error which would take you off on a useless googling experience.  The problem is you needed to type ```python3 runwhen.py``` and if you don't have python3 installed you will have a dependency problem.
+  * All else fails and you still have a problem, see if it is a fullmoon outside. =)
 
 ## Chapter Conclusions and Review
 
