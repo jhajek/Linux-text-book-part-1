@@ -281,7 +281,7 @@ The ```top``` command also has the ability to sort and modify its output while r
 
 ### htop 
  
-   The htop command is an extension to the Linux top command.  It is written in C using the ncurses library for text-based GUIs so it has mouse support.  It also has metered output-and uses all the same interactive commands as ```top```.  The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop")[^103].  The ```htop``` command needs to be installed via apt-get or yum/dnf.
+   The htop command is an extension to the Linux top command.  It is written in C using the ncurses library for text-based GUIs so it has mouse support.  It also has metered output-and uses all the same interactive commands as ```top```.  The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop").  The ```htop``` command needs to be installed via apt-get or yum/dnf.
    
 ![*htop*](images/Chapter-09/monitoring/top/htop.png "htop")
 
