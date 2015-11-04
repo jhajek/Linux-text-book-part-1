@@ -21,17 +21,19 @@ __Outcomes__
  
 ![*Root User has the # sign as its shell*](images/Chapter-09/root/root.png "Root User Shell") 
   
-  In order to change the user you are logged in as, without logging out, you use the ```su``` command.  Known as *superuser* or sometimes *switch user*.  By typing ```su root``` on the command line in Fedora Linux, you will be presented with a password prompt to enter the password you created during the install process for the root account.  Sudo elevates you for a default period of 15 minutes, but it is good habit to type ```sudo``` in front of any command that needs elevated privileges.
+  In order to change the user you are logged in as, without logging out, you use the ```su``` command.  Known as *superuser* or sometimes *switch user*.  By typing ```su root``` on the command line in Fedora Linux, you will be presented with a password prompt to enter the password you created during the install process for the root account.  You still need to type ```exit``` to logout from the user you switched too.  The sudo command on the other hand, only elevates you for a default period of 15 minutes and then returns you to your standard user account.  It is good habit to type ```sudo``` in front of any command that needs elevated privileges.
 
 ### sudo  
  
-  AS the great philosopher Spiderman once said, "With great power comes great responsibility."  Seeing as __root__ had unintentiaonally dangerous uses potentially.  So a temporary system was devised to blunt the power of the __root__ account as it is necessary to use it sometimes. Sudo was created by researchers at SUNY/Buffalo in New York in 1980 to allow users to run specific commands as a different user.  Sudo was not designed for file editing. It was more designed for service management. From 1986 to 1991, development of sudo moved to CU-Boulder in Colorado and gained the cu-sudo prefix. In 1991, the code was moved to GPL.  In 1996 Todd C. Miller (one of the early maintainers) took the project under his wing moving a version of sudo to his own servers, to differentiate from cu-sudo.  By 1999 the code base was moved to the ISC license (Internet Systems Consortium), the same license dhcp and dns servers are under, it is the preferred license of the OpenBSD project and is GPL compatible free license.  Todd C. Miller is paid by Dell to maintain sudo as part of his day job.  The sudo project homepage is located at [http://www.sudo.ws](http://www.sudo.ws). [A brief history of sudo](http://www.sudo.ws/history.html "Brief history of sudo") [^91]. The tool is often mispronounced "*su - doh*".  But actual pronunciation is "*su - do*".  Either one is acceptable.  
+  As a great philosopher once said, *"With great power comes great responsibility."*  Seeing as __root__ had unintentiaonally dangerous uses a temporary system was devised to blunt the power of the __root__ account. The __sudo__ command was created by researchers at SUNY/Buffalo in New York in 1980 to allow users to run specific commands as a different user, in this case as root while not remaining or needing to sign in as root.  The __sudo__ command was not designed for file editing. It was originally designed for service management. 
+  
+  From 1986 to 1991, development of sudo moved to CU-Boulder in Colorado and gained the cu-sudo prefix. In 1991, the code was moved to GPL.  In 1996 Todd C. Miller (one of the early maintainers) took the project under his wing moving a version of sudo to his own servers, to differentiate from cu-sudo.  By 1999 the code base was moved to the ISC license ( [Internet Systems Consortium](https://www.isc.org/ "ISC") ), the same license the bind-dns server is under, it is the preferred license of the OpenBSD project and is GPL compatible free license.  Todd C. Miller is paid by Dell to maintain sudo as part of his day job.  The sudo project homepage is located at [http://www.sudo.ws](http://www.sudo.ws). [A brief history of sudo](http://www.sudo.ws/history.html "Brief history of sudo") [^91]. The tool is often mispronounced "*su - doh*".  But actual pronunciation is "*su - do*".  Either one is acceptable.  
 
 #### Ubuntu
 
   Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo.  They firmly believe not to have a root account as a point of differentiation.  They rely on ```sudo``` hence the cartoon above.  The first user you create (like in Windows and Mac) is automatically added to the __sudo__ usergroup and has sudo privilege.  Then any command you need *superuser* privileges you can simply ellevate to that privilege by typing the word ```sudo``` in front on any command.  Upon successful entry of your own password you will be elevated up to full system authority.  Some refer to this as *god mode* but I think using that term is a bit presumptuous as you do have absolute power over the system but ```sudo``` doesn't let you create the world in seven days.  
   
-  One example us you can assign the value 000 to a file.  Who can access that file?  According to the permissions not even the owner can access it?  But the ```sudo``` user can.    You can find out on a system which users have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privilege).  Here is a sample screen shot. Here is where you define which users can be in the sudo group.  You may not want to give admin privilege to every user.  Also under the *user* section below you may want to give a user admin privileges but only to execute certain commands.  This is where that would be enumerated.   
+  One example is you can assign the value 000 to a file.  Who can access that file now?  According to the permissions, not even the owner can access it.  But the root user can, if you use the ```sudo``` command.    You can find which users on a system which users have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privilege).  Here is a sample screen shot. Here is where you define which users can be in the sudo group.  You may not want to give admin privilege to every user.  Also under the *user* section below you may want to give a user admin privileges but only to execute certain commands.  This is where that would be enumerated.   
     
 ![*Ubuntu 15.04 /etc/sudoers*](images/Chapter-09/root/etc-sudoers.png)
 
@@ -68,7 +70,7 @@ This last entry is a catch-all command for backward compatibility.  Ubuntu versi
 
   What do the values ```%admin  ALL=(ALL:ALL) ALL```  mean?  This particular command gives every command on any system root access.  It essentially turns the root account superuser privileges over temporarily to the user account that has that privilege.
 
-The first column is either a user account (no %) or preceded by a % sign mean a user group name.  The second column (or the first ALL) is the hostname of the systems that can allow elevation to *superuser*.  Now if this is your only system the value can be left at ALL.  But if you are preparing enterprise-wide /etc/sudoers configurations then you may want to specify *superuser* access only on particular systems.  The third column (second ALL) is the user that you will turn into when you use the *sudo* command.  By default it is __root__ but you may want it to be another specific user.  The fourth column after the : (fourth all) is the comma separated list of commands that user can execute. The fifth column (fourth ALL) is optional but it is an access control feature allowing only members of certain groups to sudo 
+The first column is either a user account (no %) or preceded by a % sign mean a user group name.  The second column (or the first ALL) is the hostname of the systems that can allow elevation to *superuser*.  Now if this is your only system the value can be left at ALL.  But if you are preparing enterprise-wide /etc/sudoers configurations then you may want to specify *superuser* access only on particular systems.  The third column (second ALL) is the user that you will turn into when you use the *sudo* command.  By default it is __root__ but you may want it to be another specific user.  The fourth column after the : (third all) is the comma separated list of commands that user can execute. The fifth column (fourth ALL) is optional but it is an access control feature allowing only members of certain groups to sudo 
 
   Group                    Hosts                    Target User                      Commands
 --------------- -----------------------------    ------------------   -----------------------------------------
@@ -129,7 +131,7 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
 ### rsyslog
 
-  By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].  
+  By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].    
 
 ### journald and systemd
 
@@ -246,13 +248,13 @@ SystemMaxFiles and RuntimeMaxFiles
 
 ## System Monitoring
 
-  The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occurring on our system is a command called ```top``.  This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The tradditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps) [^102].
+  The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occurring on our system is a command called ```top``.  This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps) [^102].
 
 ### top
   
 ![*Fedora 22 top screenshot*](images/Chapter-09/monitoring/top/top.png "top") 
  
-   When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.)
+   The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.)
 
 ![*top avg*](images/Chapter-09/monitoring/top/top-avg.png "Top average")
 
@@ -416,11 +418,132 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
 
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
+  Through this chapter we learned about the su, sudo, and root user account paradigms.  We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored.  We learned about a newer logging format in the journald service from systemd.  Finally we learned about system monitoring tools for visual display of system resources being used.  Finally we learned about the 3Ps of Linux troubleshooting.
 
 ### Review Questions
 
-  Questions go here
+Review Questons Chapter 09
+
+1) What user account has superuser privillege in Linux?
+a. ```sudo```
+b. ```su```
+c. ```superuser```
+d. ```root```
+
+2) Which command do you use to temporarily elevate your user's privilege to the superuser (root)? 
+a. ```su```
+b. ```sudo```
+c. ```su -```
+d. ```root```
+
+3) How can I display the content of a file named topsecret.txt that has permissions 000?
+a.  You can't do that
+b.  ```root cat topsecret.txt```
+c.  ```sudo cat topsecret.txt```
+d.  ```su cat topsecret.txt```
+
+4) What licesnse is the sudo application under? 
+a.  GPL
+b.  BSD
+c.  Public Domain
+d.  ISC
+
+5) Which operating system doesn't have an active root account by default?
+a. Debian
+b. Ubuntu
+c. All Debian based distros
+d. Fedora
+
+6) What is the name of the file where sudo privilege are kept?
+a. /etc/sudo
+b. visudo
+c. /etc/allow
+d. /etc/sudoers
+
+7) What is the name of the command used to modify /etc/sudoers to grant a new user sudo privilege?
+a. Just use vi to edit it directly
+b. Logout and log back in as root and do it
+c. visudo
+d. sudo visudo 
+
+8) Based on this line in /etc/sudoers - ```%meninblack  ALL=(ALL:ALL) ALL``` - what does the first value by the % mean? 
+a.  Name of a group
+b.  Name of a user
+c.  Name of the user group
+d.  Name of a process
+
+9) In the /etc/sudoers file - what does this line mean: ```RMS ALL=(root) NOPASSWD: ALL```
+a.  The user RMS has sudo permissions and access to all commands
+b.  The user RMS has sudo permissions
+c.  The group RMS has sudo permissions to all commands
+d.  The user RMS has sudo permissions and access to all commands, and requires no password to elevate to the sudo user
+
+10)  When using the su command to switch from a regular user account to the root user account, what do you type to return to the standard user account?
+a.  quit
+b.  exit
+c.  stop
+d.  sudo reboot
+
+11)  What command would you use to edit the file at this location:  /var/www/html/index.html?
+a.  vi /var/www/html/index.html
+b.  sudo vi /var/www/html/index.html
+c.  vim /var/www/html/index.html 
+d.  su vi /var/www/html/index.html
+
+12) On a Linux system, which directory are all the traditional system (non-systemd) logs kept in?
+a.  /var/run
+b.  /logs
+c.  /var/adm/log
+d.  /var/log
+
+13) Under systemd and journald where are the logs kept?
+a.  /var/log
+b.  /var/log/error
+c.  /var/log/journald
+d.  Trick question - as logs are stored in a binary format and retrieved via journalctl
+
+14) What is the command you use to query the system logs in systemd?
+a.  systemctl
+b.  journald
+c.  journalctl
+d.  showlogs
+
+15) How would you filter the systemd log based on time?
+a.  ```journalctl --since=yesterday```
+b.  ```journalctl --since=tomorrow```
+c.  ```journalctl --yesterday```
+d.  ```journalctl --filter=yesterday```
+
+16) What file would you edit to change the systemd journald.conf?
+a. /etc/logrotate.conf
+b. /etc/systemd/journalctl.conf
+c. /etc/systemd.conf
+d. /etc/systemd/journald.conf
+
+17) What command provides a dynamic real-time view of a running system?
+a.  top
+b.  iostat
+c.  ranwhen
+d.  journalctl
+
+18) Debian based distros have an additional command to abstract the process to add users to the system - what is it?
+a.  useradd
+b.  usermod
+c.  adduser
+d.  add
+
+19) What command would be used to modify a user account settings and add them to the sudo users group (user is named controller)?
+a.  ```sudo useradd -aG sudo controller```
+b.  ```sudo usermod -aG sudo controller``` 
+c.  ```sudo usermod -G sudo controller```
+d.  ```sudo userdel controller```
+
+20) Which below are valid useradd commands?  (Choose all that apply)
+a. ```sudo useradd -c "User for spring class" -d "/home/export/controller" -G sudo -s /bin/ksh -m controller```
+b. ```sudo useradd -D controller```
+c. ```sudo useradd controller```
+d. ```sudo useradd -G sudo -s /bin/ksh -m controller```
+e. ```sudo useradd -c "User for spring class" -G sudo -m controller```
 
 ### Podcast Questions
 
