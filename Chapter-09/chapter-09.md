@@ -3,15 +3,15 @@
 
 __Chapter 09 Objectives__
 
-  * Understanding basic admin tools and the Linux concept of logging
-  * Understand how to use basic system tools for system reporting
+  * Understand the concept of sudo and the root user with their security implications
+  * Understanding basic admin tools and the Linux concept of logging and the systemd concept of logging with journald
+  * Understand how to use basic system tools for system monitoring and reporting
   * Understand using standard tools for user administration
-  * Discuss standard trouble shooting procedures for system admins.
   * Understand the 3Ps method of troubleshooting
 
 __Outcomes__
 
-  At the completion of this chapter you will have the ability to administer a Linux system.  You will have an understanding of Linux system logs, their standard locations, and their use.  You will have a knowledge of some basic reporting tools and how to understand their output.  You will be able to administer user accounts on a Linux system. Finally you will be able to enter trouble shooting procedures.
+  At the completion of this chapter you will have the ability to administer a Linux system.  You will have an understanding of Linux system logs, their standard locations, and their use.  You will have a knowledge of system monitoring tools and how to understand their output.  You will be able to administer user accounts on a Linux system. Finally you will be able to enter trouble shooting procedures on a Linux system.
 
 ## Sudo and the Root user Paradigm
 
