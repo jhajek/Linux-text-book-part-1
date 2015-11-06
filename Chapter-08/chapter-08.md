@@ -32,7 +32,7 @@ As we learned previously we can define variables in BASH.  These variables are p
 ```bash
 PATH=$PATH:/home/user/Documents/apps
 
-echo $PATH; echo $path; $PATH=PATH??? 
+echo $PATH; echo $path; $PATH=PATH
 
 ut=`uptime`
 ```
@@ -116,7 +116,7 @@ The content of the shell script is as follows:
 #!/bin/bash
 
 echo "***************************"
-echo "The dirctory to be deleted is: $1"
+echo "The directory to be deleted is: $1"
 rm -rf $1
 echo "***************************"
 echo "It was deleted by: $2"
@@ -397,7 +397,7 @@ echo "\n"
 
 ## Scheduling Shell Scripts With Cron
 
-Now that we have sufficiently complex shell scripts the idea of automating their execution come into play. The concept of the __cron__ command and the __crontab__ files frist came into use in Unix System V release ~1983.  Each user can set their own scheduled tasks by editing the __crontab__ file by typing ```crontab -e```.  The contents of the crontab file are initially blank.  The language of the crontab is that of 5 columns and then a command to be executed. Multiple commands can be executed using ```; or &&``` And multiple different times can be listed in the crontab.  The five (and sometimes a sixth fields) are as follows:
+Now that we have sufficiently complex shell scripts the idea of automating their execution come into play. The concept of the __cron__ command and the __crontab__ files first came into use in Unix System V release ~1983.  Each user can set their own scheduled tasks by editing the __crontab__ file by typing ```crontab -e```.  The contents of the crontab file are initially blank.  The language of the crontab is that of 5 columns and then a command to be executed. Multiple commands can be executed using ```; or &&``` And multiple different times can be listed in the crontab.  The five (and sometimes a sixth fields) are as follows:
 
 Time Unit              Values
 -------------  -----------------------
