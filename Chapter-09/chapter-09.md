@@ -128,7 +128,34 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
   * ```grep foobar /var/log/messages``` will now become ```journalctl | grep foobar``` 
   
   If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04 and prior you will not find the journald commands and will find the tradditional syslog service.   Syslog can be installed along side of journald and run in the tradditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does everything).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs--perhaps positioning Fedora to be in a Windows style dominance over Linux?
+  
+#### Error Levels
 
+Syslog has adopted default levels to describe the severity of a log that is recorded. Standard syslog error levels [^104].  
+
+Value    Severity        Keyword   		Description     			 	            Examples
+----- ---------------- ---------- ---------------------------  ----------------------------------
+  0 	  Emergency       emerg      System is unusable  			     This level should not be used 
+															     by applications.																
+  1        Alert         alert     Should be corrected 			     Loss of the primary 
+								                   immediately 					         ISP connection
+  2       Critical       crit      Critical conditions           A failure in the system's 
+															                                   primary application.
+	3        Error         err       Error conditions              An application has exceeded its
+																                                 file storage limit and attempts 
+																                                 to write are failing.
+  4       Warning        warning   May indicate that an error    A non-root file system has 
+								                   will occur if action is       only 2GB remaining.
+								                   not taken.  
+  5        Notice        notice    Events that are unusual, 
+								                   but not error conditions.
+  6      Informational   info     Normal operational messages    An application has started, 
+								                  that require no action.  	     paused or ended successfull.
+  7        Debug         debug    Information useful to 
+                  								developers for debugging 
+							                    the application.   
+----- ---------------- ---------- ---------------------------  ----------------------------------
+   
 ### rsyslog
 
   By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].    
@@ -267,7 +294,7 @@ SystemMaxFiles and RuntimeMaxFiles
 ![*top processes*](images/Chapter-09/monitoring/top/top-processes.png "Top process")   
    
    Finally this section shows the name and individual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
-   
+
 The ```top``` command also has the ability to sort and modify its output while running.  
 
    Key                  Action in Top
@@ -547,12 +574,81 @@ e. ```sudo useradd -c "User for spring class" -G sudo -m controller```
 
 ### Podcast Questions
 
- Questions go here
+CC Mixter - [https://twit.tv/shows/floss-weekly/episodes/316](https://twit.tv/shows/floss-weekly/episodes/316 "CCMixter.org")
+
+* 6:30  What is the 30,000 foot view of CCMixter?
+* 7:39  How did it get started?
+* 8:30  What is Creative Commons and its relationship to Copyright?
+* 11:40 Who came to help mp3tunes protect themselves against the Major Music Corporations?
+* 13:25 How does an "opensource" musician make any money?
+* 17:45 How can you "sell" creative commons and opensource licensing to musicians?
+* 27:55 Is music a product or an experience?  Do you agree with Ms. Richard's statement?
+* 32:00 What kind of music is available at dig.ccmixter.org?  Is it all electronic music?
+* 38:00 What language is CCMixter written in?
+* 42:30 What serious security vulnerability does ccMixter.org have?
+* 47:00 What is the github URL to find the project source code?
 
 ### Lab
 
- Lab goes here 
+Chapter 09 Lab
+
+Objectives
+
+  The objective of this lab are as follows:
+  
+  * Understand when and how to use the sudo command
+  * Understand how to edit the /etc/sudoers file
+  * Understand how to use the journald and journalctl logging mechanism in systemd
+  * Understand how to add and manage user accounts
+  * Understand the structure and use of the cron service
+
+Outcomes
  
+   At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm.  You will understand the binary logging mechanism of journald.  You will be able to add, delete, and modify user accounts.  Finally you will be able to schedule shell scripts to execute at repeated intervals.
+   
+   __Note__ you will need to submit a screenshot of the correct command(s) in action.
+   __Note__ if a command asks you to work on a user that doesn't exist it is assumed that you have to create it.
+   
+   1)  What would be the command to add a user named "controller" to your system - using the system default values?  
+   
+   1)  What would be the command to modify the user's group to add them to a *superuser* group (sudo on Ubuntu or wheel on Fedora based)?
+   
+   1)  What would be the command to delete a user account named nsa-spy?  (Note you also have to include the steps to add this user... unless the NSA is already in your system =)
+   
+   1)  What would be the command to edit the /etc/sudoers file and give the user "mysql-backup" sudo privilege? (Show the /etc/sudoers being edited and enter the relevant line that you add to that file)
+   
+   1)  What would be the command to edit the /etc/sudoers file and give the group "mysql-admins" sudo privilege? (Show the /etc/sudoers being edited and enter the relevant line that you add to that file)
+   
+   1)  What would be the command to edit the /etc/sudoers file to give the user "mysql-admin" sudo privilege to only use the mysql database backup command "mysqldump" ? (Show the /etc/sudoers being edited and enter the relevant line that you add to that file)
+   
+   1)  What would be the command to edit the /etc/sudoers file to give the user "mysql-admin" sudo privilege to only execute the "mysql" command and not require a password?
+   
+   1)  When you execute the command tail journalctl - you receive an error?  Show the error in a screenshot and explain why the error comes?
+   
+   1)  What would be the command to execute to find all the occurances of logs generated by Firefox in joutnalctl? 
+    
+   1)  What would be the command to execute to find all the logs generated by _PID=1 (systemd itself) and since yesterday? 
+   
+   1)  What would be the command to execute to see the logs of the current boot only using journalctl?
+   
+   1)  Which file and what value would I modify to change the journals settings to make the logs be stored in memory (volatile)?
+   
+   1)  The journald values SystemMaxUse= and RuntimeMaxUse= default to 10% and 15% of the system disk respectively.  How would you modify that value to be 20% and 30% respectively?  (Note you can't add percentages you have to use your system and do some scratch math - you can execute a df -H command to see the size of your root partition)
+   
+   1)  What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at 2 am every Sunday? 
+   
+   1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at the 1st day of every month?
+   
+   1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) every 45 minutes?
+   
+   1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) on every 45 past the hour on Sundays?  
+   
+   1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at 2:45am on Tuesday? 
+   
+   1) What command would you use to change the group ownership of the file todo-list.txt to be owned by the "accounting" group?  (If that group doesn't exist then create it on your system)
+   
+   1) What command would you use to change the group ownership and file ownership (on one command) of the file todo-list.txt to be root:root?
+
 #### Footnotes
  
 [^90]: [http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html]( http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html "tldp root")
@@ -583,4 +679,5 @@ e. ```sudo useradd -c "User for spring class" -G sudo -m controller```
 
 [^103]: [http://hisham.hm/htop/](http://hisham.hm/htop/)
 
+[^104]: [https://en.wikipedia.org/wiki/Syslog](https://en.wikipedia.org/wiki/Syslog)
 

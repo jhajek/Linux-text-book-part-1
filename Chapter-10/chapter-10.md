@@ -15,9 +15,84 @@ __Outcomes__
 
 ## Package Managers
 
-  * yum 
-  * dnf 
-  * apt 
+  One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (*.tar.gz) which was convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library needed had it's own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman is the creator of the computer software program make for UNIX systems. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system.[2] Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named a ```makefile``` that includes instrcutions and ordered steps that can be repeated everytime software is built.  This attributes software to be portable accross systems (ideally anyway).  Make is a utility that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program [^106].  Makefiles have an arcane syntax that not all people enjoy and over the years many people have modified and rewritten their own ```make``` system.
+  
+ ```makefile
+     all: helloworld
+
+    helloworld: helloworld.o
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+
+    clean: FRC
+	rm -f helloworld helloworld.o
+
+    # This is an explicit suffix rule. It may be omitted on systems
+    # that handle simple rules like this automatically.
+    .c.o:
+	$(CC) $(CFLAGS) -c $<
+
+    FRC:
+    .SUFFIXES: .c
+```
+  Clear as mud right?  Like many things in the Unix world, this sysetm has been modified and augmented but still persists as the way software project are installed.  By 1988 the GNU project had released their Free Software version of ```make``` called GNU Make and this is included in all standard Linux distrobutions and is even required for compiling the Linux Kernel.  There are other versions of ```make``` including the Unix version, ```pmake``` and ```bmake``` on the BSD Unix variants and even Microsoft has its own build tool that can be used called ```nmake```.
+
+  Software is more complicated
+
+  Linux distributions took to making software installation and distribution easier by introducing something initally called __Package Managers__.  These were meant to eliminate all of the above process by solving two key probelms. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed.  Second package managers would solve the dependency issues by keeeping track of the dependency trail and be smart enough to follow that trail before installation.  The first package manager was ___dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primative package manager.  The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
+ 
+ A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107].  One is the control data which is listed as such:
+```
+     Package: hello
+     Priority: optional
+     Section: devel
+     Installed-Size: 45
+     Maintainer: Adam Heath <doogie@debian.org>
+     Architecture: i386
+     Version: 1.3-16
+     Depends: libc6 (>= 2.1)
+     Description: The classic greeting, and a good example
+      The GNU hello program produces a familiar, friendly greeting. 
+```      
+
+The most important being the __Depends__ option which controls dependencies and can prevent installation of these conditions cannot be met.  The second component includes the binary or pre-cimpiled portion of the code.  
+You can install a package directly through dpkg but their are other tools that build on top of dpkg that are recommended to use.   
+
+You can download a .deb file from the Vivaldi website here: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in the Ubuntu or Gnome Software stores but you can download the .deb. file directly and install through dpkg.  
+
+> __Example Usage:__
+```bash
+sudo dpkg -i ./vivaldi-package name
+```
+You will notice an error message here - what is it any why?  (Hint think 3P's from the previous chapter)
+
+> __Example Usage:__ 
+```bash
+sudo dpkg -l ./links_2.8-2_amd64.deb
+```
+Note that this command installs properly without any error message.  GET LINKS DEB URL
+
+> __Example Usage:__ 
+sudo dpkg -r or --remove
+sudo dpkg -P or --purge
+sudo dpkg -l 
+
+dpkg -l | grep linux-image
+
+dpkg --status links
+
+sudo apt-get purge linux-image-x.x.x-xx-generic
+
+#### RPM
+The same concepts and direction was created by the Red Hat company and called RPM (Originally Red Hat Package Manager - now know as RPM Package Manager.)  Red Hat created their own package manger that is used accross those systems that are Fedora or RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution too.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") RPM was released first in 1998 as a consolidation of previous package managers.
+
+
+https://wiki.debian.org/RPM
+
+#### Installers 
+
+###   yum  & dnf 
+ 
+### apt 
 
 ## Tar Balls and Compression Tools
 
@@ -66,4 +141,9 @@ Screen shot showing you need to host the file on the web somewhere or include th
  
 #### Footnotes
  
+[^105]: [https://en.wikipedia.org/wiki/Stuart_Feldman](https://en.wikipedia.org/wiki/Stuart_Feldman)  
+  
+[^106]: [https://en.wikipedia.org/wiki/Make_(software)](https://en.wikipedia.org/wiki/Make_\(software\))  
+  
+[^107]: [https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics](https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics)  
   
