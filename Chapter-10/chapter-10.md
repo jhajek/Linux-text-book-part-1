@@ -74,30 +74,66 @@ Note that this command installs properly without any error message.  GET LINKS D
 > __Example Usage:__ 
 sudo dpkg -r or --remove
 sudo dpkg -P or --purge
-sudo dpkg -l 
+sudo dpkg -l or --list
+dpkg --status links
+
 
 dpkg -l | grep linux-image
 
-dpkg --status links
 
 sudo apt-get purge linux-image-x.x.x-xx-generic
 
 #### RPM
 The same concepts and direction was created by the Red Hat company and called RPM (Originally Red Hat Package Manager - now know as RPM Package Manager.)  Red Hat created their own package manger that is used accross those systems that are Fedora or RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution too.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") RPM was released first in 1998 as a consolidation of previous package managers.
 
+List all installed packages:
+    rpm -qa
+
+
+List information about an installed package:
+    rpm -qi pkgname
+
+Install a package from a local file
+    rpm -i file.rpm
+
+Remove a package from the system
+    rpm -e pkgname              (saves copies of modified config files)
+
+Get information about a remote package
+    rpm -qpi <url>
+
 
 https://wiki.debian.org/RPM
 
 #### Installers 
-
-###   yum  & dnf 
+ 
+   Package Managers were a great step forward in making Linux usable beyond the ranks of Thompson, Ritchie, and Stallman.  But as shown in the example above, they still don't handle the dependency issue--as they don't understand the context of auto-dependecy retrieval.  Various solutions were created but every Linux distro has pretty much settled on two families of Installers--that match the major families.  Fedora based distros use Yum and now use DNF (as of Fedora 23) and Debian based distros use APT.  
  
 ### apt 
 
-## Tar Balls and Compression Tools
+APT was released in 1998, the same time that RedHat released its package manager (giving Devian a leg up and a few year advance).  APT simplifies the installation process. Something we have seen through out this book, handling not only dependencies but also the resolution of dependencies and the installation of them as well.  APT will never leave you hanging in that sense.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock consider's APT to be one of the best contributions of Linux.  
+
+https://wiki.debian.org/Apt
+
+Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes it possible to: 
+•Install applications 
+•Remove applications 
+•Keep your applications up to date 
+
+Apt, which basically resolves dependency problems and retrieves the requested packages, works with dpkg, another tool, which handles the actual installation and removal of packages (applications). Apt is very powerful, and is primarily used on the command line (console/terminal). 
 
 
-### Extracting a Tar Ball
+Others aptitude 
+
+apt-get install 
+apt-get remove
+apt-cache search pattern
+apt-get update
+apt-get upgrade
+apt-get dist-upgrade
+sudo do-release-upgrade
+
+###   yum  & dnf 
 
 
 ## Compling and Installing source code
@@ -119,7 +155,7 @@ https://wiki.debian.org/RPM
     
   [Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")
   
-  [Kickstart documentation](https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html) - it can be generated from scratch or upon a succesful install a default kickstart is located in /root/anaconda-ks.cfg
+  [Kickstart documentation(https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html) - it can be generated from scratch or upon a succesful install a default kickstart is located in /root/anaconda-ks.cfg
   
 Screen shot showing you need to host the file on the web somewhere or include the file in install media
 
