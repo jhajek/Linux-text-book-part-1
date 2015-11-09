@@ -106,9 +106,52 @@ https://wiki.debian.org/RPM
  
    Package Managers were a great step forward in making Linux usable beyond the ranks of Thompson, Ritchie, and Stallman.  But as shown in the example above, they still don't handle the dependency issue--as they don't understand the context of auto-dependecy retrieval.  Various solutions were created but every Linux distro has pretty much settled on two families of Installers--that match the major families.  Fedora based distros use Yum and now use DNF (as of Fedora 23) and Debian based distros use APT.  
  
-### apt 
+### APT
 
-APT was released in 1998, the same time that RedHat released its package manager (giving Debian a leg up and a few years advance).  APT simplifies the installation process. Something we have seen throughout this book, handling not only dependencies but also the resolution of dependencies and the installation of them as well.  APT will never leave you hanging in that sense.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock consider's APT to be one of the best contributions of Linux [^108].  
+APT was released in 1998, the same time that RedHat released its package manager (giving Debian a leg up and a few years advance).  APT was the out growth of a research project called diety run by Debian developers.  It was planned to be a large GUI like prooject, but it turns out that the CLI implemented with such finese that the GUI portion was dropped.  APT simplifies the installation process. APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock consider's APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packagin Toolkit.  APT will interface with dpkg and has many similar commmands but extends the functionality of dpkg.  
+
+
+    /etc/apt/sources.list: Locations to fetch packages from.
+    /etc/apt/sources.list.d/: Additional source list fragments.
+    /etc/apt/apt.conf: APT configuration file.
+    /etc/apt/apt.conf.d/: APT configuration file fragments.
+    /etc/apt/preferences: version preferences file. This is where you would specify "pinning", i.e. a preference to get certain packages from a separate source or from a different version of a distribution.
+    /var/cache/apt/archives/: storage area for retrieved package files.
+    /var/cache/apt/archives/partial/: storage area for package files in transit.
+    /var/lib/apt/lists/: storage area for state information for each package resource specified in sources.list
+    /var/lib/apt/lists/partial/: storage area for state information in transit.
+
+
+APT relies on the concept of repositories in order to find software and resolve dependencies. For apt, a repository is a directory containing packages along with an index file. This can be specified as a networked or CDROM location. The Debian project keeps a central repository of over 25,000 software packages ready for download and installation.  This includes ability to add non-free software repositories as well.    You can add additionla repositories via the ```add-apt-repository``` command.  This is used to add community maintained PPA's stand for *personal package archive*  these are for packages maintained outside of Debians's rigourous package checking and standards maintaining. (hence the cartoon at the beginning of the chapter).  Ubuntu is a debian derivatie and utilizes thsi was archive of packages and is one of the reawsons for Debian's long standing usage.  Ubuntu maintians additional d*downstram* repositories that add additional software and repositories to maek up the Ubuntu distrivbution.  User's can then add additional repositories or PPA's to extend APT functionality.  Seeing as you may want to access a more recent build of an application that may not be in the standard Debian distribution or not even submitted to a repository becaus ethe version is moving too fast.  For example if you want to install a newer version of the php language on your system, you have to wait for another version of the OS oryou can find the maintaiers repository and add their PPA directly.  That way when you can update in real time with them or even install berta software. The example belwo will add the php5 repository and let you move to the latest.  
+
+> __Example Usage:__ 
+
+sudo add-apt-repository ppa:ondrej/php5
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install php5
+
+
+
+    On 12.04 and earlier, install the python-software-properties package:
+
+```sudo apt-get install python-software-properties```
+
+    On 14.04 and later:
+
+    sudo apt-get install software-properties-common
+
+
+
+
+
+Any number of additional repositories can be added to APT's sources.list configuration file (/etc/apt/sources.list) and then be queried by APT. Graphical front-ends often allow modifying sources.list more simply (apt-setup). Once a package repository has been specified (like during the system installation), packages in that repository can be installed without specifying a source and will be kept up-to-date automatically.
+
+In addition to network repositories, compact discs and other storage media (USB keydrive, hard disks...) can be used as well, using apt-cdrom[16] or adding file:/[17] to the source list file. Apt-cdrom can specify a different folder than a cd-rom, using the -d option (i.e. a hard disk or a USB keydrive). The Debian CDs available for download contain Debian repositories. This allows non-networked machines to be upgraded. Also one can use apt-zip.
+
+Problems may appear when several sources offer the same package(s). Systems that have such possibly conflicting sources can use APT pinning to control which sources should be preferred.
+
+ 
 
 Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes it possible to: 
   
