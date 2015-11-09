@@ -34,7 +34,8 @@ __Outcomes__
     FRC:
     .SUFFIXES: .c
 ```
-  Clear as mud right?  Like many things in the Unix world, this sysetm has been modified and augmented but still persists as the way software project are installed.  By 1988 the GNU project had released their Free Software version of ```make``` called GNU Make and this is included in all standard Linux distrobutions and is even required for compiling the Linux Kernel.  There are other versions of ```make``` including the Unix version, ```pmake``` and ```bmake``` on the BSD Unix variants and even Microsoft has its own build tool that can be used called ```nmake```.
+
+Clear as mud right?  Like many things in the Unix world, this sysetm has been modified and augmented but still persists as the way software project are installed.  By 1988 the GNU project had released their Free Software version of ```make``` called GNU Make and this is included in all standard Linux distrobutions and is even required for compiling the Linux Kernel.  There are other versions of ```make``` including the Unix version, ```pmake``` and ```bmake``` on the BSD Unix variants and even Microsoft has its own build tool that can be used called ```nmake```.
 
   Software is more complicated
 
@@ -51,37 +52,33 @@ __Outcomes__
      Version: 1.3-16
      Depends: libc6 (>= 2.1)
      Description: The classic greeting, and a good example
-      The GNU hello program produces a familiar, friendly greeting. 
+     The GNU hello program produces a familiar, friendly greeting. 
 ```      
 
-The most important being the __Depends__ option which controls dependencies and can prevent installation of these conditions cannot be met.  The second component includes the binary or pre-cimpiled portion of the code.  
-You can install a package directly through dpkg but their are other tools that build on top of dpkg that are recommended to use.   
+The most important line being the __Depends__ option which controls dependencies and can prevent installation of these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Usinbg ```dpkg``` is a clear step above using tarballs and compiling the code yourself. There are other tools that build on top of dpkg that are recommended to use.   Let's take a look at an example we have doen before in chapter 4 where we downloaded a .deb file for the Vivaldi web browser and installed it via the Ubuntu Software Center.  Now let's perform the same action again using the ```dpkg``` command.
 
-You can download a .deb file from the Vivaldi website here: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in the Ubuntu or Gnome Software stores but you can download the .deb. file directly and install through dpkg.  
-
-> __Example Usage:__
+> __Example Usage:__  You can download a .deb file from the Vivaldi website here: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in the Ubuntu or Gnome Software stores but you can download the .deb. file directly and install through dpkg.  If it is previously installed you might have to use the Ubuntu Software Center to remove it and then complete this exercise.  In the command below we will introduice the install command or the ```-i``` flag, which stands for __install__.
 ```bash
 sudo dpkg -i ./vivaldi-package name
 ```
-You will notice an error message here - what is it any why?  (Hint think 3P's from the previous chapter)
+
+After executing this command you will receive an error message. What is it telling you and why?  (Hint think 3P's from the previous chapter) You will notice that the dpkg foudn that it had a *dependecy*, can you locate that *dependecy* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
 > __Example Usage:__ 
 ```bash
-sudo dpkg -l ./links_2.8-2_amd64.deb
+sudo dpkg -i ./links_2.8-2_amd64.deb
 ```
-Note that this command installs properly without any error message.  GET LINKS DEB URL
+Note that this command installs properly without any error message. [http://packages.ubuntu.com/vivid/links](http://packages.ubuntu.com/vivid/links "links")
 
-> __Example Usage:__ 
-sudo dpkg -r or --remove
-sudo dpkg -P or --purge
-sudo dpkg -l or --list
-dpkg --status links
+> __Example Usage:__   There are other flags but the most common are these: ```sudo dpkg -r or --remove```, ```sudo dpkg -P or --purge```, ```sudo dpkg -l or --list```, and ```sudo dpkg --status links```
 
-
+> __Example Usage:__ Let's use the ```dpkg``` command to list all kernel version we have installed and the ```purge``` command to remove those old kernels entirely.  
+```bash
+sudo apt-get dist-upgrade
 dpkg -l | grep linux-image
-
-
+# x.x.-xx is the verison that is not the most recent version as deleting that will make your system unbootable
 sudo apt-get purge linux-image-x.x.x-xx-generic
+```
 
 #### RPM
 The same concepts and direction was created by the Red Hat company and called RPM (Originally Red Hat Package Manager - now know as RPM Package Manager.)  Red Hat created their own package manger that is used accross those systems that are Fedora or RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution too.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") RPM was released first in 1998 as a consolidation of previous package managers.
@@ -111,27 +108,23 @@ https://wiki.debian.org/RPM
  
 ### apt 
 
-APT was released in 1998, the same time that RedHat released its package manager (giving Devian a leg up and a few year advance).  APT simplifies the installation process. Something we have seen through out this book, handling not only dependencies but also the resolution of dependencies and the installation of them as well.  APT will never leave you hanging in that sense.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock consider's APT to be one of the best contributions of Linux.  
-
-https://wiki.debian.org/Apt
+APT was released in 1998, the same time that RedHat released its package manager (giving Debian a leg up and a few years advance).  APT simplifies the installation process. Something we have seen throughout this book, handling not only dependencies but also the resolution of dependencies and the installation of them as well.  APT will never leave you hanging in that sense.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock consider's APT to be one of the best contributions of Linux [^108].  
 
 Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes it possible to: 
-•Install applications 
-•Remove applications 
-•Keep your applications up to date 
+  
+   *  Install applications 
+   *  Remove applications 
+   *  Keep your applications up to date 
 
-Apt, which basically resolves dependency problems and retrieves the requested packages, works with dpkg, another tool, which handles the actual installation and removal of packages (applications). Apt is very powerful, and is primarily used on the command line (console/terminal). 
+Apt, which basically resolves dependency problems and retrieves the requested packages, works with dpkg, another tool, which handles the actual installation and removal of packages (applications). Apt is very powerful, and is primarily used on the command line (console/terminal).   THe main commands of APT are as follows:
 
-
-Others aptitude 
-
-apt-get install 
-apt-get remove
-apt-cache search pattern
-apt-get update
-apt-get upgrade
-apt-get dist-upgrade
-sudo do-release-upgrade
+  * apt-get install 
+  * apt-get remove
+  * apt-cache search pattern
+  * apt-get update
+  * apt-get upgrade
+  * apt-get dist-upgrade
+  * do-release-upgrade
 
 ###   yum  & dnf 
 
@@ -182,4 +175,7 @@ Screen shot showing you need to host the file on the web somewhere or include th
 [^106]: [https://en.wikipedia.org/wiki/Make_(software)](https://en.wikipedia.org/wiki/Make_\(software\))  
   
 [^107]: [https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics](https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics)  
+  
+[^108]: [https://wiki.debian.org/Apt](https://wiki.debian.org/Apt)  
+  
   

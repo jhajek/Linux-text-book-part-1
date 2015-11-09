@@ -17,6 +17,13 @@ How to install;
 > Red Hat Linux 
 > See yum or dnf
 
+Linux dependecies
+* texlive
+*    texlive-latex-recommended
+*   texlive-latex-extra
+*  texlive-fonts-recommended
+
+
 > Mac OSX
 > [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
