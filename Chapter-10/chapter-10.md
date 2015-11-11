@@ -173,31 +173,60 @@ Here is a list of all the configuration and cache files related to APT and their
     * /var/lib/apt/lists/: storage area for state information for each package resource specified in sources.list
     * /var/lib/apt/lists/partial/: storage area for state information in transit.
 
-###   yum  & dnf 
+### yum  & dnf 
 
+  Fedora based Linux is in a bit of a transition. It's enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependecy resolution.  YUM is looking to be phased out for the new adaoption and faster tool DNF.  RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations.
+  
+  Both YUM and DNF use repositories that are maintained by RedHat or CentOS or even their RHEL repos.  You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and RedHat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
+
+![*Installed Repositories Fedora 22*](images/Chapter-10/yum/etc-yum.png "YUM")
+
+Frodo is the name of a Commodore 64 emulator - a computer that dominated the home market and the video gamne market in the years before the IBM PC became cheap enough and the Nintendo popped onto the scene. I still own one and have it in my basement, which I used in real life as a kid.  If we try to install it via ``sudo dnf install frodo``` we get this message, why?  
+
+![*Unable to Find a Match*](images/Chapter10/yum/unable.png "Unable to find a match")
+
+First we want to check if we have the correct RPM name.  We can search through our repos looking for the name by typing the ```sudo dnf search [fF]rodo*``` command.  This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
+
+To enable the download the RPMFusion repos for adding additional software of free and non-free type you can type the following commands:
+
+```sudo dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm```
+```sudo dnf install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm```
+
+Note for RHEL/CentOS the installtion URL is slightly different:
+```sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/6/i386/rpmfusion-free-release-6-1.noarch.rpm```
+```sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm```
+
+If you are using CentOS or RHEL you need to first install the EL-Repo before the RPMFusion, but not for Fedora.  No it isn't spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
+
+Once those RPMFusion repos have been added you can now retry the example above and install, Frodo, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.  Now if we type ```sudo dnf install Frodo``` the package will be found and we will be able to install it to see the Commadore 64 in all its emulated glory.
+
+![*C64*](images/Chapter-10/yum/c64.png "C64")  
+
+> __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.
 
 ## Compling and Installing source code
 
-
+  In addition to packages you may still want to compile software from source.  This way you can take advantage of the latest compiler optimizations and CPU support.  Or compile older versions that have a feature you need that is no longer supported as a package any more.  
+  
+  Let's take a look at this link.  This is the Apache webserver version 2.4.x latest source code and instructions for compiling software. [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html "Apache").  Follow the link and download the source code, extract it and let's go about compiling the software.   The first step is to run the ```./configure``` command.  This script does what is called a sanity check, and checks to make sure your system has the correct tools to build the software--some configure scripts will also check for dependecies.  You may need to install APR and APR-Util via the package manager or via source as instructed.  
+  
 ### GNC GCC
-
+ 
+   The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project depricated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead.    The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler plus all the addiitonal build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands; ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or g++ commmand.    
 
 ### GNU Make
 
+  As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privilleges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation.  
+
+```
+./configure --prefix=PREFIX  
+make  
+sudo make install  
+```
 
 ### Using Python to Install Python Based Programs
 
-
-
-## Automating the Install Answer Process With Preseed and Kickstart  
-
-  All the previous steps took maybe 10 to 15 minutes if you are on a fast machine; which is not bad at all.  But let us say you will be creating multiple virtual machines for research purposes. Or perhaps you will be recreating the same virtual machine many times.  There is a way to automate the install process.  This is called an *answer file* in the Windows world.  For Red Hat based systems this is called *kickstart* and Debian and Ubuntu use a file format called *preseed*.  None of these formats are compatible with each other but there has been some work to get limited kickstart support for Ubuntu.  
-    
-  [Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")
-  
-  [Kickstart documentation(https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html) - it can be generated from scratch or upon a succesful install a default kickstart is located in /root/anaconda-ks.cfg
-  
-Screen shot showing you need to host the file on the web somewhere or include the file in install media
+  In addition to compiling software and using package managers the Python lanugage has become common in its application usage and has its own installers for applications.  Looking at the Denyhosts project on their Github account, [https://github.com/denyhosts/denyhosts](https://github.com/denyhosts/denyhosts "Denyhosts") you will see the latest source code version 3.0 available but not in an RPM or DEB package but as a python install package.  We simply need to clone the repository down and enter the directory we just cloned.   We can then install the software, similar to the GCC build tools, by executing just this command: ```sudo python setup.py install```.  Note you may need a dependency depending on what system you are on - the installer will tell you what you need in addition to making this work.
 
 ## Chapter Conclusions and Review
 
