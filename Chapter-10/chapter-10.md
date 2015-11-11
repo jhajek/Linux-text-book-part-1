@@ -148,7 +148,6 @@ You can manually edit the file ```/etc/apt/sources.list``` as well and enter PPA
 ```
 sudo add-apt-repository ppa:ondrej/php5
 sudo apt-get update
-sudo apt-get upgrade
 sudo apt-get install php5
 ```
 
