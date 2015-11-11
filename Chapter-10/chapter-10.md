@@ -81,93 +81,97 @@ sudo apt-get purge linux-image-x.x.x-xx-generic
 ```
 
 #### RPM
-The same concepts and direction was created by the Red Hat company and called RPM (Originally Red Hat Package Manager - now know as RPM Package Manager.)  Red Hat created their own package manger that is used accross those systems that are Fedora or RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution too.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") RPM was released first in 1998 as a consolidation of previous package managers.
 
-List all installed packages:
-    rpm -qa
+ A few years after dpkg became standard on the Debian based distros, the Red Hat company created their own package manager our of neccesity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.)  Red Hat created their own package manger that is used accross those systems that are Fedora or RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution too.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113]. 
 
+> __Example Usage:__ List all installed packages:
+```rpm -qa```
 
-List information about an installed package:
-    rpm -qi pkgname
+> __Example Usage:__ List information about an installed package:
+```rpm -qi pkgname```
 
-Install a package from a local file
-    rpm -i file.rpm
+> __Example Usage:__ Install a package from a local file:
+```rpm -i file.rpm```
 
-Remove a package from the system
-    rpm -e pkgname              (saves copies of modified config files)
+> __Example Usage:__ Remove a package from the system:
+```rpm -e pkgname```             
 
-Get information about a remote package
-    rpm -qpi <url>
+> __Example Usage:__ Get information about a remote package
+```rpm -qpi <url>```
 
+Similar to the previous example let us download the Vivaldi RPM and install it locally.  [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com").  After selecting the Vivaldi 64 bit rpm and using the ```-i``` flag to install it, what error message is printed?  
 
-https://wiki.debian.org/RPM
+Let's try another rpm.  This one is a software called *Denyhosts* this is a brute force banning tool that will lock out IP addresses that attempt to brute force connect to your server.  The rpm is located at [http://pkgs.repoforge.com/denyhosts](http://pkgs.repoforge.com/denyhosts "Denyhosts").  You can download the denyhosts-2.6.5-el6.rf.noarch.rpm.  When you run the rpm based installer what happens?  Why? 
 
 #### Installers 
  
-   Package Managers were a great step forward in making Linux usable beyond the ranks of Thompson, Ritchie, and Stallman.  But as shown in the example above, they still don't handle the dependency issue--as they don't understand the context of auto-dependecy retrieval.  Various solutions were created but every Linux distro has pretty much settled on two families of Installers--that match the major families.  Fedora based distros use Yum and now use DNF (as of Fedora 23) and Debian based distros use APT.  
+   As you can see from above package managers were a great step forward in making Linux usable beyond the ranks of Thompson, Ritchie, and Stallman.  But they still don't handle the dependency issue--they don't understand the context of auto-dependecy retrieval.  Various solutions were created but every Linux distro has pretty much settled on two families of Installers--those that match the major families.  Fedora based distros use Yum and now use DNF (as of Fedora 23) and Debian based distros use APT.  
  
 ### APT
-
-APT was released in 1998, the same time that RedHat released its package manager (giving Debian a leg up and a few years advance).  APT was the out growth of a research project called diety run by Debian developers.  It was planned to be a large GUI like prooject, but it turns out that the CLI implemented with such finese that the GUI portion was dropped.  APT simplifies the installation process. APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock consider's APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packagin Toolkit.  APT will interface with dpkg and has many similar commmands but extends the functionality of dpkg.  
-
-
-    /etc/apt/sources.list: Locations to fetch packages from.
-    /etc/apt/sources.list.d/: Additional source list fragments.
-    /etc/apt/apt.conf: APT configuration file.
-    /etc/apt/apt.conf.d/: APT configuration file fragments.
-    /etc/apt/preferences: version preferences file. This is where you would specify "pinning", i.e. a preference to get certain packages from a separate source or from a different version of a distribution.
-    /var/cache/apt/archives/: storage area for retrieved package files.
-    /var/cache/apt/archives/partial/: storage area for package files in transit.
-    /var/lib/apt/lists/: storage area for state information for each package resource specified in sources.list
-    /var/lib/apt/lists/partial/: storage area for state information in transit.
-
-
-APT relies on the concept of repositories in order to find software and resolve dependencies. For apt, a repository is a directory containing packages along with an index file. This can be specified as a networked or CDROM location. The Debian project keeps a central repository of over 25,000 software packages ready for download and installation.  This includes ability to add non-free software repositories as well.    You can add additionla repositories via the ```add-apt-repository``` command.  This is used to add community maintained PPA's stand for *personal package archive*  these are for packages maintained outside of Debians's rigourous package checking and standards maintaining. (hence the cartoon at the beginning of the chapter).  Ubuntu is a debian derivatie and utilizes thsi was archive of packages and is one of the reawsons for Debian's long standing usage.  Ubuntu maintians additional d*downstram* repositories that add additional software and repositories to maek up the Ubuntu distrivbution.  User's can then add additional repositories or PPA's to extend APT functionality.  Seeing as you may want to access a more recent build of an application that may not be in the standard Debian distribution or not even submitted to a repository becaus ethe version is moving too fast.  For example if you want to install a newer version of the php language on your system, you have to wait for another version of the OS oryou can find the maintaiers repository and add their PPA directly.  That way when you can update in real time with them or even install berta software. The example belwo will add the php5 repository and let you move to the latest.  
-
-> __Example Usage:__ 
-
-sudo add-apt-repository ppa:ondrej/php5
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install php5
-
-
-
-    On 12.04 and earlier, install the python-software-properties package:
-
-```sudo apt-get install python-software-properties```
-
-    On 14.04 and later:
-
-    sudo apt-get install software-properties-common
-
-
-
-
-
-Any number of additional repositories can be added to APT's sources.list configuration file (/etc/apt/sources.list) and then be queried by APT. Graphical front-ends often allow modifying sources.list more simply (apt-setup). Once a package repository has been specified (like during the system installation), packages in that repository can be installed without specifying a source and will be kept up-to-date automatically.
-
-In addition to network repositories, compact discs and other storage media (USB keydrive, hard disks...) can be used as well, using apt-cdrom[16] or adding file:/[17] to the source list file. Apt-cdrom can specify a different folder than a cd-rom, using the -d option (i.e. a hard disk or a USB keydrive). The Debian CDs available for download contain Debian repositories. This allows non-networked machines to be upgraded. Also one can use apt-zip.
-
-Problems may appear when several sources offer the same package(s). Systems that have such possibly conflicting sources can use APT pinning to control which sources should be preferred.
-
- 
 
 Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes it possible to: 
   
    *  Install applications 
    *  Remove applications 
-   *  Keep your applications up to date 
+   *  Keep your applications up to date
 
-Apt, which basically resolves dependency problems and retrieves the requested packages, works with dpkg, another tool, which handles the actual installation and removal of packages (applications). Apt is very powerful, and is primarily used on the command line (console/terminal).   THe main commands of APT are as follows:
+The APT installer was released in 1998, the same time that RedHat released its package manager (giving Debian a leg up and a few years head-start).  APT was the out growth of a research project called Diety run by the Debian developers.  It was planned to be a large GUI-like project, but it turns out that the APT CLI was implemented with such finese and simplicity that all GUI plans were dropped.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock consider's APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packagin Toolkit.  APT will interface with *dpkg* and has many similar commmands but extends the functionality of dpkg in a critical way.  
 
-  * apt-get install 
-  * apt-get remove
-  * apt-cache search pattern
-  * apt-get update
-  * apt-get upgrade
-  * apt-get dist-upgrade
-  * do-release-upgrade
+APT, which basically resolves dependency problems and retrieves the requested packages, works with dpkg under the hood. The main commands of APT are as follows:
+
+  * apt-get update -- used to make sure your system is pointed to the latest repository versions. You should always run this before taking any other actions.
+  * apt-get install -- used to install the application of choice
+  * apt-get remove -- used to remove the application of choice
+  * apt-cache search \[pattern\] -- used to search all yoru repositories for an app matching the given pattern
+  * apt-get upgrade -- used to perform an upgrade of all current packages that have updates available (note in Yum this is the command update)
+  * apt-get dist-upgrade -- this performs the same as the upgrade but will also update the kernel version and headers as well
+  * do-release-upgrade -- this will update the entire distribution and move it to the next incremental version (Ubuntu 15.04 to 15.10)
+
+#### Repositories
+
+APT relies on the concept of repositories in order to find software and resolve dependencies. For apt, a repository is a directory containing packages along with an index file. This can be specified as a networked or local based location. The Debian project keeps a central repository of over 25,000 software packages ready for download and installation.  This includes ability to add non-free software repositories as well.    You can add additional repositories via the ```add-apt-repository``` command.  This is used to add community maintained PPA's--which stand for *personal package archive.*  These are for packages maintained outside of Debians's rigourous package checking standards and 1 to 2 year release window. Hence the cartoon at the beginning of the chapter.  
+
+The package system and architecture is on of the reasons for Debian's long standing existance and credibility.  The packages just work. Ubuntu is a Debian derivative that utilizes this archive of packages.  Reemember that the founder of Ubuntu, Mark Shuttleworth, had been a Debian contributer at one point. Ubuntu builds on top of Debian's 25,000 packages by maintianing additional *downstream* repositories that add additional software and repositories to make up the Ubuntu distribution.  Ubuntu is a little more liberal on including non-free drivers for mainly high-end video cards.  Users can then add additional repositories or PPA's of their own choosing to extend APT functionality and expand that package base.  
+
+Seeing as you may want to access a more recent build of an application that may not be in the standard Debian/Ubuntu distribution or not even submitted to a repository because the version is moving too fast or the maintainer just didn't want to package it up.  For example if you want to install a newer version of the php language on your system, you have to wait for another version of the OS oryou can find the maintaiers repository and add their PPA directly.  That way when you can update in real time with them or even install beta software. The example below will add the php5 latest repository for installation.  
+
+You can manually edit the file ```/etc/apt/sources.list``` as well and enter PPAs manually.  Once a new PPA has been added you need to run ```sudo apt-get update``` so APT can see the new repositories and add them to it's cache.
+
+> __Example Usage:__ 
+```
+sudo add-apt-repository ppa:ondrej/php5
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install php5
+```
+
+The command ```add-apt-repository``` doesn't come standard as part of an Ubuntu distribution  On 12.04 and earlier, install the python-software-properties package: [^109] ```sudo apt-get install python-software-properties```. On 14.04 and later: ```sudo apt-get install software-properties-common```.
+
+> __Example Usage:__ [Gwibber.com](http://gwibber.com/ "Gwibber") is a microblogging aggregation application.  It has a PPA where they release daily or nightly builds of their software.  This is good if you are a developer or beta-tester or a user that needs access to cutting edge feature [^110].  If you were so inclined you can add their repository: ```sudo add-apt-repository ppa:gwibber-daily/ppa``` 
+
+There is also a PPA for Linux-libre.  *"Linux-libre is an operating system kernel and a GNU package that is maintained from modified versions of the Linux kernel. The aim of the project is to remove from the Linux kernel any software that does not include its source code, has its source code obfuscated, or is released under proprietary licenses [^111]. The downside of removing proprietary firmware from the kernel is that it will cause loss of functionality of certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards, as well as some other devices. When possible, free software replacement firmware is provided as a substitute, such as the openfwwf for b43, carl9170 and ath9k_htc wireless card drivers."*  
+
+*"The resulting combination of the GNU Operating System and the kernel named Linux is the GNU+Linux operating system, although many (incorrectly) refer to it as "Linux": http://www.gnu.org/gnu/linux-and-gnu.html [^112]"*  
+
+> __Example Usage:__ Let's set our kernel free...  
+```
+sudo add-apt-repository ppa:linux-libre/ppa
+sudo apt-get update
+sudo apt-get install linux-libre
+sudo apt-get dist-upgrade
+```
+
+Here is a list of all the configuration and cache files related to APT and their location:
+
+    * /etc/apt/sources.list: Locations to fetch packages from.
+    * /etc/apt/sources.list.d/: Additional source list fragments.
+    * /etc/apt/apt.conf: APT configuration file.
+    * /etc/apt/apt.conf.d/: APT configuration file fragments.
+    * /etc/apt/preferences: version preferences file. This is where you would specify "pinning", i.e. a preference to get certain packages from a separate source or from a different version of a distribution.
+    * /var/cache/apt/archives/: storage area for retrieved package files.
+    * /var/cache/apt/archives/partial/: storage area for package files in transit.
+    * /var/lib/apt/lists/: storage area for state information for each package resource specified in sources.list
+    * /var/lib/apt/lists/partial/: storage area for state information in transit.
 
 ###   yum  & dnf 
 
@@ -220,5 +224,16 @@ Screen shot showing you need to host the file on the web somewhere or include th
 [^107]: [https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics](https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics)  
   
 [^108]: [https://wiki.debian.org/Apt](https://wiki.debian.org/Apt)  
+  
+[^109]: [http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them](http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them)  
+  
+[^110]: [http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them/40351#40351](http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them/40351#40351)
+  
+[^111]: [https://en.wikipedia.org/wiki/Linux-libre](https://en.wikipedia.org/wiki/Linux-libre)  
+  
+[^112]: [https://launchpad.net/~linux-libre/+archive/ubuntu/ppa](https://launchpad.net/~linux-libre/+archive/ubuntu/ppa)  
+  
+[^113]: [https://wiki.debian.org/RPM](https://wiki.debian.org/RPM)  
+  
   
   
