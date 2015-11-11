@@ -153,7 +153,7 @@ sudo apt-get install php5
 
 The command ```add-apt-repository``` doesn't come standard as part of an Ubuntu distribution  On 12.04 and earlier, install the python-software-properties package: [^109] ```sudo apt-get install python-software-properties```. On 14.04 and later: ```sudo apt-get install software-properties-common```.
 
-> __Example Usage:__ [Gwibber.com](http://gwibber.com/ "Gwibber") is a microblogging aggregation application.  It has a PPA where they release daily or nightly builds of their software.  This is good if you are a developer or beta-tester or a user that needs access to cutting edge feature [^110].  If you were so inclined you can add their repository: ```sudo add-apt-repository ppa:gwibber-daily/ppa``` 
+> __Example Usage:__ The application [gwibber](http://gwibber.com/ "Gwibber") is a microblogging aggregation application.  It has a PPA where they release daily or nightly builds of their software.  This is good if you are a developer or beta-tester or a user that needs access to cutting edge feature [^110].  If you were so inclined you can add their repository: ```sudo add-apt-repository ppa:gwibber-daily/ppa``` 
 
 There is also a PPA for Linux-libre.  *"Linux-libre is an operating system kernel and a GNU package that is maintained from modified versions of the Linux kernel. The aim of the project is to remove from the Linux kernel any software that does not include its source code, has its source code obfuscated, or is released under proprietary licenses [^111]. The downside of removing proprietary firmware from the kernel is that it will cause loss of functionality of certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards, as well as some other devices. When possible, free software replacement firmware is provided as a substitute, such as the openfwwf for b43, carl9170 and ath9k_htc wireless card drivers."*  
 
@@ -165,6 +165,7 @@ sudo add-apt-repository ppa:linux-libre/ppa
 sudo apt-get update
 sudo apt-get install linux-libre
 sudo apt-get dist-upgrade
+uname -a
 ```
 
 Here is a list of all the configuration and cache files related to APT and their location:
@@ -181,9 +182,9 @@ Here is a list of all the configuration and cache files related to APT and their
 
 ### yum  & dnf 
 
-  Fedora based Linux is in a bit of a transition. It's enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependecy resolution.  YUM is looking to be phased out for the new adaoption and faster tool DNF.  RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations.
+  Fedora based Linux is in a bit of a transition. It's enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependecy resolution.  YUM is looking to be phased out for the new adaoption and faster tool DNF.  RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations.  
   
-  Both YUM and DNF use repositories that are maintained by RedHat or CentOS or even their RHEL repos.  You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and RedHat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
+  A succesor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice.  YUM will not be depreicated for quite a while on RHEL and CentOS, but it willb e eventually replaced by DNF.  Both YUM and DNF use repositories that are maintained by RedHat or CentOS or even their RHEL repos.  You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and RedHat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
 
 ![*Installed Repositories Fedora 22*](images/Chapter-10/yum/etc-yum.png "YUM")
 
@@ -241,7 +242,7 @@ sudo make install
 
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
+  In this chapter we learned about the history of software installation and the tools needed to successfully manage Linux packages.  We learned about the standard package installers and package mangagers and also learned about alternative methods to compile from source and use python based setup-tools installer.  This enables you as a poweruser or system admin to extend the capabilities of your system.  
 
 ### Review Questions
 
