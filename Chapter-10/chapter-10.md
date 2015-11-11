@@ -15,9 +15,11 @@ __Outcomes__
 
 ## Package Managers
 
-  One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (*.tar.gz) which was convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library needed had it's own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman is the creator of the computer software program make for UNIX systems. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system.[2] Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named a ```makefile``` that includes instrcutions and ordered steps that can be repeated everytime software is built.  This attributes software to be portable accross systems (ideally anyway).  Make is a utility that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program [^106].  Makefiles have an arcane syntax that not all people enjoy and over the years many people have modified and rewritten their own ```make``` system.
+  One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (*.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had it's own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  
   
- ```makefile
+  Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named a ```makefile``` that includes instrcutions and ordered steps that can be repeated everytime software is built.  This attributes software to be portable accross systems (ideally anyway).  Make is a utility that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program [^106].  Makefiles have an arcane syntax that not all people enjoy and over the years many people have modified and rewritten their own ```make``` system.
+  
+```makefile
      all: helloworld
 
     helloworld: helloworld.o
@@ -35,11 +37,15 @@ __Outcomes__
     .SUFFIXES: .c
 ```
 
-Clear as mud right?  Like many things in the Unix world, this sysetm has been modified and augmented but still persists as the way software project are installed.  By 1988 the GNU project had released their Free Software version of ```make``` called GNU Make and this is included in all standard Linux distrobutions and is even required for compiling the Linux Kernel.  There are other versions of ```make``` including the Unix version, ```pmake``` and ```bmake``` on the BSD Unix variants and even Microsoft has its own build tool that can be used called ```nmake```.
+Clear as mud right?  Like many things in the Unix world, this sysetm has been modified and augmented but still persists as the way software project are installed.  By 1988 the GNU project had released their Free Software version of ```make``` called GNU Make or ```gmake```. GNU make is included in all standard Linux distributions and is even required for compiling the Linux Kernel.  There are other versions of ```make``` including the Unix version, ```pmake``` and ```bmake``` on the BSD Unix variants, there is a cross platform build tool called ```cmake``` and even Microsoft has its own build tool that can be used called ```nmake```.
 
-  Software is more complicated
+### Package Managers
 
-  Linux distributions took to making software installation and distribution easier by introducing something initally called __Package Managers__.  These were meant to eliminate all of the above process by solving two key probelms. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed.  Second package managers would solve the dependency issues by keeeping track of the dependency trail and be smart enough to follow that trail before installation.  The first package manager was ___dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primative package manager.  The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
+Software is more complicated, right? This style of software installation put a high barrier to who could practically use Unix/Linux.  Linux distributions took to making software installation and distribution easier by introducing something initally called __Package Managers__.  These were meant to eliminate all of the above process by solving two key probelms. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed.  Second package managers would solve the dependency issues by keeeping track of the dependency trail and be smart enough to follow that trail before installation. 
+
+#### .deb
+
+ The first package manager was ___dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primative package manager.  The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
  
  A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107].  One is the control data which is listed as such:
 ```
@@ -59,10 +65,10 @@ The most important line being the __Depends__ option which controls dependencies
 
 > __Example Usage:__  You can download a .deb file from the Vivaldi website here: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in the Ubuntu or Gnome Software stores but you can download the .deb. file directly and install through dpkg.  If it is previously installed you might have to use the Ubuntu Software Center to remove it and then complete this exercise.  In the command below we will introduice the install command or the ```-i``` flag, which stands for __install__.
 ```bash
-sudo dpkg -i ./vivaldi-package name
+sudo dpkg -i ./vivaldi-beta_1.0.303.52-5_amd64.deb
 ```
 
-After executing this command you will receive an error message. What is it telling you and why?  (Hint think 3P's from the previous chapter) You will notice that the dpkg foudn that it had a *dependecy*, can you locate that *dependecy* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
+After executing this command you will receive an error message. What is it telling you and why?  (Hint think 3P's from the previous chapter) You will notice that the dpkg foudn that it had a *dependency*, can you locate that *dependecy* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
 > __Example Usage:__ 
 ```bash
@@ -77,6 +83,7 @@ Note that this command installs properly without any error message. [http://pack
 sudo apt-get dist-upgrade
 dpkg -l | grep linux-image
 # x.x.-xx is the verison that is not the most recent version as deleting that will make your system unbootable
+# uname -a will tell you the current kernel version 
 sudo apt-get purge linux-image-x.x.x-xx-generic
 ```
 
@@ -183,7 +190,7 @@ Here is a list of all the configuration and cache files related to APT and their
 
 Frodo is the name of a Commodore 64 emulator - a computer that dominated the home market and the video gamne market in the years before the IBM PC became cheap enough and the Nintendo popped onto the scene. I still own one and have it in my basement, which I used in real life as a kid.  If we try to install it via ``sudo dnf install frodo``` we get this message, why?  
 
-![*Unable to Find a Match*](images/Chapter10/yum/unable.png "Unable to find a match")
+![*Unable to Find a Match*](images/Chapter-10/yum/unable.png "Unable to find a match")
 
 First we want to check if we have the correct RPM name.  We can search through our repos looking for the name by typing the ```sudo dnf search [fF]rodo*``` command.  This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
 
@@ -202,7 +209,12 @@ Once those RPMFusion repos have been added you can now retry the example above a
 
 ![*C64*](images/Chapter-10/yum/c64.png "C64")  
 
-> __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.
+> __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
+
+*  ```sudo dnf update --refresh```
+*  ```sudo dnf install dnf-plugin-system-upgrade```
+*  ```sudo dnf system-upgrade download --releasever=23```
+*  ```sudo dnf system-upgrade reboot```
 
 ## Compling and Installing source code
 
@@ -238,11 +250,56 @@ sudo make install
 
 ### Podcast Questions
 
- Questions go here
+Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
 
+  *  ~6:32 Who is Linus Torvalds?
+  *  ~6:54 Where did he create Linux?
+  *  ~7:30 What did Unix have that other operating systems didn't at that time?
+  *  ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
+  *  ~10:30 About what month and what year did this happen?
+  *  ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project? 
+  *  ~13:30-14:00 Why was it licensed under the GPL license?
+  *  ~20:48 Why didn't Linus want to work for a Linux company? 
+  *  ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
+  *  ~46:10 What is the way to become a great programmer?
+  *  ~51:17 What is Linus' farewell message to the audience?
+  
 ### Lab
 
- Lab goes here 
+Chapter 10 Lab
+
+__Objectives:__
+
+* Demonstrate usage of Linux package managers
+* Demonstrate the use of Linux installers
+* Demonstrate knowledge of how to compile code from source
+* Demonstrate knowledge to use a python installers
+* Demonstrate the ability to upgrade and update a Linux distribution via the command line\
+
+__Outcomes__
+  At the conclusion of this lab you wi have gained the mastery of installing Linux software packages from the command line in an array of different fashions and tools.
+  
+1) On your Ubuntu 15.04 distribution what is the command you would use to install the package chromium-browser with the APT installer?
+1) On Fedora 22 what is the command to install the package xeyes?
+1) On Fedora 22 what is the command to add the RPMFusion packages for Free and Non-Free?  Execute those commands and install and run the Frodo C64 emulator.  Located here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html)
+1) On Fedora 22 what is the command to install via DNF the Dropbox client Located Here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html)
+1) On Ubuntu 15.04 add the current PHP5 repo and then install apache2 and php5.  Once finished create a file named info.php containing this code: 
+```php
+<?php
+
+// Show all information, defaults to INFO_ALL
+phpinfo();
+
+?>
+```
+Locate the file in /var/www/html.  Open a web-browser on the local Ubuntu system and navigate to ```http://localhost/info.php``` what is the PHP version listed?
+1) On Ubuntu 15.04 what would be the command to upgrade all the packages on the system?
+1) On Ubuntu 15.04 what would be the command to upgrade the system to release version 15.10?
+1) On Ubuntu 15.04/10 what would be the command to add the Linux-libre repositroy and then upgrade the Kernel to a Free Linux kernel? 
+1) On Fedora 22 what would be the series of commands to upgrade Fedora 22 to Fedora 23?
+1) On Fedora 22 install the neccesary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web0browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local. 
+1) On Fedora 22 clond the denyhosts repo from: https://github.com/denyhosts/denyhosts  
+execute this command: ```git clone https://github.com/denyhosts/denyhosts.git``` Follow the setup instructions and use python to install denyhosts.  Note - install any depencies that may be noted.
  
 #### Footnotes
  
