@@ -246,7 +246,128 @@ sudo make install
 
 ### Review Questions
 
-  Questions go here
+Chapter 10 Review Questions
+
+1) How was software initially distributed in Linux--before package managers?
+a. APT
+b. tarballs
+c. RPM
+d. dpkg
+
+2) Who created the intial build system we still use today to build Linux software? 
+a. Ken Thompson
+b. Dennis Ritchie
+c. Stuart Feldman
+d. Richard Stallman
+
+3) What is the name of the tool that uses makefiles to build software?
+a. make
+b. make install
+c. makefile
+d. ./configure
+
+4) What is the name of the package format Debian distribution uses? 
+a. RPM
+b. Alien
+c. .deb
+d. .rpm
+
+5) What is the name of the package format the Fedora/RedHat based distros use?
+a. RPM
+b. Alien
+c. DNF
+d. .deb
+
+6) What is the name of the tool used to install .deb files directly on the command line?
+a. debpkg -i *.deb
+b. dpkg -i *.deb
+c. pkg -i *.deb
+d. rpm -ivh *.deb
+
+7) What feature doesn't dpkg handle/support? 
+a. Dependecies
+b. Installing Dependencies
+c. Versioning
+d. Author Information
+
+8) In 1998 RedHat released it's package manager format - what its name? 
+a. RPM
+b. .deb
+c. APT
+d. DNF
+
+9) What is the name of the Debian Installer tool that works in conjunction with the dpkg package manager?
+a. RPM
+b. APT
+c. DNF
+d. YUM
+
+10) What is the APT command that allows you to install a package named apache2?
+a. apt-get apache2
+b. apt-install apache2
+c. apt get install apache2
+d. apt-get install apache2
+
+11) What is the APT command to list all packages currently installed on your Ubuntu 15.04 system?
+a. dpkglist
+b. dpkg -l
+c. dpkg 
+d. pkg --list
+
+12) What is the APT command to add an additional software repository, named: ppa:linux-libre/ppa, to your APT system?
+a. sudo add-repository ppa:linux-libre/ppa
+b. sudo add-apt-repository ppa:linux-libre/ppa
+c. sudo apt-add-repository ppa:linux-libre/ppa
+d. sudo apt-add ppa:linux-libre/ppa
+
+13) What is the command to sync your system with the latest package repositories?
+a. sudo apt-get upgrade
+b. sudo apt-get dist-upgrade
+c. sudo apt-get upgrade
+d. sudo apt upgrade
+
+14) What is the commmand to upgrade your Debian based system packages and to the newest kernel version?
+a.  sudo apt-upgrade --system
+b.  sudo apt-upgrade 
+c.  sudo apt-get update
+d.  sudo apt-get dist-upgrade
+
+15) What is the RPM command to install a package from the command line?
+a. rpm -qa *.rpm
+b. rpm install *.rpm
+c. rpm -q *.rpm
+d. rpm -i *.rpm
+
+16) What is the DNF command used to install addtional software repositories? Use this URL to an RPM: sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+a. sudo dnf install repo sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+b. sudo dnf sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+c. sudo dnf install sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+d. sudo install sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+
+17) What is the name of RPM repository that was mentioned in the textbook?
+a. RPMFusion
+b. Fusion
+c. EL-REPO
+d. RPM.org
+
+
+18) What is the command you run first when compiling code from source to run a "sanity check" on your system before you begin compilation?
+a. ./config
+b. ./configure
+c. ./check
+d. sudo reboot
+
+19) What is the name of the C compiler that is standard on all Linux systems?
+a. Clang
+b. CC
+c. GCC
+d. C++
+
+20) What other language has a build/install system that is simpler than using C and makefiles?
+a. Go
+b. Php
+c. C++
+d. Python
 
 ### Podcast Questions
 
