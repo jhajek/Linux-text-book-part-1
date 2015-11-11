@@ -126,13 +126,13 @@ The APT installer was released in 1998, the same time that RedHat released its p
 
 APT, which basically resolves dependency problems and retrieves the requested packages, works with dpkg under the hood. The main commands of APT are as follows:
 
-  * apt-get update -- used to make sure your system is pointed to the latest repository versions. You should always run this before taking any other actions.
-  * apt-get install -- used to install the application of choice
-  * apt-get remove -- used to remove the application of choice
-  * apt-cache search \[pattern\] -- used to search all yoru repositories for an app matching the given pattern
-  * apt-get upgrade -- used to perform an upgrade of all current packages that have updates available (note in Yum this is the command update)
-  * apt-get dist-upgrade -- this performs the same as the upgrade but will also update the kernel version and headers as well
-  * do-release-upgrade -- this will update the entire distribution and move it to the next incremental version (Ubuntu 15.04 to 15.10)
+  * ```apt-get update``` -- used to make sure your system is pointed to the latest repository versions. You should always run this before taking any other actions.
+  * ```apt-get install``` -- used to install the application of choice
+  * ```apt-get remove``` -- used to remove the application of choice
+  * ```apt-cache search \[pattern\]``` -- used to search all yoru repositories for an app matching the given pattern
+  * ```apt-get upgrade``` -- used to perform an upgrade of all current packages that have updates available (note in Yum this is the command update)
+  * ```apt-get dist-upgrade``` -- this performs the same as the upgrade but will also update the kernel version and headers as well
+  * ```do-release-upgrade``` -- this will update the entire distribution and move it to the next incremental version (Ubuntu 15.04 to 15.10)
 
 #### Repositories
 
