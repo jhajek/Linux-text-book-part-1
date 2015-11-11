@@ -418,7 +418,67 @@ e. ```sudo useradd -c "User for spring class" -G sudo -m controller```
 
 ## Chapter 10
 
-TBA
+Chapter 10 Review Questions
+
+1) How was software initially distributed in Linux--before package managers?
+b. tarballs
+
+2) Who created the initial build system we still use today to build Linux software? 
+c. Stuart Feldman
+
+3) What is the name of the tool that uses makefiles to build software?
+a. make
+
+4) What is the name of the package format Debian distribution uses? 
+c. .deb
+
+5) What is the name of the package format the Fedora/RedHat based distros use?
+a. RPM
+
+6) What is the name of the tool used to install .deb files directly on the command line?
+b. dpkg -i *.deb
+
+7) What feature doesn't dpkg handle/support? 
+b. Installing Dependencies
+
+8) In 1998 RedHat released it's package manager format - what its name? 
+a. RPM
+
+9) What is the name of the Debian Installer tool that works in conjunction with the dpkg package manager?
+b. APT
+
+10) What is the APT command that allows you to install a package named apache2?
+b. apt-install apache2
+
+11) What is the APT command to list all packages currently installed on your Ubuntu 15.04 system?
+b. dpkg -l
+
+12) What is the APT command to add an additional software repository, named: ppa:linux-libre/ppa, to your APT system?
+b. sudo add-apt-repository ppa:linux-libre/ppa
+
+13) What is the command to sync your system with the latest package repositories?
+a. sudo apt-get upgrade
+
+14) What is the command to upgrade your Debian based system packages and to the newest kernel version?
+d.  sudo apt-get dist-upgrade
+
+15) What is the RPM command to install a package from the command line?
+d. rpm -i *.rpm
+
+16) What is the DNF command used to install addtional software repositories? Use this URL to an RPM:http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+c. sudo dnf install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+
+17) What is the name of RPM repository that was mentioned in the textbook?
+a. RPMFusion
+
+18) What is the command you run first when compiling code from source to run a "sanity check" on your system before you begin compilation?
+b. ./configure
+
+19) What is the name of the C compiler that is standard on all Linux systems?
+c. GCC
+
+20) What other language has a build/install system that is simpler than using C and makefiles?
+d. Python
 
 ## Chapter 11
 

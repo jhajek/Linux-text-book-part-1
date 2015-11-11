@@ -254,7 +254,7 @@ b. tarballs
 c. RPM
 d. dpkg
 
-2) Who created the intial build system we still use today to build Linux software? 
+2) Who created the initial build system we still use today to build Linux software? 
 a. Ken Thompson
 b. Dennis Ritchie
 c. Stuart Feldman
@@ -285,7 +285,7 @@ c. pkg -i *.deb
 d. rpm -ivh *.deb
 
 7) What feature doesn't dpkg handle/support? 
-a. Dependecies
+a. Dependencies
 b. Installing Dependencies
 c. Versioning
 d. Author Information
@@ -323,10 +323,10 @@ d. sudo apt-add ppa:linux-libre/ppa
 13) What is the command to sync your system with the latest package repositories?
 a. sudo apt-get upgrade
 b. sudo apt-get dist-upgrade
-c. sudo apt-get upgrade
+c. sudo apt-get update
 d. sudo apt upgrade
 
-14) What is the commmand to upgrade your Debian based system packages and to the newest kernel version?
+14) What is the command to upgrade your Debian based system packages and to the newest kernel version?
 a.  sudo apt-upgrade --system
 b.  sudo apt-upgrade 
 c.  sudo apt-get update
@@ -338,11 +338,11 @@ b. rpm install *.rpm
 c. rpm -q *.rpm
 d. rpm -i *.rpm
 
-16) What is the DNF command used to install addtional software repositories? Use this URL to an RPM: sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
-a. sudo dnf install repo sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
-b. sudo dnf sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
-c. sudo dnf install sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
-d. sudo install sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+16) What is the DNF command used to install addtional software repositories? Use this URL to an RPM: http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+a. sudo dnf install repo http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+b. sudo dnf http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+c. sudo dnf install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+d. sudo install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
 
 17) What is the name of RPM repository that was mentioned in the textbook?
 a. RPMFusion
