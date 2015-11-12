@@ -44,6 +44,14 @@ date: 07/30/2015
  * Appendix A image - [http://imgs.xkcd.com/comics/iso_8601.png](http://imgs.xkcd.com/comics/iso_8601.png  "Dates")
  * Appendix B images - [http://imgs.xkcd.com/comics/git_commit.png](http://imgs.xkcd.com/comics/git_commit.png  "Git Commit")
 
+### Links to Microsoft Sway Presentations
+
+ * [https://doc.co/sxnt6y](https://doc.co/sxnt6y) - chapter 2
+ * [https://doc.co/ZYPjx4](https://doc.co/ZYPjx4) - chapter 3
+ * [https://doc.co/6nNWXx](https://doc.co/6nNWXx) - chapter 4
+ * [https://doc.co/URDkkn](https://doc.co/URDkkn) - chapter 5
+ * [https://doc.co/coScgt](https://doc.co/coScgt) - chapter 6
+
 ## Author(s)
 
 My name is Enigo Montoya...

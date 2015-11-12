@@ -123,11 +123,7 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
   The operating system needs a convention on how all the logs are transferred and stored.  That method was called syslog.  Until 1980 there were various logging methods and schemes.  The one that caught on was called syslog and was actually part of an email program, Sendmail, initially.  Syslog permits the consolidation of logging data from different types of systems in a central repository.  Syslog logs can also be transmitted remotely and aggregated on a central system.  Originally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS.  Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to the journalctl.  The system logs that had been stored in: [^94]
   
-  * ```cat /var/log/messages``` will now become ```journalctl```
-  * ```tail -f /var/log/messages``` will now become ```journalctl -f```
-  * ```grep foobar /var/log/messages``` will now become ```journalctl | grep foobar``` 
-  
-  If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04 and prior you will not find the journald commands and will find the tradditional syslog service.   Syslog can be installed along side of journald and run in the tradditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does everything).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs--perhaps positioning Fedora to be in a Windows style dominance over Linux?
+\newpage
   
 #### Error Levels
 
@@ -166,7 +162,13 @@ Value    Severity        Keyword   		Description     			 	            Examples
 
   In Lennart Poeterring's own words, *"If you are wondering what the journal is, here's an explanation in a few words to get you up to speed: the journal is a component of systemd, that captures Syslog messages, Kernel log messages, initial RAM disk and early boot messages as well as messages written to STDOUT/STDERR of all services, indexes them and makes this available to the user. It can be used in parallel, or in place of a tradditional syslog daemon, such as rsyslog or syslog-ng."* [^97]
 
-  "One of the impetuses behind the systemd journal is to centralize the management of logs regardless of where the messages are originating. Since much of the boot process and service management is handled by the systemd process, it makes sense to standardize the way that logs are collected and accessed. The journald daemon collects data from all available sources and stores them in a binary format for easy and dynamic manipulation." [^98]
+  *"One of the impetuses behind the systemd journal is to centralize the management of logs regardless of where the messages are originating. Since much of the boot process and service management is handled by the systemd process, it makes sense to standardize the way that logs are collected and accessed. The journald daemon collects data from all available sources and stores them in a binary format for easy and dynamic manipulation. [^98]"*
+
+  If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04 and prior you will not find the journald commands and will find the tradditional syslog service.   Syslog can be installed along side of journald and run in the tradditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does everything).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs--perhaps positioning Fedora to be in a Windows style dominance over Linux?  The traditional ways of using syslog had been modified by journald.
+ 
+  * ```cat /var/log/messages``` will now become ```journalctl```
+  * ```tail -f /var/log/messages``` will now become ```journalctl -f```
+  * ```grep foobar /var/log/messages``` will now become ```journalctl | grep foobar``` 
   
   To use the journal daemon (journald) all its elements are accessed through the ```journalctl``` command.  All previously sparse logs are now contained in a single binary append only log format.  The advantage of that is that the output can be programmatically parsed (actually queried like a database) the downside is that some people see a "all your eggs in one basket" problem with a single central binary file.
 
@@ -359,9 +361,9 @@ There are a series of commands that can be used to change or augment the owner, 
 
 ### useradd
 
-  The useradd command allows you to add a new user to the system.  You can set user defaults by typing the command below.  The -D option reads from the ```/etc/default/useradd``` where you can set the default values a new user created will inherit.
+  The useradd command allows you to add a new user to the system.  You can set user defaults by typing the command below.  The -D option will show you what your system ```useradd``` command defaults are.  You can then add a user with these default values by typing:
 ```bash
-useradd -D name-of-account-to-add
+useradd name-of-account-to-add
 ```
 
 ![*useradd*](images/Chapter-09/user-administration/default/etc-default.png "etc-default")
@@ -431,6 +433,7 @@ Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like 
 #### ACLs
 
 IF you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced "*ack-els*") __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  The difficulties of ACL's in Linux is that they are exclusive to RHEL and not portable to other Linux or Unix systems.
+\newpage 
  
 ### The 3 P's Describing 99% of all Linux Problems
 

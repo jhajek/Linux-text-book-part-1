@@ -206,6 +206,7 @@ Note for RHEL/CentOS the installtion URL is slightly different:
 If you are using CentOS or RHEL you need to first install the EL-Repo before the RPMFusion, but not for Fedora.  No it isn't spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
 
 Once those RPMFusion repos have been added you can now retry the example above and install, Frodo, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.  Now if we type ```sudo dnf install Frodo``` the package will be found and we will be able to install it to see the Commadore 64 in all its emulated glory.
+\newpage
 
 ![*C64*](images/Chapter-10/yum/c64.png "C64")  
 
