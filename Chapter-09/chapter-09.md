@@ -280,21 +280,20 @@ SystemMaxFiles and RuntimeMaxFiles
 ### top
   
 ![*Fedora 22 top screenshot*](images/Chapter-09/monitoring/top/top.png "top") 
+\newpage
  
-   The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.)
-
+   The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.) The image below displays the system average loads over longer rolling periods.  1 minute, 5 minutes, and 15 minute rolling average. 
+   
 ![*top avg*](images/Chapter-09/monitoring/top/top-avg.png "Top average")
 
-  This section displays the system average loads over longer rolling periods.  1 minute, 5 minutes, and 15 minute rolling average.  
+  This section tells you the number of processes, how much memory and swap is in use and how much is free.  It also tells you the breakdown between users and system on who is using the CPU percentage wise.
  
 ![*top usage*](images/Chapter-09/monitoring/top/top-usage.png "Top usage") 
 
-  This section tells you the number of processes, how much memory and swap is in use and how much is free.  It also tells you the breakdown between users and system on who is using the CPU percentage wise.
+   Finally this section shows the name and individual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
 
 ![*top processes*](images/Chapter-09/monitoring/top/top-processes.png "Top process")   
    
-   Finally this section shows the name and individual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
-
 The ```top``` command also has the ability to sort and modify its output while running.  
 
    Key                  Action in Top
@@ -313,6 +312,7 @@ The ```top``` command also has the ability to sort and modify its output while r
    The htop command is an extension to the Linux top command.  It is written in C using the ncurses library for text-based GUIs so it has mouse support.  It also has metered output-and uses all the same interactive commands as ```top```.  The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop").  The ```htop``` command needs to be installed via apt-get or yum/dnf.
    
 ![*htop*](images/Chapter-09/monitoring/top/htop.png "htop")
+\newpage
 
 ### systemd-cgtop
 
@@ -390,6 +390,7 @@ sudo useradd -c "This is a user for ITMO-456-02 Fall 2015" -d /home/controller \
 ```
 
 In Debian distributions there is an abstraction layer called ```adduser``` and ```addgroup``` which are interfaces to the useradd and groupadd commands.  It is just a perl script that passes the values you enter in the menu to the useradd command.  On all other non-Debian distros ```adduser``` is a symlink to ```useradd``` command.  The ```adduser``` command prompts you for information to fill out all the values and is recommended on Debian based systems, but if writing a shell script this is not portable to a non-Debian based distro.
+\newpage
 
 ### userdel and usermod
 
