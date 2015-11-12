@@ -17,7 +17,7 @@ date: 07/30/2015
   
   For instructors - we are going beyond the traditional PowerPoint world, and looking into using new technologies like Microsoft Sway for presentations. The book is being published on GitHub under a Creative Commons CC-SA Share alike license -- this way as things change code can be updated or removed and new digital versions can be published quickly.  
 
-  Some of these chapters are heavier in content then others.  Some are lighter.  Feel free to combine and remix the chapters.  You are even welcome to fork the project on GitHub and remix it or contribute back patches and pull requests.  Part of this book was inspired by a quote from my friend Sean in regards to Linux text books, he said, *"Most text books are good, but then they just add in content from nowhere."* I had that same feeling and when he expressed it in words it hit me.  At the same time, I got the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux. 
+  Some of these chapters are heavier in content then others.  Some are lighter.  Feel free to combine and remix the chapters.  You are even welcome to fork the project on GitHub and remix it or contribute back patches and pull requests.  Part of this book was inspired by a quote from my friend in regards to Linux text books, he said, *"Most text books are good, but then they just add in content from nowhere."* I had that same feeling and when he expressed it in words it hit me.  At the same time, I got the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux. 
 
 ## Presentation Style
 
