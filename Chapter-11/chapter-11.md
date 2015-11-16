@@ -38,7 +38,24 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
 
 ### GRUB
 
- You can modfiy the settings of your GRUB file by editing the ```/etc/default/grub``` file.  Commenting out the line ```GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"``` will print out kernel debug messages as the sytem loads.  To make this change permanent you need to execute the ```sudo update grub``` command after saving the file.
+ The GRUB 2 or GNU GRUB bootloader exists in the file ```/boot/grub/grub.conf``` but this file is auto generated so to edit the settings you would modify the ```/etc/default/grub``` file.  
+ The ```/etc/default/grub``` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
+ 
+ GRUB_DEFAULT=N  -- this value is which entry in your GRUB list is the default operating system to boot.  If you have a single OS installed, this value will be 0.  
+ 
+ GRUB_TIMEOUT -- this is the setting that tells the system to boot the default command N seconds after the GRUB menu has appeared.  It functions as a countdown.  
+ 
+ GRUB_TIMEOUT_STYLE -- this will let the count down appear or silently countdown.  
+ 
+ GRUB_CMDLINE_LINUX_DEFAULT -- this value adds additional key value pairs to the kernel boot parameters.  A common setting here is to change the setting of *splash quiet* which hides and boot time kernel message behind the Ubuntu logo and instead displays them on the screen.  
+ 
+ GRUB_DISABLE_LINUX_RECOVERY -- this hides the single user/recovery mode from the GRUB menu per kernel entry
+ 
+ #GRUB_GFXMODE=640x480 -- this setting is commented out by default, but you can enable this to hard code a certain boot resolution.
+ 
+ GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a background image.
+ 
+To make these changes permanent you need to execute the ```sudo update grub``` command after saving the file so the ```/boot/grub/grub.conf``` will be regenerated and used on the next boot.
 
 ### SysVinit
 
@@ -65,7 +82,7 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
   
 ### Upstart
 
-  In 2006 the Ubuntu distro realized the short comings of sysvinit and created a compatible replacement called ```upstart```.  Upstart moved all the traditional runlevels and start up scripts to ```/etc/init``` directory and placed the scripts in configuration files. Here is an example myservice.conf file stored in ```/etc/init/myservice.conf```:  Note the use of the __run level__ concept from sysvinti.
+  In 2006 the Ubuntu distro realized the short comings of sysvinit and created a compatible replacement called ```upstart```.  Upstart moved all the traditional runlevels and start up scripts to ```/etc/init``` directory and placed the scripts in configuration files. While leaving the ```/etc/rc.d``` structure in place for any backward compatible needing scripts. Here is an example of an myservice.conf file stored in ```/etc/init/myservice.conf```:  Note the use of the __run level__ concept from sysvint.  Compare this to (on an Ubuntu system) the contents of any script in ```/etc/rc3.d``` (run level 3).  You will notice that both are the same with Upstart exhibiting a bit more process control but still being a shell script when you boil it down.
   
 ```bash
  myservice - myservice job file
@@ -128,13 +145,15 @@ You can use the command  ```systemctl``` to list all running services and to iss
 
   Whenever you start a process in Linux, whether that is a service, or something as simple as run a command in terminal or open a new web-browser tab, that creates a system process.  Each process gets an ID so that it can be accessed or referenced.  Each process in turn has a PPID--Parent Process ID, which tells you which other process launched that process.  In traditional sysvinit ```/sbin/init``` launches each additional service.  In systemd it is not quite that clear. In addition to a process--which can be short lived or long lived, there are services--which can be helper items such as the login and authtication service or something focus such as an apache2 web-server.   
   
-### Working With Services  
+### Working With Services in SysVinit/Upstart  
   
   Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | status```.  This would act upon the apporpriate shell script to perform the appropraite action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the textfiles information is parsed and placed in memeory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```. 
     
 > __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
 
 > __Example Usage:__ On sysvinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
+
+### Working With Services in Systemd
 
 > __Example Usage:__ On a systemd based system, service control is done with ```systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart httpd.service```
 
@@ -167,6 +186,7 @@ These additional commands will share more information:
   *  systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership. 
     + cgroups (control groups) were a feature added to the Linux kernel that allow for proceeses to be grouped together and control commands can be exectued on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
     
+    
 ### kill
 
   In the sysvinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
@@ -181,7 +201,17 @@ These additional commands will share more information:
 
 All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors.  All except ```kill -9``` every process has to obey.  You can use the ```killall``` command to kill the process and any associated processes that it had launched all in one fell swoop.  You and use the ```ptkill``` command to kill a process by name instead of PID.
   
-Systemd on the other hand has a mechanism for dealing with services directly, ```systemd kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to induvidual services but also to control groups of processes as well.  
+### Killing Processes with systemd
+  
+ Systemd on the other hand has a mechanism for dealing with services directly, ```systemd kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to induvidual services but also to control groups of processes as well.  
+
+#### cgroups
+    
+    Systemd uses cgroups as a way to hierarchally group and label processes, and (B) a way to then apply resource limits to these groups.  cgroups allow you to *police* the resource usage of processes and related subprocesses--which gives finer grained control over other tools.  
+    
+    By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of which processes are part of which cgroup.  You don't have to search for process IDs anymore, you simply kill the entire cgroup. 
+  
+> __Example Usasge:__ To terminate the Apache2 web-server service, (assuming it has been enabled and started) first let's see the processes in its cgroup by typing ```systemd-cgls```.  You can see the httpd.service cgroup.  You can issue a kill command in the same way you can kill traditional processes by typing, ```systemctl kill httpd.service```.  You can also issue a kill level command through the ```-s``` flag, ```systemctl kill -s SIGHUP httpd.service``` will issue a ```kill -2``` command to all the members of the https.service cgroup.
 
 ### nice
 
@@ -201,10 +231,11 @@ lsusb
 
 ## single user mode
 
+TBA
 
 ## strace/dtrace
 
-
+TBA
 
 ## Chapter Conclusions and Review
 
@@ -220,7 +251,16 @@ lsusb
 
 ### Lab
 
- Lab goes here 
+__Objectives:__
+
+__Outcomes:__
+ 
+ Change grub settings - add background, remove queit splash - update-grub 
+ 
+ use systemd to start and enable httpd.service
+ 
+ install mariadb-service
+ 
  
 #### Footnotes
 
