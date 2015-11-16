@@ -221,13 +221,24 @@ All programs can choose to *trap* these kill commands and ignore them or take di
 
 > *"/proc is very special in that it is also a virtual filesystem. It's sometimes referred to as a process information pseudo-file system. It doesn't contain 'real' files but runtime system information (e.g. system memory, devices mounted, hardware configuration, etc). For this reason it can be regarded as a control and information centre for the kernel. In fact, quite a lot of system utilities are simply calls to files in this directory. [^120]"*
 
-  The /proc virtual filesystem provides...
-  
-/dev/
+  The /proc virtual filesystem provides you a file based interface to the processes that are running on your system.  When you type ```ls /proc``` what do you see?  You see a series of numerical directories.  These numbers correspond to process IDs.  Inside of each directory there are a series of files that represent the state of the process at the moment of introspection.   This can be handy in debugging an application or fine tuning a system in regards to memory usage.   Try to launch a Firefox or any other broweser window.  Use the ```ps -C``` command from above to find its process ID.  Then find that process directory in ```/proc```.  What do you see? Some of the highlights are ```/proc/PID/cmdline```, which will tell you what command line options were used in launching that particular process, ```/proc/PID/status``` links to the process status in human readable form, and ```/proc/PID/mem``` describes the memory held by this process.  The command ```procinfo``` will give you summary of all system and resource states, the package may need to be installed.  For an exhaustive list of all the contents and meanings you can find a chart at the Linux Documentation Project, [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html "TLDP PROC").
+ 
+ In addition ```/proc``` has convieniant information about the state of your system.  To display information about your processor you would type, ```cat /proc/cpuinfo``` this prints out the processor family, the feature flags, and the number of processors (physical and logical).  The same can be done with memory by typing, ```cat /proc/meminfo```.  
+ 
+ The linux kernel also has a concept of loadable kernel modules.  These are pieces of code that can be added into or removed from the kernel--statically at boot, or dynamically as needed, so as to extend the capabilites of your kernel, without forcing uneeded code. For example--needing drivers for a floppy disk would be a waste to include that in the kernel when it could be added and removed via a loadable module if you happened to need it for testing.   To list all the module currently loaded you would type, ```lsmod```.   This command is actually just formatting the content of ```/proc/modules```.  There are other shortcut commands as well to inspect system devices.
+ 
+--------------   --------------------------  ------------------------------------------------------
+  lsmod             /proc/modules               Lists all currently loaded kernel modules
+  lspci                                         Lists all the currently detected PCI devices              
+  lsusb                                         Lists all the currently detected USB connections
+--------------   --------------------------  ------------------------------------------------------  
+
+#### Loading Modules
+
 modprobe
 lsmod
-lspci
-lsusb    
+insmod 
+rmmod
 
 ## single user mode
 
@@ -239,15 +250,15 @@ TBA
 
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
-
+  Through this chapter we learned about init systems, the traditional sysvinit and the new systemd init commands.  You learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under sysvinit.  Finally we learned about the /proc virtual filesystem and how it presents process information in file format dynamically on boot and during a system's use.
+  
 ### Review Questions
 
  Questions go here
 
 ### Podcast Questions
 
- Questions go here
+   TBA
 
 ### Lab
 
@@ -257,10 +268,25 @@ __Outcomes:__
  
  Change grub settings - add background, remove queit splash - update-grub 
  
+ use system-analyze nad blame to collect start times before installing and enabling maria-db, use systemd-analyze after installing maria-db
+ 
+ systemctl service status after maraidb is installed, then enable, then start, then analyze then disable
+ 
+ Chart the startup times
+ 
  use systemd to start and enable httpd.service
  
- install mariadb-service
- 
+ change systemd target to commandline only - show default target - then change back.
+
+change to single user mode to "resuce" the mariadb root password
+
+systectl --show -p "After"  and "Wants" of the sshd.service  
+
+nice a command - compile a C infinite loop program and nice it to low priority and then high priority - use htop to examine system usage -- Code provided
+
+Launch multiple tabs in Firefox using these:  firefox -new-tab -url https://www.evernote.com/Home.action -new-tab -url http://www.gmail.com
+
+find those processes IDs via ps -ef and kill those tabs will a kill -2 command
  
 #### Footnotes
 
