@@ -34,9 +34,11 @@ __Outcomes__
   
 ![*Contents of /boot*](images/Chapter-11/GRUB/slash-boot.png "/boot")
 
- You can modfiy the settings of your GRUB file by editing the ```/etc/default/grub``` file.  Commenting out the line ```GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"``` will print out kernel debug messages as the sytem loads.  To make this change permanent you need to execute the ```sudo update grub``` command after saving the file.
-
 You will notice that there is a vmlinuz kernel image per each instance that corresponds to the TUI entries in the previous image.   The file that is loaded first is actually the ```initrd.img-X.XX.X-XX``` file.  This is the pre-kernel which contains all the drivers neccesary for the kernel to use before the root filesystem has been mounted.  The initrd file is gzip compressed and is decompressed on each boot.  Once the initrd temporary filesystem is loaded, with its own /etc and own /bin, the vmlinuz.* file which is the actual kernel is now loaded into memory and begins to unmount and remove the initrd from memory as it is no longer needed.  
+
+### GRUB
+
+ You can modfiy the settings of your GRUB file by editing the ```/etc/default/grub``` file.  Commenting out the line ```GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"``` will print out kernel debug messages as the sytem loads.  To make this change permanent you need to execute the ```sudo update grub``` command after saving the file.
 
 ### SysVinit
 
@@ -189,7 +191,13 @@ Systemd on the other hand has a mechanism for dealing with services directly, ``
 
 > *"/proc is very special in that it is also a virtual filesystem. It's sometimes referred to as a process information pseudo-file system. It doesn't contain 'real' files but runtime system information (e.g. system memory, devices mounted, hardware configuration, etc). For this reason it can be regarded as a control and information centre for the kernel. In fact, quite a lot of system utilities are simply calls to files in this directory. [^120]"*
 
-  The /proc virtual filesystem provides   
+  The /proc virtual filesystem provides...
+  
+/dev/
+modprobe
+lsmod
+lspci
+lsusb    
 
 ## single user mode
 
