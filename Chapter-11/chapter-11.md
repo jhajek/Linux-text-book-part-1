@@ -34,6 +34,8 @@ __Outcomes__
   
 ![*Contents of /boot*](images/Chapter-11/GRUB/slash-boot.png "/boot")
 
+ You can modfiy the settings of your GRUB file by editing the ```/etc/default/grub``` file.  Commenting out the line ```GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"``` will print out kernel debug messages as the sytem loads.  To make this change permanent you need to execute the ```sudo update grub``` command after saving the file.
+
 You will notice that there is a vmlinuz kernel image per each instance that corresponds to the TUI entries in the previous image.   The file that is loaded first is actually the ```initrd.img-X.XX.X-XX``` file.  This is the pre-kernel which contains all the drivers neccesary for the kernel to use before the root filesystem has been mounted.  The initrd file is gzip compressed and is decompressed on each boot.  Once the initrd temporary filesystem is loaded, with its own /etc and own /bin, the vmlinuz.* file which is the actual kernel is now loaded into memory and begins to unmount and remove the initrd from memory as it is no longer needed.  
 
 ### SysVinit
@@ -98,7 +100,7 @@ exec myprocess
 
   Ubuntu adopted Upstart in 2006, Fedora adopted it as a sysvinit supplimental replacement in Fedora 9 - unitl version 18 when systemd was ready.  RHEL and CentOS use Upstart as well as Chrome OS.  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between sysvinit and its failings but in the end systemd won out.  Mac OSX uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris uses [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
 
-### Systemd
+### Systemd and Systemctl 
 
   Systemd was the alternative decision to sysvinit and Upstart that had been developed by Lennart Poettering while at RedHat.  From his own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system. [^117]"*   Unlike the sysvinit/Upstart method which has an ancestor be PID 1 (process ID 1), systemd become the PID 1.  Systemd includes many other items, 69 different binaries all roled into PID 1.  The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too.
  
@@ -126,7 +128,7 @@ You can use the command  ```systemctl``` to list all running services and to iss
   
 ### Working With Services  
   
-    Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | status```.  This would act upon the apporpriate shell script to perform the appropraite action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the textfiles information is parsed and placed in memeory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```. 
+  Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | status```.  This would act upon the apporpriate shell script to perform the appropraite action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the textfiles information is parsed and placed in memeory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```. 
     
 > __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
 
@@ -136,26 +138,65 @@ You can use the command  ```systemctl``` to list all running services and to iss
 
 > __Example Usage:__ The ```systemctl``` command has additional abilities.  It absorbed the ```chkconfig``` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: ```sudo systemctl is-enabled httpd.service```.  Issue that command and what does it report?
 
-> __Example Usage:__ To disable a service at boot type: ```sudo systemctl disable httpd.service``` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.
+> __Example Usage:__ To disable a service at boot type: ```sudo systemctl disable httpd.service``` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.  Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start.  Systemd command ```systemctl show``` will show all details relating to a target or a service.  Let us look at a service definition.  Type this command, ```cd /lib/systemd/system; ls http*; file http*```  what do you see? Type this command to see the contents of the httpd.serivce file, ```cat httpd.service``` what do you see contained inside?      
+![*httpd.service*](images/Chapter-11/systemd/httpd-service.png "service")
+
+You can see the dependencies the httpd service needs and will only start if the targets listed in \[Unit\] under *After* have started--which makes sense.  The *ExecStart* and *ExecReload* are called when you start and restart the service--which point to the absolute path to the Apache2 binary.  The final value is when the service is installed it has a dependecy of being in a mutil-user target--it obviously be used on a single user system.
+
+#### Systemd Analyze
+
+  Systemd was designed to bring modern OS principals to desktop and server Linux.  That includes a tool called ```systemd-analyze``` which breaks down the time it took for all services, modules, and parts of the kernel to finish loading.  To further debug these numbers use, ```systemd-analyze blame```.  This will print oout induvidually which services/targets/units/mounts are taking the most time to load and allow you to investigate or disable those elements.  You can even use the builtin *plotting* feature of systemd-analyze, by typing, ``` systemd-analyze plot > plot.svg``` and then typing ```eog plot.svg``` to create a visual time based graph of your plot.  There are additional commands under systemd-analyze, ```critical-chain``` will print specific load time for dependant services of the service you provide, ```systemd-analyze critical-chain httpd.service```.   These tools and options available in the man page, are used to determin system boot-up performance statictics.
 
 ### ps
 
-  The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  
+  The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".   
   
+![*ps command*](images/Chapter-11/processes/ps.png "ps")
 
+These additional commands will share more information:
+
+  * ```ps -e```  <-- select all processes (similar to -A)
+  * ```ps -ef```  <-- this is one of the more helpful and verbose sets of options with full-formatting
+  * ```ps -eF``` <-- Extra full-formatting
+  * ```ps -ely```  <-- Long formatting
+  * ```ps -eo pif,tid,class,ni.,pri,psr...```  <-- the ```o``` option allows you to customize the column arraingment and output.
+  * ```ps -C syslogd -o pid=```  <-- this is the same as doing ```ps -ef | grep firefox``` or ```pidof firefox```
+  * ```ps xawf -eo pid,user,cgroup,args``` [^119]  Shows cgroup ownership details.
+  *  systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership. 
+    + cgroups (control groups) were a feature added to the Linux kernel that allow for proceeses to be grouped together and control commands can be exectued on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
+    
 ### kill
+
+  In the sysvinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
+  
+ Level       Name            Function
+-------- ------------ -----------------------------------------------------------------------
+  1        SIGHUP       Used to make a process re-read a config file
+  2        SIGINT       Effectively hitting CTRL+C
+  9        SIGKILL      Kills a process ungracefully--could damage files, use as last resort 
+  15       SIGTERM      Like a kill 9, but with class, gracefully kills a process
+-------- ------------ -----------------------------------------------------------------------
+
+All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors.  All except ```kill -9``` every process has to obey.  You can use the ```killall``` command to kill the process and any associated processes that it had launched all in one fell swoop.  You and use the ```ptkill``` command to kill a process by name instead of PID.
+  
+Systemd on the other hand has a mechanism for dealing with services directly, ```systemd kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to induvidual services but also to control groups of processes as well.  
 
 ### nice
 
-    
-## proc
-
-  Get from tldp   and screen shot from Linux
+  The ```nice``` commmand is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or 20 means that this is a really high priority process, all the way down to -19 which means that it is a really low priority background process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.
   
- * lspci 
- * lsmod
+## /proc
+
+> *"/proc is very special in that it is also a virtual filesystem. It's sometimes referred to as a process information pseudo-file system. It doesn't contain 'real' files but runtime system information (e.g. system memory, devices mounted, hardware configuration, etc). For this reason it can be regarded as a control and information centre for the kernel. In fact, quite a lot of system utilities are simply calls to files in this directory. [^120]"*
+
+  The /proc virtual filesystem provides   
+
+## single user mode
+
 
 ## strace/dtrace
+
+
 
 ## Chapter Conclusions and Review
 
@@ -184,4 +225,9 @@ You can use the command  ```systemctl``` to list all running services and to iss
 [^117]: [http://www.freedesktop.org/wiki/Software/systemd/](http://www.freedesktop.org/wiki/Software/systemd/)
 
 [^118]: [http://fedoraproject.org/wiki/Systemd](http://fedoraproject.org/wiki/Systemd)
+
+[^119]: [http://0pointer.de/blog/projects/systemd-for-admins-2.html](http://0pointer.de/blog/projects/systemd-for-admins-2.html)
+
+[^120]: [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html)
+
 
