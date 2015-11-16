@@ -201,10 +201,11 @@ lsusb
 
 ## single user mode
 
+TBA
 
 ## strace/dtrace
 
-
+TBA
 
 ## Chapter Conclusions and Review
 
