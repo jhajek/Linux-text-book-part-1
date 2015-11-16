@@ -32,10 +32,35 @@ __Outcomes__
   
   Once we select a kernel version, GRUB knows where to go to find that file, read it into memory, decompress it. All kernel images are located in ```/boot``` and your GRUB 2 configuration file knows this.  
   
+![*Contents of /boot*](images/Chapter-11/GRUB/slash-boot.png "/boot")
 
+You will notice that there is a vmlinuz kernel image per each instance that corresponds to the TUI entries in the previous image.   The file that is loaded first is actually the ```initrd.img-X.XX.X-XX``` file.  This is the pre-kernel which contains all the drivers neccesary for the kernel to use before the root filesystem has been mounted.  The initrd file is gzip compressed and is decompressed on each boot.  Once the initrd temporary filesystem is loaded, with its own /etc and own /bin, the vmlinuz.* file which is the actual kernel is now loaded into memory and begins to unmount and remove the initrd from memory as it is no longer needed.  
 
 ### SysVinit
 
+  Here is where the boot process begins to splinter.  I am going to describe the Unix System V init process - that was the basis of all Unix and Linux knowledge since the early 1980s.  This is referred to as sysvinit--note that only the Unix based derivaties of BSD use this--Debian recently dropped it, with Fedora and Ubuntu abandoning it in the middle of last decade.
+  
+  Now that the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by setting up the system processes.  The first task it executes is ```/sbin/init```.  This is referred to as the init process.  It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.  The ```/sbin/init/``` looks at the value stored in ```/etc/inittab``` to find the system __run level__.  Run level tells us which mode to start in and which associated services are needed.  These levels are general and each Linux distro modified them as needed, but in general are consistent.
+  
+: Traditional Run Levels
+
+   Level                Operation
+-----------  ------------------------------------
+   0             System Halt/Shut Down 
+   1              Single User Mode 
+   2         Multiuser Mode Without Networking 
+   3              Full Multiuser Mode 
+   4                    Unused 
+   5                    GUI/X11 
+   6                    Reboot 
+-----------  ------------------------------------
+
+  Once the run level is determined, there is a directory called ```/etc/rc.d``` which contains what are called __run level specific__ programs to be executed.  Files preceeded by an *S* mean to start the service, and files preceeded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first.   As you can see this system has some flaws.  There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs.  Also there is no way for services that start later that depend on a previous service to be started to understand its own state.  The service will happily start itself without its dependencies and go right off a cliff.
+  
+  
+
+
+[^115]
 
 ### Systemd
 
@@ -78,5 +103,7 @@ __Outcomes__
 #### Footnotes
 
 [^114]: [https://www.gnu.org/software/grub/](https://www.gnu.org/software/grub/) 
+ 
+[^115]: [http://www.slashroot.in/linux-booting-process-step-step-tutorial-understanding-linux-boot-sequence](http://www.slashroot.in/linux-booting-process-step-step-tutorial-understanding-linux-boot-sequence) 
  
  
