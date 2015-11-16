@@ -96,21 +96,52 @@ end script
 exec myprocess
 ```
 
-  Ubuntu adopted Upstart in 2006, Fedora adopted it as a sysvinit supplimental replacement in Fedora 9 - unitl version 18 when systemd was ready.  RHEL and CentOS use Upstart as well as Chrome OS.  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between sysvinit and its failings but in the end systemd won out.  
+  Ubuntu adopted Upstart in 2006, Fedora adopted it as a sysvinit supplimental replacement in Fedora 9 - unitl version 18 when systemd was ready.  RHEL and CentOS use Upstart as well as Chrome OS.  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between sysvinit and its failings but in the end systemd won out.  Mac OSX uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris uses [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
 
 ### Systemd
 
-  Systemd was the alternative decision to sysvinit and Upstart that had been developed by Lennart Poettering while at RedHat.  From his own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system. [^117]"*   Unlike the sysvinit/Upstart method which has an ancestor be PID 1 (process ID 1), systemd become the PID 1.  
-
-  There is a list of systemd myths 
-
+  Systemd was the alternative decision to sysvinit and Upstart that had been developed by Lennart Poettering while at RedHat.  From his own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system. [^117]"*   Unlike the sysvinit/Upstart method which has an ancestor be PID 1 (process ID 1), systemd become the PID 1.  Systemd includes many other items, 69 different binaries all roled into PID 1.  The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too.
+ 
+![*systemd service chart*](images/Chapter-11/systemd/systemd.png "systemd") 
+ 
 > *One goal of systemd is to unify the dispersed Linux landscape a bit. We try to get rid of many of the more pointless differences of the various distributions in various areas of the core OS. As part of that we sometimes adopt schemes that were previously used by only one of the distributions and push it to a level where it's the default of systemd, trying to gently push everybody towards the same set of basic configuration. This is never exclusive though, distributions can continue to deviate from that if they wish, however, if they end-up using the well-supported default their work becomes much easier and they might gain a feature or two. Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions. [^116]*
 
+  One of the main differences between traditional Upstart/sysvinit based Linux is that systemd doesn't have __run levels__.  The command ```init 3``` was always start at the commandline, and ```init 5``` was GUI.  Systemd introduces __targets__ in their place.  Target's are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the ```/etc/inittab``` [^118]. 
+  
+SysVinit level                 systemd target               Function
+---------------- ------------------------------------- -------------------------
+     0            runlevel0.target, poweroff.target     Shuts down the system
+     1            runlevel1.target, rescue.target       singleuser rescue mode
+     2,3,4        runlevelX.target, multi-user.target   multi-user text-mode
+     5            runlevel5.target, graphical.target    multi-user GUI mode
+     6            runlevel6.target, reboot.target       reboots
+                  emergency.target                      Emergency shell
+---------------- ------------------------------------- -------------------------  
 
-## Service related tools
+You can use the command  ```systemctl``` to list all running services and to issue them commands.  If you wanted to change to a graphical mode directly from your GUI mode you would issue ```systemctl isolate graphical.target``` effectively changing run levels or targets.  You can change the default target by issuing this command: ```systemctl set-default <name of target>.target```  ```systemctl get-default``` will print out your current default target. 
 
+## Processes and Services
+
+  Whenever you start a process in Linux, whether that is a service, or something as simple as run a command in terminal or open a new web-browser tab, that creates a system process.  Each process gets an ID so that it can be accessed or referenced.  Each process in turn has a PPID--Parent Process ID, which tells you which other process launched that process.  In traditional sysvinit ```/sbin/init``` launches each additional service.  In systemd it is not quite that clear. In addition to a process--which can be short lived or long lived, there are services--which can be helper items such as the login and authtication service or something focus such as an apache2 web-server.   
+  
+### Working With Services  
+  
+    Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | status```.  This would act upon the apporpriate shell script to perform the appropraite action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the textfiles information is parsed and placed in memeory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```. 
+    
+> __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
+
+> __Example Usage:__ On sysvinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
+
+> __Example Usage:__ On a systemd based system, service control is done with ```systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart httpd.service```
+
+> __Example Usage:__ The ```systemctl``` command has additional abilities.  It absorbed the ```chkconfig``` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: ```sudo systemctl is-enabled httpd.service```.  Issue that command and what does it report?
+
+> __Example Usage:__ To disable a service at boot type: ```sudo systemctl disable httpd.service``` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.
 
 ### ps
+
+  The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  
+  
 
 ### kill
 
@@ -152,5 +183,5 @@ exec myprocess
  
 [^117]: [http://www.freedesktop.org/wiki/Software/systemd/](http://www.freedesktop.org/wiki/Software/systemd/)
 
-
+[^118]: [http://fedoraproject.org/wiki/Systemd](http://fedoraproject.org/wiki/Systemd)
 
