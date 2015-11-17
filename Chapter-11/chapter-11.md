@@ -28,9 +28,10 @@ __Outcomes__
   
   By default this User Interface will pop up if you have more than one operating system or kernel version installed in the case of Fedora.  If you have a single operating system this screen will be skipped by default, you can hold down the SHIFT key at boot and force this screen to come up.  In the case of Ubuntu you can select ADVANCED to see different kernel versions you can load.
   
-![*Terminal User Interface Advanced*](images/Chapter-11/GRUB/tui-advanced.png "TUI Advanced")
-  
   Once we select a kernel version, GRUB knows where to go to find that file, read it into memory, decompress it. All kernel images are located in ```/boot``` and your GRUB 2 configuration file knows this.  
+\newpage
+  
+![*Terminal User Interface Advanced*](images/Chapter-11/GRUB/tui-advanced.png "TUI Advanced")  
   
 ![*Contents of /boot*](images/Chapter-11/GRUB/slash-boot.png "/boot")
 
@@ -51,7 +52,7 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
  
  GRUB_DISABLE_LINUX_RECOVERY -- this hides the single user/recovery mode from the GRUB menu per kernel entry
  
- #GRUB_GFXMODE=640x480 -- this setting is commented out by default, but you can enable this to hard code a certain boot resolution.
+ GRUB_GFXMODE=640x480 -- this setting is commented out by default, but you can enable this to hard code a certain boot resolution.
  
  GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a background image.
  
@@ -77,7 +78,8 @@ To make these changes permanent you need to execute the ```sudo update grub``` c
 -----------  ------------------------------------
 
   Once the run level is determined, there is a directory called ```/etc/rc.d``` which contains what are called __run level specific__ programs to be executed.  Files preceeded by an *S* mean to start the service, and files preceeded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first. The good thing is that each K or S file is nothing more than a bash script to start or kill a service and do a bit of environment prepartation.  As you can see this system has some flaws.  There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs.  Also there is no way for services that start later that depend on a previous service to be started to understand its own state.  The service will happily start itself without its dependencies and go right off a cliff [^115].
-  
+\newpage 
+ 
 ![*Classic sysvinit RC files on Ubuntu 14.04*](images/Chapter-11/sysvinit/rc-d.png "rc.d")
   
 ### Upstart
@@ -117,19 +119,21 @@ end script
 exec myprocess
 ```
 
-  Ubuntu adopted Upstart in 2006, Fedora adopted it as a sysvinit supplimental replacement in Fedora 9 - unitl version 18 when systemd was ready.  RHEL and CentOS use Upstart as well as Chrome OS.  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between sysvinit and its failings but in the end systemd won out.  Mac OSX uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris uses [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
+  Ubuntu adopted Upstart in 2006, Fedora adopted it as a sysvinit supplimental replacement in Fedora 9 - unitl version 18 when systemd was ready.  RHEL and CentOS use Upstart as well as Chrome OS (OS for Chromebooks).  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between sysvinit and its failings but in the end systemd won out.  Mac OSX uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris uses [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
 
 ### Systemd and Systemctl 
 
-  Systemd was the alternative decision to sysvinit and Upstart that had been developed by Lennart Poettering while at RedHat.  From his own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system. [^117]"*   Unlike the sysvinit/Upstart method which has an ancestor be PID 1 (process ID 1), systemd become the PID 1.  Systemd includes many other items, 69 different binaries all roled into PID 1.  The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too.
- 
-![*systemd service chart*](images/Chapter-11/systemd/systemd.png "systemd") 
- 
+![*The architecture of systemd as it is used by Tizen. Several components, including telephony, bootmode, dlog and tizen service, are from Tizen and are not components of systemd.*](images/Chapter-11/systemd/systemd.png "systemd") 
+
+  Systemd was the alternative decision to sysvinit and Upstart that had been developed by Lennart Poettering while at RedHat. Systemd is licensed under the LGPL 2.1 or later, [GNU Lesser General Public License](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License "LGPL"). It's main goal is to unify basic Linux configurations and service behaviors across all distributions From his own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system. [^117]"*   Unlike the sysvinit/Upstart method which has an ancestor be PID 1 (process ID 1), systemd become the PID 1.  Systemd includes many other items, 69 different binaries all roled into PID 1.  The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too.  
+  
+> *"As an integrated software suite, systemd replaces the startup sequences and runlevels controlled by the traditional init daemon, along with the shell scripts executed under its control. systemd also integrates many other services that are common on Linux systems by handling user logins, the system console, device hotplugging (see udev), scheduled execution (replacing cron), logging, hostnames and locales. [^121]"*
+  
 > *One goal of systemd is to unify the dispersed Linux landscape a bit. We try to get rid of many of the more pointless differences of the various distributions in various areas of the core OS. As part of that we sometimes adopt schemes that were previously used by only one of the distributions and push it to a level where it's the default of systemd, trying to gently push everybody towards the same set of basic configuration. This is never exclusive though, distributions can continue to deviate from that if they wish, however, if they end-up using the well-supported default their work becomes much easier and they might gain a feature or two. Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions. [^116]*
 
   One of the main differences between traditional Upstart/sysvinit based Linux is that systemd doesn't have __run levels__.  The command ```init 3``` was always start at the commandline, and ```init 5``` was GUI.  Systemd introduces __targets__ in their place.  Target's are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the ```/etc/inittab``` [^118]. 
   
-SysVinit level                 systemd target               Function
+   Run Level              systemd target               Function
 ---------------- ------------------------------------- -------------------------
      0            runlevel0.target, poweroff.target     Shuts down the system
      1            runlevel1.target, rescue.target       singleuser rescue mode
@@ -180,13 +184,13 @@ These additional commands will share more information:
   * ```ps -ef```  <-- this is one of the more helpful and verbose sets of options with full-formatting
   * ```ps -eF``` <-- Extra full-formatting
   * ```ps -ely```  <-- Long formatting
-  * ```ps -eo pif,tid,class,ni.,pri,psr...```  <-- the ```o``` option allows you to customize the column arraingment and output.
+  * ```ps -eo pif,tid,class,ni,pri,psr...```  <-- the ```o``` option allows you to customize the column arraingment and output.
   * ```ps -C syslogd -o pid=```  <-- this is the same as doing ```ps -ef | grep firefox``` or ```pidof firefox```
   * ```ps xawf -eo pid,user,cgroup,args``` [^119]  Shows cgroup ownership details.
   *  systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership. 
     + cgroups (control groups) were a feature added to the Linux kernel that allow for proceeses to be grouped together and control commands can be exectued on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
     
-    
+/newpage    
 ### kill
 
   In the sysvinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
@@ -207,9 +211,9 @@ All programs can choose to *trap* these kill commands and ignore them or take di
 
 #### cgroups
     
-    Systemd uses cgroups as a way to hierarchally group and label processes, and (B) a way to then apply resource limits to these groups.  cgroups allow you to *police* the resource usage of processes and related subprocesses--which gives finer grained control over other tools.  
+Systemd uses cgroups as a way to hierarchally group and label processes, and (B) a way to then apply resource limits to these groups.  cgroups allow you to *police* the resource usage of processes and related subprocesses--which gives finer grained control over other tools.  
     
-    By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of which processes are part of which cgroup.  You don't have to search for process IDs anymore, you simply kill the entire cgroup. 
+By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of which processes are part of which cgroup.  You don't have to search for process IDs anymore, you simply kill the entire cgroup. 
   
 > __Example Usasge:__ To terminate the Apache2 web-server service, (assuming it has been enabled and started) first let's see the processes in its cgroup by typing ```systemd-cgls```.  You can see the httpd.service cgroup.  You can issue a kill command in the same way you can kill traditional processes by typing, ```systemctl kill httpd.service```.  You can also issue a kill level command through the ```-s``` flag, ```systemctl kill -s SIGHUP httpd.service``` will issue a ```kill -2``` command to all the members of the https.service cgroup.
 
@@ -304,4 +308,4 @@ find those processes IDs via ps -ef and kill those tabs will a kill -2 command
 
 [^120]: [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html)
 
-
+[^121]: [https://en.wikipedia.org/wiki/Systemd](https://en.wikipedia.org/wiki/Systemd)

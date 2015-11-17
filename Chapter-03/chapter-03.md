@@ -277,7 +277,7 @@ Network
   
   __Ubuntu__
   
-   This goes for any distro that derives from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation). These instructions assume you are using VirtualBox 5.0.2, you will need to adjust the version numbers and path name if you are using a different version.
+   This goes for any distro that derives from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation). These instructions assume you are using VirtualBox 5.0.2, *you will need* to adjust the version numbers and path name if you are using a different version.
    
     sudo apt-get update
     sudo apt-get install build-essential dkms linux-headers-$(uname -r)
