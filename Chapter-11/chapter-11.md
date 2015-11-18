@@ -56,7 +56,7 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
  
  GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a background image.
  
-To make these changes permanent you need to execute the ```sudo update grub``` command after saving the file so the ```/boot/grub/grub.conf``` will be regenerated and used on the next boot.
+To make these changes permanent you need to execute the ```sudo update-grub``` command after saving the file so the ```/boot/grub/grub.conf``` will be regenerated and used on the next boot.
 
 ### SysVinit
 
@@ -84,7 +84,7 @@ To make these changes permanent you need to execute the ```sudo update grub``` c
   
 ### Upstart
 
-  In 2006 the Ubuntu distro realized the short comings of sysvinit and created a compatible replacement called ```upstart```.  Upstart moved all the traditional runlevels and start up scripts to ```/etc/init``` directory and placed the scripts in configuration files. While leaving the ```/etc/rc.d``` structure in place for any backward compatible needing scripts. Here is an example of an myservice.conf file stored in ```/etc/init/myservice.conf```:  Note the use of the __run level__ concept from sysvint.  Compare this to (on an Ubuntu system) the contents of any script in ```/etc/rc3.d``` (run level 3).  You will notice that both are the same with Upstart exhibiting a bit more process control but still being a shell script when you boil it down.
+  In 2006 the Ubuntu distro realized the short comings of sysvinit and created a compatible replacement called ```upstart```.  Upstart moved all the traditional runlevels and start up scripts to ```/etc/init``` directory and placed the scripts in configuration files. While leaving the ```/etc/rc.d``` structure in place for any backward compatible needing scripts. Here is an example of an myservice.conf file stored in ```/etc/init/myservice.conf```:  Note the use of the __run level__ concept from sysvint.  Compare this to (on an Ubuntu system) the contents of any script in ```/etc/rc3.d``` (run level 3).  Upstart exhibits a bit more process control but still being a shell script when you boil it down.
   
 ```bash
  myservice - myservice job file
@@ -221,13 +221,18 @@ By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of whi
 
 ### nice
 
-  The ```nice``` commmand is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or 20 means that this is a really high priority process, all the way down to -19 which means that it is a really low priority background process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.
+  The ```nice``` commmand is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or 20 means that this is a really high priority process, all the way down to -19 which means that it is a really low priority background process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
+  
+> __Example Usage:__  This example will increase favorability of this process to the schduler by 10 on a scale of -20 to 19--default is 0.
+```bash
+nice -n 10 my-loop
+```
   
 ## /proc
 
 > *"/proc is very special in that it is also a virtual filesystem. It's sometimes referred to as a process information pseudo-file system. It doesn't contain 'real' files but runtime system information (e.g. system memory, devices mounted, hardware configuration, etc). For this reason it can be regarded as a control and information centre for the kernel. In fact, quite a lot of system utilities are simply calls to files in this directory. [^120]"*
 
-  The /proc virtual filesystem provides you a file based interface to the processes that are running on your system.  When you type ```ls /proc``` what do you see?  You see a series of numerical directories.  These numbers correspond to process IDs.  Inside of each directory there are a series of files that represent the state of the process at the moment of introspection.   This can be handy in debugging an application or fine tuning a system in regards to memory usage.   Try to launch a Firefox or any other broweser window.  Use the ```ps -C``` command from above to find its process ID.  Then find that process directory in ```/proc```.  What do you see? Some of the highlights are ```/proc/PID/cmdline```, which will tell you what command line options were used in launching that particular process, ```/proc/PID/status``` links to the process status in human readable form, and ```/proc/PID/mem``` describes the memory held by this process.  The command ```procinfo``` will give you summary of all system and resource states, the package may need to be installed.  For an exhaustive list of all the contents and meanings you can find a chart at the Linux Documentation Project, [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html "TLDP PROC").
+  The ```/proc``` virtual filesystem provides you a file based interface to the processes that are running on your system.  When you type ```ls /proc``` what do you see?  You see a series of numerical directories.  These numbers correspond to process IDs.  Inside of each directory there are a series of files that represent the state of the process at the moment of introspection.   This can be handy in debugging an application or fine tuning a system in regards to memory usage.   Try to launch a Firefox or any other broweser window.  Use the ```ps -C``` command from above to find its process ID.  Then find that process directory in ```/proc```.  What do you see? Some of the highlights are ```/proc/PID/cmdline```, which will tell you what command line options were used in launching that particular process, ```/proc/PID/status``` links to the process status in human readable form, and ```/proc/PID/mem``` describes the memory held by this process.  The command ```procinfo``` will give you summary of all system and resource states, the package may need to be installed.  For an exhaustive list of all the contents and meanings you can find a chart at the Linux Documentation Project, [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html "TLDP PROC").
  
  In addition ```/proc``` has convieniant information about the state of your system.  To display information about your processor you would type, ```cat /proc/cpuinfo``` this prints out the processor family, the feature flags, and the number of processors (physical and logical).  The same can be done with memory by typing, ```cat /proc/meminfo```.  
  
@@ -241,18 +246,15 @@ By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of whi
 
 #### Loading Modules
 
-modprobe
-lsmod
-insmod 
-rmmod
+  You can list, load, and remove kernel modules form a running kernel.  This is desirable because it allows you to change fucntionality on a permanent basis or termporary basis without having to recompile the core Linux kernel each time you make a change - hence loadable kernel modules.  One of the best instances is [KVM](http://www.linux-kvm.org/page/Main_Page "KVM") KVM stands for *Kernel-based Virtual Machine* and though present in the Linux Kernel the module is not loaded until you install the KVM software libraries that call for that module to be loaded on boot.  If you had the KVM/Qemu virtualization applications installed (```sudo dnf install qemu-kvm libvritd```) then you would type ```lsmod | grep kvm*```) to see the modules loaded.
+  
+> __Example Usage:__ You will notice for instance if you type ```lsmod | grep vbox*``` you will see VirtualBox kernel modules loaded - you wouldn't see these if you were on a natively installed Linux system.   
 
-## single user mode
+> __Example Usage:__ The ```modprobe``` command is a more intelligent way to add kernel modules than ```insmod```.  The command ```lsmod``` will list activated kernel modules and ```rmmod``` will unload a kernel module.
 
-TBA
+## Single User Mode
 
-## strace/dtrace
-
-TBA
+  If you have a system with an issue--or damage that needs to be repaired.  You can drop your system into what was once known as single-user mode or runlevel1.target by issuing a command: ```sudo systemctl isolate runlevel1.target1```  this command should be used sparringly because what it does is drop you to a commandline prompt with a single user logged (root) with no password.  This can be used to change or modift lost system passwords, or even reset database passwords or other troubleshooting issues like filesystem checks, which we will talk more about in the next chapter.
 
 ## Chapter Conclusions and Review
 
@@ -270,29 +272,35 @@ TBA
 
 __Objectives:__
 
+  * Modify GRUB settings
+  * Use ```systemctl``` to start, stop, and examine processes in systemd
+  * Use systemd-analyze to understand what services are loading during system boot
+  * Change systemd.targets
+  * Use the nice command to modify a processes priority
+  * List kernel modules currently loaded on your Linux system
+
 __Outcomes:__
  
- Change grub settings - add background, remove queit splash - update-grub 
+   At the conclusion of this lab you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  
  
- use system-analyze nad blame to collect start times before installing and enabling maria-db, use systemd-analyze after installing maria-db
- 
- systemctl service status after maraidb is installed, then enable, then start, then analyze then disable
- 
- Chart the startup times
- 
- use systemd to start and enable httpd.service
- 
- change systemd target to commandline only - show default target - then change back.
-
-change to single user mode to "resuce" the mariadb root password
-
-systectl --show -p "After"  and "Wants" of the sshd.service  
-
-nice a command - compile a C infinite loop program and nice it to low priority and then high priority - use htop to examine system usage -- Code provided
-
-Launch multiple tabs in Firefox using these:  firefox -new-tab -url https://www.evernote.com/Home.action -new-tab -url http://www.gmail.com
-
-find those processes IDs via ps -ef and kill those tabs will a kill -2 command
+1) Change the default grub settings in Ubuntuto add a background image (preferrably dark) and remove or disable the ```quiet splash``` otpion) make sure to execute  ```update-grub``` before rebooting or changes won't be written.
+1) Use the ```systemd-analyze``` tools to print out the most recent boot time for your system
+1) Install MariaDB server, ```sudo dnf install mariadb```. 
+1) Use the command ```systemctl status <servicename>``` after MaraiDB is installed to display its current status, then enable the service via ```systemctl```, and then start the service. Now reboot your system.
+1) With the MariaDB enabled, use the ```systemd-analyze``` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.  
+1) Use ```systemd-analyze blame``` to collect start times of each element after installing and enabling the MariaDB service
+1) Using the exmaple in the book - generate a chart of the systemd-analyze blame output of startup times
+1) Use systemd to start and enable httpd.service
+1) Change the ```systemd``` target to the systemd commandline only level, display the ```systemd``` default target level - then change back to the GUI target (or runlevel5).
+1) Using systemctl and the ```--show option```, display the "After" and "Wants" of the sshd.service  
+1) nice a command - create/compile a C infinite loop program and nice it to lowest priority and then highest priority.  Open a second terminal tab/window and use htop (install it if needed) to display that process' system usage 
+1) Launch multiple tabs in Firefox using these:  ```firefox -new-tab -url https://www.krebsonsecurity.com -new-tab -url http://twit.tv/floss/```. Find the process IDs via ```ps -ef``` and kill those tabs/processes with a ```kill -2``` command
+1) Using ```lsmod``` and ```grep``` list all of the kernel modules loaded on your system that contain VirtualBox (search for ```vb*```).   
+1) Run the command that will list all the PCI devices attached to your system
+1) Type the command to displace info about your CPU and use ```grep flags``` to filter the response to show only the processor flags.  
+1) Using ```systemctl``` find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup. 
+1) Using ```systemd-cgls``` list and filter (grep) and show the sub-process IDs for the httpd.service 
+1) Install and execute the ```procinfo``` command and display the system overview.
  
 #### Footnotes
 

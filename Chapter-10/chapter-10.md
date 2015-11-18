@@ -159,14 +159,24 @@ There is also a PPA for Linux-libre.  *"Linux-libre is an operating system kerne
 
 *"The resulting combination of the GNU Operating System and the kernel named Linux is the GNU+Linux operating system, although many (incorrectly) refer to it as "Linux": http://www.gnu.org/gnu/linux-and-gnu.html [^112]"*  
 
-> __Example Usage:__ Let's set our kernel free...  
-```
-sudo add-apt-repository ppa:linux-libre/ppa
-sudo apt-get update
-sudo apt-get install linux-libre
-sudo apt-get dist-upgrade
-uname -a
-```
+> __Example Usage:__ Let's set our kernel free... The full instructions are at this website:  [https://jxself.org/linux-libre/](https://jxself.org/linux-libre/ "LibreLinux")  Once successful reboot your system and/while holding down shift - you should see the menu in the image below appear. Choose *Advanced Options For Ubuntu* and you will see your GNU/Libre kernels.  Try to boot from one.
+
+These are the short steps:
+
+  * You should also fetch and install the GPG key with which the repository is signed:
+    + ```wget https://jxself.org/gpg.inc```
+  * Then configure the package manager to trust the key:
+     + ```sudo apt-key add gpg.inc```
+  * To use this repo edit the ```/etc/apt/sources.list``` file on your system and add the line at the bottom:
+     + ```deb http://linux-libre.fsfla.org/pub/linux-libre/freesh/ freesh main```
+     + ```sudo apt-get update```
+     + ```sudo apt-get install linux-libre64``` 
+     + This will install the latest kernel version 4.3.0, may break Ubuntu...
+     + ```sudo apt-get install linux-libre64-3.14```   
+     + This will install a kernel version closer to what Ubuntu is currently using 3.19.
+\newpage
+
+![*Linux-Libre*](images/Chapter-10/linux-libre/kernel-linux-libre.png "libre.png")
 
 Here is a list of all the configuration and cache files related to APT and their location:
 
