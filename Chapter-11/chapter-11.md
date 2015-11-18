@@ -290,7 +290,7 @@ __Outcomes:__
 1) With the MariaDB enabled, use the ```systemd-analyze``` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.  
 1) Use ```systemd-analyze blame``` to collect start times of each element after installing and enabling the MariaDB service
 1) Using the exmaple in the book - generate a chart of the systemd-analyze blame output of startup times
-1) Use systemd to start and enable httpd.service
+1) Use systemctl to enable and start the httpd.service
 1) Change the ```systemd``` target to the systemd commandline only level, display the ```systemd``` default target level - then change back to the GUI target (or runlevel5).
 1) Using systemctl and the ```--show option```, display the "After" and "Wants" of the sshd.service  
 1) nice a command - create/compile a C infinite loop program and nice it to lowest priority and then highest priority.  Open a second terminal tab/window and use htop (install it if needed) to display that process' system usage 
