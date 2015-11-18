@@ -3,7 +3,7 @@
 
 __Chapter 11 Objectives__
 
-  * Undertand the traditional SysVinit system
+  * Understand the traditional SysVinit system
   * Understand the new systemd init system
   * Understand the nature of starting, stopping, and service reporting
   * Understand how to use system tools to examine processes
