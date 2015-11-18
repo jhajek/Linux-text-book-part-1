@@ -427,9 +427,9 @@ phpinfo();
 Locate the file in /var/www/html.  Open a web-browser on the local Ubuntu system and navigate to ```http://localhost/info.php``` what is the PHP version listed?
 1) On Ubuntu 15.04 what would be the command to upgrade all the packages on the system?
 1) On Ubuntu 15.04 what would be the command to upgrade the system to release version 15.10?
-1) On Ubuntu 15.04/10 what would be the command to add the Linux-libre repositroy and then upgrade the Kernel to a Free Linux kernel? 
+1) On Ubuntu 15.04/10 what would be the command to add the Linux-libre repository and then upgrade the Kernel to a Free Linux kernel? 
 1) On Fedora 22 what would be the series of commands to upgrade Fedora 22 to Fedora 23?
-1) On Fedora 22 install the neccesary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web0browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local. 
+1) On Fedora 22 install the neccesary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web-browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local. 
 1) On Fedora 22 clond the denyhosts repo from: https://github.com/denyhosts/denyhosts  
 execute this command: ```git clone https://github.com/denyhosts/denyhosts.git``` Follow the setup instructions and use python to install denyhosts.  Note - install any depencies that may be noted.
  
