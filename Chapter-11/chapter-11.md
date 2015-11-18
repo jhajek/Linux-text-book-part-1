@@ -79,7 +79,7 @@ To make these changes permanent you need to execute the ```sudo update-grub``` c
   Once the run level is determined, there is a directory called ```/etc/rc.d``` which contains what are called __run level specific__ programs to be executed.  Files preceded by an *S* mean to start the service, and files preceded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first. The good thing is that each K or S file is nothing more than a bash script to start or kill a service and do a bit of environment preparation.  As you can see this system has some flaws.  There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs.  Also there is no way for services that start later that depend on a previous service to be started to understand its own state.  The service will happily start itself without its dependencies and go right off a cliff [^115].
 \newpage 
  
-![*Classic SysVinit RC files on Ubuntu 14.04*](images/Chapter-11/SysVinit/rc-d.png "rc.d")
+![*Classic SysVinit RC files on Ubuntu 14.04*](images/Chapter-11/sysvinit/rc-d.png "rc.d")
   
 ### Upstart
 
