@@ -83,7 +83,7 @@ sudo apt-get dist-upgrade
 dpkg -l | grep linux-image
 # x.x.-xx is the version that is not the most recent version as deleting that will make your system unbootable
 # uname -a will tell you the current kernel version 
-sudo apt-get purge linux-image-x.x.x-xx-generic
+sudo dpkg --purge linux-image-x.x.x-xx-generic
 ```
 
 #### RPM
@@ -205,8 +205,10 @@ First we want to check if we have the correct RPM name.  We can search through o
 
 To enable the download the RPMFusion repos for adding additional software of free and non-free type you can type the following commands:
 
-```sudo dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm```
-```sudo dnf install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm```
+```sudo dnf install \
+http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm```
+```sudo dnf install \
+http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm```
 
 Note for RHEL/CentOS the installtion URL is slightly different:
 ```sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/6/i386/rpmfusion-free-release-6-1.noarch.rpm```
@@ -234,11 +236,11 @@ Once those RPMFusion repos have been added you can now retry the example above a
   
 ### GNC GCC
  
-   The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead.    The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler plus all the addiitonal build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands; ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.    
+   The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead.  The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler plus all the addiitonal build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands; ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.    
 
 ### GNU Make
 
-  As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation.  
+  As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled apache binaries, it defaults to ```/usr/local```.
 
 ```
 ./configure --prefix=PREFIX  
@@ -414,7 +416,15 @@ __Outcomes__
 1) On Fedora 22 what is the command to install the package xeyes?
 1) On Fedora 22 what is the command to add the RPMFusion packages for Free and Non-Free?  Execute those commands and install and run the Frodo C64 emulator.  Located here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html)
 1) On Fedora 22 what is the command to install via DNF the Dropbox client Located Here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html)
+1) On Ubuntu 15.04 what would be the command to upgrade all the packages on the system?
+1) On Ubuntu 15.04 what would be the command to upgrade the system to release version 15.10?
+1) On Ubuntu 15.04/10 what would be the command to add the Linux-libre repository and then upgrade the Kernel to a Free Linux kernel? 
+1) On Fedora 22 what would be the series of commands to upgrade Fedora 22 to Fedora 23?
+1) On Fedora 22 install the neccesary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web-browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local. 
+1) On Fedora 22 clond the denyhosts repo from: https://github.com/denyhosts/denyhosts  
+execute this command: ```git clone https://github.com/denyhosts/denyhosts.git``` Follow the setup instructions and use python to install denyhosts.  Note - install any dependencies that may be noted or implied.
 1) On Ubuntu 15.04 add the current PHP5 repo and then install apache2 and php5.  Once finished create a file named info.php containing this code: 
+
 ```php
 <?php
 
@@ -423,14 +433,8 @@ phpinfo();
 
 ?>
 ```
+
 Locate the file in /var/www/html.  Open a web-browser on the local Ubuntu system and navigate to ```http://localhost/info.php``` what is the PHP version listed?
-1) On Ubuntu 15.04 what would be the command to upgrade all the packages on the system?
-1) On Ubuntu 15.04 what would be the command to upgrade the system to release version 15.10?
-1) On Ubuntu 15.04/10 what would be the command to add the Linux-libre repository and then upgrade the Kernel to a Free Linux kernel? 
-1) On Fedora 22 what would be the series of commands to upgrade Fedora 22 to Fedora 23?
-1) On Fedora 22 install the neccesary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web-browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local. 
-1) On Fedora 22 clond the denyhosts repo from: https://github.com/denyhosts/denyhosts  
-execute this command: ```git clone https://github.com/denyhosts/denyhosts.git``` Follow the setup instructions and use python to install denyhosts.  Note - install any dependencies that may be noted or implied.
  
 #### Footnotes
  
