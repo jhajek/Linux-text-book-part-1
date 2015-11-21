@@ -612,7 +612,8 @@ Outcomes
    
    __Note__ you will need to submit a screenshot of the correct command(s) in action.
    __Note__ if a command asks you to work on a user that doesn't exist it is assumed that you have to create it.
-   
+   __Note__ The ```mysqldump``` application requires the ```mysql-client``` package to be installed. [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
+      
    1)  What would be the command to add a user named "controller" to your system - using the system default values?  
    
    1)  What would be the command to modify the user's group to add them to a *superuser* group (sudo on Ubuntu or wheel on Fedora based)?

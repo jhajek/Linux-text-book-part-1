@@ -34,7 +34,7 @@ __Outcomes__
   
 ![*Contents of /boot*](images/Chapter-11/GRUB/slash-boot.png "/boot")
 
-You will notice that there is a vmlinuz kernel image per each instance that corresponds to the TUI entries in the previous image.   The file that is loaded first is actually the ```initrd.img-X.XX.X-XX``` file.  This is the pre-kernel which contains all the drivers neccesary for the kernel to use before the root filesystem has been mounted.  The initrd file is gzip compressed and is decompressed on each boot.  Once the initrd temporary filesystem is loaded, with its own /etc and own /bin, the vmlinuz.* file which is the actual kernel is now loaded into memory and begins to unmount and remove the initrd from memory as it is no longer needed.  
+You will notice that there is a vmlinuz kernel image per each instance that corresponds to the TUI entries in the previous image.   The file that is loaded first is actually the ```initrd.img-X.XX.X-XX``` file.  This is the pre-kernel which contains all the drivers neccesary for the kernel to use before the root filesystem has been mounted.  The *initrd* file is gzip compressed and is decompressed on each boot.  Once the initrd temporary filesystem is loaded, with its own /etc and own /bin, the *vmlinuz* file which is the actual kernel is now loaded into memory and begins to unmount and remove the initrd from memory as it is no longer needed.  
 
 ### GRUB
 
@@ -254,15 +254,135 @@ nice -n 10 my-loop
 
 ## Single User Mode
 
-  If you have a system with an issue--or damage that needs to be repaired.  You can drop your system into what was once known as single-user mode or runlevel1.target by issuing a command: ```sudo systemctl isolate runlevel1.target```  this command should be used sparingly because what it does is drop you to a commandline prompt with a single user logged (root) with no password.  This can be used to change or modify lost system passwords, or even reset database passwords or other troubleshooting issues like filesystem checks, which we will talk more about in the next chapter.
+  If you have a system with an issue--or damage that needs to be repaired.  You can drop your system into what was once known as single-user mode or runlevel1.target by issuing a command: ```sudo systemctl isolate runlevel1.target```  this command should be used sparingly because what it does is drop you to a commandline prompt with a single user logged in (root) with no password.  This can be used to change or modify lost system passwords, or even reset database passwords or other troubleshooting issues like filesystem checks, which we will talk more about in the next chapter.
 
 ## Chapter Conclusions and Review
 
-  Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands.  You learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under SysVinit.  Finally we learned about the /proc virtual filesystem and how it presents process information in file format dynamically on boot and during a system's use.
+  Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands.  You learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under SysVinit.  Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in file format dynamically on boot and during a system's use.
   
 ### Review Questions
 
- Questions go here
+Chapter 11 Review Questions
+
+1) What is the name of *beep* sound heard in the initial boot of a PC (assume you are using BIOS not UEFI)?
+a) PERC
+b) POST
+c) GRUB
+d) BIOS
+
+2) What is the name of the GNU software that is the first software program that runs when a computer starts? 
+a) BIOS
+b) LILO
+c) GRUB
+d) GLOADER
+
+3) In what Linux directory is the kernel and initrd image stored?
+a) /root
+b) /root/kernel
+c) /boot
+d) /boot/vmlinux
+
+4) What is the name of the pre-kernel gzip file located in /boot that helps the kernel load?
+a) vmlinuz	
+b) initrd
+c) initram
+d) init
+
+5) Where is the file location where the GNU Grub configuration is stored that a user would edit?
+a) /boot/grub/grub.conf
+b) /etc/default/grub.conf
+c) /etc/grub/grub.conf
+d) /boot/kernel/conf
+
+6) In the /etc/default/grub.conf file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
+a) GRUB_CMDLINE_LINUX_DEDFAULT
+b) GRUB_BACKGROUND
+c) GRUB_GFXMODE
+d) GRUB_TIMEOUT
+
+7) What is the command to make changes to /etc/default/grub.conf permanent?
+a) No special command just edit and save /etc/default/grub.conf
+b) sudo apt-get update
+c) sudo update-grub
+d) sudo updatedb
+
+8) Under SysVinit - what is the ancestor process that launches first and everyother process is started by it?
+a)  root
+b)  sbin
+c)  init
+d)  systemd
+
+9) Under SysVinit - what runlevel is considered multi-user command-line only?
+a) 1
+b) m
+c) 3 
+d) 5
+
+10) Under SysVinit - what runlevel is considered multi-user GUI only?
+a) 1
+b) 0
+c) 3
+d) 5
+
+11) Which company created the Upstart init system as an improvement of SysVinit?
+a) RedHat
+b) Debian
+c) Oracle
+d) Ubuntu
+
+12) What is the name of the init system that has replaced SysVinit in every single major Linux distribution (Not including Devuan and Gentoo Linux)?
+a)  systemX
+b)  systemd
+c)  systemV
+d)  initrd
+
+13) What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
+a) systemd
+b)  systemd-init
+c)  service
+d) systemctl
+
+14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora 22 using systemd?
+a)  sudo service apache2 stop
+b)  sudo systemctl disable apache2.service
+c)  sudo systemctl stop apache2.service
+d)  sudo systemctl disable httpd.service
+
+15) What is the Linux command to inspect processes (not part of systemd)?
+a) p
+b) ps
+c) proc
+d) meminfo
+
+16) SysVinit used the concept of PIDs and PPIDs--what did systemd replace these with?
+a) proc-groups
+b) sys-groups
+c) cgroups
+d) xgroups
+
+17) What is the signal name for a kill -2 command?
+a) SIGHUP
+b) SIGINT
+c) SIGKILL
+d) SIGTERM
+
+18) The /proc filesystem provides you what?  (choose all that apply)
+a) Provides you a file based interface to the processes that are running on your system
+b) It can be regarded as a control and information centre for the kernel
+c) Shows up to the second process usage--updated in real time
+d) Is a replacement for the top command
+
+19) What command can be used to list all the pci devices attached to your system?
+a) ls --pci
+b) ls -p
+c) lsusb
+d) lspci
+
+20) What is the runlevel target that has a single user only as root, using no password: commonly called single-user mode?
+a) runlevel3.target
+b) runlevel5.target
+c) runlevel0.target
+d) runlevel1.target 
 
 ### Podcast Questions
 
