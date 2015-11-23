@@ -217,7 +217,7 @@ Systemd uses cgroups as a way to hierarchically group and label processes, and (
     
 By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of which processes are part of which cgroup.  You don't have to search for process IDs anymore, you simply kill the entire cgroup. 
   
-> __Example Usasge:__ To terminate the Apache2 web-server service, (assuming it has been enabled and started) first let's see the processes in its cgroup by typing ```systemd-cgls```.  You can see the httpd.service cgroup.  You can issue a kill command in the same way you can kill traditional processes by typing, ```systemctl kill httpd.service```.  You can also issue a kill level command through the ```-s``` flag, ```systemctl kill -s SIGHUP httpd.service``` will issue a ```kill -2``` command to all the members of the https.service cgroup.
+> __Example Usasge:__ To terminate the Apache2 web-server service, (assuming it has been enabled and started) first let's see the processes in its cgroup by typing ```systemd-cgls```.  You can see the httpd.service cgroup.  You can issue a kill command in the same way you can kill traditional processes by typing, ```systemctl kill httpd.service```.  You can also issue a kill level command through the ```-s``` flag, ```systemctl kill -s SIGHUP httpd.service``` will issue a ```kill -1``` command to all the members of the https.service cgroup.
 
 ### nice
 
