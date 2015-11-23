@@ -238,11 +238,12 @@ nice -n 10 my-loop
  
  The Linux kernel also has a concept of loadable kernel modules.  These are pieces of code that can be added into or removed from the kernel--statically at boot, or dynamically as needed, so as to extend the capabilities of your kernel, without forcing uneeded code. For example--needing drivers for a floppy disk would be a waste to include that in the kernel when it could be added and removed via a loadable module if you happened to need it for testing.   To list all the module currently loaded you would type, ```lsmod```.   This command is actually just formatting the content of ```/proc/modules```.  There are other shortcut commands as well to inspect system devices.
  
---------------   --------------------------  ------------------------------------------------------
-  lsmod             /proc/modules               Lists all currently loaded kernel modules
-  lspci                                         Lists all the currently detected PCI devices              
-  lsusb                                         Lists all the currently detected USB connections
---------------   --------------------------  ------------------------------------------------------  
+--------------   ---------------------------------------------------------------------------
+  lsmod           Lists all currently loaded kernel modules
+  lspci           Lists all the currently detected PCI devices              
+  lsusb           Lists all the currently detected USB connections
+  lsblk           Lists all block devices attached to the system (useful for hard-drives) 
+--------------   ---------------------------------------------------------------------------
 
 #### Loading Modules
 
@@ -270,7 +271,7 @@ b) POST
 c) GRUB
 d) BIOS
 
-2) What is the name of the GNU software that is the first software program that runs when a computer starts? 
+2) What is the name of the GNU software that is the first software program that runs when a computer with Linux installed starts? 
 a) BIOS
 b) LILO
 c) GRUB
