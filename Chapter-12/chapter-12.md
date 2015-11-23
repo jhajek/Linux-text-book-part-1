@@ -110,12 +110,88 @@ To succesfully create a partition on a new drive, let's select ```sdb``` in the 
 
 ![*p for print*](images/Chapter-12/fdisk/p-for-print.png "Print")
 
+The next step is to type the __n__ command to create a new partition.  You will be presented with two choices for your new partition.  In this case you can select __primary partition__.  In most cases in creating data drives you can select primary partitions without concern.  If you find yourself creating many data drives or creating triple and quad bootable systems (multiple operating systems)  then you will want to conserve those primary partitions and use __exteneded/logical__ partitioning.  
 
-  
-### Filesystems
+![*n is for new partition*](images/Chapter-12/fdisk/n-for-new.png "New")
 
-  ext2, ext3, ext4, XFS, BTRFS, ZFS 
+You are then presented with a series of options to choose a partition number, the beginning sector of your partition (usually best to choose the default) and the finishing sector (how big do you want your disk).  You can specify in a known quantity of K=kilobytes, M=megabytes, G=Gigabytes and prefacing that value with a __+__.  Selecting the default for the option of last sector will automatically fill up your disk with 1 single large partition.
+
+![*New Partition Options*](images/Chapter-12/fdisk/n-options.png "Options") 
   
+Let's see if our partition was created succesfully.  You can type __m__ to display the menu again or type the __p__ directly to print out the current partition table.  You will notice that it has been modified.
+
+![*Succesful Partition Creation*](images/Chapter-12/fdisk/p-finished.png "Finished")
+
+Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes will not be saved, and no partition information will be written.   Now you need to type __w__ to write the new partition data to the disk you are working on. The __w__ command will write and quit out automatically for you. After writing this partition data, you will see if show up in the ```sudo fdisk -l``` command.  After you see your new partition in ```fdisk``` of ```lsblk``` you are ready to move on to the next step of formating a partition with a filesystem.
+
+![*Write the Partition table data to disk*](images/Chapter-12/fdisk/w-for-write.png "Write")
+
+## Filesystems
+
+  To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory.  A __fielsystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.    
+
+  If you have used Windows before you are familiar with Fat32 and NTFS filesystems. Since Windows is created and currated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the otherhand supports multiple different filesystems that serve many different purposes.  
+
+### ext/ext2
+
+  The ext filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created for research purposes.  It had severe limitations since ext was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maxmimum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesytem.   By January of 1993, __ext2__ has been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written.  
+  
+: Limits of ext2 [^123]
+
+----------------------  ------- ------- ------- -------   
+Block size:              1 KiB   2 KiB   4 KiB   8 KiB 
+max. file size:          16 GiB 256 GiB  2 TiB   2 TiB 
+max. filesystem size:    4 TiB  8 TiB    16 TiB  32 TiB 
+----------------------  ------- ------- ------- -------   
+
+### ext3/ext4
+
+  As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evidant and critical.  Also the speed of processors and hard drives became fast enough to be able to introduce __journaling__ technology to the file system to prevent types of write failures that corrupts data.  Not to be confused with journald from systemd, __ext3__ introduced a journaling feature.  Ext3 was introduced to the Linux kernel in 2001.  Being an extension basically of ext2, adding this new feature and support for larger drives helped with backward compatibility, but began extending the ext filesystem which was now over a decade old.  
+  
+ *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted. [^124]"*
+  
+: Limits of ext3 [^125]
+
+Block size   Max file size   Max file system size
+----------- --------------- ----------------------
+  1 KiB         16 GiB             4 TiB 
+  2 KiB         256 GiB            8 TiB 
+  4 KiB         2 TiB             16 TiB 
+----------- --------------- ----------------------  
+  
+By 2008 it became appearant that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __Ext__ filesystem a bit longer, but the growth of ext had hit the end, and a newer fielsystem path needed to be developed to handle the larger sets of data and the massively improved hardware that existed from 1992, when ext was developed.
+
+Ext4 saw the capacity extension of ext3 and introduction to __extents__. The ext4 filesystem can support volumes with sizes up to 1 exbibyte (EiB) and files with sizes up to 16 tebibytes (TiB). However, Red Hat recommends using XFS instead of ext4 for volumes larger than 100 TB. 
+
+In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in ext4 can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].  
+
+Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of ext4 and is employed by Google to develop filesystems.  Ext4 is the current default file system for most Linux.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  
+
+There are three competing filesystems that fill the void between ext4 and current existing technology.
+
+### XFS
+ 
+  XFS is a robust and highly-scalable single host 64-bit journaling file system. It is entirely extent-based, so it supports very large file and file system sizes. The maximum supported file system size is 100 TB. The number of files an XFS system can hold is limited only by the space available in the file system [^127].   
+  
+  XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simualtion.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used- also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices [^127].
+  
+  XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than btrfs or other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGi engineers and developers who created this filesystem and brought back into production quality.  Recently RedHat began in RHEL 7.x to deprecate ext4 as the default filesystem and implment XFS as their standard filesystem--which will trickle down to CentOS 7.  XFS is notoriously bad at being used by an everyday computer usage pattern that reads and writes many small files, so it is not suitable for Fedora or Ubuntu, but works perfect on a system storing large database files or archiving large images or x-ray data.
+
+### Btrfs
+  
+  Theodore Ts'o has recommended moving to Btrfs (pronounced *butter fs*) as a replacement for ext4 moving forward, but development on btrfs is still in beta and not quite stable for production.   Btrfs uses copy-on-write, which is a strategy where as multiple processes using the same piece of data, don't make copies of it each, but use pointers to the initial data, thereby speeding up the system, reducing the number of writes needed. The project was initially created by Oracle, for use on their own storage products, but was GPL'd and now many companies contribute to the codebase. The project is marked stable and included in the Linux kernel since July of 2013.  
+  
+   *"Chris Mason, the principal Btrfs author, has stated that its goal was "to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable. [^128]"*
+  
+  
+  
+  
+  
+  
+  
+  A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an ellegantly designed filesystem.   
+ 
+   
 ### Disk related tools
 
   df and dh  
@@ -150,6 +226,15 @@ To succesfully create a partition on a new drive, let's select ```sdb``` in the 
  
 [^122]: [http://tldp.org/HOWTO/Partition/fdisk_partitioning.html](http://tldp.org/HOWTO/Partition/fdisk_partitioning.html)
 
-
+[^123]: [https://en.wikipedia.org/wiki/Ext2](https://en.wikipedia.org/wiki/Ext2)
  
+[^124]: [https://en.wikipedia.org/wiki/Journaling_file_system](https://en.wikipedia.org/wiki/Journaling_file_system) 
+ 
+[^125]: [https://en.wikipedia.org/wiki/Ext3](https://en.wikipedia.org/wiki/Ext3) 
+ 
+[^126]: [https://en.wikipedia.org/wiki/Ext4](https://en.wikipedia.org/wiki/Ext4) 
+ 
+[^127]: [https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Performance_Tuning_Guide/s-storage-xfs.html](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Performance_Tuning_Guide/s-storage-xfs.html) 
+ 
+[^128]: [https://en.wikipedia.org/wiki/Btrfs](https://en.wikipedia.org/wiki/Btrfs)
  
