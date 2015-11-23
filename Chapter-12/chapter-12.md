@@ -150,9 +150,9 @@ max. filesystem size:    4 TiB  8 TiB    16 TiB  32 TiB
 
   As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evidant and critical.  Also the speed of processors and hard drives became fast enough to be able to introduce __journaling__ technology to the file system to prevent types of write failures that corrupts data.  Not to be confused with journald from systemd, __ext3__ introduced a journaling feature.  Ext3 was introduced to the Linux kernel in 2001.  Being an extension basically of ext2, adding this new feature and support for larger drives helped with backward compatibility, but began extending the ext filesystem which was now over a decade old.  
   
- *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted. [^124]"*
+ *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted. [^124][^125]"*
   
-: Limits of ext3 [^125]
+: Limits of ext3 
 
 Block size   Max file size   Max file system size
 ----------- --------------- ----------------------
@@ -283,3 +283,4 @@ Theodore Ts'o is a respected developer in the open source community, who current
 [^128]: [https://en.wikipedia.org/wiki/Btrfs](https://en.wikipedia.org/wiki/Btrfs)
  
 [^129]: [https://en.wikipedia.org/wiki/ZFS](https://en.wikipedia.org/wiki/ZFS)
+
