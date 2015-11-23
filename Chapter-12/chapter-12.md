@@ -3,7 +3,7 @@
 
 __Chapter 12 Objectives__
 
-   * Undedstand how to create and be able to attach virtual disks in VirtualBox, to Linux systems
+   * Understand how to create and be able to attach virtual disks in VirtualBox, to Linux systems
    * Understand how the fdisk command is used to list, modify, and create filesystem partitions
    * Understand the nature of different Linux filesystems, listing their pros and cons
    * Understand Linux tools relating to filesystems, df, mount/umount, mkfs, and the /etc/fstab directory
@@ -11,11 +11,11 @@ __Chapter 12 Objectives__
    
 __Outcomes__
 
-  At the conclusion of this chapter you will be able to add additional virtual disks to any Linux verison installed in VirtualBox.  You will be able to format devices and create filesystems on newly formatted devices.  You will understand how to partition a device and install filesystems.  This chapter will give you experience with the tools needed to perform these actions.  We will study the LVM -- Linux Volume Manager and its new concept for dealing with disks.  Finalyl we will learn the concept of mounting and unmounting of disks.
+  At the conclusion of this chapter you will be able to add additional virtual disks to any Linux version installed in Virtual Box.  You will be able to format devices and create filesystems on newly formatted devices.  You will understand how to partition a device and install filesystems.  This chapter will give you experience with the tools needed to perform these actions.  We will study the LVM -- Linux Volume Manager and its new concept for dealing with disks.  Finalyl we will learn the concept of mounting and unmounting of disks.
 
 ## Disk Management in VirtualBox
 
-  At the time of this writing (11/22/15) a single terrabyte Western Digital Blue harddrive was selling for ~$50.  Storage is cheap.  With that in mind, adding storage or capacity is very easy these days--even common place.  Since we are dealing with virtual storage in this book and examples-we can easily attach and detach storage devices because we don't need to add anything physical to the systems.  For this chapter we will assume that you are using Virtual Box 5.0.x, but all of these concepts translate directly to physical storage or another virtualization platform.
+  At the time of this writing (11/22/15) a single terabyte Western Digital Blue hard drive was selling for ~$50.  Storage is cheap.  With that in mind, adding storage or capacity is very easy these days--even common place.  Since we are dealing with virtual storage in this book and examples-we can easily attach and detach storage devices because we don't need to add anything physical to the systems.  For this chapter we will assume that you are using Virtual Box 5.0.x, but all of these concepts translate directly to physical storage or another virtualization platform.
 
  With you virtual machine powered down, lets add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the main menu.
  
@@ -32,7 +32,7 @@ Select the *STORAGE* option from the menu on the left--this is where you can att
 ![*Storage menu*](images/Chapter-12/virtual-box/storage.png "Storage")
 \newpage
 
-We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the protocol and databus in which the operating system communicates and recieves data with your hard drive. Go ahead and highlight the SATA Controller entry.  
+We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the protocol and data-bus in which the operating system communicates and receives data with your hard drive. Go ahead and highlight the SATA Controller entry.  
 
 In order to add a new hard drive to your virtual machine, click the blue HDD icon with a __+__ sign at the bottom of the menu. 
 
@@ -47,12 +47,12 @@ Once you have selected *Add Hard Disk* a familiar set of screens come up, these 
 
 ![*Create New Disk*](images/Chapter-12/virtual-box/create-new.png "Create New")
 
-Once that is selected you will be presented with the virtual disk type screen.  Since we will be working with Virtual Box, the default setting of VDI (VirtualBox Disk Image) will be the best selection.  But if you know this VM will be moving to antother platform--you may want to choose accordingly. 
+Once that is selected you will be presented with the virtual disk type screen.  Since we will be working with Virtual Box, the default setting of VDI (VirtualBox Disk Image) will be the best selection.  But if you know this VM will be moving to another platform--you may want to choose accordingly. 
 
 ![*VDI step-through*](images/Chapter-12/virtual-box/vdi.png "VDI")
 \newpage
 
-The next page allows you to choose either a dynamic or staticly allocated hard drive.  Dynamic is usually the best when you are working on a laptop or other development system, as you will be creating and destroying virtual machine rapidly, and static allocations of multiple gigabytes can become an issue after some time due to your disk filling up.
+The next page allows you to choose either a dynamic or static allocated hard drive.  Dynamic is usually the best when you are working on a laptop or other development system, as you will be creating and destroying virtual machine rapidly, and static allocations of multiple gigabytes can become an issue after some time due to your disk filling up.
 
 ![*Dynamic Filesystem*](images/Chapter-12/virtual-box/dynamic.png "Dynamic")
 \newpage
@@ -61,7 +61,7 @@ This next screen allows you to change the location of where the virtual hard dis
 ![*Hard drive size*](images/Chapter-12/virtual-box/size.png "Size")
 \newpage
 
-Once you see the screen below - it means you have succesfully created a new virtual hard drive and have attached it to your virtual machine.  You can reverse the above operations by highlighing the virtual disk drive of choice and selecting the HDD icon with the minus sign and that will delete the hard drive.  But I recommend against that as your operating system won't know what happened and that could cause system instability.  Always best to unmount a partition from inside the operating system first before deleting the virtual hard drive. By highlighting the new disk or existing one, you can see the meta-data about the disk.
+Once you see the screen below - it means you have successfully created a new virtual hard drive and have attached it to your virtual machine.  You can reverse the above operations by highlighting the virtual disk drive of choice and selecting the HDD icon with the minus sign and that will delete the hard drive.  But I recommend against that as your operating system won't know what happened and that could cause system instability.  Always best to unmount a partition from inside the operating system first before deleting the virtual hard drive. By highlighting the new disk or existing one, you can see the meta-data about the disk.
 
 ![*Succesfully added new disk*](images/Chapter-12/virtual-box/new-disk.png "New")
 
@@ -71,16 +71,16 @@ Adding a virtual disk is only the first step, there are three more steps before 
 
 ## Disk Partitioning and Formatting
 
-  According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of patition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where it'
+  According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of partition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where it'
   s partitions are.    Each disk can have multiple partitions.  
   
-  Linux inherited a way to name each device and reference certain partitions attached to a system.  Windows simply uses the letter C, D, E, and so forth.  Linux and Unix use a device/partition nomeclature.  You can see this currently by typing the ```lsblk``` command, which will print out currently all the block devices, their device name and their partitions in a nice tree based format. 
+  Linux inherited a way to name each device and reference certain partitions attached to a system.  Windows simply uses the letter C, D, E, and so forth.  Linux and Unix use a device/partition nomenclature.  You can see this currently by typing the ```lsblk``` command, which will print out currently all the block devices, their device name and their partitions in a nice tree based format. 
   
 ![*lsblk output from a virtual machine with 2 additional drives attached*](images/Chapter-12/fdisk/lsblk.png "lsblk")
 
 Here you will note that the drives are references by the prefix __sdx__ with the __x__ being the alphabet letter in incremental order.  Meaning that the first disk drive that your system detects in labeled __sda__, the next one would be __sdb__, and can you guess what the third and fourth system would be?  In the image above you notice that __sda__ has 3 partitions, sda1, sda2, and sda5.  These three partitions were created at installation time by the default Linux installer.  The first partition you can see has the character ```/``` in the far right column.  That is where the __root__ partition is mounted (meaning your entire filesystem). The second partition is where the ```/boot``` partition is mounted, and the final partition says __SWAP__ in the far right meaning this is a Linux SWAP partition--used by the operating system for moving data in and out of RAM in chunks at a time or called *pages*.
 
-You can create partitions on a new disk for a fresh OS installation or just create a single partition to contain data.  The program mentioned above to create partitions is a program called ```fdisk```.  The ```fdisk``` command is considered an essential and standard Linux tool and is part of the [util-linux](https://en.wikipedia.org/wiki/Util-linux "Util Linux") package.  The best command to get started with when dealing with new disks and creating partitions is ```sudo fdisk -l```.  This commmand will list the current existing disks and any partitions they may have.  It will also report the undetermined state of any newly attached disks.  See the image below for a sample output.  If you are using Fedora 22/23 you will see a bit of a different output, you will see partitions labeled __LVM__ which will be explained at the end of the chapter.  Ubuntu has the option to use ```fdisk``` traditional partitioning by default.
+You can create partitions on a new disk for a fresh OS installation or just create a single partition to contain data.  The program mentioned above to create partitions is a program called ```fdisk```.  The ```fdisk``` command is considered an essential and standard Linux tool and is part of the [util-linux](https://en.wikipedia.org/wiki/Util-linux "Util Linux") package.  The best command to get started with when dealing with new disks and creating partitions is ```sudo fdisk -l```.  This command will list the current existing disks and any partitions they may have.  It will also report the undetermined state of any newly attached disks.  See the image below for a sample output.  If you are using Fedora 22/23 you will see a bit of a different output, you will see partitions labeled __LVM__ which will be explained at the end of the chapter.  Ubuntu has the option to use ```fdisk``` traditional partitioning by default.
 \newpage
 
 ![*sudo fdisk -l*](images/Chapter-12/fdisk/valid-partition.png "fdisk")  
@@ -89,7 +89,7 @@ You can create partitions on a new disk for a fresh OS installation or just crea
 
 The history of the Linux ```fdisk``` command goes way back.  Stemming from the early 1990's Hard drives at that time using the standard BIOS of the day were only allowed 4 __primary partitions__ on the operating system.  At those times, hard drives were small, and devices were expensive, and things we take for granted now, like optical drives, didn't really exist, so 4 primary partitions was thought to be more than anyone would ever need.  A primary partition could be broken up into an __extended partition__. Then each __extended partition__ could be further sub-divided into as many __logical partitions__ that fit on the drive.  At that time only one __primary partition__ could be active (or bootable and seeable) at a time, all other primary partitions would be hidden from the currently active operating system.  In this world ```fidsk``` was built, hence its concern with partitioning.  There has been an improvement since 2000 called LVM, which is covered and thankfully used almost exclusively now by default.
 
-To work/modify a device that has no exsiting partitions (say ```sdb``` in the image above). From the TLDP documentation regarding how to use ```fdisk```: [^122]  
+To work/modify a device that has no existing partitions (say ```sdb``` in the image above). From the TLDP documentation regarding how to use ```fdisk```: [^122]  
 
 *"fdisk is started by typing (as root) fdisk device at the command prompt. Device might be something like /dev/hda or /dev/sda (see Section 2.1.1). The basic fdisk commands you need are:"* 
 
@@ -99,7 +99,7 @@ To work/modify a device that has no exsiting partitions (say ```sdb``` in the im
   * q quit without saving changes 
   * w write the new partition table and exit 
 
-To succesfully create a partition on a new drive, let's select ```sdb``` in the example above.  The command ```sudo fdisk /dev/sdb``` will enter into ```fdisk``` and operate on this device.  Remember all *devices* are accessed through file handles in the ```/dev``` directory. Upon executing this command you are greeted with a status message reporting that the partition type cannot be detected or is not valid.  The error message seems a bit dated because you notice that it mentions DOS, SUN, SGI, and OSF--all outdated or unused partition types.  Similar to different languages or dialects, a partition also has to speak to an Operating system, and each operating system does it a bit different because of how particiualr filesystems are architected.  Fortunately this is a simple choice for us as we only need a Linux and a Linux SWAP partition for our uses--the rest are just artifacts of the past.
+To successfully create a partition on a new drive, let's select ```sdb``` in the example above.  The command ```sudo fdisk /dev/sdb``` will enter into ```fdisk``` and operate on this device.  Remember all *devices* are accessed through file handles in the ```/dev``` directory. Upon executing this command you are greeted with a status message reporting that the partition type cannot be detected or is not valid.  The error message seems a bit dated because you notice that it mentions DOS, SUN, SGI, and OSF--all outdated or unused partition types.  Similar to different languages or dialects, a partition also has to speak to an Operating system, and each operating system does it a bit different because of how particular filesystems are architected.  Fortunately this is a simple choice for us as we only need a Linux and a Linux SWAP partition for our uses--the rest are just artifacts of the past.
 
 ![*sudo fdisk /dev/sdb*](images/Chapter-12/fdisk/fdisk.png "fdisk")
   
@@ -107,13 +107,13 @@ To succesfully create a partition on a new drive, let's select ```sdb``` in the 
   
 ![*m for menu*](images/Chapter-12/fdisk/m-for-menu.png "Menu")
   
-  If you type the letter __l__ you will see the entire list of possible partitions, we are onyl interested in the value hex 82 and 83.  The next command to type is __p__ for printing out the current partition table--which will be blank.
+  If you type the letter __l__ you will see the entire list of possible partitions, we are only interested in the value hex 82 and 83.  The next command to type is __p__ for printing out the current partition table--which will be blank.
 
 \newpage
 
 ![*p for print*](images/Chapter-12/fdisk/p-for-print.png "Print")
 
-The next step is to type the __n__ command to create a new partition.  You will be presented with two choices for your new partition.  In this case you can select __primary partition__.  In most cases in creating data drives you can select primary partitions without concern.  If you find yourself creating many data drives or creating triple and quad bootable systems (multiple operating systems)  then you will want to conserve those primary partitions and use __exteneded/logical__ partitioning.  
+The next step is to type the __n__ command to create a new partition.  You will be presented with two choices for your new partition.  In this case you can select __primary partition__.  In most cases in creating data drives you can select primary partitions without concern.  If you find yourself creating many data drives or creating triple and quad bootable systems (multiple operating systems)  then you will want to conserve those primary partitions and use __extended/logical__ partitioning.  
 
 ![*n is for new partition*](images/Chapter-12/fdisk/n-for-new.png "New")
 
@@ -121,13 +121,13 @@ You are then presented with a series of options to choose a partition number, th
 
 ![*New Partition Options*](images/Chapter-12/fdisk/n-options.png "Options") 
   
-Let's see if our partition was created succesfully.  You can type __m__ to display the menu again or type the __p__ directly to print out the current partition table.  You will notice that it has been modified.
+Let's see if our partition was created successfully.  You can type __m__ to display the menu again or type the __p__ directly to print out the current partition table.  You will notice that it has been modified.
 
-![*Succesful Partition Creation*](images/Chapter-12/fdisk/p-finished.png "Finished")
+![*Successful Partition Creation*](images/Chapter-12/fdisk/p-finished.png "Finished")
 
 \newpage
 
-Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes will not be saved, and no partition information will be written.   Now you need to type __w__ to write the new partition data to the disk you are working on. The __w__ command will write and quit out automatically for you. After writing this partition data, you will see if show up in the ```sudo fdisk -l``` command.  After you see your new partition in ```fdisk``` of ```lsblk``` you are ready to move on to the next step of formating a partition with a filesystem.
+Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes will not be saved, and no partition information will be written.   Now you need to type __w__ to write the new partition data to the disk you are working on. The __w__ command will write and quit out automatically for you. After writing this partition data, you will see if show up in the ```sudo fdisk -l``` command.  After you see your new partition in ```fdisk``` of ```lsblk``` you are ready to move on to the next step of formatting a partition with a filesystem.
 
 ![*Write the Partition table data to disk*](images/Chapter-12/fdisk/w-for-write.png "Write")
 
@@ -135,11 +135,11 @@ Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes w
 
   To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory.  A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.    
 
-  If you have used Windows before you are familiar with Fat32 and NTFS filesystems. Since Windows is created and currated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the otherhand supports multiple different filesystems that serve many different purposes.  
+  If you have used Windows before you are familiar with Fat32 and NTFS filesystems. Since Windows is created and curated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the other-hand supports multiple different filesystems that serve many different purposes.  
 
 ### ext/ext2
 
-  The ext filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created for research purposes.  It had severe limitations since ext was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maxmimum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesytem.   By January of 1993, __ext2__ has been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written [^123].  
+  The ext filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created for research purposes.  It had severe limitations since ext was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesytem.   By January of 1993, __ext2__ has been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written [^123].  
   
 : Limits of ext2 
 
@@ -149,11 +149,11 @@ max. file size:          16 GiB 256 GiB  2 TiB   2 TiB
 max. filesystem size:    4 TiB  8 TiB    16 TiB  32 TiB 
 ----------------------  ------- ------- ------- -------   
 
-  Traditionally your ```/boot``` partition is formated as __ext2__ because it is only used for a short time to load your inited and kernel image into memory, so the overhead of ext4 is not needed.  You can use the built in ```sudo mkfs /dev/sdb1`` command to format a partition with __ext2__.
+  Traditionally your ```/boot``` partition is formatted as __ext2__ because it is only used for a short time to load your *initrd* and *kernel image* into memory, so the overhead of ext4 is not needed.  You can use the built in ```sudo mkfs /dev/sdb1`` command to format a partition with __ext2__.
 
 ### ext3/ext4
 
-  As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evidant and critical.  Also the speed of processors and hard drives became fast enough to be able to introduce __journaling__ technology to the file system to prevent types of write failures that corrupts data.  Not to be confused with journald from systemd, __ext3__ introduced a journaling feature.  Ext3 was introduced to the Linux kernel in 2001.  Being an extension basically of ext2, adding this new feature and support for larger drives helped with backward compatibility, but began extending the ext filesystem which was now over a decade old.  
+  As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evident and critical.  Also the speed of processors and hard drives became fast enough to be able to introduce __journaling__ technology to the file system to prevent types of write failures that corrupts data.  Not to be confused with journald from systemd, __ext3__ introduced a journaling feature.  Ext3 was introduced to the Linux kernel in 2001.  Being an extension basically of ext2, adding this new feature and support for larger drives helped with backward compatibility, but began extending the ext filesystem which was now over a decade old.  
   
  *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted. [^124][^125]"*
   
@@ -166,7 +166,7 @@ Block size   Max file size   Max file system size
   4 KiB         2 TiB             16 TiB 
 ----------- --------------- ----------------------  
   
-By 2008 it became appearant that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __Ext__ filesystem a bit longer, but the growth of ext had hit the end, and a newer fielsystem path needed to be developed to handle the larger sets of data and the massively improved hardware that existed from 1992, when ext was developed.
+By 2008 it became appearant that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __Ext__ filesystem a bit longer, but the growth of ext had hit the end, and a newer filesystem path needed to be developed to handle the larger sets of data and the massively improved hardware that existed from 1992, when ext was developed.
 
 Ext4 saw the capacity extension of ext3 and introduction to __extents__. The ext4 filesystem can support volumes with sizes up to 1 exbibyte (EiB) and files with sizes up to 16 tebibytes (TiB). However, Red Hat recommends using XFS instead of ext4 for volumes larger than 100 TB. 
 
@@ -178,9 +178,9 @@ Theodore Ts'o is a respected developer in the open source community, who current
  
   XFS is a robust and highly-scalable single host 64-bit journaling file system. It is entirely extent-based, so it supports very large file and file system sizes. The maximum supported file system size is 100 TB. The number of files an XFS system can hold is limited only by the space available in the file system [^127].   
   
-  XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simualtion.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used- also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices [^127].
+  XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used- also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices [^127].
   
-  XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than btrfs or other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGi engineers and developers who created this filesystem and brought back into production quality.  Recently RedHat began in RHEL 7.x to deprecate ext4 as the default filesystem and implment XFS as their standard filesystem--which will trickle down to CentOS 7.  XFS is notoriously bad at being used by an everyday computer usage pattern that reads and writes many small files, so it is not suitable for Fedora or Ubuntu, but works perfect on a system storing large database files or archiving large images or x-ray data.  You can install the tools needed to make a partion of the XFS format by typing:
+  XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than btrfs or other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGi engineers and developers who created this filesystem and brought back into production quality.  Recently RedHat began in RHEL 7.x to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem--which will trickle down to CentOS 7.  XFS is notoriously bad at being used by an everyday computer usage pattern that reads and writes many small files, so it is not suitable for Fedora or Ubuntu, but works perfect on a system storing large database files or archiving large images or x-ray data.  You can install the tools needed to make a partion of the XFS format by typing:
 
   * XFS tools are already installed on Fedora
   * sudo apt-get install xfsprogs 
@@ -191,16 +191,16 @@ Theodore Ts'o is a respected developer in the open source community, who current
   
    *"Chris Mason, the principal Btrfs author, has stated that its goal was "to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable. [^128]"*
   
-  Btrfs adds support for resource pooling and using extents to make logical drives accross physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and checksuming.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.
+  Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and checksuming.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.
   
   * yum install btrfs-progs -y		[On RedHat based Distro's]
   * sudo apt-get install btrfs-tools -y	[On Debian based Distro's] 
   
 ### ZFS
 
-   A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an ellegantly designed filesystem.   *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID,(RAID-Z) [^129]"*   
+   A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an elegantly designed filesystem.   *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID,(RAID-Z) [^129]"*   
    
-   ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called CDDL, which is similar to GPL, but allowed Sun and Oracle to license propriatery parts of the filesystem, as not free. This prevented ZFS from being adopted natively into the Linux kernel because of the GPL.  But the FreeBSD kernel didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 8 of FreeBSD.  
+   ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called CDDL, which is similar to GPL, but allowed Sun and Oracle to license proprietary parts of the filesystem, as not free. This prevented ZFS from being adopted natively into the Linux kernel because of the GPL.  But the FreeBSD kernel didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 8 of FreeBSD.  
    
    Recently Linux added an additional repository that you can manually add to your system to include the CDDL licensed ZFS code on Linux as a loadable kernel module--which is close to being native.  You can load the module, you just can install your operating system on ZFS natively while installing because the module isn't included in the Linux kernel.  Here is an example to install the ZFS PPA, load the module and then format and create a zpool logical mirror (RAID1) in 5 steps,  tutorial comes from here: [ http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html]( http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html "ZFS Tutorial")
     
@@ -220,9 +220,9 @@ Theodore Ts'o is a respected developer in the open source community, who current
       
 ## Mounting and Unmounting of disks
 
-   Once a disk is partitioned, and formated with a filesystem, it now needs to be mounted.   The concept of mounting came from the UNIX days of carrying a large reel of magnetic tape, and physically mounting it on a tape reader.  You can see all the mount points currently attached to your system by typing ```/etc/mtab```.  A filesystem needs to be mounted to a directory location.  Techincally your root filesystem is mounted to the ```/``` partition.  
+   Once a disk is partitioned, and formatted with a filesystem, it now needs to be mounted.   The concept of mounting came from the UNIX days of carrying a large reel of magnetic tape, and physically mounting it on a tape reader.  You can see all the mount points currently attached to your system by typing ```/etc/mtab```.  A filesystem needs to be mounted to a directory location.  Technically your root filesystem is mounted to the ```/``` partition.  
    
-   In the previous examples we we have created partitions and filesystem, now let us mount them.  The first step we need to do is provide a mount point.  Traditionally that is done in the ```/mnt``` directory.  You should create your mountpoints here.   Let's type ```sudo mkdir -p /mnt/data-drive```.  The name *data-drive* is an arbitrary name I have given my newly created mountpoint.  The ```-p``` flag will auto-create any subdirectory under ```/mnt``` that doesn't already exist.  Why did I type ```sudo```?  Who owns the ```/mnt``` directory?  
+   In the previous examples we we have created partitions and filesystem, now let us mount them.  The first step we need to do is provide a mount point.  Traditionally that is done in the ```/mnt``` directory.  You should create your __mountpoints__ here.   Let's type ```sudo mkdir -p /mnt/data-drive```.  The name *data-drive* is an arbitrary name I have given my newly created __mountpoint__.  The ```-p``` flag will auto-create any subdirectory under ```/mnt``` that doesn't already exist.  Why did I type ```sudo```?  Who owns the ```/mnt``` directory?  
    
    Once this directory is created, you can use the ```mount``` command like this: ```sudo mount -t ext4 /dev/sdb /mnt/data-drive```.  The ```-t``` flag tells this mount that the filesystem is of type __ext4__ and the operating system needs to know so that it can interface correctly with the filesystem.  Once this is done, the directory will still be owned by root, you probably need to change the ownership of the directory so that you own and can write to it. How would you do that based on last chapter?  You could type ```sudo chown jeremy:jeremy /mnt/data-drive```, assuming your username is *jeremy*. 
    
@@ -230,7 +230,7 @@ Theodore Ts'o is a respected developer in the open source community, who current
  
 ### /etc/fstab  
    
-   The ```/etc/fstab``` file controls the automatic mounting of your filesystems at boot.  Everytime your system boots, technically each partition is remounted everytime.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
+   The ```/etc/fstab``` file controls the automatic mounting of your filesystems at boot.  Every time your system boots, technically each partition is remounted every time too.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
    
    An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid```.  That is the actual command not a place holder. This is where the long strings you see in the ```/etc/fstab``` file in place of the device name.  There are many options that can be set in the place of ```defaults``` as well, such as: 
    
