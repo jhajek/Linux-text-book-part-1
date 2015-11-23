@@ -71,7 +71,7 @@ Adding a virtual disk is only the first step, there are three more steps before 
 
 ## Disk Partitioning and Formatting
 
-  According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of patition tables.  The term __parition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where it'
+  According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of patition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where it'
   s partitions are.    Each disk can have multiple partitions.  
   
   Linux inherited a way to name each device and reference certain partitions attached to a system.  Windows simply uses the letter C, D, E, and so forth.  Linux and Unix use a device/partition nomeclature.  You can see this currently by typing the ```lsblk``` command, which will print out currently all the block devices, their device name and their partitions in a nice tree based format. 
@@ -82,9 +82,9 @@ Here you will note that the drives are references by the prefix __sdx__ with the
 
 You can create partitions on a new disk for a fresh OS installation or just create a single partition to contain data.  The program mentioned above to create partitions is a program called ```fdisk```.  The ```fdisk``` command is considered an essential and standard Linux tool and is part of the [util-linux](https://en.wikipedia.org/wiki/Util-linux "Util Linux") package.  The best command to get started with when dealing with new disks and creating partitions is ```sudo fdisk -l```.  This commmand will list the current existing disks and any partitions they may have.  It will also report the undetermined state of any newly attached disks.  See the image below for a sample output.  If you are using Fedora 22/23 you will see a bit of a different output, you will see partitions labeled __LVM__ which will be explained at the end of the chapter.  Ubuntu has the option to use ```fdisk``` traditional partitioning by default.
 
-![*sudo fdisk -l*](images/Chapter-12/fdisk/valid-parition.png "fdisk")  
+![*sudo fdisk -l*](images/Chapter-12/fdisk/valid-partition.png "fdisk")  
 
-![*sudo fdisk -l*](images/Chapter-12/fdisk/not-valid-parition.png "fdisk")    
+![*sudo fdisk -l*](images/Chapter-12/fdisk/not-valid-partition.png "fdisk")    
 
 The history of the Linux ```fdisk``` command goes way back.  Stemming from the early 1990's Hard drives at that time using the standard BIOS of the day were only allowed 4 __primary partitions__ on the operating system.  At those times, hard drives were small, and devices were expensive, and things we take for granted now, like optical drives, didn't really exist, so 4 primary partitions was thought to be more than anyone would ever need.  A primary partition could be broken up into an __extended partition__. Then each __extended partition__ could be further sub-divided into as many __logical partitions__ that fit on the drive.  At that time only one __primary partition__ could be active (or bootable and seeable) at a time, all other primary partitions would be hidden from the currently active operating system.  In this world ```fidsk``` was built, hence its concern with partitioning.  There has been an improvement since 2000 called LVM, which is covered and thankfully used almost exclusively now by default.
 
