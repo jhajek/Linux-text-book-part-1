@@ -144,6 +144,8 @@ max. file size:          16 GiB 256 GiB  2 TiB   2 TiB
 max. filesystem size:    4 TiB  8 TiB    16 TiB  32 TiB 
 ----------------------  ------- ------- ------- -------   
 
+  Traditionally your ```/boot``` partition is formated as __ext2__ because it is only used for a short time to load your inited and kernel image into memory, so the overhead of ext4 is not needed.  You can use the built in ```sudo mkfs /dev/sdb1`` command to format a partition with __ext2__.
+
 ### ext3/ext4
 
   As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evidant and critical.  Also the speed of processors and hard drives became fast enough to be able to introduce __journaling__ technology to the file system to prevent types of write failures that corrupts data.  Not to be confused with journald from systemd, __ext3__ introduced a journaling feature.  Ext3 was introduced to the Linux kernel in 2001.  Being an extension basically of ext2, adding this new feature and support for larger drives helped with backward compatibility, but began extending the ext filesystem which was now over a decade old.  
@@ -165,9 +167,7 @@ Ext4 saw the capacity extension of ext3 and introduction to __extents__. The ext
 
 In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in ext4 can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].  
 
-Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of ext4 and is employed by Google to develop filesystems.  Ext4 is the current default file system for most Linux.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  
-
-There are three competing filesystems that fill the void between ext4 and current existing technology.
+Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of ext4 and is employed by Google to develop filesystems.  Ext4 is the current default file system for most Linux.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type ```mkfs.etx4 /dev/sdX1```  and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems that fill the void between ext4 and current existing technology.
 
 ### XFS
  
@@ -175,7 +175,10 @@ There are three competing filesystems that fill the void between ext4 and curren
   
   XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simualtion.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used- also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices [^127].
   
-  XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than btrfs or other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGi engineers and developers who created this filesystem and brought back into production quality.  Recently RedHat began in RHEL 7.x to deprecate ext4 as the default filesystem and implment XFS as their standard filesystem--which will trickle down to CentOS 7.  XFS is notoriously bad at being used by an everyday computer usage pattern that reads and writes many small files, so it is not suitable for Fedora or Ubuntu, but works perfect on a system storing large database files or archiving large images or x-ray data.
+  XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than btrfs or other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGi engineers and developers who created this filesystem and brought back into production quality.  Recently RedHat began in RHEL 7.x to deprecate ext4 as the default filesystem and implment XFS as their standard filesystem--which will trickle down to CentOS 7.  XFS is notoriously bad at being used by an everyday computer usage pattern that reads and writes many small files, so it is not suitable for Fedora or Ubuntu, but works perfect on a system storing large database files or archiving large images or x-ray data.  You can install the tools needed to make a partion of the XFS format by typing:
+
+  * XFS tools are already installed on Fedora
+  * sudo apt-get install xfsprogs 
 
 ### Btrfs
   
@@ -183,22 +186,63 @@ There are three competing filesystems that fill the void between ext4 and curren
   
    *"Chris Mason, the principal Btrfs author, has stated that its goal was "to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable. [^128]"*
   
+  Btrfs adds support for resource pooling and using extents to make logical drives accross physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and checksuming.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.
   
+  * yum install btrfs-progs -y		[On RedHat based Distro's]
+  * sudo apt-get install btrfs-tools -y	[On Debian based Distro's] 
   
-  
-  
-  
-  
-  A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an ellegantly designed filesystem.   
- 
-   
-### Disk related tools
+### ZFS
 
-  df and dh  
-  
+   A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an ellegantly designed filesystem.   *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID,(RAID-Z) [^129]"*   
+   
+   ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called CDDL, which is similar to GPL, but allowed Sun and Oracle to license propriatery parts of the filesystem, as not free. This prevented ZFS from being adopted natively into the Linux kernel because of the GPL.  But the FreeBSD kernel didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 8 of FreeBSD.  
+   
+   Recently Linux added an additional repository that you can manually add to your system to include the CDDL licensed ZFS code on Linux as a loadable kernel module--which is close to being native.  You can load the module, you just can install your operating system on ZFS natively while installing because the module isn't included in the Linux kernel.  Here is an example to install the ZFS PPA, load the module and then format and create a zpool logical mirror (RAID1) in 5 steps,  tutorial comes from here: [ http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html]( http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html "ZFS Tutorial")
+    
+```bash 
+ sudo apt-get update
+ sudo apt-get install -y ubuntu-zfs
+ sudo add-apt-repository ppa:zfs-native/stable
+ 
+ modprobe zfs
+ lsmod | grep zfs
+ # change the value of sdX and sdZ to the actual device names (your entire unformated devices)
+ sudo zpool create tank mirror sdX sdZ
+ lsblk
+ zfs list
+ df -h | grep tank
+```  
+      
 ## Mounting and Unmounting of disks
 
-  mount, umount, /etc/fstab    
+   Once a disk is partitioned, and formated with a filesystem, it now needs to be mounted.   The concept of mounting came from the UNIX days of carrying a large reel of magnetic tape, and physically mounting it on a tape reader.  You can see all the mount points currently attached to your system by typing ```/etc/mtab```.  A filesystem needs to be mounted to a directory location.  Techincally your root filesystem is mounted to the ```/``` partition.  
+   
+   In the previous examples we we have created partitions and filesystem, now let us mount them.  The first step we need to do is provide a mount point.  Traditionally that is done in the ```/mnt``` directory.  You should create your mountpoints here.   Let's type ```sudo mkdir -p /mnt/data-drive```.  The name *data-drive* is an arbitrary name I have given my newly created mountpoint.  The ```-p``` flag will auto-create any subdirectory under ```/mnt``` that doesn't already exist.  Why did I type ```sudo```?  Who owns the ```/mnt``` directory?  
+   
+   Once this directory is created, you can use the ```mount``` command like this: ```sudo mount -t ext4 /dev/sdb /mnt/data-drive```.  The ```-t``` flag tells this mount that the filesystem is of type __ext4__ and the operating system needs to know so that it can interface correctly with the filesystem.  Once this is done, the directory will still be owned by root, you probably need to change the ownership of the directory so that you own and can write to it. How would you do that based on last chapter?  You could type ```sudo chown jeremy:jeremy /mnt/data-drive```, assuming your username is *jeremy*. 
+   
+   The partition can be unmounted by typing the ```umount`` command--yes it is missing the __n__.  Be careful you don't try to unmount the device while your pwd is in a directory on that mount--otherwise you will get a *device is busy error.*    
+   
+   The ```/etc/fstab``` file that controls the mounting of your filesystems.  Everytime your system boots, technically each partition is remounted everytime.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
+   
+   An example entry would contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```. There are many options that can be set in the place of ```defaults``` as well, such as: 
+   
+1.sync/async - All I/O to the file system should be done (a)synchronously. 
+2.auto - The filesystem can be mounted automatically (at bootup, or when mount is passed the -a option). This is really unnecessary as this is the default action of mount -a anyway. 
+3.noauto - The filesystem will NOT be automatically mounted at startup, or when mount passed -a. You must explicitly mount the filesystem. 
+4.dev/nodev - Interpret/Do not interpret character or block special devices on the file system. 
+5.exec / noexec - Permit/Prevent the execution of binaries from the filesystem. 
+6.suid/nosuid - Permit/Block the operation of suid, and sgid bits. 
+7.ro - Mount read-only. 
+8.rw - Mount read-write. 
+9.user - Permit any user to mount the filesystem. This automatically implies noexec, nosuid,nodev unless overridden. 
+10.nouser - Only permit root to mount the filesystem. This is also a default setting. 
+11.defaults - Use default settings. Equivalent to rw, suid, dev, exec, auto, nouser, async. 
+12._netdev - this is a network device, mount it after bringing up the network. Only valid with fstype nfs.    
+
+### Disk related tools
+
+  df and dh  go here
 
 ## Logical Volume Manager
 
@@ -238,3 +282,4 @@ There are three competing filesystems that fill the void between ext4 and curren
  
 [^128]: [https://en.wikipedia.org/wiki/Btrfs](https://en.wikipedia.org/wiki/Btrfs)
  
+[^129]: [https://en.wikipedia.org/wiki/ZFS](https://en.wikipedia.org/wiki/ZFS)
