@@ -225,20 +225,20 @@ Theodore Ts'o is a respected developer in the open source community, who current
    
    The ```/etc/fstab``` file that controls the mounting of your filesystems.  Everytime your system boots, technically each partition is remounted everytime.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
    
-   An example entry would contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```. There are many options that can be set in the place of ```defaults``` as well, such as: 
+   An example entry would contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid```. There are many options that can be set in the place of ```defaults``` as well, such as: 
    
-1.sync/async - All I/O to the file system should be done (a)synchronously. 
-2.auto - The filesystem can be mounted automatically (at bootup, or when mount is passed the -a option). This is really unnecessary as this is the default action of mount -a anyway. 
-3.noauto - The filesystem will NOT be automatically mounted at startup, or when mount passed -a. You must explicitly mount the filesystem. 
-4.dev/nodev - Interpret/Do not interpret character or block special devices on the file system. 
-5.exec / noexec - Permit/Prevent the execution of binaries from the filesystem. 
-6.suid/nosuid - Permit/Block the operation of suid, and sgid bits. 
-7.ro - Mount read-only. 
-8.rw - Mount read-write. 
-9.user - Permit any user to mount the filesystem. This automatically implies noexec, nosuid,nodev unless overridden. 
-10.nouser - Only permit root to mount the filesystem. This is also a default setting. 
-11.defaults - Use default settings. Equivalent to rw, suid, dev, exec, auto, nouser, async. 
-12._netdev - this is a network device, mount it after bringing up the network. Only valid with fstype nfs.    
+1. sync/async - All I/O to the file system should be done (a)synchronously. 
+2. auto - The filesystem can be mounted automatically (at bootup, or when mount is passed the -a option). This is really unnecessary as this is the default action of mount -a anyway. 
+3. noauto - The filesystem will NOT be automatically mounted at startup, or when mount passed -a. You must explicitly mount the filesystem. 
+4. dev/nodev - Interpret/Do not interpret character or block special devices on the file system. 
+5. exec / noexec - Permit/Prevent the execution of binaries from the filesystem. 
+6. suid/nosuid - Permit/Block the operation of suid, and sgid bits. 
+7. ro - Mount read-only. 
+8. rw - Mount read-write. 
+9. user - Permit any user to mount the filesystem. This automatically implies noexec, nosuid,nodev unless overridden. 
+10. nouser - Only permit root to mount the filesystem. This is also a default setting. 
+11. defaults - Use default settings. Equivalent to rw, suid, dev, exec, auto, nouser, async. 
+12. netdev - this is a network device, mount it after bringing up the network. Only valid with fstype nfs.    
 
 ### Disk related tools
 
