@@ -81,6 +81,7 @@ Adding a virtual disk is only the first step, there are three more steps before 
 Here you will note that the drives are references by the prefix __sdx__ with the __x__ being the alphabet letter in incremental order.  Meaning that the first disk drive that your system detects in labeled __sda__, the next one would be __sdb__, and can you guess what the third and fourth system would be?  In the image above you notice that __sda__ has 3 partitions, sda1, sda2, and sda5.  These three partitions were created at installation time by the default Linux installer.  The first partition you can see has the character ```/``` in the far right column.  That is where the __root__ partition is mounted (meaning your entire filesystem). The second partition is where the ```/boot``` partition is mounted, and the final partition says __SWAP__ in the far right meaning this is a Linux SWAP partition--used by the operating system for moving data in and out of RAM in chunks at a time or called *pages*.
 
 You can create partitions on a new disk for a fresh OS installation or just create a single partition to contain data.  The program mentioned above to create partitions is a program called ```fdisk```.  The ```fdisk``` command is considered an essential and standard Linux tool and is part of the [util-linux](https://en.wikipedia.org/wiki/Util-linux "Util Linux") package.  The best command to get started with when dealing with new disks and creating partitions is ```sudo fdisk -l```.  This commmand will list the current existing disks and any partitions they may have.  It will also report the undetermined state of any newly attached disks.  See the image below for a sample output.  If you are using Fedora 22/23 you will see a bit of a different output, you will see partitions labeled __LVM__ which will be explained at the end of the chapter.  Ubuntu has the option to use ```fdisk``` traditional partitioning by default.
+\newpage
 
 ![*sudo fdisk -l*](images/Chapter-12/fdisk/valid-partition.png "fdisk")  
 
@@ -108,6 +109,8 @@ To succesfully create a partition on a new drive, let's select ```sdb``` in the 
   
   If you type the letter __l__ you will see the entire list of possible partitions, we are onyl interested in the value hex 82 and 83.  The next command to type is __p__ for printing out the current partition table--which will be blank.
 
+\newpage
+
 ![*p for print*](images/Chapter-12/fdisk/p-for-print.png "Print")
 
 The next step is to type the __n__ command to create a new partition.  You will be presented with two choices for your new partition.  In this case you can select __primary partition__.  In most cases in creating data drives you can select primary partitions without concern.  If you find yourself creating many data drives or creating triple and quad bootable systems (multiple operating systems)  then you will want to conserve those primary partitions and use __exteneded/logical__ partitioning.  
@@ -122,13 +125,15 @@ Let's see if our partition was created succesfully.  You can type __m__ to displ
 
 ![*Succesful Partition Creation*](images/Chapter-12/fdisk/p-finished.png "Finished")
 
+\newpage
+
 Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes will not be saved, and no partition information will be written.   Now you need to type __w__ to write the new partition data to the disk you are working on. The __w__ command will write and quit out automatically for you. After writing this partition data, you will see if show up in the ```sudo fdisk -l``` command.  After you see your new partition in ```fdisk``` of ```lsblk``` you are ready to move on to the next step of formating a partition with a filesystem.
 
 ![*Write the Partition table data to disk*](images/Chapter-12/fdisk/w-for-write.png "Write")
 
 ## Filesystems
 
-  To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory.  A __fielsystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.    
+  To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory.  A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.    
 
   If you have used Windows before you are familiar with Fat32 and NTFS filesystems. Since Windows is created and currated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the otherhand supports multiple different filesystems that serve many different purposes.  
 
@@ -221,11 +226,13 @@ Theodore Ts'o is a respected developer in the open source community, who current
    
    Once this directory is created, you can use the ```mount``` command like this: ```sudo mount -t ext4 /dev/sdb /mnt/data-drive```.  The ```-t``` flag tells this mount that the filesystem is of type __ext4__ and the operating system needs to know so that it can interface correctly with the filesystem.  Once this is done, the directory will still be owned by root, you probably need to change the ownership of the directory so that you own and can write to it. How would you do that based on last chapter?  You could type ```sudo chown jeremy:jeremy /mnt/data-drive```, assuming your username is *jeremy*. 
    
-   The partition can be unmounted by typing the ```umount`` command--yes it is missing the __n__.  Be careful you don't try to unmount the device while your pwd is in a directory on that mount--otherwise you will get a *device is busy error.*    
+   The partition can be unmounted by typing the ```umount``` command--yes it is missing the __n__.  Be careful you don't try to unmount the device while your pwd is in a directory on that mount--otherwise you will get a *device is busy error.*    
+ 
+### /etc/fstab  
    
-   The ```/etc/fstab``` file that controls the mounting of your filesystems.  Everytime your system boots, technically each partition is remounted everytime.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
+   The ```/etc/fstab``` file controls the automatic mounting of your filesystems at boot.  Everytime your system boots, technically each partition is remounted everytime.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
    
-   An example entry would contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid```. There are many options that can be set in the place of ```defaults``` as well, such as: 
+   An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid```.  That is the actual command not a place holder. This is where the long strings you see in the ```/etc/fstab``` file in place of the device name.  There are many options that can be set in the place of ```defaults``` as well, such as: 
    
 1. sync/async - All I/O to the file system should be done (a)synchronously. 
 2. auto - The filesystem can be mounted automatically (at bootup, or when mount is passed the -a option). This is really unnecessary as this is the default action of mount -a anyway. 
