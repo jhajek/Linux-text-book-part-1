@@ -168,7 +168,7 @@ Block size   Max file size   Max file system size
   
 By 2008 it became appearant that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __Ext__ filesystem a bit longer, but the growth of ext had hit the end, and a newer filesystem path needed to be developed to handle the larger sets of data and the massively improved hardware that existed from 1992, when ext was developed.
 
-Ext4 saw the capacity extension of ext3 and introduction to __extents__. The ext4 filesystem can support volumes with sizes up to 1 exbibyte (EiB) and files with sizes up to 16 tebibytes (TiB). However, Red Hat recommends using XFS instead of ext4 for volumes larger than 100 TB. 
+Ext4 saw the capacity extension of ext3 and introduction to __extents__. The ext4 filesystem can support volumes with sizes up to 1 exibyte (EiB) and files with sizes up to 16 tebibytes (TiB). However, Red Hat recommends using XFS instead of ext4 for volumes larger than 100 TB. 
 
 In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in ext4 can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].  
 
