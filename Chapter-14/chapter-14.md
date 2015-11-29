@@ -26,7 +26,8 @@ __Outcomes__
 
 ### Podcast Questions
 
- Questions go here
+Rise of Illumos slids [http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Illumos")
+Video By Brian Cantrill [https://www.youtube.com/watch?v=-zRN7XLCRhc](https://www.youtube.com/watch?v=-zRN7XLCRhc "SmrtOS")
 
 ### Lab
 
