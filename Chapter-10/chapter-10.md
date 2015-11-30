@@ -210,7 +210,7 @@ http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedo
 ```sudo dnf install \
 http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm```
 
-Note for RHEL/CentOS the installtion URL is slightly different:
+Note for RHEL/CentOS the installation URL is slightly different:
 ```sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/6/i386/rpmfusion-free-release-6-1.noarch.rpm```
 ```sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm```
 
