@@ -197,7 +197,7 @@ Here is a list of all the configuration and cache files related to APT and their
 
 ![*Installed Repositories Fedora 22*](images/Chapter-10/yum/etc-yum.png "YUM")
 
-Frodo is the name of a Commodore 64 emulator - a computer that dominated the home market and the video game market in the years before the IBM PC became cheap enough and the Nintendo popped onto the scene. I still own one and have it in my basement, which I used in real life as a kid.  If we try to install it via ``sudo dnf install frodo``` we get this message, why?  
+Frodo is the name of a Commodore 64 emulator - a computer that dominated the home market and the video game market in the years before the IBM PC became cheap enough and the Nintendo popped onto the scene. I still own one and have it in my basement, which I used in real life as a kid.  If we try to install it via ```sudo dnf install frodo``` we get this message, why?  
 
 ![*Unable to Find a Match*](images/Chapter-10/yum/unable.png "Unable to find a match")
 
