@@ -12,6 +12,15 @@ __Outcomes__
    * Network configs 
    * Tools to troubleshoot
    * https://github.com/orf/gping
+   dhclient 
+   static
+   dhcp
+   NAT
+   netstat
+   ping
+   traceroute
+   dig
+   
    
 ## Chapter Conclusions and Review
 

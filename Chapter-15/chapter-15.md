@@ -12,7 +12,6 @@ __Chapter 15 Objectives__
       + http://www.phoronix.com/scan.php?page=news_item&px=Fedora-Finish-SysVinit
       
 __Outcomes__
-
    
 ## Where to go Now? 
    
