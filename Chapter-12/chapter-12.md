@@ -251,7 +251,7 @@ Theodore Ts'o is a respected developer in the open source community, who current
 
   There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The ```df``` command will list the disk usage.   There is an optional ```-H``` and ```-h``` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use ```df``` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: ```/home/controller```.
   
-![*df -H /home/controller*](images/Chapter-12/du-df-h.png "df")  
+![*df -H /home/controller*](images/Chapter-12/du/df-h.png "df")  
  
  The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using ls -l Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.  
  
