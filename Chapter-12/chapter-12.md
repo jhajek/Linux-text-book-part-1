@@ -249,14 +249,15 @@ Theodore Ts'o is a respected developer in the open source community, who current
 
 ### Disk related tools
 
-  df and dh  go here
-
-## Logical Volume Manager
-
-  repeat the previous sections with LVM commands
+  There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The ```df``` command will list the disk usage.   There is an optional ```-H``` and ```-h``` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use ```df``` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: ```/home/controller```.
   
-   
-   http://tldp.org/HOWTO/LVM-HOWTO/whatisvolman.html
+![*df -H /home/controller*](images/Chapter-12/du-df-h.png "df")  
+ 
+ The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using ls -l Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.  
+ 
+![*du -H --exlude=".*" /home/controller*](images/Chapter-12/du/du-h.png "du")  
+  
+## Logical Volume Manager
    
    In order to enhance processing you may in your partitioning decisions want to place certain portions of the filesystem on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored int he users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
    
@@ -283,10 +284,9 @@ From within our Volume Group (VG) we can now carve out smaller LV (Logical Volum
 
 Once you have succesfully created an LV, now it needs a file-system installed.  Here you can add XFS, Btrfs, ZFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each filesystem type (XFS, Btrfs, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.   
 
-One definite feature not included in traditional partioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in    
+One definite feature not included in traditional partioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in (Btrfs and ZFS, but not XFS or ext4 they are too old).  The command ``` sudo lvcreate -s -n snap -L 5g foo/bar ``` creates a LV volume that is a snapshot or COW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV. 
 
-
-
+LVM is used mostly during partioning during installation and new file-systems liek Btrfs and ZFS seek to replicate its abilities at a file-system level.  LVM has many more detailed and powerful commands worth exploring. 
    
 ## Chapter Conclusions and Review
 
@@ -479,24 +479,27 @@ Outcomes
 1) Show the output of the df -H command displaying the two new successful mountpoints
 1) Edit the /etc/fstab file to make these two mountpoints automount at boot
 1) Follow the example in the book under the ZFS header to create a ZFS mirror pool. To complete this add two additional Virtual hard drives.  Follow the steps outlined in the script, present a screen shot containing the output of lsblk, zfs list, and df -H | grep tank
+
 1) From the BTRFS tutorial: [https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices "BTRFS")  
 a) You will have to install the btrfs tools relevant to your operating system (either Ubuntu or Fedora)
-b) Create 3 additional partitions of 2 GB size and 1 of 4 GB size
+b) Create 3 additional virtual disks of 2 GB size and 1 of 4 GB size
 c) use ```lsblk``` to list these partitions   
-d) use mkfs.btrfs -d raid0  to create a 3 disk stripe (leave 1 out)
+d) use mkfs.btrfs -d raid0  to create a 3 disk stripe (leave the 4GB disk out of this stripe)
 e) use any device as your mountpoint for btrfs 
-f) df -H
+f) open a terminal window and execute ```df -H```  
 g) Add the fourth device (4 GB size) to the btrfs stripe
-h) Then balance the metadata
-i) df -H
+h) Then balance the metadata according to the tutorial
+i) open a terminal window and execute ```df -H```
 j) Remove one of the devices
-k) df -H
+k) open a terminal window and execute ```df -H```
+
 1) Add a line in your /etc/fstab to mount this btrfs stripe at boot, reboot and see if it works by typing df -H
 1) Using an entirely newly created virtual disk, create an XFS based filesystem and mount-point, show the command to mount the XFS partition.  
 a) You need to install the XFS filesystem tools relevant to your operating system (either Ubuntu or Fedora)
 1) Show the entry in /etc/fstab to mount the XFS partition.  
 1) Use the ```du``` command to find and list the size of the Denyhosts directory you cloned in the previous chapter.
-
+1) Create 3 additional virtual disks each of 4 GB in size (delete and previous partitions if need be)
+a) 
 
 #### Footnotes
  
