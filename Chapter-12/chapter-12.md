@@ -466,18 +466,28 @@ Outcomes
 
   At the conclusion of this lab you will have successfully created a new virtual disk in Virtual Box, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the /etc/fstab.
 
-
 1) Create two virtual disk in Virtual Box (attach them to either Fedora or Ubuntu) of 4 GB size each. Submit a screenshot of the Virtual Box settings screen showing two new virtual drives attached.  In your screenshot highlight one of the newly created disks to display its properties on the right hand side of the screen-capture this in the screenshot.
+
 1) Use the fdisk command to create two entire disk partitions (one on each of the newly created virtual disks) after going through the steps to create the full disk partitions, take a screenshot of the entire output of sudo fdisk -l showing that they have been formatted
+
 1) Find the command that is used to display the devices and their partitions in a nice tree form--submit of screenshot of the output of that command.
+
 1) Use the mkfs command to create an ext2 filesystem on the partition you just created on /dev/sdb. Submit a screenshot of the command and its results
+
 1) Use the mkfs command to create an ext4 filesystem on the partition you just created on /dev/sdc. Submit a screenshot of the command and its results
+
 1) Use the mkdir command to create a mountpoint named data-drive in /mnt, change ownership and group to your user. Show the output of an ls -l on /mnt. Take a screenshot of the output of these commands.
+
 1) Use the mount command to mount the partition of /dev/sdb1 to /mnt/data-drive
+
 1) Use the mkdir command to create a mountpoint named backup-drive in /mnt, change ownership and group to your user. Show the output of an ls -l on /mnt. Take a screenshot of the output of these commands.
+
 1) Use the mount command to mount the partition of /dev/sdc1 to /mnt/backup-drive
+
 1) Show the output of the df -H command displaying the two new successful mountpoints
+
 1) Edit the /etc/fstab file to make these two mountpoints automount at boot
+
 1) Follow the example in the book under the ZFS header to create a ZFS mirror pool. To complete this add two additional Virtual hard drives.  Follow the steps outlined in the script, present a screen shot containing the output of lsblk, zfs list, and df -H | grep tank
 
 1) From the BTRFS tutorial: [https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices "BTRFS")  
@@ -496,8 +506,11 @@ k) open a terminal window and execute ```df -H```
 1) Add a line in your /etc/fstab to mount this btrfs stripe at boot, reboot and see if it works by typing df -H
 1) Using an entirely newly created virtual disk, create an XFS based filesystem and mount-point, show the command to mount the XFS partition.  
 a) You need to install the XFS filesystem tools relevant to your operating system (either Ubuntu or Fedora)
+
 1) Show the entry in /etc/fstab to mount the XFS partition.  
+
 1) Use the ```du``` command to find and list the size of the Denyhosts directory you cloned in the previous chapter.
+
 1) Create 3 additional virtual disks each of 4 GB in size (delete and previous partitions if need be)
 a) 
 
