@@ -266,6 +266,7 @@ Theodore Ts'o is a respected developer in the open source community, who current
    The question is under standard partitioning you don't. You simply backup, reinstall, and reformat the entire drive.  This is very time consuming and a risky opertation that is usually not taken lightly.  What to do?  A solution to this problem, called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), was created in 1998.  LVM version 2 is the current full featured version baked in to the Linxu kernel since version 2.6.
    
    LVM is a different way to look at partitions and filesystems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplimented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users. [^130]"*
+\newpage
 
 ![*LVM diagram*](images/Chapter-12/LVM/LVM.png "LVM")
 
