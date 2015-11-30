@@ -490,20 +490,25 @@ Outcomes
 
 1) Follow the example in the book under the ZFS header to create a ZFS mirror pool. To complete this add two additional Virtual hard drives.  Follow the steps outlined in the script, present a screen shot containing the output of lsblk, zfs list, and df -H | grep tank
 
-1) From the BTRFS tutorial: [https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices "BTRFS")  
+1) From the BTRFS tutorial: [https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices "BTRFS")  -- Take a screenshot of each ```df -H``` command
 a) You will have to install the btrfs tools relevant to your operating system (either Ubuntu or Fedora)
 b) Create 3 additional virtual disks of 2 GB size and 1 of 4 GB size
 c) use ```lsblk``` to list these partitions   
 d) use mkfs.btrfs -d raid0  to create a 3 disk stripe (leave the 4GB disk out of this stripe)
 e) use any device as your mountpoint for btrfs 
 f) open a terminal window and execute ```df -H```  
-g) Add the fourth device (4 GB size) to the btrfs stripe
-h) Then balance the metadata according to the tutorial
-i) open a terminal window and execute ```df -H```
-j) Remove one of the devices
-k) open a terminal window and execute ```df -H```
+
+1) Continuing the previous question:
+a) Add the fourth device (4 GB size) to the btrfs stripe
+b) Then balance the metadata according to the tutorial
+c) open a terminal window and execute ```df -H```
+
+1) Continuing the previous question:
+a) Remove one of the devices
+b) open a terminal window and execute ```df -H```
 
 1) Add a line in your /etc/fstab to mount this btrfs stripe at boot, reboot and see if it works by typing df -H
+
 1) Using an entirely newly created virtual disk, create an XFS based filesystem and mount-point, show the command to mount the XFS partition.  
 a) You need to install the XFS filesystem tools relevant to your operating system (either Ubuntu or Fedora)
 
@@ -512,7 +517,11 @@ a) You need to install the XFS filesystem tools relevant to your operating syste
 1) Use the ```du``` command to find and list the size of the Denyhosts directory you cloned in the previous chapter.
 
 1) Create 3 additional virtual disks each of 4 GB in size (delete and previous partitions if need be)
-a) 
+a) Add all three volumes (entire disk) as LVM PVs (Physical Volumes)
+b) Create a Volume group named vg-456 
+c) Create 4 logical volumes of 3 GB size each within that Volume Group 
+d) Create an ext4 and xfs partitions on the first 2 LVs and on the 3rd and 4th create a Btrfs Mirror (RAID1)
+e) Create mountpoints under ```/mnt``` and mount them and list them all with a ```df -H``` commmand
 
 #### Footnotes
  
