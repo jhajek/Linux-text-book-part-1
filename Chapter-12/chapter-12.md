@@ -255,7 +255,38 @@ Theodore Ts'o is a respected developer in the open source community, who current
 
   repeat the previous sections with LVM commands
   
-  LVM created in 1998
+   
+   http://tldp.org/HOWTO/LVM-HOWTO/whatisvolman.html
+   
+   In order to enhance processing you may in your partitioning decisions want to place certain portions of the filesystem on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored int he users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
+   
+   The question is under standard partitioning you don't. You simply backup, reinstall, and reformat the entire drive.  This is very time consuming and a risky opertation that is usually not taken lightly.  What to do?  A solution to this problem, called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), was created in 1998.  LVM version 2 is the current full featured version baked in to the Linxu kernel since version 2.6.
+   
+   LVM is a different way to look at partitions and filesystems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplimented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users. [^130]"*
+
+![*LVM diagram*](images/Chapter-12/LVM/LVM.png "LVM")
+
+This diagram creates three concepts to know when dealing with LVM:
+
+*  Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit [^131]. 
+*  Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device) [^132].
+*  Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home) [^133]. 
+* Phsysical Extent (PE) - This is the unit of storage that a PV is split into (4KB or 4 MB
+* Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*.  The LVM counts how many extents are possible and makes this its *disk* so to speak.
+
+
+The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use.  Note that you can choose to use the entire disk ```/dev/sdb``` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the ```pvcreate``` command to *create* physical volumes, same case with the partition. 
+
+Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to.  The command to add PVs to an LG is: ```vgcreate VOLUME-GROUP-NAME /dev/sdx /dev/sdy```. You can extend this volume group by simply adding another ```pvcreate /dev/sdx1``` command for example and then using the ```vgextend VOLUME-GROUP-NAME /dev/sdz```.  There is also a ```vgreduce``` command that will remove a PV from a Volume Group.  The volume group allows for a single logical management unit for multiple disk/partitions.  This is useful as well for adding additional storage and removing storage devices that may have failed or are not performing at required parameters.  
+
+From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME``` --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to Linear, but that is an application based decision.  Since LVs are logical they can also be extened and reduced on the fly--that alone is a better replacement for standard partitioning.  The command ```lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME``` will extend the LV to become 50 GB in size.  Using ```-L+50G``` will add 50 additional gigabytes to an existing LV's size.
+
+Once you have succesfully created an LV, now it needs a file-system installed.  Here you can add XFS, Btrfs, ZFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each filesystem type (XFS, Btrfs, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.   
+
+One definite feature not included in traditional partioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in    
+
+
+
    
 ## Chapter Conclusions and Review
 
@@ -263,9 +294,9 @@ Theodore Ts'o is a respected developer in the open source community, who current
  
 ### Review Questions
 
-  Chapter 12 Review Questions
+Chapter 12 Review Questions
 
-1) What is the fdisk
+1) What is the fdisk program?
 a) a dialog-driven program for the creation and manipulation of partition tables.
 b) a filesystem creation tool
 c) a tool for formatting floppy disks
@@ -448,7 +479,25 @@ Outcomes
 1) Show the output of the df -H command displaying the two new successful mountpoints
 1) Edit the /etc/fstab file to make these two mountpoints automount at boot
 1) Follow the example in the book under the ZFS header to create a ZFS mirror pool. To complete this add two additional Virtual hard drives.  Follow the steps outlined in the script, present a screen shot containing the output of lsblk, zfs list, and df -H | grep tank
- 
+1) From the BTRFS tutorial: [https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices "BTRFS")  
+a) You will have to install the btrfs tools relevant to your operating system (either Ubuntu or Fedora)
+b) Create 3 additional partitions of 2 GB size and 1 of 4 GB size
+c) use ```lsblk``` to list these partitions   
+d) use mkfs.btrfs -d raid0  to create a 3 disk stripe (leave 1 out)
+e) use any device as your mountpoint for btrfs 
+f) df -H
+g) Add the fourth device (4 GB size) to the btrfs stripe
+h) Then balance the metadata
+i) df -H
+j) Remove one of the devices
+k) df -H
+1) Add a line in your /etc/fstab to mount this btrfs stripe at boot, reboot and see if it works by typing df -H
+1) Using an entirely newly created virtual disk, create an XFS based filesystem and mount-point, show the command to mount the XFS partition.  
+a) You need to install the XFS filesystem tools relevant to your operating system (either Ubuntu or Fedora)
+1) Show the entry in /etc/fstab to mount the XFS partition.  
+1) Use the ```du``` command to find and list the size of the Denyhosts directory you cloned in the previous chapter.
+
+
 #### Footnotes
  
 [^122]: [http://tldp.org/HOWTO/Partition/fdisk_partitioning.html](http://tldp.org/HOWTO/Partition/fdisk_partitioning.html)
@@ -466,4 +515,13 @@ Outcomes
 [^128]: [https://en.wikipedia.org/wiki/Btrfs](https://en.wikipedia.org/wiki/Btrfs)
  
 [^129]: [https://en.wikipedia.org/wiki/ZFS](https://en.wikipedia.org/wiki/ZFS)
+
+[^130]: [http://tldp.org/HOWTO/LVM-HOWTO/whatisvolman.html](http://tldp.org/HOWTO/LVM-HOWTO/whatisvolman.html)
+
+[^131]: [http://tldp.org/HOWTO/LVM-HOWTO/vg.html](http://tldp.org/HOWTO/LVM-HOWTO/vg.html)
+
+[^132]: [http://tldp.org/HOWTO/LVM-HOWTO/pv.html](http://tldp.org/HOWTO/LVM-HOWTO/pv.html)
+
+[^133]: [http://tldp.org/HOWTO/LVM-HOWTO/lv.html](http://tldp.org/HOWTO/LVM-HOWTO/lv.html)
+
 
