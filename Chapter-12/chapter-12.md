@@ -255,7 +255,7 @@ Theodore Ts'o is a respected developer in the open source community, who current
  
  The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using ls -l Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.  
 
-/newpage
+\newpage
  
 ![*du -H --exlude=".\*" /home/controller*](images/Chapter-12/du/du-h.png "du")  
   

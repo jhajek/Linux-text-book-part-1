@@ -191,7 +191,7 @@ These additional commands will share more information:
   *  systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership. 
     + cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
     
-/newpage    
+\newpage    
 
 ### kill
 
