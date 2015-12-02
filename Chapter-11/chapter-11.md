@@ -21,7 +21,7 @@ __Outcomes__
   
   In modern Linux the VBR is controlled by [GNU GRUB](https://www.gnu.org/software/grub/ "GNU GRUB").  *"Briefly, a boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd or Linux). The kernel, in turn, initializes the rest of the operating system (e.g. GNU)."* [^114]   
 
-  GNU GRUB superseded what is now called legacy GRUB (version 0.9x) and begins with version 2 to separate the different tools--though they are both called GRUB.  We will only talk here about GRUB 2 or GNU GRUB when referring to GRUB. GRUB itself has 3 stages in order to get you to stage two which is the loading of your Linux Kernel from disk into memory.  Stage 1 detects and finds the locations of and discovers various file systems on disk for loading at a later time.  Once this is accomplished GRUB loads stage 1.5 and passes control to it.  GRUB 1.5 will load file system drivers that are separate from the Operating System so the file ```/boot/grub/grub.conf``` can be read.  This file contains details about the path to various kernels for loading and various system configurations.  Once complete stage 2 is loaded and control is passed.  This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
+  GNU GRUB superseded what is now called legacy GRUB (version 0.9x) and begins with version 2 to separate the different tools--though they are both called GRUB.  We will only talk here about GRUB 2 or GNU GRUB when referring to GRUB. GRUB itself has 3 stages in order to get you to stage two which is the loading of your Linux Kernel from disk into memory.  Stage 1 detects and finds the locations of and discovers various file systems on disk for loading at a later time.  Once this is accomplished GRUB loads stage 1.5 and passes control to it.  GRUB 1.5 will load file system drivers that are separate from the Operating System so the file ```/boot/grub/grub.cfg``` can be read, Fedora stores its cgrub configuration at ```/boot/grub2/grub.cfg```.  This file contains details about the path to various kernels for loading and various system configurations.  Once complete stage 2 is loaded and control is passed.  This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
   
 ![*Terminal User Interface*](images/Chapter-11/GRUB/tui-large.png "TUI")
   
@@ -38,7 +38,7 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
 
 ### GRUB
 
- The GRUB 2 or GNU GRUB bootloader exists in the file ```/boot/grub/grub.conf``` but this file is auto generated so to edit the settings you would modify the ```/etc/default/grub``` file.  
+ The GRUB 2 or GNU GRUB bootloader exists in the file ```/boot/grub/grub.cfg``` but this file is auto generated so to edit the settings you would modify the ```/etc/default/grub``` file.  
  The ```/etc/default/grub``` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
  
  GRUB_DEFAULT=N  -- this value is which entry in your GRUB list is the default operating system to boot.  If you have a single OS installed, this value will be 0.  
@@ -55,7 +55,7 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
  
  GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a background image.
  
-To make these changes permanent you need to execute the ```sudo update-grub``` command after saving the file so the ```/boot/grub/grub.conf``` will be regenerated and used on the next boot.
+To make these changes permanent you need to execute the ```sudo update-grub``` command after saving the file so the ```/boot/grub/grub.cfg``` will be regenerated and used on the next boot.
 
 ### SysVinit
 
@@ -290,19 +290,19 @@ c) initram
 d) init
 
 5) Where is the file location where the GNU Grub configuration is stored that a user would edit?
-a) /boot/grub/grub.conf
-b) /etc/default/grub.conf
-c) /etc/grub/grub.conf
+a) /boot/grub/grub.cfg
+b) /etc/default/grub
+c) /etc/grub/grub.cfg
 d) /boot/kernel/conf
 
-6) In the /etc/default/grub.conf file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
+6) In the /etc/default/grub file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
 a) GRUB_CMDLINE_LINUX_DEDFAULT
 b) GRUB_BACKGROUND
 c) GRUB_GFXMODE
 d) GRUB_TIMEOUT
 
-7) What is the command to make changes to /etc/default/grub.conf permanent?
-a) No special command just edit and save /etc/default/grub.conf
+7) What is the command to make changes to /etc/default/grub permanent?
+a) No special command just edit and save /etc/default/grub
 b) sudo apt-get update
 c) sudo update-grub
 d) sudo updatedb
