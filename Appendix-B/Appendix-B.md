@@ -482,11 +482,133 @@ d. Python
 
 ## Chapter 11
 
-TBA
+Chapter 11 Review Questions
+
+1) What is the name of *beep* sound heard in the initial boot of a PC (assume you are using BIOS not UEFI)?
+b) POST
+
+2) What is the name of the GNU software that is the first software program that runs when a computer with Linux installed starts? 
+c) GRUB
+
+3) In what Linux directory is the kernel and initrd image stored?
+c) /boot
+
+4) What is the name of the pre-kernel gzip file located in /boot that helps the kernel load?
+b) initrd
+
+5) Where is the file location where the GNU Grub configuration is stored that a user would edit?
+b) /etc/default/grub
+
+6) In the /etc/default/grub.conf file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
+a) GRUB_CMDLINE_LINUX_DEDFAULT
+
+7) What is the command to make changes to /etc/default/grub.conf permanent?
+c) sudo update-grub
+
+8) Under SysVinit - what is the ancestor process that launches first and everyother process is started by it?
+c)  init
+
+9) Under SysVinit - what runlevel is considered multi-user command-line only?
+c) 3 
+
+10) Under SysVinit - what runlevel is considered multi-user GUI only?
+d) 5
+
+11) Which company created the Upstart init system as an improvement of SysVinit?
+d) Ubuntu
+
+12) What is the name of the init system that has replaced SysVinit in every single major Linux distribution (Not including Devuan and Gentoo Linux)?
+b)  systemd
+
+13) What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
+d) systemctl
+
+14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora 22 using systemd?
+d)  sudo systemctl disable httpd.service
+
+15) What is the Linux command to inspect processes (not part of systemd)?
+b) ps
+
+16) SysVinit used the concept of PIDs and PPIDs--what did systemd replace these with?
+c) cgroups
+
+17) What is the signal name for a kill -2 command?
+b) SIGINT
+
+18) The /proc filesystem provides you what?  (choose all that apply)
+a) Provides you a file based interface to the processes that are running on your system
+b) It can be regarded as a control and information centre for the kernel
+
+19) What command can be used to list all the pci devices attached to your system?
+d) lspci
+
+20) What is the runlevel target that has a single user only as root, using no password: commonly called single-user mode?
+d) runlevel1.target 
 
 ## Chapter 12
 
-TBA
+Chapter 12 Review Questions
+
+1) What is the fdisk
+a) a dialog-driven program for the creation and manipulation of partition tables.
+
+2) What is the default Virtual Box disk type?
+a) VDI
+
+3) After attaching a new virtual disk what is the next step? 
+a) partitioning
+
+4) Which command will print out currently all the block devices, their device name, and their partitions in a nice tree based format.
+b) lsblk
+
+5) fdisk is part of what package?
+c) utils-linux
+
+6) What would be the name of the second sata disk attached to your system?
+b) sdb
+
+7) What is the name of the first native Linux filesystem released in 1992?
+d) ext
+
+8) What is the name of the current default Linux Filesystem?
+d) ext4
+
+9) Ext4 breaks up data into __________, which is the smallest sized piece of data that can be read or written?
+c) blocks
+
+10) If you use the ext2 filesystem and choose a 4 KiB block, what is the maximum filesystem size?
+b) 16 TiB
+
+11) What is the name of the maintainer of the ext4 filesystem?
+b) Theodore Ts'o
+
+12) What is the name of the filesystem that the ext4 maintainer, Theodore Ts'o, is recommending to replace ext4? 
+b) Btrfs
+
+13) What is the name of the filesystem that RedHat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
+b) XFS
+
+14) What is the name of the package needed to install on Ubuntu to be able to create XFS filesystems?
+a) sudo apt-get install xfsprogrs
+
+15) What is the name of the combined filesystem and logical volume manager designed by Sun Microsystems?
+c) ZFS
+
+16) Which command is valid for making an ext4 filesystem on a partition /dev/sdb1
+b) sudo mkfs.ext4 /dev/sdb1
+
+17) What is the command to mount an ext4 filesystem, /dev/sdb1 on a mount point /mnt/data-drive-2?
+c) sudo mount -t ext4 /dev/sdb1 /mnt/data-drive-2
+
+18) What is the command used to list the current mountpoints, that will be mounted automatically at boot?
+c) /etc/fstab
+
+19) What is the command used to create a LVM physical volume?
+a) pvcreate
+
+20) What is the command used to create a LVM volume group?
+a) vgcreate
+
 
 ## Chapter 13
 

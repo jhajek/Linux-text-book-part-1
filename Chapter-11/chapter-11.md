@@ -221,7 +221,7 @@ By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of whi
 
 ### nice
 
-  The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or 20 means that this is a really high priority process, all the way down to -19 which means that it is a really low priority background process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
+  The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
   
 > __Example Usage:__  This example will increase favorability of this process to the scheduler by 10 on a scale of -20 to 19--default is 0.
 ```bash

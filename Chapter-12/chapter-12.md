@@ -11,7 +11,7 @@ __Chapter 12 Objectives__
    
 __Outcomes__
 
-  At the conclusion of this chapter you will be able to add additional virtual disks to any Linux version installed in Virtual Box.  You will be able to format devices and create filesystems on newly formatted devices.  You will understand how to partition a device and install filesystems.  This chapter will give you experience with the tools needed to perform these actions.  We will study the LVM -- Linux Volume Manager and its new concept for dealing with disks.  Finalyl we will learn the concept of mounting and unmounting of disks.
+  At the conclusion of this chapter you will be able to add additional virtual disks to any Linux version installed in Virtual Box.  You will be able to format devices and create filesystems on newly formatted devices.  You will understand how to partition a device and install filesystems.  This chapter will give you experience with the tools needed to perform these actions.  We will study the LVM -- Linux Volume Manager and its new concept for dealing with disks.  Finally we will learn the concept of mounting and unmounting of disks.
 
 ## Disk Management in VirtualBox
 
@@ -488,11 +488,11 @@ Outcomes
 
 6) Use the mkdir command to create a mountpoint named data-drive in /mnt, change ownership and group to your user. Show the output of an ls -l on /mnt. Take a screenshot of the output of these commands.
 
-7) Use the mount command to mount the partition of /dev/sdb1 to /mnt/data-drive
+7) Use the mount command to mount the partition of /dev/sdb to /mnt/data-drive
 
 8) Use the mkdir command to create a mountpoint named backup-drive in /mnt, change ownership and group to your user. Show the output of an ls -l on /mnt. Take a screenshot of the output of these commands.
 
-9) Use the mount command to mount the partition of /dev/sdc1 to /mnt/backup-drive
+9) Use the mount command to mount the partition of /dev/sdc to /mnt/backup-drive
 
 10) Show the output of the df -H command displaying the two new successful mountpoints
 
