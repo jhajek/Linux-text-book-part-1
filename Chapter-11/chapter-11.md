@@ -132,7 +132,7 @@ Systemd was the alternative decision to SysVinit/Upstart that had been developed
   
 > *One goal of systemd is to unify the dispersed Linux landscape a bit. We try to get rid of many of the more pointless differences of the various distributions in various areas of the core OS. As part of that we sometimes adopt schemes that were previously used by only one of the distributions and push it to a level where it's the default of systemd, trying to gently push everybody towards the same set of basic configuration. This is never exclusive though, distributions can continue to deviate from that if they wish, however, if they end-up using the well-supported default their work becomes much easier and they might gain a feature or two. Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions. [^116]*
 
-  One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command ```init 3``` was always start at the commandline, and ```init 5``` was GUI.  Systemd introduces __targets__ in their place.  Target's are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the ```/etc/inittab``` [^118]. 
+  One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command ```init 3``` was always start at the commandline, and ```init 5``` was GUI.  Systemd introduces __targets__ in their place.  Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the ```/etc/inittab``` [^118]. 
   
    Run Level              systemd target               Function
 ---------------- ------------------------------------- -------------------------
@@ -158,16 +158,21 @@ You can use the command  ```systemctl``` to list all running services and to iss
 
 > __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
 
-### Working With Services in Systemd
+### Working With Services in systemctl
 
 > __Example Usage:__ On a systemd based system, service control is done with ```systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart httpd.service```
 
 > __Example Usage:__ The ```systemctl``` command has additional abilities.  It absorbed the ```chkconfig``` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: ```sudo systemctl is-enabled httpd.service```.  Issue that command and what does it report?
 
-> __Example Usage:__ To disable a service at boot type: ```sudo systemctl disable httpd.service``` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.  Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start.  Systemd command ```systemctl show``` will show all details relating to a target or a service.  Let us look at a service definition.  Type this command, ```cd /lib/systemd/system; ls http*; file http*```  what do you see? Type this command to see the contents of the httpd.serivce file, ```cat httpd.service``` what do you see contained inside?      
+> __Example Usage:__ To disable a service at boot type: ```sudo systemctl disable httpd.service``` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.  
+
+Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start.  Systemd command ```systemctl show``` will show all details relating to a target or a service.  Let us look at a service definition.  Type this command, ```cd /lib/systemd/system; ls http*; file http*```  what do you see? Type this command to see the contents of the httpd.serivce file, ```cat httpd.service``` what do you see contained inside? 
+
+Compared to the make up of a SysVinit service, systemd has a simple design for each of its *service* files.  They are located in ```/lib/systemd/system```.  Upon entering this directory you can launch an ```ls``` command and see the actual service files that you start/stop and enable/disable with ```systemctl```. 
+          
 ![*httpd.service*](images/Chapter-11/systemd/httpd-service.png "service")
 
-You can see the dependencies the httpd service needs and will only start if the targets listed in \[Unit\] under *After* have started--which makes sense.  The *ExecStart* and *ExecReload* are called when you start and restart the service--which point to the absolute path to the Apache2 binary.  The final value is when the service is installed it has a dependency of being in a mutil-user target--it obviously be used on a single user system.
+You can see the dependencies the httpd service needs and will only start if the targets listed in \[Unit\] under *After* have started--which makes sense. The command ```sudo systemctl show --property "Wants" httpd.service``` will show only the property from the unit file that you identify with __--property__. The *ExecStart* and *ExecReload* are called when you start and restart the service--which point to the absolute path to the Apache2 binary.  The final value is when the service is installed it has a dependency of being in a mutil-user target--it obviously be used on a single user system.
 
 #### systemd-analyze
 
