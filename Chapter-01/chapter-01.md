@@ -13,19 +13,18 @@ date: 07/30/2015
 
 ## Objectives of this book
 
-  As you know there are many, many books on Linux out there.  This book strives to be different in trying to highlight two areas.  First the philosophy of Linux and its design.  Anyone can teach you how to push a button, but this book aims to go beyond that and help you understand the reason the button is there in the first place.  Above all Linux is merely a tool to help you get your work done.  Seeing as this book is self-published its exercises and sections can be updated rapidly to cover the ever-changing tools in Linux. I have found over the years understanding the history of Linux goes a long way to understanding how it works.  This book strives to be different as well.  In addition to being pegged to the LPIC-I/Linux+ content it will go beyond being just a training book.  
+  As you know there are many, many books on Linux out there.  This book strives to be different in trying to highlight two areas.  First the philosophy of Linux and its design.  Anyone can teach you how to push a button, but this book aims to go beyond that and help you understand the reason the button is there in the first place.  Above all Linux is merely a tool to help you get your work done.  Seeing as this book is self-published its exercises and sections can be updated rapidly to cover the ever-changing tools in Linux. I have found over the years understanding the history of Linux goes a long way to understanding how it works.  This book strives to be different as well.    We are at a point in time in the Free and Opensource operating system world where everything is changing.  Systemd has risen to absorb or update every single major Linux distribution.  In writting this book I felt that though we needed to still teach SysVinit, we could not just wallpaper over it but had to explain systemd and had to explain why now and what it is trying to accomplish for better or for worse.  
   
   For instructors - we are going beyond the traditional PowerPoint world, and looking into using new technologies like Microsoft Sway for presentations. The book is being published on GitHub under a Creative Commons CC-SA Share alike license -- this way as things change code can be updated or removed and new digital versions can be published quickly.  
 
-  Some of these chapters are heavier in content then others.  Some are lighter.  Feel free to combine and remix the chapters.  You are even welcome to fork the project on GitHub and remix it or contribute back patches and pull requests.  Part of this book was inspired by a quote from my friend in regards to Linux text books, he said, *"Most text books are good, but then they just add in content from nowhere."* I had that same feeling and when he expressed it in words it hit me.  At the same time, I got the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux. 
-
+  Some of these chapters are heavier in content then others.  Some are lighter.  Feel free to combine and remix the chapters.  You are even welcome to fork the project on GitHub and remix it or contribute back patches and pull requests.  Part of this book was inspired by a quote from my friend in regards to Linux text books, he said, *"Most text books are good, but then they just add in content from nowhere."* I had that same feeling and when he expressed it in words it hit me.  At the same time, I got the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux.
+   
 ## Presentation Style
 
- This book doubles as a university text book.  It has a 16-week semester structure, along with review questions, podcast assignments, and lab exercises.  But the book can be used beyond that.  There is a wealth of other material that is can be covered in depth depending on your needs. 
+ This book doubles as a university textbook.  It has a 16-week semester structure, along with review questions, podcast assignments, and lab exercises.  But the book can be used beyond that.  There is a wealth of other material that is can be covered in depth depending on your needs. 
 
-## Book Images
+## Chapter Title Images
   
- * ePub cover image -  
  * Chapter 1 image - [http://imgs.xkcd.com/comics/operating_systems.png](http://imgs.xkcd.com/comics/operating_systems.png "Operating Systems")
  * Chapter 2 image - [http://imgs.xkcd.com/comics/open_source.png](http://imgs.xkcd.com/comics/open_source.png "Open Source")
  * Chapter 3 image - [http://imgs.xkcd.com/comics/surgery.png](http://imgs.xkcd.com/comics/surgery.png "surgery")
@@ -43,6 +42,10 @@ date: 07/30/2015
  * Chapter 15 image - [http://imgs.xkcd.com/comics/tech_loops.png](http://imgs.xkcd.com/comics/tech_loops.png "Tech Loops")
  * Appendix A image - [http://imgs.xkcd.com/comics/iso_8601.png](http://imgs.xkcd.com/comics/iso_8601.png  "Dates")
  * Appendix B images - [http://imgs.xkcd.com/comics/git_commit.png](http://imgs.xkcd.com/comics/git_commit.png  "Git Commit")
+
+## Colophone
+
+ * ePub cover image -  
 
 ### Links to Microsoft Sway Presentations
 
