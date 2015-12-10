@@ -296,7 +296,7 @@ a.  ```$```
 3) When assigning the standard output of a command to a variable what characters do you encase the command in?
 a. \`\`
 
-4) True or False - You can include shell meta-charecters inside of two backticks ```\`\```` - example: ```ANS=`ls -l test[1-5]````
+4) True or False - You can include shell meta-characters inside of two backticks ```\`\```` - example: ```ANS=`ls -l test[1-5]````
 True
 
 5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
@@ -351,9 +351,9 @@ d. FOR
 
 ## Chapter 09
 
-Review Questons Chapter 09
+Review Questions Chapter 09
 
-1) What user account has superuser privillege in Linux?
+1) What user account has superuser privilege in Linux?
 d. ```root```
 
 2) Which command do you use to temporarily elevate your user's privilege to the superuser (root)? 
@@ -362,7 +362,7 @@ b. ```sudo```
 3) How can I display the content of a file named topsecret.txt that has permissions 000?
 c.  ```sudo cat topsecret.txt```
 
-4) What licesnse is the sudo application under? 
+4) What license is the ```sudo``` application under? 
 d.  ISC
 
 5) Which operating system doesn't have an active root account by default?
