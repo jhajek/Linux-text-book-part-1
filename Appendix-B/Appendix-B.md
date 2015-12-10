@@ -337,7 +337,7 @@ d. Primary expressions
 b. STRING
 
 17) Which of these answers will execute a shell script named ~/backup.sh at 2 am every night of the week?
-b. ```2 * * * * ~/backup.sh```
+c. ```* 2 * * * ~/backup.sh```
 
 18) Which of these answers will execute a shell script named ~/clean-directory.sh every 15 minutes?
 b. ```*/15 * * * * ~/clean-directory.sh```
