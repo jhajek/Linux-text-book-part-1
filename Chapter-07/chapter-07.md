@@ -455,7 +455,7 @@ d. em -> ed -> vi -> vim
 
 17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give the owner of the file permission to execute the script?
 
-18. Assuming a file named moretopsecret.sh has a permission of 757 - w2hat is the shortcut to remove all permissions from the the other (everyone else) group (0)? 
+18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the other group? 
 
 19. What is the correct sequence of profile inheritance?
 a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
