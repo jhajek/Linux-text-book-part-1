@@ -465,7 +465,7 @@ d.  sudo apt-get dist-upgrade
 15) What is the RPM command to install a package from the command line?
 d. rpm -i *.rpm
 
-16) What is the DNF command used to install addtional software repositories? Use this URL to an RPM:http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
+16) What is the DNF command used to install additional software repositories? Use this URL to an RPM:http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
 c. sudo dnf install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
 
 17) What is the name of RPM repository that was mentioned in the textbook?
