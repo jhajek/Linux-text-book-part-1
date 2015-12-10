@@ -448,7 +448,7 @@ a. RPM
 b. APT
 
 10) What is the APT command that allows you to install a package named apache2?
-b. apt-install apache2
+d. apt-get install apache2
 
 11) What is the APT command to list all packages currently installed on your Ubuntu 15.04 system?
 b. dpkg -l
