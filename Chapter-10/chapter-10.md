@@ -81,9 +81,16 @@ Note that this command installs properly without any error message. [http://pack
 ```bash
 sudo apt-get dist-upgrade
 dpkg -l | grep linux-image
-# x.x.-xx is the version that is not the most recent version as deleting that will make your system unbootable
+# x.x.-xx is the version that is not the most recent version as deleting that will 
+# make your system unbootable.
 # uname -a will tell you the current kernel version 
 sudo dpkg --purge linux-image-x.x.x-xx-generic
+
+# soemetimes there are kernel dependencies and this command will fail
+# In those cases you can use the command below to remove the old kernel images
+# and free space on your /boot partition.
+
+sudo apt-get remove linux-image-x.x.x-xx-generic
 ```
 
 #### RPM
