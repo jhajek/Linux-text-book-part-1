@@ -45,7 +45,7 @@ Warning - there is some *French* words in this podcast, but the second part is h
 ~1:05:00 What is Brian's criticism of Linux (Parent analogy)?
 ~1:09:00 What is Brian's opinion of systemd?
 ~1:18:00 How old is the BSD "source space"?
-~1:21:00 What does rm -rf / do on a BSD? And how does SmartOS/Solaris handle it?
+~1:21:00 What does ```rm -rf``` / do on a BSD? And how does SmartOS/Solaris handle it?
 ~1:30:00 What happened when Brian Kernighan went into the ```nroff``` ([Unix text-formatter](https://en.wikipedia.org/wiki/Nroff "Nroff") source code to fix it?
 ~1:37:00 What is Oracle according to Brian?
 ~1:38:15 What does Brian believe about reverse engineering?
