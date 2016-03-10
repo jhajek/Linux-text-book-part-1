@@ -180,7 +180,7 @@ Since Ritchie created "C" to solve all the problems Unix had -- it became the de
 
 __Brian Kernighan__ [^4]
 
-![*Brian Kernighan in 2012 at Bell Labs 1*](images/Chapter-02/People/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs 1")
+![*Brian Kernighan in 2012 at Bell Labs*](images/Chapter-02/People/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs")
   
   Thompson didn't have a name for his project initially, another related figure, Brian Kernighan, can be credited with giving it the name UNIX.  This was a play on words--MULTI vs UNI in the name. Kernighan also helped write the original C language text book along with Dennis Ritchie (called K&R C -- some of you might have used when in school).
   
@@ -209,7 +209,7 @@ __GNU Manifesto__
 > __Why I Must Write GNU__
 
 > *"I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way. I cannot in good conscience sign a nondisclosure agreement or a software license agreement. For years I worked within the Artificial Intelligence Lab to resist such tendencies and other inhospitalities, but eventually they had gone too far: I could not remain in an institution where such things are done for me against my will."*
-> 
+ 
 > *"So that I can continue to use computers without dishonor, I have decided to put together a sufficient body of free software so that I will be able to get along without any software that is not free. I have resigned from the AI Lab to deny MIT any legal excuse to prevent me from giving GNU away."*
 
   GNU is a recursive acronym meaning *"GNU's not Unix."*  Stallman wanted to let people know his project was Unix like in functionality but not governed by Unix's restrictive licensing.  His passion was to develop a fully free operating system so that everyone who could use a computer could have access to a *"free"* operating system.  Stallman is a brilliant man who had the capability to build an OS from scratch, but the project became more than a one man job.
