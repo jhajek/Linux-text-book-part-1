@@ -27,15 +27,15 @@ __Outcomes__
 
 ## Where it Began and Why it Matters Now 
  
-  Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Whereas a square is a rectangle but a rectangle is not a square, Linux is Unix in spirit, but Unix is not Linux.  Let's look at this in detail. The first main difference between Unix and Linux is that *"Unix"* is an entire operating system.  An operating system can be boiled down into three main parts.   
+  Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Whereas a square is a rectangle but a rectangle is not a square, Linux is Unix in spirit, but Unix is not Linux.  Let's look at this in detail. The first main difference between Unix and Linux is that *"Unix"* is an entire operating system. Linux is just a kernel. An operating system can be boiled down into three main parts.   
 
 1. __The Kernel__  [^1]
          
  ![*Kernel_Layout.svg*](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/304px-Kernel_Layout.svg.png "Kernel Layout")
     
-  Unix includes a kernel - a hardware abstraction layer that handles all the interfaces from the operating system to the hardware.  The kernel is the portion of the Operating system abstracts access to your hardware; this is done through *"drivers"*.  Without software drivers and a kernel, you would have to recompile the operating system for each processor architecture and again for each different brand of hardware architectures.  
+  Unix includes a kernel - a hardware abstraction layer that handles all interfaces from the operating system to the hardware.  The kernel is the portion of the operating system that abstracts access to your hardware. This is done through *"drivers"*.  Without software drivers and a kernel, you would have to recompile the operating system for each processor architecture and again for each different brand of hardware architectures.  
   
-  Take Windows for instance - you have just one version, 7, 8, 10, etc. etc.  Yet it runs on Intel processors, AMD processors, ARM processors, Marvell networking cards, Broadcom wireless cards, MacBook, and many others manufacturers devices.  But there is no need to buy a special version of Windows, Mac, or Linux specific to a set of hardware.  The software drivers are written so that a piece of hardware can be accessed through the kernel by the operating system. Ultimately the kernels job is to handle complex tasks such as memory management, task scheduling, input/output and allocation of resources.  
+  Take Windows for instance - you have just one version, 7, 8, 10, etc. etc.  Yet it runs on Intel processors, AMD processors, ARM processors, Marvell networking cards, Broadcom wireless cards, and many others manufacturer's devices.  But there is no need to buy a special version of Windows, Mac, or Linux specific to a set of hardware.  The software drivers are written so that a piece of hardware can be accessed through the kernel by the operating system. Ultimately the kernels job is to handle complex tasks such as memory management, task scheduling, input/output and allocation of resources.  
   
 2. __User Interface and User Tools__
  
