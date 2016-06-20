@@ -10,7 +10,7 @@ Why are you learning about Linux?  Where did it come from?  There is a good chan
 
 __Chapter 2 Objectives__
 
-  * Understand how the Unix Operating System was created 
+  * Understand how and why the Unix Operating System was created 
   * Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
   * Understand the contributions of Richard Stallman to Unix, Linux, GNU, and FLOSS
   * Understand the contributions of Linus Torvalds to the creation of Linux
