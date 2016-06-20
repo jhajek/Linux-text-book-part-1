@@ -65,7 +65,6 @@ __Who Uses Linux Today?__
   * Android
   * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel") 
   * [Pretty much every top website except Stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
-  
  
   The question is not who uses Linux but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril. You will never understand Linux unless you understand UNIX at its core philosophies. 
 
@@ -77,7 +76,7 @@ __Ken Thompson and Dennis Ritchie__ [^2]
 
 ![*Ken Thompson and Dennis Ritchie*](https://upload.wikimedia.org/wikipedia/commons/3/36/Ken_n_dennis.jpg "Ken n Dennis")
 
-  Without Thompson and Ritchie, there would be no Unix and most likely no Linux today.  Until recently both were hired as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011. Ken Thompson is still working and recently help produce the [Go programming language](http://golang.org/ "Golang"). 
+  Without Thompson and Ritchie, there would be no Unix and most likely no Linux today.  Until recently both were employeed as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011 (same year as Steve Jobs). Ken Thompson is still working and recently help produce the [Go programming language](http://golang.org/ "Golang") while at Google.
 
   To begin this story we need to go back to 1968.  At the time, the combined might of all the brightest minds of General Electric, MIT, ARPA, and Bell Labs came together to try to build a multi-user operating system called *MULTICS*.  Now today those aren't names that come to mind when you think of computer companies.  Yet in 1968/1969 General Electric and the government (ARPA) were the large funders and suppliers of computing (The PC market we know of today doesn't come into existence until 1984!).
 
@@ -95,12 +94,12 @@ Unix differences from existing commercial Operating Systems
 
   * Written by Ken Thompson on his spare time
   * No company owned it or committee designed it for commercial purposes
+  * Built by engineers 
   * Solved problems that engineers had
-  * Built by engineers
   * Had a consistent design philosophy
   * Designed to be portable and work on many hardware vendor platforms
 
-Thompson's Unix success was also a byproduct of its main design philosophies:
+Thompson's Unix success was also a byproduct of its main design philosophy:
 
   *  Everything is a file 
     + This means that everything can be read from or written to: all the way from devices to text files
@@ -266,7 +265,7 @@ __GNU HURD__
   * Developed to solve one person's problem of wanting his own Unix-like OS 
   * Released often
   * Accepted contributions back
-  * Released freely and protected by GPL license
+  * Released freely and protected by GPLv2 license
   * Used existing GNU tools - no need to reinvent the wheel
   
   __Personality__
