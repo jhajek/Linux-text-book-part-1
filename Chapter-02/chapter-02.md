@@ -12,10 +12,10 @@ __Chapter 2 Objectives__
 
   * Understand how the Unix Operating System was created 
   * Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
-  * Understand the contributions of Richard Stallman to Unix, Linux, GNU, and FOSS
+  * Understand the contributions of Richard Stallman to Unix, Linux, GNU, and FLOSS
   * Understand the contributions of Linus Torvalds to the creation of Linux
-  * Understand the nature of modern commercial implementations of Linux
-  * Understand the principles of the Linux Community and what the *"free"* in *"Software Freedom"* means
+  * Understand the nature of modern commercial implementations of Linux and Unix
+  * Understand the principles and key differences of *"free/libre software"* and *"opensource software"*
 
 __Outcomes__
  
