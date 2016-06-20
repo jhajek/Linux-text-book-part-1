@@ -23,7 +23,7 @@ __Outcomes__
 
 *Convention Note*
 
-  You will notice that I have been using the terms Unix and Linux interchangeably so far.  For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the full truth if we left Unix out.  In this first chapter we need to understand their related history.  If you are curious the name is pronounced [*"Lin-ucks;"* link to audio pronunciation.](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") 
+  You will notice that I have been using the terms Unix and Linux interchangeably so far.  For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the full truth if we left Unix out.  In this first chapter we need to understand their related history.  If you are curious the name is pronounced [*"Lin-ucks;"* link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
 
 ## Where it Began and Why it Matters Now 
  
