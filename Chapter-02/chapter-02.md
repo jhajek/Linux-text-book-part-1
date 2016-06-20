@@ -19,7 +19,7 @@ __Chapter 2 Objectives__
 
 __Outcomes__
  
- At the completion of this chapter a student will understand and be able to discuss the environment in which Unix and Linux were created. They will be able to relate key names; *Thompson, Ritchie, Stallman, and Torvalds* to their technological contributions.  They will be able to understand what Linux and Unix are and how they relate to FOSS and commercial software.
+ At the completion of this chapter a student will understand and be able to explain the history of the environment in which Unix and Linux were created. You will be able to relate key names; *Thompson, Ritchie, Stallman, McIlroy and Torvalds* to their respective technological contributions to free and opensource software.  You will be able to understand what a distribution is and how free and opensource software relates to proprietary software.
 
 *Convention Note*
 
