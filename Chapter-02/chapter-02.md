@@ -1,6 +1,6 @@
 # History of Unix and Linux
 
-![*At the end of class you will find this cartoon funny.*](images/Chapter-Header/Chapter-02/open_source.png "Understanding the Technology and Philosophy of Linux Part I")
+![*At the end of class if your instructor has done their jop, you will find this cartoon funny.  If you already understand this cartoon you get an "A".*](images/Chapter-Header/Chapter-02/open_source.png "Understanding the Technology and Philosophy of Linux Part I")
 
 ## The Foundation of Unix and Linux
 
