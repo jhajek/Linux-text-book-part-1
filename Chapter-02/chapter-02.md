@@ -64,13 +64,13 @@ __Who Uses Unix and Linux Today?__
   * [Netflix](http://highscalability.com/blog/2015/11/9/a-360-degree-view-of-the-entire-netflix-stack.html "Netflix arch")
   * [WhatsApp](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html "whatsApp Architecture")
   * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel") 
-  * [Pretty much every top website except Stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
+  * [Pretty much every top website except stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
  
   The question is not who uses Linux and Unix but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril. You will never understand Linux unless you understand UNIX at its core philosophies. 
 
 ### Thompson, Ritchie, and Bell Labs
 
-  Many people supported and worked on what would become known as Unix but two names have received most of the credit for the creation, promotion, and use of Unix.  *__Know these names.__*
+  Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix.  *__Know these names.__*
   
 __Ken Thompson and Dennis Ritchie__ [^2]
 
@@ -457,11 +457,10 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
    
  ![*OpenBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
 
-   * Fork of NetBSD lead by Theo de Raadt end of 1995
-   * Founded by Theo de Raadt
-   * Theo was banned/left from NetBSD in 1994.
-   * He complained that they were developing too slow and not focusing on security.
-   * OpenSSH comes out of this project.
+   * Theo de Raadt was banned/left from the NetBSD project in 1994.
+     + He complained that they were developing too slow and not focusing on security.
+   * Started a fork of NetBSD at the end of 1995   
+   * OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [others](http://www.openbsd.org/innovations.html "BSD Innovaations") comes out of this project.
      + [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
      + Recognizing the standard of SSH (secure shell) they are moving to port and integrate SSH nativly to Windows. 
    * Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most secure OS.
