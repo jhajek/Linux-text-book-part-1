@@ -49,11 +49,11 @@ __Outcomes__
 
   In the modern computing world we are used to installing programs via pre-compiled binaries or just clicking on an *exe* or *dmg* files for installing programs.  But before an executable file is possible that code needs to be coded and compiled.  In Unix and Linux the kernel is built using the C language.  Most of the world's software is built using the C language.  You need a C compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  Today most code is pre-compiled for you and you can use other languages besides C to build applications, but in the early days of Unix and Linux a C Compiler were critical to have as you were building the kernel, operating system, and all tooling from scratch.  
  
-#### Linux is the same as Unix but... ####
+#### Linux is the same as Unix but... 
  
   Linux on the other hand, is technically not a full operating system like Unix.  It is actually just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system.  Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*. 
 
-#### Who Uses Unix and Linux Today? #### 
+#### Who Uses Unix and Linux Today?  
   
   * [Facebook](http://royal.pingdom.com/2010/06/18/the-software-behind-facebook/ "Facebook architecture")
   * [Oracle](https://en.wikipedia.org/wiki/Oracle_Linux "Unbreakable Oracle Linux")
@@ -72,7 +72,7 @@ __Outcomes__
 
   Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix.  *__Know these names.__*
   
-#### Ken Thompson and Dennis Ritchie #### 
+#### Ken Thompson and Dennis Ritchie 
 
 ![*Ken Thompson and Dennis Ritchie*](https://upload.wikimedia.org/wikipedia/commons/3/36/Ken_n_dennis.jpg "Ken n Dennis")
 
@@ -121,7 +121,7 @@ sort -rn |
 sed ${1}q
 ```
 
-#### PDP-7 #### 
+#### PDP-7 
 
 ![*PDP-7 restored and running*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pdp7-oslo-2005.jpeg/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
 
@@ -191,23 +191,23 @@ int main(void)
  
 Since Ritchie created "C" to solve all the problems Unix had -- it became the defacto language of Unix and from that point on pretty much all operating systems are designed in "C" after Thompson and Ritchie showed that you could use a high level language to make Unix portable across many platforms.  Recently a project to restore the original UNIX assembly code from a tape and documents recovered from 1972 has begun and is [hosted on Google code](https://code.google.com/p/unix-jun72/source/browse/trunk/src/cmd/init.s "Initial Unix Code").
 
-#### Brian Kernighan #### [^4]
+#### Brian Kernighan 
 
 ![*Brian Kernighan in 2012 at Bell Labs*](images/Chapter-02/People/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs")
   
-  Thompson didn't have a name for his project initially, another related figure, Brian Kernighan, can be credited with giving it the name UNIX.  This was a play on words--MULTI vs UNI in the name. Kernighan also helped write the original C language textbook along with Dennis Ritchie (Published in 1978, called K&R C which some of you might have used when in school).
+  Thompson didn't have a name for his project initially, another related figure, Brian Kernighan[^4], can be credited with giving it the name UNIX.  This was a play on words--MULTI vs UNI in the name. Kernighan also helped write the original C language textbook along with Dennis Ritchie (Published in 1978, called K&R C which some of you might have used when in school).
   
 ![*K&R C*](images/Chapter-02/People/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
 
-## Overview of the First Phase of Unix Maturity ##
+## First Phase of Unix Maturity -- OS Implimentation 
 
 By 1974/75 internal use of Unix at Bell Labs is high amongst engineers.  Word is starting to spread about it as Bell Labs engineers move on and into academia. Other Bell Labs divisions and universities got wind of this and begin to request Unix install *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code.  By law AT&T was prohibited from getting into the computer business so they took a hands-off approach to Unix at the time.  AT&T left it curiously as Thompson and Ritchie's pet project.  Many Universities at this time--wanting to teach computing and operating systems began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.  This was evidance of free and opensource software even before the term was coined a decade later. 
 
 In 1975 Ken Thompson took a sabbatical from Bell Labs and went back to his Alma Mater, Berkeley, in California.  Installing the Version 6 Unix Release.  The students at Berkeley loved Unix and started adding their own features to improve it to solve their own problems.  One student in 1978, Bill Joy, added vi and the C Shell (two things still in use today in modern Linux and Unix) and people started referring to the changes made to the Unix at Berkely as BSD Unix (Berkeley System Distribution Unix.)  
 
-By 1980, with many copies of Thompson's Unix now in circulation and nearly a decade of work there started to be fragmentation of the original Unix and many universities adding on their own customizations. At this time the Berkeley System Distribution of Unix was beginning to vary widely in functionality from commercial AT&T UNIX. You see derivatives of Unix like SunOS and SCO Unix being released as commercial companies based on BSD Unix.  Since the code was technically proprietary under AT&T's ownership - there was no way to contribute code back to AT&T and this led to fragmentation.  Another problem AT&T had was that by the end of the 70's all those students who had learned Unix in college went to work in corporations and began to request Unix be used on their hardware platforms at work. Unix was the only operating system of its kind that could do this.  Now AT&T had a financial motive to commercialize Unix.  By 1982 AT&T released Unix System III, followed by System V in 1983, as a commercial product outside of Bell Labs for sale to commercial companies, while creating a multi-hundred dollar academic fee too.  
-The focus of Unix takes a dramatic shift now as the implementation portion is finished.  Now the spotlight moves to users and application creation. Enter Richard Matthew Stallman, known also as RMS a researcher at the AI Labs at MIT who moves the discussion of software and *"software freedom"* into the spotlight.  
+By 1980, with many copies of Thompson's Unix now in circulation and nearly a decade of work there started to be fragmentation of the original Unix and many universities adding on their own customizations. At this time the Berkeley System Distribution of Unix was beginning to vary widely in functionality and quality from commercial AT&T UNIX. Since the code was technically proprietary under AT&T's ownership there was no way to contribute code back to AT&T and this led to fragmentation.  Another interesting problem AT&T had was that by the end of the 70's all those students who had learned Unix in college went to work in corporations and began to request Unix to be used as their corporate hardware platforms at work. Unix was the only operating system of its kind that could do this.  Now AT&T had a financial motive to commercialize Unix.  By 1982 AT&T released Unix System III, followed by System V in 1983, as a commercial product for sale to commercial companies, while creating a multi-hundred dollar academic licensed fee for universities.  By the dawn of the 1980s the first phase of UNix maturity was complete, the operating system, its code, and its design philosphies were well proven and in wide use accross commercial enterprises and in universities. Into the 1980s the focus of Unix takes a dramatic shift to users and application creation.
 
+## Phase Two of Unix Maturity -- Unix Users and Application Development 
 ### Richard Stallman and GNU [^5]
 
 ![*Richard Stallman*](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG/320px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG "Richard Stallman")
