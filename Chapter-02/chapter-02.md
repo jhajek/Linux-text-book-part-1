@@ -84,20 +84,6 @@ __Ken Thompson and Dennis Ritchie__ [^2]
 
   Like all projects that try to do too much, MULTICS stalled in gridlock between the different companies and the demands of the government.  This left one crafty engineers with much free time and (for those days) a true rarity - unused computers; PDP-7s to be exact.  Ken Thompson had an insiders view of the innovative things MULTICS was trying to accomplish and why the inner workings of the MULTICS project went wrong. Thompson also had a job to do as a Bell Labs researcher.  On his own time and down time, he began to use these PDP-7s and program his own multi-user operating system, but with a different twist.  It was designed by him, and solved daily work and coding problems he had.  This operating system and its tools was a project to help him get his own work done more efficiently.   
 
-  The best demonstration of this was a coding challenge issues in 1986 to:
-> *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.* 
-
-  There were two main submissions to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preminant computer scientist, called the "father of analysis algorithms" tackled the problem by originating a ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Rithcie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his controbutions to Unix in chapter 6. Here is his answer:
-
-```bash
-tr -cs A-Za-z '\n' |
-tr A-Z a-z |
-sort |
-uniq -c |
-sort -rn |
-sed ${1}q
-```
-
 __PDP-7__ [^3]
 
 ![*PDP-7 restored and running*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pdp7-oslo-2005.jpeg/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
@@ -125,9 +111,23 @@ Thompson's Unix success was also a byproduct of its main design philosophy:
     + Output of one command becomes the input of another command.
     + Complicated applications are built by chaining many outputs of small executables together with *pipes* -> "|"
     
- Between 1970 and 1974 Unix grew in its maturity.  And one of its crowning achievements--its portability came to life.  Unix was originally written in assembly language for the PDP-7. It needed to be as low level code as possible because disk storage space was a *HUGE* premium in those days.  The code was good and highly optimized, but the problem with writing in low level assembly means that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portability.  What good would it have been if Unix could only be used on a PDP-7? It would have stayed a Bell Labs pet project and become an obscure entry on a Wikipedia page.
+  The best demonstration of these tennants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\ "Jon Bently") in 1986 to:
+> *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.* 
+
+  There were two main submissions to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preminant computer scientist, called the "father of analysis algorithms" tackled the problem by originating a ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Rithcie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his controbutions to Unix in chapter 6. Here is his answer:
+
+```bash
+tr -cs A-Za-z '\n' |
+tr A-Z a-z |
+sort |
+uniq -c |
+sort -rn |
+sed ${1}q
+```
+
+ Between 1970 and 1974 Unix grew from a pet project into a real product and one of its crowning achievements--its portability across hardware came to life.  Unix was originally written in assembly language for the PDP-7. It needed to be as low level code as possible because disk storage space was a *HUGE* problem in those days.  The code was good and highly optimized, but the problem with writing in low level assembly means that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portability.  What good would it have been if Unix could only be used on a PDP-7? It would have stayed a Bell Labs pet project and become an obscure entry on a Wikipedia page today.
  
- While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system.  These new people contributed additional functionality to solve their work problems.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped in PDP-7 assembler language.  Today we take for granted high level languages like C, C++, Python, and Java.  In the early 1970's these did not exist.  Ritchie's initial work was on a high level language that could be built in order to compile and run the same code on two different operating systems, in 1970 this was generally not possible. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Language") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming languages.  
+ While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system.  These new people contributed additional functionality to solve their work problems.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped by its use of PDP-7 assembler language.  Today we take for granted high level languages like C, C++, Python, and Java.  In the early 1970's these did not exist.  Ritchie's initial work was on a high level language that could be built in order to compile and run the same code on two different operating systems, in 1970 this was generally not possible. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Language") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming languages.  
  
  What happened was that Thompson and Ritchie went to work extending "B" with all the features they would need to make an operating system fully function and portable.  They called this language surprisingly, "C" -- the same "C" language you know today.  C was different from assembler in that is resembled assembler code syntax had a high enough level of abstraction that the "C" code was an independent language.  With the advent of C - Unix was rewritten in this language.  With the creation of C compilers for different hardware, Unix could now be built and be recompiled on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, SUN SPARC etc, etc.  
 
