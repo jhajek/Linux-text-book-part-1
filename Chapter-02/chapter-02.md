@@ -27,13 +27,13 @@ __Outcomes__
 
 ## Where it Began and Why it Matters Now 
  
-  Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Whereas a square is a rectangle but a rectangle is not a square, Linux is Unix in spirit, but Unix is not Linux.  Let's look at this in detail. The first main difference between Unix and Linux is that *"Unix"* is an entire operating system or distribution. Linux is just a kernel. An operating system can be boiled down into three main parts.   
+  Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Whereas a square is a rectangle but a rectangle is not a square, Linux is Unix in spirit, but Unix is not Linux.  Let's look at this in detail. The first main difference between Unix and Linux is that *"Unix"* is an entire operating system. Linux is just a kernel. An operating system can be boiled down into three main parts:   
 
 1. __The Kernel__  [^1]
          
- ![*Kernel_Layout.svg*](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/304px-Kernel_Layout.svg.png "Kernel Layout")
+ ![*Kernel_Layout.svg*](images/Kernel/Kernel_Layout.svg.png "Kernel Layout")
     
-  Any computer operating system contains a kernel.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard or mouse, will do so when you take any action on the system.  Any device you use can *speak* to the kernel via device drivers.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom made and therefore incompatible with each other.  The kernel handles other complex tasks such as memory management, task scheduling, input/output, and allocation of resources.     
+  Any computer operating system must contain a kernel.  In the same way all plants require a seed or a kernel to grow from.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a wifi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They *speak* to the kernel via *device drivers*.  As the picture describes above, the user interacts with the operating system.  The oeprating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom made and therefore incompatible with each other.  The kernel handles other complex tasks such as memory management, task scheduling, input/output, and allocation of resources.     
   
   Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor?  What about kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the kernel takes care of hardware communication for you.   
   
