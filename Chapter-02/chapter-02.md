@@ -31,7 +31,7 @@ __Outcomes__
 
 1. __The Kernel__  [^1]
          
- ![*Kernel_Layout.svg*](images/Kernel/Kernel_Layout.svg.png "Kernel Layout")
+ ![*Kernel_Layout.svg*](images/Chapter-02/Kernel/Kernel_Layout.svg.png "Kernel Layout")
     
   Any computer operating system must contain a kernel.  In the same way all plants require a seed or a kernel to grow from.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a wifi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They *speak* to the kernel via *device drivers*.  As the picture describes above, the user interacts with the operating system.  The oeprating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom made and therefore incompatible with each other.  The kernel handles other complex tasks such as memory management, task scheduling, input/output, and allocation of resources.     
   
@@ -53,7 +53,7 @@ __Linux is the same as Unix but...__
  
   Linux on the other hand, is technically not a full operating system like Unix.  It is actually just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system.  Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*. 
 
-__Who Uses Unux and Linux Today?__  
+__Who Uses Unix and Linux Today?__  
   
   * [Facebook](http://royal.pingdom.com/2010/06/18/the-software-behind-facebook/ "Facebook architecture")
   * [Oracle](https://en.wikipedia.org/wiki/Oracle_Linux "Unbreakable Oracle Linux")
@@ -66,7 +66,7 @@ __Who Uses Unux and Linux Today?__
   * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel") 
   * [Pretty much every top website except Stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
  
-  The question is not who uses Linux but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril. You will never understand Linux unless you understand UNIX at its core philosophies. 
+  The question is not who uses Linux and Unix but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril. You will never understand Linux unless you understand UNIX at its core philosophies. 
 
 ### Thompson, Ritchie, and Bell Labs
 
