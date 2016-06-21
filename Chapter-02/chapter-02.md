@@ -49,11 +49,11 @@ __Outcomes__
 
   In the modern computing world we are used to installing programs via pre-compiled binaries or just clicking on an *exe* or *dmg* files for installing programs.  But before an executable file is possible that code needs to be coded and compiled.  In Unix and Linux the kernel is built using the C language.  Most of the world's software is built using the C language.  You need a C compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  Today most code is pre-compiled for you and you can use other languages besides C to build applications, but in the early days of Unix and Linux a C Compiler were critical to have as you were building the kernel, operating system, and all tooling from scratch.  
  
-__Linux is the same as Unix but...__
+#### Linux is the same as Unix but... ####
  
   Linux on the other hand, is technically not a full operating system like Unix.  It is actually just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system.  Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*. 
 
-__Who Uses Unix and Linux Today?__  
+#### Who Uses Unix and Linux Today? #### 
   
   * [Facebook](http://royal.pingdom.com/2010/06/18/the-software-behind-facebook/ "Facebook architecture")
   * [Oracle](https://en.wikipedia.org/wiki/Oracle_Linux "Unbreakable Oracle Linux")
@@ -72,11 +72,11 @@ __Who Uses Unix and Linux Today?__
 
   Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix.  *__Know these names.__*
   
-__Ken Thompson and Dennis Ritchie__ [^2]
+#### Ken Thompson and Dennis Ritchie #### 
 
 ![*Ken Thompson and Dennis Ritchie*](https://upload.wikimedia.org/wikipedia/commons/3/36/Ken_n_dennis.jpg "Ken n Dennis")
 
-  Without Thompson and Ritchie, there would be no Unix and most likely no Linux today.  Until recently both were employeed as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011 (same year as Steve Jobs). Ken Thompson is still working and recently help produce the [Go programming language](http://golang.org/ "Golang") while at Google.
+  Without Thompson and Ritchie[^2], there would be no Unix and most likely no Linux today.  Until recently both were employeed as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011 (same year as Steve Jobs). Ken Thompson is still working and recently help produce the [Go programming language](http://golang.org/ "Golang") while at Google.
 
   To begin this story we need to go back to 1968.  At the time, the combined might of all the brightest minds of General Electric, MIT, ARPA, and Bell Labs came together to try to build a multi-user operating system called *MULTICS*.  Now today those aren't names that come to mind when you think of computer companies.  Yet in 1968/1969 General Electric and the government (ARPA) were the large funders and suppliers of computing (The PC market we know of today doesn't come into existence until 1984!).
 
@@ -84,11 +84,7 @@ __Ken Thompson and Dennis Ritchie__ [^2]
 
   Like all projects that try to do too much, MULTICS stalled in gridlock between the different companies and the demands of the government.  This left one crafty engineers with much free time and (for those days) a true rarity - unused computers; PDP-7s to be exact.  Ken Thompson had an insiders view of the innovative things MULTICS was trying to accomplish and why the inner workings of the MULTICS project went wrong. Thompson also had a job to do as a Bell Labs researcher.  On his own time and down time, he began to use these PDP-7s and program his own multi-user operating system, but with a different twist.  It was designed by him, and solved daily work and coding problems he had.  This operating system and its tools was a project to help him get his own work done more efficiently.   
 
-__PDP-7__ [^3]
-
-![*PDP-7 restored and running*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pdp7-oslo-2005.jpeg/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
-
-For this time, 1969-70, this is something radically new. Thompson had no idea that his pet work project was going to become part of a computing revolution.  Whereas MULTICS and other computer systems were designed by committees and based on marketable features--due to the nature of the up front financial investment, Unix was simple and easy to build because it solved only a small set of problems--which turned out to be the same problems every engineer had.  The overall reason that Unix took hold was that it was designed by engineers to solve other problems that engineers were having--enabling them to get work done.  This was pure genius and this is how Ken Thompson's mind worked.  
+In 1969-70, the *"Unix"* concept had never been attempted.  Thompson had no idea that his pet work project was going to become part of a computing revolution.  Whereas MULTICS and other computer systems were designed by committees and based on marketable features--due to the nature of the up front financial investment, Unix was simple and easy to build because it solved only a small set of problems--which turned out to be the same problems every engineer had.  The overall reason that Unix took hold was that it was designed by engineers to solve other problems that engineers were having--enabling them to get work done.  This was pure genius and this is how Ken Thompson's mind worked.  
 
 Unix differences from existing commercial Operating Systems
 
@@ -125,13 +121,17 @@ sort -rn |
 sed ${1}q
 ```
 
- Between 1970 and 1974 Unix grew from a pet project into a real product and one of its crowning achievements--its portability across hardware came to life.  Unix was originally written in assembly language for the PDP-7. It needed to be as low level code as possible because disk storage space was a *HUGE* problem in those days.  The code was good and highly optimized, but the problem with writing in low level assembly means that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portability.  What good would it have been if Unix could only be used on a PDP-7? It would have stayed a Bell Labs pet project and become an obscure entry on a Wikipedia page today.
+#### PDP-7 #### 
+
+![*PDP-7 restored and running*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pdp7-oslo-2005.jpeg/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
+
+ Between 1970 and 1974 Unix grew from a pet project into a real product and one of its crowning achievements--its portability across hardware came to life.  Unix was originally written in assembly language for the PDP-7. It needed to be as low level code as possible because disk storage space was a *HUGE* problem in those days.  The code was good and highly optimized, but the problem with writing in low level assembly means that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portability.  What good would it have been if Unix could only be used on a PDP-7[^3]? It would have stayed a Bell Labs pet project and become an obscure entry on a Wikipedia page today.
  
  While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system.  These new people contributed additional functionality to solve their work problems.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped by its use of PDP-7 assembler language.  Today we take for granted high level programming languages like C, C++, Python, and Java.  In the early 1970's none of these languages existed.  Ritchie's initial work at Bell Labs was on a high level programming language that could would allow a user to write one piece of code and compile it on different computer architectures. In 1970 this was generally not possible and a radical idea. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Language") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming languages.  
  
  The next logical step was that Thompson and Ritchie went to work extending "B" with all the features they would need to make an operating system fully function and portable.  They called this language surprisingly, "C" -- the same "C" language you know today.  C was different from assembler in that is resembled assembler code syntax but a high enough level of abstraction that the "C" code was an independent language.  With the advent of C - Unix was rewritten in this language.  With the creation of C compilers for different hardware, Unix could now be built and be recompiled on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, SUN SPARC, eventually Intel and x86, etc, etc.  
 
-__Assembler and C Language Comparison__
+### Assembler and C Language Comparison
 
 [Hello World in x86 Intel Assembly for Linux](http://en.literateprograms.org/Hello_World_%28Assembly_Intel_x86_Linux%29 "x86 Linux Intel Assembly")
 
@@ -191,7 +191,7 @@ int main(void)
  
 Since Ritchie created "C" to solve all the problems Unix had -- it became the defacto language of Unix and from that point on pretty much all operating systems are designed in "C" after Thompson and Ritchie showed that you could use a high level language to make Unix portable across many platforms.  Recently a project to restore the original UNIX assembly code from a tape and documents recovered from 1972 has begun and is [hosted on Google code](https://code.google.com/p/unix-jun72/source/browse/trunk/src/cmd/init.s "Initial Unix Code").
 
-__Brian Kernighan__ [^4]
+#### Brian Kernighan #### [^4]
 
 ![*Brian Kernighan in 2012 at Bell Labs*](images/Chapter-02/People/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs")
   
@@ -199,13 +199,13 @@ __Brian Kernighan__ [^4]
   
 ![*K&R C*](images/Chapter-02/People/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
 
-__Unix Maturity__
+## Overview of the First Phase of Unix Maturity ##
 
-By 1974/75 internal use of Unix at Bell Labs is high amongst engineers.  Word is starting to spread about it as Bell Labs engineers move on and into academia. Other Bell Labs divisions and universities got wind of this and begin to request Unix install *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code.  By law AT&T was prohibited from getting into the computer business so they could not turn this into a business at this time.  AT&T left this it curiously as Thompson and Ritchie's pet project.  Many Universities at this time--wanting to teach computing and operating systems began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.  This was evidance of free and opensource software even before the term was coined a decade later. 
+By 1974/75 internal use of Unix at Bell Labs is high amongst engineers.  Word is starting to spread about it as Bell Labs engineers move on and into academia. Other Bell Labs divisions and universities got wind of this and begin to request Unix install *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code.  By law AT&T was prohibited from getting into the computer business so they took a hands-off approach to Unix at the time.  AT&T left it curiously as Thompson and Ritchie's pet project.  Many Universities at this time--wanting to teach computing and operating systems began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.  This was evidance of free and opensource software even before the term was coined a decade later. 
 
 In 1975 Ken Thompson took a sabbatical from Bell Labs and went back to his Alma Mater, Berkeley, in California.  Installing the Version 6 Unix Release.  The students at Berkeley loved Unix and started adding their own features to improve it to solve their own problems.  One student in 1978, Bill Joy, added vi and the C Shell (two things still in use today in modern Linux and Unix) and people started referring to the changes made to the Unix at Berkely as BSD Unix (Berkeley System Distribution Unix.)  
 
-By 1980, with many copies of Thompson's Unix now in circulation and nearly a decade of work you start to see fragmentation of the original Unix and many universities adding on their own customizations.  Since the code was technically proprietary under AT&T's ownership - there was no way to contribute code back to the source.  Unix starts to splinter.  Another problem AT&T had was that by the end of the 70's all those students who had learned Unix in college went to work in corporations and began to request Unix be used on their hardware platforms at work. Unix was the only operating system of its type kind that could do this.  Now AT&T had a financial motive to commercialize Unix.  By 1982 AT&T released Unix System III, followed by System V in 1983, as a commercial product outside of Bell Labs for sale to commercial companies, while adding a multi-hundred dollar academic fee too.  At this time the Berkeley System Distribution of Unix was beginning to vary widely in functionality from commercial AT&T UNIX. You see derivatives of Unix like SunOS and SCO Unix being released as commercial companies based of BSD Unix.  With HP/UX and IBM AIX being based on AT&T System V.  The focus of Unix takes a dramatic shift now as the implementation portion is finished.  Now the spotlight moves to users and application creation. Enter Richard Matthew Stallman, known also as RMS a researcher at the AI Labs at MIT who moves the discussion of software and *"software freedom"* into the spotlight.  
+By 1980, with many copies of Thompson's Unix now in circulation and nearly a decade of work there started to be fragmentation of the original Unix and many universities adding on their own customizations.  Since the code was technically proprietary under AT&T's ownership - there was no way to contribute code back to AT&T and this led to fragmentation.  Another problem AT&T had was that by the end of the 70's all those students who had learned Unix in college went to work in corporations and began to request Unix be used on their hardware platforms at work. Unix was the only operating system of its kind that could do this.  Now AT&T had a financial motive to commercialize Unix.  By 1982 AT&T released Unix System III, followed by System V in 1983, as a commercial product outside of Bell Labs for sale to commercial companies, while creating a multi-hundred dollar academic fee too.  At this time the Berkeley System Distribution of Unix was beginning to vary widely in functionality from commercial AT&T UNIX. You see derivatives of Unix like SunOS and SCO Unix being released as commercial companies based of BSD Unix.  With HP/UX and IBM AIX being based on AT&T System V.  The focus of Unix takes a dramatic shift now as the implementation portion is finished.  Now the spotlight moves to users and application creation. Enter Richard Matthew Stallman, known also as RMS a researcher at the AI Labs at MIT who moves the discussion of software and *"software freedom"* into the spotlight.  
 
 ### Richard Stallman and GNU [^5]
 
