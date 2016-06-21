@@ -23,7 +23,7 @@ __Outcomes__
 
 *Convention Note*
 
-  In this chapter the terms Linux and Unix are generally interchangable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software we left Unix and BSD out. If you are curious the name is pronounced [*"Lin-ucks;"* link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
+  In this chapter the terms Linux and Unix are generally interchangable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software we left Unix and BSD out. If you are curious the name is pronounced *"Lin-ucks;"* [link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
 
 ## Where it Began and Why it Matters Now 
  
@@ -33,7 +33,7 @@ __Outcomes__
          
  ![*Kernel_Layout.svg*](images/Chapter-02/Kernel/Kernel_Layout.svg.png "Kernel Layout")
     
-  Any computer operating system must contain a kernel.  In the same way all plants require a seed or a kernel to grow from.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a wifi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They *speak* to the kernel via *device drivers*.  As the picture describes above, the user interacts with the operating system.  The oeprating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom made and therefore incompatible with each other.  The kernel handles other complex tasks such as memory management, task scheduling, input/output, and allocation of resources.     
+  Any computer operating system must contain a kernel.  In the same way all plants require a seed or a kernel to grow from.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a WiFi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They *speak* to the kernel via *device drivers*.  As the picture describes above, the user interacts with the operating system.  The oeprating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom made and therefore incompatible with each other.  The kernel handles other complex tasks such as memory management, task scheduling, input/output, and allocation of resources.     
   
   Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor?  What about kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the kernel takes care of hardware communication for you.   
   
@@ -84,6 +84,20 @@ __Ken Thompson and Dennis Ritchie__ [^2]
 
   Like all projects that try to do too much, MULTICS stalled in gridlock between the different companies and the demands of the government.  This left one crafty engineers with much free time and (for those days) a true rarity - unused computers; PDP-7s to be exact.  Ken Thompson had an insiders view of the innovative things MULTICS was trying to accomplish and why the inner workings of the MULTICS project went wrong. Thompson also had a job to do as a Bell Labs researcher.  On his own time and down time, he began to use these PDP-7s and program his own multi-user operating system, but with a different twist.  It was designed by him, and solved daily work and coding problems he had.  This operating system and its tools was a project to help him get his own work done more efficiently.   
 
+  The best demonstration of this was a coding challenge issues in 1986 to:
+> *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.* 
+
+  There were two main submissions to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preminant computer scientist, called the "father of analysis algorithms" tackled the problem by originating a ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Rithcie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his controbutions to Unix in chapter 6. Here is his answer:
+
+```bash
+tr -cs A-Za-z '\n' |
+tr A-Z a-z |
+sort |
+uniq -c |
+sort -rn |
+sed ${1}q
+```
+
 __PDP-7__ [^3]
 
 ![*PDP-7 restored and running*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pdp7-oslo-2005.jpeg/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
@@ -113,7 +127,7 @@ Thompson's Unix success was also a byproduct of its main design philosophy:
     
  Between 1970 and 1974 Unix grew in its maturity.  And one of its crowning achievements--its portability came to life.  Unix was originally written in assembly language for the PDP-7. It needed to be as low level code as possible because disk storage space was a *HUGE* premium in those days.  The code was good and highly optimized, but the problem with writing in low level assembly means that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portability.  What good would it have been if Unix could only be used on a PDP-7? It would have stayed a Bell Labs pet project and become an obscure entry on a Wikipedia page.
  
- While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system.  These new people contributed additional functionality to solve their work problems.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped in PDP-7 assembler language.  Today we take for granted high level languages like C, C++, Python, and Java.  In the early 1970's these did not exist.  Ritchie's initial work was on a high level language that could be built in order to compile and run the same code on two different operating systems, in 1970 this was generally not possible. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Lanugage") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming languages.  
+ While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system.  These new people contributed additional functionality to solve their work problems.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped in PDP-7 assembler language.  Today we take for granted high level languages like C, C++, Python, and Java.  In the early 1970's these did not exist.  Ritchie's initial work was on a high level language that could be built in order to compile and run the same code on two different operating systems, in 1970 this was generally not possible. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Language") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming languages.  
  
  What happened was that Thompson and Ritchie went to work extending "B" with all the features they would need to make an operating system fully function and portable.  They called this language surprisingly, "C" -- the same "C" language you know today.  C was different from assembler in that is resembled assembler code syntax had a high enough level of abstraction that the "C" code was an independent language.  With the advent of C - Unix was rewritten in this language.  With the creation of C compilers for different hardware, Unix could now be built and be recompiled on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, SUN SPARC etc, etc.  
 
@@ -181,8 +195,10 @@ __Brian Kernighan__ [^4]
 
 ![*Brian Kernighan in 2012 at Bell Labs*](images/Chapter-02/People/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs")
   
-  Thompson didn't have a name for his project initially, another related figure, Brian Kernighan, can be credited with giving it the name UNIX.  This was a play on words--MULTI vs UNI in the name. Kernighan also helped write the original C language textbook along with Dennis Ritchie (called K&R C -- some of you might have used when in school).
+  Thompson didn't have a name for his project initially, another related figure, Brian Kernighan, can be credited with giving it the name UNIX.  This was a play on words--MULTI vs UNI in the name. Kernighan also helped write the original C language textbook along with Dennis Ritchie (Published in 1978, called K&R C which some of you might have used when in school).
   
+![*K&R C*](images/Chapter-02/People/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
+
 __Unix Maturity__
 
 By 1974/75 Unix is growing in its maturity.  Other Bell Labs divisions get wind of this and begin to request *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code.  By law AT&T was prohibited from getting into the computer business so they could not turn this into a business.  AT&T left it curiously as Thompson and Ritchie's pet project.  Many Universities at this time--wanting to teach computing and operating systems began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.    
