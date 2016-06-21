@@ -23,7 +23,7 @@ __Outcomes__
 
 *Convention Note*
 
-  You will notice that I have been using the terms Unix and Linux interchangeably so far.  For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the full truth if we left Unix out.  In this first chapter we need to understand their related history.  If you are curious the name is pronounced [*"Lin-ucks;"* link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
+  In this chapter the terms Linux and Unix are generally interchangable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software we left Unix and BSD out. If you are curious the name is pronounced [*"Lin-ucks;"* link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
 
 ## Where it Began and Why it Matters Now 
  
@@ -53,16 +53,16 @@ __Linux is the same as Unix but...__
  
   Linux on the other hand, is technically not a full operating system like Unix.  It is actually just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system.  Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*. 
 
-__Who Uses Linux Today?__  
+__Who Uses Unux and Linux Today?__  
   
-  * Facebook
-  * Oracle
+  * [Facebook](http://royal.pingdom.com/2010/06/18/the-software-behind-facebook/ "Facebook architecture")
+  * [Oracle](https://en.wikipedia.org/wiki/Oracle_Linux "Unbreakable Oracle Linux")
   * [Google](http://highscalability.com/google-architecture "You Tube Architecture" ) 
-  * Amazon
-  * NYSE [New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange)
-  * CME [Chicago Mercantile Exchange](https://en.wikipedia.org/wiki/Chicago_Mercantile_Exchange)
-  * IBM
-  * Android
+  * [Amazon](http://highscalability.com/blog/2007/9/18/amazon-architecture.html "Amazon Architecture")
+  * [NYSE -New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange "NYSE architecture")
+  * [CME - Chicago Mercantile Exchange](https://en.wikipedia.org/wiki/Chicago_Mercantile_Exchange "CME architecture")
+  * [Netflix](http://highscalability.com/blog/2015/11/9/a-360-degree-view-of-the-entire-netflix-stack.html "Netflix arch")
+  * [WhatsApp](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html "whatsApp Architecture")
   * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel") 
   * [Pretty much every top website except Stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
  
