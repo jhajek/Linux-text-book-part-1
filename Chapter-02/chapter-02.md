@@ -41,9 +41,9 @@ __Outcomes__
  
   All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user applications"* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even after CRT monitors became prevalent the GUI command line shell still was the standard interface.  X Windows is the standard windowing toolkit thatallows for GUIs, *Graphical User Interfaces* to exist accross Linux and Unix and will be covered more in chapter 5.     
 
-  User tools include all simple tooling or commands you take for granted: copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, or redirect output from the screen to a file.  
+  User tools include all tooling or commands needed to function in an operating system: copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, redirect output from the screen to a file, etc, etc.  
   
-  User applications like a web browsers and email clients are seen as tools that are created by the user that just re-purpose the existing user tools and are built/installed by the user.
+  User applications like a web browsers and email clients are seen as user created tooling that is an amalgamation of many smaller tools to accomplish a larger task. With out these user tools and user interface, your computer would be essentially useless with no way to interact with it.
 
 3. __Programming Language and Compiler Tools__
 
