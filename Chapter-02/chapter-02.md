@@ -47,7 +47,7 @@ __Outcomes__
 
 3. __Programming Language and Compiler Tools__
 
-  In the modern GUI computing world we are used to just clicking on .exe or .dmg files and off our installation of Chrome or Firefox goes.  In the Unix world all software is built using the C language.  You need a compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  Today most code is pre-compiled for you and you can use other languages besides C, but in the early days of Unix and Linux a C Compiler was necessary as you were building the kernel, operating system, and all tooling from scratch.  
+  In the modern computing world we are used to just installing programs via pre-compiled binaries or just clicking on .exe or .dmg files for installing programs.  But before an precompiled executalbe is created that code needs to be coded and compiled.  In the Unix and Linux the kernel is build using the C language world all software is built using the C language.  You need a compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  Today most code is pre-compiled for you and you can use other languages besides C, but in the early days of Unix and Linux a C Compiler was necessary as you were building the kernel, operating system, and all tooling from scratch.  
  
 __Linux is the same as Unix but...__
  
