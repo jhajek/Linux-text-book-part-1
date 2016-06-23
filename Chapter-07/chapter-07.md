@@ -88,7 +88,7 @@ The chart below shows the history of the __vi editor__.
    
    The __vi editor__ has 3 modes.
    
-  *  COMMAND mode used to positon the cursor
+  *  COMMAND mode used to position the cursor
   *  INSERT mode used to insert/delete text
   *  EX mode used to issue commands that edit lines and change the display of the vi editor.
    
@@ -236,11 +236,11 @@ s/Tuesday//g
 
 : This command will find the word *Tuesday* and globally replace it with '' or basically remove it.
 
-### Why Keybindings are as They Are
+### Why vi Key Bindings are as They Are
 
   When looking at the patterns of the keybindings in __vi__ they seem a little strange.  The reason they were created the way they were had to due with the brand of terminal that __vi__ was created on.  Remember the standard IBM keyboard we are used to using wasn't created until 1981 on the [IBM PC 5150](https://en.wikipedia.org/wiki/IBM_Personal_Computer "5150"). The type of terminal and keyboard in use at UC Berkely by Bill Joy was, at that time a competitor to the DEC VT 100 terminals, called the [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") [^81]. It happened that the ESC key was where the modern caps lock key is and that is why ESC is the key used to change modes. The convention just stuck, Unix is more about tradition than reason one could say.
 
-![*Orginal ADM-3A Keyboard Layout*](images/Chapter-07/systems/640px-KB_Terminal_ADM3A-svg.png "ADM-3A layout") 
+![*Original ADM-3A Keyboard Layout*](images/Chapter-07/systems/640px-KB_Terminal_ADM3A-svg.png "ADM-3A layout") 
 
 #### A Note About Bill Joy 
 
