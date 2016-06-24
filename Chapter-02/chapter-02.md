@@ -432,7 +432,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
  
 #### CentOS
   
-![*CentOS*](https://upload.wikimedia.org/wikipedia/commons/8/87/CentOS_Logotype.png "CentOS logo")
+![*CentOS*](images/Chapter-02/Linux-logos/CentOS/CentOS_Logotype.png "CentOS logo")
     
   By 2004 many people began to see the utility and success of Red Hat Linux, and being opensource they began to fork the code and make their own distributions.  CentOS is one of them [^14].  By 2010 they emerged as one of the two remaining RHEL derivatives.  Their developers, like Debian, are entirely volunteer based and not backed by a company.  Their motive was to take the solidness of RHEL and just update a few features and add more modern software packages sooner then the 5 year RHEL cycle.   Initially Red Hat didn't support CentOS--taking them to court numerous times, as CentOS had not removed all of Red Hat's trademarked logos in all the code.  Eventually all of Red Hat's copyrighted material was removed and CentOS has a legal copy of RHEL to redistribute and use.  This made Red Hat angry as they were loosing sales to enterprises using CentOS instead of RHEL.  By 2014, Red Hat and Centos came to terms to work together--with Red Hat offering to sell support contracts to CentOS users.  Is CentOS doing anything illegal?  Not according to the GPL and the spirit of opensource, but it does bring up the financial issue again.
    
