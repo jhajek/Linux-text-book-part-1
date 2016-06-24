@@ -424,7 +424,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
   
 #### Red Hat Enterprise Linux--RHEL
 
-![*RHEL*](https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/RedHat.svg/320px-RedHat.svg.png "RHEL")
+![*RHEL*](images/Chapter-02/Linux-logos/RHEL/320px-RedHat.svg.png "RHEL")
   
    Red Hat began to see the opportunity to create a Linux distro targeting enterprises and make money using opensource at the time.  A big market that was practically cornered by two companies were Java based applications and database servers - MySQL and Oracle.  These markets had been the domain of Sun and its Unix based Solaris Operating System for years, as well as Microsoft running Oracle on Windows.  RHEL could enter that market, running the same applications, and do it on cheaper Intel x86 based boxes.  With Oracle announcing it would port its products to RHEL, this platform became to the go to choice as the alternative against Microsoft and helped put Sun and Solaris basically out of business.  The acronym __RHEL__ stands for Red Hat Enterprise Linux.  
 
