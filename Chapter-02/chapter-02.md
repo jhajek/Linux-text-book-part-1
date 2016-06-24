@@ -221,7 +221,7 @@ Before beginning anything in dealing with Richard Stallman there is one critical
 
 ### GNU Manifesto
 
-  A plan began to hatch in his mind.  Since Unix was the popular operating system at the time Stallman would make a call, a manifesto, for his GNU project to basically reverse engineer all the functionality, capability, and tooling of Unix--__BUT__ without the proprietary and restrictive licenses with the source code being freely shared.  
+  A plan began to hatch in his mind.  Since Unix was the popular operating system at the time Stallman would make a call, a manifesto, for his GNU project to basically reverse engineer all the functionality, capability, and tooling of Unix __BUT__ without the proprietary and restrictive licenses of commercial UNix operating systems.  One major difference was that everything done under the GNU project would have the source code *free* for analysis, study, modification, and redistribution.  The term *free* has nothign to do with money or cost.
 
   He felt strongly enough to announce the GNU project publicly in the fall of 1983, and to quit his job working in the MIT lab in 1984 to avoid conflict of interests and pursue this work.  Richard wrote his GNU manifesto stating his plans in Oct 3rd, 1985 and issuing a general call to arms in the [GNU Manifesto.](http://www.gnu.org/gnu/manifesto.html "GNU Manifesto") Here is the opening paragraph from the manifesto:
  
