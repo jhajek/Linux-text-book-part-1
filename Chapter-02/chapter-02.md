@@ -446,7 +446,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
   
   While Linux was exploding in the mid 1990's the AT&T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix.  Unfortunately the BSD code splintered into 4 main distros pulling the already thin developer group that hadn't shifted to Linux development, even thinner. Although these are not Linux distributions they are worth mentioning since they share the same space and operate under similar opensource licenses.
   
-![*FreeBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Freebsd_logo.svg/128px-Freebsd_logo.svg.png)
+![*FreeBSD*](images/Chapter-02/Linux-logos/FreeBSD/128px-Freebsd_logo.svg.png "FreeBSD")
    
    * Released in November 1994
    * Essentially the inheritor of the BSD code base
