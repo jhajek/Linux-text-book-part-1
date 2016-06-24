@@ -475,7 +475,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
 
 #### OpenBSD
    
- ![*OpenBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png) 
+ ![*OpenBSD*](images/Chapter-02/Linux-logos/OpenBSD/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png "OpenBSD") 
 
    * Theo de Raadt was banned/left from the NetBSD project in 1994.
      + He complained that they were developing too slow and not focusing on security.
@@ -487,7 +487,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
 
 #### NetBSD
 
-![*NetBSD*](https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/NetBSD.svg/128px-NetBSD.svg.png) 
+![*NetBSD*](images/Chapter-02/Linux-logos/NetBSD/128px-NetBSD.svg.png "NetBSD") 
    
    * Released October of 1994 as another version of the BSD code after the lawsuit.
    * Focuses on portability to run this OS on nearly every platform you can think of.
