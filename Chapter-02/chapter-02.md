@@ -502,7 +502,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
         
 #### OpenSolaris 
      
-![*OpenSolaris*](images/Chapter-02/Linux-logos/128px-OpenSolaris_Logo-2.svg.png "Open Solaris")
+![*OpenSolaris*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenSolaris_Logo-2.svg.png "Open Solaris")
 
    * In 2006 Sun had experimented with creating and opensource user based distro from their Unix based Solaris OS [^16]
    * They hired Ian Murdock (the guy who started Debian) to oversee this project
@@ -511,7 +511,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
  
 #### OpenIndiana 
    
-![*Open Indiana*](images/Chapter-02/Linux-logos/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
+![*Open Indiana*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
        
    *  All the OpenSolaris developers left Oracle soon after the purchase and continued the OpenSolaris spirit with this project [^15]
    *  Eventually all the technologies that had been forked were moved into a project called Illumios - which was not a distro but a reference implementation.
@@ -523,7 +523,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
         
 ### The Impending Linux Civil War?
 
-![*Lennart Poettering*](images/Chapter-02/People/640px-Lennart_poettering-2.jpg "Lennart Poettering")
+![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
   Not since Linux Torvalds has a man been so loved or reviled in the Linux community.  Lennart is a name you need to know as well [^18].  He is currently a developer for Red Hat, but has also developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  His current project is systemd.  Systemd is a replacement for the traditional SysVinit program that started all of the Operating Systems process upon boot.  
   
