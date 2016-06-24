@@ -74,7 +74,7 @@ __Outcomes__
   
 #### Ken Thompson and Dennis Ritchie 
 
-![*Ken Thompson and Dennis Ritchie*](iamges/Chapter-02/People/Ken-Thompson/Ken_n_dennis.jpg "Ken and Dennis")
+![*Ken Thompson and Dennis Ritchie*](images/Chapter-02/People/Ken-Thompson/Ken_n_dennis.jpg "Ken and Dennis")
 
   Without Thompson and Ritchie[^2], there would be no Unix and most likely no Linux today.  Until recently both were employeed as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011 (same year as Steve Jobs). Ken Thompson is still working and recently help produce the [Go programming language](http://golang.org/ "Golang") while at Google.
 
