@@ -74,7 +74,7 @@ __Outcomes__
   
 #### Ken Thompson and Dennis Ritchie 
 
-![*Ken Thompson and Dennis Ritchie*](https://upload.wikimedia.org/wikipedia/commons/3/36/Ken_n_dennis.jpg "Ken n Dennis")
+![*Ken Thompson and Dennis Ritchie*](iamges/Chapter-02/People/Ken-Thompson/Ken_n_dennis.jpg "Ken and Dennis")
 
   Without Thompson and Ritchie[^2], there would be no Unix and most likely no Linux today.  Until recently both were employeed as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011 (same year as Steve Jobs). Ken Thompson is still working and recently help produce the [Go programming language](http://golang.org/ "Golang") while at Google.
 
@@ -123,7 +123,7 @@ sed ${1}q
 
 #### PDP-7 
 
-![*PDP-7 restored and running*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pdp7-oslo-2005.jpeg/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
+![*PDP-7 restored and running*](images/Chapter-02/PDP-7/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
 
  Between 1970 and 1974 Unix grew from a pet project into a real product and one of its crowning achievements--its portability across hardware came to life.  Unix was originally written in assembly language for the PDP-7. It needed to be as low level code as possible because disk storage space was a *HUGE* problem in those days.  The code was good and highly optimized, but the problem with writing in low level assembly means that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portability.  What good would it have been if Unix could only be used on a PDP-7[^3]? It would have stayed a Bell Labs pet project and become an obscure entry on a Wikipedia page today.
  
@@ -193,11 +193,11 @@ Since Ritchie created "C" to solve all the problems Unix had -- it became the de
 
 #### Brian Kernighan 
 
-![*Brian Kernighan in 2012 at Bell Labs*](images/Chapter-02/People/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs")
+![*Brian Kernighan in 2012 at Bell Labs*](images/Chapter-02/People/Brian-Kernighan/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs")
   
   Thompson didn't have a name for his project initially, another related figure, Brian Kernighan[^4], can be credited with giving it the name UNIX.  This was a play on words--MULTI vs UNI in the name. Kernighan also helped write the original C language textbook along with Dennis Ritchie (Published in 1978, called K&R C which some of you might have used when in school).
   
-![*K&R C*](images/Chapter-02/People/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
+![*K&R C*](images/Chapter-02/People/Brian-Kernighan/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
 
 ## First Phase of Unix Maturity -- OS Implimentation 
 
@@ -213,7 +213,7 @@ By 1980, with many copies of Thompson's Unix now in circulation and nearly a dec
 
 ### Richard Stallman and GNU 
 
-![*Richard Stallman*](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG/320px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG "Richard Stallman")
+![*Richard Stallman*](images/Chapter-02/People/Richard-Stallman/320px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG "Richard Stallman")
 
 Richard Stallman[^5] was a student and a researcher at MIT in the early 1980's.  He was part of what you would call today a hacker culture that was constantly researching and developing new tools and applications.  They were explorers eager to solve problems.  As Richard Stallman progressed in his studies at MIT he began to encounter events that he saw as counter intuitive hacker culture that had been created at MIT by 1984.  The spirit of Ken Thompson and the free and sharing culture of Unix was strong in the Artificial Intelligence Lab at MIT.  Small events such as the addition of usernames and passwords on the school computer networks were seen as obstacles. Stallman saw the removal of the capability to modify a network printer's firmware to send an email in case of a paper jam as the beginning of proprietary software lock in.  He disagreed with these concepts as they hindered the ability of the users to inspect the code and improve it to serve their needs.  By 1984 AT&T began to withhold the source code of Unix and restricted the access of those in the academic world to be able to use the AT&T source code. By 1983 Stallman began to argue that the users of the software's freedom were being trampled upon. Users were now beholden to the closed nature of the products they were using--even if they had paid for the software.  Stallman saw this as more than an inconvenience and set about making it his life's work to rectify this issue.
 
@@ -258,13 +258,13 @@ Before beginning anything in dealing with Richard Stallman there is one critical
 
   Before we talk about the Linux kernel, we need to talk about the Minix operating system.  With the closing off of the AT&T Unix source code by 1984 to academics and researchers in the university - they were left without source code to show as examples in classes.  
   
-  ![*Professor Andrew S. Tanenbaum*](images/Chapter-02/People/AndrewTanenbaum2-2.png "Professor Andrew S. Tanenbaum")
+  ![*Professor Andrew S. Tanenbaum*](images/Chapter-02/People/Andrew-Tanenbaum/AndrewTanenbaum2-2.png "Professor Andrew S. Tanenbaum")
   
   [Professor Tanenbaum](http://www.cs.vu.nl/~ast/ "Tanebaum's website") [^6] was teaching at Vrije Universiteit in Amsterdam - and began to write and implement his own Unix-like operating system but only for teaching and research purposes.  It was 12,000 lines of C code and system call compatible with commercial Unix.  The name [Minix](http://www.minix3.org/ "Minix 3 website") was a combination of "minimal" and "Unix."  Minix 1.0 and 1.5 were released in 1987 and 1991 respectively with the original purpose as only a teaching tool. Minix 1.0 and 1.5 were freely available to anyone as the source code came in the appendix to a text book about operating systems written by Tanenbaum in 1987.  Minix was designed to run initially on older x86 Intel processors (286 and 386) and in version Minix 1.5 Sun Sparc processors.  These were common desktop stations in use at the university at that time.  Any enterprising student could find and old 8086 PC or old Sun Sparc Station to run it on. The source code for Minix 3 is currently available in a [Git repository](http://git.minix3.org/index.cgi "Minix Git") and is still being developed and researched.  In 1991 many people believed that Minix could have been a viable alternative to commercial Unix and become the still missing GNU Hurd kernel.  But the Minix creator, Professor Tanenbaum, was not interested in moving into this space and the code was nowhere near as mature as the Unix code base, which by 1991 had been in existence for almost 20 years!  Minix appears on the radar but was not the missing piece to the GNU puzzle.   
     
 #### Linux and Linus Torvalds
 
-![*Linus Torvalds*](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/LinuxCon_Europe_Linus_Torvalds_03.jpg/512px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
+![*Linus Torvalds*](images/Chapter-02/People/Linus-Torvalds/320px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
 
   The Linux kernel comes to us from a graduate student named Linus Torvalds [^7] who developed it while at the University of Helsinki in Finland in 1991.  As a student Torvalds was using Unix on the universities Sun Sparc Stations.  He was not pleased with SunOS but felt it was the best of the commercial Unixes.  His real dream was to set out to run his own Unix like operating system on his own personal PC.  He had recently purchased an Intel x386 processor based desktop PC.  Linus tried Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement.  In a fashion not unlike Ken Thompson, Torvalds set out in the early part of 1991 deciding to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.  
  
@@ -306,7 +306,7 @@ By the year 1998 a new idea in the *"Free Software"* movement was rising.  The l
 
 __Eric S. Raymond__ [^8]
 
-![*Eric S. Raymond*](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eric_S_Raymond_portrait.jpg/256px-Eric_S_Raymond_portrait.jpg "Eric S. Raymond")
+![*Eric S. Raymond*](images/Chapter-02/People/Eric-Raymond/256px-Eric_S_Raymond_portrait.jpg "Eric S. Raymond")
 
 Eric S. Raymond is another developer considered a peer along with Richard Stallman.  Eric was one of the first to embrace the Free Software idea and promote using free software.  He was so convinced by the free software and the open development method that took place with Linux that he penned a seminal paper that was later reprinted called, [__"The Cathedral and the Bazaar"__](http://www.catb.org/~esr/writings/cathedral-bazaar/introduction/ "The Cathedral and the Bazaar")  
 
@@ -343,7 +343,7 @@ __Linux Makes You Rich__
   
 ### Debian Family
 
-![*Ian Murdock - founder of The Debian Project*](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/IanMurdock.jpg/256px-IanMurdock.jpg "Ian Murdock")  
+![*Ian Murdock - founder of The Debian Project*](images/Chapter-02/People/Ian-Murdock/256px-IanMurdock.jpg "Ian Murdock")  
   
 >*"I founded Debian in 1993. Debian was one of the first Linux distributions and also one of the most successful and influential open source projects ever launched. Debian pioneered a number of ideas commonplace today, including employing an open community that allowed (and encouraged!) anyone to contribute (much like how Wikipedia would later operate). And, with its integrated software repositories anyone could contribute to, Debian arguably had the industry’s first (albeit primitive) “App Store”. Today, more than 1,000 people are involved in Debian development, and there are millions of Debian users worldwide."* - [http://ianmurdock.com](http://ianmurdock.com) 
 
