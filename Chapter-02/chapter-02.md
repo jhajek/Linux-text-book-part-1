@@ -351,7 +351,7 @@ The Debian family contains 3 major sub-families: [^9]
 
 #### Debian
 
-![*Debian*](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Debian-OpenLogo.svg/109px-Debian-OpenLogo.svg.png "Debian Logo")
+![*Debian*](images/Chapter-02/Linux-logos/Debian/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
 The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercial, company backed Linux distros still in existence.  The current release is Debian 8.1 codenamed Jessie, June 2015.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and at the [history of Debian](https://www.debian.org/doc/manuals/project-history). There are [currently 128 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") according to distrowatch.com.
  
@@ -368,13 +368,13 @@ The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the st
  
 #### Ubuntu 
 
-![*Ubuntu Linux*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Ubuntu_logo_copyleft_1.svg/128px-Ubuntu_logo_copyleft_1.svg.png "Ubuntu Linux")
+![*Ubuntu Linux*](images/Chapter-02/Linux-logos/Ubuntu/128px-Ubuntu_logo_copyleft_1.svg.png "Ubuntu Linux")
  
    Ubuntu Linux is a unique distribution [^10].  It is entirely based on Debian.  It is Debian repackaged with a focus on applications "just working."  Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was unnerved that Windows had such a domination of the PC market.  He had been a Debian developer, but felt that the partial lack of a corporate sponsor in some ways hindered Debian from catching the market share from Windows.  He set out to make a Debian based distro called Ubuntu.  This is a Zulu word for *"community"* as Shuttleworth wanted Linux to be people friendly and work really well out of the box--like Windows.  
    
    By 2004 Red Hat, who had owned the desktop Linux market realized that there was little money to be made in that market so they abandoned it deciding to focus on the enterprise market.  This left a void that Ubuntu rushed to fill and they did it well. By 2005, Mark Shuttleworth who had started the Thwate SSL security company which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux.  
    
-![*Mark Shuttleworth*](https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Mark_Shuttleworth_by_Martin_Schmitt.jpg/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg "Mark Shuttleworth")
+![*Mark Shuttleworth*](images/Chapter-02/People/Mark-Shuttleworth/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg "Mark Shuttleworth")
    
    What made Ubuntu so successful was that they forked the opensource work of rock-solid Debian but built on top of it adding in closed source code and user centered features where necessary in order to make the best experience.  They had business in mind and have indeed captured the desktop Linux market.  But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu has a 10 million dollar parachute in the form of the Ubuntu Foundation which was seeded by Mark Shuttleworth [^11]. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Cannonical") that was formed to handle commercial support and hires the developers who work on Ubuntu.  
    
@@ -382,13 +382,13 @@ The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the st
   
 #### Linux Mint 
  
-![*Linux Mint*](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Linux_Mint_logo_and_wordmark.svg/256px-Linux_Mint_logo_and_wordmark.svg.png "Linux Mint")
+![*Linux Mint*](images/Chapter-02/Linux-logos/LinuxMint/256px-Linux_Mint_logo_and_wordmark.svg.png "Linux Mint")
        
    Linux Mint started also in 2006 as a fork of the Ubuntu project but with a different desktop interface [^12].  Linux Mint focused foremost on the user and desktop experience out of the box adding multimedia codecs for playback of audio and video directly to the install (see Flash).  Linux Mint is even more user experience focused than Ubuntu and is one of the most popular Ubuntu based distros.
 
 #### Devuan 
 
-![*Devuan Linux*](images/Devuan-logo.png "Devuan")
+![*Devuan Linux*](images/Chapter-02/Linux-logos/Devuan/Devuan-logo.png "Devuan")
 
   [Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of a "Debian Civil War" with half of the Debian developers leaving in the Debian project in the beginning of 2015 to begin this distribution from scratch.  It is a direct fork with fundamental changes to the core operating system.  Other distros change application look and feel but to change the core operating system is a monumental task.  The state of the OS is in late Alpha or early beta as of August 2015 with VM images available for download.  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter. 
 
@@ -414,7 +414,7 @@ Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc 
   
 #### Fedora Project
 
-![*Fedora Project*](images/Chapter-02/Linux-logos/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
+![*Fedora Project*](images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
  
    The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable but from Red Hat's point of view outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies.  
    
