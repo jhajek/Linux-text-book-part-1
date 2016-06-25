@@ -10,8 +10,7 @@ date: 07/30/2015
 ![*One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. "This," one of them finally says, "This is a man who BELIEVED in something."*](images/Chapter-Header/Chapter-01/operating_systems.png "Operating Systems")
 
 ## Objectives of this book
-
-  Jim Barksdale quote - relating to opensourceing netscape) 
+ 
   Eric S. Raymond quote - about the future of opensource or else...
   Linux Torvalds quote -
     [*"I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones..." - Linus Torvalds 1991*](https://groups.google.com/forum/?hl=en#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ "Initial Post About Linux.")
