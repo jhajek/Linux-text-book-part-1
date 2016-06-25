@@ -123,7 +123,7 @@ sed ${1}q
 
 #### PDP-7 
 
-![*PDP-7 restored and running*](images/Chapter-02/PDP-7/320px-Pdp7-oslo-2005.jpeg "Restored PDP-7")
+![*PDP-7 restored and running*](images/Chapter-02/PDP-7/320px-Pdp7-oslo-2005.jpg "Restored PDP-7")
 
  Between 1970 and 1974 Unix grew from a pet project into a real product and one of its crowning achievements--its portability across hardware came to life.  Unix was originally written in assembly language for the PDP-7. It needed to be as low level code as possible because disk storage space was a *HUGE* problem in those days.  The code was good and highly optimized, but the problem with writing in low level assembly means that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.  So what you gain in efficiency you lose in portability.  What good would it have been if Unix could only be used on a PDP-7[^3]? It would have stayed a Bell Labs pet project and become an obscure entry on a Wikipedia page today.
  
@@ -213,7 +213,7 @@ By 1980, with many copies of Thompson's Unix now in circulation and nearly a dec
 
 ### Richard Stallman and GNU 
 
-![*Richard Stallman*](images/Chapter-02/People/Richard-Stallman/320px-Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG "Richard Stallman")
+![*Richard Stallman*](images/Chapter-02/People/Richard-Stallman/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG "Richard Stallman")
 
 Richard Stallman[^5] was a student and a researcher at MIT in the early 1980's.  He was part of what you would call today a hacker culture that was constantly researching and developing new tools and applications.  They were explorers eager to solve problems.  As Richard Stallman progressed in his studies at MIT he began to encounter events that he saw as counter intuitive hacker culture that had been created at MIT by 1984.  The spirit of Ken Thompson and the free and sharing culture of Unix was strong in the Artificial Intelligence Lab at MIT.  Small events such as the addition of usernames and passwords on the school computer networks were seen as obstacles. Stallman saw the removal of the capability to modify a network printer's firmware to send an email in case of a paper jam as the beginning of proprietary software lock in.  He disagreed with these concepts as they hindered the ability of the users to inspect the code and improve it to serve their needs.  By 1984 AT&T began to withhold the source code of Unix and restricted the access of those in the academic world to be able to use the AT&T source code. By 1983 Stallman began to argue that the users of the software's freedom were being trampled upon. Users were now beholden to the closed nature of the products they were using--even if they had paid for the software.  Stallman saw this as more than an inconvenience and set about making it his life's work to rectify this issue.
 
