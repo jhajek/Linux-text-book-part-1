@@ -71,8 +71,8 @@ My name is Inigo Montoya...
 
 ## Thanks 
 
-| Professor Sam - who taught me that it is pronounced *"etc F-stab"* not *"etc F S tab"* and how to read error messages. 
-| Professor Ray Trygstad who gave me my first real IT job and showed me the wonders of Perl.
-| Illinois Institute of Technology who has entrusted me with much.
-| My wife and kids who supported me always.
-| Sean Hughes-Durkin who inspiried me to write this book based on his quote above.
+* Professor Sam - who taught me that it is pronounced *"etc F-stab"* not *"etc F S tab"* and how to read error messages. 
+* Professor Ray Trygstad who gave me my first real IT job and showed me the wonders of Perl.
+* Illinois Institute of Technology who has entrusted me with much.
+* My wife and kids who supported me always.
+* Sean Hughes-Durkin who inspiried me to write this book based on his quote above.
