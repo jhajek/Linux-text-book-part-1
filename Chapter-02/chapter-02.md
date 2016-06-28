@@ -229,7 +229,7 @@ Richard Stallman[^5] was a student and a researcher at MIT in the early 1980's. 
  
 > *"So that I can continue to use computers without dishonor, I have decided to put together a sufficient body of free software so that I will be able to get along without any software that is not free. I have resigned from the AI Lab to deny MIT any legal excuse to prevent me from giving GNU away."*
 
-Stallman wanted to let people know his project was Unix-like in functionality and nomencalture but not commercially licensed Unix governed by AT&T licensing. It is easy to write a manifesto but hard to lead a revolution they say. Stallman was one of those rare minds that could do both; a brilliant programmer who had the will and the raw skills and capability to build an entire operating system from scratch and he would get almost all the way there.
+Through the manifesto, Stallman wanted to let people know his project was Unix-like in functionality and nomencalture but not commercially licensed Unix governed by AT&T licensing. It is easy to write a manifesto but hard to lead a revolution they say. Stallman was one of those rare minds that could do both; a brilliant programmer who had the will and the raw skills and capability to build an entire operating system from scratch and he would get almost all the way there.
 
 ### Free Software Foundation and the GPL
 
