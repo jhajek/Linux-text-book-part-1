@@ -11,13 +11,9 @@ date: 07/30/2015
 
 ## Objectives of this book
  
-  Eric S. Raymond quote - about the future of opensource or else...
-  Linux Torvalds quote -
-    [*"I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones..." - Linus Torvalds 1991*](https://groups.google.com/forum/?hl=en#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ "Initial Post About Linux.")
- RMS - quote about Free software
- Dennis Ritchie - quote about Linux being a good Unix
- Lennnart Poettering quote on systemd?
-
+  *  Dennis Ritchie: *"I think the Linux phenomenon is quite delightful, because it draws so strongly on the basis that Unix provided. Linux seems to be the among the healthiest of the direct Unix derivatives, though there are also the various BSD systems as well as the more official offerings from the workstation and mainframe manufacturers."* [Interview with Dennis Ritchie](http://www.linuxfocus.org/English/July1999/article79.html Ritchie Quote")
+  *  Linus Torvalds:  [*"I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones..." - Linus Torvalds 1991*](https://groups.google.com/forum/?hl=en#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ "Initial Post About Linux.")
+ 
   In reading the above quotes relating to free and opensource operating systems a thought comes to mind. There is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within.  This text strives to be different than other books in the market in two areas;  first the philosophy of free and opensource movements and its origin and impact upon computing.  Anyone can teach you how to push a button, but this book aims to go beyond that and help you understand the reason the button is there in the first place. Second, this book will cover the basic technical structure and how to use opensource operating systems--Unix and Linux based.  This book and it's exercises and sections can be updated rapidly to cover the ever-changing tools in opensource.    
  
   __For instructors__ we are going beyond the traditional PowerPoint world, and looking into using new technologies like Microsoft Sway for presentations. The book is being published on GitHub under a Creative Commons CC-SA Share alike license -- this way as things change code can be updated or removed and new digital versions can be published quickly.  
