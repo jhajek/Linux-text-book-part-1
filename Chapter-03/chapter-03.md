@@ -51,7 +51,7 @@ __Outcomes__
 
 __Hypervisor Levels__ [^21]
 
-![*Server and Desktop Virtualization*](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png "Server and Desktop Virtualization")
+![*Server and Desktop Virtualization*](images/Chapter-03/Hypervisor/Hyperviseur.png "Server and Desktop Virtualization")
    
  __TYPE II Hypervisor - Hosted or Desktop Virtualization__
    

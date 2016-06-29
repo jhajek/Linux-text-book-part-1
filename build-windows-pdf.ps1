@@ -14,9 +14,6 @@
 #delete previous build artifacts but not the README.md
 If (Test-Path "./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I*"){
   Remove-Item -force -v -path ./output/test-pdf-docx/*.pdf
-  Remove-Item -force -v -path ./output/test-pdf-docx/*.docx
-  Remove-Item -force -v -path ./output/test-pdf-docx/*.epub
-  Remove-Item -force -v -path ./output/test-pdf-docx/*.odt
 }Else{
   echo "Filez don't exist =("
 }
@@ -28,25 +25,24 @@ $STAMP=[Math]::Floor([decimal](Get-Date(Get-Date).ToUniversalTime()-uformat "%s"
 # PDF - #If you want to create a PDF, you’ll need to have LaTeX installed. (See MacTeX on OS X, MiKTeX on Windows, or
 # install the texlive package in linux.) Then do                
 ########################################################################################################################
-#pandoc --toc -V geometry:margin=1in --number-sections --include-in-header ./title/titlesec.tex -s -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md 
-pandoc --toc -V geometry:margin=1in --number-sections --include-in-header ./title/titlesec.tex -s -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md
+pandoc --toc -V geometry:margin=1in --number-sections --include-in-header ./title/titlesec.tex -s -o ./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md 
 # http://stackoverflow.com/questions/19397100/adding-a-title-page-page-headers-and-footers-using-pandoc
 
 #############################################################################################################################
 # DOCX - [Convert your Markdown file to Word (docx):](http://bob.yexley.net/generate-a-word-document-from-markdown-on-os-x/)#############################################################################################################################
 #############################################################################################################################
-pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.docx -f markdown -t docx ./title/title.txt  ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md
-
+<# pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.docx -f markdown -t docx ./title/title.txt  ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md
+#>
 #############################################################################################################################
 # ODT
 #############################################################################################################################
-pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.odt -f markdown ./title/titlesec.tex  ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md
-
+<# pandoc --toc --number-sections -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.odt -f markdown ./title/titlesec.tex  ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md
+#>
 #################################################################
 # EPUB - To convert it to EPUB, use this command:               #
 #################################################################
-pandoc --toc --number-sections --epub-cover-image=images/Chapter-Header/Cover/John_Calvin_by_Holbein.png -S -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md 
-
+<# pandoc --toc --number-sections --epub-cover-image=images/Chapter-Header/Cover/John_Calvin_by_Holbein.png -S -o ./output/test-pdf-docx/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I-$STAMP.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Appendix-A/Appendix-A.md 
+#>
 ######################
 # Debugging          #
 ######################
