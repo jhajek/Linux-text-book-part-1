@@ -9,3 +9,4 @@ tex2pdf*/
 .DS_Store
 .~lock*
 *.ps1~
+.vscode/
