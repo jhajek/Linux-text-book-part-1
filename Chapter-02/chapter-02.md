@@ -613,8 +613,6 @@ This activity can be induvidual or group based.
     <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>, 
     <a href="https://commons.wikimedia.org/wiki/File%3AAndrewTanenbaum2.png">via Wikimedia Commons</a>
 
-
-
 [^7]:   By Krd (Own work) <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a> 
     or <a href="http://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File%3ALinuxCon_Europe_Linus_Torvalds_03.jpg">via Wikimedia Commons</a>
     
