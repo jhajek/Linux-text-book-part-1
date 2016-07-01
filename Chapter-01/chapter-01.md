@@ -34,18 +34,14 @@ date: 07/30/2015
   * Additional Microsoft Sway presentations for the first six chapters   
   * Example programs and source code for exercises
    
-  The text of the book is opensource and build instructions are in our Github repo for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "Github repo")  Instructors can feel free to fork the repo and submit pull requests.  The rational behind this is now we have a living document that can be changed and updated and republished quickly.  
+  The text of the book is opensource and build instructions are in our Github repo for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo")  Instructors can feel free to fork the repo and submit pull requests.  The rational behind this is now we have a living document that can be changed and updated and republished quickly.  
 
- __For students__ all source code from this book as well as examples are available on our Github page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "Github repo") 
+ __For students__ all source code from this book as well as examples are available on our GitHub page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") 
 
-  Some of these chapters are heavier in content then others.  Some are lighter.  Feel free to combine and remix the chapters.  You are even welcome to fork the project on GitHub and remix it or contribute back patches and pull requests.  Part of this book was inspired by a quote from my friend in regards to Linux text books, he said, *"Most text books are good, but then they just add in content from nowhere."* I had that same feeling and when he expressed it in words it hit me.  At the same time, I got the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux.
+  Part of this book was inspired by a quote from my friend in regards to Linux textbooks, he said, *"Most text books are good, but then they just add in content from out of nowhere."* I had that same feeling and when he expressed it in words it hit me.  At the same time, I got the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux.
 
-  This book begins the start of your mastery of opensource operating systems, in addition to teaching you its technology. This book aims to teach you about the history and philosophy of Linux so you can understand the environment surrounding its origin: where it is going and why you are using it. 
+  This book begins the start of your mastery of free and opensource operating systems, in addition to teaching you its technology. The aim is to teach you about the history and philosophy of Linux so you can understand the environment surrounding its origin: where it is going and why you are using it. 
    
-## Presentation Style
-
- This book doubles as a university textbook.  It has a 16-week semester structure, along with review questions, podcast assignments, lab exercises, as well as answers for online quizzes in Blackboard, other formats are welcome for submission via a Github pull request.  But the book can be used beyond that.  There is a wealth of other material that is can be covered in depth depending on your needs. 
-
 ## Chapter Title Images
   
  * Chapter 1 image - [http://imgs.xkcd.com/comics/operating_systems.png](http://imgs.xkcd.com/comics/operating_systems.png "Operating Systems")
