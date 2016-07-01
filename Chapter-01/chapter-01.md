@@ -72,7 +72,7 @@ date: 07/30/2015
 
 ## Author(s)
 
-My name is Inigo Montoya...
+[Jeremy Hajek](https://appliedtech.iit.edu/people/jeremy-hajek "Jeremy Hajek") - Industry Associate Professor at the Illinois Institute of Technology 
 
 ## Thanks 
 
