@@ -33,7 +33,7 @@ date: 07/30/2015
    
 ## Presentation Style
 
- This book doubles as a university textbook.  It has a 16-week semester structure, along with review questions, podcast assignments, lab exercises, as well as answers for online quizes in Blackboard, other formats are welcome for submission via a Github pull request.  But the book can be used beyond that.  There is a wealth of other material that is can be covered in depth depending on your needs. 
+ This book doubles as a university textbook.  It has a 16-week semester structure, along with review questions, podcast assignments, lab exercises, as well as answers for online quizzes in Blackboard, other formats are welcome for submission via a Github pull request.  But the book can be used beyond that.  There is a wealth of other material that is can be covered in depth depending on your needs. 
 
 ## Chapter Title Images
   
