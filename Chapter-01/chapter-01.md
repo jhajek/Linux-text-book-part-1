@@ -80,5 +80,5 @@ date: 07/30/2015
 * Professor Ray Trygstad who gave me my first real IT job and showed me the wonders of Perl.
 * Illinois Institute of Technology who has entrusted me with much.
 * My wife and kids who supported me always.
-* Sean Hughes-Durkin who inspiried me to write this book based on his quote above.
+* Sean Hughes-Durkin who inspired me to write this book based on his quote above.
 
