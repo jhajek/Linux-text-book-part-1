@@ -13,7 +13,7 @@
 # http://www.powershelladmin.com/wiki/Powershell_multi-line_comments
 #delete previous build artifacts but not the README.md
 If (Test-Path "./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I*"){
-  rm -v ./output/pdf/*.pdf
+ # rm -v ./output/pdf/*.pdf
 }Else{
   echo "./output/pdf/Understanding-the-Technology-and-Philosophy-of-Linux-Part-I.pdf - File does not exist =("
 }
