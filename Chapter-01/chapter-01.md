@@ -17,7 +17,7 @@ date: 07/30/2015
   * Eric S. Raymond: *"I bumped into him (Craig Mundie of Microsoft) in an elevator. I looked at his badge and said, "ah, you work for Microsoft." He looked back at me and said, "Oh ya, and what do you do?" And I thought it was some kind of tad dismissive, here is a guy in a suit looking at a scruffy hacker... so I gave him a thousand yard stare and said, "I am your worst nightmare!" Eric S. Raymond, Revolution OS (2001)"* [Revolution OS](http://revolution-os.com/ "Revolution OS") (2001)
   * Steve Ballmer: *"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [(1 June 2001) Chicago Sun Times](https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html "Steve Ballmer calls Linux a cancer")
 
-  When you hear the term *"free and opensource software"* what comes to mind?  That question came to my mind often during my time teaching courses on Linux.  A thought occured to me that the arena of software that cover *"free and opensource"* is more than just Linux.  In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within. 
+  When you hear the term *"free and opensource software"* what comes to mind?  That question came to my mind often during my time teaching courses on Linux.  A thought occurred to me that the arena of software that cover *"free and opensource"* is more than just Linux.  In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within. 
   
   This text strives to be different than other books in the market in two areas;  first the philosophy of free and opensource software and its origin and impact upon our computing world.  
   
@@ -30,11 +30,11 @@ date: 07/30/2015
   *  Chapter Labs for reinforcing chapter content
      + Provided in text format
      + For those who use it, provided in Blackboard quiz form -- ready for import
-  * Standard Powerpoint chapter slides in template form
+  * Standard PowerPoint chapter slides in template form
   * Additional Microsoft Sway presentations for the first six chapters   
   * Example programs and source code for exercises
    
-  The text of the book is opensource and build instructions are in our Github repo for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo")  Instructors can feel free to fork the repo and submit pull requests.  The rational behind this is now we have a living document that can be changed and updated and republished quickly.  
+  The text of the book is opensource and build instructions are in our Github repository for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo")  Instructors can feel free to fork the repo and submit pull requests.  The rational behind this is now we have a living document that can be changed and updated and republished quickly.  
 
  __For students__ all source code from this book as well as examples are available on our GitHub page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") 
 
