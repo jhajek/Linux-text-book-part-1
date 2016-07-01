@@ -81,3 +81,4 @@ date: 07/30/2015
 * Illinois Institute of Technology who has entrusted me with much.
 * My wife and kids who supported me always.
 * Sean Hughes-Durkin who inspiried me to write this book based on his quote above.
+
