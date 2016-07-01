@@ -25,7 +25,7 @@ date: 07/30/2015
   
   __For instructors__ In addition to the text material this book includes:
   *  Chapter review questions with answers in Appendix B
-    + Online quizzes with support for Blackboard importing 
+     + Online quizzes with support for Blackboard importing 
   *  Weekly supplemental podcast questions
   *  Chapter Labs for reinforcing chapter content
      + Provided in text format
@@ -61,10 +61,6 @@ date: 07/30/2015
  * Chapter 15 image - [http://imgs.xkcd.com/comics/tech_loops.png](http://imgs.xkcd.com/comics/tech_loops.png "Tech Loops")
  * Appendix A image - [http://imgs.xkcd.com/comics/iso_8601.png](http://imgs.xkcd.com/comics/iso_8601.png  "Dates")
  * Appendix B images - [http://imgs.xkcd.com/comics/git_commit.png](http://imgs.xkcd.com/comics/git_commit.png  "Git Commit")
-
-## Colophone
-
- * ePub cover image -  
 
 ### Links to Microsoft Sway Presentations
 
