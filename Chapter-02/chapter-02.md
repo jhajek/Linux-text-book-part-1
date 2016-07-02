@@ -297,17 +297,17 @@ Richard Stallman[^5] was a student and a researcher at MIT in the early 1980's. 
   * Released freely and protected by GPLv2 license
   * Used existing GNU tools - no need to reinvent the wheel
 
-#### __Personality__
+#### Linus' Personality
   
-  Linus Torvalds has a renowned personality.  Some people thing it is a shtick or a comedy persona he puts on.  But he is very uncaring in relating to others and can be really mean and aggressively mean spirited to those who he has disagreements.  When approached about this Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
+  Some people think Linus' personality is a shtick or a comedy persona he puts on.  But whatever it is he is very straight forward in dealing with people, and will not spare anyone a harsh public rebuking if he thinks they made a sloppy mistake.  He justifies this as kernel work is hard and you need to be prepared to take difficult criticism if you are going to survive here. Some consider Linus really mean and even aggressively mean spirited to those with whom he has disagreements.  When approached about this, Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
   
 *  [Torvalds' right to offend](http://www.wired.com/2013/07/linus-torvalds-right-to-offend/ "rights")
 *  [Torvalds doesn't care](http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/ "Doesn't care")
 *  [Linus' response to previous article](http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/ "Response")
 
-__AT&T and BSD Lawsuit__
+### AT&T and BSD Lawsuit
 
-  From August of 1991 to February of 1992 there was a rush of interest in Linux development? But where did all these developers come from?  Remember the Berkeley System Unix Distribution?  In the late 80s and up to the early 1990s BSD Unix development had been flourishing.  But the nature began to significantly fracture from the commercial AT&T System V. But as the initial code base grew AT&T found that some of the BSD code was AT&T property. AT&T found its code in BSD Unix and took them to court.  In early 1992 there was a court ordered development injunction preventing work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing encumbrance issues.  By the time the lawsuit was finished in late 1993/1994 it was too late.  The Linux rocket had left the launch pad and was never coming back. 
+  From August of 1991 to February of 1992 there was a rush of interest in Linux development. But where did all these developers come from?  Remember the Berkeley System Unix Distribution?  In the late 80s and up to the early 1990s BSD Unix development had been flourishing.  But the nature began to significantly fracture from the commercial AT&T System V. But as the initial code base grew AT&T found that some of the BSD code was AT&T property. AT&T found its code in BSD Unix and took them to court.  In early 1992 there was a court ordered development injunction preventing work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing encumbrance issues.  By the time the lawsuit was finished in late 1993/1994 it was too late.  The Linux rocket had left the launch pad and was never coming back. 
 
 ### Free Software vs. Open Source Software
 
