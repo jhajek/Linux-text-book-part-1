@@ -256,8 +256,8 @@ Richard Stallman[^5] was a student and a researcher at MIT in the early 1980's. 
   Hurd made some false starts in its initial micro-kernel development phase causing multiple versions to be created and scrapped.  What they were trying to do was really innovative but really complicated and difficult to make work reliably. In retrospect HURD was never finished.  By 1998 The GNU project had all but stopped active development and promotion of GNU HURD as the kernel for its *free* operating system.  The GNU project realized that the Linux Kernel had accomplished what GNU had working on for 13 years in a mere 4 years. 
   
   GNU HURD still exists and is in a usable alpha stage. It is [downloadable today](http://www.gnu.org/software/hurd/ "GNU HURD Download") by joining it with the Debian Linux distribution applications--all GPL approved mind you. 
-   
-  Instead recommends the Linux kernel instead.  In some ways this was the realization of Stallman's dream and yet some ways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the GNU kernel.  By 1991 the Linux kernel pops onto the scene and we have another little revolution in the free and opensource computing world.  Thompson -> Stallman -> Torvalds.
+
+  The GNU project instead recommends using the Linux kernel instead and joining the GNU tools with it to form GNU\Linux.  In some ways this is the realization of Stallman's dream of a *free* operating system and yet some ways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 a new name comes onto the scence, Linus Torvalds and the Linux kernel come along and make the next leap in the *free* and opensource operating system world by introducing the Linux kernel. 
 
 ### Minix, Linus Torvalds, and Linux 
 
