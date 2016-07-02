@@ -14,6 +14,7 @@ __Chapter 2 Objectives__
   * Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
   * Understand the contributions of Richard Stallman to Unix, Linux, GNU, and FLOSS
   * Understand the contributions of Linus Torvalds to the creation of Linux
+  * Understand and explain how the AT&T and BSD lawsuit enabled the proliferation of Linux 
   * Understand the nature of modern commercial distributions of Linux and Unix operating systems
   * Understand the principles and key differences of *"free/libre software"* and *"opensource software"*
 
