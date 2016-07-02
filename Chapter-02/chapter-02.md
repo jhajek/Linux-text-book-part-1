@@ -259,7 +259,7 @@ Richard Stallman[^5] was a student and a researcher at MIT in the early 1980's. 
 
   The GNU project instead recommends using the Linux kernel instead and joining the GNU tools with it to form GNU\Linux.  In some ways this is the realization of Stallman's dream of a *free* operating system and yet some ways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 a new name comes onto the scence, Linus Torvalds and the Linux kernel come along and make the next leap in the *free* and opensource operating system world by introducing the Linux kernel. 
 
-### Minix, Linus Torvalds, and Linux 
+### Free and Opensource State in the 1990s 
 
 #### Professor Andrew Tanenbaum and Minix
 
@@ -269,7 +269,7 @@ Richard Stallman[^5] was a student and a researcher at MIT in the early 1980's. 
   
   [Professor Tanenbaum](http://www.cs.vu.nl/~ast/ "Tanebaum's website") [^6] was teaching at Vrije Universiteit in Amsterdam - and began to write and implement his own Unix-like operating system but only for teaching and research purposes.  It was 12,000 lines of C code and system call compatible with commercial Unix.  The name [Minix](http://www.minix3.org/ "Minix 3 website") was a combination of "minimal" and "Unix."  Minix 1.0 and 1.5 were released in 1987 and 1991 respectively with the original purpose as only a teaching tool. Minix 1.0 and 1.5 were freely available to anyone as the source code came in the appendix to a text book about operating systems written by Tanenbaum in 1987.  Minix was designed to run initially on older x86 Intel processors (286 and 386) and in version Minix 1.5 Sun Sparc processors.  These were common desktop stations in use at the university at that time.  Any enterprising student could find and old 8086 PC or old Sun Sparc Station to run it on. The source code for Minix 3 is currently available in a [Git repository](http://git.minix3.org/index.cgi "Minix Git") and is still being developed and researched.  In 1991 many people believed that Minix could have been a viable alternative to commercial Unix and become the still missing GNU Hurd kernel.  But the Minix creator, Professor Tanenbaum, was not interested in moving into this space and the code was nowhere near as mature as the Unix code base, which by 1991 had been in existence for almost 20 years!  Minix appears on the radar but was not the missing piece to the GNU puzzle.   
     
-#### Linux and Linus Torvalds
+### Linus Torvalds and Linux
 
 ![*Linus Torvalds*](images/Chapter-02/People/Linus-Torvalds/320px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
 
