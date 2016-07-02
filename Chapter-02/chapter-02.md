@@ -287,17 +287,17 @@ Richard Stallman[^5] was a student and a researcher at MIT in the early 1980's. 
    
   People began downloading and compiling the Linux kernel, adding the GNU tools, and making fully capable Unix-like operating systems for personal use soon after commercial use.  Linus' brilliance comes not from ingenuity but comes from good engineering principals like knowing when not to go down dead-end development trails.  Torvalds' work was not perfect but was good enough that others could take it and start to use it and improve upon it.  From 1992 to 2001 the Linux kernel grew rapidly in size and features and spawned commercial companies to sell and support Linux Distributions. Stallman's dream of a complete free and opensource operating system was being realized.  
     
-  This should have been cause for great celebration with Linux and GNU coming together.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux hoping that the FSF and free software would get the recognition it deserved.  But Linus Torvalds didn't see it that way.  He has a unique personality--perhaps a bit arrogant.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linus, leaving the GNU part out even though all of their tooling is what made Linux possible.  This is a spot of contention with the FSF.  
-    
-  Linux Kernel unique attributes recap:
+  This should have been cause for great celebration amongst the Linux and GNU communities.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux, assuming that without the GNU tools, the Linux kernel would be useless.  The FSF assumed credit in this case.  But Linus Torvalds didn't see it that way.  He just referreed to the system as Linux.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linux, leaving the GNU part out even though all of their tooling is what made Linux possible.  In a sense that is Linus' unique and gruff personality.  This issue today is still a matter of contention. For example, Richard Stallman will not conduct any interview unless their is an agreement to only use the term GNU/Linux not Linux.
+
+#### Linux Kernel Unique Attributes
   
   * Developed to solve one person's problem of wanting his own Unix-like OS 
   * Released often
   * Accepted contributions back
   * Released freely and protected by GPLv2 license
   * Used existing GNU tools - no need to reinvent the wheel
-  
-  __Personality__
+
+#### __Personality__
   
   Linus Torvalds has a renowned personality.  Some people thing it is a shtick or a comedy persona he puts on.  But he is very uncaring in relating to others and can be really mean and aggressively mean spirited to those who he has disagreements.  When approached about this Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
   
