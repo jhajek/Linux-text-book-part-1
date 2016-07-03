@@ -6,7 +6,7 @@
 
 > [*"If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do."* Linus Torvalds](http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI "Quote from Linus Torvalds")
 
-As you browse this book, let me ask you a question; are you using a Linux or Unix based device?  It might seem like a strange question but you would be surprised.  Are you using an Android based phone or tablet?  Android is Linux.  Are you using OSX or macOS? The Mac operating system is FreeBSD based under the hood.  Some pieces of this book may seem frustrating at first, after all the roots of Linux and Unix go back 30-40 years in some cases.  Understanding these concepts and what these creators were thinking will help you master the Linux environment.
+As you browse this book, let me ask you a question; are you using a Linux or Unix based device?  It might seem like a strange question but you would be surprised.  Are you using an Android based phone or tablet?  Android is Linux.  Are you using OSX or macOS? The Mac operating system is BSD based under the hood.  Some pieces of this book may seem frustrating at first, after all the roots of Linux and Unix go back 30-40 years in some cases.  Understanding these concepts and what these creators were thinking will help you master the Linux environment.
 
 __Chapter 2 Objectives__
 
