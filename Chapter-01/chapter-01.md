@@ -1,5 +1,9 @@
 ---
-title: __Understanding the Technology and Philosophy of Free and Opensource Operating Systems - Part I__
+title:
+- type: main
+  text: Free and Opensource Operating Systems
+- type: subtitle
+  text: Understanding the Technology and Philosophy - Part I
 author: Jeremy Hajek
 date: 07/30/2015
 ...

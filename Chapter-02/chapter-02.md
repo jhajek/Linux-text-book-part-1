@@ -308,7 +308,7 @@ This was a large problem as the networked printer was 2 floors up from the lab a
 *  [Torvalds doesn't care](http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/ "Doesn't care")
 *  [Linus' response to previous article](http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/ "Response")
 
-### AT&T and BSD Lawsuit
+### AT&T and BSD Lawsuit an Linux Ascendency 
 
   From August of 1991 to February of 1992 there was a rush of interest in Linux development. But where did all these developers come from?  Remember the Berkeley System Unix Distribution?  In the late 80s and up to the early 1990s BSD Unix development had been flourishing.  But the nature began to significantly fracture from the commercial AT&T System V. But as the initial code base grew AT&T found that some of the BSD code was AT&T property. AT&T found its code in BSD Unix and took them to court.  In early 1992 there was a court ordered development injunction preventing work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing encumbrance issues.  By the time the lawsuit was finished in late 1993/1994 it was too late.  The Linux rocket had left the launch pad and was never coming back. 
 
