@@ -260,7 +260,7 @@ This was a large problem as the networked printer was 2 floors up from the lab a
   
   GNU HURD still exists and is in a usable alpha stage. It is [downloadable today](http://www.gnu.org/software/hurd/ "GNU HURD Download") by joining it with the Debian Linux distribution applications--all GPL approved mind you. 
 
-  The GNU project instead recommends using the Linux kernel instead and joining the GNU tools with it to form GNU\Linux.  In some ways this is the realization of Stallman's dream of a *free* operating system and yet some ways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 a new name comes onto the scence, Linus Torvalds and the Linux kernel come along and make the next leap in the *free* and opensource operating system world by introducing the Linux kernel. 
+  The GNU project instead recommends using the Linux kernel instead and joining the GNU tools with it to form GNU/Linux.  In some ways this is the realization of Stallman's dream of a *free* operating system and yet some ways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 a new name comes onto the scence, Linus Torvalds and the Linux kernel come along and make the next leap in the *free* and opensource operating system world by introducing the Linux kernel. 
 
 ### Free and Opensource State in the 1990s 
 
