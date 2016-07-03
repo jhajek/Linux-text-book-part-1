@@ -4,7 +4,7 @@ author: Jeremy Hajek
 date: 07/30/2015
 ...
 
-# Introduction to the Technology and Philosophy of Free and Opensource Operating Systems - Part I
+# Introduction
 
 ![*One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. "This," one of them finally says, "This is a man who BELIEVED in something."*](images/Chapter-Header/Chapter-01/operating_systems.png "Operating Systems")
 
