@@ -1,21 +1,20 @@
 ---
-title: __Understanding the Technology and Philosophy of Free and Opensource Operating Systems__
-  __Part I__
+title: __Understanding the Technology and Philosophy of Free and Opensource Operating Systems - Part I__
 author: Jeremy Hajek
 date: 07/30/2015
 ...
 
-# Introduction to the Technology and Philosophy of Linux Part I
+# Introduction to the Technology and Philosophy of Free and Opensource Operating Systems - Part I
 
 ![*One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. "This," one of them finally says, "This is a man who BELIEVED in something."*](images/Chapter-Header/Chapter-01/operating_systems.png "Operating Systems")
 
 ## Objectives of this book
  
-  *  Dennis Ritchie: *"I think the Linux phenomenon is quite delightful, because it draws so strongly on the basis that Unix provided. Linux seems to be the among the healthiest of the direct Unix derivatives, though there are also the various BSD systems as well as the more official offerings from the workstation and mainframe manufacturers."* [Interview with Dennis Ritchie](http://www.linuxfocus.org/English/July1999/article79.html Ritchie Quote")
-  *  Linus Torvalds:  [*"I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones..." - Linus Torvalds 1991*](https://groups.google.com/forum/?hl=en#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ "Initial Post About Linux.")
-  * Richard Stallman: *"Free software” is a matter of liberty, not price. To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”."* [What is free software?](https://www.gnu.org/philosophy/free-sw.html "Free Software") 
-  * Eric S. Raymond: *"I bumped into him (Craig Mundie of Microsoft) in an elevator. I looked at his badge and said, "ah, you work for Microsoft." He looked back at me and said, "Oh ya, and what do you do?" And I thought it was some kind of tad dismissive, here is a guy in a suit looking at a scruffy hacker... so I gave him a thousand yard stare and said, "I am your worst nightmare!" Eric S. Raymond, Revolution OS (2001)"* [Revolution OS](http://revolution-os.com/ "Revolution OS") (2001)
-  * Steve Ballmer: *"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [(1 June 2001) Chicago Sun Times](https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html "Steve Ballmer calls Linux a cancer")
+  *  __Dennis Ritchie:__ *"I think the Linux phenomenon is quite delightful, because it draws so strongly on the basis that Unix provided. Linux seems to be the among the healthiest of the direct Unix derivatives, though there are also the various BSD systems as well as the more official offerings from the workstation and mainframe manufacturers."* [Interview with Dennis Ritchie](http://www.linuxfocus.org/English/July1999/article79.html Ritchie Quote")
+  *  __Linus Torvalds:__  [*"I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones..." - Linus Torvalds 1991*](https://groups.google.com/forum/?hl=en#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ "Initial Post About Linux.")
+  * __Richard Stallman:__ *"Free software” is a matter of liberty, not price. To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”."* [What is free software?](https://www.gnu.org/philosophy/free-sw.html "Free Software") 
+  * __Eric S. Raymond:__ *"I bumped into him (Craig Mundie of Microsoft) in an elevator. I looked at his badge and said, "ah, you work for Microsoft." He looked back at me and said, "Oh ya, and what do you do?" And I thought it was some kind of tad dismissive, here is a guy in a suit looking at a scruffy hacker... so I gave him a thousand yard stare and said, "I am your worst nightmare!" Eric S. Raymond, Revolution OS (2001)"* [Revolution OS](http://revolution-os.com/ "Revolution OS") (2001)
+  * __Steve Ballmer:__ *"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [(1 June 2001) Chicago Sun Times](https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html "Steve Ballmer calls Linux a cancer")
 
   When you hear the term *"free and opensource software"* what comes to mind?  That question came to my mind often during my time teaching courses on Linux.  A thought occurred to me that the arena of software that cover *"free and opensource"* is more than just Linux.  In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within. 
   
@@ -24,7 +23,7 @@ date: 07/30/2015
   Second, this book will cover the basic technical structure and how to use free and opensource operating systems--Unix, Linux, and BSD based.      
   
   __For instructors__ In addition to the text material this book includes:
-  
+
   *  Chapter review questions with answers in Appendix B
      + Online quizzes with support for Blackboard importing 
   *  Weekly supplemental podcast questions
@@ -35,7 +34,7 @@ date: 07/30/2015
   * Additional Microsoft Sway presentations for the first six chapters   
   * Example programs and source code for exercises
    
-  The text of the book is opensource and build instructions are in our Github repository for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo")  Instructors can feel free to fork the repo and submit pull requests.  The rational behind this is now we have a living document that can be changed and updated and republished quickly.  
+  The text of the book is opensource and build instructions are in our GitHub repository for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo")  Instructors can feel free to fork the repo and submit pull requests.  The rational behind this is now we have a living document that can be changed and updated and republished quickly.  
 
  __For students__ all source code from this book as well as examples are available on our GitHub page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") 
 
