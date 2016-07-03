@@ -24,6 +24,7 @@ date: 07/30/2015
   Second, this book will cover the basic technical structure and how to use free and opensource operating systems--Unix, Linux, and BSD based.      
   
   __For instructors__ In addition to the text material this book includes:
+  
   *  Chapter review questions with answers in Appendix B
      + Online quizzes with support for Blackboard importing 
   *  Weekly supplemental podcast questions
