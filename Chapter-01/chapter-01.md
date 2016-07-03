@@ -14,7 +14,7 @@ date: 07/30/2015
 
   __Richard Stallman:__ *"Free software is a matter of liberty, not price. To understand the concept, you should think of free as in free speech, not as in free beer."* [What is free software?](https://www.gnu.org/philosophy/free-sw.html "Free Software") 
   
-  __Linus Torvalds:__ *"Making Linux GPL'd was definitely the best thing I ever did."* [http://hotwired.goo.ne.jp/matrix/9709/5_linus.html](The Pragmatist of Free Software: Linus Torvalds Interview "INterview)
+  __Linus Torvalds:__ *"Making Linux GPL'd was definitely the best thing I ever did."* [http://hotwired.goo.ne.jp/matrix/9709/5_linus.html](The Pragmatist of Free Software: Linus Torvalds Interview "Interview")
 
   __Steve Ballmer:__ *"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [(1 June 2001) Chicago Sun Times](https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html "Steve Ballmer calls Linux a cancer")
 
