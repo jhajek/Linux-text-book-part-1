@@ -12,7 +12,7 @@ date: 07/30/2015
  
   __Dennis Ritchie:__ *"I think the Linux phenomenon is quite delightful, because it draws so strongly on the basis that Unix provided. Linux seems to be the among the healthiest of the direct Unix derivatives, though there are also the various BSD systems as well as the more official offerings from the workstation and mainframe manufacturers."* [Interview with Dennis Ritchie](http://www.linuxfocus.org/English/July1999/article79.html Ritchie Quote")
 
-  __Richard Stallman:__ *"Free software” is a matter of liberty, not price. To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”."* [What is free software?](https://www.gnu.org/philosophy/free-sw.html "Free Software") 
+  __Richard Stallman:__ *"Free software is a matter of liberty, not price. To understand the concept, you should think of free as in free speech, not as in free beer."* [What is free software?](https://www.gnu.org/philosophy/free-sw.html "Free Software") 
   
   __Linus Torvalds:__ *"Making Linux GPL'd was definitely the best thing I ever did."* [http://hotwired.goo.ne.jp/matrix/9709/5_linus.html](The Pragmatist of Free Software: Linus Torvalds Interview "INterview)
 
