@@ -350,7 +350,7 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
 
   As corporations became more involved in Linux kernel development, the value proposition of Linux began to grow as well.  The combination of the Linux kernel and the GNU tools, plus GUI tools became known a Linux distribution, also known as a *distro* - which anyone could freely make.  Each distribution flavors, derivatives, or spins as well. 
   
-  After almost 20 years of Linux we can think of the distributions mainly hailing from two distinct families: Debian and Red Hat.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on the two main distributions.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
+  Today we have almost 20 years of Linux Kernel work and distribution work. Essentially Linux distributions hail from two distinct families: Debian and Red Hat.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on the two main distributions.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
   
    *  [Slackware](http://www.slackware.com/info/ "Slackware")
    *  [Gentoo Linux](https://www.gentoo.org/get-started/about/ "Gentoo Linux")
@@ -367,13 +367,15 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
   
 >*"I founded Debian in 1993. Debian was one of the first Linux distributions and also one of the most successful and influential open source projects ever launched. Debian pioneered a number of ideas commonplace today, including employing an open community that allowed (and encouraged!) anyone to contribute (much like how Wikipedia would later operate). And, with its integrated software repositories anyone could contribute to, Debian arguably had the industry’s first (albeit primitive) “App Store”. Today, more than 1,000 people are involved in Debian development, and there are millions of Debian users worldwide."* - [http://ianmurdock.com](http://ianmurdock.com) 
 
+Unfortunately on December 31st, 2015 Ian Murdock succumbed to mental illness and took his own brilliant life. Bruce Perens eulogized him in this post: [https://perens.com/blog/2015/12/31/ian-murdock-dead/](https://perens.com/blog/2015/12/31/ian-murdock-dead/ "Ian Murdock").
+
 The Debian family contains 3 major sub-families: [^9]
 
 #### Debian
 
 ![*Debian*](images/Chapter-02/Linux-logos/Debian/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
-The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercial, company backed Linux distros still in existence.  The current release is Debian 8.1 codenamed Jessie, June 2015.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and at the [history of Debian](https://www.debian.org/doc/manuals/project-history). There are [currently 128 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") according to distrowatch.com.
+The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercially backed Linux distros still in existence.  The current release is Debian 8.1 codenamed Jessie, June 2015.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and at the [history of Debian](https://www.debian.org/doc/manuals/project-history). There are [currently 128 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") according to distrowatch.com.
  
  These are the main points of Debian and the key I believe to their long term success and usage across the Linux landscape:
    
