@@ -314,7 +314,7 @@ This was a large problem as the networked printer was 2 floors up from the lab a
   
   AT&T seeing this decided in the early 1992 to take the BSD project to court.  Since BSD technically came from AT&T Unix back in 1976, when Ken Thompson took his sabattical at Berkely and brought the then pet project AT&T Unix with him. AT&T found that some of the BSD code was actually AT&T copywritten code and property. In early 1992 AT&T was granted a court ordered development injunction against the BSD project while in court, preventing work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing or copyright issues to worry about. BSD developers in droves flocked to the Linux project. By the time the lawsuit was finished in late 1993/1994 it was too late.  All that had happened was that BSD no longer use the term Unix to describe itself an they had to rewrite a handful of programs to remove the AT&T code.  AT&T had succeded in planting the seed for the growth of the entire Linux industry with this action. The Linux rocket had left the launch pad and was never coming back. 
 
-## Third Phase of Unix Maturity - Enterprise and Commerce 
+## Third Phase of Unix Maturity - Free and Opensource Software Enter the Enterprise 
 
 ### Free Software vs. Open Source Software
 
@@ -342,11 +342,11 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
   * [The Art of Unix Usability](http://www.catb.org/~esr/writings/taouu/html/ "Book link")
   * [The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/ "CatB")
 
-### The Rise of Commercial Linux and the Dawn of the New Century
+## Fourth Phase of Unix Maturity - The Rise of Commercial Linux 
 
-  As the 1990's went along we began to see established companies adopting and using Linux, as well as the rise of commercial Linux companies.  Of all the companies that started at that time Red Hat Linux is and was the most successful.  Most of all of the Linux distributions started pre-2003 no longer exist or are not commercially viable.  To illustrate this, today (August 10th 2015) Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap")  
+  As the 1990's are coming to a close we began to see established companies adopting and using Linux products, as well as the rise of commercial Linux-based operating systems companies.  Of all the companies that started at that time Red Hat Linux is one of the few remaining and by far the most successful.  Most of all of the Linux distributions started pre-2003 no longer exist.  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap")  
 
-## The Rise of Commercial Linux and Modern Linux Distros
+### The Rise of Commercial Linux and Modern Linux Distributions
 
   As the nature of Linux grew and corporations became more involved in kernel development, the value proposition of Linux began to grow as well.  The combination of the Linux kernel and the GNU tools, plus GUI tools became known a Linux distribution - which anyone could freely make.  This became known as a Linux *distro.* Another term to be aware of is a there are different flavors, derivatives, or spins of Linux Distributions. 
   
