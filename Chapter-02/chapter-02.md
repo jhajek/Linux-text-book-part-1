@@ -298,7 +298,7 @@ This was a large problem as the networked printer was 2 floors up from the lab a
   * Released often
   * Accepted contributions back
   * Released freely and protected by GPLv2 license
-  * Used existing GNU tools - no need to reinvent the wheel
+  * Used existing GNU tools (now called coretools) - to accelerate implementation
 
 #### Linus' Personality
   
