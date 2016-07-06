@@ -348,7 +348,7 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
 
 ### The Rise of Commercial Linux and Modern Linux Distributions
 
-  As the nature of Linux grew and corporations became more involved in kernel development, the value proposition of Linux began to grow as well.  The combination of the Linux kernel and the GNU tools, plus GUI tools became known a Linux distribution - which anyone could freely make.  This became known as a Linux *distro.* Another term to be aware of is a there are different flavors, derivatives, or spins of Linux Distributions. 
+  As corporations became more involved in Linux kernel development, the value proposition of Linux began to grow as well.  The combination of the Linux kernel and the GNU tools, plus GUI tools became known a Linux distribution, also known as a *distro* - which anyone could freely make.  Each distribution flavors, derivatives, or spins as well. 
   
   After almost 20 years of Linux we can think of the distributions mainly hailing from two distinct families: Debian and Red Hat.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on the two main distributions.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
   
