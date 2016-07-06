@@ -375,9 +375,9 @@ The Debian family contains 3 major sub-families: [^9]
 
 ![*Debian*](images/Chapter-02/Linux-logos/Debian/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
-The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercially backed Linux distros still in existence.  The current release is Debian 8.5 codenamed Jessie, as of June 2016.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and at the [history of Debian](https://www.debian.org/doc/manuals/project-history). There are [currently 128 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") according to distrowatch.com.
+The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercially backed Linux distros still in existence.  The current release is Debian 8.5 codenamed Jessie, as of June 2016.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and at the [history of Debian](https://www.debian.org/doc/manuals/project-history). There are [currently 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") in existance according to distrowatch.com.
  
- These are the main points of Debian and the key I believe to their long term success and usage across the Linux landscape:
+ These are the main points of Debian distro and the key I believe to their long term success and usage across the Linux landscape:
    
    * Initial release schedule was yearly but as Debian project has grown now is two year release schedule
    * Releases are named after characters from the Toy Story movie.
@@ -385,7 +385,7 @@ The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the st
    * All volunteer project and organization -- project leader is elected on a rotating basis
    * Dedicated to protecting software rights and freedoms of users
    * First major distribution to come with a [Software contract](https://www.debian.org/social_contract "Contract") - of what the project will guarantee to the user.
-   * Debian supports free and open source software as superior to closed source but will allow for closed source software/drivers to be installed by the user. 
+   * Debian supports free and opensource software as superior to closed source but will allow for closed source software/drivers to be installed by the user. 
    * Supported at various times 11 different processor types giving it a wide install base. 
  
 #### Ubuntu 
