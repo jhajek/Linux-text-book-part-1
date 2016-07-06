@@ -369,7 +369,7 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
 
 Unfortunately on December 31st, 2015 Ian Murdock succumbed to mental illness and took his own brilliant life. Bruce Perens eulogized him in this post: [https://perens.com/blog/2015/12/31/ian-murdock-dead/](https://perens.com/blog/2015/12/31/ian-murdock-dead/ "Ian Murdock").
 
-The Debian family contains 3 major sub-families: [^9]
+The Debian family contains 4 major sub-families: [^9]
 
 #### Debian
 
@@ -406,7 +406,7 @@ The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the st
  
 ![*Linux Mint*](images/Chapter-02/Linux-logos/LinuxMint/256px-Linux_Mint_logo_and_wordmark.svg.png "Linux Mint")
        
-   Linux Mint started also in 2006 as a fork of the Ubuntu project but with a different desktop interface [^12].  Linux Mint focused foremost on the user and desktop experience out of the box adding multimedia codecs for playback of audio and video directly to the install (see Flash).  Linux Mint is even more user experience focused than Ubuntu and is one of the most popular Ubuntu based distros.
+   Linux Mint started also in 2006 as a fork of the Ubuntu project but with a different desktop interface [^12].  Linux Mint focused foremost on the user and desktop experience out of the box adding multimedia codecs for playback of audio and video directly to the install (see Flash).  Linux Mint is even more user experience focused than Ubuntu and is one of the most popular Ubuntu based distros.  Linux Mint can be considered a sub-family because although it is Ubuntu based, Mint makes usability choices that are the opposite of what Ubuntu chooses. There by leading to a different operating system.
 
 #### Devuan 
 
