@@ -369,7 +369,7 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
    *  [Tails Linux](https://tails.boum.org/ "Tails Linux") - Online security focused Debian based distro
    *  and many more at [http://www.distrowatch.com](http://www.distrowatch.com "Distro Watch") 
   
-### Debian Family
+### The Debian-based Family
 
 ![*Ian Murdock - founder of The Debian Project*](images/Chapter-02/People/Ian-Murdock/256px-IanMurdock.jpg "Ian Murdock")  
   
