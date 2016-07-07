@@ -381,6 +381,8 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
   
   It is curious to see that there were a few small commercial BSD distributions, but none of them rose to prominence as the BSD distros remained in the hands of their repective foundations. AS fo 2016, we have almost 20 years of Linux Kernel and Linux distribution work. Essentially Linux distributions hail from two distinct families: Debian and Red Hat.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
   
+#### Additional Popular Linux Distros
+
    *  [Slackware](http://www.slackware.com/info/ "Slackware")
    *  [Gentoo Linux](https://www.gentoo.org/get-started/about/ "Gentoo Linux")
    *  [SUSE Linux](https://en.wikipedia.org/wiki/SUSE_Linux_distributions "SUSE Linux")
