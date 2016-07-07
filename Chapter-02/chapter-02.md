@@ -457,10 +457,11 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
    *  [Raspian](http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
    *  [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux FSF distro, entirely GPL compliant software.
    *  [trisquel](https://trisquel.info "Tri-skel") FSF and Richard Stallman use this one, entirely GPL compliant.
+   *  [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian distro
 
 ### Red Hat Family
     
-Red Hat Linux was formed shortly after the Debian project launched in 1995 Marc Ewing and Bob Young.  Red Hat source code is currently shared across three main distributions: Fedora, RHEL (Red Hat Enterprise Linux), and CentOS. You can read more about Red Hat from their website:
+Red Hat Linux was formed shortly after the Debian project launched in 1995 by Marc Ewing and Bob Young.  Red Hat source code is currently shared across three main distributions: Fedora, RHEL (Red Hat Enterprise Linux), and CentOS. You can read more about Red Hat from their website:
    
   *  [About Red Hat](http://www.redhat.com/en/about/company)
   *  [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
