@@ -14,9 +14,9 @@ date: 07/30/2015
 
   __Richard Stallman:__ *"Free software is a matter of liberty, not price. To understand the concept, you should think of free as in free speech, not as in free beer."* [What is free software?](https://www.gnu.org/philosophy/free-sw.html "Free Software") 
   
-  __Linus Torvalds:__ *"Making Linux GPL'd was definitely the best thing I ever did."* [http://hotwired.goo.ne.jp/matrix/9709/5_linus.html](The Pragmatist of Free Software: Linus Torvalds Interview "Interview")
+  __Linus Torvalds:__ *"Making Linux GPL'd was definitely the best thing I ever did."* [The Pragmatist of Free Software: Linus Torvalds Interview](http://hotwired.goo.ne.jp/matrix/9709/5_linus.html "Interview")
 
-  __Steve Ballmer:__ *"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [(1 June 2001) Chicago Sun Times](https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html "Steve Ballmer calls Linux a cancer")
+  __Steve Ballmer:__ *"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html](1 June 2001 Chicago Sun Times "Steve Ballmer calls Linux a cancer")
 
   When you hear the term *"free and opensource software"* what comes to mind? Do you agree with these quotes?  Do you disagree? The question came to my mind often during my time teaching courses on Linux.  A thought occurred to me that the arena of software that cover *"free and opensource"* is more than just Linux.  In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within. 
   
