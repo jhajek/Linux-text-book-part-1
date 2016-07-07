@@ -15,6 +15,7 @@ __Chapter 2 Objectives__
   * Understand the contributions of Richard Stallman to Unix, Linux, GNU, and FLOSS
   * Understand the contributions of Linus Torvalds to the creation of Linux
   * Understand and explain how the AT&T and BSD lawsuit enabled the proliferation of Linux 
+  * Be able to describe and differentiate the five phases of Unix maturity
   * Understand the nature of modern commercial distributions of Linux and Unix operating systems
   * Understand the principles and key differences of *"free/libre software"* and *"opensource software"*
 
@@ -317,7 +318,7 @@ This was a large problem as the networked printer was 2 floors up from the lab a
   After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. Also they are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red hat.  All are maintained by volunteer organizations. 
 
   *  FreeBSD
-    + DragonflyBSD
+    + DragonFlyBSD
   *  OpenBSD
   *  NetBSD
 
