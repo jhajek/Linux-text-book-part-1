@@ -293,7 +293,7 @@ This was a large problem as the networked printer was 2 floors up from the lab a
     
   This should have been cause for great celebration amongst the Linux and GNU communities.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux, assuming that without the GNU tools, the Linux kernel would be useless.  The FSF assumed credit in this case.  But Linus Torvalds didn't see it that way.  He just referreed to the system as Linux.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linux, leaving the GNU part out even though all of their tooling is what made Linux possible.  In a sense that is Linus' unique personality. On the other hand, Richard Stallman will not conduct any interview unless their is an agreement to only use the term GNU/Linux not Linux. Some would argue that this is Stallman's ego, but he insists he only wants credit where credit is due. This issue is still a matter of contention for the FSF today. 
 
-#### Linux Kernel Unique Attributes
+#### Linux Kernel Unique Attributes Compared to Unix
   
   * Developed to solve one person's problem of wanting his own Unix-like OS 
   * Released often
