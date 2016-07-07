@@ -239,9 +239,7 @@ This was a large problem as the networked printer was 2 floors up from the lab a
 
  In late 1985 the [FSF](http://www.fsf.org/ "FSF") -- *Free Software Foundation*, was formed to be the holder of all the intellectual property of the GNU project with the motto:
  
- > “Our mission 
- 
-  to preserve, protect and promote the freedom to use, study, copy, modify, and redistribute computer software, and to defend the rights of Free Software users.”
+ > “Our mission is to preserve, protect and promote the freedom to use, study, copy, modify, and redistribute computer software, and to defend the rights of Free Software users.”
  
 #### GCC, BASH, and GNU Tools 
 
