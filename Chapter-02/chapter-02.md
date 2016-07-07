@@ -443,7 +443,7 @@ These are the main points of Debian distro and the key I believe to their long t
 
 ![*Devuan Linux*](images/Chapter-02/Linux-logos/Devuan/Devuan-logo.png "Devuan")
 
-  [Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of a "Debian Civil War" with half of the Debian developers leaving in the Debian project in the beginning of 2015 to begin this distribution from scratch.  It is a direct fork with fundamental changes to the core operating system.  Other distros change application look and feel but to change the core operating system is a monumental task.  The state of the OS is in late Alpha or early beta as of August 2015 with VM images available for download.  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter. 
+  [Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of the "Debian Civil War" with half of the Debian developers leaving the Debian project in the beginning of 2015 to begin work on this distribution.  It is a direct fork of the Debian 8.0 Jessie Code base with incompatible changes to the core operating system that cannot be merged back into Debian.  To change the core operating system is a monumental task and these volunteers undertook it and succeeded.  The state of the OS is in late beta as of August 2016 with isos and VM images available for download.  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter. 
 
 #### Other Debian Based Distros
 
