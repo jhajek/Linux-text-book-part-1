@@ -293,13 +293,30 @@ This was a large problem as the networked printer was 2 floors up from the lab a
     
   This should have been cause for great celebration amongst the Linux and GNU communities.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux, assuming that without the GNU tools, the Linux kernel would be useless.  The FSF assumed credit in this case.  But Linus Torvalds didn't see it that way.  He just referreed to the system as Linux.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linux, leaving the GNU part out even though all of their tooling is what made Linux possible.  In a sense that is Linus' unique personality. On the other hand, Richard Stallman will not conduct any interview unless their is an agreement to only use the term GNU/Linux not Linux. Some would argue that this is Stallman's ego, but he insists he only wants credit where credit is due. This issue is still a matter of contention for the FSF today. 
 
-#### Linux Kernel Unique Attributes Compared to Unix
-  
-  * Developed to solve one person's problem of wanting his own Unix-like OS 
-  * Released often
-  * Accepted contributions back
-  * Released freely and protected by GPLv2 license
-  * Used existing GNU tools (now called coretools) - to accelerate implementation
+
+#### Linux Kernel Attributes Compared to Unix OS Attributes
+
+Creation Method      
+
+  * Linus Torvald as a graduate student at a university
+  * Thompson and Ritchie developed as Bell Labs Engineers to solve computer problems
+
+Release Cycle
+
+  * Linux releases a new kernel in short windows and maintains a LTS, Long Term Support Kernel version too
+    + Linux distributions have to plan around this and choose which kernel to use.
+  * Unix/BSD maintain a complete operating system and release everything together in a 1 to 2 year cycle
+
+License
+
+ *  The Linux kernel is licensed and protected under the GPLv2 and allows induviduals and corporations alike to contribute back to the Linux kernel, but source code must be open and freely available.
+ *  Each BSD project is licensed under a permissiver license which allows for derivative works to be made without requiring that the source code be given back to the main project.  BSD distros do take outside contributions.
+    + Commercial Unix does not take outside contributions
+
+Tooling
+
+  * Any Linux based operating system need to make use of a set of coretools -- usually the GNU coretools to be able to function
+  * BSD/Unix may use some GNU coretools but has their own versions internally built in with the distro 
 
 #### Linus' Personality
   
