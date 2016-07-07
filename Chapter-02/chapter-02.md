@@ -352,7 +352,7 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
 
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux 
 
-  As the 1990's are coming to a close we began to see established companies adopting and using Linux products, as well as the rise of commercial Linux-based operating systems companies.  Of all the companies that started at that time Red Hat Linux is one of the few remaining and by far the most successful.  Most of all of the Linux distributions started pre-2003 no longer exist.  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap")  
+  As the 1990s came to a close we began to see established companies adopting and using Linux products, as well as the rise of commercial Linux-based operating systems companies.  Of all the companies that started at that time Red Hat Linux is one of the few remaining and by far the most successful.  Most of all of the Linux distributions started pre-2003 no longer exist.  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap")  
 
 ### The Rise of Commercial Linux and Modern Linux Distributions
 
