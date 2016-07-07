@@ -461,7 +461,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 
 ### Red Hat Family
     
-Red Hat Linux was formed shortly after the Debian project launched in 1995 by Marc Ewing and Bob Young.  Red Hat source code is currently shared across three main distributions: Fedora, RHEL (Red Hat Enterprise Linux), and CentOS. You can read more about Red Hat from their website:
+Red Hat Linux was formed shortly after the Debian project launched in 1995 by Marc Ewing and Bob Young.  Red Hat source code is currently shared across three main distributions: Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. You can read more about Red Hat from their website:
    
   *  [About Red Hat](http://www.redhat.com/en/about/company)
   *  [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
