@@ -1,0 +1,11 @@
+body
+{
+
+     font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace, serif;
+     text-align: justify;
+}
+
+a 
+{
+    text-decoration:underline; color: blue;
+}
