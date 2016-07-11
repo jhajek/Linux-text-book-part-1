@@ -100,8 +100,7 @@ Unix differences from existing commercial Operating Systems
 Thompson's Unix success was also a byproduct of its main design philosophy:
 
   *  Everything is a file 
-    + This means that everything can be read from or written to: all the way from devices to text files
-    +  Yes, there are compiled binaries but you generally are not reading and writing directly to them
+    + This means that everything can be read from or written to: all the way from devices to text file
   *  Unix is portable
     + Tools and OS code can be recompiled for different environments because everything is written in C. 
   * I/O is redirectable between small executables 
