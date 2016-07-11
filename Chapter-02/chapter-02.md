@@ -110,6 +110,7 @@ Thompson's Unix success was also a byproduct of its main design philosophy:
     + Complicated applications are built by chaining many outputs of small executables together with *pipes* -> "|"
     
   The best demonstration of these tennants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\ "Jon Bently") in 1986 to:
+  
 > *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.* 
 
   There were two main submissions to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preminant computer scientist, called the "father of analysis algorithms" tackled the problem by originating a ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Rithcie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his controbutions to Unix in chapter 6. Here is his answer:
@@ -241,7 +242,7 @@ Stallman disagreed with these concepts as they hindered the ability of the users
 
  In late 1985 the [FSF](http://www.fsf.org/ "FSF") -- *Free Software Foundation*, was formed to be the holder of all the intellectual property of the GNU project with the motto:
  
- > “Our mission is to preserve, protect and promote the freedom to use, study, copy, modify, and redistribute computer software, and to defend the rights of Free Software users.”
+ > *“Our mission is to preserve, protect and promote the freedom to use, study, copy, modify, and redistribute computer software, and to defend the rights of Free Software users.”*
  
 #### GCC, BASH, and GNU Tools 
 
