@@ -592,7 +592,7 @@ How successful is this strategy? By 2012 Red hat became the first Linux based co
   
   The other major point of contention is with all the changes in systemd to the boot process, many other pieces of software need to change as well.  Linux has always been about software choice but the GNOME desktop developers have chosen to hard link/integrate with systemd. Meaning that if your operating system uses systemd instead of SysVinit - then you are basically forced to use GNOME3 as a Desktop environemnt.
   
-  This leads to an interesting point.  All major distros have moved to systemd.  Debian was the last hold out and they actually had a civil war and split over this issue.  Half of the developers left and went to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focusing on removing all the systemd and udev dependencies and putting choice back in the user's hand.
+  This leads to an interesting point.  All major Linux distros have moved to systemd.  Debian was the last hold out and they actually had a civil war and split over this issue.  Half of the developers left and went to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focusing on removing all the systemd and udev dependencies and putting choice back in the user's hand.
   
   Systemd has many nice and needed features.  Leonart is updating pieces of Linux that haven't been touched in ages. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. I will talk more on the technical aspects of systemd in the chapter 11.
      
