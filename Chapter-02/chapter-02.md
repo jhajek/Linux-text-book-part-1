@@ -107,10 +107,10 @@ Thompson's Unix success was also a byproduct of its main design philosophy:
   * I/O is redirectable between small executables 
     + Small tools that do one and only one thing well
     + Output of one command becomes the input of another command.
-    + Complicated applications are built by chaining many outputs of small executables together with *pipes* -> "|"
+    + Complex applications are built by chaining the output of small executables together with *pipes* -> "|"
     
   The best demonstration of these tennants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\ "Jon Bently") in 1986 to:
-  
+
 > *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.* 
 
   There were two main submissions to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preminant computer scientist, called the "father of analysis algorithms" tackled the problem by originating a ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Rithcie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his controbutions to Unix in chapter 6. Here is his answer:
