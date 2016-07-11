@@ -505,6 +505,8 @@ How successful is this strategy? By 2012 Red hat became the first Linux based co
   
   While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix.  Unfortunately the BSD code splintered into 3 then 4 main distros pulling the already thin developer group that hadn't shifted to Linux development, even thinner. BSD is not Linux and technically not Unix but function in a vary similar manner.
   
+#### FreeBSD 
+
 ![*FreeBSD*](images/Chapter-02/Linux-logos/FreeBSD/128px-Freebsd_logo.svg.png "FreeBSD")
    
    * Released in November 1994
@@ -541,7 +543,7 @@ How successful is this strategy? By 2012 Red hat became the first Linux based co
    * Started a fork of NetBSD at the end of 1995   
    * OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [others](http://www.openbsd.org/innovations.html "BSD Innovaations") comes out of this project.
      + [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
-     + Recognizing the standard of SSH (secure shell) they are moving to port and integrate SSH nativly to Windows. 
+     + Recognizing the standard usage of SSH (secure shell) they are moving to port and integrate SSH nativly to Windows. 
    * Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most secure OS.
 
 #### NetBSD
@@ -553,7 +555,7 @@ How successful is this strategy? By 2012 Red hat became the first Linux based co
    
 #### Minix 3 
    
-   * [__Minix 3__](https://en.wikipedia.org/wiki/MINIX_3 "Minix 3") released October of 2005 
+   * [Minix 3](https://en.wikipedia.org/wiki/MINIX_3 "Minix 3") released October of 2005. 
    * Since then the OS went from a teaching tool to a product being used commercially.
    * Began using NetBSD user space applications to give it a GUI and make it a viable commercial product. 
 
@@ -580,11 +582,11 @@ How successful is this strategy? By 2012 Red hat became the first Linux based co
   *  [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
       + Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
         
-### The Impending Linux Civil War?
+## Phase Five of Unix Maturity - Linux Civil War?
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
-  Not since Linux Torvalds has a man been so loved or reviled in the Linux community.  Lennart is a name you need to know as well [^18].  He is currently a developer for Red Hat, but has also developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  His current project is systemd.  Systemd is a replacement for the traditional SysVinit program that started all of the Operating Systems process upon boot.  
+  Not since Linux Torvalds has a man been so loved or so reviled in the Linux community.  Lennart is a name you need to know as well [^18].  He is currently a developer for Red Hat, but has also developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  His current project is systemd.  Systemd is a replacement for the traditional SysVinit program that started all of the Operating Systems process upon boot.  
   
   Poettering has angered many people by breaking certain Unix traditions and conventions in the name of speed and features.  The Unix philosophy of having little programs do one thing well goes right out the window. Poettering argues that philosophy is a byproduct of an era where computing was slow and disk space was precious.  If Linux wants to be taken serious like Mac and Windows, these changes are not only necessary but actually closer to the core Unix philosophy then what is currently in place.  Lennart Poettering along with [Kay Sievers](https://en.wikipedia.org/wiki/Kay_Sievers "Sievers") are leading the systemd charge as the lead developers.  Through out this book we will investigate their technology, and while impressive, needs to be examined in closer detail.  
   
