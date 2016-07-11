@@ -112,7 +112,7 @@ Thompson's Unix success was also a byproduct of its main design philosophy:
 
 > *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.* 
 
-  There were two main submissions to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preminant computer scientist, called the "father of analysis algorithms" tackled the problem by originating a ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Rithcie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his controbutions to Unix in chapter 6. Here is his answer:
+  There were two main answers to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preminant computer scientist, called the "father of analysis algorithms" tackled the problem by originating an ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Rithcie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his controbutions to Unix in chapter 6. Here is his answer:
 
 ```bash
 tr -cs A-Za-z '\n' |
