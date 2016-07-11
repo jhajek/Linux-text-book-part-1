@@ -484,7 +484,7 @@ Red hat's founder Mark Ewing had been an IBM employee prior to forming Red hat. 
 
 The key to RHEL's success in the enterprise is its long term stability.  Much Windows Servers with which it competes, the application platform is expected to run for 5+ years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red hat instead takes "snapshots" from the Fedora project and freezes them to produce RHEL versions.  For example, as of fall 2015 the released version of RHEL was 7.1 which is a freeze of the technology from Fedora 19, which was released July of 2013.  
   
-How successful is this strategy? By 2012 Red hat became the first Linux based company to make a billion dollars in a physical year.  But this success brought about a serious opensource question, if you have a successful product like RHEL, since you are using GPL based opensource code--you have to opensource your code--that means anyone else can redistribute your code freely, in theory eating your lunch.     
+How successful is this strategy? By 2012 Red hat became the first Linux based company to make a billion dollars in a physical year.  But this success brought about an additional serious opensource question; RHEL is licensed under the GPLv2 Free Software license, which requires that all source code for your product to be freely and openly available. That means anyone can examine, modify, and redistribute your code for their own product as well. The CentOS project did just that.
  
 #### CentOS
   
