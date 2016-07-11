@@ -1,5 +1,5 @@
 /* This defines styles and classes used in the book */
-body { margin: 5%; text-align: justify; font-size: medium; font-family: Lato, Ubuntu, 'Lucida Console', Consolas, Monaco, monospace, serif; }
+body { margin: 5%; text-align: justify; font-size: medium; font-family: "Segoe UI", Lato, Ubuntu, 'Lucida Console', Consolas, Monaco, monospace, serif; }
 code { font-family: monospace; }
 h1 { text-align: left; }
 h2 { text-align: left; }
