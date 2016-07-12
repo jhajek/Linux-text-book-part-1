@@ -8,7 +8,7 @@
 
 As you browse this book, let me ask you a question; are you using a Linux or Unix based device?  It might seem like a strange question but you would be surprised.  Are you using an Android based phone or tablet?  Android is Linux.  Are you using OSX or macOS? The Mac operating system is BSD based under the hood.  Some pieces of this book may seem frustrating at first, after all the roots of Linux and Unix go back 30-40 years in some cases.  Understanding these concepts and what these creators were thinking will help you master the Linux environment.
 
-__Chapter 2 Objectives__
+### Chapter 2 Objectives
 
   * Understand how and why the Unix Operating System was created 
   * Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
@@ -19,7 +19,7 @@ __Chapter 2 Objectives__
   * Understand the nature of modern commercial distributions of Linux and Unix operating systems
   * Understand the principles and key differences of *"free/libre software"* and *"opensource software"*
 
-__Outcomes__
+### Outcomes
  
  At the completion of this chapter a student will understand and be able to explain the history of the environment in which Unix and Linux were created. You will be able to relate key names; *Thompson, Ritchie, Stallman, McIlroy and Torvalds* to their respective technological contributions to free and opensource software.  You will be able to understand what a distribution is and how free and opensource software relates to proprietary software.
 
