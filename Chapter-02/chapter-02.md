@@ -584,7 +584,7 @@ Until about 2014, Red hat had a very frosty relationship with the CentOS develop
   *  [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
       + Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
         
-## Phase Five of Unix Maturity - Linux Civil War?
+## Phase Five of Unix Maturity - Linux Civil War
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
