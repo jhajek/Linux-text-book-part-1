@@ -706,7 +706,6 @@ or <a href="http://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, <a 
 [^15]: By openindiana.org [Public domain]
 <a href="https://commons.wikimedia.org/wiki/File%3AOpenIndiana_logo_large.svg">via Wikimedia Commons</a> 
  
- 
 [^16]: By Sun Microsystems (OpenSolaris) <a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a> 
 or <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>, <a href="https://commons.wikimedia.org/wiki/File%3AOpenSolaris_Logo.svg">via Wikimedia Commons</a>
   
