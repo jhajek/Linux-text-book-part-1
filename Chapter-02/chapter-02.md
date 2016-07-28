@@ -507,7 +507,7 @@ Not to be out done, Oracle saw that many of their customers were paying Red hat 
     
 ### Unix and the BSD Family Distros
   
-While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix.  Unfortunately the BSD code splintered into 3 then 4 main distros pulling the already thin developer group that hadn't shifted to Linux development, even thinner. BSD is not Linux and technically not Unix but function in a vary similar manner.
+While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix.  The BSD code splintered into 3, then 4 main distros pulling the already thin developer pool that hadn't shifted to Linux development, even thinner. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.
   
 #### FreeBSD 
 
@@ -517,12 +517,15 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
    * Essentially the inheritor of the BSD code base
    * Largest BSD implementation.
    * Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
+   * Run by an elected board that drives development decisions and policies
      
 #### PC-BSD
 
-   *  FreeBSD based distro with a focus on user interface and experience. 
+   *  FreeBSD based distro with a focus on user interface and experience.
+   *  Not a fork
    *  Provides friendly installers and package managers for users 
    *  Created new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
+   *  Project heavily influenced by Kris Moore
 
 #### Ghost BSD
 
@@ -536,7 +539,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
    
    * Fork of FreeBSD in April of 2005 by Matthew Dillon.
    * Focused on unique techniques in handling multiprocessing in the FreeBSD kernel
-   * Introduced a new filesystem called [HAMMER](https://en.wikipedia.org/wiki/HAMMER "HAMMER FS") and HAMMER2
+   * Introduced a new filesystem called [HAMMER](https://en.wikipedia.org/wiki/HAMMER "HAMMER FS") and HAMMER
 
 #### OpenBSD
    
@@ -561,7 +564,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
    
    * [Minix 3](https://en.wikipedia.org/wiki/MINIX_3 "Minix 3") released October of 2005. 
    * Since then the OS went from a teaching tool to a product being used commercially.
-   * Began using NetBSD user space applications to give it a GUI and make it a viable commercial product. 
+   * Began using NetBSD userland applications for a GUI and package management. 
 
 ### Solaris Based Unix Distros
         
