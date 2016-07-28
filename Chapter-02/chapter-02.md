@@ -614,21 +614,21 @@ Either induvidually, as a class, or get into groups and watch the documentary mo
 
 1. Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2002)? (You may need to research Microsoft Anti-trust case.)
 
-1. What influence did Bill Gates' 1976 *"Open Letter to Hobbyists"* have later on for the Free Software/Opensource movement, if any?
+1. When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his main complaint?  Why or why not?
 
-1. Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
-
-1. Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
+1. Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?  Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
 
 1. Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
 
 1. What were the two commercial Linux companies featured in the movie?
 
-1. What is Red Hat Linux's stock price today?
+1. What is Red Hat Linux's stock price today?  What is VA Linux's stock price today? (Hint VA Linux was sold and now belongs to another company, find that companies stock price.)
 
-1. What is VA Linux's stock price today?
+1. Accroding to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution?
 
-1. How does Richard Stallman react at the end of the movie of the success of the Linux kernel to the exclusion of the GNU tools?  
+1.  What was the first major commercial company to opensource a key product?  What did that product eventually become?
+
+1. How does Richard Stallman react at the end of the movie to the success of the Linux kernel; to the exclusion of the GNU tools?  
 
 1. What is the main argument between *"Free Software"* and *"Open Source"*?
 
