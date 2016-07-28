@@ -138,7 +138,7 @@ The next logical step was that Thompson and Ritchie went to work extending "B" w
 
 ### Assembler and C Language Comparison
 
-[Hello World in x86 Intel Assembly for Linux](http://en.literateprograms.org/Hello_World_%28Assembly_Intel_x86_Linux%29 "x86 Linux Intel Assembly")
+[Hello World](http://en.literateprograms.org/Hello_World_%28Assembly_Intel_x86_Linux%29 "x86 Linux Intel Assembly") in x86 Intel Assembly for Linux.
 
 ```nasm
 section .data
@@ -162,7 +162,7 @@ _start:
 	int	0x80
 ```
 
-[Hello World in x86_64 Intel Assembly for Linux](https://gist.github.com/adrianratnapala/1321776 "Linux assembly")
+[Hello World](https://gist.github.com/adrianratnapala/1321776 "Linux assembly") in x86_64 Intel Assembly for Linux
 
 ```nasm
 hello:
@@ -185,12 +185,12 @@ _start:
 
 [C Language equivalent of above code](https://en.wikipedia.org/wiki/List_of_Hello_world_program_examples#C "C Hello World")
 
-```c
+```
 #include <stdio.h>
 
 int main(void)
 {
-    printf("Hello, world!\n");
+    printf("Hello, world!");
 }
 ``` 
  
