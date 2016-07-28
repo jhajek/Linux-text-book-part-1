@@ -185,7 +185,7 @@ _start:
 
 [C Language equivalent of above code](https://en.wikipedia.org/wiki/List_of_Hello_world_program_examples#C "C Hello World")
 
-```
+```gcc
 #include <stdio.h>
 
 int main(void)
