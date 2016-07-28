@@ -648,10 +648,11 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 
 ### Lab
 
-This activity can be induvidual or group based.
+1.  Find 3 technology news websites that deal with Linux and Opensource releases and software (exclude the home pages of freee and opensource distributions)
 
+1.  Find at least 3 podcasts related to free and opensource technology.
 
-2. Install [Oracle VirtualBox](http://www.virtualbox.org "VirtualBox homepage") on your own laptop or if a lab computer is provided.  Note if you are already using desktop Linux or have access to a system with Linux on it, this step is optional, but VirtualBox runs on Linux as well.
+Additional Idea - have everyone post their finds to a discussion board and require each entry to be unique.
 
 #### Footnotes
 
