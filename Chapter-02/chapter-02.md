@@ -507,7 +507,7 @@ Not to be out done, Oracle saw that many of their customers were paying Red hat 
     
 ### Unix and the BSD Family Distros
   
-While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix.  The BSD code splintered into 3, then 4 main distros pulling the already thin developer pool that hadn't shifted to Linux development, even thinner. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.
+While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume of the BSD forks of Unix.  The BSD code splintered into 3 main families or distros that are all descended from the original BSD Unix project.  This leaves large pieces of BSD code compatible with each other.  pulling the already thin developer pool that hadn't shifted to Linux development, even thinner. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.  The BSD world is not immune from forks and divisions.  The 
   
 #### FreeBSD 
 
