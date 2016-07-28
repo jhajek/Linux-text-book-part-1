@@ -612,7 +612,7 @@ It is important to the understand the current state of Linux usage. [Learn more 
 
 Either induvidually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001.  The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
-1. Based on the movie's tone and time - why would you think there was a definite anti-Microsoft tone at the time of the movies making (~2002)?
+1. Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2002)? (You may need to research Microsoft Anti-trust case.)
 
 1. What influence did Bill Gates' 1976 *"Open Letter to Hobbyists"* have later on for the Free Software/Opensource movement, if any?
 
