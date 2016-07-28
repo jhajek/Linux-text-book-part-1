@@ -610,7 +610,7 @@ It is important to the understand the current state of Linux usage. [Learn more 
 
 ### Review Questions
 
-Get into groups and answer/discuss these questions
+Either induvidually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001.  The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
 1. Based on the movie's tone and time - why would you think there was a definite anti-Microsoft tone at the time of the movies making (~2002)?
 
@@ -650,7 +650,6 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 
 This activity can be induvidual or group based.
 
-1. There is a documentary movie called [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. Answer the questions listed under "Review Questions" above.
 
 2. Install [Oracle VirtualBox](http://www.virtualbox.org "VirtualBox homepage") on your own laptop or if a lab computer is provided.  Note if you are already using desktop Linux or have access to a system with Linux on it, this step is optional, but VirtualBox runs on Linux as well.
 
