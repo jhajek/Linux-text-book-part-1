@@ -369,7 +369,7 @@ The "Cathedral and the Bazaar" was influential in helping the Netscape Corporati
   
 Richard Stallman and thde FSF alleged the OSI was willing to make freedom compromises in order to make larger productivity gains with opensource software fired back in his article ["Open Source Misses the Point"](http://www.gnu.org/philosophy/open-source-misses-the-point.html "Open Source Misses the Point") The terms do overlap, but Free Software and opensource but ultimately have two divergent meanings and *free* software is *not* opensource.  
   
-There has been some compromise between the two campus by using the name __FLOSS__, [Free Libre and Open Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software\#FLOSS "FLOSS"), but the FSF rejects any licensing that allows a user's freedom to be restricted.  One way to conceptualize the difference is would be to look at the concept of [DRM software](https://en.wikipedia.org/wiki/Digital_rights_management "DRM"), which is basically the copy protection schemes on DVDs and digital music downloads.  The OSI group would not be opposed to build opensource DRM software.  But the FSF would be opposed to the entire concept of DRM--which is a tool they believe restricts a user's freedom to play their DVD anywhere and in any way. 
+There has been some compromise between the two campus by using the name __FLOSS__, [Free Libre and Open Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software\#FLOSS "FLOSS"), but the FSF rejects any licensing that allows a user's freedom to be restricted.  One way to conceptualize the difference would be to look at the concept of [DRM software](https://en.wikipedia.org/wiki/Digital_rights_management "DRM"), which is basically the copy protection schemes on DVDs and digital music downloads.  The OSI group would not be opposed to build opensource DRM software.  But the FSF would be opposed to the entire concept of DRM--which is a tool they believe restricts a user's freedom to play their DVD anywhere and in any way. 
 
 You can read Raymond's two seminal books on Unix and opensource philosophy online as they are free and opensource licensed: 
 
@@ -378,13 +378,15 @@ You can read Raymond's two seminal books on Unix and opensource philosophy onlin
 
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux 
 
-As the 1990s came to a close we began to see established companies adopting and using opensource projects in enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the GNU coretools and a GUI interface.  Of all the Linux companies that started at that time, Red Hat Linux is one of the few remaining and by far the most successful.  Most of all of the Linux distributions started pre-2003 no longer exist.  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap")  
+As the 1990s came to a close we began to see established companies adopting and using opensource projects in enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the GNU coretools and a GUI interface.  Of all the Linux companies that started at that time, Red Hat Linux is one of the few remaining and by far the most successful. How succesful?  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
 
-### The Rise of Commercial Linux and Modern Linux Distributions
+### Modern Linux Distributions
 
-As the new century dawned a new aspect of the *free* and *opensource* debate began.  We begin to see companies creating and selling complete Linux distributions. The realization of Stallman's dream the GNU operating system was now at hand.  Companies began to combine the opensource Linux kernel and the free software GNU tools, and by integrating GUI tools such as X11, KDE, and the GNU GNOME project began to create Linux distributions, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well. 
+As the new century dawned, the realization of Stallman's dream for the the GNU operating system was now a reality.  Companies began to combine the opensource Linux kernel, free GNU coretools, and by integrating GUIs such as X11, KDE, and the GNU GNOME project, began to create what one would say was a GNU/Linux based operating system. Each company mad etheir own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well. 
   
-It is curious to see that there were a few small commercial BSD distributions, but none of them rose to prominence as the BSD distros remained in the hands of their repective foundations. AS fo 2016, we have almost 20 years of Linux Kernel and Linux distribution work. Essentially Linux distributions hail from two distinct families: Debian and Red Hat.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
+It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might ask that without the financial backing of a commercial entity could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.     
+
+As fo 2016, we have almost 20 years of Linux Kernel and Linux distribution work. Current Linux distributions hail from two distinct primary families: __Debian__ and __Red Hat__.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
   
 #### Additional Popular Linux Distros
 
@@ -411,7 +413,7 @@ The Debian family contains 4 major sub-families: [^9]
 
 ![*Debian*](images/Chapter-02/Linux-logos/Debian/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
-The Debian distribution (pronounced *"dehb-ian"* officially but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercially backed Linux distro still in existence.  The current release is Debian 8.5 codenamed Jessie, as of June 2016.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and at the [history of Debian](https://www.debian.org/doc/manuals/project-history). There are [currently 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") in existance according to distrowatch.com.
+The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercially backed Linux distro still in existence.  The current release is Debian 8.5 codenamed Jessie, as of June 2016.  The Debian project and its history can be found at [http://debian.org](https://www.debian.org/intro/about) and at the [history of Debian](https://www.debian.org/doc/manuals/project-history). There are [currently 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") in existance according to distrowatch.com.
  
 These are the main points of Debian distro and the key I believe to their long term success and usage across the Linux landscape:
    
@@ -428,9 +430,9 @@ These are the main points of Debian distro and the key I believe to their long t
 
 ![*Ubuntu Linux*](images/Chapter-02/Linux-logos/Ubuntu/128px-Ubuntu_logo_copyleft_1.svg.png "Ubuntu Linux")
  
-Ubuntu Linux is a unique distribution [^10].  It is entirely based on Debian.  It is Debian repackaged with a focus on applications that "just work."  Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was unnerved that Windows had such a dominant position in the PC market.  He had been a Debian developer, but felt that the lack of a corporate sponsor in some ways hindered Debian from catching market share from Windows.  He set out to make a Debian based distro which he called Ubuntu.  Shuttleworth is from South Africa and Ubuntu is a Zulu meaning *"community"*. Shuttleworth wanted his Linux distro to be people friendly and work really well out of the box--like Windows.  
+Ubuntu Linux is a unique distribution [^10].  It is entirely based on Debian.  It is Debian repackaged with a focus on applications that "just work."  Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was unnerved that Windows had such a dominant position in the PC market.  He had been a Debian developer, but felt that the lack of a corporate sponsor in some ways hindered Debian from catching market share from Windows.  He set out to make a Debian based distro which he called Ubuntu.  Shuttleworth is from South Africa and Ubuntu is a Zulu word meaning *"community"*. Shuttleworth wanted his Linux distro to be people friendly and work really well out of the box--like Windows.  
    
-By 2004 Red Hat, who had owned the desktop Linux market until then, decided to exit and focus on selling Linux based server operating systems to corporate entities. Red hat felt there was little money to be made in that market where the code was given away freely. This left a void that Ubuntu rushed to fill and they did it well. By 2006, Mark Shuttleworth who had started the Thwate SSL security company which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux.  
+In 2004 Red Hat, who had owned the desktop Linux market until then, decided to exit and focus on selling Linux based server operating systems to corporate entities. Red hat felt there was little money to be made in that market where the code was given away freely. This left a void that Ubuntu rushed to fill and they did it well. By 2006, Mark Shuttleworth who had started the Thwate SSL security company, which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux.  
    
 ![*Mark Shuttleworth*](images/Chapter-02/People/Mark-Shuttleworth/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg "Mark Shuttleworth")
    
@@ -466,7 +468,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 
 ### Red Hat Family
     
-Red Hat Linux was formed shortly after the Debian project launched in 1995 by Marc Ewing and Bob Young.  Red Hat source code is currently shared across three main distributions: Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. You can read more about Red Hat from their website:
+Red Hat Linux was formed after the Debian project Marc Ewing and Bob Young in 1999.  Red Hat source code is currently shared across three main distributions: The Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. 
    
   *  [About Red Hat](http://www.redhat.com/en/about/company)
   *  [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
@@ -515,31 +517,33 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
    
    * Released in November 1994
    * Essentially the inheritor of the BSD code base
-   * Largest BSD implementation.
+   * Largest BSD implementation used by WhatsApp and Netflix.
+   * No direct commercial backing, instead run by a non-profit foundation.
    * Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
-   * Run by an elected board that drives development decisions and policies
+   * Board of directors are elected and drives development decisions and policies
      
 #### PC-BSD
 
    *  FreeBSD based distro with a focus on user interface and experience.
-   *  Not a fork
    *  Provides friendly installers and package managers for users 
    *  Created new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
-   *  Project heavily influenced by Kris Moore
+   *  Project heavily influenced and started by Kris Moore
 
 #### Ghost BSD
 
    *  FreeBSD based distro with a focus on user interface and experience. 
-   *  Provides friendly installers and package managers for users
-   *  Tries to match the usability of Mac or Windows with the foundation and principals of FreeBSD
+   *  Provides friendly installers and package managers for users 
+   *  Tries to match the usability of Mac or Windows with the foundation and principles of FreeBSD
 
 #### DragonFly BSD 
 
 ![*DragonFly BSD*](http://www.dragonflybsd.org/images/small_logo.png)
    
    * Fork of FreeBSD in April of 2005 by Matthew Dillon.
-   * Focused on unique techniques in handling multiprocessing in the FreeBSD kernel
-   * Introduced a new filesystem called [HAMMER](https://en.wikipedia.org/wiki/HAMMER "HAMMER FS") and HAMMER
+   * Has significantly diverged from the original FreeBSD code base.
+   * Maintains its own package repositories
+   * Focused on unique techniques to handle multiprocessing in the FreeBSD kernel
+   * Introduced a new filesystem called [HAMMER and HAMMER2](https://en.wikipedia.org/wiki/HAMMER "HAMMER FS")
 
 #### OpenBSD
    
