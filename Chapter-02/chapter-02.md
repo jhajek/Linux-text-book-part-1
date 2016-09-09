@@ -6,13 +6,13 @@
 
 > [*"If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do."* Linus Torvalds](http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI "Quote from Linus Torvalds")
 
-As you browse this book, let me ask you a question; are you using a Linux or Unix based device?  It might seem like a strange question but you would be surprised.  Are you using an Android based phone or tablet?  Android is Linux.  Are you using OSX or [macOS](https://en.wikipedia.org/wiki/MacOS_Sierra "macOS")? The Mac operating system is BSD based under the hood.  Some pieces of this book may seem frustrating at first, after all the roots of Linux and Unix go back 30-40 years in some cases.  Understanding these concepts and what these creators were thinking will help you master the Linux environment.
+Let me start by asking you, what operating system do you use? It might seem like a strange question but you would be surprised at the answer.  Are you using an Android based phone or tablet?  Android is Linux.  Are you using OSX or [macOS](https://en.wikipedia.org/wiki/MacOS_Sierra "macOS")? The Mac operating system is BSD based under the hood.  Are you using the internet on Windows?  That TCP/IP stack came from BSD UNIX.  Some pieces of this book may seem frustrating at first, after all the roots of Linux and Unix go back 30-40 years in some cases.  Understanding these concepts and what these creators were thinking will help you master the opensource environment.
 
 ### Chapter 2 Objectives
 
   * Understand how and why the Unix Operating System was created 
   * Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
-  * Understand the contributions of Richard Stallman to Unix, Linux, GNU, and FLOSS
+  * Understand the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and Free Software
   * Understand the contributions of Linus Torvalds to the creation of Linux
   * Understand and explain how the AT&T and BSD lawsuit enabled the proliferation of Linux 
   * Be able to describe and differentiate the five phases of Unix maturity
@@ -21,7 +21,7 @@ As you browse this book, let me ask you a question; are you using a Linux or Uni
 
 ### Outcomes
  
-At the completion of this chapter a student will understand and be able to explain the history of the environment in which Unix and Linux were created. You will be able to relate key names; *Thompson, Ritchie, Stallman, McIlroy and Torvalds* to their respective technological contributions to free and opensource software.  You will be able to understand what a distribution is and how free and opensource software relates to proprietary software.
+At the completion of this chapter a student will understand and be able to explain the history of the environment in which Unix and Linux were created. You will be able to relate key names; *Thompson, Ritchie, Stallman, and Torvalds* to their respective technological contributions to free and opensource software.  You will be able to understand what a distribution is and how free and opensource software relates to proprietary software.
 
 *Convention Note*
 
@@ -466,7 +466,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 
 ### Red Hat Family
     
-Red Hat Linux was formed after the Debian project Marc Ewing and Bob Young in 1999.  Red Hat source code is currently shared across three main distributions: The Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. Currently there are [25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or as Fedora calls them *"spins"* -- this term is unique to Fedora.
+Red Hat Linux distribution was formed after the Debian project by Marc Ewing and Bob Young.  The company went public August 11th, 1999.  Red Hat source code is currently shared across three main distributions: The Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. Currently there are [25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or as Fedora calls them *"spins"* -- this term is unique to Fedora.
    
   *  [About Red Hat](http://www.redhat.com/en/about/company)
   *  [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
@@ -593,31 +593,34 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
-Not since Linux Torvalds has a man been so loved or so reviled in the Linux community. He is currently a developer for Red Hat[^18], and has also developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  His current project is *systemd*.  Systemd was designed as a modern replacement for the traditional SysVinit program that is responsible for starting all system processes in Unix and Linux upon boot.
+Not since Linux Torvalds has a man been so loved or so reviled in the Linux community. He is currently a developer for Red Hat[^18], and has also developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  His current project is *systemd*.  Systemd was designed as a modern replacement for the traditional SysVinit program.  SysVInit is responsible for starting all system processes in Unix and Linux upon boot.
   
-Poettering has angered many people by breaking certain Unix traditions and conventions in the name of speed and feature parity with Mac and Windows.  For him, the Unix philosophy of having small programs do one thing well goes right out the window. Poettering argues that philosophy is a byproduct of an era where computing was slow and disk space was precious.  If Linux wants to be taken serious like Mac and Windows, these changes are not only necessary but actually closer to the core Unix philosophy then what is currently in place.  Lennart Poettering along with [Kay Sievers](https://en.wikipedia.org/wiki/Kay_Sievers "Sievers") are leading the systemd charge as the lead developers.  Through out this book we will investigate their technology, and while impressive, needs to be examined in closer detail.  
+Poettering has angered many people by breaking certain Unix traditions and conventions in the name of speed and feature parity with Mac and Windows.  For him, the Unix philosophy of having small programs do one thing well is a byproduct of the time of computers with small amounts of storage and low processing power.  He has no sentimentality for the work of Thompson and Ritchie, if something more efficent can be created. Lennart argues, if Linux wants to be taken serious like Mac and Windows, these changes are not only necessary but actually closer to the core Unix philosophy then what SysVInit provides.  Lennart Poettering along with [Kay Sievers](https://en.wikipedia.org/wiki/Kay_Sievers "Sievers") are leading the systemd charge as the lead developers.  Through out this book we will investigate their technology, while impressive, brings some questions about free and opensource to the table.  
   
-The other major point of contention is with all the changes in systemd to the boot process, many other pieces of software need to change as well.  Linux has always been about software choice but the GNOME desktop developers have chosen to hard link/integrate with systemd. Meaning that if your operating system uses systemd instead of SysVinit - then you are basically forced to use GNOME3 as a Desktop environemnt.
+The other major point of contention is with all the changes in systemd to the boot process, many other pieces of software need to change as well.  Linux has always been about software choice but the GNOME desktop developers have chosen to hard link/integrate directly with systemd. Meaning that if your operating system uses systemd instead of SysVinit (which is now all Linux distros essentially) - then you are basically forced to use GNOME3 as a Desktop environemnt.  Note that BSD still uses SysVInit; systemd is a pure Linux-ism and not compatable with BSD. 
   
 This leads to an interesting point.  All major Linux distros have moved to systemd.  Debian was the last hold out and they actually had a civil war and split over this issue.  Half of the developers left and went to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focusing on removing all the systemd and udev dependencies and putting choice back in the user's hand.
   
-Systemd has many nice and needed features.  Leonart is updating pieces of Linux that haven't been touched in ages. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. I will talk more on the technical aspects of systemd in the chapter 11.
+Systemd has many nice and needed features.  Leonart is updating pieces of Linux that haven't been touched in ages. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.
+
+### Conspiracy Theory
      
-The fears of Linux users are that systemd will grab dependencies and eventually force Linux users into a small sub-section of systemd supported software only choices. Some of the conspiracy theorists believe that since Red Hat could not coerce Linus Torvalds under their wing, that they will just innovate around him. In a sense create a vendor lock in.  Could this be a [*"embrace, extend, and extinguish"*](https://en.wikipedia.org/wiki/Embrace,_extend_and_extinguish "Embrace, extend, and extinguish") tactic that Oracle and Microsoft were once so famous for conducting on rival technologies?  What makes this all the more intriguing is that Lennart works for Red Hat.  Would Red Hat mind if this systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user?  That is a good question.  This also begs the question - can Linux survive as an independent and open software project or does it need a commercial company backing it?  Or could this be seen as Red Hat's grab for the entire Linux market?  It is too early to tell but keep a watch on what happens with systemd.
+The fears of Linux community are that systemd will continue to coerce developers to make hard dependency choices based on systemd's requirements anbd need and eventually force Linux users into a small sub-section of systemd supported software choices. Some of the conspiracy theorists believe that since Red Hat could not coerce Linus Torvalds under their wing, that they will just innovate around him in this way.  Could this be a [*"embrace, extend, and extinguish"*](https://en.wikipedia.org/wiki/Embrace,_extend_and_extinguish "Embrace, extend, and extinguish") tactic that Oracle and Microsoft were once so famous for conducting on rival technologies?  What makes this all the more intriguing is that Lennart works for Red Hat.  Would Red Hat mind if this systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user?  That is a good question.  This also begs the question - can Linux survive as an independent and open software project or does it need a commercial company backing it?  Could this be seen as Red Hat's grab for the entire Linux market?  
+
+*  [Redhat updates Fedora 23 and 24](https://blogs.gnome.org/uraeus/2015/10/28/fedora-workstation-23-24-update/ "Fedora update")
+*  [Fedora Finsihed with SysVInit](http://www.phoronix.com/scan.php?page=news_item&px=Fedora-Finish-SysVinit "Fedora and SysVinit")
 
 ## Chapter Conclusion and Summary
 
-It is important to the understand the current state of Linux usage. [Learn more about opensource licensing](http://www.openlogic.com/resources/enterprise-blog/archive/open-source-license-interpretation-made-easy)
-
-[Additional Reading on the Unix history side](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix")
+In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the founding of the UNIX operating system and hwo it lead directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software.  You were introduced to the major Linux distribution families as well as the BSD derivative distros.  Finally you were introduced to the five phases of UNIX maturity and how they relate to business and commercial interestes.  [Additional Reading on the history of UNIX and BSD can be found here.](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix")
 
 ### Review Questions
 
 Either induvidually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001.  The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
-1. Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2002)? (You may need to research Microsoft Anti-trust case.)
+1. Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2001)? (You may need to research Microsoft anti-trust case URL here)
 
-1. When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his main complaint?  Why or why not?
+1. When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint?  Why or why not?
 
 1. Would Richard Stallman enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?  Would Eric S. Raymond enter into a discussion on which is a better product: Microsoft Word or LibreOffice Writer? Why or why not?
 
@@ -625,13 +628,13 @@ Either induvidually, as a class, or get into groups and watch the documentary mo
 
 1. What were the two commercial Linux companies featured in the movie?
 
-1. What is Red Hat Linux's stock price today?  What is VA Linux's stock price today? (Hint VA Linux was sold and now belongs to another company, find that companies stock price.)
+1. What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that companies stock price.)
 
 1. Accroding to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution?
 
-1.  What was the first major commercial company to opensource a key product?  What did that product eventually become?
+1. What was the first major commercial company to opensource a key product?  What did that product eventually become?
 
-1. How does Richard Stallman react at the end of the movie to the success of the Linux kernel; to the exclusion of the GNU tools?  
+1. How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?  
 
 1. What is the main argument between *"Free Software"* and *"Open Source"*?
 

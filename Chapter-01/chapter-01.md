@@ -18,13 +18,15 @@ date: 07/30/2015
 
   __Steve Ballmer:__ *"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [1 June 2001 Chicago Sun Times](https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html "Steve Ballmer calls Linux a cancer")
 
-  When you hear the term *"free and opensource software"* what comes to mind? Do you agree with these quotes?  Do you disagree? The question came to my mind often during my time teaching courses on Linux.  A thought occurred to me that the arena of software that cover *"free and opensource"* is more than just Linux.  In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within. 
+  When you hear the term *"free and opensource software"* what comes to mind? Do you agree with these quotes?  Do you disagree? The question came to my mind often during my time teaching courses on opensource.  Most people are exposed to opensource through using Linux either in school or at work. In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within. 
   
   This text strives to be different than other books in the market in two areas;  first the philosophy of free and opensource software and its origin and impact upon our computing world.  
   
-  Second, this book will cover the basic technical structure and how to use free and opensource operating systems--Unix, Linux, and BSD based.      
+  Second, this book will cover the basic technical structure and how to use free and opensource operating systems--Unix, Linux, and BSD based systems.  
   
-  __For instructors__ In addition to the text material this book includes:
+###For Instructors
+
+In addition to the text material this book includes:
 
   *  Chapter review questions with answers in Appendix B
      + Online quizzes with support for Blackboard importing 
@@ -38,13 +40,15 @@ date: 07/30/2015
    
   The text of the book is opensource and build instructions are in our GitHub repository for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo")  Instructors can feel free to fork the repo and submit pull requests.  The rational behind this is now we have a living document that can be changed and updated and republished quickly.  
 
- __For students__ all source code from this book as well as examples are available on our GitHub page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") 
+###For Students
 
-  Part of this book was inspired by a quote from my friend in regards to Linux textbooks, he said, *"Most text books are good, but then they just add in content from out of nowhere."* I had that same feeling and when he expressed it in words it hit me.  At the same time, I got the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux.
+All source code from this book as well as examples are available on our GitHub page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") 
 
-  This book begins the start of your mastery of free and opensource operating systems, in addition to teaching you its technology. The aim is to teach you about the history and philosophy of Linux so you can understand the environment surrounding its origin: where it is going and why you are using it. 
+Part of this book was inspired by a quote from my friend in regards to Linux textbooks, he said, *"Most text books are good, but then they just add in content from out of nowhere."* I had that same feeling and when he expressed it in words it hit me.  At the same time, I got the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux.
+
+This book begins the start of your mastery of free and opensource operating systems, in addition to teaching you its technology. The aim is to teach you about the history and philosophy of Linux so you can understand the environment surrounding its origin: where it is going and why you are using it. 
    
-## Chapter Title Images
+### Chapter Title Images
   
  * Chapter 1 image - [http://imgs.xkcd.com/comics/operating_systems.png](http://imgs.xkcd.com/comics/operating_systems.png "Operating Systems")
  * Chapter 2 image - [http://imgs.xkcd.com/comics/open_source.png](http://imgs.xkcd.com/comics/open_source.png "Open Source")
@@ -63,7 +67,8 @@ date: 07/30/2015
  * Chapter 15 image - [http://imgs.xkcd.com/comics/tech_loops.png](http://imgs.xkcd.com/comics/tech_loops.png "Tech Loops")
  * Appendix A image - [http://imgs.xkcd.com/comics/iso_8601.png](http://imgs.xkcd.com/comics/iso_8601.png  "Dates")
  * Appendix B images - [http://imgs.xkcd.com/comics/git_commit.png](http://imgs.xkcd.com/comics/git_commit.png  "Git Commit")
-
+ * Appendix C images - 
+ 
 ### Links to Microsoft Sway Presentations
 
  * [https://doc.co/sxnt6y](https://doc.co/sxnt6y) - chapter 2
@@ -79,8 +84,7 @@ date: 07/30/2015
 ## Thanks 
 
 * Professor Sam - who taught me that it is pronounced *"etc F-stab"* not *"etc F S tab"* and how to read error messages. 
-* Professor Ray Trygstad who gave me my first real IT job and showed me the wonders of Perl.
+* Professor Ray Trygstad and Dean Robert Carlson, who gave me my first real IT job and showed me the wonders of Perl.
 * Illinois Institute of Technology who has entrusted me with much.
 * My wife and kids who supported me always.
 * Sean Hughes-Durkin who inspired me to write this book based on his quote above.
-

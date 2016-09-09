@@ -8,8 +8,7 @@ __Chapter 15 Objectives__
    * Android
    * https://icebergs.io/
    * Redhat and domination of Linux
-      + https://blogs.gnome.org/uraeus/2015/10/28/fedora-workstation-23-24-update/
-      + http://www.phoronix.com/scan.php?page=news_item&px=Fedora-Finish-SysVinit
+
       
 __Outcomes__
    

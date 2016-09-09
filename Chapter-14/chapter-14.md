@@ -10,8 +10,6 @@ __Chapter 14 Objectives__
   * Firewall
     + iptables
     + ufw
-  * apache 2
-  * mysql
   
 __Outcomes__
 
