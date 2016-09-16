@@ -1,28 +1,29 @@
 #  Hardware and Installation
 ![*Must be a Linux User...*](images/Chapter-Header/Chapter-03/surgery.png  "Understanding the Technology and Philosophy of Unix/Linux")
 
-__Chapter 3 Objectives__
+### Chapter 3 Objectives
 
-  * Know how the Linux install process works for the two major Linux Distribution families
-  * Know what a Linux distribution (distro) is
-  * Know about Linux 32-bit and 64-bit architectures and the standard installation format for a distribution
-  * Understand how to use virtualization platforms for installing Linux distributions
+  * Understand and know how to compelte the Linux and BSD Operating System Install Process for the major distributions
+  * Be able to comapre and constrast the the two major Linux Distribution family's install process with the BSD install process
+  * Understand the term *distrobution* and *distro*
+  * Understand the standard installation formats, full ISOs, minimal install ISOs, and Net-Installer ISOs and the different
+  * Understand how to use industry standard virtualization platforms for installing distributions
 
-__Outcomes__
+### Outcomes
 
-  At the end of this chapter you will understand the Linux installation process and be able to describe the process fully.  A user will also be familiar with the different processor architectures.  You will be aware of virtualization products and platforms the Linux can be installed upon. You will be able to complete a Linux operating system install.
+  At the end of this chapter you will understand hwo to compelte multiple installations of all the major Linux and BSD platforms.  You will be comfortable usingt the industry standard virtualization platform to enable rapid install of these operating systems.  You will also be familiar with and be able to differantiate between thedifferent processor architectures available.
 
-## Installation of Linux Distros
+## Installation of a Distribution
 
-  Part of the power of Linux is that it is *"free to use"*, *"free as in freedom"*  This usually translates into free to use *"cost-wise"* as well.  This makes the barrier to entry in using a Linux distro very small.   In the interceding 21 years the various distros have perfected packaging and installation has become very simple.  If you are familiar with the Windows or Mac install process then Linux will not be too different.  FreeBSD on the other hand, you will find completely alien but that is another story.  The term for a file used to install a Linux distro is called an *ISO*.  An [ISO (*"eye-so"*)](https://en.wikipedia.org/wiki/ISO_9660 "ISO 9600 standard") file is actually a standard file type that represents the contents of a CD/DVD-ROM in a single archived file format.  Since it is a standard, ISO files can be mounted within operating systems, they can be read from and even written or *"burned"* to CD/DVDs, USB, and SD cards.  The reason the ISO term and format are tied to the Linux Distro installation process is a historical one.  During the mid 90's as Linux rose to prominence at the same time CD-ROM technology began to become affordable and the method of data distribution that replaced floppy and Zip disks amongst PCs.  It made sense to create distributions that were almost the exact size of a CD-ROM because it made distributing and copying very easy Linux very easy.  In the early days of Linux it was not uncommon for a distribution to have a mailing address where you could write a letter and request premade CD versions of a distro.
+Part of the power of Linux is that it is *"free to use"*, *"free as in freedom"*  This usually translates into free to use *"cost-wise"* as well.  This makes the barrier to entry in using a Linux distro very small.   In the interceding 21 years the various distros have perfected packaging and installation has become very simple.  If you are familiar with the Windows or Mac install process then Linux will not be too different.  FreeBSD on the other hand, you will find completely alien but that is another story.  The term for a file used to install a Linux distro is called an *ISO*.  An [ISO (*"eye-so"*)](https://en.wikipedia.org/wiki/ISO_9660 "ISO 9600 standard") file is actually a standard file type that represents the contents of a CD/DVD-ROM in a single archived file format.  Since it is a standard, ISO files can be mounted within operating systems, they can be read from and even written or *"burned"* to CD/DVDs, USB, and SD cards.  The reason the ISO term and format are tied to the Linux Distro installation process is a historical one.  During the mid 90's as Linux rose to prominence at the same time CD-ROM technology began to become affordable and the method of data distribution that replaced floppy and Zip disks amongst PCs.  It made sense to create distributions that were almost the exact size of a CD-ROM because it made distributing and copying very easy Linux very easy.  In the early days of Linux it was not uncommon for a distribution to have a mailing address where you could write a letter and request premade CD versions of a distro.
 
-  As USB drives and SD Cards have since surpassed Optical Disks in speed and capacity they have come to represent the default install media.  In fact if you think about it many laptops, 2-in-1s, and even desktop PCs and Macs don't even come with an optical drive anymore.  Though many old and still usable PCs have optical drives.  One of the best tools I have found for creating bootable install media on optical disk or USB drives is [UNetbootin](http://unetbootin.github.io/ "UNetbootin").  
+As USB drives and SD Cards have since surpassed Optical Disks in speed and capacity they have come to represent the default install media.  In fact if you think about it many laptops, 2-in-1s, and even desktop PCs and Macs don't even come with an optical drive anymore.  Though many old and still usable PCs have optical drives.  One of the best tools I have found for creating bootable install media on optical disk or USB drives is [UNetbootin](http://unetbootin.github.io/ "UNetbootin").  
   
-  ![*UNetbootin initial screen*](images/Chapter-03/unetbootin.png "UNetbootin")
+![*UNetbootin initial screen*](images/Chapter-03/unetbootin.png "UNetbootin")
   
-  This tools takes away the difficulty out of making install media and with two clicks makes it happen.  It even includes an option to manually just-in-time download whichever ISO you are looking for and "burn" it to the media of your choice.  You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source.
+This tools takes away the difficulty out of making install media and with two clicks makes it happen.  It even includes an option to manually just-in-time download whichever ISO you are looking for and "burn" it to the media of your choice.  You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source.
 
-  While you can burn ISO files to media for installation on a desktop or laptop, ISO files also have utility for installing a Linux distribution into a virtualization Platform.
+While you can burn ISO files to media for installation on a desktop or laptop, ISO files also have utility for installing a Linux distribution into a virtualization Platform.
 
 ## Virtual Machines
   
