@@ -1,7 +1,7 @@
 # Shell Meta-Characters, Pipes, Search and Tools
 ![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
 
-## Chapter 6 Objectives
+## Objectives
 
 In this chapter we will be continuing our exploration of the commandline.  We will be expanding our experience of the original paradigm that Thompson and Ritchie envisioned when designing Unix.
 
@@ -12,7 +12,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
    * Understand how to use the grep command for detailed search and replace options using shell meta-characters
    * Understand compression and archiving tools and their use on the command line 
    
-### Chapter 6 Outcomes
+### Outcomes
 
   At the conclusion of this chapter you will have a definite understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the __find__ and __locate__ commands that are used to find and filter files on the system.   We will use the __grep__ tool for find and replace options and advanced parsing of file content beyond what __find__ and __locate__ can do.   Finally we will use compression tools and for creating archives and for extracting them. 
 

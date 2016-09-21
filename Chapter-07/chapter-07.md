@@ -1,7 +1,7 @@
 # Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles  
 ![*Real programmers...*](images/Chapter-Header/Chapter-07/real_programmers-2.png "vi")
 
-__Chapter 7 Objectives__
+## Objectives
 
   In the chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining there use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
 
@@ -10,7 +10,7 @@ __Chapter 7 Objectives__
 *  Understand how to use shell scripts to automate tasks
 *  Understand how to use the system PATH and modify a users profile 
 
-__Outcomes__
+### Outcomes
  
   At the outcome of this chapter a user will be able to use the vi editor for creating and manipulating text files and shell scripts.  This will give you mastery over the data on your system.  You will be comfortable creating a shell script to automate system administration tasks and you will understand how a user's system PATH and profile is modified and loaded.  This will open up the remaining chapters where we introduce additional complexity in writing shell scripts and enable greater system administration via shell scripts and using the vi editor.
 
@@ -56,21 +56,19 @@ The chart below shows the history of the __vi editor__.
 
   After some time in 1976 an AT&T co-worker George Coulouris, while working on sabbatical at Queen Mary's college London extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have dedicated ram (expensive at the time).  The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor").  Because of slow screens and the high price of memory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
   
-  Bill Joy came into the picture out at Berkely.  He helped make an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode.
-
-> Joy created vi as a hard link to ex, such that when invoked as vi, ex would automatically start up in its visual mode. Thus, vi is not the evolution of ex, vi is ex [^82].
+  Bill Joy came into the picture out at Berkely.  He helped make an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not the really the evolution of ex, vi is ex [^82].
 
 ### Relationship of vi and vim
 
  In January of 1983 AT&T's UNIX System V adopted __vi__ as their standard editor.  This put __vi__ in the hands of everyone using commercial Unix from AT&T as well as anyone using BSD Unix--which up to that point meant almost everyone in the commercial world.  But it was not until June of 1987 that [Stevie](https://en.wikipedia.org/wiki/Stevie_\(text_editor\) "STEVIE") (ST editor for VI enthusiasts), a limited vi clone appeared. In early January, 1990, Steve Kirkendall posted a new clone of vi, Elvis, to the Usenet newsgroup comp.os.minix, aiming for a more complete and more faithful clone of vi than Stevie. It quickly attracted considerable interest in a number of enthusiast communities[^83]. Andrew Tanenbaum quickly asked the community to decide one of these two editors to be the vi clone in Minix;[^84] Elvis was chosen, and remains the vi clone for Minix today.
 
- But at UC Berkeley, Keith Bostic wanted a "bug for bug compatible" replacement for Joy's vi for BSD 4.4 Lite, because the original __vi__ was encumbered by AT&T licensing because Joy had extended Thompson's original code--vi technically belonged to AT&T. Using Kirkendall's Elvis (version 1.8) as a starting point, Bostic created [nvi](https://en.wikipedia.org/wiki/Nvi "nvi"), releasing it in Spring of 1994.[^85] FreeBSD and NetBSD continue to use nvi to this day.
+ But at UC Berkeley, Keith Bostic wanted a "bug for bug compatible" replacement for Joy's vi for BSD 4.4 Lite. The original __vi__ code was encumbered by AT&T licensing because Bill Joy had extended Thompson's original code which technically belonged to AT&T. Using Kirkendall's Elvis (version 1.8) as a starting point, Bostic created [nvi](https://en.wikipedia.org/wiki/Nvi "nvi"), releasing it in Spring of 1994.[^85] FreeBSD and NetBSD continue to use nvi to this day.
 
- In 1991, Bram Moolenaar created a port of __vi__ called __vim__ *vi improved*. Vim was created under a GPL compatible free license and it is compatible with the large majority of __vi__ functionality and extends to add some modern features like unlimited undo/redo for example.  Because of this __vim__ is available for all Linux based systems.  Some distros link __vim__ to __vi__ replacing it out right.  
+ In 1991, Bram Moolenaar created a port of __vi__ called __vim__ *vi improved*. Vim was created under a GPL compatible free license and it is compatible with the large majority of __vi__ functionality and extends to add some modern features like unlimited undo/redo for example.  Because of this __vim__ is available for all Linux based systems, BSD, Windows, and others.  Some distros link __vi__ to __vim__ replacing it out right.  
    
-### vi has a Sharp learning curve 
+### vi has a Sharp Learning Curve 
 
-  Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  Learning to play the guitar is difficult in the beginning but once your have the memory muscle to do it you can become an expert player that can make beatuiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to "context" change. Use a mouse.  You will increase in speed and don't abandon it because it is hard.  You will eventually be working on systems that have no GUI at all (FreeBSD) Ubuntu Server RHEL CentOS Fedora Server you will have to use vi.
+  Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beatuiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
 
 #### vi or vim?
 
@@ -88,23 +86,23 @@ The chart below shows the history of the __vi editor__.
    
    The __vi editor__ has 3 modes.
    
-  *  COMMAND mode used to position the cursor
-  *  INSERT mode used to insert/delete text
-  *  EX mode used to issue commands that edit lines and change the display of the vi editor.
+  1)  COMMAND mode used to position the cursor
+  2)  INSERT mode used to insert/delete text
+  3)  EX mode used to issue commands that edit lines and change the display of the vi editor.
    
-To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modification commands will automatically take you to __insert mode__.  You will know you are in insert mode because the bottom of the screen will say INSERT.
+To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modification commands will automatically take you to __INSERT__ mode.  You will know you are in INSERT mode because the bottom of the screen will say INSERT.
 
 ![*vi insert*](images/Chapter-07/editors/vi/vi-insert.png "vi-insert")
    
-> __Example usage:__  Let's type a hello world message in the vi editor. Continuing from the example above, to be able to insert text to the file you need to switch modes to INSERT mode.  Hit ESC + i and then type  ```hello world!``` 
+> __Example usage:__  Let's type a hello world message in the vi editor. Continuing from the example above, to be able to insert text to the file you need to switch modes to INSERT mode.  Hit ESC then i and then type ```hello world!```  
 
 > __Example usage:__ What happens when you hit an arrow key after typing ```hello world!```?  Why is this? Remember we need to switch modes between COMMAND mode and INSERT command.
 
 ## vi Command Cheat Sheet
 
-  There are actually over 150 distinct commands in vi.   But to be proficient you need to memorize only about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger insert mode after you execute them.  For instance the ```ESC + a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT command after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard.
+  There are actually over 150 distinct commands in vi.   But to be proficient you need to memorize only about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger INSERT mode after you execute them.  For instance the ```ESC then a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT mode after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard and case matters!
 
-: Positional Commands That Trigger Insert Mode
+: Positional Commands That Trigger Insert Mode 
 
   Command                 Command Description
 -----------   ---------------------------------------------------
@@ -148,19 +146,19 @@ p                pastes the current line or lines that are in the clipboard
  ZZ              shortcut to save the current file and quit out of vi
 -----------   ----------------------------------------------------------------
 
-> __Example usage:__  Remember the previous example where we inserted text?  Now let's insert a new line of text.  How would we do it based the tables above?   We need to switch from INSERT mode back to COMMAND mode.  This time we type ```ESC + o``` to insert a newline below our cursor.  
+> __Example usage:__  Remember the previous example where we inserted text?  Now let's insert a new line of text.  How would we do it based the tables above?   We need to switch from INSERT mode back to COMMAND mode.  This time we type ```ESC then o``` to insert a newline below our cursor.  
 
 ![*vi newline insert*](images/Chapter-07/editors/vi/vi-shift-o.png "vi newline insert") 
 
-> __Example usage:__ What is the command sequence to delete a single character? You would switch to COMMAND mode by typing ```ESC + x```.   
+> __Example usage:__ What is the command sequence to delete a single character? You would switch to COMMAND mode by typing ```ESC then x```.   
 
-> __Example usage:__ What is the command sequence to delete an entire line?  You would switch to COMMAND mode by typing ```ESC + dd```.
+> __Example usage:__ What is the command sequence to delete an entire line?  You would switch to COMMAND mode by typing ```ESC then dd```.
 
-> __Example usage:__ What command sequence would you use to move the cursor position to the end of the current line? You would switch to COMMAND mode by typing ```ESC $```
+> __Example usage:__ What command sequence would you use to move the cursor position to the end of the current line? You would switch to COMMAND mode by typing ```ESC then '$'```
 
 ### vi/ex Mode
   
-  In addition to COMMAND mode and INSERT mode there is also one other mode.  This is called __ex__ mode.  This mode is the original __ex__ editor.  By hitting the ```ESC``` key and then the colon ```:``` you will now have the ability to enter additional commands not directly available in the other modes.  There are a series of commands you can execute while in __ex__ mode.  The most important is how to save and how to quit.
+  In addition to COMMAND mode and INSERT mode there is also one other mode.  This is called __EX__ mode.  This mode is the original __EX__ editor.  By hitting the ```ESC``` key and then the colon ```:``` you will now have the ability to enter additional commands not directly available in the other modes.  There are a series of commands you can execute while in __EX__ mode.  The most important is how to save and how to quit.
   
 ![*vi ex mode*](images/Chapter-07/editors/vi/vi-ex.png "vi in ex mode")  
   
@@ -186,7 +184,7 @@ p                pastes the current line or lines that are in the clipboard
 
 #### Search Forward 
 
-__ex__ mode also contains the ability to search for occurrences of text patterns within a text file while using __vi__.  By typing the combo ```ESC /``` you see a slash line at the bottom of __vi__ this allows you to search for a pattern going down from your current cursor position.  You can type ```ESC ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.  The next examples can call be recreated using the log file located in the Chapter-07 directory of the included code under the files directory.  This example uses the file named u\_ex150911\_.log which is an IIS webserver log for a Wordpress Installation.
+__EX__ mode also contains the ability to search for occurrences of text patterns within a text file while using __vi__.  By typing the combo ```ESC then /``` you see a slash at the bottom of line of the__vi__ editor. This allows you to search for a pattern from your current cursor position.  You can type ```ESC then ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.  The next examples can call be recreated using the log file located in the Chapter-07 directory of the included code under the *files* directory.  This example uses the file named ```u\_ex150911\_.log``` which is an IIS webserver log for a Wordpress Installation. Each of these commands needs to be prefaced by and ESC push to change modes.
 
 ![*vi search*](images/Chapter-07/editors/vi/vi-search.png "vi search")
 
@@ -210,7 +208,7 @@ __ex__ mode also contains the ability to search for occurrences of text patterns
 
 ### vi/ex Mode Find and Replace Globally
 
-  __vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.
+  __vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC then :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.
 
 s/Tuesday/Wednesday
 
