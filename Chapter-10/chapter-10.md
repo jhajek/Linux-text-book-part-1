@@ -1,23 +1,23 @@
 # Package Managers and Package Installation
 ![*Always check the package dependencies...*](images/Chapter-Header/Chapter-10/debian_main-2.png "Dependencies")
 
-__Chapter 10 Objectives__
+## Objectives
 
   * Learn the features of dnf, yum, and apt to install packages and dependencies in Linux
-  * Understand the nature of GNU tools gcc and make 
-  * Understand how to use the Python language interpreter in order to run Python based install scripts 
+  * Understand the nature of GNU tools gcc and make
+  * Understand how to use the Python language interpreter in order to run Python based install scripts
   * Compiling code from source
-  
-__Outcomes__
+
+### Outcomes
 
   At the conclusion of this chapter you will be able to install packages and manage dependencies through using standard package managers dnf, yum, and apt.  You will also be comfortable compiling software from source using a tar ball and python setup tools.
 
 ## Package Managers
 
-  One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (*.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had it's own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  
-  
-  Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named a ```makefile``` that includes instrcutions and ordered steps that can be repeated every time software is built.  This attributes software to be portable accross systems (ideally anyway).  ```Make``` is a utility that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program [^106].  Makefiles have an arcane syntax that not all people enjoy and over the years many people have modified and rewritten their own ```make``` system.
-  
+  One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (\*.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had it's own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  
+
+  Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named ```makefile``` that includes instructions and ordered steps that can be repeated every time software is built.  This attributes software to be portable across systems (ideally anyway).  ```Make``` is a utility that automatically builds executable programs and libraries from source code by reading files called Makefiles which specify how to derive the target program [^106].  Makefiles have an arcane syntax that not all people enjoy and over the years many people have modified and rewritten their own ```make``` system.  Here is an example:
+
 ```makefile
      all: helloworld
 
@@ -40,12 +40,12 @@ Clear as mud right?  Like many things in the Unix world, the ```makefile``` syst
 
 ### Package Managers
 
-This style of software installation put a high barrier to who could practically use Unix/Linux.  Linux distributions took to making software installation and distribution easier by introducing something initially called __Package Managers__.  These were meant to eliminate all of the above process by solving two key problems. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed.  Second package managers would solve the dependency issues by keeping track of the dependency trail and be smart enough to follow that trail before installation. 
+This style of software installation put a high barrier to who could practically use Unix/Linux.  Linux distributions took to making software installation and distribution easier by introducing something initially called __Package Managers__.  These were meant to eliminate all of the above process by solving two key problems. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed.  Second package managers would solve the dependency issues by keeping track of the dependency trail and be smart enough to follow that trail before installation.
 
 #### .deb
 
  The first package manager was __dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primitive package manager.  The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
- 
+
  A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107].  One is the control data which is listed as such:
 ```
      Package: hello
@@ -57,7 +57,7 @@ This style of software installation put a high barrier to who could practically 
      Version: 1.3-16
      Depends: libc6 (>= 2.1)
      Description: The classic greeting, and a good example
-     The GNU hello program produces a familiar, friendly greeting. 
+     The GNU hello program produces a familiar, friendly greeting.
 ```      
 
 The most important line being the __Depends__ option which controls dependencies and can prevent installation of these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Usinb ```dpkg``` is a clear step above using tarballs and compiling the code yourself. There are other tools that build on top of dpkg that are recommended to use.   Let's take a look at an example we have done before in chapter 4 where we downloaded a .deb file for the Vivaldi web browser and installed it via the Ubuntu Software Center.  Now let's perform the same action again using the ```dpkg``` command.
@@ -69,7 +69,7 @@ sudo dpkg -i ./vivaldi-beta_1.0.303.52-5_amd64.deb
 
 After executing this command you will receive an error message. What is it telling you and why?  (Hint think 3P's from the previous chapter) You will notice that the dpkg foudn that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
-> __Example Usage:__ 
+> __Example Usage:__
 ```bash
 sudo dpkg -i ./links_2.8-2_amd64.deb
 ```
@@ -81,9 +81,9 @@ Note that this command installs properly without any error message. [http://pack
 ```bash
 sudo apt-get dist-upgrade
 dpkg -l | grep linux-image
-# x.x.-xx is the version that is not the most recent version as deleting that will 
+# x.x.-xx is the version that is not the most recent version as deleting that will
 # make your system unbootable.
-# uname -a will tell you the current kernel version 
+# uname -a will tell you the current kernel version
 sudo dpkg --purge linux-image-x.x.x-xx-generic
 
 # soemetimes there are kernel dependencies and this command will fail
@@ -95,7 +95,7 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 
 #### RPM
 
- A few years after dpkg became standard on the Debian based distros, the Red Hat company created their own package manager out of necessity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.)  Red Hat created their own package manger that is used across those systems that are Fedora or RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution too.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113]. 
+ A few years after dpkg became standard on the Debian based distros, the Red Hat company created their own package manager out of necessity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.)  Red Hat created their own package manger that is used across those systems that are Fedora or RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution too.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113].
 
 > __Example Usage:__ List all installed packages:
 ```rpm -qa```
@@ -114,18 +114,18 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 
 Similar to the previous example let us download the Vivaldi RPM and install it locally.  [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com").  After selecting the Vivaldi 64 bit rpm and using the ```-i``` flag to install it, what error message is printed?  
 
-Let's try another rpm.  This one is a software called *denyhosts* this is a brute force banning tool that will lock out IP addresses that attempt to brute force connect to your server.  The rpm is located at [http://pkgs.repoforge.com/denyhosts](http://pkgs.repoforge.com/denyhosts "Denyhosts").  You can download the denyhosts-2.6.5-el6.rf.noarch.rpm.  When you run the rpm based installer what happens?  Why? 
+Let's try another rpm.  This one is a software called *denyhosts* this is a brute force banning tool that will lock out IP addresses that attempt to brute force connect to your server.  The rpm is located at [http://pkgs.repoforge.com/denyhosts](http://pkgs.repoforge.com/denyhosts "Denyhosts").  You can download the denyhosts-2.6.5-el6.rf.noarch.rpm.  When you run the rpm based installer what happens?  Why?
 
-#### Installers 
- 
+#### Installers
+
    As you can see from above package managers were a great step forward in making Linux usable beyond the ranks of Thompson, Ritchie, and Stallman.  But they still don't handle the dependency issue--they don't understand the context of auto-dependecy retrieval.  Various solutions were created but every Linux distro has pretty much settled on two families of Installers--those that match the major families.  Fedora based distros use Yum and now use DNF (as of Fedora 23) and Debian based distros use APT.  
- 
+
 ### APT
 
-Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes it possible to: 
-  
-   *  Install applications 
-   *  Remove applications 
+Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes it possible to:
+
+   *  Install applications
+   *  Remove applications
    *  Keep your applications up to date
 
 The APT installer was released in 1998, the same time that RedHat released its package manager (giving Debian a leg up and a few years head-start).  APT was the out growth of a research project called Diety run by the Debian developers.  It was planned to be a large GUI-like project, but it turns out that the APT CLI was implemented with such finesse and simplicity that all GUI plans were dropped.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock considers APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packaging Toolkit.  APT will interface with *dpkg* and has many similar commands but extends the functionality of dpkg in a critical way.  
@@ -150,7 +150,7 @@ Seeing as you may want to access a more recent build of an application that may 
 
 You can manually edit the file ```/etc/apt/sources.list``` as well and enter PPAs manually.  Once a new PPA has been added you need to run ```sudo apt-get update``` so APT can see the new repositories and add them to it's cache.
 
-> __Example Usage:__ 
+> __Example Usage:__
 ```
 sudo add-apt-repository ppa:ondrej/php5
 sudo apt-get update
@@ -159,7 +159,7 @@ sudo apt-get install php5
 
 The command ```add-apt-repository``` doesn't come standard as part of an Ubuntu distribution  On 12.04 and earlier, install the python-software-properties package: [^109] ```sudo apt-get install python-software-properties```. On 14.04 and later: ```sudo apt-get install software-properties-common```.
 
-> __Example Usage:__ The application [gwibber](http://gwibber.com/ "Gwibber") is a microblogging aggregation application.  It has a PPA where they release daily or nightly builds of their software.  This is good if you are a developer or beta-tester or a user that needs access to cutting edge feature [^110].  If you were so inclined you can add their repository: ```sudo add-apt-repository ppa:gwibber-daily/ppa``` 
+> __Example Usage:__ The application [gwibber](http://gwibber.com/ "Gwibber") is a microblogging aggregation application.  It has a PPA where they release daily or nightly builds of their software.  This is good if you are a developer or beta-tester or a user that needs access to cutting edge feature [^110].  If you were so inclined you can add their repository: ```sudo add-apt-repository ppa:gwibber-daily/ppa```
 
 There is also a PPA for Linux-libre.  *"Linux-libre is an operating system kernel and a GNU package that is maintained from modified versions of the Linux kernel. The aim of the project is to remove from the Linux kernel any software that does not include its source code, has its source code obfuscated, or is released under proprietary licenses [^111]. The downside of removing proprietary firmware from the kernel is that it will cause loss of functionality of certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards, as well as some other devices. When possible, free software replacement firmware is provided as a substitute, such as the openfwwf for b43, carl9170 and ath9k_htc wireless card drivers."*  
 
@@ -176,7 +176,7 @@ These are the short steps:
   * To use this repo edit the ```/etc/apt/sources.list``` file on your system and add the line at the bottom:
      + ```deb http://linux-libre.fsfla.org/pub/linux-libre/freesh/ freesh main```
      + ```sudo apt-get update```
-     + ```sudo apt-get install linux-libre64``` 
+     + ```sudo apt-get install linux-libre64```
      + This will install the latest kernel version 4.3.0, may break Ubuntu...
      + ```sudo apt-get install linux-libre64-3.14```   
      + This will install a kernel version closer to what Ubuntu is currently using 3.19.
@@ -196,10 +196,10 @@ Here is a list of all the configuration and cache files related to APT and their
     * /var/lib/apt/lists/: storage area for state information for each package resource specified in sources.list
     * /var/lib/apt/lists/partial/: storage area for state information in transit.
 
-### yum  & dnf 
+### yum  & dnf
 
   Fedora based Linux is in a bit of a transition. It's enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution.  YUM is suppoprted in Fedora 22 but now deprecated and DNF is the preferred installter, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice.  YUM is still available on RHEL adn CentOS but as companies move to the version 7 platform, this will begin to change too. Yum will be eventually replaced by DNF.  Both YUM and DNF use repositories that are maintained by RedHat or CentOS or even their RHEL repos.
-  
+
   You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and RedHat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
 
 ![*Installed Repositories Fedora 22*](images/Chapter-10/yum/etc-yum.png "YUM")
@@ -238,11 +238,11 @@ Once those RPMFusion repos have been added you can now retry the example above a
 ## Compiling and Installing source code
 
   In addition to packages you may still want to compile software from source.  This way you can take advantage of the latest compiler optimizations and CPU support.  Or compile older versions that have a feature you need that is no longer supported as a package any more.  
-  
+
   Let's take a look at this link.  This is the Apache webserver version 2.4.x latest source code and instructions for compiling software. [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html "Apache").  Follow the link and download the source code, extract it and let's go about compiling the software.   The first step is to run the ```./configure``` command.  This script does what is called a sanity check, and checks to make sure your system has the correct tools to build the software--some configure scripts will also check for dependencies.  You may need to install APR and APR-Util via the package manager or via source as instructed.  
-  
+
 ### GNC GCC
- 
+
    The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler and all the addiitonal build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands; ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.    
 
 ### GNU Make
@@ -273,7 +273,7 @@ b. tarballs
 c. RPM
 d. dpkg
 
-2) Who created the initial build system we still use today to build Linux software? 
+2) Who created the initial build system we still use today to build Linux software?
 a. Ken Thompson
 b. Dennis Ritchie
 c. Stuart Feldman
@@ -285,7 +285,7 @@ b. make install
 c. makefile
 d. ./configure
 
-4) What is the name of the package format Debian distribution uses? 
+4) What is the name of the package format Debian distribution uses?
 a. RPM
 b. Alien
 c. .deb
@@ -303,13 +303,13 @@ b. dpkg -i *.deb
 c. pkg -i *.deb
 d. rpm -ivh *.deb
 
-7) What feature doesn't dpkg handle/support? 
+7) What feature doesn't dpkg handle/support?
 a. Dependencies
 b. Installing Dependencies
 c. Versioning
 d. Author Information
 
-8) In 1998 RedHat released it's package manager format - what its name? 
+8) In 1998 RedHat released it's package manager format - what its name?
 a. RPM
 b. .deb
 c. APT
@@ -330,7 +330,7 @@ d. apt-get install apache2
 11) What is the APT command to list all packages currently installed on your Ubuntu 15.04 system?
 a. dpkglist
 b. dpkg -l
-c. dpkg 
+c. dpkg
 d. pkg --list
 
 12) What is the APT command to add an additional software repository, named: ppa:linux-libre/ppa, to your APT system?
@@ -347,7 +347,7 @@ d. sudo apt upgrade
 
 14) What is the command to upgrade your Debian based system packages and to the newest kernel version?
 a.  sudo apt-upgrade --system
-b.  sudo apt-upgrade 
+b.  sudo apt-upgrade
 c.  sudo apt-get update
 d.  sudo apt-get dist-upgrade
 
@@ -397,13 +397,13 @@ Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show
   *  ~7:30 What did Unix have that other operating systems didn't at that time?
   *  ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
   *  ~10:30 About what month and what year did this happen?
-  *  ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project? 
+  *  ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project?
   *  ~13:30-14:00 Why was it licensed under the GPL license?
-  *  ~20:48 Why didn't Linus want to work for a Linux company? 
+  *  ~20:48 Why didn't Linus want to work for a Linux company?
   *  ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
   *  ~46:10 What is the way to become a great programmer?
   *  ~51:17 What is Linus' farewell message to the audience?
-  
+
 ### Lab
 
 Chapter 10 Lab
@@ -418,19 +418,19 @@ __Objectives:__
 
 __Outcomes__
   At the conclusion of this lab you will have gained the mastery of installing Linux software packages from the command line in an array of different fashions and tools.
-  
+
 1) On your Ubuntu 15.04 distribution what is the command you would use to install the package chromium-browser with the APT installer?
 1) On Fedora 22 what is the command to install the package ```xeyes```?
 1) On Fedora 22 what is the command to add the RPMFusion packages for Free and Non-Free?  Execute those commands and install and run the Frodo C64 emulator.  Located here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html)
 1) On Fedora 22 what is the command to install via DNF the Dropbox client Located Here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html)
 1) On Ubuntu 15.04 what would be the command to upgrade all the packages on the system?
 1) On Ubuntu 15.04 what would be the command to upgrade the system to release version 15.10?
-1) On Ubuntu 15.04/10 what would be the command to add the Linux-libre repository and then upgrade the Kernel to a Free Linux kernel? 
+1) On Ubuntu 15.04/10 what would be the command to add the Linux-libre repository and then upgrade the Kernel to a Free Linux kernel?
 1) On Fedora 22 what would be the series of commands to upgrade Fedora 22 to Fedora 23?
-1) On Fedora 22 install the necessary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web-browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local. 
+1) On Fedora 22 install the necessary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web-browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local.
 1) On Fedora 22 clone the Denyhosts repo from: https://github.com/denyhosts/denyhosts  
 execute this command: ```git clone https://github.com/denyhosts/denyhosts.git``` Follow the setup instructions and use python to install denyhosts.  Note - install any dependencies that may be noted or implied.
-1) On Ubuntu 15.04 add the current PHP5 repo and then install apache2 and php5.  Once finished create a file named info.php containing this code: 
+1) On Ubuntu 15.04 add the current PHP5 repo and then install apache2 and php5.  Once finished create a file named info.php containing this code:
 
 ```php
 <?php
@@ -442,26 +442,23 @@ phpinfo();
 ```
 
 Locate the file in /var/www/html.  Open a web-browser on the local Ubuntu system and navigate to ```http://localhost/info.php``` what is the PHP version listed?
- 
+
 #### Footnotes
- 
+
 [^105]: [https://en.wikipedia.org/wiki/Stuart_Feldman](https://en.wikipedia.org/wiki/Stuart_Feldman)  
-  
+
 [^106]: [https://en.wikipedia.org/wiki/Make_(software)](https://en.wikipedia.org/wiki/Make_\(software\))  
-  
+
 [^107]: [https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics](https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics)  
-  
+
 [^108]: [https://wiki.debian.org/Apt](https://wiki.debian.org/Apt)  
-  
+
 [^109]: [http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them](http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them)  
-  
+
 [^110]: [http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them/40351#40351](http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them/40351#40351)
-  
+
 [^111]: [https://en.wikipedia.org/wiki/Linux-libre](https://en.wikipedia.org/wiki/Linux-libre)  
-  
+
 [^112]: [https://launchpad.net/~linux-libre/+archive/ubuntu/ppa](https://launchpad.net/~linux-libre/+archive/ubuntu/ppa)  
-  
+
 [^113]: [https://wiki.debian.org/RPM](https://wiki.debian.org/RPM)  
-  
-  
-  

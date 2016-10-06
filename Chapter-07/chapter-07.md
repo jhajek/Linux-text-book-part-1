@@ -8,10 +8,10 @@
 *  Understand the difference between stream editors and text editors
 *  Understand and learn how to use the vi editor
 *  Understand how to use shell scripts to automate tasks
-*  Understand how to use the system PATH and modify a users profile 
+*  Understand how to use the system PATH and modify a users profile
 
 ### Outcomes
- 
+
   At the outcome of this chapter a user will be able to use the vi editor for creating and manipulating text files and shell scripts.  This will give you mastery over the data on your system.  You will be comfortable creating a shell script to automate system administration tasks and you will understand how a user's system PATH and profile is modified and loaded.  This will open up the remaining chapters where we introduce additional complexity in writing shell scripts and enable greater system administration via shell scripts and using the vi editor.
 
 ## History of Unix/Linux Editors
@@ -24,20 +24,20 @@
 
 ### Emacs
 
- Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Stallman came from.  GNU Emacs was released in 1984 and developed entirely by Richard Stallman himself.  In 1980 James Gosling (father of the Java Language) had created his own Emacs in the spirit of opensource called gmacs, but sold his project to a company who re-licensed it with a proprietery license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of a deficiency, I recommend you to try it out at least once.   
- 
+ Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Stallman came from.  GNU Emacs was released in 1984 and developed entirely by Richard Stallman himself.  In 1980 James Gosling (father of the Java Language) had created his own Emacs in the spirit of opensource called gmacs, but sold his project to a company who re-licensed it with a proprietary license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of a deficiency, I recommend you to try it out at least once.   
+
 > *In it normal editing mode, GNU Emacs behaves like other text editors and allows the user to insert characters with the corresponding keys and to move the editing point with the arrow keys. Escape key sequences or pressing the control key and/or the meta key, alt key or super keys in conjunction with a regular key produces modified keystrokes that invoke functions from the Emacs Lisp environment. Commands such as save-buffer and save-buffers-kill-emacs combine multiple modified keystrokes [^80]*.
- 
+
 > *GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing [^78] [^79].*
 
-Emacs features include: 
+Emacs features include:
 
 *  Content-sensitive editing modes, including syntax coloring, for a variety of file types including plain text, source code, and HTML.
 *  Complete built-in documentation, including a tutorial for new users.
 *  Full Unicode support for nearly all human languages and their scripts.
 *  Highly customizable, using Emacs Lisp code or a graphical interface.
 *  A large number of extensions that add other functionality, including a project planner, mail and news reader, debugger interface, calendar, and more.
-  
+
 ### The vi Editor
 
   The other major family of stream editors is the __vi editor__ or just __vi__.  The __vi editor__ took a different route than emacs as it had an intended different purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programmatically unlike emacs which exposes its LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.   
@@ -48,14 +48,14 @@ The chart below shows the history of the __vi editor__.
 ------------     ------------------------   -------------------------------------
    ed                  1971                   Ken Thompson (original Unix)
    em                  1976                   [George Coulouris](https://en.wikipedia.org/wiki/George_Coulouris_\(computer_scientist\) "George Coulouris")
-   ex                  1978                   Bill Joy, Charles Haley, included in BSD 
-   vi                  1978                   Bill Joy 
-   vim                 1991                   [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar "Vim") 
+   ex                  1978                   Bill Joy, Charles Haley, included in BSD
+   vi                  1978                   Bill Joy
+   vim                 1991                   [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar "Vim")
 
   Initially Ken Thompson's editor worked well for what he needed.  But the commands were very cryptic and made using the Thompson editor very difficult.  Ken Thompson's original shell *ed* is still available for [download on Ubuntu and Fedora](http://linuxclues.blogspot.com/2012/09/ed-tutorial-line-editor-unix.html "ed") if you are interested to see what it was like to use Unix back in the early 70's
 
   After some time in 1976 an AT&T co-worker George Coulouris, while working on sabbatical at Queen Mary's college London extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have dedicated ram (expensive at the time).  The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor").  Because of slow screens and the high price of memory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
-  
+
   Bill Joy came into the picture out at Berkely.  He helped make an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not the really the evolution of ex, vi is ex [^82].
 
 ### Relationship of vi and vim
@@ -65,35 +65,35 @@ The chart below shows the history of the __vi editor__.
  But at UC Berkeley, Keith Bostic wanted a "bug for bug compatible" replacement for Joy's vi for BSD 4.4 Lite. The original __vi__ code was encumbered by AT&T licensing because Bill Joy had extended Thompson's original code which technically belonged to AT&T. Using Kirkendall's Elvis (version 1.8) as a starting point, Bostic created [nvi](https://en.wikipedia.org/wiki/Nvi "nvi"), releasing it in Spring of 1994.[^85] FreeBSD and NetBSD continue to use nvi to this day.
 
  In 1991, Bram Moolenaar created a port of __vi__ called __vim__ *vi improved*. Vim was created under a GPL compatible free license and it is compatible with the large majority of __vi__ functionality and extends to add some modern features like unlimited undo/redo for example.  Because of this __vim__ is available for all Linux based systems, BSD, Windows, and others.  Some distros link __vi__ to __vim__ replacing it out right.  
-   
-### vi has a Sharp Learning Curve 
+
+### vi has a Sharp Learning Curve
 
   Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beatuiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
 
 #### vi or vim?
 
- By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  The reason they are different sized is that there are different versions of vim that have different levels of features pre-compiled in. 
-  
+ By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  The reason they are different sized is that there are different versions of vim that have different levels of features pre-compiled in.
+
   ![*vim Ubuntu 15.04*](images/Chapter-07/editors/vi/ubuntu-vi.png "vim Ubuntu")
-   
+
   ![*vim Fedora 22*](images/Chapter-07/editors/vi/fedora-vi.png "vim Fedora")
 
-### The 3 vi Modes 
-  
+### The 3 vi Modes
+
 > __Example Usage:__ Let's invoke vi from the shell.  Open up a terminal and type ```vim notes.txt```--what happens?  You see a screen like this.  All those tilde marks (\~) mean that those lines don't exist--they are visual place holders.
 
 ![*vi initial screen*](images/Chapter-07/editors/vi/vi-blank.png "vi blank")
-   
+
    The __vi editor__ has 3 modes.
-   
+
   1)  COMMAND mode used to position the cursor
   2)  INSERT mode used to insert/delete text
   3)  EX mode used to issue commands that edit lines and change the display of the vi editor.
-   
+
 To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modification commands will automatically take you to __INSERT__ mode.  You will know you are in INSERT mode because the bottom of the screen will say INSERT.
 
 ![*vi insert*](images/Chapter-07/editors/vi/vi-insert.png "vi-insert")
-   
+
 > __Example usage:__  Let's type a hello world message in the vi editor. Continuing from the example above, to be able to insert text to the file you need to switch modes to INSERT mode.  Hit ESC then i and then type ```hello world!```  
 
 > __Example usage:__ What happens when you hit an arrow key after typing ```hello world!```?  Why is this? Remember we need to switch modes between COMMAND mode and INSERT command.
@@ -102,7 +102,7 @@ To transition from command mode to insert mode you use the __ESC__ key.  Hitting
 
   There are actually over 150 distinct commands in vi.   But to be proficient you need to memorize only about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger INSERT mode after you execute them.  For instance the ```ESC then a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT mode after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard and case matters!
 
-: Positional Commands That Trigger Insert Mode 
+: Positional Commands That Trigger Insert Mode
 
   Command                 Command Description
 -----------   ---------------------------------------------------
@@ -135,7 +135,7 @@ L               moves the cursor to the lower left position
 -----------   ----------------------------------------------------------------
 x                delete character
 X                delete character before the cursor position
-dd               deletes the line of the current cursor position 
+dd               deletes the line of the current cursor position
 yy               yanks or copies the current line to the clipboard
 p                pastes the current line or lines that are in the clipboard
 \.                 repeats the previous command executed
@@ -148,7 +148,7 @@ p                pastes the current line or lines that are in the clipboard
 
 > __Example usage:__  Remember the previous example where we inserted text?  Now let's insert a new line of text.  How would we do it based the tables above?   We need to switch from INSERT mode back to COMMAND mode.  This time we type ```ESC then o``` to insert a newline below our cursor.  
 
-![*vi newline insert*](images/Chapter-07/editors/vi/vi-shift-o.png "vi newline insert") 
+![*vi newline insert*](images/Chapter-07/editors/vi/vi-shift-o.png "vi newline insert")
 
 > __Example usage:__ What is the command sequence to delete a single character? You would switch to COMMAND mode by typing ```ESC then x```.   
 
@@ -157,17 +157,17 @@ p                pastes the current line or lines that are in the clipboard
 > __Example usage:__ What command sequence would you use to move the cursor position to the end of the current line? You would switch to COMMAND mode by typing ```ESC then '$'```
 
 ### vi/ex Mode
-  
+
   In addition to COMMAND mode and INSERT mode there is also one other mode.  This is called __EX__ mode.  This mode is the original __EX__ editor.  By hitting the ```ESC``` key and then the colon ```:``` you will now have the ability to enter additional commands not directly available in the other modes.  There are a series of commands you can execute while in __EX__ mode.  The most important is how to save and how to quit.
-  
+
 ![*vi ex mode*](images/Chapter-07/editors/vi/vi-ex.png "vi in ex mode")  
-  
+
 : Save and Quit Commands
 
   Command                 Command Description
 -----------   ----------------------------------------------------------------
  :w                  write the contents of a file (save)
- :q!                 force quit out of the vi editor ignoring any changes 
+ :q!                 force quit out of the vi editor ignoring any changes
  :wq                 write and quit a file in vi
  :wq!                force write and quit a file in vi
 -----------   ----------------------------------------------------------------
@@ -176,39 +176,42 @@ p                pastes the current line or lines that are in the clipboard
 
   Command                 Command Description
 -----------   --------------------------------------------------
- :set nu               make line numbers appear in vi 
- :set nonu             turn off line numbering in vi 
- :5               move the cursor to a specific line number 
- :$               move the cursor to the end of the file 
+ :set nu               make line numbers appear in vi
+ :set nonu             turn off line numbering in vi
+ :5               move the cursor to a specific line number
+ :$               move the cursor to the end of the file
 -----------   --------------------------------------------------
 
-#### Search Forward 
+#### Search Forward
 
-__EX__ mode also contains the ability to search for occurrences of text patterns within a text file while using __vi__.  By typing the combo ```ESC then /``` you see a slash at the bottom of line of the__vi__ editor. This allows you to search for a pattern from your current cursor position.  You can type ```ESC then ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.  The next examples can call be recreated using the log file located in the Chapter-07 directory of the included code under the *files* directory.  This example uses the file named ```u\_ex150911\_.log``` which is an IIS webserver log for a Wordpress Installation. Each of these commands needs to be prefaced by and ESC push to change modes.
+__EX__ mode also contains the ability to search for occurrences of text patterns within a text file while using __vi__.  By typing the combo ```ESC then /``` you see a slash at the bottom of line of the __vi__ editor. This allows you to search for a pattern from your current cursor position.  You can type ```ESC then ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.  The next examples can be recreated using the log file located in the Chapter-07 directory of the included code under the *files* directory.  This example uses the file named ```u\_ex150911\_.log``` which is an IIS webserver log for a Wordpress Installation. Each of these commands needs to be prefaced by an ESC push to change modes.
 
 ![*vi search*](images/Chapter-07/editors/vi/vi-search.png "vi search")
 
-```/[Mm]ozilla```
+```/[Mm]ozilla
+```
 
-: will search forwards for any lines containing either *Mozilla* or *mozilla* and highlight each occurrence in the file you are editing in __vi__. 
+: will search forwards for any lines containing either *Mozilla* or *mozilla* and highlight each occurrence in the file you are editing in __vi__.
 
 #### Search Backwards
 
-```?Mozilla``` 
+```?Mozilla
+```
 
 : will search the file backwards for the word *Mozilla*.
 
-```/Mozilla\/?\.0```
+```/Mozilla\/?\.0
+```
 
-:  This is where we can combine shell meta-characters inside of __vi__ for searching for Mozilla versions 
+:  This is where we can combine shell meta-characters inside of __vi__ for searching for Mozilla versions
 
 ```?MSIE\+[6-8]*```
 
-:  This allows for backwards shell meta-character search. In this case notice the introduction of the escape character __\\__. Normally the __+__ sign has meaning but in our pattern we want to find all the old versions of Internet Explorer 6-8 that are visiting our blog.  To do this we pass the line escaping the __+__ because we want it to match as a text character not as a shell meta-character. 
+:  This allows for backwards shell meta-character search. In this case notice the introduction of the escape character __\\__. Normally the __+__ sign has meaning but in our pattern we want to find all the old versions of Internet Explorer 6-8 that are visiting our blog.  To do this we pass the line escaping the __+__ because we want it to match as a text character not as a shell meta-character.
 
 ### vi/ex Mode Find and Replace Globally
 
-  __vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC then :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.
+__vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC then :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.
 
 s/Tuesday/Wednesday
 
@@ -220,7 +223,7 @@ s/rice/sat/g
 
 1,$s/rice/sat/g
 
-:  This command has a range prefix the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurences (replace all).
+:  This command has a range prefix the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all).
 
 10,20s/rice/sat/g
 
@@ -232,27 +235,27 @@ g/Tuesday/s/Tuesday/Wednesday/g
 
 s/Tuesday//g
 
-: This command will find the word *Tuesday* and globally replace it with '' or basically remove it.
+: This command will find the word *Tuesday* and globally replace it with \'\' or basically remove it.
 
 ### Why vi Key Bindings are as They Are
 
-  When looking at the patterns of the keybindings in __vi__ they seem a little strange.  The reason they were created the way they were had to due with the brand of terminal that __vi__ was created on.  Remember the standard IBM keyboard we are used to using wasn't created until 1981 on the [IBM PC 5150](https://en.wikipedia.org/wiki/IBM_Personal_Computer "5150"). The type of terminal and keyboard in use at UC Berkely by Bill Joy was, at that time a competitor to the DEC VT 100 terminals, called the [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") [^81]. It happened that the ESC key was where the modern caps lock key is and that is why ESC is the key used to change modes. The convention just stuck, Unix is more about tradition than reason one could say.
+When looking at the patterns of the key-bindings in __vi__ they seem a little strange.  The reason they were created the way they were had to due with the brand of terminal that __vi__ was created on.  Remember the standard IBM keyboard we are used to using wasn't created until 1981 on the [IBM PC 5150](https://en.wikipedia.org/wiki/IBM_Personal_Computer "5150"). The type of terminal and keyboard in use at UC Berkely by Bill Joy was, at that time a competitor to the DEC VT 100 terminals, called the [ADM-3A terminal](https://en.wikipedia.org/wiki/ADM-3A "ADM-3A") [^81]. It happened that the ESC key was where the modern caps lock key is and that is why ESC is the key used to change modes. The convention just stuck, Unix is more about tradition than reason one could say.
 
-![*Original ADM-3A Keyboard Layout*](images/Chapter-07/systems/640px-KB_Terminal_ADM3A-svg.png "ADM-3A layout") 
+![*Original ADM-3A Keyboard Layout*](images/Chapter-07/systems/640px-KB_Terminal_ADM3A-svg.png "ADM-3A layout")
 
-#### A Note About Bill Joy 
+#### A Note About Bill Joy
 
-![*Bill Joy - creator of vi*](images/Chapter-07/people/384px-Bill_joy-2.png "Bill Joy") 
-    
-  In some ways Bill Joy could be seen as the west coast version of Ken Thompson.  Before Stallman left MIT and started GNU Bill Joy was working hard as a graduate student at Berkeley out in California.  He played a large part in helping to further develop BSD Unix.  Last chapter we mentioned that he created the C shell and he is also the creator of the vi editor.   He left Berkely in 1982 with 3 other grads from Stanford to form Sun Microsystems, which would play a large role in the commercial Unix world and innovated many technologies (Java). Joy stayed on t SUN until 2003.
+![*Bill Joy - creator of vi*](images/Chapter-07/people/384px-Bill_joy-2.png "Bill Joy")
 
-  In the year 2000 Bill Joy wrote a seminal paper called, "[The Future Doesn't Need Us](http://archive.wired.com/wired/archive/8.04/joy_pr.html "The Future Doesn't Need Us")".  In the paper he was shocked by the speed of the progress scientific futurist community lead by [Ray Kurzweil](https://en.wikipedia.org/wiki/Ray_Kurzweil "Kurzweil")  coupled with how little they were examining ethics in the face of technological challenges. Ironically Ray Kurzweil is currently employed by Google, whose corporate motto until recently was [*Don't be evil*](https://en.wikipedia.org/wiki/Don%27t_be_evil "Googel Motto").  Bill Joy said in quote,
-  
+In some ways Bill Joy could be seen as the west coast version of Ken Thompson.  Before Stallman left MIT and started GNU Bill Joy was working hard as a graduate student at Berkeley out in California.  He played a large part in helping to further develop BSD Unix.  Last chapter we mentioned that he created the C shell and he is also the creator of the vi editor.   He left Berkely in 1982 with 3 other grads from Stanford to form Sun Microsystems, which would play a large role in the commercial Unix world and innovated many technologies (Java). Joy stayed on t SUN until 2003.
+
+In the year 2000 Bill Joy wrote a seminal paper called, "[The Future Doesn't Need Us](http://archive.wired.com/wired/archive/8.04/joy_pr.html "The Future Doesn't Need Us")".  In the paper he was shocked by the speed of the progress scientific futurist community lead by [Ray Kurzweil](https://en.wikipedia.org/wiki/Ray_Kurzweil "Kurzweil")  coupled with how little they were examining ethics in the face of technological challenges. Ironically Ray Kurzweil is currently employed by Google, whose corporate motto until recently was [*Don't be evil*](https://en.wikipedia.org/wiki/Don%27t_be_evil "Google Motto").  Bill Joy said in quote,
+
 >  *"From the moment I became involved in the creation of new technologies, their ethical dimensions have concerned me, but it was only in the autumn of 1998 that I became anxiously aware of how great are the dangers facing us in the 21st century. I can date the onset of my unease to the day I met Ray Kurzweil, the deservedly famous inventor of the first reading machine for the blind and many other amazing things."*  
 
 ### Screen Editors
 
-  The second family of editors differs from the first in that they were created after X was fully implemented and are fully screen oriented, menu driven and have no concepts of what vi and emacs do in the way of line editor functions.  There is a second sub-category of screen editors called GUI editors.
+The second family of editors differs from the first in that they were created after X was fully implemented and are fully screen oriented, menu driven and have no concepts of what vi and emacs do in the way of line editor functions.  There is a second sub-category of screen editors called GUI editors.
 
 #### JOE
 
@@ -264,52 +267,53 @@ s/Tuesday//g
 
 #### GNU Nano
 
-  [GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file. 
+  [GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file.
 
 ### GUI Text Editors
 
 #### gedit
 
- The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1999 -shortly before the GNOME desktop was released.  It is a full fledged text editor with plugin support and syntax highlighting.  It is currently part of the GNOME core applications and you will find it installed anywhere GNOME3 is installed. 
+ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1999 -shortly before the GNOME desktop was released.  It is a full fledged text editor with plugin support and syntax highlighting.  It is currently part of the GNOME core applications and you will find it installed anywhere GNOME3 is installed.
 
 #### Visual Studio Code
- 
-  [Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code") is a new comer to this field.  It is a text editor that has builtin support for Git and syntax highlighting.  As it is very new its features are somewhat thin.  The advantage is that you can download VS Code for Windows, Mac, and Linux.  
 
-#### Mousepad
+  [Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code") is a new comer to this field.  It is a text editor that has builtin support for Git, plugins, and syntax highlighting. The advantage is that you can download VS Code for Windows, Mac, and Linux as the project is opensource.
 
-  [Mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") comes standard in Xfce as a notepad clone.  It is built using GTK3+ 
+#### Atom
 
-#### Leafpad 
+  Text editor from Github  (add more here)
 
-  [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for LXDE and was for Xfce until its replacement by mousepad. Leafpad is built using GTK+.
+#### Leafpad and Mousepad
+
+  *  [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for LXDE and was for Xfce until its replacement by mousepad. Leafpad is built using GTK+.
+  *  [Mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") comes standard in Xfce as a notepad clone.  It is built using GTK3+.
 
 #### Sublime
 
-[Sublime](http://www.sublimetext.com/ "Sublime") is the missing editor for the Mac platform.  It is free to download but requries a license to be purchased.  It is a great product and if you will be doing any significant coding on the Mac platform this is really your only choice.  It is available on Windows and Linux as well.
-  
-#### Kate 
+[Sublime](http://www.sublimetext.com/ "Sublime") is the missing editor for the Mac platform.  It is free to download but requires a license to be purchased.  It is a great product and if you will be doing any significant coding on the Mac platform this is really your only choice.  It is available on Windows and Linux as well.
 
-[Kate](http://kate-editor.org/about-kate/ "Kate KDE") is the standard editor for KDE based desktops.  The KDE equivalent of gedit but more than gedit--Kate can be used as components of larger applications not unlike Emacs.  You can install this on any Linux based distro but it requires that KDE components be installed too.  If you are using Fedora or Ubuntu this makes the download and install much larger and may add files you don't necessarily want to your system.  If you desire to use Kate you may want to look at installing Kubuntu-desktop or finding a KDE based Fedora spin. 
+#### Kate
+
+[Kate](http://kate-editor.org/about-kate/ "Kate KDE") is the standard editor for KDE based desktops.  The KDE equivalent of gedit but more than gedit--Kate can be used as components of larger applications not unlike Emacs.  You can install this on any Linux based distro but it requires that KDE components be installed too.  If you are using Fedora or Ubuntu this makes the download and install much larger and may add files you don't necessarily want to your system.  If you desire to use Kate you may want to look at installing Kubuntu-desktop or finding a KDE based Fedora spin.
 
 ## Creating Shell Scripts
 
-  Let's open up a terminal and create a shell script.  To do this type: ```vi list-ip.sh``` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive.  Although we are using the *bash* shell you can create scripts that can be run in other shells.  The first line of a shell script overrides the default shell and runs the script with the shell you determine.
- 
-  The first line of any shell script should (but is not required) to include:  ```#!/bin/bash``` to make sure that our script is executed with the bash shell.  Normally the ```#``` means a comment, but with the ```!``` after it followed by a path, the comment function is overruled.   ```#!``` can also be pronounced *crunch* *bang*.  
-  
-  Not all systems store the bash binary in ```/bin/bash```.  You will need to check before you hard code that value.  You can use the ```which``` command that will show you the paths to the binaries.  
-  
-  ![*which bash on Ubuntu*](images/Chapter-07/editors/bash/which-ubuntu.png "which Ubuntu")  
-  
-  ![*which bash on Fedora*](images/Chapter-07/editors/bash/which-fedora.png "which Fedora")  
+Let's open up a terminal and create a shell script.  To do this type: ```vi list-ip.sh``` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive.  Although we are using the *bash* shell you can create scripts that can be run in other shells.  The first line of a shell script overrides the default shell and runs the script with the shell you determine.
 
-  Remember the command to insert a new line?  That would be ```ESC shift + o```.  The rest of creating a shell script is the same as you have been doing on the command line.  The shell script will execute lines in sequential order allowing you to chain commands together.  Let's type some commands to display the last 10 lines of the hosts.deny file provided from chapter 6 and add in a message to the user. 
-  
+The first line of any shell script should (but is not required) to include:  ```#!/bin/bash``` to make sure that our script is executed with the bash shell.  Normally the ```#``` means a comment, but with the ```!``` after it followed by a path, the comment function is overruled.   ```#!``` can also be pronounced *crunch* *bang*.  
+
+Not all systems store the bash binary in ```/bin/bash```.  You will need to check before you hard code that value.  You can use the ```which``` command that will show you the paths to the binaries.  
+
+![*which bash on Ubuntu*](images/Chapter-07/editors/bash/which-ubuntu.png "which Ubuntu")  
+
+![*which bash on Fedora*](images/Chapter-07/editors/bash/which-fedora.png "which Fedora")  
+
+Remember the command to insert a new line?  That would be ```ESC shift + o```.  The rest of creating a shell script is the same as you have been doing on the command line.  The shell script will execute lines in sequential order allowing you to chain commands together.  Let's type some commands to display the last 10 lines of the hosts.deny file provided from chapter 6 and add in a message to the user.
+
 ```bash
 #!/usr/bin/bash
-  
-echo "Here is the content of the ~/Documents/hosts.deny file" 
+
+echo "Here is the content of the ~/Documents/hosts.deny file"
 echo "********************************************************"
 tail ~/Documents/hosts.deny
 echo "********************************************************"
@@ -332,18 +336,18 @@ The file is correctly named but we have a problem.  The system only knows about 
 ### Changing Permissions for Execution
 
   The error message tells us that we have ```permission denied```.  Remember back to chapter 6 when we dealt with file permissions?  In order for a shell script to be executable we need to give it __execute__ permission.
-  
+
 ![*ls -l list-ip.sh*](images/Chapter-07/editors/bash/permissions.png "Permissions")
 
   We can change permissions by using the ```chmod``` command.  What is the current numeric value of the permissions for the file list-ip.sh?  What would we need to change it to at a minimum?  If you said 764 you would be correct?  Why?  The minimum we need to do is add the __execute__ permission to the owner's permission section.
   We would go from this ```rw-rw-r--``` to this ```rwxrw-r--```.  We could do that by typing ```chmod 765 list-ip.sh```.  There is an easier way with group and letter shortcuts.
-  
+
 : Permission Shortcuts
 
     Group             Description
 -------------   -----------------------------------
      u               Owner of the file
-     g               Group owner of the file 
+     g               Group owner of the file
      o               Other (everyone else)
 -------------   -----------------------------------
 
@@ -352,33 +356,33 @@ The file is correctly named but we have a problem.  The system only knows about 
     Group                                            Description
 ------------------------------   -----------------------------------------------------------
 ```chmod u+x list-ip.sh```              Gives the owner of the file execute permission
-```chmod g+x list-ip.sh```            Gives the group owner of the file execute permission 
+```chmod g+x list-ip.sh```            Gives the group owner of the file execute permission
 ```chmod o+x list-ip.sh```         Gives the other group execute permission (everyone else)
 ```chmod u-x list-ip.sh```           Removes file execute permission from the group owner
 ```chmod o-wx list-ip.sh```          Removes write and file execute permission from other
 ```chmod ug+rwx list-ip.sh```         Owner and group are give rwx permissions together.
 ------------------------------   -----------------------------------------------------------
 
-  You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be marked with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script. 
+  You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be marked with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script.
 
 ![*Execute Permission enabled - turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
-  
-  In addition to creating a shell script you can chain the command to change the permissions of the shell script by using the ```&&```.   You can chain those two commands together like this: ```vim sort-ip.sh && chmod 755 script1.sh```  This will execute the vi command and once you save and exit the file then the next command to change mode or chmod will take place and grant the file execute permissions. 
+
+  In addition to creating a shell script you can chain the command to change the permissions of the shell script by using the ```&&```.   You can chain those two commands together like this: ```vim sort-ip.sh && chmod 755 script1.sh```  This will execute the vi command and once you save and exit the file then the next command to change mode or chmod will take place and grant the file execute permissions.
 
 ## Understanding .bashrc
 
   When your system first boot up how does it know how to define system environment variables and system PATH variables?  Part of the boot process is to read and source the ```/etc/profile``` file.  This is a system wide profile so all users accounts created will inherit from this file.
-  
+
   Next there is local login profile.  This is additional customization added to your account after you log in either remotely or locally via username/password.  There could be any number of files from this list in this order: ```~/.bash_profile``` or ```~/.bash_login``` or ```~/.profile``` (.profile is a hold over from the Korn shell--since bash is ksh compatible).
-  
+
   Then once logged in upon launching a terminal there is another set of profiles to be processed. The ```~/.bashrc``` file is processed.   The template for this file is generally located in ```/etc/bashrc``` if you want to customize or replace a ```~/.bashrc``` file.  There is one final file that you can use to modify a system environment upon logout and that is the ```~/.bash_logout``` file.
-  
+
   If you wanted to make modification to your $PATH variable to include a directory for the newly made shell scripts you can modify the PATH directly on the command line.  The problem is that this variable will only stay in memory for the duration of the terminal window--as soon as it is closed the PATH reverts to the one it started with.  In order to permanently modify the PATH we need to modifiy it in one of the profile files.  The best place to make user specific changes is in the ```~/.bashrc``` file.  
-  
+
 ![*.bashrc*](images/Chapter-07/editors/bash/bashrc.png ".bashrc")
 
   As you can see the file is very sparse.  There is a specific header allowing you to add user logic at the end of the file.   Let's try to add to the PATH.  When updating a shell variable we need to use the ```export``` command so that the system is aware of the new variable value.  Think of it as a *refresh* command.  In addition to the PATH variable to see all the system variables your distro sets, type ```printenv``` from the shell.
-  
+
 > __Example Usage:__ Type ```mkdir ~/Documents/scripts```. Now copy your ```list-ip.sh``` to this directory. Let's add this directory to our PATH in our ```~/.bashrc``` file. Finally before we edit let's print out the content of the PATH system variable so we can see our changes later.  How would you do that? Let us open our ```~/.bashrc``` file in vi.  Now move the cursor position to the bottom of the file.  Type ```ESC shift+o``` to insert a new line.   Now type ```ESC i``` to change to INSERT mode.   Type the line ```PATH=$PATH:~/Documents/scripts``` followed by a new line (vim cheats and will accept the ENTER key in addition to ```ESC shift+o```) and then let's export the new variable content by typing ```export PATH```  now exit __vi__.
 
 >  __Example Usage:__ To make the changes we just made register we can do two things.  We can reboot the system so all the profiles are re-read but that is a little drastic.   A shortcut to re-read and process just the ```~/.bashrc``` file is to add a single-dot separated by a space.  Type ```. ~/.bashrc``` and then display the content of the PATH variable: ```echo $PATH``` and you should see your new addition appended to the PATH variable permanently.
@@ -389,7 +393,7 @@ The file is correctly named but we have a problem.  The system only knows about 
 
 ### Review Questions
 
-Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles 
+Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles
 
 Chapter 07 review questions
 
@@ -423,7 +427,7 @@ b. 1976
 c. 1999
 d. 1978
 
-5. Which of the following sequences of the history of vi is correct? 
+5. Which of the following sequences of the history of vi is correct?
 a. Emacs -> ed -> ex -> vi
 b. ed -> em -> ex -> vi -> vim
 c. em -> ex -> vi
@@ -443,7 +447,7 @@ d. em -> ed -> vi -> vim
 
 12. Which command in ex mode (vi) will save the current file you are working on and exit the vi editor? (include the :)
 
-13.  In the log file u_ex150911_.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash) 
+13.  In the log file u_ex150911_.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash)
 
 14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
 
@@ -453,7 +457,7 @@ d. em -> ed -> vi -> vim
 
 17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give the owner of the file permission to execute the script?
 
-18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the other group? 
+18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the other group?
 
 19. What is the correct sequence of profile inheritance?
 a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
@@ -468,7 +472,7 @@ d. $PATH
 ### Podcast Questions
 
 Adam Jacobs - Chef
-Please listen to or view this podcast and answer these questions: 
+Please listen to or view this podcast and answer these questions:
 **Warning there is a little foul language in the podcast,** but far less than a standard PG-13 movie =)
 
 [http://twit.tv/show/floss-weekly/219](http://twit.tv/show/floss-weekly/219 "Adam Jacobs")
@@ -536,4 +540,3 @@ __FINAL DELIVERABLE:__ Submit a zip file named: __lastname-firstname-lab-7-.zip_
 [^84]: [https://en.wikipedia.org/wiki/Elvis_\(text_editor\)](https://en.wikipedia.org/wiki/Elvis_(text_editor) "elvis")
 
 [^85]: [https://en.wikipedia.org/wiki/Vi#Ports_and_clones](https://en.wikipedia.org/wiki/Vi#Ports_and_clones "nvi")
-
