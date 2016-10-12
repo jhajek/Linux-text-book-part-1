@@ -2,13 +2,7 @@
 
 ![*At the end of class if your instructor has done their job, you will find this cartoon funny.  If you already understand this cartoon you get an "A".*](images/Chapter-Header/Chapter-02/open_source.png "A GNU Dawn")
 
-## The Foundation of Unix and Linux
-
-> [*"If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do."* Linus Torvalds](http://groups.google.com/groups?selm=4sv02t%24j8g%40linux.cs.Helsinki.FI "Quote from Linus Torvalds")
-
-Let me start by asking you, what operating system do you use? It might seem like a strange question but you would be surprised at the answer.  Are you using an Android based phone or tablet?  Android is Linux.  Are you using OSX or [macOS](https://en.wikipedia.org/wiki/MacOS_Sierra "macOS")? The Mac operating system is BSD based under the hood.  Are you using the internet on Windows?  That TCP/IP stack came from BSD UNIX.  Some pieces of this book may seem frustrating at first, after all the roots of Linux and Unix go back 30-40 years in some cases.  Understanding these concepts and what these creators were thinking will help you master the opensource environment.
-
-### Chapter 2 Objectives
+### Objectives
 
   * Understand how and why the Unix Operating System was created
   * Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
@@ -25,35 +19,35 @@ At the completion of this chapter a student will understand and be able to expla
 
 *Convention Note*
 
-In this chapter the terms Linux and Unix are generally interchangable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software we left Unix and BSD out. If you are curious the name is pronounced *"Lin-ucks;"* [link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
+In this chapter the terms Linux and Unix are generally inter-changable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software we left Unix and BSD out. If you are curious the name is pronounced *"Lin-ucks;"* [link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
 
 ## Where it Began and Why it Matters Now
 
-Unix and Linux have a unique relationship.  Similar to a square and a rectangle. Whereas a square is a rectangle but a rectangle is not a square, Linux is Unix in spirit, but Unix is not Linux.  Let's look at this in detail. The first main difference between Unix and Linux is that *"Unix"* is an entire operating system. Linux is just a kernel. An operating system can be boiled down into three main parts:   
+If you are reading this as a university textbook then you have undoubtedly heard of Linux and Unix based operating systems.  There is a good chance you have one in your pocket now or a laptop in front of you.  Google's Android OS is Linux and Apple's MacOS (formerly OSX) is based off on BSD Unix. Unix and Linux have a unique relationship.  At a foundational level all operating systems have three basic components that define them. An operating system can be boiled down into three main parts:   
 
 1. __The Kernel__  [^1]
 
 ![*Kernel_Layout.svg*](images/Chapter-02/Kernel/Kernel_Layout.svg.png "Kernel Layout")
 
-Any computer operating system must contain a kernel.  In the same way all plants require a seed or a kernel to grow from.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a WiFi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They *speak* to the kernel via *device drivers*.  As the picture describes above, the user interacts with the operating system.  The oeprating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom made and therefore incompatible with each other.  The kernel handles other complex tasks such as memory management, task scheduling, input/output, and allocation of resources.     
+Any computer operating system must contain a kernel.  In the same way all plants require a seed or a kernel to grow from.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a Wi-Fi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They speak to the kernel via *device drivers*.  The figure above describes a two way flow of data; the user interacts with the operating system and the operating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom made and therefore incompatible with each other.    
 
 Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor?  What about kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the kernel takes care of hardware communication for you.   
 
 2. __User Interface and User Tools__
 
-All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user applications"* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even after CRT monitors became prevalent the GUI command line shell still was the standard interface.  X Windows is the standard windowing toolkit thatallows for GUIs, *Graphical User Interfaces* to exist across Linux and Unix and will be covered more in chapter 5.     
+All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user applications"* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even after CRT monitors became prevalent the GUI command line shell still was the standard interface.  X Windows is the standard windowing toolkit that allows for GUIs, *Graphical User Interfaces* to exist across Linux and Unix and will be covered more in chapter 5.     
 
-User tools include all tooling or commands needed to function in an operating system: copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, redirect output from the screen to a file, etc, etc.  
+User tools include all tooling or commands (executable binaries) needed to function in an operating system: copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, redirect output from the screen to a file, etc, etc.  
 
 User applications like a web browsers and email clients are seen as user created tooling that is an amalgamation of many smaller tools to accomplish a larger task. With out these user tools and user interface, your computer would be essentially useless with no way to interact with it.
 
 3. __Programming Language and Compiler Tools__
 
-In the modern computing world we are used to installing programs via pre-compiled binaries or just clicking on an *exe* or *dmg* files for installing programs.  But before an executable file is possible that code needs to be coded and compiled.  In Unix and Linux the kernel is built using the C language.  Most of the world's software is built using the C language.  You need a C compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  Today most code is pre-compiled for you and you can use other languages besides C to build applications, but in the early days of Unix and Linux a C Compiler were critical to have as you were building the kernel, operating system, and all tooling from scratch.  
+In the modern computing world we are used to installing programs via pre-compiled binaries or just clicking on an *exe* or *dmg* files for installing programs.  You need to compile source code (C or C++ for example) to build an executable binary. Most of the world's software is built using the C language.  You need a C compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  The Unix operating system and the Linux kernel are built using the C language.   Today most code is pre-compiled for you and you can use other languages besides C to build applications, but in the early days of Unix and Linux a C Compiler was critical to have as you were building the kernel, operating system, and all tooling from scratch.  
 
 #### Linux is the same as Unix but...
 
-Linux on the other hand, is technically not a full operating system like Unix.  It is actually just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system. Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*.
+Based on these three component we see that Unix is a complete operating system, but Linux is not. Linux just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system. Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*.
 
 #### Who Uses Unix and Linux Today?  
 
@@ -68,7 +62,7 @@ Linux on the other hand, is technically not a full operating system like Unix.  
   * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel")
   * [Pretty much every top website except stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
 
-The question is not who uses Linux and Unix but the question should be when did you last use it?  How did it get this way?  Where did it come from?  Ignore this part at your own peril. You will never understand Linux unless you understand UNIX at its core philosophies.
+Some would argue that without free and opensource software that companies like Google and Facebook never could have existed because the cost of buying the equivalent opensource software would be prohibitive.
 
 ### Thompson, Ritchie, and Bell Labs
 
