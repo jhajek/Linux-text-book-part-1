@@ -25,7 +25,7 @@ Most people are exposed to opensource through using Linux either in school or at
 This text strives to be different than other books in the market in two areas; 
 
 1) We will describe the philosophy of free and opensource software and it's origin and impact upon our computing world.  
-2) This book will cover the basic technical structure and how to use free and opensource operating systems--primarialy Linux but where noted Unix and BSD based systems.  
+2) This book will cover the basic technical structure and how to use free and opensource operating systems--primarily Linux but where noted Unix and BSD based systems.  
   
 ###For Instructors
 
