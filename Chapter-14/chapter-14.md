@@ -1,19 +1,17 @@
 # Remote Access, Firewall Technologies, and Opensource applications
 ![*Good thing we avoided that one...*](images/Chapter-Header/Chapter-14/2038-2.png "2038")
 
-__Chapter 14 Objectives__
+## Objectives
 
   * SSH
     + RSA keys
-  * VNC
-  * rdesktop
   * Firewall
     + iptables
     + ufw
-  
-__Outcomes__
 
-   
+### Outcomes
+
+
 ## Chapter Conclusions and Review
 
   Conclusion goes here
@@ -29,9 +27,6 @@ Video By Brian Cantrill [https://www.youtube.com/watch?v=-zRN7XLCRhc](https://ww
 
 ### Lab
 
- Lab goes here 
- 
-#### Footnotes
- 
+ Lab goes here
 
- 
+#### Footnotes
