@@ -25,17 +25,17 @@ Former CEO of SUN, Scott McNealy once famously said, "The network is the compute
   * Compare configuration of these settings across operating systems
   * Various network troubleshooting tools
 
+
 ### IP Addresses
 
-Each system has one and needs one.  They come in two flavors, a **static** IP is a 4 octet number.  Looking something like this: ```192.168.1.100```.  
+Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** IP is a 4 octet number looking something like this: ```192.168.1.100```.  
 
 > Exercise
-
 Open a command prompt and type this command to find your IP address: ```ip address show```.  This command can be abbreviated ```ip a sh``` as well.
 
 The types of addresses come in two types, static IP and DHCP.  A static address is one that you assign and configure.  If you are the system admin you can and should map each device on your network with its own IP address.  For instance any servers you have, webservers, database servers, load balancers, routing equipment should have staticly set IP information.
 
- But what if you have transient or ephemeral nodes (computers) on your network?  Then you need to use the **Dynamic Host Control Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address.  Their is a DHCP server (configuring one is beyond the scope of this chapter), that will listen for DHCP broadcasts and answer with an offer of an IP.  Once your system (network card) accepts the offer it gains access to that IP address and all other necceary IP configuration--which is relinqueshes upon your physically leaving the network.   DHCP allows you to pool IPs when you might not have enough and share or allow for the autoregistration to make managing large scale IP deployments easy.  For instance at a university every student has a laptop and most likely a phone too, you could manually assign each an address but the number of students goes into the thousands and tens of thousands, and it not practical to manage--DHCP makes this scale managable.
+But what if you have transient or ephemeral nodes (computers) on your network?  Then you need to use the **Dynamic Host Control Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address.  Their is a DHCP server (configuring one is beyond the scope of this chapter), that will listen for DHCP broadcasts and answer with an offer of an IP.  Once your system (network card) accepts the offer it gains access to that IP address and all other necceary IP configuration--which is relinqueshes upon your physically leaving the network.   DHCP allows you to pool IPs when you might not have enough and share or allow for the autoregistration to make managing large scale IP deployments easy.  For instance at a university every student has a laptop and most likely a phone too, you could manually assign each an address but the number of students goes into the thousands and tens of thousands, and it not practical to manage--DHCP makes this scale managable.
 
 Settings these values statically in each operating system is different but the concept is the same.  You need to enter an IP Address, Netmask/CIDR, Network Gateway, and DNS.  Each of these concepts is explained below.
 
@@ -66,11 +66,11 @@ The netmask value or subnet of your network is actually a part of you Ip address
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.   
 
-Class C address has 1 octect avaialbe and 3 octects preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses.  
+Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses.  
 
 For our purposes we won't worry about class D and E in this book.
 
-The problem is those devision of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called CIDR blocks or blocking.  CIDR lets you split blocks in half.  The school where I work uses a subnet or CIDR block of 64.131.111.0/23  This looks like a class B subnet but it is a bit bigger.  Class B in CIDR would be /24.  /23 gives us control of 64.131.110.0 and 64.131.111.0 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
+The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called CIDR blocks or blocking.  CIDR lets you split blocks in half.  The school where I work uses a subnet or CIDR block of 64.131.111.0/23  This looks like a class B subnet but it is a bit bigger.  Class B in CIDR would be /24.  /23 gives us control of 64.131.110.0 and 64.131.111.0 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
 
 #### Gateway
 
@@ -80,41 +80,119 @@ The gateway value is your networks default router.  This value is literally the 
 
 DNS--Domain Name services  allow you to resolve written domain names.  google.com, web.iit.edu, twit.tv, etc, etc and turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.
 
+Ubuntu pre 16.04 traditional networking (non-systemd)
+
+systemd RedHat/Centos
+
+FreeBSD
+
 #### Tools
 
 Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to trouble shoot the problem and identify where the problem is. The first tool that should be in your tool box is **ping**.
 
-> example
-```ip address show```
+There are two sets of tools - ifconfig tools and ip tools.  The ```ifconfig``` tool set goes way back as very basic networking tools.  By default opedrating systems (RHEL 7+, Fedora 23+, and Ubuntu 16.04+) do not install these tools by default.  They use the ```ip``` package instead.  Where applicable I will attempt to show both derivatives.
 
-Used to show what values are set currently
+Debian?  FreeBSD?
 
-> exmaple
-```ping www.google.com```  ```ping 192.168.0.1```
+> ```ip``` example
+```ip address show``` or ```ip a sh``` for short.  You can find all usage patterns by typing ```man ip```.
 
-Ping just like the concept of a submarine using sonar to find objects - simple commiunicates with another IP address to see if the other system is "alive" and that your system and network are working properly to get the packet from your network to a different network.  Enhanced ping here: https://github.com/orf/gping
+> ```ifconfig``` example
+```ifconfig -a``` or ```ifconfig --all```  you can find all usage patterns by typing ```man ifconfig```.
 
-      traceroute
-      dig-nslookup
-      dhclient
-      netstat
+> ```ping``` example
+```ping www.google.com```  
+```ping 192.168.0.1```
 
+Ping just like the concept of a submarine using sonar to find objects - simple communicates with another IP address to see if the other system is "alive" and that your system and network are working properly to get the packet from your network to a different network.  Enhanced ping here: https://github.com/orf/gping
+
+> ```traceroute``` example
+Tool used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic.
+
+> ```dig```
+
+> ```nslookup```
+
+> ```dhclient```
+Used to release and renew a dhcp address
+
+>  ```netstat``` used for examining the networking status of your machine
+This command in various configurations can display the current state of all ports and network connection currently running on your system.
+
+> ```route```
 
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
+  In this chapter we learned about the basic components of networking. We learned how to configure these settings and general network troubleshooting.
 
 ### Review Questions
 
-  Questions go here
+1.    What tool would you use in order to display your IP address if you were using RHEL 7?
+  a.  ifconfig
+  b.  ipconfig
+  c.  ip address show
+  d.  show address
+
+1. What tool would you use in order to display your IP address if you were using a version of Ubuntu Linux before 16.04?
+  a.  ifconfig
+  b.  ipconfig
+  c.  ip address show
+  d.  ip -4 a
+
+1. What tool would you use to establish if a server is reponding to requests
+  a.  pong
+  b.  ping
+  c.  google
+  d.  traceroute
+
+1. What is the purpose of a NETMASK?
+
+1. What is the purpose of DNS?
+
+1. What is a valid class C address?
+  a.  10.0.0.0
+  b.  172.24.0.0
+  c.  192.168.1.0
+  d.  221.0.0.0
+
+1. If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
+  a. 23
+  b. 254
+  c. 512
+  d. 256
+
+1. If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
+  a.  10
+  b.  0
+  c.  24
+  d.  256
+
+1.  How does CIDR block addressing differ from Class based networking (A-D)?
+
+1.  What tool is used to release a dhcp address from the command line?
+  a.  rhclient
+  b.  ipconfig /release
+  c.  dhclient -r
+  d.  xclient -r
+
+1.  What tool is used to monitor and examine all current local ports and TCP/IP connections?
+  a.  stat
+  b.  net
+  c.  wireshark
+  d.  netstat
+
+1.  Where are your network card settings located on Ubuntu 16.04 by default?
+
+1.  Where are you network card settings located by default in CentOS 7.1?
+
+1.  Where are your network settings located by default in FreeBSD 11.0?
 
 ### Podcast Questions
 
-systemd
-[https://www.youtube.com/watch?v=S9YmaNuvw5U&feature=youtu.be](https://www.youtube.com/watch?v=S9YmaNuvw5U&feature=youtu.be "systemd")
+Working on it
 
 ### Lab
 
- Lab goes here
+Use the tools listed above.
 
 #### Footnotes
