@@ -121,6 +121,32 @@ This command in various configurations can display the current state of all port
 
 > ```route```
 
+## Webservers
+
+In 199x Tim Berners-Lee invented the first webpage and the created the first websaerver.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to dfreely share textual data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would recieve and process those requests, returing text to a client browser to be rendered.  
+
+The first webserver gave rise became a commercial company called Netscape and would take the world by strom creating something called the "internet".  The webserver started by ?? grew and became an opensource project in the late 90s.  This software had been commercially available before at  a high price and was limited to those who alrady could afford a large hardware investement.  The Apache webserver was onwe of the opensoruce tools, along with the mysql database, that lead the first dot-com boom and then bubble at the turn of the century.  
+
+### Apache
+
+Without Apache, companies such as Google, Facebook, Twitter, and many other companies started upon opensource never would have been able to get started.
+
+Apache has over time grown and had to add new function while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticze Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  Apache holds a dominate percentage of market share of all webserver software in use.  
+
+The apache webserver can be simply installed via Linux or BSD package manager.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```.
+
+> sudo apt-get install apache2
+
+> sudo yum install httpd
+
+> ports (freebsd)
+
+
+
+### Nginx
+
+### BSD httpd process
+
 ## Chapter Conclusions and Review
 
   In this chapter we learned about the basic components of networking. We learned how to configure these settings and general network troubleshooting.
