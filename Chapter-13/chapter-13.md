@@ -158,6 +158,15 @@ sudo service apache2 reload (as opposed to restart)  jsut re-reads the configura
 
 See the sample code in the back of the book for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
 
+```php
+// Two slashes is a comment 
+<?php   
+
+echo phpinfo();
+
+?>
+
+```
 
 ### Nginx
 
