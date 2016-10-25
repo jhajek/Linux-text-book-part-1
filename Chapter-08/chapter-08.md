@@ -170,7 +170,7 @@ fi
 #!/bin/bash
 # This is NOT a valid IF statement because the spaces are improper
 
-if [ -r ~/Documents/final-exam-answers.txt ]
+if [-r ~/Documents/final-exam-answers.txt]
 then
   cat ~/Documents/final-exam-answers.txt
 else
