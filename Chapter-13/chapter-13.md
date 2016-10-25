@@ -127,6 +127,8 @@ In 199x Tim Berners-Lee invented the first webpage and the created the first web
 
 The first webserver gave rise became a commercial company called Netscape and would take the world by strom creating something called the "internet".  The webserver started by ?? grew and became an opensource project in the late 90s.  This software had been commercially available before at  a high price and was limited to those who alrady could afford a large hardware investement.  The Apache webserver was onwe of the opensoruce tools, along with the mysql database, that lead the first dot-com boom and then bubble at the turn of the century.  
 
+Webservers listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.  The webserver by default will serve pages out of the ```/var/www/html``` directory on Linux and ```/var/www``` on FreeBSD.
+
 ### Apache
 
 Without Apache, companies such as Google, Facebook, Twitter, and many other companies started upon opensource never would have been able to get started.
@@ -141,6 +143,20 @@ The apache webserver can be simply installed via Linux or BSD package manager.  
 
 > ports (freebsd)
 
+Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources.  You will need to tune the different settings as you go along as no two work loads are the same.  For our purposes in class the default configurations will suffice, but in the real world you will need to find 
+additional documents or books to guide you along.
+
+Apache has extendable modules so its base features can be extended without needing to recompile the entire program.  Using apt-get you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilitie3s for instance.  
+
+> Let's try
+
+sudo apt-get install php5 
+
+sudo service apache2 reload (as opposed to restart)  jsut re-reads the configurable
+
+(Advanced) Add code for HTTP/2 config
+
+See the sample code in the back of the book for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
 
 
 ### Nginx
