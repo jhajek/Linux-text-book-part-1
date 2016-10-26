@@ -143,14 +143,14 @@ The apache webserver can be simply installed via Linux or BSD package manager.  
 
 > ports (freebsd)
 
-Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources.  You will need to tune the different settings as you go along as no two work loads are the same.  For our purposes in class the default configurations will suffice, but in the real world you will need to find 
+Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources.  You will need to tune the different settings as you go along as no two work loads are the same.  For our purposes in class the default configurations will suffice, but in the real world you will need to find
 additional documents or books to guide you along.
 
 Apache has extendable modules so its base features can be extended without needing to recompile the entire program.  Using apt-get you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilitie3s for instance.  
 
 > Let's try
 
-sudo apt-get install php5 
+sudo apt-get install php5
 
 sudo service apache2 reload (as opposed to restart)  jsut re-reads the configurable
 
@@ -159,7 +159,7 @@ sudo service apache2 reload (as opposed to restart)  jsut re-reads the configura
 See the sample code in the back of the book for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
 
 ```php
-// Two slashes is a comment 
+// Two slashes is a comment
 <?php   
 
 echo phpinfo();
@@ -168,9 +168,39 @@ echo phpinfo();
 
 ```
 
+You should be able to load this page in your webbrowser by accessing: ```http://localhost/index.php```
+
+Also you can add SSL certs
+
+Get Apache License
+
+#### Apache in RedHat based Distros
+
+Process is differert in Redhat - things don't turn on by default and you have to add modules manually.
+
+#### Lighttpd
+
+This webserver does what it implies, it is essentiually a stripped down version of Apache in all its functions.  It has lower overhead to deploy and is used in many cases for webservers that have a single function.  For instance it is popular for setting up for large websites that will serve just images to a main webpage.  
+
 ### Nginx
 
-### BSD httpd process
+Nginx is a relative new comer in the server arena.  Started in the mid 2000s this product came our of a Russian company who found their unique webserving needs couldn't be met by Apache.  They set about to create a new webserver that had a different process handling HTTP connections.  They also created Nginx to be able to handle traffic as a reverse proxy by default.  This was done because the landscape of the *web* had changed from the time when Apache was created to the mid to late part of the 2000s.  
+
+Nginx still has modules??  And you can add capacities for languages such as PHP or something called Fast-CGI (node JS)  as well as enable SSL
+
+Show examples
+
+Get Nginx license
+
+#### Nginx on RedHat
+
+  Figure this one out
+
+### OpenBSD httpd process
+
+The OpenBSD project which values security and home grown solutions over pure availability.  Instead of trusting others code, the OpenBSD project built and maintain their own webserver (ported to other BSD?)  Justification:
+Read up from the OpenBSD docs
+
 
 ## Chapter Conclusions and Review
 
@@ -237,6 +267,20 @@ echo phpinfo();
 1.  Where are you network card settings located by default in CentOS 7.1?
 
 1.  Where are your network settings located by default in FreeBSD 11.0?
+
+1.  What are the three major opensource webservers?
+  a. Apache, Nginx, and openhttpd
+  b. httpd, Nginx, openhttpd
+  c. Apache, IIS, Nginx
+  d. Apache, Lighttd, Nginx
+
+1.  What are two related and major opensource databases?
+  a. SQL and MySQL
+  b. MariaDB and MySQL
+  c. MySQL and Oracle DB
+  d. Nginx and MySQL
+
+1.  Name one major No-SQL database mentioned in this chapter?
 
 ### Podcast Questions
 
