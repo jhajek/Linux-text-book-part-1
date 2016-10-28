@@ -1,4 +1,4 @@
-# Networking, Webservers, and Intro to Databases
+# Networking, Webservers, and Intro to Databases ROUGH DRAFT
 ![*Some people just have aquariums...*](images/Chapter-Header/Chapter-13/network-2.png "Virus Aquarium")
 
 ## Objectives
@@ -176,11 +176,11 @@ Get Apache License
 
 #### Apache in RedHat based Distros
 
-Process is differert in Redhat - things don't turn on by default and you have to add modules manually.
+Process is different in Redhat - things don't turn on by default and you have to add modules manually.
 
 #### Lighttpd
 
-This webserver does what it implies, it is essentiually a stripped down version of Apache in all its functions.  It has lower overhead to deploy and is used in many cases for webservers that have a single function.  For instance it is popular for setting up for large websites that will serve just images to a main webpage.  
+This webserver does what it implies, it is essentially a stripped down version of Apache in all its functions.  It has lower overhead to deploy and is used in many cases for webservers that have a single function.  For instance it is popular for setting up for large websites that will serve just images to a main webpage.  
 
 ### Nginx
 
