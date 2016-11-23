@@ -60,7 +60,7 @@ There are basically two types of virtualization.  We will be dealing with TYPE I
 
 #### Microsoft Hyper-V
 
-Hyper-V was originally only a server class product released on Windows Server 2008 R2.  Microsoft ported the technology to be able to be used in Windows 8 and 10 Professional and Enterprise editions for free.  It comes as a add on service component and is a fully functional implementation of the sever class product.  It has the added benefit of being able to work over a wireless connection geared towards desktops.  Hyper-V is a good product, you can install Windows and Linux virtual machines on it, but Hyper-V only run on Windows.  
+Hyper-V was originally only a server class product released on Windows Server 2008 R2.  Microsoft ported the technology to be able to be used in Windows 8 and 10 Professional and Enterprise editions for free.  It comes as a add on service component and is a fully functional implementation of the sever class product.  It has the added benefit of being able to work over a wireless connection geared towards desktops.  Hyper-V is a good product, if you have an [Xbox One](https://en.wikipedia.org/wiki/Xbox_One#Software_and_services "Xbox One"), you are using Hyper-V to enable backward compatibility for your games. Hyper-V runs on Windows 8 and 10 and runs Windows, Linux, and BSD virtual machines.
 
 #### Oracle VirtualBox
 
