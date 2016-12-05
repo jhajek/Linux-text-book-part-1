@@ -569,7 +569,7 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
 1) A major problem in computing has always been how to move data and code around.  Use the ```wget``` command to download the source code for the text book to your local Downloads folder.  The code URL is: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip "URL")
     i) Take a screen shot of the output of an ```ls``` command while in the Downloads directory, showing you have successfully downloaded the source code zip file. Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png)
-1) Use the unzip command to extract the files to a new directory called __book__ (you will need to use the ```man unzip``` command to find out the usage option in order to accomplish this.
+1) Use the ```unzip``` command to extract the files to a new directory called __book__ (you will need to use the ```man unzip``` command to find out the usage option in order to accomplish this.
     i) Take a screenshot of the output of the __book__ directory listed to the commandline screen.  Name the file lastname-firstname-screenshot-week-5-unzip.(jpg or png)    
 1) Use the ```file``` command to determine what type of file master.zip is.  Compare this to the file named *master* in the directory ```./Linux-text-book-part-1-master/files/Chapter-05/samples/``` 
     i) Take a screenshot of the output of the 2 file commands.  Name the file lastname-firstname-screenshot-week-5-file.(jpg or png)  
