@@ -20,11 +20,11 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
 In the last chapter we learned about the Linux shell and it's purpose to help the user interact with the kernel.  We learned that the GUI is just a *syntactic sugar* layer sitting on top of the shell.  We also learned a series of essential commands in order to create and manipulate the contents of our file system.  The next layer within the shell to be introduced is something called __shell meta-characters__.  When Ken Thompson was creating Unix and the first user shell, he quickly realized a need to be able to perform certain repetitive tasks.  For example, the concept of using wildcards to do pattern matching.  
 
-Or to use negation or ranges to look for particular filenames or directories.  One of the advantages of making everything in Unix a file is that a file only had one data type, and that is of type __text__.  Since everything is text, any file or directory can be searched for or filtered based on text patterns.  Enter shell meta-characters which extend the normal capabilities of the shell.  If you wanted to list the contents of any directory starting with the letters *"Do"*, how would you do it? By adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directory's content and feeds it any filenames that match the first two characters *"Do"* and any number of other characters, (including 0 characters), represented by the star or asterisk (\*).   Shell meta-characters serve the purpose of replacing having to write a C program to recreate this same functionality.  There are 18 characters that are standard across the bash shell[^64]--common punctuation/non alphanumeric characters that were adopted to represent these common repetitive text modification tasks done in the shell.
+Or to use negation or ranges to look for particular filenames or directories.  One of the advantages of making everything in Unix a file is that a file only has one data type, and that is of type __text__.  Since everything is text, any file or directory can be searched for or filtered based on text patterns.  Enter shell meta-characters which extend the normal capabilities of the shell.  If you wanted to list the contents of any directory starting with the letters *"Do"*, how would you do it? By adding a wildcard to an ```ls``` command like this: ```ls -l Do*```.  This command reads a directory's content and feeds it any filenames that match the first two characters *"Do"* and any number of other characters, (including 0 characters), represented by the star or asterisk (\*).   Shell meta-characters replace having to write a C program to recreate this same functionality.  There are 18 characters that are standard across the bash shell[^64]--common punctuation/non alphanumeric characters that were adopted to represent these common repetitive text modification tasks done in the shell.
 
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
 
-  In the above diagram, in the box labeled *Expansion*, is where the shell *expands* any meta-characters into text that can be interpreted by the shell.  The following is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.
+  In the above diagram, the box labeled *Expansion*, is where the shell *expands* any meta-characters into text that can be interpreted by the shell.  The following is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.
 
 \&\&
 
@@ -146,7 +146,7 @@ ls [^b-d]
 
 \!
 
-: Exclamation or usually pronounced as *bang*.  This is used to negate a test condition.  This will be covered more in the next chapter when we cover bash shell scripts.
+: Exclamation or pronounced as *bang*.  This is used to negate a test condition.  This will be covered more in the next chapter when we cover shell scripts.
 
 \~
 
@@ -182,7 +182,7 @@ echo $PATH
 DT=`date`; echo $DT
 ```
 ```bash
-JAVA_HOME="/usr/bin/java"; echo $JAVA_HOME
+JAVA\_HOME="/usr/bin/java"; echo $JAVA\_HOME
 ```
 
 There is a final meta-character called the backtick or formally the grave accent. The backtick key is to left of number 1.  The backtick is used for encasing Linux binary command names.  The backtick tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__
@@ -195,15 +195,15 @@ CONTENTS=`cat /etc/services`
 
 ## Standard input, output, and error
 
-  The original concept behind defining standard input and output devices came from the idea that Unix grew over the course of 40 years of output and input technology.  Originally there were no keyboards--just teletypes.  Originally there were no screens just ttys to print out on paper.  Then came *glass ttys* and terminals.  Then came Line and Dot Matrix printers.  Standard keyboards via the ISA input bus were invented.  At one time on a busy shared system (remember the central server development paradigm for Unix) a sysadmin would perhaps want to send output of a command or any errors so that they could be debugged to paper.  Not environmentally friendly but sometimes just seeing it in writing solves your issue. Every *device* has a file handle and you can see all the *standards* are located by listing the ```/dev``` directory.      
+The original concept behind defining standard input and output devices came from the idea that Unix grew over the course of 40 years of output and input technology.  Originally there were no keyboards--just teletypes.  Originally there were no screens just ttys to print out on paper.  Then came *glass ttys* and terminals.  Then came Line and Dot Matrix printers.  Standard keyboards via the ISA input bus were invented.  At one time on a busy shared system (remember the central server development paradigm for Unix) a sysadmin would perhaps want to send output of a command or any errors so that they could be debugged to paper.  Not environmentally friendly but sometimes just seeing it in writing solves your issue. Every *device* has a file handle and you can see all the *standards* are located by listing the ```/dev``` directory.      
 
-  ![*Standard I/O, ls -l /dev/std\**](images/Chapter-06/standard/standard.png "Standard I/O")
+![*Standard I/O, ls -l /dev/std\**](images/Chapter-06/standard/standard.png "Standard I/O")
 
-  ![*Trail of standard location*](images/Chapter-06/standard/standard-out-location.png "Standard Out Location")
+![*Trail of standard location*](images/Chapter-06/standard/standard-out-location.png "Standard Out Location")
 
 ### Standard In
 
-  The __standard in__ is the default method of getting text input into the terminal.  Currently this happens to be the keyboard.  The __standard in__ from the keyboard can be overridden by using the reversed angle bracket ```<``` to read __standard in__ from a file. You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with. Why might you want to send __standard in__ from anywhere other then the keyboard?  Here are a couple of examples.
+The __standard in__ is the default method of getting text input into the terminal.  Currently this happens to be the keyboard.  The __standard in__ from the keyboard can be overridden by using the reversed angle bracket ```<``` to read __standard in__ from a file. You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with. Why might you want to send __standard in__ from anywhere other then the keyboard?  Here are a couple of examples.
 ```bash
 wc < state-of-the-union-address.txt
 ```
@@ -213,11 +213,11 @@ mail < complete-works-of-shakespere.txt
 
 ### Standard Out
 
-  When Unix was developed, Ken Thompson made the design decision that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more than a file that is located in the /dev directory.  By typing the ```who``` command you will see which accounts are logged into the system.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
+When Unix was developed, Ken Thompson made the design decision that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more than a file that is located in the /dev directory.  By typing the ```who``` command you will see which accounts are logged into the system.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
 
 ![*Output TTYs of who command*](images/Chapter-06/standard/who.png "Output of TTYs of who command")
 
-  By having a __standard out__ device handle instead of a hard coded driver, this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are referred to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file. Be careful, a single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file.
+By having a __standard out__ device handle instead of a hard coded driver, this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are referred to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file. Be careful, a single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file.
 ```bash
 date > /tmp/todaysdate
 ```
@@ -227,11 +227,11 @@ cat log.old >> log.new
 
 ### Standard Error
 
-  When you type a command that does not execute successfully it returns an error message to the __standard out__. Perhaps the message is *"file or directory not found:"* that is printed to the screen.  But that error is not part of the __standard out__, it is part of __standard error__.  Standard error can be useful for logging and debugging purposes.  If you have a command you want to execute but you want to suppress the __standard error__ from showing on the screen, yet log it to a file, you can do so.
+When you type a command that does not execute successfully it returns an error message to the __standard out__. Perhaps the message is *"file or directory not found:"* that is printed to the screen.  But that error is not part of the __standard out__, it is part of __standard error__.  Standard error can be useful for logging and debugging purposes.  If you have a command you want to execute but you want to suppress the __standard error__ from showing on the screen, yet log it to a file, you can do so.
 
 #### Suppressing Standard Out and Error
 
-  Each of the standards can be referenced numerically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to separate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
+Each of the standards can be referenced numerically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to separate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
 ```bash
 sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err
 sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err
@@ -252,7 +252,7 @@ service nginx start 1>/tmp/03.out 2>/tmp/03.err
 
 ![*Douglas McIlroy*](images/Chapter-06/people/Douglas_McIlroy-2.jpg "Douglas McIlroy")
 
-  Douglas McIlroy was the manager of the Bell Labs Computing Techniques Research Department from 1965 to 1986 where Ken Thompson, Dennis Ritchie, and Brian Kernighan worked under his direction.  He gave support to Unix and encouraged its development.  He even built several Unix commandline binaries such as spell, diff, sort, join, graph, speak, and tr[^66]. Most importantly McIlroy envisioned the concepts of __pipes__ or __pipelines__. This idea allowed for the output of one command to be directed as the input of another command--making a pipeline.  This was in compliance with Thompson's idea of small command binaries doing only one thing.  So by 1973 McIlroy had convinced Thompson to modify and add this feature to Unix.  
+Douglas McIlroy was the manager of the Bell Labs Computing Techniques Research Department from 1965 to 1986 where Ken Thompson, Dennis Ritchie, and Brian Kernighan worked under his direction.  He gave support to Unix and encouraged its development.  He even built several Unix commandline binaries such as spell, diff, sort, join, graph, speak, and tr[^66]. Most importantly McIlroy envisioned the concepts of __pipes__ or __pipelines__. This idea allowed for the output of one command to be directed as the input of another command--making a pipeline.  This was in compliance with Thompson's idea of small command binaries doing only one thing.  So by 1973 McIlroy had convinced Thompson to modify and add this feature to Unix.  
 
 > "Pipes were first suggested by [M. Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Douglas McIlroy"), when he was a department head in the Computing Science Research Center at Bell Labs, the research arm of AT&T (American Telephone and Telegraph Company), the former U.S. telecommunications monopoly. McIlroy had been working on macros since the latter part of the 1950s, and he was a ceaseless advocate of linking macros together as a more efficient alternative to series of discrete commands. A macro is a series of commands (or keyboard and mouse actions) that is performed automatically when a certain command is entered or key(s) pressed.
 
@@ -262,7 +262,7 @@ service nginx start 1>/tmp/03.out 2>/tmp/03.err
 
 ### Additional Commands Used for Manipulating Standard Out
 
-  The best way to envision pipes is to think of them as exactly what they are called--physical pipes in which water travels through.  To maximize your understanding of the concept of *piping* output we will introduce a series of additional command binaries to the list of essential command binaries that was introduced in last chapter and show you combined examples.  
+The best way to envision pipes is to think of them as exactly what they are called--physical pipes in which water travels through.  To maximize your understanding of the concept of *piping* output we will introduce a series of additional command binaries to the list of essential command binaries that was introduced in last chapter and show you combined examples.  
 
 who
 
