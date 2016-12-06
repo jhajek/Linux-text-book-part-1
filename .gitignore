@@ -10,3 +10,4 @@ tex2pdf*/
 .~lock*
 *.ps1~
 .vscode/
+texput.log
