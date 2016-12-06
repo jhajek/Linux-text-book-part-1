@@ -20,8 +20,10 @@ rm -f ./output/odt/*.odt
 # PDF - #If you want to create a PDF, you’ll need to have LaTeX installed. (See MacTeX on OS X, MiKTeX on Windows, or
 # install the texlive package in linux.) Then do                
 ########################################################################################################################
-# --chapters starts chapters on odd number pages
-pandoc --toc -V geometry:margin=.75in --number-sections -V documentclass=report -V linkcolor=blue -V mainfont="Droid Sans" -V sansfont="GNU Freefont Sans"  -s -t latex   -o ./output/pdf/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md
+# --chapters starts chapters on odd number pages  
+# List of fonts in Ubuntu texlive-fonts-extra https://launchpad.net/ubuntu/trusty/+package/texlive-fonts-extra
+# What font packages are installed in TeX live? http://tex.stackexchange.com/questions/59403/what-font-packages-are-installed-in-tex-live
+pandoc --toc -V geometry:margin=.75in --number-sections -V documentclass=report -V linkcolor=blue  --variable=monofont:courier -s -t latex   -o ./output/pdf/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md
 # http://stackoverflow.com/questions/19397100/adding-a-title-page-page-headers-and-footers-using-pandoc
 
 #################################################################
