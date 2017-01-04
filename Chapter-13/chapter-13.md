@@ -41,10 +41,12 @@ Settings these values statically in each operating system is different but the c
 
 #### Ubuntu
 
-  The Canonical company that develops Ubuntu keeps an excellent wiki with this information, [https://help.ubuntu.com/community/InternetAndNetworking](https://help.ubuntu.com/community/InternetAndNetworking "Ubuntu Network Wiki").
+The Canonical company that develops Ubuntu keeps an excellent wiki with this information, [https://help.ubuntu.com/community/InternetAndNetworking](https://help.ubuntu.com/community/InternetAndNetworking "Ubuntu Network Wiki").
 
-How to configure a static address
-/etc/network/interface
+There are multiple ways to discover this information.  There are two suites of tools.  The original is ```net-tools``` the newer group is called the ```iproute2``` tools.  If you have used a computer before, from BSD to Windows (which used the BSD TCP-stack) these commands will be familiar.  But the *net-tools* suite development was actively **ceased** in 2001 in favor of *iproute2*.
+
+
+
 
 ```lshw```
 
