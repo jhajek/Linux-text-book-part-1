@@ -45,14 +45,32 @@ The Canonical company that develops Ubuntu keeps an excellent wiki with this inf
 
 There are multiple ways to discover this information.  There are two suites of tools.  The original is ```net-tools``` the newer group is called the ```iproute2``` tools.  If you have used a computer before, from BSD to Windows (which used the BSD TCP-stack) these commands will be familiar.  But the *net-tools* suite development was actively **ceased** in 2001 in favor of *iproute2*.
 
+```ipconfig -a```
 
+```ip link show```
 
+```ifconfig [-v] interface [aftype] options | address```
+```ip [ OPTIONS ] OBJECT { COMMAND | help }```
+
+This is where the similarities end.  The *ifconfig* command is a single command.  To view other details such as the ARP table, RARP command, view or change routes you would have to use additional commands.  As a contrast the *iproute2* handles all of that from the *ip* command.  Older Linux (pre-2015) definately have net-tools installed.  That is quickly changing as some distributions are only including the iproute2 package.  One good example is net-tools was created before IPv6 became a standard.
 
 ```lshw```
 
 > lshw is a small tool to extract detailed information on the hardware configuration  of  the  machine.  It  can report  exact  memory  configuration,  firmware version, mainboard configuration, CPU version and speed, cache configuration, bus speed, etc. on DMI-capable x86 or IA-64 systems and on some PowerPC machines  (PowerMac  G4 is known to work).
 
+http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
 
+Contents of the ```/etc/network/interfaces``` file
+
+```
+auto eth0
+iface eth0 inet static
+     address 192.168.0.42
+     network 192.168.0.0
+     netmask 255.255.255.0
+     broadcast 192.168.0.255
+     gateway 192.168.0.1
+```
 #### Redhat
 
 How to configure a static address
