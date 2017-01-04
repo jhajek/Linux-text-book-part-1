@@ -71,6 +71,35 @@ iface eth0 inet static
      broadcast 192.168.0.255
      gateway 192.168.0.1
 ```
+
+Note the change in device name due to systemd
+auto enp0s8
+iface enp0s8 inet static
+     address 192.168.0.42
+     network 192.168.0.0
+     netmask 255.255.255.0
+     broadcast 192.168.0.255
+     gateway 192.168.0.1
+
+Using the same laptop, Ubuntu 14.04 and Ubuntu 16.04 named my ethernet cards differently.  This is due to systemd's policy of naming devices sue to their position on the system bus (motherboard).      
+
+The systemd group [argued here](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "ethernet argument"):
+
+> The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth0", "eth1", ... to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names "eth0", "eth1" and so on is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications, for example in firewall rules which are coded for certain naming schemes, and which are hence very sensitive to unpredictable changing names. 
+
+> The following different naming schemes for network interfaces are now supported by udev natively: 
+1) Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1) 
+1) Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1) 
+1) Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0) 
+1) Names incorporating the interfaces's MAC address (example: enx78e7d1ea46da) 
+1) Classic, unpredictable kernel-native ethX naming (example: eth0)
+
+> What you gain by using this standard:
+1) Stable interface names across reboots 
+1) Stable interface names even when hardware is added or removed, i.e. no re-enumeration takes place (to the level the firmware permits this)
+1) Stable interface names when kernels or drivers are updated/changed 
+1) Stable interface names even if you have to replace broken ethernet cards by new ones 
+
 #### Redhat
 
 How to configure a static address
