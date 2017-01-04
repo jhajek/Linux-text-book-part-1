@@ -62,7 +62,7 @@ How to configure a static address/dhcp
 
 #### NETMASK
 
-The netmask value or subnet of your network is actually a part of you Ip address. So that routers knwo how to route packets to your network the netmask or network mask effectively blocks off a portion of your Ip address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one fo the IP octets.  But this turned out to be highly inneficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fidxed value from 1-254 in your first IP octect and the remaining three octets would be variable.  Apple famously has the 16.x.y.z Class A giving them access to 255*255*255 IP addresses - 16 million?  way more than they could possibly ever need.   
+The netmask value or subnet of your network is actually a part of you Ip address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your Ip address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one fo the IP octets.  But this turned out to be highly inneficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fidxed value from 1-254 in your first IP octect and the remaining three octets would be variable.  Apple famously has the 16.x.y.z Class A giving them access to 255*255*255 IP addresses - 16 million?  way more than they could possibly ever need.   
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.   
 
