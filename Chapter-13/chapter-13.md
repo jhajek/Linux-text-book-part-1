@@ -41,8 +41,15 @@ Settings these values statically in each operating system is different but the c
 
 #### Ubuntu
 
+  The Canonical company that develops Ubuntu keeps an excellent wiki with this information, [https://help.ubuntu.com/community/InternetAndNetworking](https://help.ubuntu.com/community/InternetAndNetworking "Ubuntu Network Wiki").
+
 How to configure a static address
 /etc/network/interface
+
+```lshw```
+
+> lshw is a small tool to extract detailed information on the hardware configuration  of  the  machine.  It  can report  exact  memory  configuration,  firmware version, mainboard configuration, CPU version and speed, cache configuration, bus speed, etc. on DMI-capable x86 or IA-64 systems and on some PowerPC machines  (PowerMac  G4 is known to work).
+
 
 #### Redhat
 
