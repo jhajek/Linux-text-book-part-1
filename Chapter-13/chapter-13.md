@@ -100,6 +100,8 @@ The systemd group [argued here](https://www.freedesktop.org/wiki/Software/system
 1) Stable interface names when kernels or drivers are updated/changed 
 1) Stable interface names even if you have to replace broken ethernet cards by new ones 
 
+There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
+
 #### Redhat
 
 How to configure a static address
