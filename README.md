@@ -10,24 +10,20 @@ How to install;
 
 [Install Instructions](http://pandoc.org/installing.html)
 
-> Ubuntu Linux
-> I would recommend installing Pandoc directly from the lastest debian package.  Located here: [https://github.com/jgm/pandoc/releases/tag/1.15.0.6](https://github.com/jgm/pandoc/releases/tag/1.15.0.6)
-> For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. (On Debian/Ubuntu, ```apt-get install texlive```.)
+## Ubuntu Linux
+ 
+I would recommend installing Pandoc directly from the lastest debian package.  Located here: [https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-1-amd64.deb](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-1-amd64.deb). For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. (On Debian/Ubuntu, ```apt-get install texlive```.)
 
-> Red Hat Linux 
-> See yum or dnf
-
-Linux dependecies
+### Linux dependencies
 * texlive
-*    texlive-latex-recommended
-*   texlive-latex-extra
-*  texlive-fonts-recommended
+* texlive-latex-recommended
+* texlive-latex-extra
+* texlive-fonts-recommended
 
+## Mac OSX
+  * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
-> Mac OSX
-> [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
-
-> Windows 
+## Windows 
 You need Pandoc 1.15.x  and MikTex 2.9.x to build this book proper
 
 [Pandoc Windows pandoc-1.15.0.6.msi](https://github.com/jgm/pandoc/releases/tag/1.15.0.6 "Pandoc MSI")
