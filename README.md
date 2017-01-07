@@ -26,7 +26,7 @@ I would recommend installing Pandoc directly from the lastest debian package.  L
 ## Windows 
 You need Pandoc 1.15.x  and MikTex 2.9.x to build this book proper
 
-[Pandoc Windows pandoc-1.15.0.6.msi](https://github.com/jgm/pandoc/releases/tag/1.15.0.6 "Pandoc MSI")
+[Pandoc Windows pandoc-1.19.1  msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
 
 [MikTex](http://miktex.org/download "Miktex Download")
 
