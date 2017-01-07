@@ -39,7 +39,7 @@ Set-ExecutionPolicy RemoteSigned
 
 You can then run the build script ./build-windows.ps1 from the powershell window and this will generate the digital output
 
-On your first build you will recieve a Package Installtion dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.
+On your first build you will receive a Package Installation dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.
 
 __Kindle .mobi__
 
@@ -47,7 +47,7 @@ To generate .mobi files for use on Kindle devices or apps, you need to install K
 
 __Reading PDF and ePUB__
 
-You can use any PDF reader, Adobe or the Microsfot Reader built into Windows 8 and 10.
+You can use any PDF reader, Adobe or the Microsoft Reader built into Windows 8 and 10.   Currently Microsft Edge browser has native ePub support in the Insider Preiview and this will to everyone in the April General Update. 
 
 Or you can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
 
