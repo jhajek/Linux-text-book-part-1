@@ -106,10 +106,10 @@ There is a short technical explanation of how these names are devised in the com
 
 How to configure a static address
 
-/etc/sysconfig/network-scripts/ifcfg-eth0
+```/etc/sysconfig/network-scripts/ifcfg-eth0```
 
-this may change and be listed something like
-/etc/sysconfig/network-scripts/ifcfg-enp5s0
+This was the naming convention under pre-systemd init systems.  Systemd decided their was a marked advantage to enumerate PCI devices via their bus slot on the motherboard, in this way a device will always have a guranteed and predictable device name.  The down side is you loose readability.
+```/etc/sysconfig/network-scripts/ifcfg-enp5s0```
 
 this is due to systemd changing the way network cards are enumerated.  Instead of devices have a driver name (eth0 is the common way to name a device driver of X)  systemd names each device by their position on the PCI bus.  Lennary Poeterring explains why here, "Find explanation"
 
