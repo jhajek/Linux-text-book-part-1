@@ -146,7 +146,7 @@ FreeBSD
 
 #### Tools
 
-Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to trouble shoot the problem and identify where the problem is. The first tool that should be in your tool box is **ping**.
+Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to trouble shoot the problem and identify where the problem is. The first tool that should be in your tool box is *ping*.
 
 There are two sets of tools - **net tools** suite and the **iproute** suite.  **Net tools** goes way back as very beginning of TCP/IP based networking in BSD 4.  By default operating systems (RHEL 7+, Fedora 23+, and Ubuntu 16.04+) do not install these tools anymore.  They use the ```iproute``` package instead.  Where applicable I will attempt to show both.
 
