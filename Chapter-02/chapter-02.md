@@ -208,7 +208,7 @@ By 1980, with many copies of Thompson's Unix now in circulation and nearly a dec
 
 ## Second Phase of Unix Maturity -- Unix Users and Application Development
 
-The next phase of Unix history revolves around the important work done by developers to create applications and standards around the Unix operating system to increase productivity and accesibility.  There are many people who contributed to this phase but among the names we will discuss there is none more important than Richard Stallman, also known as RMS.  
+The next phase of Unix history revolves around the important work done by developers to create applications and standards around the Unix operating system to increase productivity and accessibility.  There are many people who contributed to this phase but among the names we will discuss there is none more important than Richard Stallman, also known as RMS.  
 
 ### Richard Stallman and GNU
 
