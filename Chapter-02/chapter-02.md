@@ -380,7 +380,7 @@ As the new century dawned, the realization of Stallman's dream for the the GNU o
 
 It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might ask that without the financial backing of a commercial entity could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.     
 
-As fo 2016, we have almost 20 years of Linux Kernel and Linux distribution work. Current Linux distributions hail from two distinct primary families: __Debian__ and __Red Hat__.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
+As of 2016, we have almost 20 years of Linux Kernel and Linux distribution work. Current Linux distributions hail from two distinct primary families: __Debian__ and __Red Hat__.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
 
 #### Additional Popular Linux Distros
 
