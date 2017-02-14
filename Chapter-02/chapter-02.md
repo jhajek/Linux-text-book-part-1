@@ -240,7 +240,7 @@ In late 1985 the [FSF](http://www.fsf.org/ "FSF") -- *Free Software Foundation*,
 
 > *“Our mission is to preserve, protect and promote the freedom to use, study, copy, modify, and redistribute computer software, and to defend the rights of Free Software users.”*
 
-#### GCC, BASH, and GNU Tools
+#### GCC, BASH, and GNU Coretools
 
 In 1984 RMS started his work of creating a free Unix-like operating system.  Since Unix was built upon the C programming language, the first thing needed to build a kernel, a shell, or any tooling was a *C compiler*.  This project was called GCC (GNU C Compiler) which was a *"free"* version of the proprietary Unix AT&T "cc" program (C Compiler).  
 
