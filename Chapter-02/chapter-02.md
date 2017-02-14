@@ -102,7 +102,7 @@ Thompson's Unix success was also a byproduct of its main design philosophy:
     + Output of one command becomes the input of another command.
     + Complex applications are built by chaining the output of small executables together with *pipes* -> "|"
 
-The best demonstration of these tennants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\ "Jon Bently") in 1986 to:
+The best demonstration of these tenants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\ "Jon Bently") in 1986 to:
 
 > *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.*
 
