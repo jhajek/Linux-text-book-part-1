@@ -10,27 +10,24 @@ How to install;
 
 [Install Instructions](http://pandoc.org/installing.html)
 
-> Ubuntu Linux
-> I would recommend installing Pandoc directly from the lastest debian package.  Located here: [https://github.com/jgm/pandoc/releases/tag/1.15.0.6](https://github.com/jgm/pandoc/releases/tag/1.15.0.6)
-> For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. (On Debian/Ubuntu, ```apt-get install texlive```.)
+## Ubuntu Linux
+ 
+I would recommend installing Pandoc directly from the latest Debian package.  Located here: [https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-1-amd64.deb](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-1-amd64.deb). For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. 
 
-> Red Hat Linux 
-> See yum or dnf
-
-Linux dependecies
+### Linux dependencies - On Debian/Ubuntu
+* ```apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended``` 
 * texlive
-*    texlive-latex-recommended
-*   texlive-latex-extra
-*  texlive-fonts-recommended
+* texlive-latex-recommended
+* texlive-latex-extra
+* texlive-fonts-recommended
 
+## Mac OSX
+  * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
-> Mac OSX
-> [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
+## Windows 
+You need Pandoc 1.19.x  and MikTex 2.9.x to build this book proper
 
-> Windows 
-You need Pandoc 1.15.x  and MikTex 2.9.x to build this book proper
-
-[Pandoc Windows pandoc-1.15.0.6.msi](https://github.com/jgm/pandoc/releases/tag/1.15.0.6 "Pandoc MSI")
+[Pandoc Windows pandoc-1.19.1  msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
 
 [MikTex](http://miktex.org/download "Miktex Download")
 
@@ -42,7 +39,7 @@ Set-ExecutionPolicy RemoteSigned
 
 You can then run the build script ./build-windows.ps1 from the powershell window and this will generate the digital output
 
-On your first build you will recieve a Package Installtion dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.
+On your first build you will receive a Package Installation dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.
 
 __Kindle .mobi__
 
@@ -50,7 +47,7 @@ To generate .mobi files for use on Kindle devices or apps, you need to install K
 
 __Reading PDF and ePUB__
 
-You can use any PDF reader, Adobe or the Microsfot Reader built into Windows 8 and 10.
+You can use any PDF reader, Adobe or the Microsoft Reader built into Windows 8 and 10.   Currently Microsft Edge browser has native ePub support in the Insider Preiview and this will to everyone in the April General Update. 
 
 Or you can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
 
