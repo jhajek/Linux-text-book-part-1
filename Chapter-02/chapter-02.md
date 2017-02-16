@@ -301,7 +301,7 @@ Creation Method
 
 Release Cycle
 
-  * Linux releases a new kernel in short windows and maintains a LTS, Long Term Support Kernel version too
+  * Linux releases a new kernel in short windows and maintains an LTS, Long Term Support Kernel version as well
    + Linux distributions have to plan around this and choose which kernel to use.
   * Unix/BSD maintain a complete operating system and release everything together in a 1 to 2 year cycle
 
