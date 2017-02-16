@@ -376,7 +376,7 @@ As the 1990s came to a close we began to see established companies adopting and 
 
 ### Modern Linux Distributions
 
-As the new century dawned, the realization of Stallman's dream for the the GNU operating system was now a reality.  Companies began to combine the opensource Linux kernel, free GNU coretools, and by integrating GUIs such as X11, KDE, and the GNU GNOME project, began to create what one would say was a GNU/Linux based operating system. Each company mad etheir own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well.
+As the new century dawned, the realization of Stallman's dream for the the GNU operating system was now a reality.  Companies began to combine the opensource Linux kernel, free GNU coretools, and by integrating GUIs such as X11, KDE, and the GNU GNOME project, began to create what one would say was a GNU/Linux based operating system. Each company made their own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well.
 
 It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might ask that without the financial backing of a commercial entity could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.     
 
