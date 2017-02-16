@@ -307,8 +307,8 @@ Release Cycle
 
 License
 
- *  The Linux kernel is licensed and protected under the GPLv2 and allows induviduals and corporations alike to contribute back to the Linux kernel, but source code must be open and freely available.
- *  Each BSD project is licensed under a permissiver license which allows for derivative works to be made without requiring that the source code be given back to the main project.  BSD distros do take outside contributions.
+ *  The Linux kernel is licensed and protected under the GPLv2 and allows individuals and corporations alike to contribute back to the Linux kernel, but source code must be open and freely available.
+ *  Each BSD project is licensed under a permissive license which allows for derivative works to be made without requiring that the source code be given back to the main project.  BSD distros do take outside contributions.
    + Commercial Unix does not take outside contributions
 
 Tooling
