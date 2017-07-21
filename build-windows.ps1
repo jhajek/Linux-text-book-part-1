@@ -2,6 +2,13 @@
 # From an elevated Powershell promt type: Set-ExecutionPolicy RemoteSigned
 # answer Yes to all
 
+# This is to force the user to add a command line parameter to turn on debugging if needed
+# https://stackoverflow.com/questions/2157554/how-to-handle-command-line-arguments-in-powershell
+ param (
+    [switch]$debug = $false
+ )
+# Go to end of file to see debugging
+
 # setup git user.name and user.email
 # http://www.git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 # git config --global user.name "John Doe"
@@ -67,7 +74,7 @@ $STAMP=[Math]::Floor([decimal](Get-Date(Get-Date).ToUniversalTime()-uformat "%s"
 # If you want to create a PDF, you’ll need to have LaTeX installed. (See MacTeX on OS X, MiKTeX on Windows, or
 # install the texlive package in linux.) Then do                
 ########################################################################################################################
-pandoc --toc -V geometry:margin=1in --number-sections -V documentclass=report -V linkcolor=blue -V fontsize=12pt  -S -t latex -o ./output/pdf/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md 
+pandoc --toc -V geometry:margin=1in --number-sections -V documentclass=report -V linkcolor=blue -V fontsize=12pt -t latex -o ./output/pdf/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md 
 # http://stackoverflow.com/questions/19397100/adding-a-title-page-page-headers-and-footers-using-pandoc
 # See this link to explain font name craziness-- https://github.com/jgm/pandoc/wiki/Trials-and-Tribulations%3A-How-to-find-correct-font-names-for-Pandoc%27s-use-with-LuaLaTeX%3F
 # Manual Font install - http://tex.stackexchange.com/questions/88423/manual-font-installation
@@ -76,20 +83,20 @@ pandoc --toc -V geometry:margin=1in --number-sections -V documentclass=report -V
 # If you want to create a PDF, you’ll need to have LaTeX installed. (See MacTeX on OS X, MiKTeX on Windows, or
 # install the texlive package in linux.) Then do   
 ########################################################################################################################
-pandoc --toc -V geometry:margin=.75in -V paperwidth=6.14in -V paperheight=9.25in --number-sections -V documentclass=report -V linkcolor=blue --variable mainfont=Arial -V sansfont=Arial -S -s -t latex -o ./output/pdf/Understanding-Free-and-Opensource-Operating-Systems-Part-I-PRINT-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md 
+pandoc --toc -V geometry:margin=.75in -V paperwidth=6.14in -V paperheight=9.25in --number-sections -V documentclass=report -V linkcolor=blue --variable mainfont=Arial -V sansfont=Arial -s -t latex -o ./output/pdf/Understanding-Free-and-Opensource-Operating-Systems-Part-I-PRINT-$STAMP.pdf ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md 
 # http://tex.stackexchange.com/questions/78920/generating-smartphone-readable-pdf
 
 #################################################################
 # EPUB - To convert it to EPUB, use this command:               #
 #################################################################
 
-pandoc --toc --number-sections --epub-stylesheet=css/epub/book-style.css --epub-cover-image=images/Chapter-Header/Cover/John_Calvin_by_Holbein.png -S -o ./output/epub/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md  ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md 
+pandoc --toc --number-sections --epub-stylesheet=css/epub/book-style.css --epub-cover-image=images/Chapter-Header/Cover/John_Calvin_by_Holbein.png -o ./output/epub/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md  ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md 
  
 ##################################################################
 # HTML5 - To convert it to HTML, use this command:              #
 ################################################################## 
 
-pandoc --toc -S -s -f markdown -t html5 -V mainfont="Lucida Consolas" -V sansfont="GNU Freefont Sans" -o ./output/html/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.html ./title/title.txt ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md  ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md
+pandoc --toc -s -f markdown -t html5 -V mainfont="Lucida Consolas" -V sansfont="GNU Freefont Sans" -o ./output/html/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.html ./title/title.txt ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md  ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md
 
 #############################################################################################################################
 # DOCX - [Convert your Markdown file to Word (docx):](http://bob.yexley.net/generate-a-word-document-from-markdown-on-os-x/)#############################################################################################################################
@@ -99,15 +106,16 @@ pandoc --toc --number-sections -V documentclass=report -s -o ./output/docx/Under
 #############################################################################################################################
 # ODT OpenOffice Document Format
 
-pandoc --toc --number-sections -S -s -o ./output/odt/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.odt -f markdown ./title/title.txt  ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md  ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md
+pandoc --toc --number-sections -s -o ./output/odt/Understanding-Free-and-Opensource-Operating-Systems-Part-I-$STAMP.odt -f markdown ./title/title.txt  ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Chapter-15/chapter-15.md  ./Appendix-A/Appendix-A.md ./Appendix-B/Appendix-B.md ./Appendix-C/Appendix-C.md
 
 ######################
 # Debugging          #
 ######################
 
 # cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\pdf\*.pdf  C:\Users\palad\OneDrive\Documents\epub
+if( $debug ) { 
 cp -Force  C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\*.epub  C:\Users\palad\OneDrive\Documents\epub\Understanding-Free-and-Opensource-Operating-Systems
-
+}
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #
 ###########################################
