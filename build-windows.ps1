@@ -114,7 +114,7 @@ pandoc --toc --number-sections -s -o ./output/odt/Understanding-Free-and-Opensou
 
 # cp -Force C:\Users\palad\Documents\Linux-text-book-part-1\output\pdf\*.pdf  C:\Users\palad\OneDrive\Documents\epub
 if( $debug ) { 
-cp -Force  C:\Users\palad\Documents\Linux-text-book-part-1\output\epub\*.epub  C:\Users\palad\OneDrive\Documents\epub\Understanding-Free-and-Opensource-Operating-Systems
+cp -Force  d:\Linux-text-book-part-1\output\epub\*.epub  C:\Users\palad\OneDrive\Documents\epub\Understanding-Free-and-Opensource-Operating-Systems
 }
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #
