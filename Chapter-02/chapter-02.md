@@ -208,7 +208,7 @@ By 1980, with many copies of Thompson's Unix now in circulation and nearly a dec
 
 ## Second Phase of Unix Maturity -- Unix Users and Application Development
 
-The next phase of Unix history revolves around the important work done by developers to create applications and standards around the Unix operating system to increase productivity and accessibility.  There are many people who contributed to this phase but among the names we will discuss there is none more important than Richard Stallman, also known as RMS.  
+The next phase of Unix history revolves around the important work done by developers to create applications and standards around the Unix operating system to increase productivity and accessibility.  There are many people who contributed to this phase but among the names we will discuss there is none more important than Richard Stallman, also known as RMS.
 
 ### Richard Stallman and GNU
 
@@ -250,15 +250,15 @@ The next step the GNU project took was to begin reverse engineering all the basi
 
 The GNU project did remarkably well in quality and quantity of *free* programs considering there were created mostly by volunteers with little funding and no corporate backing. They had pretty much reverse engineered, and in some cases improved, all the components of Unix by 1991 (8 years of work). The last thing the project was  missing was the most critical piece... they didn't have a kernel for their operating system.  Turns out that writing a kernel is much harder than it looks.  
 
-#### GNU HURD -- The Kernel That Was Not to Be
+#### GNU Hurd -- The Kernel That Was Not to Be
 
-In their grand ambitions the GNU project was started in 1985 to create a kernel for the soon to come GNU operating system called [GNU Hurd](http://www.gnu.org/software/hurd/ "GNU Hurd"). The name GNU Hurd is also another clever recursive hack, as the name GNU has a double meaning.  There is a [large goat like animal called a gnu](https://en.wikipedia.org/wiki/Wildebeest "GNU"), which lives in herds that roam the plains of Africa.  The name HURD came from the similarities of a herd of animals and the design of the GNU Kernel would be a "herd" of small micro-processes communicating together, like a herd of gnus (the animal).  It seems that GNU developers really love cleaver hacks.  It it something that you have to get used to in opensource as the spirit of bad puns and clever hacks has carried on to this day.
+In their grand ambitions the GNU project was started in 1985 to create a kernel for the soon to come GNU operating system called [GNU Hurd](http://www.gnu.org/software/hurd/ "GNU Hurd"). The name GNU Hurd is also another clever recursive hack, as the name GNU has a double meaning.  There is a [large goat like animal called a gnu](https://en.wikipedia.org/wiki/Wildebeest "GNU"), which lives in herds that roam the plains of Africa.  The name *Hurd* came from the similarities of a herd of animals and the design of the GNU Kernel would be a "herd" of small micro-processes communicating together, like a herd of gnus (the animal).  It seems that GNU developers really love cleaver hacks.  It it something that you have to get used to in opensource as the spirit of bad puns and clever hacks has carried on to this day.
 
-Hurd made some false starts in its initial micro-kernel development phase causing multiple versions to be created and scrapped.  What they were trying to do was really innovative but really complicated and difficult to make work reliably. In retrospect HURD was never finished.  By 1998 The GNU project had all but stopped active development and promotion of GNU HURD as the kernel for its *free* operating system.  The GNU project realized that the Linux Kernel had accomplished what GNU had working on for 13 years in a mere 4 years.
+Hurd made some false starts in its initial micro-kernel development phase causing multiple versions to be created and scrapped.  What they were trying to do was really innovative but really complicated and difficult to make work reliably. In retrospect Hurd was never finished.  By 1998 The GNU project had all but stopped active development and promotion of GNU Hurd as the kernel for its *free* operating system.  The GNU project realized that the Linux Kernel had accomplished what GNU had working on for 13 years in a mere 4 years.
 
-GNU HURD still exists and is in a usable alpha stage. It is [downloadable today](http://www.gnu.org/software/hurd/ "GNU HURD Download") by joining it with the Debian Linux distribution applications--all GPL approved mind you.
+GNU Hurd still exists and is in a usable alpha stage. It is [downloadable today](http://www.gnu.org/software/hurd/ "GNU HURD Download") by joining it with the Debian Linux distribution applications--all GPL approved mind you.
 
-The GNU project instead recommends using the Linux kernel instead and joining the GNU tools with it to form GNU/Linux.  In some ways this is the realization of Stallman's dream of a *free* operating system and yet some ways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 a new name comes onto the scence, Linus Torvalds and the Linux kernel come along and make the next leap in the *free* and opensource operating system world by introducing the Linux kernel.
+The GNU project instead recommends using the Linux kernel instead and joining the GNU tools with it to form GNU/Linux.  In some ways this is the realization of Stallman's dream of a *free* operating system and yet some ways this was his biggest disappointment that Linus Torvalds and not the GNU project finished the kernel.  By 1991 a new name comes onto the scene, Linus Torvalds and the Linux kernel come along and make the next leap in the *free* and opensource operating system world by introducing the Linux kernel.
 
 ### Free and Opensource State in the 1990s
 
