@@ -5,7 +5,8 @@
 # This is to force the user to add a command line parameter to turn on debugging if needed
 # https://stackoverflow.com/questions/2157554/how-to-handle-command-line-arguments-in-powershell
  param (
-    [switch]$debug = $false
+    [switch]$debug = $false,
+    [switch]$kindlegen = $false
  )
 # Go to end of file to see debugging
 
@@ -119,6 +120,7 @@ cp -Force  d:\Linux-text-book-part-1\output\epub\*.epub  D:\Users\palad\OneDrive
 ###########################################
 # Generate Kindle .mobi using Kindlegen   #
 ###########################################
-#kindlegen ./output/epub/Understanding-Free-and-Opensource-Operating-Systems-Part-I.epub 
-#mv ./output/epub/Understanding-Free-and-Opensource-Operating-Systems-Part-I.mobi ./output/mobi/Understanding-Free-and-Opensource-Operating-Systems-Part-I.mobi
-
+if ( $kindlegen ) {
+kindlegen ./output/epub/Understanding-Free-and-Opensource-Operating-Systems-Part-I.epub 
+mv ./output/epub/Understanding-Free-and-Opensource-Operating-Systems-Part-I.mobi ./output/mobi/Understanding-Free-and-Opensource-Operating-Systems-Part-I.mobi
+}
