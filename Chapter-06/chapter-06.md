@@ -1,7 +1,7 @@
 # Shell Meta-Characters, Pipes, Search and Tools
 ![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
 
-## Objectives
+### Objectives
 
 In this chapter we will be continuing our exploration of the commandline.  We will be expanding our experience of the original paradigm that Thompson and Ritchie envisioned when designing Unix.
 

@@ -1,7 +1,7 @@
 # Init Services, Daemons, and Processes
 ![*You never know what is enabled...*](images/Chapter-Header/Chapter-11/security_holes-2.png "Security Holes")
 
-## Objectives
+### Objectives
 
   * Understand the traditional SysVinit system and its relationship to starting system processes
   * Understand the new systemd init system

@@ -1,7 +1,7 @@
 # Desktop Linux and GUIs
 ![*GUIs??? NIH*](images/Chapter-Header/Chapter-04/supported_features2.png "GUIs NIH")
 
-## Objectives
+### Objectives
 
 In this chapter you will:
 

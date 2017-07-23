@@ -1,7 +1,7 @@
 # Creating, Partitioning, and Mounting Filesystems
 ![*Easy as cake...*](images/Chapter-Header/Chapter-12/server_problem-2.png "Server Problem")
 
-## Objectives
+### Objectives
 
    * Understand how to create and be able to attach virtual disks in VirtualBox, to Linux systems
    * Understand how the fdisk command is used to list, modify, and create filesystem partitions

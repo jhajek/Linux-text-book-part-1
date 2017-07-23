@@ -1,7 +1,7 @@
 # System Administration
 ![*This generation's 'Who's on First?'*](images/Chapter-Header/Chapter-09/sandwich-2.png  "Permissions")
 
-## Objectives
+### Objectives
 
   * Understand the concept of the ```sudo``` command and the root user security implications
   * Understand the basic admin tools and the Linux concept of logging and the systemd concept of logging with journald

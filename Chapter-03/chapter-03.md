@@ -1,7 +1,7 @@
 #  Hardware and Installation
 ![*Must be a Linux User...*](images/Chapter-Header/Chapter-03/surgery.png  "Understanding the Technology and Philosophy of Unix/Linux")
 
-### Chapter 3 Objectives
+### Objectives
 
   * Understand and know how to complete the Linux and BSD Operating System Install Process for the major distributions
   * Be able to compare and contrast the two major Linux Distribution family's install process with the BSD install process

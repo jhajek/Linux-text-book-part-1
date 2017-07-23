@@ -1,7 +1,7 @@
 # The Linux Filesystem, Path, Shell, and File Permissions
 ![*The Shells*](images/Chapter-Header/Chapter-05/seashell2.png "Linux Shells")
 
-## Objectives
+### Objectives
 
   *  Understand the structure of the Linux Filesystem
   *  Understand the difference between absolute and relative paths.

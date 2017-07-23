@@ -1,14 +1,12 @@
 # The Future of Free and Opensource Software ROUGH DRAFT
 ![*Creating technology to support technology.*](images/Chapter-Header/Chapter-15/tech_loops-2.png "Tech Loops")
 
-## Objectives
+### Objectives
 
-   * IoT
+   * IT and Automation
+   * Mitchel Hashimoto and Hashicorp
    * RaspberryPi
-   * Android
-   * https://icebergs.io/
-   * Redhat and domination of Linux
-
+   * Certifications
 
 ### Outcomes
 
@@ -23,7 +21,7 @@
 
   [Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")
 
-  [Kickstart documentation(https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html) - it can be generated from scratch or upon a successful install a default kickstart is located in /root/anaconda-ks.cfg
+  [Kickstart documentation](https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html) - it can be generated from scratch or upon a successful install a default kickstart is located in /root/anaconda-ks.cfg
 
 Screen shot showing you need to host the file on the web somewhere or include the file in install media
 

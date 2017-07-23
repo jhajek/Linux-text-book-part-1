@@ -1,7 +1,7 @@
 # Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles  
 ![*Real programmers...*](images/Chapter-Header/Chapter-07/real_programmers-2.png "vi")
 
-## Objectives
+### Objectives
 
   In the chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining there use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
 
