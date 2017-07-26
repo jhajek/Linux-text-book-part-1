@@ -40,7 +40,7 @@ Emacs features include:
 
 ### The vi Editor
 
-  The other major family of stream editors is the __vi editor__ or just __vi__.  The __vi editor__ took a different route than emacs as it had an intended different purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programmatically unlike emacs which exposes its LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.   
+  The other major family of stream editors is the __vi editor__ or just __vi__ (pronounced *vee-eye*).  The __vi editor__ took a different route than emacs as it had an different intended  purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programmatically unlike emacs which exposes its LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.   
 
 The chart below shows the history of the __vi editor__.
 
