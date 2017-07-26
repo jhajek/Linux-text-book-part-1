@@ -4,7 +4,7 @@
 ### Objectives
 
   * Learn the features of dnf, yum, and apt to install packages and dependencies in Linux
-  * Understand the nature of GNU tools gcc and make
+  * Understand how to use GNU tools gcc and make for compiling source code
   * Understand how to use the Python language interpreter in order to run Python based install scripts
   * Compiling code from source
 
