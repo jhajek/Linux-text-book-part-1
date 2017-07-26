@@ -11,7 +11,7 @@
 
 ### Outcomes
 
-  At the completion of this chapter you will have the ability to administer a Linux system.  You will have an understanding of Linux system logs, their standard locations, and their use.  You will have a knowledge of system monitoring tools and how to understand their output.  You will be able to administer user accounts on a Linux system. Finally you will be able to enter trouble shooting procedures on a Linux system.
+  At the completion of this chapter you will have the ability to administer a Linux system.  You will have an understanding of Linux system logs, their standard locations, and their use.  You will have a knowledge of system monitoring tools and how to understand their output.  You will be able to administer user accounts on a Linux system. Finally you will be able to perform trouble shooting procedures on a Linux system.
 
 ## Sudo and the Root User Paradigm
 
