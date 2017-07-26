@@ -13,7 +13,7 @@
 
   At the completion of this chapter you will have the ability to administer a Linux system.  You will have an understanding of Linux system logs, their standard locations, and their use.  You will have a knowledge of system monitoring tools and how to understand their output.  You will be able to administer user accounts on a Linux system. Finally you will be able to enter trouble shooting procedures on a Linux system.
 
-## Sudo and the Root user Paradigm
+## Sudo and the Root User Paradigm
 
   On every Unix system dating back to Thompson's Unix, there has always been a single *superuser* account on every system.  This account is usually called the __root user__ or __root__.   The __root user__ must be used with the utmost care, as that account has all the system privilege and authority to carry out any operation, even the ```rm -rf /*``` command.  Root is good for getting things done or overriding users, but is *dangerous* you should log into that account only sparingly.  Every single admin worth their salt will tell you not to use __root__ in almost any case [^90].  
 
