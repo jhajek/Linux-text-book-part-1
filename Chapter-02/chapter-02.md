@@ -455,7 +455,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
    *  [Kylin Linux](http://distrowatch.com/ubuntukylin "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
    *  [Raspian](http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
    *  [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux FSF distro, entirely GPL compliant software.
-   *  [trisquel](https://trisquel.info "Tri-skel") GNU/FSF recommended and Richard Stallman use this one.
+   *  [trisquel](https://trisquel.info "Tri-skel") GNU/FSF recommended and Richard Stallman uses this one.
    *  [tails](https://tails.boum.org/ "tails") The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user.
    *  [elementaryOS](http://elementary.io/)elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.  
    *  [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian distro
