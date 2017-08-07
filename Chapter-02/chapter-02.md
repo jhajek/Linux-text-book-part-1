@@ -380,7 +380,7 @@ As the new century dawned, the realization of Stallman's dream for the the GNU o
 
 It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might ask that without the financial backing of a commercial entity could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.     
 
-As of 2017, we have almost 25 years of Linux Kernel and Linux distribution work. Current Linux distributions hail from two distinct primary families: __Debian__ and __Red Hat__.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
+As of 2017, we have almost 25 years of Linux Kernel and Linux distribution work. Current Linux distributions hail from two primary and distinct families: __Debian__ and __Red Hat__.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
 
 #### Additional Popular Linux Distros
 
@@ -424,7 +424,7 @@ The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the s
 
 Ubuntu Linux is a unique distribution [^10].  It is entirely based on Debian.  It is Debian repackaged with a focus on applications that "just work."  Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was unnerved that Windows had such a dominant position in the PC market.  He had been a Debian developer, but felt that the lack of a corporate sponsor in some ways hindered Debian from catching market share from Windows.  He set out to make a Debian based distro which he called Ubuntu.  Shuttleworth is from South Africa and Ubuntu is a Zulu word meaning *"community"*. Shuttleworth wanted his Linux distro to be people friendly and work really well out of the box--like Windows.  
 
-In 2004 Red Hat, who had owned the desktop Linux market, decided to exit and focus on selling Linux based server operating systems to corporate entities. Red hat felt there was little money to be made in that market where the code was given away freely. This left a void that Ubuntu rushed to fill and they did it well. By 2006, Mark Shuttleworth who had started the Thwate SSL security company, which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux.  
+In 2004 RedHat, who had owned the desktop Linux market, decided to exit and focus on selling Linux based server operating systems to corporate entities. Redhat felt there was little money to be made in that market where the code was given away freely. This left a void that Ubuntu rushed to fill and they did it well. By 2006, Mark Shuttleworth who had started the Thwate SSL security company, which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux.  
 
 ![*Mark Shuttleworth*](images/Chapter-02/People/Mark-Shuttleworth/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg "Mark Shuttleworth")
 
