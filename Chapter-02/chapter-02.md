@@ -574,7 +574,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
     + Dtrace
     + Zones (OS Containers/Jails)
     + Network based installation -- Jumpstart
-  * By 2006 began the interesting process of opensourcing their technology and operating system.
+  * By 2006 began the process of opensourcing their technology and operating system.
 
 #### OpenSolaris
 
