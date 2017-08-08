@@ -81,7 +81,7 @@ iface enp0s8 inet static
      broadcast 192.168.0.255
      gateway 192.168.0.1
 
-Using the same laptop, Ubuntu 14.04 and Ubuntu 16.04 named my ethernet cards differently.  This is due to systemd's policy of naming devices sue to their position on the system bus (motherboard).      
+Using the same laptop, Ubuntu 14.04 and Ubuntu 16.04 named my ethernet cards differently.  This is due to systemd's policy of naming devices due to their position on the system bus (motherboard).      
 
 The systemd group [argued here](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "ethernet argument"):
 
