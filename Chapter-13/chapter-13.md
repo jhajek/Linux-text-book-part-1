@@ -179,7 +179,7 @@ This command in various configurations can display the current state of all port
 
 ## Webservers
 
-In 199x Tim Berners-Lee invented the first webpage and the created the first websaerver.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
+August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
 
 The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver was one of the opensoruce tools, along with the MySQL database, that made the first dot-com boom at the turn of the century possible.  
 
