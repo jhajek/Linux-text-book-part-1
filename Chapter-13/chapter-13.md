@@ -240,13 +240,7 @@ This webserver does what it implies, it is essentially a stripped down version o
 
 ### Nginx
 
-Nginx is a relative new comer in the server arena.  Started in the mid 2000s this product came our of a Russian company who found their unique webserving needs couldn't be met by Apache.  They set about to create a new webserver that had a different process handling HTTP connections.  They also created Nginx to be able to handle traffic as a reverse proxy by default.  This was done because the landscape of the *web* had changed from the time when Apache was created to the mid to late part of the 2000s.  
-
-Nginx still has modules??  And you can add capacities for languages such as PHP or something called Fast-CGI (node JS)  as well as enable SSL
-
-Show examples
-
-Get Nginx license
+Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique webserving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitiations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
 
 #### Nginx on RedHat
 
