@@ -102,7 +102,7 @@ The systemd group [argued here](https://www.freedesktop.org/wiki/Software/system
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
-#### Redhat
+#### Red Hat
 
 How to configure a static address
 
