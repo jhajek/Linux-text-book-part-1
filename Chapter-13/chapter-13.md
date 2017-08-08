@@ -15,7 +15,7 @@
 
 ## Networking
 
-Former CEO of SUN, Scott McNealy once famously said, "The network is the computer."  This was in 1990~.  He could not have been more correct.  With this in mind basic networking skills are mandatory.  We will cover briefly topics in this order:
+Former CEO of SUN, Scott McNealy once famously said, "The network is the computer."  This was in 1990.  He could not have been more correct.  With this in mind basic networking skills are mandatory.  We will cover briefly topics in this order:
 
   * IP addresses
       + Static and DHCP
