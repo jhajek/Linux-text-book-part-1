@@ -156,7 +156,7 @@ Upon completion of a fresh install and launching of VirtualBox you should see th
 
 See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this documentation is actually very thorough and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
-Let us walk through the initial installation process.  The first step to begin is with the *NEW button*.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-15-04-Desktop" and "Fedora-22-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.  
+Let us walk through the initial installation process.  The first step to begin is with the *NEW* button.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-15-04-Desktop" and "Fedora-22-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.  
 
 ![*Create New Ubuntu Instance Dialog*](images/Chapter-03/create-and-name-450.png "Create New Instance Dialog")
 
