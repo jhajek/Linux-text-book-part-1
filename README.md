@@ -43,7 +43,7 @@ On your first build you will receive a Package Installation dialogue from MikTex
 
 __Kindle .mobi__
 
-To generate .mobi files for use on Kindle devices or apps, you need to install Kindlegen from [here](http://www.amazon.com/gp/feature.html?docId=1000765211)
+To generate .mobi files for use on Kindle devices or apps, you need to install Kindlegen from [here](https://www.amazon.com/gp/feature.html?docId=1000234621) Works on Windows, MacOS, and Linux.
 
 __Reading PDF and ePUB__
 
