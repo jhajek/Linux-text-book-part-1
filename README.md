@@ -20,6 +20,7 @@ I would recommend installing Pandoc directly from the latest Debian package.  Lo
 * texlive-latex-recommended
 * texlive-latex-extra
 * texlive-fonts-recommended
+* texlive-fonts-extra
 
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
