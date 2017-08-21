@@ -15,12 +15,19 @@ How to install;
 I would recommend installing Pandoc directly from the latest Debian package.  Located here: [https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-1-amd64.deb](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-1-amd64.deb). For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. 
 
 ### Linux dependencies - On Debian/Ubuntu
-* ```apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra``` 
+* ```sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra``` 
 * texlive
 * texlive-latex-recommended
 * texlive-latex-extra
 * texlive-fonts-recommended
 * texlive-fonts-extra
+
+To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16.04 can add the repo via these steps:
+* ```wget http://packages.sil.org/sil.gpg```
+* ```sudo apt-key add sil.gpg```
+* ```sudo apt-add-repository "deb http://packages.sil.org/ubuntu/ $(lsb_release -sc) main"```
+* ```sudo apt-get update```
+* ```sudo apt-get install fonts-sil-charis```
 
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
