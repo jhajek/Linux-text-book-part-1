@@ -42,7 +42,7 @@ You need Pandoc 1.19.x  and MikTex 2.9.x to build this book proper
 In order to enable script execution for Powershell - run this command from an Administrator enabled Powershell console:
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 ```
 
 You can then run the build script ./build-windows.ps1 from the powershell window and this will generate the digital output
