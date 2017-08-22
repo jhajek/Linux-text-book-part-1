@@ -55,7 +55,7 @@ To generate .mobi files for use on Kindle devices or apps, you need to install K
 
 __Reading PDF and ePUB__
 
-You can use any PDF reader, Adobe or the Microsoft Reader built into Windows 8 and 10.   Currently Microsft Edge browser has native ePub support in the Insider Preiview and this will to everyone in the April General Update. 
+You can use any PDF reader, Adobe or the Microsoft Reader built into Windows 8 and 10.   Currently Microsft Edge browser has native ePub support in [Edge Browser](https://blogs.windows.com/windowsexperience/2017/04/20/week-microsoft-edge-browser-built-books-reading/#fhI8gshdmfAGSrIu.97 "ePub").
 
 Or you can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
 
