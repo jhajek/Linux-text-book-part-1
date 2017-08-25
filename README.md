@@ -33,7 +33,7 @@ To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
 ## Windows 
-You need Pandoc 1.19.x  and MikTex 2.9.x to build this book proper
+You need Pandoc < 1.19.x and > MikTex 2.9.x to build this book proper
 
 [Pandoc Windows pandoc-1.19.1  msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
 
@@ -42,7 +42,7 @@ You need Pandoc 1.19.x  and MikTex 2.9.x to build this book proper
 In order to enable script execution for Powershell - run this command from an Administrator enabled Powershell console:
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 ```
 
 You can then run the build script ./build-windows.ps1 from the powershell window and this will generate the digital output
@@ -55,7 +55,7 @@ To generate .mobi files for use on Kindle devices or apps, you need to install K
 
 __Reading PDF and ePUB__
 
-You can use any PDF reader, Adobe or the Microsoft Reader built into Windows 8 and 10.   Currently Microsft Edge browser has native ePub support in the Insider Preiview and this will to everyone in the April General Update. 
+You can use any PDF reader, Adobe or the Microsoft Reader built into Windows 8 and 10.   Currently Microsft Edge browser has native ePub support in [Edge Browser](https://blogs.windows.com/windowsexperience/2017/04/20/week-microsoft-edge-browser-built-books-reading/#fhI8gshdmfAGSrIu.97 "ePub").
 
 Or you can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
 
