@@ -74,11 +74,11 @@ Part of this book was inspired by a quote from my friend in regards to Linux tex
  
 ### Links to Microsoft Sway Presentations
 
- * [https://doc.co/sxnt6y](https://doc.co/sxnt6y) - chapter 2
- * [https://doc.co/ZYPjx4](https://doc.co/ZYPjx4) - chapter 3
- * [https://doc.co/6nNWXx](https://doc.co/6nNWXx) - chapter 4
- * [https://doc.co/URDkkn](https://doc.co/URDkkn) - chapter 5
- * [https://doc.co/coScgt](https://doc.co/coScgt) - chapter 6
+ * [Chapter 2](https://sway.com/i5Cx_zt57c-YGmIr?ref=Link&loc=mysways "Chapter 02")
+ * [Chapter 3](https://sway.com/qxWQ6byqAI2bInXn?ref=Link&loc=mysways "Chapter 03")
+ * [Chapter 4](https://sway.com/aq03wj20t8Acyfou?ref=Link&loc=mysways "Chapter 04")
+ * [Chapter 5](https://sway.com/Yxo8uWW38K0L66WC?ref=Link&loc=mysways "Chapter 05") 
+ * [Chapter 6](https://sway.com/jqtPt3oXBh6rHZOG?ref=Link&loc=mysways "Chapter 06")
 
 ## Author(s)
 
