@@ -184,10 +184,6 @@ You can chose to dynamically allocate your hard drive space or statically alloca
 
 The final option dialog is where you can choose where to store your virtual machine's virtual hard drive. Usually the default is fine unless you know you need to store the hard drive on a separate partition or disk.   Also VirtualBox will make a suggestion on a recommended virtual hard drive size.   
 
-![*Disk Size Slider*](images/Chapter-03/disk-slider-550.png "Disk Slider")
-
-![*Completed Install*](images/Chapter-03/finish-550.png "Success")
-
 Now click *finish* and you should be ready to go.  
 
 ### Walk Through the Settings
