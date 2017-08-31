@@ -133,13 +133,15 @@ E260921EF5C7BD5EE2A7B2F2F1156AF6483014C73984E4CF37F2B6690E0155E5 ./Fedora-Server
 
 Before beginning there are a series of questions you should ask yourself, "What do I need in this distro?"
 
-  *  Strict Security such as SE Linux?
+  *  Strict Security?
+  *  Ease of use?
   *  Stable release with long term support?
   *  Will this be a desktop install or server install?  GUI or no GUI?
   *  What software will you be needing?
     + Serving web pages?
     + Building Android applications?
     + Hacking your neighbor's wi-fi?
+    + Developer platform?
   *  What processor do I have, 32-bit or 64-bit?  How much RAM do I have or need?
   *  Is this an old PC or laptop I am using--does it lack processor extensions that can aid in rendering multi-media efficiently?
     + [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions "SSE")
