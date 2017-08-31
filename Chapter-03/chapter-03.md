@@ -104,11 +104,11 @@ Each distro also has a checksum feature provided by the site that issues the dow
 Here are the commands to execute in Windows in Powershell:
 
 ```powershell
-Get-FileHash .\ubuntu-15.04-desktop-amd64.iso -Algorithm MD5 | format-list
+Get-FileHash .\ubuntu-17.04-desktop-amd64.iso -Algorithm MD5 | format-list
 ```
-    Algorithm : MD5
-    Hash      : 53C869EBA8686007239A650D903847FD
-    Path      : C:\Users\palad\Downloads\isos\ubuntu-15.04-desktop-amd64.iso
+Algorithm : MD5
+Hash      : 18CC54AF55D7CA931BBB8588E8D9C1BD
+Path      : D:\isos\ubuntu-17.04-desktop-amd64.iso
 
 ```powershell
 Get-FileHash .\Fedora-Live-Workstation-x86_64-22-3.iso -Algorithm SHA256 | format-list
