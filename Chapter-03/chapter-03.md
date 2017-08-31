@@ -168,11 +168,11 @@ What happens if you choose the wrong type or version?  Two things, __first__ if 
 
 Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate.  The recommended amount of memory is at least one gigabyte but more likely two gigabytes will be better.  You can also *"over-provision"* memory by making multiple virtual machines whose memory totals beyond your system's memory by not having them running all at once.
 
-![*Memory Selection Dialog*](images/Chapter-03/memory-selection-550.png "Memory Selection Dialog")
+![*Memory Selection Dialog*](images/Chapter-03/VirtualBox-Install/virtualbox-memory-size.png "Memory Selection Dialog")
 
 The next step is to select the amount of virtual hard drive allocation.  Here you have a choice of how much hard drive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
 
-![*Hard disk Allocation*](images/Chapter-03/hard-disk-550.png "Harddisk allocation")
+![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/virtualbox-file-location-and-size.png "Harddisk allocation")
 
 Next is the hard drive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI type is sufficient.  If you know you will be transferring this Virtual Machine to another environment: VMware (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.
 
