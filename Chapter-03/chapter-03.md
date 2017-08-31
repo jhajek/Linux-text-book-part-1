@@ -111,11 +111,11 @@ Hash      : 18CC54AF55D7CA931BBB8588E8D9C1BD
 Path      : D:\isos\ubuntu-17.04-desktop-amd64.iso
 
 ```powershell
-Get-FileHash .\Fedora-Live-Workstation-x86_64-22-3.iso -Algorithm SHA256 | format-list
+Get-FileHash .\Fedora-Server-netinst-x86_64-26-1.5.iso -Algorithm SHA256 | format-list
 ```
-    Algorithm : SHA256
-    Hash      : 615ABFC89709A46A078DD1D39638019AA66F62B0FF8325334F1AF100551BB6CF
-    Path      : C:\Users\palad\Downloads\isos\Fedora-Live-Workstation-x86_64-22-3.iso
+Algorithm : SHA256
+Hash      : E260921EF5C7BD5EE2A7B2F2F1156AF6483014C73984E4CF37F2B6690E0155E5
+Path      : D:\isos\Fedora-Server-netinst-x86_64-26-1.5.iso
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
