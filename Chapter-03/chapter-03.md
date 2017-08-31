@@ -176,11 +176,11 @@ The next step is to select the amount of virtual hard drive allocation.  Here yo
 
 Next is the hard drive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI type is sufficient.  If you know you will be transferring this Virtual Machine to another environment: VMware (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.
 
-![*Drive Type*](images/Chapter-03/disk-type-550.png "Drive Type")
+![*Drive Type*](images/Chapter-03/VirtualBox-Install/virtualbox-hard-disk-file-type.png "Drive Type")
 
 You can chose to dynamically allocate your hard drive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The hard drive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be an overhead processing in continually allocating space.  Statically allocating the hard drive space on the other hand will potentially lessen the number of systems that can go on your hard drive because potentially much space that is allocated is actually unused. Virtual hard drives for the guest OSes are treated as files from the point host OSes.
 
-![*Disk Type*](images/Chapter-03/disk-size-550.png "Disk Type")
+![*Disk Type*](images/Chapter-03/VirtualBox-Install/virtualbox-storage-on-physical-disk.png "Disk Type")
 
 The final option dialog is where you can choose where to store your virtual machine's virtual hard drive. Usually the default is fine unless you know you need to store the hard drive on a separate partition or disk.   Also VirtualBox will make a suggestion on a recommended virtual hard drive size.   
 
