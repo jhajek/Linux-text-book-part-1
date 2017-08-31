@@ -120,14 +120,14 @@ Path      : D:\isos\Fedora-Server-netinst-x86_64-26-1.5.iso
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
 ```bash
-md5sum ./ubuntu-15.04-desktop-amd64.iso
+md5sum ./ubuntu-17.04-desktop-amd64.iso
 ```
-53c869eba8686007239a650d903847fd ./ubuntu-15.04-desktop-amd64.iso
+18CC54AF55D7CA931BBB8588E8D9C1BD ./ubuntu-17.04-desktop-amd64.iso
 
 ```bash
-sha256sum ./Fedora-Live-Workstation-x86_64-22-3.iso
+sha256sum ./Fedora-Server-netinst-x86_64-26-1.5.iso
 ```
-615abfc89709a46a078dd1d39638019aa66f62b0ff8325334f1aF100551bb6cf ./Fedora-Live-Workstation-x86_64-22-3.iso  
+E260921EF5C7BD5EE2A7B2F2F1156AF6483014C73984E4CF37F2B6690E0155E5 ./Fedora-Server-netinst-x86_64-26-1.5.iso  
 
 ### Planning Your Install
 
