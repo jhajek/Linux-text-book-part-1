@@ -272,7 +272,7 @@ VirtualBox guest additions can be installed by selecting an installed virtual ma
 
 #### Ubuntu
 
-This goes for any distro that derives from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation). These instructions assume you are using VirtualBox 5.0.2, *you will need* to adjust the version numbers and path name if you are using a different version.
+This goes for any distro that derives from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation). These instructions assume you are using VirtualBox 5.x, *you will need* to adjust the version numbers and path name if you are using a different version.
 
 ```bash
 sudo apt-get update
@@ -283,7 +283,7 @@ sudo reboot
 ```
 #### Red Hat
 
- On Fedora 22 using dnf
+ On Fedora 26 using dnf
 
 ```bash
 sudo dnf update kernel*
@@ -404,25 +404,23 @@ Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://
 
 ### Lab
 
-You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk. Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in. Note that some of these operating systems have no GUIs.
+You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
 
   + Debian Based
-        - Ubuntu 16.04 Desktop edition
+        - Ubuntu 17.04 Desktop edition
         - Linux Mint 18
-        - Lubuntu 16.04 Desktop edition
-        - gNewSense 3.1  
-        - Debian 8
+        - Lubuntu 17.04 Desktop edition
+        - Xubuntu 16.04 Desktop edition
+        - Trisquel Linux
+        - Debian 9
 
     + Red Hat Based
-        - Fedora 24
-        - Fedora 25
-        - Centos 7
-        - One additional Fedora spin of your choice
+        - Fedora 26
+        - Centos 7.x
 
     + BSD based
-        - TruOS
-        - FreeBSD 11
-        - OpenBSD 5.8
+        - TrueOS (latest)
+        - Dragonfly BSD (latest)
 
 ![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
 
