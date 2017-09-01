@@ -262,7 +262,7 @@ Under the create user dialog box, you will notice a key check box that is circle
 
 ![*Create User With Sudo*](images/Chapter-03/fedora-install/create-user-with-sudo-390-by-200.png "Create User With Sudo")
 
-You can click the *Finish Install* button to complete the install.  You will be presented with a final *Quit* button which will exit the installer and drop you back into the *Live* desktop.  In order to reboot the system you need to open the system menu via the downwards facing white triangle in the upper right hand corner. The reboot icon is located under the traditional power icon.  Once restarted congratulations you have successfully installed and can begin using your installed Fedora 22 system.  
+You can click the *Finish Install* button to complete the install.  You will be presented with a final *Quit* button which will exit the installer and drop you back into the *Live* desktop.  In order to reboot the system you need to open the system menu via the downwards facing white triangle in the upper right hand corner. The reboot icon is located under the traditional power icon.  Once restarted congratulations you have successfully installed and can begin using your installed Fedora 26 system.  
 
 ### VirtualBox Extensions
 
@@ -407,15 +407,15 @@ Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://
 You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
 
   + Debian Based
-        - Ubuntu 17.04 Desktop edition
-        - Linux Mint 18
-        - Lubuntu 17.04 Desktop edition
-        - Xubuntu 16.04 Desktop edition
-        - Trisquel Linux
-        - Debian 9
+      - Ubuntu 17.04 Desktop edition
+      - Linux Mint 18
+      - Lubuntu 17.04 Desktop edition
+      - Xubuntu 16.04 Desktop edition
+      - Trisquel Linux
+      - Debian 9
 
     + Red Hat Based
-        - Fedora 26
+        - Fedora 26 - Workstation edition (Live)
         - Centos 7.x
 
     + BSD based
