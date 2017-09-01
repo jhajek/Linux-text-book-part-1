@@ -346,51 +346,49 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. ZIP
   c. Disk-ISO
   d. Distro
-1)	What is currently the most common Linux install media type?
+2)	What is currently the most common Linux install media type?
   a. CD-ROMs
   b. Network based installs
   c. USB
   d. Thunderbolt
-1) What is the name of reommenmded tool used to create bootable Linux install media?
+3) What is the name of reommenmded tool used to create bootable Linux install media?
   a. Pendrive Linux
   b. etcher.io
   c. UNetbootin
   d. Image Magick
-1)	What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
+4)	What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
 
-1)	The operating system that the hypervisor resides on is called the _________ system?
+5)	The operating system that the hypervisor resides on is called the _________ system?
 
-1)	Hosted or desktop virtualization is called what type of hypervisor?
+6)	Hosted or desktop virtualization is called what type of hypervisor?
 
-1)	Bare Metal or Native Virtualization is called what type of hypervisor?
+7)	Bare Metal or Native Virtualization is called what type of hypervisor?
 
-1)	Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
+8)	Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
   a. mount point
   b. checksum
   c. receipt
   d. mdsum
-1) What is the name of the driver package you can install in VirtualBox in order to enable features such as shared clipboard, larger screen resolution, and mouse pointer integration?
+9) What is the name of the driver package you can install in VirtualBox in order to enable features such as shared clipboard, larger screen resolution, and mouse pointer integration?
   a. Kernel modules
   b. Kernel drivers
   c. VirtualBox extensions
   d. ISO extensions
-1) What is the name for a Linux distribution that runs in memory?
+10) What is the name for a Linux distribution that runs in memory?
   a. Rapid CD
   b. Live ISO
   c. Install Disk
   d. Trick question
-1) What is not a type of checksum hashes offered for an Ubuntu distribution?
+11) What is not a type of checksum hashes offered for an Ubuntu distribution?
   a. MD5
   b. SHA1
   c. SHA256
   d. MD4
-1) What is the only type of hash used for checksums offered for Fedora?
+12) What is the only type of hash used for checksums offered for Fedora?
   a. MD5
   b. SHA1
   c. SHA256
   d. MD4  
-
-
 
 ### Podcast Questions
 
