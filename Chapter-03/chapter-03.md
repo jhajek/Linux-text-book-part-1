@@ -417,20 +417,20 @@ Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://
 You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
 
   + Debian Based
-      - Ubuntu 17.04 Desktop edition
-      - Linux Mint 18
-      - Lubuntu 17.04 Desktop edition
-      - Xubuntu 16.04 Desktop edition
-      - Trisquel Linux
-      - Debian 9
+    - Ubuntu 17.04 Desktop edition
+    - Linux Mint 18
+    - Lubuntu 17.04 Desktop edition
+    - Xubuntu 16.04 Desktop edition
+    - Trisquel Linux
+    - Debian 9
 
-    + Red Hat Based
-        - Fedora 26 - Workstation edition (Live)
-        - Centos 7.x
+  + Red Hat Based
+    - Fedora 26 - Workstation edition (Live)
+    - Centos 7.x
 
-    + BSD based
-        - TrueOS (latest)
-        - Dragonfly BSD (latest)
+  + BSD based
+    - TrueOS (latest)
+    - Dragonfly BSD (latest)
 
 ![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
 
