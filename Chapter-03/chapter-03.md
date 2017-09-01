@@ -19,10 +19,9 @@ The by product of opensource or free software is that the actual code is also fr
 
 How would one install a Linux distro on a computer?  THe first thing you need is an *ISO*. An [ISO (*"eye-so"*)](https://en.wikipedia.org/wiki/ISO_9660 "ISO 9600 standard") file is actually a standard file type that represents the contents of a CD/DVD-ROM in a single archived file format, like a zip file.  Think of ISOs as carrying mechanisms for the content of a disk based installer.  The reason the ISO term and format are tied to the Linux Distro installation process is a historical one.  During the mid 90s Linux rose to prominence at the same time CD-ROM technology began to become affordable and became the method of data distribution that replaced floppy and Zip disks amongst PCs.  It made sense to create distributions that were almost the exact size of a CD-ROM because it made distributing and copying very easy Linux very easy. In this way Linux spread rapidly.
 
-ISO files can be burned or written to various types of media.  CD-ROMs. DVD-ROMs, and more recently USB drives and SD Cards.
-As of August 2016 you would be hard pressed to find an optical drive on a laptop, 2-in-1s, or even a desktop PC. Though many older and still usable PCs have optical drives.  One of the best tools I have found for creating bootable install media on USB drives or SD Cards is [UNetbootin](http://unetbootin.github.io/ "UNetbootin").
+ISO files can be burned or written to various types of media.  CD-ROMs. DVD-ROMs, and more recently USB drives and SD Cards. As of August 2016 you would be hard pressed to find an optical drive on a laptop, 2-in-1s, or even a desktop PC. Though many older and still usable PCs have optical drives.  One of the best tools I have found for creating bootable install media on USB drives or SD Cards is [etcher.io](https://etcher.io/ "Ethcer").
 
-![*UNetbootin initial screen*](images/Chapter-03/unetbootin.png "UNetbootin")
+![*Etcher init screen*](images/Chapter-03/etcher/etcher-io.png "Etcher")
 
 ### Importance of ISOs
 
@@ -239,7 +238,7 @@ The next parts of the installation contain pretty straight-forward parts: time z
 
 ### Installing Fedora
 
-Similarly on Fedora 22 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 22 will initially present you with a language screen option.  After choosing your default language the next step is the *installation summary*.
+Similarly on Fedora 26 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 26 will initially present you with a language screen option.  After choosing your default language the next step is the *installation summary*.
 
 ![*Installation Summary*](images/Chapter-03/fedora-install/installation-summary-800-by-200.png "Installation Summary")
 
