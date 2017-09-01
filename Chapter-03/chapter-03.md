@@ -95,8 +95,7 @@ Each distro also has a checksum feature provided by the site that issues the dow
 
    * [Get Fedora](https://getfedora.org "Get Fedora")
      + [Fedora checksum page for Linux and Mac](https://getfedora.org/en/verify "Verify")
-     + [Fedora checksum page for Windows](http://docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide/sect-verifying-images.html "Verify Windows")
-   * [Get Ubuntu](http://ubuntu.com)
+   * [Get Ubuntu](https://ubuntu.com "ubuntu")
      + [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
      + [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
    * [Get VirtualBox](http://virtualbox.org "VirtualBox")
@@ -108,14 +107,14 @@ Get-FileHash .\ubuntu-17.04-desktop-amd64.iso -Algorithm MD5 | format-list
 ```
 Algorithm : MD5
 Hash      : 18CC54AF55D7CA931BBB8588E8D9C1BD
-Path      : D:\isos\ubuntu-17.04-desktop-amd64.iso
+Path      : D:\\isos\\ubuntu-17.04-desktop-amd64.iso
 
 ```powershell
 Get-FileHash .\Fedora-Server-netinst-x86_64-26-1.5.iso -Algorithm SHA256 | format-list
 ```
 Algorithm : SHA256
 Hash      : E260921EF5C7BD5EE2A7B2F2F1156AF6483014C73984E4CF37F2B6690E0155E5
-Path      : D:\isos\Fedora-Server-netinst-x86_64-26-1.5.iso
+Path      : D:\\isos\\Fedora-Server-netinst-x86_64-26-1.5.iso
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
