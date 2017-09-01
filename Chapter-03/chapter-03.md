@@ -93,7 +93,7 @@ Each distro also has a checksum feature provided by the site that issues the dow
 
 #### Links to get you started
 
-   * [Get Fedora](http://getfedora.org)
+   * [Get Fedora](https://getfedora.org "Get Fedora")
      + [Fedora checksum page for Linux and Mac](https://getfedora.org/en/verify "Verify")
      + [Fedora checksum page for Windows](http://docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide/sect-verifying-images.html "Verify Windows")
    * [Get Ubuntu](http://ubuntu.com)
