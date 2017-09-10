@@ -66,7 +66,7 @@ At the same time a parallel implementation base on X11R5 was being developed by 
 
 The story gets more complicated.  As the userbase of Linux surges in the early 2000s as desktop Linux and GUIs grow, X use would naturally follow that growth curve as well.  You have two problems: [X.Org](http://www.x.org "X"), a vendor controlled stewardship organization, was not doing any development on X, and XFree86 was starting to narrow its *openness* just like the OpenGroup did in 1997, expelling some of the original X creators who had joined the XFree86 project and changing open licenses to be non-GPL compliant (non-Linux compatible license.)
 
-This led to the founding of the X.Org Foundation.  This was a break though event.  It basically reconciled the two groups under one new foundation, [X.Org Foundation](http://www.x.org "X.Org Foundation"), it also ensured that the creators of the X project were once again the stewards, and finally it insured that there was a GPL based and protected X project that developers and companies could contribute to as well. The X.Org Foundation continues to innovate and foster the project to this day.
+This led to the founding of the X.Org Foundation merging the two groups.  This was a breakthough event.  It basically reconciled the two groups under one new foundation, [X.Org Foundation](http://www.x.org "X.Org Foundation"), it also ensured that the creators of the X project were once again the stewards, and finally it insured that there was a GPL based and protected X project that developers and companies could contribute to as well. The X.Org Foundation continues to innovate and foster the project to this day.
 
 A final GUI note that in parallel the most break through commercial GUI available in the early 80s was released by Apple in 1984[^23].  Here is a [link to an article](http://www.folklore.org/StoryView.py?story=Busy_Being_Born.txt "Mac") from the developers about how it came to be.
 
@@ -87,7 +87,7 @@ In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began t
   * As in the X case, when the client receives the event, it updates the UI in response. But in the wayland case, the rendering happens in the client, and the client just sends a request to the compositor to indicate the region that was updated.
   * The compositor collects damage requests from its clients and then recomposites the screen. The compositor can then directly issue an ioctl to schedule a pageflip with KMS.
 
-X is too deep into the bones of Linux and may never be ever fully replaced. The short term is to implement something called XWayland. Instead the Wayland project implemented X into Wayland.  Fedora 22 has a beta version of X-wayland running Fedora 22 - which will render Walyand and X at the same time.
+At one time it was thought that X is too deep into the bones of Linux and may never be ever fully replaced. But we are seeing massive amounts of work from industry to make Wayland a reality. With Intel, nVidea, the X.Org Foundation and Red Hat leading the way, Fedora 25 was one of the first distros to run Wayland natively.  
 
 ![*X on Wayland*](images/Chapter-04/x-on-wayland.png "X on Wayland")
 
