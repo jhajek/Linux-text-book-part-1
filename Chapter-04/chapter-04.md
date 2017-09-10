@@ -7,9 +7,9 @@ In this chapter you will:
 
   *  Learn about the different types of desktop Linux
   *  Understand the nature and use of X, Mir, Wayland, and other GUI compositors
-  *  Understand the purpose of window mangers and the nature of desktop environments
-  *  Know the major features of GNOME 3 and Unity desktop environments
-  *  Understand GUI package managers
+  *  Understand the purpose of window managers and the nature of desktop environments
+  *  Know the major features of GNOME3 desktop environments
+  *  Understand GUI package managers and application stores
   *  Understand theming on the Linux Desktop
 
 ### Outcomes
