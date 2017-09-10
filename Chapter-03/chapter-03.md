@@ -174,7 +174,7 @@ The next step is to select the amount of virtual hard drive allocation.  Here yo
 
 ![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/virtualbox-file-location-and-size.png "Harddisk allocation")
 
-Next is the hard drive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI type is sufficient.  If you know you will be transferring this Virtual Machine to another environment: VMware (VMDK), Microsoft Hyper-V (VHD), KVM (QCOW,QCOW2, RAW) then you can choose the appropriate type.
+Next is the hard drive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI type is sufficient.  If you know you will be transferring this Virtual Machine to another environment: VMware (VMDK), and Microsoft Hyper-V (VHD) then you can choose the appropriate type.
 
 ![*Drive Type*](images/Chapter-03/VirtualBox-Install/virtualbox-hard-disk-file-type.png "Drive Type")
 
