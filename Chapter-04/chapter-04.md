@@ -207,7 +207,7 @@ This project started in 1997 and intended to be a virtual desktop window manager
 
 #### Lumina
 
-Not to be out done.  A distro of FreeBSD, called PC-BSD and recently changed to TruOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE, but now they have independant development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE.  With GNOME moving towards more and more systemd integration, this makes sense.
+Not to be out done.  A distro of FreeBSD, called TrueOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE, but now they have independant development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE.  
 
 ### Who Uses What?
 
