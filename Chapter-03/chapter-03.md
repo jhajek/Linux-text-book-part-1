@@ -319,7 +319,7 @@ Building the main Guest Additions Module[Failed]
 
 ### VirtualBox Features       
 
-If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.0.2 (August 18th, 2015) is the current version.   
+If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.1.x (Septemeber 10th, 2017) is the [current version](https://www.virtualbox.org/wiki/Downloads "Latest VirtualBox").   
 
 [*Feature List for VirtualBox*](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
 
