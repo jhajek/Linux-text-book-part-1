@@ -8,7 +8,7 @@ In this chapter you will:
   *  Learn about the different types of desktop Linux
   *  Understand the nature and use of X, Mir, Wayland, and other GUI compositors
   *  Understand the purpose of window managers and the nature of desktop environments
-  *  Know the major features of GNOME3 desktop environments
+  *  Know the major features of GNOME 3 desktop environments
   *  Understand GUI package managers and application stores
   *  Understand theming on the Linux Desktop
 
@@ -42,7 +42,7 @@ With the X system the idea of having discrete terminals went away.  Now you coul
 
 ## Along Comes an X
 
-Beyond the simple green screen terminals by the mid 1980s we began to see proprietary primitive UNIX GUIs from commercial vendors, especially from Sun. These GUI interfaces were placed on high-end workstations sold at premium prices for the day. One may wonder why you would even bother to great a GUI in the first place. Computing at that time was beginning to take less of an iterative/batch processing approach to computing and a more of an interactive approach. GUIs were in the hand of the privileged few vendors but not of anyone else.  By 1985 MIT opensourced a project called X.  This project was after Richard Stallman had left the school but continued in his spirit.  X was a continuation of a primitive GUI called "*W*". As Unix originally had no concept of a GUI one had to be bolted on.  But the spirit of X was not to enforce any standards on the user.
+Beyond the simple green screen terminals by the mid 1980s we began to see proprietary primitive UNIX GUIs from commercial vendors, especially from Sun. These GUI interfaces were placed on high-end workstations sold at premium prices for the day. One may wonder why you would even bother to great a GUI in the first place. Computing at that time was beginning to take less of an iterative/batch processing approach to computing and a more of an interactive approach. GUIs were in the hand of the privileged few vendors but not of anyone else.  By 1985 MIT opensourced a project called X.  This project was after Richard Stallman had left the school but continued in his spirit.  X was a continuation of a primitive GUI called "*W*". As Unix originally had no concept of a GUI, one had to be bolted on.  But the spirit of X was not to enforce any standards on the user.
 
 X uses a client–server model: an X server communicates with various client programs. The server accepts requests for graphical output (windows) and sends back user input (from keyboard, mouse, or touchscreen). The server may function as:
 
