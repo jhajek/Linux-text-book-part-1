@@ -193,8 +193,8 @@ Theodore Ts'o is a respected developer in the open source community, who current
 
   Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and checksuming.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.
 
-  * sudo dnf install btrfs-progs -y or sudo yum install btrfs-progs -y 		
-  * sudo apt-get install btrfs-tools -y	 
+  * ```sudo dnf install btrfs-progs -y``` or ```sudo yum install btrfs-progs -y``` 		
+  * ```sudo apt-get install btrfs-tools -y```	 
 
 ### ZFS
 
