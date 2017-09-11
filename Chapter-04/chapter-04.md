@@ -227,7 +227,7 @@ Yes Android runs on the Linux Kernel and is a sense a custom Linux Distro itself
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 4                     http://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 2 -> 3              http://mate-desktop.org/
 [Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   http://cinnamon.linuxmint.com/
-[Unity](https://unity.ubuntu.com/ "unity")            OpenGL -> UnityNext/Qt 5 https://unity.ubuntu.com/
+[Unity](https://unity.ubuntu.com/ "unity")            UnityNext/Qt 5 -> GTK+ 3 https://unity.ubuntu.com/
 [Enlightenment](https://www.enlightenment.org/ "E17") EFL                      https://www.enlightenment.org/
 ----------------------------------------------------- ------------------------ -------------------------------
 
@@ -235,9 +235,9 @@ Wikipedia has a sample gallery of all these desktop environments and more at [ht
 
 ### GNOME 3 Lockin
 
-By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork.  We see that Debian, who adopted systemd, was now forced to switch from using GNOME 2 and even using the Xfce Desktop Environment back to GNOME 3 because of this hard dependency.  Perhaps more of Red Hat's plot to take over the Linux standard by co-opting the Linux desktop?
+By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red hat), and Ubuntu you see very little differentiation desktop-wise now.
 
-Some people in the Linux world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of the Linux kernel.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  Remember what the old X-Files motto was (before it jumped the shark)?  "The Truth is Out There."
+Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  
 
 ### Theming
 
@@ -251,9 +251,9 @@ Each desktop environment has the ability to modify and display a theme on top of
 *  file manager desktop icons
 *  icons in menus and buttons
 
-Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBUnut") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions.
+Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBUnut") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions, but recent development on the Ubuntu Touch project has sadly ended.
 
-### Gnome 3 Features on Fedora 22
+### Gnome 3.2x Features 
 
 ![*GNOME 3*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
 
@@ -271,11 +271,11 @@ In order to find the window commands for open, close, resize, tiling, and so for
 
 ![*GNOME 3 Toolbar*](images/Chapter-04/toolbar.png "Toolbar")
 
-#### Fedora 22 Software Store
+#### Fedora Software Store
 
-![*Fedora 22 Software Store*](images/Chapter-04/software-store.png "Software Store")
+![*Fedora Software Store*](images/Chapter-04/software-store.png "Software Store")
 
- This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called Software. There is a wide selection of free and opensource software to choose from. But many of the items you will search for won't yet appear in the store.  For instance the many window managers listed above in this chapter you won't find or IDEs such as Netbeans.  Remember this is because Fedora 22 is cutting edge and requires all packages to have an AppData meta data file for it to appear in their Software store.  In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
+ This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
 
 In addition there is additional software that comes packaged for Fedora (and all Red Hat derived distros) from a site called [RPMfusion.org](http://rpmfusion.org/Configuration). Here you will find free and non-free repositories of additional software to add to your system.  You can click on the downloads and the files will launch automatically with the Software Store for install.
 
