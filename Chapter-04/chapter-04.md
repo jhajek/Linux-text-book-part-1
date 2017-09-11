@@ -207,7 +207,13 @@ This project started in 1997 and intended to be a virtual desktop window manager
 
 #### Lumina
 
-Not to be out done.  A distro of FreeBSD, called TrueOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE, but now they have independant development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE.  
+A distro of FreeBSD, called TrueOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE but the amount of work needed to remove the Linux specific parts prevented new research from being done.  , but now they have independant development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE.  
+
+#### Android
+
+Yes Android runs on the Linux Kernel and is a sense a custom Linux Distro itself.  It has a custom rendering layer that does not use X or Wayland.
+
+![*https://source.android.com/devices/graphics/*](images/Chapter-04/Android/ape_fwk_graphics-400-by-367.png "Android Rendering Layers")
 
 ### Who Uses What?
 
@@ -227,7 +233,7 @@ Not to be out done.  A distro of FreeBSD, called TrueOS, created their own nativ
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
-### GNOME Conspiracy?
+### GNOME 3 Lockin
 
 By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork.  We see that Debian, who adopted systemd, was now forced to switch from using GNOME 2 and even using the Xfce Desktop Environment back to GNOME 3 because of this hard dependency.  Perhaps more of Red Hat's plot to take over the Linux standard by co-opting the Linux desktop?
 
