@@ -480,7 +480,7 @@ You will chose 1 of the window managers from the categories listed earlier in th
 
 In addition you need to install the Lubuntu desktop environment (LXDE + Ubuntu) and Xubuntu desktop environment (Xfce + Ubuntu) through the Ubuntu Software Store as well.
 
-In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen. For the __deliverable__ take a screenshot of the desktop with a notepad or commandline with your name and the name of the window manager or environment. Name the screenshots as follows:
+In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen. For the __deliverable__ take a screenshot of the desktop with a notepad or commandline with your name and the name of the window manager or environment. Label the screenshots as follows:
 
 ![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
 
