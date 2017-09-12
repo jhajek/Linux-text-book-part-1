@@ -515,14 +515,14 @@ Once these additional repositories have been installed you can select them by fo
 
 __Deliverable__ will be to install the ultra-flat-theme and the ultra-flat-icon set and one additional theme from the Software Center. Take a screenshot with the new themes enabled with a text editor open with your name and the name of theme present. Name the screenshots as follows:
 
-*  lastname-firstname-ultra-flat.(jpeg or png)
-*  lastname-firstname-other-theme.(jpeg or png)
+1)  Ultra Flat theme
+1)  MacBuntu Theme
 
 Once installed in order to enable a new theme and icon set you need to make sure you have the Gnome-tweak-tool installed.  
 
 ![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
-Final __deliverable__ is to place all of the above screenshots, 23 total) into a single zip file named: __lastname-firstname-chapter-04-lab.zip__.
+Final __deliverable__ is to place all of the above screenshots) into a single pdf file named: __lastname-firstname-chapter-04-lab.pdf__ and submit to Blackboard.
 
 #### Footnotes
 
