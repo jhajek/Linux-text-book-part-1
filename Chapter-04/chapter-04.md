@@ -271,19 +271,29 @@ In order to find the window commands for open, close, resize, tiling, and so for
 
 ![*GNOME 3 Toolbar*](images/Chapter-04/toolbar.png "Toolbar")
 
+#### GNOME Extensions
+
+To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](https://extensions.gnome.org "GNOME 3 extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME 3 enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor")
+
+![*GNOME 3 Extensions*](images/Chapter-04/extensions.png "Extensions")
+
+### Installing Windows Managers and Desktop Environments
+
+Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android.   The issue with a software store became the ability to make money, charge money, and distribute money.  All though the distributions still support Software Stores, their heart is not in this mannor of software installation.  The original way to install software was via a package manager, which the stores were a front for anyway.  There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux.  These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").   
+
+These methods we will talk about later in Chapter 10.  For now we will use the commandline terminal for installing window managers and desktop environments.  You can access this via Unity Dash button and type in ```Terminal``` or the Activities tab in Fedora 26 and type ```Terminal``` as well.  From the Terminal you can add packages listed above.   For Ubuntu you would use the apt-get command for updating and then installing packages. On Fedora 26+ you would use the dnf command.  
+  
+Ubuntu
+> ```sudo apt-get update```  then ```sudo apt-get install i3 icewm xmonad mutter xfce4 lxde```  
+  
+Fedora 
+> ```sudo dnf install i3 icewm xmonad mutter @xfce```
+
 #### Fedora Software Store
 
 ![*Fedora Software Store*](images/Chapter-04/software-store.png "Software Store")
 
  This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
-
-In addition there is additional software that comes packaged for Fedora (and all Red Hat derived distros) from a site called [RPMfusion.org](http://rpmfusion.org/Configuration). Here you will find free and non-free repositories of additional software to add to your system.  You can click on the downloads and the files will launch automatically with the Software Store for install.
-
-Finally there is a Settings icon that will bring up good old system categories for finding and editing system settings.  Look for "X" icon of a screwdriver and a wrench.
-
-To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](https://extensions.gnome.org "GNOME 3 extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME 3 enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor")
-
-![*GNOME 3 Extensions*](images/Chapter-04/extensions.png "Extensions")
 
 ### Ubuntu Unity Features
 
