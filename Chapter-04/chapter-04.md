@@ -441,6 +441,7 @@ You will install assorted softwares using the Gnome Software application in Fedo
 1) Chromium
 1) Geary
 1) Thunderbird
+1) gPodder
 1) Ted (text editor). 
 
 #### GNOME 3 Extensions
