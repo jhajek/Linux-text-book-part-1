@@ -283,10 +283,10 @@ Previously Linux distributions had made an effort to build in Software Stores, m
 
 These methods we will talk about later in Chapter 10.  For now we will use the commandline terminal for installing window managers and desktop environments.  You can access this via Unity Dash button and type in ```Terminal``` or the Activities tab in Fedora 26 and type ```Terminal``` as well.  From the Terminal you can add packages listed above.   For Ubuntu you would use the apt-get command for updating and then installing packages. On Fedora 26+ you would use the dnf command.  
   
-Ubuntu
+__Ubuntu__
 > ```sudo apt-get update```  then ```sudo apt-get install i3 icewm xmonad mutter xfce4 lxde```  
   
-Fedora 
+__Fedora__
 > ```sudo dnf install i3 icewm xmonad mutter @xfce```
 
 #### Fedora Software Store
@@ -336,7 +336,7 @@ What is the goal of Unity?  "The ultimate goal of the next generation of Unity (
 
 ## Chapter Conclusions and Review
 
-Through this chapter we learned about the details of what X is and how it relates to modern desktop Linux GUIs.  We learned how window managers and desktop environments extend X and give us modern Linux Desktops.  We learned about the two major desktop environments and how they were developed.  We learned about the major desktop environment toolkits and we learned about theming.  Finally we covered the basic terminologies of GNOME 3 on Fedora and Unity 7 on Ubuntu 15.04.
+Through this chapter we learned about the details of what X is and how it relates to modern desktop Linux GUIs.  We learned how window managers and desktop environments extend X and give us modern Linux Desktops.  We learned about the two major desktop environments and how they were developed.  We learned about the major desktop environment toolkits and we learned about theming.  Finally we covered the basic terminologies of GNOME 3 on Fedora and Unity 7 on Ubuntu.
 
 ### Review Questions
 
@@ -463,7 +463,7 @@ You will need to install two GNOME 3 extensions.  The first one is the example i
 1)  SystemMonitor
 1)  Axe Menu
 
-#### Ubuntu 17.04
+#### Ubuntu 
 
 You will be installing an assortment of Desktop Environments, Window Managers, and Themes in this exercise.  From the Ubuntu Software Center you will need to install the following applications and take screenshots of the applications open on the desktop. GIMP, Eclipse, Chrome (called Chromium of Linux), Stellarium, VLC, and the GNOME Tweak Tool.  For the __deliverable__ take a screenshot of the desktop with each application open and name the screenshots as follows:
 
@@ -474,7 +474,7 @@ You will be installing an assortment of Desktop Environments, Window Managers, a
 *  lastname-firstname-ubuntu-stellarium.(jpeg or png)
 *  lastname-firstname-ubuntu-tweak-tool.(jpeg or png)  
 
-#### Ubuntu 17.04 window mangers and desktop environment
+#### Ubuntu window mangers and desktop environment
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  You need to open a text editor and commandline and take a screenshot containing your name and the name of the window manager. *Note* in regards to the other category - chose the evilwm.
 
@@ -484,15 +484,15 @@ In order to change the default window manager or desktop environment you need to
 
 ![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
 
-* lastname-firstname-ubuntu-compositing.(jpeg or png)
-* lastname-firstname-ubuntu-stacking.(jpeg or png)
-* lastname-firstname-ubuntu-tiling.(jpeg or png)
-* lastname-firstname-ubuntu-minimalistic.(jpeg or png)
-* lastname-firstname-ubuntu-other.(jpeg or png)
-* lastname-firstname-ubuntu-xubuntu.(jpeg or png)
-* lastname-firstname-ubuntu-lubuntu.(jpeg or png)
+1) Compositing window manager
+1) Stacking window manager
+1) Tiling window manager
+1) Minimalistic window manager
+1) Other window manager
+1) Install XFCE desktop (not Xubuntu)
+1) Install LXDE desktop (not Lubuntu)
 
-#### Ubuntu 17.04 Theme tweaking
+#### Ubuntu Theme tweaking
 
 Here we will install additional repositories on the command line (terminal) so we can add additional themes and icon sets directly from the Software Center.  In order to do this you need to launch a terminal.  Click the Ubuntu Icon and type terminal in the search box.
 
