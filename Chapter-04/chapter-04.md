@@ -408,8 +408,7 @@ apply)
   e.	Desktop environments have lower memory requirements than window managers
 18)	What is the default desktop environment for Fedora 22? (Name and versions)
 
-19)	What is the name of the button on the upper left hand corner of the GNOME 3 desktop in
-Fedora 22 that you use to “launch applications?”
+19)	What is the name of the button on the upper left hand corner of the GNOME 3 desktop that you use to “launch applications?”
 
 20)	What is the name of the default Ubuntu desktop environment?
 
@@ -429,27 +428,29 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 
 ### Lab
 
- Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers.
+ Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.
 
-#### Fedora 22 Software
+#### Fedora Software
 
-You will install assorted softwares using the Software application in Fedora 22. The list of software is as follows:  GIMP, Audacity, Arduino IDE, GNOME Tweak Tool, one additional software from the Utilities -> Text Editor category, and one additional tool from the Office category. For the __deliverable__ take a screenshot of the desktop with each application open and name the screenshots as follows:
+You will install assorted softwares using the Gnome Software application in Fedora. The list of software is as follows: For the __deliverable__ take a screenshot of each application successful install.  
 
-*  lastname-firstname-fedora-gimp.(jpeg or png)
-*  lastname-firstname-fedora-audacity.(jpeg or png)
-*  lastname-firstname-fedora-arduino.(jpeg or png)
-*  lastname-firstname-fedora-text-editor.(jpeg or png)
-*  lastname-firstname-fedora-office.(jpeg or png)
-*  lastname-firstname-fedora-tweak-tool.(jpeg or png)
+1) Inkscape
+1) Audacity 
+1) Eclipse IDE
+1) GNOME Tweak Tool
+1) Chromium
+1) Geary
+1) Thunderbird
+1) Ted (text editor). 
 
-#### Fedora 22 GNOME 3 Extensions
+#### GNOME 3 Extensions
 
-You will need to install 2 GMONE 3 extensions.  The first one is the example in the book called *Caffeine*. You are to install one additional GNOME 3 plugin of your choice, take screenshots with them each installed and activated. For the __deliverable__ take a screenshot of the desktop with each extension open/active and name the screenshots as follows:
+You will need to install two GNOME 3 extensions.  The first one is the example in the book called *Caffeine*. You are to install one additional GNOME 3 plugin of your choice, take screenshots with them each installed and activated. For the __deliverable__ take a screenshot of the desktop with each extension open/active and name the screenshots as follows:
 
 *  lastname-firstname-caffeine.(jpeg or png)
 *  lastname-firstname-extension.(jpeg or png)
 
-#### Ubuntu 15.04
+#### Ubuntu 17.04
 
 You will be installing an assortment of Desktop Environments, Window Managers, and Themes in this exercise.  From the Ubuntu Software Center you will need to install the following applications and take screenshots of the applications open on the desktop. GIMP, Eclipse, Chrome (called Chromium of Linux), Stellarium, VLC, and the GNOME Tweak Tool.  For the __deliverable__ take a screenshot of the desktop with each application open and name the screenshots as follows:
 
@@ -460,7 +461,7 @@ You will be installing an assortment of Desktop Environments, Window Managers, a
 *  lastname-firstname-ubuntu-stellarium.(jpeg or png)
 *  lastname-firstname-ubuntu-tweak-tool.(jpeg or png)  
 
-#### Ubuntu 15.04 window mangers and desktop environment
+#### Ubuntu 17.04 window mangers and desktop environment
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  You need to open a text editor and commandline and take a screenshot containing your name and the name of the window manager. *Note* in regards to the other category - chose the evilwm.
 
@@ -478,7 +479,7 @@ In order to change the default window manager or desktop environment you need to
 * lastname-firstname-ubuntu-xubuntu.(jpeg or png)
 * lastname-firstname-ubuntu-lubuntu.(jpeg or png)
 
-#### Ubuntu 15.04 Theme tweaking
+#### Ubuntu 17.04 Theme tweaking
 
 Here we will install additional repositories on the command line (terminal) so we can add additional themes and icon sets directly from the Software Center.  In order to do this you need to launch a terminal.  Click the Ubuntu Icon and type terminal in the search box.
 
