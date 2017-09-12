@@ -351,7 +351,7 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. Network based installs
   c. USB
   d. Thunderbolt
-3) What is the name of reommenmded tool used to create bootable Linux install media?
+3) What is the name of recommended tool used to create bootable Linux install media?
   a. Pendrive Linux
   b. etcher.io
   c. UNetbootin
