@@ -37,7 +37,7 @@ To Install the Inconsolata font:
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
 ## Windows 
-You need Pandoc < 1.19.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
+You need Pandoc > 1.19.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
 
 *  [Pandoc Windows pandoc-1.19.1 msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
 *  [MikTex](http://miktex.org/download "Miktex Download")
