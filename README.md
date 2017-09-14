@@ -33,11 +33,12 @@ To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
 ## Windows 
-You need Pandoc < 1.19.x and > MikTex 2.9.x to build this book proper
+You need Pandoc < 1.19.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
 
-[Pandoc Windows pandoc-1.19.1  msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
-
-[MikTex](http://miktex.org/download "Miktex Download")
+*  [Pandoc Windows pandoc-1.19.1 msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
+*  [MikTex](http://miktex.org/download "Miktex Download")
+*  [Inconsolata Font](https://fonts.google.com/specimen/Inconsolata?selection.family=Inconsolata "Inconsolata")
+*  [Charis Sil Font](https://software.sil.org/charis/download/ "Charis Sil")
 
 In order to enable script execution for Powershell - run this command from an Administrator enabled Powershell console:
 
