@@ -29,15 +29,20 @@ To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16
 * ```sudo apt-get update```
 * ```sudo apt-get install fonts-sil-charis```
 
+To Install the Inconsolata font:
+* ```sudo apt-get install ttf-inconsolata```
+* ```sudo fc-cache -fv```
+
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
 ## Windows 
-You need Pandoc < 1.19.x and > MikTex 2.9.x to build this book proper
+You need Pandoc > 1.19.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
 
-[Pandoc Windows pandoc-1.19.1  msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
-
-[MikTex](http://miktex.org/download "Miktex Download")
+*  [Pandoc Windows pandoc-1.19.1 msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
+*  [MikTex](http://miktex.org/download "Miktex Download")
+*  [Inconsolata Font](https://fonts.google.com/specimen/Inconsolata?selection.family=Inconsolata "Inconsolata")
+*  [Charis Sil Font](https://software.sil.org/charis/download/ "Charis Sil")
 
 In order to enable script execution for Powershell - run this command from an Administrator enabled Powershell console:
 
@@ -55,10 +60,10 @@ To generate .mobi files for use on Kindle devices or apps, you need to install K
 
 __Reading PDF and ePUB__
 
-You can use any PDF reader, Adobe or the Microsoft Reader built into Windows 8 and 10.   Currently Microsft Edge browser has native ePub support in [Edge Browser](https://blogs.windows.com/windowsexperience/2017/04/20/week-microsoft-edge-browser-built-books-reading/#fhI8gshdmfAGSrIu.97 "ePub").
+You can use any PDF reader.  Currently Microsft Edge browser has native ePub support in [Edge Browser](https://blogs.windows.com/windowsexperience/2017/04/20/week-microsoft-edge-browser-built-books-reading/#fhI8gshdmfAGSrIu.97 "ePub").
 
 Or you can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
 
 ePub and PDF can alsop be read via the Barns and Noble Nook app.  It is available for all platforms, [iOS, Androis, and Windows](http://www.nook.com/nookapp/#appChoices "Nook app").  I use it and can recommend it on any platform.
 
-the iBooks app on iOS works as well for viewing ePubs and PDFs.
+The iBooks app on iOS works as well for viewing ePubs and PDFs.
