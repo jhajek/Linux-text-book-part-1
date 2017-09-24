@@ -11,3 +11,4 @@ tex2pdf*/
 *.ps1~
 .vscode/
 texput.log
+!files/Chapter-05/images/chapter-05-file-path-exercise.html
