@@ -270,9 +270,9 @@ who
 
 sort
 
-:  Similar to the ```cat``` command, ```sort``` will display the content of a file to standard out with the added feature of sorting the content alphabetically.  Note that what is sorted is just a copy of the output to the screen.  The original file is left unaffected. The ```sort``` and ```uniq``` commands are often used together. __Usage example:__
+:  Similar to the ```cat``` command, ```sort``` will display the content of a file to standard out with the added feature of sorting the content alphabetically.  Note that what is sorted is just a copy of the output to the screen.  The original file is left unaffected. The ```sort``` and ```uniq``` commands are often used together. The \\n character provides a newline or carriage return __Usage example:__
 ```bash
-echo -e "orange \npeach \ncherry" > fruit.txt; sort fruits.txt  
+echo -e "orange\npeach\ncherry" > fruits.txt; sort fruits.txt  
 ```
 ```bash
 who | sort
