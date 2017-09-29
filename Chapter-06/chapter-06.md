@@ -179,7 +179,7 @@ echo $PATH
 DT=`date`; echo $DT
 ```
 ```bash
-JAVA\_HOME="/usr/bin/java"; echo $JAVA\_HOME
+JAVA_HOME="/usr/bin/java"; echo $JAVA_HOME
 ```
 
 There is a final meta-character called the backtick or formally the grave accent. The backtick key is to left of number 1.  The backtick is used for encasing Linux binary command names.  The backtick tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__
