@@ -478,7 +478,7 @@ __USER__
 
 An alternative to using ```find``` is the ```locate``` command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your Linux distro by default.  You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```.  The ```locate``` command reads one or more databases prepared by ```updatedb``` and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
 
- There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system.  Thereby making lookups faster.  You simply run the sudo updatedb command to update the index (done every time on reboot).  
+There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system, thereby making lookups faster.  You simply run the sudo updatedb command to update the index (done every time on reboot).  
 
 > __Example usage:__ ```sudo updatedb; locate *.png; locate chapter-05.md```
 
@@ -490,7 +490,7 @@ If you remember the history of Unix and history of technology you remember that 
 
 ### tar
 
- By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The ```tar``` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a hierarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
+By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The ```tar``` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a hierarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
 
 The tar command only does archiving and does not do any compression--only preserving of file structure in the same way that an ISO file preserves structure.  The tar archive by convention is assigned a file extension of __.tar__ but this is not added automatically.
 
@@ -500,7 +500,7 @@ The tar command only does archiving and does not do any compression--only preser
 
 ### compress
 
-  As file sizes grew the need to compress redundant data became apparent.  In dealing with compression you have two sides and you have to choose one.  Either the fast time to compress and larger file sizes, or slower time to compress and smaller file sizes. The initial compression algorithms went for the faster compression but larger file option.  The first compression tool on Unix was called ```compress```.  But it was encumbered by a patent on the [LZW](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch "LZW") compression algorithm, the same patent on that lead to the creation of the jpeg image standard to replace the encumbered GIF image format.  Because of this compress was never *free* and outside of its invention and inclusion in commercial Unix in 1985, use could never catch on.
+As file sizes grew the need to compress redundant data became apparent.  In dealing with compression you have two sides and you have to choose one.  Either the fast time to compress and larger file sizes, or slower time to compress and smaller file sizes. The initial compression algorithms went for the faster compression but larger file option.  The first compression tool on Unix was called ```compress```.  But it was encumbered by a patent on the [LZW](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch "LZW") compression algorithm, the same patent on that lead to the creation of the jpeg image standard to replace the encumbered GIF image format.  Because of this compress was never *free* and outside of its invention and inclusion in commercial Unix in 1985, use could never catch on.
 
 > Compress/Uncompress is a Unix shell compression program based on the LZW compression algorithm. Compared to more modern compression utilities such as gzip and bzip2, compress performs faster and with less memory usage, at the cost of a significantly lower compression ratio [^72].
 
@@ -512,15 +512,15 @@ By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLA
 
 ### bzip2
 
-  This is a similar algorithm to gzip in that they do compression only.  It differs from gzip in that it uses the [LZMA](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA") compression algorithm which produces smaller sized files but take more CPU time and memory to compress.  This is deemed an acceptable trade off as computers are only getting faster.  Decompression is very fast compared to compression.  It was released in 2001[^74] and is available under a BSD-like license.  
+This is a similar algorithm to gzip in that they do compression only.  It differs from gzip in that it uses the [LZMA](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA") compression algorithm which produces smaller sized files but take more CPU time and memory to compress.  This is deemed an acceptable trade off as computers are only getting faster.  Decompression is very fast compared to compression.  It was released in 2001[^74] and is available under a BSD-like license.  
 
 ### xz
 
-  The [xz](http://tukaani.org/xz/format.html "xz") compression tool is using the [LZMA2](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA2") compression algorithm which is superior in decreasing size at the expense of compute time.  The xz algorithm uses LZMA2 which has support for multithreading in compressing and decompressing in parallel. Back in 1985 when the first Compress program was created processing power was slow compared to the speed of the networks.  Now the speed of the processor is much faster relative to the speed of our networks. On today's networks we are moving multiple gigabytes around at a time.  The xz compression tool is the tool for the future.  In December 2013, [kernel.org](http://kernel.org "kernel.org") announced the addition of xz compressed files and ending bzip2 compressed files for distributing the Linux kernel archive files. The xz tool works only on single files and cannot be used for archiving.  In this case you would compress an archive file (like a tar file) to maximize usage.
+The [xz](http://tukaani.org/xz/format.html "xz") compression tool is using the [LZMA2](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA2") compression algorithm which is superior in decreasing size at the expense of compute time.  The xz algorithm uses LZMA2 which has support for multithreading in compressing and decompressing in parallel. Back in 1985 when the first Compress program was created processing power was slow compared to the speed of the networks.  Now the speed of the processor is much faster relative to the speed of our networks. On today's networks we are moving multiple gigabytes around at a time.  The xz compression tool is the tool for the future.  In December 2013, [kernel.org](http://kernel.org "kernel.org") announced the addition of xz compressed files and ending bzip2 compressed files for distributing the Linux kernel archive files. The xz tool works only on single files and cannot be used for archiving.  In this case you would compress an archive file (like a tar file) to maximize usage.
 
 ### tarballs
 
-  A tape archive that is additionally compressed by another tool is called a __tar ball__ and the compression method is usually appended to the end of the filename.  
+A tape archive that is additionally compressed by another tool is called a __tar ball__ and the compression method is usually appended to the end of the filename.  
 
 >  __Example Usage:__ ```tar -cvzf code.tar.gz ./code-directory``` This command will create a ```tar``` archive of the directory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions.
 
@@ -532,7 +532,7 @@ By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLA
 
 ##  Hidden files and single dot operator
 
-  In the previous chapter we talked about the single-dot operator--which is a short cut for *right here* or your present working directory.  If the single-dot proceeds a file or directory name that file or directory becomes hidden.  Not completely invisible but by using the ``ls`` or ```ls -l``` commands you will not see these files.  You need to add the -a option to see all hidden directories.  Usually hidden directories are reserved for important user configuration files or system files.  It is a convention not a rule, but as you have seen so far, tradition is rule in Unix.
+In the previous chapter we talked about the single-dot operator--which is a short cut for *right here* or your present working directory.  If the single-dot proceeds a file or directory name that file or directory becomes hidden.  Not completely invisible but by using the ``ls`` or ```ls -l``` commands you will not see these files.  You need to add the -a option to see all hidden directories.  Usually hidden directories are reserved for important user configuration files or system files.  It is a convention not a rule, but as you have seen so far, tradition is rule in Unix.
 
 > __Example usage:__ Compare the output of these two commands: ```ls -l ~``` and ```ls -la ~```--what new files or directories appear?
 
@@ -540,7 +540,7 @@ By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLA
 
 ## Chapter Conclusions and Review
 
-  In this chapter we covered and explored the power-tools of the commandline.  We learned about shell meta-characters and how they enhance the usability of the commandline.  We examined additional command binaries used for manipulation and modification of output to the screen.  We learned about the standard input, output, and error devices and how input can be redirected to them via the arrow operators.  Finally we coved find, locate, and grep tools for searching in files and for files.  Lastly we covered the archiving tool tar and the 4 different compression algorithms in use today in Linux.  This next chapter is preparing us to combine of these features into a shell script.
+In this chapter we covered and explored the power-tools of the commandline.  We learned about shell meta-characters and how they enhance the usability of the commandline.  We examined additional command binaries used for manipulation and modification of output to the screen.  We learned about the standard input, output, and error devices and how input can be redirected to them via the arrow operators.  Finally we coved find, locate, and grep tools for searching in files and for files.  Lastly we covered the archiving tool tar and the 4 different compression algorithms in use today in Linux.  This next chapter is preparing us to combine of these features into a shell script.
 
 ### Review Questions
 
@@ -701,11 +701,11 @@ __Final deliverable__ is to place all commands into a single text file named las
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-4.(jpg or png)
 5. What command inside the textbook directory will do a long listing of Chapters-02,04,06, and 08 only?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-5.(jpg or png)
-6. What command will copy the content of file Chapter-02/chapter-02 to a directory named Chapter-00/chapter-02.  Use meta-characters to string together commands.
+6. What command will copy the content of file Chapter-02/chapter-02.md to a directory named Chapter-00/chapter-02.md.  Use meta-characters to string together commands.
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-6.(jpg or png)
 7. Creat a shell varaible named UT, assign the contents of the command uptime to UT and print a string to the screen with its value and a message describing what it is.
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-7.(jpg or png)
-8. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```service nx start 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora 21 replace apt-get with yum and skip the first instruction and on Fedora 22 replace apt-get with dnf and skip the first instruction.  Display the contents of the \*.out files in one commmand and send its output to the ```less``` command. Display the contents of the \*.err files in one commmand and send its output to the ```less``` command.  
+8. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with yum or dnf and skip the first instruction and skip the first instruction.  Display the contents of the \*.out files in one commmand and send its output to the ```less``` command. Display the contents of the \*.err files in one commmand and send its output to the ```less``` command.  
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-8.(jpg or png)
 9. You are typing the command ```ls -l /topsecret``` and you want to redirect both standard out and standard error to a file named /tmp/out-and-error.txt, how would you do it?
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-9.(jpg or png)
