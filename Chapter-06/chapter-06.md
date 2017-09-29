@@ -119,12 +119,9 @@ echo "Buy milks and eggs!" >> ~/Documents/my-shopping-list.txt
 
 \{\}
 
-: Curly braces are expansion braces for declaring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it and passes it to the echo command.  The second command example from chapter 03 uses ```()``` to execute a sub-shell to get the value of ```uname -r```.  The final example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
+: Curly braces are expansion braces for declaring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it and passes it to the echo command. The second example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
 ```bash
 echo ${username-`whoami`}
-```
-```bash
-sudo apt-get install build-essential dkms linux-headers-$(uname -r)
 ```
 ```bash
 mkdir chapter-0{1..9}
