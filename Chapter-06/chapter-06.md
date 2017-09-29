@@ -274,9 +274,6 @@ sort
 ```bash
 echo -e "orange\npeach\ncherry" > fruits.txt; sort fruits.txt  
 ```
-```bash
-who | sort
-```
 
 uniq
 
