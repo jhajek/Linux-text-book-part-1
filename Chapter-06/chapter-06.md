@@ -703,7 +703,7 @@ __Final deliverable__ is to place all commands into a single text file named las
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-5.(jpg or png)
 6. What command will copy the content of file Chapter-02/chapter-02.md to a directory named Chapter-00/chapter-02.md.  Use meta-characters to string together commands.
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-6.(jpg or png)
-7. Creat a shell varaible named UT, assign the contents of the command uptime to UT and print a string to the screen with its value and a message describing what it is.
+7. Create a shell variable named UT, assign the contents of the command uptime to UT and print a string to the screen with its value and a message describing what it is.
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-7.(jpg or png)
 8. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with yum or dnf and skip the first instruction and skip the first instruction.  Display the contents of the \*.out files in one commmand and send its output to the ```less``` command. Display the contents of the \*.err files in one commmand and send its output to the ```less``` command.  
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-8.(jpg or png)
