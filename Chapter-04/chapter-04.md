@@ -458,7 +458,7 @@ You will install assorted softwares using the Gnome Software application in Fedo
 
 You will need to install two GNOME 3 extensions.  The first one is the example in the book called *Caffeine*. Take screenshots with them each installed and activated. For the __deliverable__ take a screenshot of the desktop with each extension open/active and name the screenshots as follows from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
 
-1)  Caffeiene
+1)  Caffeine
 1)  Dash to Dock
 1)  SystemMonitor
 1)  Axe Menu
