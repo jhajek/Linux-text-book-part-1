@@ -417,7 +417,7 @@ d. A C program
 
 4. Who created the vi editor?
 a. Richard Stallman
-b. Douglas McIlroy
+b. Doug McIlroy
 c. Bill Joy
 d. Dave McKenzie
 
