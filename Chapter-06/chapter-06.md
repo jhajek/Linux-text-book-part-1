@@ -73,18 +73,20 @@ ls vegetable-?-report.txt
 ls ???.txt
 ```
 
+```'```
+
+: single tic or single quote.  Any characters or variables surrounded by a single tic will be interpreted literally.  Unlike the previous example this command will only print the literal characters $DT not expand the variable's contents.  The first item below will not work, why? You will see a >> on the next line which is a continuation.  The shell interpreter is confused and matches the first two \'\' but the second is not closed.
+
+  __Usage example:__
+```bash
+echo 'Today's date is $DT' 
+```
+
 \"
 
 : double tic or double quote. Any characters or variables surrounded by double tics will interpret shell variables that inside of the string before passing the contents to a command. This command will print the content of the date command from the previous example along with some text to the screen. __Usage example:__
 ```bash
-echo "Today's date is $DT"
-```
-
-```'```
-
-: single tic or single quote.  Any characters or variables surrounded by a single tic will be interpreted literally.  Unlike the previous example this command will only print the literal characters $DT not expand the variable's contents.  __Usage example:__
-```bash
-echo 'Today's date is $DT'
+echo "The date is $DT"
 ```
 
 ```[]```
