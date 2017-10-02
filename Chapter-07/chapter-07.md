@@ -503,7 +503,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
 
 *Prereqs:*  You will need to install the program vimtutor for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim``` and on Fedora by typing ```sudo dnf install vim```
 
-1) To begin just type vimtutor from the commandline. Warning - vimtutor requires you to read.
+1) To begin type vimtutor from the commandline. Warning - vimtutor requires you to read.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/lastname-firstname-lab-7-vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use vim for this assignment.
     i) __Deliverable:__ Submit the completed vim-tutorial file named as above.
