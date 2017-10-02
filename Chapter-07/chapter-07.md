@@ -501,9 +501,7 @@ __Objectives:__ The objective of this lab is to master the command and control o
 
 __Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
-*Prereqs:*  You will need to install the program vimtutor for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim``` and on Fedora by typing ```sudo dnf install vim```
-
-1) 
+*Prereqs:*  You will need to install the program vimtutor for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim``` and on Fedora by typing ```sudo dnf install vim```. If your instructor or class is using Git/Github follow these instructions--else you can bypass this section.
 
 1) To begin type the command ```vimtutor``` from the commandline. Warning - __vimtutor__ requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
