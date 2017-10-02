@@ -114,6 +114,7 @@ ls file[!a-z]
 : Angle brackets or less than greater than - allow for input and output to be redirected.  Think of them as arrows pointing. Single arrow is destructive meaning if the filename exists the previous contents will be destroyed and the file recreated.  Double arrow is an append operation and will append the content to the end of the filename given as an argument. The arrows can be combined with the ```&``` to help suppress output and that will be described in the next section in detail.  Note how the normal output to the screen is being redirected to these files by the arrow operators. __Usage example:__
 ```bash
 date > /tmp/todaysdate.txt
+date >> /tmp/todaysdate.txt
 ```
 ```bash
 echo "Buy milks and eggs!" >> ~/Documents/my-shopping-list.txt
