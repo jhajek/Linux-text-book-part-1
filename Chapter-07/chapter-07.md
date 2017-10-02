@@ -513,8 +513,8 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
      Source (.) the new .bashrc profile and execute the binary from the command line.
      Deliverable: Take a screenshot of the terminal with the command you used to launch VS Code and position the launched Code over the terminal so that just the single line is showing.   Name the file: __lastname-firstname-lab-7-vscode.(jpg or png)__
 
-3) You must create a shell script named “cat”  that when executed it opens a webbrowser with a picture of a cute cat. (Attached to this post and available in the files directory of the book source code)   Note – to open a file in FireFox from the command line just type:  firefox /path/to/file
-    i) Use the cat picture attached in blackboard to make your own cat command that when typed opens a web-browser showing the cat picture.   
+3) You must create a shell script named ```icat```  that when executed it opens a webbrowser showing a picture of a cat. (Available in the Chapter 07 files directory of the book source code)   Note – to open a file in FireFox from the commandline just type:  firefox /path/to/file
+    i) Use the cat picture provided to make your own ```icat``` command or a shell script that when typed opens a web-browser showing the cat picture.   
     i) You will need to modify the PATH – hint think about order and what the book said about how a command binary is detected.
     i) Deliverable: Submit a screenshot with the shell script being executed and the output with the web-browser layered over it.  Name the file: lastname-fistname-lab-7-cat.(jpg or png)
 
