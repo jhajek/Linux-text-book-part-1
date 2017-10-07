@@ -497,7 +497,7 @@ Please listen to or view this podcast and answer these questions:
 
 ### Lab Chapter 7
 
-__Objectives:__ The objective of this lab is to master the command and control of the vim editor.  In addition you will use your vim editor skills to modify the system path to allow for two custom apps to be launched directly from you command.
+__Objectives:__ The objective of this lab is to master the command and control of the vim editor as well as the commandline version control tool Git.  
 
 __Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
@@ -512,7 +512,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) Create an additional H1 tag and label it "Where are you from?" and tell us where are your from (below the H1 tag)
     i) Create an additional H1 tag and label it "IT Background" and tell us what your IT specialty or interest is
     i) Create an additional H1 tag and label it "Something interesting about you" and tell us something different or unique about you (hobbies, awards, famous relatives...)
-    i) Create an additional H1 tag labeled "Git Tutorial" and post your progress badge from the previous Git Tutorial assignment ( you will receive the points here) 
+    i) Create an additional H1 tag labeled "Git Tutorial" and post your progress badge from the previous Git Tutorial assignment
     i) Submit to Blackboard your Github account URL for this project
 
 1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
