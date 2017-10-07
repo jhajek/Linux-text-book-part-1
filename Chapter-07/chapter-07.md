@@ -501,7 +501,12 @@ __Objectives:__ The objective of this lab is to master the command and control o
 
 __Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
-*Prereqs:*  You will need to install the program vimtutor for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim``` and on Fedora by typing ```sudo dnf install vim```. If your instructor or class is using Git/Github follow these instructions--else you can bypass this section.
+*Prereqs:*  You will need to install the program ```vimtutor``` and ```git``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim```. 
+
+1) Go to [github.com](https://www.github.com "Github") and sign up for a github ID. If you already have one you can use that ID and submit that ID name through Blackboard.  Upon this you will be issued your own Private Github repo that I can access to see an review your assignments.
+
+1) Complete the Basic Git - tutorial here: [https://www.codecademy.com/learn/learn-git](https://www.codecademy.com/learn/learn-git "Leanr Git")  You will need to sign up or create an account with Codecademy. Select the Google sign in option and use your @hawk account to authenticate and create an account.  Upon completion of this tutorial you will receive a badge of completion. 
+
 1) 
 
 
