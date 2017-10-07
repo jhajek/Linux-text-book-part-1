@@ -273,15 +273,15 @@ The second family of editors differs from the first in that they were created af
 
 #### gedit
 
- The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1999 -shortly before the GNOME desktop was released.  It is a full fledged text editor with plugin support and syntax highlighting.  It is currently part of the GNOME core applications and you will find it installed anywhere GNOME3 is installed.
+The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1999 -shortly before the GNOME desktop was released.  It is a full fledged text editor with plugin support and syntax highlighting.  It is currently part of the GNOME core applications and you will find it installed anywhere GNOME3 is installed.
 
 #### Visual Studio Code
 
-  [Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code") is a new comer to this field.  It is a text editor that has builtin support for Git, plugins, and syntax highlighting. The advantage is that you can download VS Code for Windows, Mac, and Linux as the project is opensource.
+[Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code") is a new comer to this field.  It is a text editor that has builtin support for Git, plugins, and syntax highlighting. The advantage is that you can download VS Code for Windows, Mac, and Linux as the project is opensource.
 
 #### Atom
 
-  Text editor from Github  (add more here)
+[Atom](https://atom.io/ "atom") is a hackable text editor for the 21st century, built on Electron, and based on everything we love about our favorite editors. We designed it to be deeply customizable, but still approachable using the default configuration.
 
 #### Leafpad and Mousepad
 
