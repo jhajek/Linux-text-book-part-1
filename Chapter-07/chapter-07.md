@@ -506,6 +506,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
 1) Go to [github.com](https://www.github.com "Github") and sign up for a github ID. If you already have one you can use that ID and submit that ID name through Blackboard.  Upon this you will be issued your own Private Github repo that I can access to see an review your assignments. __Deliverable:__ Submit your Github ID through Blackboard.
 
 1) Complete the Basic Git - tutorial here: [https://www.codecademy.com/learn/learn-git](https://www.codecademy.com/learn/learn-git "Learn Git")  You will need to create an account with Codecademy. Select the Google sign in option and use your @hawk account to authenticate and create an account. Upon completion of this tutorial you will receive a badge of completion. 
+    i) See sample output here: [https://github.com/illinoistech-itm/jhajek](https://github.com/illinoistech-itm/jhajek "sample")
     i) Clone the assigned private repo to the Linux system of your choice
     i) Using this guide, [https://guides.github.com/features/mastering-markdown/](https://guides.github.com/features/mastering-markdown/ "Mastering Markdown") create a ReadMe.md file with the following content:
     i) Create an H1 With your name, below it display an image of yourself and one other image that describes you (favorite soccer team or TV show for instance) Push your two images to the images folder you created in your repo 
