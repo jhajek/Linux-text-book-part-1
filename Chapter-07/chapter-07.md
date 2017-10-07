@@ -502,16 +502,13 @@ __Objectives:__ The objective of this lab is to master the command and control o
 __Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
 *Prereqs:*  You will need to install the program vimtutor for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim``` and on Fedora by typing ```sudo dnf install vim```. If your instructor or class is using Git/Github follow these instructions--else you can bypass this section.
+1) 
+
 
 1) To begin type the command ```vimtutor``` from the commandline. Warning - __vimtutor__ requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
-    i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/lastname-firstname-lab-7-vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use vim for this assignment.
-    i) __Deliverable:__ Submit the completed vim-tutorial file named as above.
-
-1) Create a shell script named ```icat```  that when executed it opens a webbrowser showing a picture of a cat. (Available in the Chapter 07 files directory of the book source code)   Note – to open a file in FireFox from the commandline just type:  firefox /path/to/file
-    i) Use the cat picture provided to make your own ```icat``` command or a shell script that when typed opens a web-browser showing the cat picture.   
-    i) You will need to modify the PATH – hint think about order and what the book said about how a command binary is detected.
-    i) Deliverable: Submit a screenshot with the shell script being executed and the output with the web-browser layered over it.  Name the file: lastname-fistname-lab-7-cat.(jpg or png)
+    i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
+    i) __Deliverable:__ Include your filenamed above in your Week-07 repo.
 
 __FINAL DELIVERABLE:__ Submit a zip file named: __lastname-firstname-lab-7-.zip__ containing the text file from step 1 and the two screenshots from step 2 and 3. **Note**  If your instructor or class is using Git/Github submit your document as a ReadMe.md file there.
 
