@@ -726,7 +726,7 @@ __Final deliverable__ is to place all commands into a single text file named las
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-18.(jpg or png)
 19. Again create a tar archive and this time add compression for the bzip2 standard for Space_java.tar
     i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-19.(jpg or png)
-20. Download the Linux kernel archive via wget from: [https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz "kernel.org") Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the command to tar and compress it with xzip.     
+20. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz "kernel.org") Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the command to tar and compress it with xzip.     
      i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-20.(jpg or png)
 21.  1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
      i) Take a screenshot of the above command with output: Name the file lastname-firstname-screenshot-week-6-ec.(jpg or png)
