@@ -184,24 +184,23 @@ p                pastes the current line or lines that are in the clipboard
 
 #### Search Forward
 
-__EX__ mode also contains the ability to search for occurrences of text patterns within a text file while using __vi__.  By typing the combo ```ESC then /``` you see a slash at the bottom of line of the __vi__ editor. This allows you to search for a pattern from your current cursor position.  You can type ```ESC then ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.  The next examples can be recreated using the log file located in the Chapter-07 directory of the included code under the *files* directory.  This example uses the file named ```u\_ex150911\_.log``` which is an IIS webserver log for a Wordpress Installation. Each of these commands needs to be prefaced by an ESC push to change modes.
+__EX__ mode also contains the ability to search for occurrences of text patterns within a text file while using __vi__.  By typing the combo ```ESC then /``` you see a slash at the bottom of line of the __vi__ editor. This allows you to search for a pattern from your current cursor position.  You can type ```ESC then ?``` to search the same pattern going up.   Hitting the letter *n* will move you to the next result which could be multiple lines away in a large document.  You can also use shell-metacharacters to search.  The next examples can be recreated using the log file located in the Chapter-07 directory of the included code under the *files* directory.  This example uses the file named ```u_ex150911.log``` which is an IIS webserver log for a Wordpress Installation. Each of these commands needs to be prefaced by an ESC push to change modes.
+
+\newpage
 
 ![*vi search*](images/Chapter-07/editors/vi/vi-search.png "vi search")
 
-```/[Mm]ozilla
-```
+```/[Mm]ozilla```
 
 : will search forwards for any lines containing either *Mozilla* or *mozilla* and highlight each occurrence in the file you are editing in __vi__.
 
 #### Search Backwards
 
-```?Mozilla
-```
+```?Mozilla```
 
 : will search the file backwards for the word *Mozilla*.
 
-```/Mozilla\/?\.0
-```
+```/Mozilla\/?\.0```
 
 :  This is where we can combine shell meta-characters inside of __vi__ for searching for Mozilla versions
 
