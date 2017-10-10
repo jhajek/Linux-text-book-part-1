@@ -510,9 +510,9 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) Clone the assigned private repo to the Linux system of your choice
     i) Using this guide, [https://guides.github.com/features/mastering-markdown/](https://guides.github.com/features/mastering-markdown/ "Mastering Markdown") create a ReadMe.md file with the following content:
     i) Create an H1 With your name, below it display an image of yourself and one other image that describes you (favorite soccer team or TV show for instance) Push your two images to the images folder you created in your repo 
-    i) Create an additional H1 tag and label it "Where are you from?" and tell us where are your from (below the H1 tag)
+    i) Create an additional H1 tag and label it "Where are you from?" and tell us where are your from, below the H1 tag
     i) Create an additional H1 tag and label it "IT Background" and tell us what your IT specialty or interest is
-    i) Create an additional H1 tag and label it "Something interesting about you" and tell us something different or unique about you (hobbies, awards, famous relatives...)
+    i) Create an additional H1 tag and label it "Something interesting about you" and tell us something different or unique about you: hobbies, awards, famous relatives...
     i) Create an additional H1 tag labeled "Git Tutorial" and post your progress badge from the previous Git Tutorial assignment
     i) Submit to Blackboard your Github account URL for this project
 
