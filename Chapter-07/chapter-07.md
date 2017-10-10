@@ -142,7 +142,7 @@ p                pastes the current line or lines that are in the clipboard
  u                      undo previous command (unlimited)
  Ctrl + r               redo previous command (unlimited)
  Ctrl + g                       file info
- Ctrl + G                  go to last line of file
+ G                           go to last line of file
  ZZ              shortcut to save the current file and quit out of vi
 -----------   ----------------------------------------------------------------
 
