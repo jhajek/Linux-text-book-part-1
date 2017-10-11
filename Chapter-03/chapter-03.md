@@ -384,7 +384,7 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. SHA1
   c. SHA256
   d. MD4
-12) What is the only type of hash used for checksums offered for Fedora?
+12) What is the only type of hash used for checksums offered for Fedora ISOs?
   a. MD5
   b. SHA1
   c. SHA256
