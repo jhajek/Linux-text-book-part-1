@@ -54,6 +54,14 @@ You can then run the build script ./build-windows.ps1 from the powershell window
 
 On your first build you will receive a Package Installation dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.
 
+### Windows Errors
+
+If you receive this error:
+![*fontspec error*](images/ReadMe/fontspec.png "fontspec error")
+
+The way to remidiate it to launch the MikTex Package Manger, search for fontspec, uninstall the ```fontspec``` package, then reinstall it.
+
+
 __Kindle .mobi__
 
 To generate .mobi files for use on Kindle devices or apps, you need to install Kindlegen from [here](https://www.amazon.com/gp/feature.html?docId=1000234621) Works on Windows, MacOS, and Linux.
