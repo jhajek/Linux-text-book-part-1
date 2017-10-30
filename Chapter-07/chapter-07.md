@@ -49,7 +49,7 @@ The chart below shows the history of the __vi editor__.
    ed                  1971                   Ken Thompson (original Unix)
    em                  1976                   [George Coulouris](https://en.wikipedia.org/wiki/George_Coulouris_\(computer_scientist\) "George Coulouris")
    ex                  1978                   Bill Joy, Charles Haley, included in BSD
-   vi                  1978                   Bill Joy
+   vi                  1979                   Bill Joy
    vim                 1991                   [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar "Vim")
 
 Initially Ken Thompson's editor worked well for what he needed.  But the commands were very cryptic and made using the Thompson editor very difficult.  Ken Thompson's original shell *ed* is still available for [download on Ubuntu and Fedora](http://linuxclues.blogspot.com/2012/09/ed-tutorial-line-editor-unix.html "ed") if you are interested to see what it was like to use Unix back in the early 70's
