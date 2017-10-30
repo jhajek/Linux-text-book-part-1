@@ -388,7 +388,7 @@ Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles
 
 Chapter 07 review questions
 
-1.  What are the two main representatives of stream editors  
+1.  What are the two main representatives of stream editors?  
 a. gedit and kate
 b. Nano and Joe
 c. vi and Nano
@@ -401,8 +401,8 @@ c. GUI editors
 d. Stream Editors
 
 3. Emacs at it's core is what?
-a. A great program
-b. The heart and sould of hackers
+a. A fine operating system in need of a good editor
+b. The heart and soul of hackers
 c. An interpreter for Emacs Lisp
 d. A C program
 
@@ -414,7 +414,7 @@ d. Dave McKenzie
 
 4. What year was vi release in?
 a. 1972
-b. 1976
+b. 1979
 c. 1999
 d. 1978
 
