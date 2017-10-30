@@ -1,4 +1,4 @@
-# Appendix B
+2# Appendix 2
 ![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-B/git_commit-2.png "Git Commit")
 
 This section contains the answers to the chapter review questions
@@ -281,7 +281,7 @@ a. 10dd
 a. :wq
 
 13.  In the log file u_ex150911_.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash) 
-a. /xmlrpc.php
+a. /xmlrpc\.php
 
 14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
 a. s/linux/Linux/g
