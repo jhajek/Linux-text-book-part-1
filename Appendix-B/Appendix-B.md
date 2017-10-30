@@ -281,13 +281,13 @@ a. 10dd
 a. :wq
 
 13.  In the log file u_ex150911_.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash) 
-a. /xmlrpc\.php
+a. /xmlrpc\\.php
 
 14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
 a. s/linux/Linux/g
 
 15.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
-a. s/Linux/GNU\/Linux/g
+a. s/Linux/GNU\\/Linux/g
 
 16.  Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
 a. s/Windows//g
