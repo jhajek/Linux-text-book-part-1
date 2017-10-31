@@ -424,7 +424,7 @@ b. ed -> em -> ex -> vi -> vim
 c. em -> ex -> vi
 d. em -> ed -> vi -> vim
 
-6.  What are the three modes in vi?  ( sperate each answer via a comma)
+6.  What are the three modes in vi?  
 
 7.  What is the key you use in vi to transition bewteen COMMAND MODE and INSERT mode? (Just three letters)
 
@@ -436,7 +436,7 @@ d. em -> ed -> vi -> vim
 
 11. What command sequence in vi will delete 10 lines from the current cursor position? (just the numbers and letters)
 
-12. Which command in ex mode (vi) will save the current file you are working on and exit the vi editor? (include the :)
+12. Which command in ex mode (vi) will save the current file you are working on and exit the vi editor? (include the ":")
 
 13.  In the log file u\_ex150911.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash)
 
