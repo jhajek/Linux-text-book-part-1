@@ -426,7 +426,7 @@ d. em -> ed -> vi -> vim
 
 6.  What are the three modes in vi?  
 
-7.  What is the key you use in vi to transition bewteen COMMAND MODE and INSERT mode? (Just three letters)
+7.  What is the key you use in vi to transition bewteen COMMAND MODE and INSERT mode? 
 
 8.  What command sequence (key) in vi will add text to the right of the current cursor position?  (just the letter)
 
