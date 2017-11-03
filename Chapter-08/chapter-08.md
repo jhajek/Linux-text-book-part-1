@@ -568,25 +568,19 @@ d. FOR
 
 ### Podcast Questions
 
-X2GO
+CC Mixter - [https://twit.tv/shows/floss-weekly/episodes/316](https://twit.tv/shows/floss-weekly/episodes/316 "CCMixter.org")
 
-[https://twit.tv/shows/floss-weekly/episodes/295](https://twit.tv/shows/floss-weekly/episodes/295 "X2GO")
-
-Answer these questions:
-
-  * ~3:45 What is X2GO and what does it do?
-  * ~5:13 + 5:50 Where and why was X2GO first implemented?
-  * ~7:25 What is NX11 by the Nomachine corporation?
-  * ~12:30 How did X2GO come about?
-  * ~14:45 Is it possible to run X2GO server on X11 for Microsoft Windows?
-  * ~15:25 How does the client and in X2GO work?
-  * ~19:20 What is the size of the hardware on the server supporting the school in Germany using X2GO?
-  * ~21:00 How long does it take to compile the X2GO server?
-  * ~22:58 What is the problem X2GO has with being used on certain Linux Desktop Environments?
-  * ~34:00 Using X2GO can you play remote sounds and print from the remote system to the local system?
-  * ~39:54 How does X2GO handle authentication?
-  * ~44:30 How is X2GO compressed and cached over the "wire?" Using X11 compression of ssh compression?
-  * ~45:00 Why is X2GO not purely GPL?
+* 6:30  What is the 30,000 foot view of CCMixter?
+* 7:39  How did it get started?
+* 8:30  What is Creative Commons and its relationship to Copyright?
+* 11:40 Who came to help mp3tunes protect themselves against the Major Music Corporations?
+* 13:25 How does an "opensource" musician make any money?
+* 17:45 How can you "sell" creative commons and opensource licensing to musicians?
+* 27:55 Is music a product or an experience?  Do you agree with Ms. Richard's statement?
+* 32:00 What kind of music is available at dig.ccmixter.org?  Is it all electronic music?
+* 38:00 What language is CCMixter written in?
+* 42:30 What serious security vulnerability does ccMixter.org have?
+* 47:00 What is the github URL to find the project source code?
 
 ### Lab
 
