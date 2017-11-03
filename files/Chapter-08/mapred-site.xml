@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+  <description>Execution framework.</description>
+</property>
+<!-->
+<property>
+  <name>mapreduce.jobhistory.address</name>
+  <value>0.0.0.0:10020</value>
+  <description>The job history URL - set to listen on public interface</description>
+ </property>
+ -->
+ <!--
+ <property>
+  <name>mapreduce.jobhistory.webapp.address</name>
+  <value>0.0.0.0:19888</value>
+    <description>The job history webapp URL - set to listen on public interface</description>
+</property>
+-->
+<property>
+  <name>mapreduce.map.java.opts</name>
+  <value>-Xmx2048m</value>
+  <description>Increase from the 200 mb default</description>
+</property>
+<property>
+  <name>mapreduce.reduce.java.opts</name>
+  <value>-Xmx2048m</value>
+  <description>Increase from the 200 mb default</description>
+</property>
+<property>
+  <name>mapreduce.map.memory.mb</name>
+  <value>4096</value>
+  <description>Raising the default map memory limit</description>
+</property>
+<property>
+  <name>mapreduce.reduce.memory.mb</name>
+  <value>4096</value>
+  <description>Raising the default map memory limit</description>
+</property>
+<!--
+<property>
+  <name>yarn.app.mapreduce.am.resource.mb</name>
+  <value>4096</value>
+  <description>Amount of memory for Application Master</description>
+</property>
+-->
+</configuration>

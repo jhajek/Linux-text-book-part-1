@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>namenode.sat.iit.edu</value>
+  <description>The hostname of the ResourceManager</description>
+</property>
+<!--
+<property>
+  <name>yarn.resourcemanager.address</name>
+  <value>euca-192-168-210-245.eucalyptus.internal:8032</value>
+  <description>The hostname of the ResourceManager</description>
+</property>
+-->
+<!--
+<property>
+  <name>yarn.resourcemanager.webapp.address</name>
+  <value>0.0.0.0:8088</value>
+  <description>IP address of rm</description>
+</property>
+-->
+<property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
+  <description>shuffle service for MapReduce</description>
+</property>
+<property>
+  <name>yarn.nodemanager.resource.cpu-vcores</name>
+  <value>6</value>
+  <description>Number of vcores that can be allocated for containers. This is used by the RM scheduler when allocating resources for containers. This is not used to limit the number of physical cores used by YARN containers.</description>
+</property>
+<property>
+  <name>yarn.nodemanager.resource.memory-mb</name>
+  <value>20480</value>
+  <description>Memory max that can be allocated to a container</description>
+</property>
+<property>
+  <name>yarn.nodemanager.log-dirs</name>
+  <value>/home/controller/node-log/</value>
+  <description>Nodemanager log directory</description>
+</property>
+<!--
+<property>
+  <name>yarn.nodemanager.webapp.address</name>
+  <value>0.0.0.0:8042</value>
+</property>
+-->
+
+</configuration>
+
+
+
+
+
+
+
+

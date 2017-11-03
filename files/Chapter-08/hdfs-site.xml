@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+ <property>
+    <name>dfs.datanode.name.dir</name>
+    <value>file:///datapool1/hdfs/name/</value>
+    <description>Datanode directory for storing data chunks.</description>
+ </property>
+   <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///datapool1/hdfs/data/</value>
+        <description>Datanode directory for storing data chunks.</description>
+    </property>
+   <property>
+        <name>dfs.replication</name>
+        <value>3</value>
+        <description>Back to 3 as we will have ~70 students working on jobs at once, but doubled the RAM and processer #</description> 
+   </property>
+</configuration>	
