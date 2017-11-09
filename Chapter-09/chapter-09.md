@@ -97,7 +97,7 @@ nobody ALL=(root) NOPASSWD: /bin/cp
 
 #### sudo usage examples and conclusion
 
-> __Example Usage:__ After installing the apache webserver (httpd) on Fedora 22 - the html files are served out of the default directory ```/var/www/html```.  Now if you cd to that ```/var/www/``` what do you notice about group and other ownership of ```html```?  How would you write a new ```*.html``` file?
+> __Example Usage:__ After installing the apache webserver (httpd) on Fedora - the html files are served out of the default directory ```/var/www/html```.  Now if you cd to that ```/var/www/``` what do you notice about group and other ownership of ```html```?  How would you write a newfile  ```support.html``` file in that directory?
 
 > __Example Usage:__ To install a service: ```sudo dnf install httpd```, then you need to start the service (on Ubuntu they autostart for you, Fedora family they don't autostart), ```sudo systemctl start httpd```.
 
