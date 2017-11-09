@@ -170,7 +170,7 @@ Value    Severity        Keyword   		Description     			 	            Examples
   * ```tail -f /var/log/messages``` will now become ```journalctl -f```
   * ```grep foobar /var/log/messages``` will now become ```journalctl | grep foobar```
 
-  To use the journal daemon (journald) all its elements are accessed through the ```journalctl``` command.  All previously sparse logs are now contained in a single binary append only log format.  The advantage of that is that the output can be programmatically parsed (actually queried like a database) the downside is that some people see a "all your eggs in one basket" problem with a single central binary file.
+  To use the journal daemon (journald) all its elements are accessed through the ```journalctl``` command.  All previously sparse logs are now contained in a single binary append only log format.  The advantage of that is that the output can be programmatically parsed (actually queried like a database) the downside is that some people see an "all your eggs in one basket" problem with a single central binary file.
 
 > __Example Usage:__ These examples have been taken from the [systemd website](http://www.freedesktop.org/software/systemd/man/journalctl.html "jounralctl examples"): [^99]
 
