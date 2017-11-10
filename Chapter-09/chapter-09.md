@@ -578,19 +578,30 @@ e. ```sudo useradd -c "User for spring class" -G sudo -m controller```
 
 ### Podcast Questions
 
-CC Mixter - [https://twit.tv/shows/floss-weekly/episodes/316](https://twit.tv/shows/floss-weekly/episodes/316 "CCMixter.org")
+NodeJS - [https://twit.tv/shows/floss-weekly/episodes/387](https://twit.tv/shows/floss-weekly/episodes/387 "NodeJS")
 
-* 6:30  What is the 30,000 foot view of CCMixter?
-* 7:39  How did it get started?
-* 8:30  What is Creative Commons and its relationship to Copyright?
-* 11:40 Who came to help mp3tunes protect themselves against the Major Music Corporations?
-* 13:25 How does an "opensource" musician make any money?
-* 17:45 How can you "sell" creative commons and opensource licensing to musicians?
-* 27:55 Is music a product or an experience?  Do you agree with Ms. Richard's statement?
-* 32:00 What kind of music is available at dig.ccmixter.org?  Is it all electronic music?
-* 38:00 What language is CCMixter written in?
-* 42:30 What serious security vulnerability does ccMixter.org have?
-* 47:00 What is the github URL to find the project source code?
+Node.js Update
+
+* ~4:20 Where does Aaron (guy wearing black) say he is starting to see Node JS more and more?
+* ~7:22 What is Node.js?
+* ~8:50 Accroding to Mikael, what are we seeing an explosion of?
+* ~9:15 What language(s) is NodeJS similar to?
+* ~9:35 What is Event Driven Programming?
+* ~10:45 what is NodeJS package manager/ecosystem?
+* ~12:05 what kind of things would use Node?
+* ~17:20 What are the two popular desktop apps built in NodeJS that Mikael mentioned?
+* ~ 19:30 What are some of the ways to learn NodeJS?
+* ~ 21:30 What did Microsoft do with NodeJS and where did it get Node?
+* ~ 22:30, Mikael mentions multiple languages: TypeScript, CoffeeScript, Electron, and Dart -- what are they and hwo do they relate to the NodeJS project? (Need to do some side research)
+* ~25:27 What company started the NodeJS and eventually the NodeJS foundation? (Currently owned by Samsung)
+* ~ 26:43 What does the NodeJS foundation do (what is its role?)
+* ~ 34:00 Who is the guest and what is his job?
+* ~ 38:48 How much did Mikael reduce his code when he switched from Python to NodeJS?
+* ~41:54 is is possible to run NodeJS for command line scripting?
+* ~45:00 Where is pretty much every NPM module hosted?
+* ~47:40 What is the Go language good at and what is it not?
+* ~50:55 Is there any relationship between NodeJS and Docker?
+
 
 ### Lab
 
