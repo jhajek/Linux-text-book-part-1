@@ -74,16 +74,17 @@ The first column is either a user account (no %) or preceded by a % sign meaning
 
   Group                    Hosts                    Target User                      Commands
 --------------- -----------------------------    ------------------   -----------------------------------------
-   %sudo             server-1, db-server              root               /usr/sbin/postfix /usr/sbin/doveadm
-   %admin                ALL                          root                               ALL
-   %meninblack           ALL                           ALL                               ALL
+   %sudo             server-1, db-server              bkupuser               /usr/sbin/postfix /usr/sbin/doveadm
+   %admin                ALL                         dbadmin                              ALL
+   %cia                  ALL                           ALL                               ALL
 --------------- -----------------------------    ------------------   -----------------------------------------
 
 After the useraccount you can add an additional parameter to remove the password requirement.  This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users.  It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
 
-> __Example Usage:__   The two commands below give the user ```nobody``` the ability to become sudo without requiring a password and only the power to execute the copy command.  The second command gives any user who is a member of the admin group the ability to sudo with out any password.
+> __Example Usage:__   The two commands below give the user ```bkupuser``` the ability to become sudo without requiring a password and only the power to execute the copy command.  The second command gives any user who is a member of the admin group the ability to sudo with out any password.
 ```
-nobody ALL=(root) NOPASSWD: /bin/cp
+bkupuser ALL=(root) NOPASSWD: /usr/bin/mysqldump
+%vagrant  ALL=(ALL) NOPASSWD:ALL
 %admin  ALL=(ALL) NOPASSWD:ALL
 ```
 
@@ -115,9 +116,9 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
   When you install additional packages, those packages too will add a directory for its own logs.  Note in the picture below there is a log called ```httpd``` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files.  You will notice in these screenshots that there is a log entry for VBoxGuestAdditions--telling you that you are using VirtualBox.
 
-![*Fedora 22 /var/log/\**](images/Chapter-09/logs/var-log.png "var log")
+![*Fedora contents of /var/log/\**](images/Chapter-09/logs/var-log.png "var log")
 
-![*Ubuntu 15.04 /var/log\**](images/Chapter-09/logs/ubuntu-var-log.png "varlog")
+![*Ubuntu contents of /var/log\**](images/Chapter-09/logs/ubuntu-var-log.png "var log")
 
 ### syslog
 
