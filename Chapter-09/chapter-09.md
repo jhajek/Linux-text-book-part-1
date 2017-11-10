@@ -168,7 +168,7 @@ Value    Severity        Keyword   		Description     			 	            Examples
 
   * ```cat /var/log/messages``` will now become ```journalctl```
   * ```tail -f /var/log/messages``` will now become ```journalctl -f```
-  * ```grep foobar /var/log/messages``` will now become ```journalctl | grep foobar```
+  * ```grep sshd /var/log/messages``` will now become ```journalctl _COMM=sshd```
 
   To use the journal daemon (journald) all its elements are accessed through the ```journalctl``` command.  All previously sparse logs are now contained in a single binary append only log format.  The advantage of that is that the output can be programmatically parsed (actually queried like a database) the downside is that some people see an "all your eggs in one basket" problem with a single central binary file.
 
@@ -467,7 +467,7 @@ b. ```sudo```
 c. ```su -```
 d. ```root```
 
-3) How can I display the content of a file named topsecret.txt that has permissions 000?
+3) How can you display the content of a file named topsecret.txt that has permissions 000 and is owned by another user?
 a.  You can't do that
 b.  ```root cat topsecret.txt```
 c.  ```sudo cat topsecret.txt```
@@ -517,9 +517,9 @@ d.  sudo reboot
 
 11)  What command would you use to edit the file at this location:  /var/www/html/index.html?
 a.  vi /var/www/html/index.html
-b.  sudo vi /var/www/html/index.html
+b.  sudo vim /var/www/html/index.html
 c.  vim /var/www/html/index.html
-d.  su vi /var/www/html/index.html
+d.  You need to ```chown``` the file and change the owner
 
 12) On a Linux system, which directory are all the traditional system (non-systemd) logs kept in?
 a.  /var/run
@@ -539,13 +539,13 @@ b.  journald
 c.  journalctl
 d.  showlogs
 
-15) How would you filter the systemd log based on time?
+15) How would you filter the systemd log based on time? (Which is valid syntax?)
 a.  ```journalctl --since=yesterday```
 b.  ```journalctl --since=tomorrow```
 c.  ```journalctl --yesterday```
 d.  ```journalctl --filter=yesterday```
 
-16) What file would you edit to change the systemd journald.conf?
+16) Where is the journald.conf file located?
 a. /etc/logrotate.conf
 b. /etc/systemd/journalctl.conf
 c. /etc/systemd.conf
