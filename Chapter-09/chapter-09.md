@@ -33,7 +33,7 @@
 
   Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo.  They firmly believe not to have a root account as a point of differentiation.  They rely on ```sudo``` hence the cartoon above.  The first user you create (like in Windows and Mac) is automatically added to the __sudo__ usergroup and has sudo privilege.  Then any command you need *superuser* privileges you can simply ellevate to that privilege by typing the word ```sudo``` in front on any command.  Upon successful entry of your own password you will be elevated up to full system authority.  Some refer to this as *god mode* but I think using that term is a bit presumptuous as you do have absolute power over the system but ```sudo``` doesn't let you create the world in seven days.  
 
-  One example is you can assign the permission value of 000 to a file.  Who can access that file now?  According to the permissions, not even the owner can access it.  But the root user can, or a user issuign a ```sudo``` command.    You can find which users on a system have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privilege).  Here is a sample screen shot where you define which users can be in the sudo group.  You may not want to give admin privilege to every user.  The conf file, under the *user* section, allows you to specifiy root privilleges per command. 
+  One example is you can assign the permission value of 000 to a file.  Who can access that file now?  According to the permissions, not even the owner can access it.  But the root user can, or a user issuign a ```sudo``` command.    You can find which users on a system have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privilege).  Here is a sample screen shot where you define which users can be in the sudo group.  You may not want to give admin privilege to every user.  The conf file, under the *user* section, allows you to specifiy root privileges per command. 
 
 ![*Ubuntu 15.04 /etc/sudoers*](images/Chapter-09/root/etc-sudoers.png)
 
@@ -456,7 +456,7 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
 
 Review Questons Chapter 09
 
-1) What user account has superuser privillege in Linux?
+1) What user account has superuser privilege in Linux?
 a. ```sudo```
 b. ```su```
 c. ```superuser```
