@@ -391,7 +391,7 @@ b. Ubuntu
 d. /etc/sudoers
 
 7) What is the name of the command used to modify /etc/sudoers to grant a new user sudo privilege?
-d. sudo visudo 
+c. visudo 
 
 8) Based on this line in /etc/sudoers - ```%meninblack  ALL=(ALL:ALL) ALL``` - what does the first value by the % mean? 
 a.  Name of a group
