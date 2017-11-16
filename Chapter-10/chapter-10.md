@@ -422,15 +422,15 @@ __Outcomes:__ At the conclusion of this lab you will have gained the mastery of 
 1) On Ubuntu an distribution what is the command you would use to install the package chromium-browser with the APT installer?
 1) On Fedora what is the command to install the package ```xeyes```?
 1) On Fedora what is the command to add the RPMFusion packages for Free and Non-Free?  Execute those commands and install and run the Frodo C64 emulator.  Located here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html)
-1) On Fedora 22 what is the command to install via DNF the Dropbox client Located Here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html)
+1) On Fedora what is the command to install via DNF the Dropbox client Located Here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html)
 1) On Ubuntu what would be the command to upgrade all the packages on the system?
-1) On Ubuntu what would be the command to upgrade the system to release version 15.10?
+1) On Ubuntu what would be the command to upgrade the system or distribution release version?
 1) On Ubuntu what would be the command to add the Linux-libre repository and then upgrade the Kernel to a Free Linux kernel?
 1) On Fedora what would be the series of commands to upgrade Fedora 22 to Fedora 23?
-1) On Fedora install the necessary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web-browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local.
+1) On Fedora what would be the command needed to install the necessary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web-browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local if you leave it blank.
 1) On Fedora clone the Denyhosts repo from: https://github.com/denyhosts/denyhosts  
 execute this command: ```git clone https://github.com/denyhosts/denyhosts.git``` Follow the setup instructions and use python to install denyhosts.  Note - install any dependencies that may be noted or implied.
-1) On Ubuntu add the current PHP5 repo and then install apache2 and php5.  Once finished create a file named info.php containing this code:
+1) On Ubuntu install apache2 and php in one command.  Once finished create a file named info.php containing this code:
 
 ```php
 <?php
@@ -441,7 +441,7 @@ phpinfo();
 ?>
 ```
 
-Locate the file in /var/www/html.  Open a web-browser on the local Ubuntu system and navigate to ```http://localhost/info.php``` what is the PHP version listed?
+Locate the file in /var/www/html.  Open a web-browser in the virtual machine and navigate to ```http://localhost/info.php``` what is the PHP version listed?
 
 #### Footnotes
 
