@@ -411,11 +411,13 @@ __Outcomes:__
 
 At the conclusion of this lab you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  
 
+__Instructions:__ Make a folder in your Github repo named Week-13, create a file called ReadMe.md.  In this file you will make a header H2 (## in markdown) for each question and will post a screenshot of the commmand and output that each question requires.
+ 
 1) Change the default grub settings in Ubuntu add a background image (preferably dark) and remove or disable the ```quiet splash``` option) make sure to execute  ```update-grub``` before rebooting or changes won't be written.
 1) Use the ```systemd-analyze``` tools to print out the most recent boot time for your system
 1) Install MariaDB server, ```sudo dnf install mariadb```.
-1) Use the command ```systemctl status <servicename>``` after MaraiDB is installed to display its current status, then enable the service via ```systemctl```, and then start the service. Now reboot your system.
-1) With the MariaDB enabled, use the ```systemd-analyze``` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.  
+    a) Use the command ```systemctl status <servicename>``` after MaraiDB is installed to display its current status, then enable the service via ```systemctl```, and then start the service. Now reboot your system.
+1) With MariaDB enabled, use the ```systemd-analyze``` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.  
 1) Use ```systemd-analyze blame``` to collect start times of each element after installing and enabling the MariaDB service
 1) Using the exmaple in the book - generate a chart of the systemd-analyze blame output of startup times
 1) Use systemctl to enable and start the httpd.service
@@ -425,7 +427,7 @@ At the conclusion of this lab you will be able to manage, edit, and list system 
 1) Launch multiple tabs in Firefox using these:  ```firefox -new-tab -url https://www.krebsonsecurity.com -new-tab -url http://twit.tv/floss/```. Find the process IDs via ```ps -ef``` and kill those tabs/processes with a ```kill -2``` command
 1) Using ```lsmod``` and ```grep``` list all of the kernel modules loaded on your system that contain VirtualBox (search for ```vb*```).   
 1) Run the command that will list all the PCI devices attached to your system
-1) Type the command to displace info about your CPU and use ```grep flags``` to filter the response to show only the processor flags.  
+1) Type the command to display info about your CPU and use ```grep flags``` to filter the response to show only the processor flags.  
 1) Using ```systemctl``` find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
 1) Using ```systemd-cgls``` list and filter (grep) and show the sub-process IDs for the httpd.service
 1) Install and execute the ```procinfo``` command and display the system overview.
