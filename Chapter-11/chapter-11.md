@@ -182,7 +182,7 @@ Systemd was designed to bring modern OS principles to desktop and server Linux. 
 
 ### ps
 
-  The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".   
+The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".   
 
 ![*ps command*](images/Chapter-11/processes/ps.png "ps")
 
@@ -202,7 +202,7 @@ These additional commands will share more information:
 
 ### kill
 
-  In the SysVinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
+In the SysVinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
 
  Level       Name            Function
 -------- ------------ -----------------------------------------------------------------------
@@ -216,7 +216,7 @@ All programs can choose to *trap* these kill commands and ignore them or take di
 
 ### Killing Processes with systemd
 
- Systemd on the other hand has a mechanism for dealing with services directly, ```systemd kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to individual services but also to control groups of processes as well.  
+Systemd on the other hand has a mechanism for dealing with services directly, ```systemd kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to individual services but also to control groups of processes as well. 
 
 #### cgroups
 
@@ -228,7 +228,7 @@ By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of whi
 
 ### nice
 
-  The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
+The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
 
 > __Example Usage:__  This example will increase favorability of this process to the scheduler by 10 on a scale of -20 to 19--default is 0.
 ```bash
@@ -239,7 +239,7 @@ nice -n 10 my-loop
 
 > *"/proc is very special in that it is also a virtual filesystem. It's sometimes referred to as a process information pseudo-file system. It doesn't contain 'real' files but runtime system information (e.g. system memory, devices mounted, hardware configuration, etc). For this reason it can be regarded as a control and information centre for the kernel. In fact, quite a lot of system utilities are simply calls to files in this directory. [^120]"*
 
-  The ```/proc``` virtual filesystem provides you a file based interface to the processes that are running on your system.  When you type ```ls /proc``` what do you see?  You see a series of numerical directories.  These numbers correspond to process IDs.  Inside of each directory there are a series of files that represent the state of the process at the moment of introspection.   This can be handy in debugging an application or fine tuning a system in regards to memory usage.   Try to launch a Firefox or any other browser window.  Use the ```ps -C``` command from above to find its process ID.  Then find that process directory in ```/proc```.  What do you see? Some of the highlights are ```/proc/PID/cmdline```, which will tell you what command line options were used in launching that particular process, ```/proc/PID/status``` links to the process status in human readable form, and ```/proc/PID/mem``` describes the memory held by this process.  The command ```procinfo``` will give you summary of all system and resource states, the package may need to be installed.  For an exhaustive list of all the contents and meanings you can find a chart at the Linux Documentation Project, [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html "TLDP PROC").
+The ```/proc``` virtual filesystem provides you a file based interface to the processes that are running on your system.  When you type ```ls /proc``` what do you see?  You see a series of numerical directories.  These numbers correspond to process IDs.  Inside of each directory there are a series of files that represent the state of the process at the moment of introspection.   This can be handy in debugging an application or fine tuning a system in regards to memory usage.   Try to launch a Firefox or any other browser window.  Use the ```ps -C``` command from above to find its process ID.  Then find that process directory in ```/proc```.  What do you see? Some of the highlights are ```/proc/PID/cmdline```, which will tell you what command line options were used in launching that particular process, ```/proc/PID/status``` links to the process status in human readable form, and ```/proc/PID/mem``` describes the memory held by this process.  The command ```procinfo``` will give you summary of all system and resource states, the package may need to be installed.  For an exhaustive list of all the contents and meanings you can find a chart at the Linux Documentation Project, [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html "TLDP PROC").
 
  In addition ```/proc``` has convieniant information about the state of your system.  To display information about your processor you would type, ```cat /proc/cpuinfo``` this prints out the processor family, the feature flags, and the number of processors (physical and logical).  The same can be done with memory by typing, ```cat /proc/meminfo```.  
 
@@ -254,7 +254,7 @@ nice -n 10 my-loop
 
 #### Loading Modules
 
-  You can list, load, and remove kernel modules form a running kernel.  This is desirable because it allows you to change functionality on a permanent basis or temporary basis without having to recompile the core Linux kernel each time you make a change - hence loadable kernel modules.  One of the best instances is [KVM](http://www.linux-kvm.org/page/Main_Page "KVM") KVM stands for *Kernel-based Virtual Machine* and though present in the Linux Kernel the module is not loaded until you install the KVM software libraries that call for that module to be loaded on boot.  If you had the KVM/Qemu virtualization applications installed (```sudo dnf install qemu-kvm libvirtd```) then you would type ```lsmod | grep kvm*```) to see the modules loaded.
+You can list, load, and remove kernel modules form a running kernel.  This is desirable because it allows you to change functionality on a permanent basis or temporary basis without having to recompile the core Linux kernel each time you make a change - hence loadable kernel modules.  One of the best instances is [KVM](http://www.linux-kvm.org/page/Main_Page "KVM") KVM stands for *Kernel-based Virtual Machine* and though present in the Linux Kernel the module is not loaded until you install the KVM software libraries that call for that module to be loaded on boot.  If you had the KVM/Qemu virtualization applications installed (```sudo dnf install qemu-kvm libvirtd```) then you would type ```lsmod | grep kvm*```) to see the modules loaded.
 
 > __Example Usage:__ You will notice for instance if you type ```lsmod | grep vbox*``` you will see VirtualBox kernel modules loaded - you wouldn't see these if you were on a natively installed Linux system.   
 
@@ -262,11 +262,11 @@ nice -n 10 my-loop
 
 ## Single User Mode
 
-  If you have a system with an issue--or damage that needs to be repaired.  You can drop your system into what was once known as single-user mode or runlevel1.target by issuing a command: ```sudo systemctl isolate runlevel1.target```  this command should be used sparingly because what it does is drop you to a commandline prompt with a single user logged in (root) with no password.  This can be used to change or modify lost system passwords, or even reset database passwords or other troubleshooting issues like filesystem checks, which we will talk more about in the next chapter.
+If you have a system with an issue--or damage that needs to be repaired.  Perhaps you need to reset the root password?  You can drop your system into what was once known as single-user mode or runlevel1.target by issuing a command: ```sudo systemctl isolate runlevel1.target```  this command should be used sparingly because what it does is drop you to a commandline prompt with a single user logged in (root) with no password.  This can be used to change or modify lost system passwords, or even reset database passwords or other troubleshooting issues like filesystem checks, which we will talk more about in the next chapter.
 
 ## Chapter Conclusions and Review
 
-  Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands.  You learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under SysVinit.  Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in file format dynamically on boot and during a system's use.
+Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands.  You learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under SysVinit.  Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in file format dynamically on boot and during a system's use.
 
 ### Review Questions
 
