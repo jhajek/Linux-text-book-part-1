@@ -447,6 +447,8 @@ Outcomes
 
   At the conclusion of this lab you will have successfully created a new virtual disk in Virtual Box, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the /etc/fstab.
 
+__Instructions:__ Create a folder called Week-14 in your Github repo.  Also note to self show the systemd disk mounting writing of service files and compare to ZFS and the automounting
+
 1) Create two virtual disk in Virtual Box (attach them to either Fedora or Ubuntu) of 4 GB size each. Submit a screenshot of the Virtual Box settings screen showing two new virtual drives attached.  In your screenshot highlight one of the newly created disks to display its properties on the right hand side of the screen-capture this in the screenshot.
 
 2) Use the fdisk command to create two entire disk partitions (one on each of the newly created virtual disks) after going through the steps to create the full disk partitions, take a screenshot of the entire output of sudo fdisk -l showing that they have been formatted
