@@ -434,7 +434,7 @@ execute this command: ```git clone https://github.com/denyhosts/denyhosts.git```
    a) Install the robot kit: [https://robotgame.net/kit](https://robotgame.net/kit "robot kit")
    b) Create two files based on the sample code provided in [https://robotgame.net/gettingstarted#a3](https://robotgame.net/gettingstarted#a3 "item 3")
    c) Run the two bots in the game via the command: ```rgrun bot1.py bot2.py```
-   d) Handle any dependecies via apt-get or pip
+   d) Handle any dependecies via apt-get or pip.
 1) Clone the [textbook sourcecode](https://github.com/jhajek/Linux-text-book-part-1.git "Textbook Sourcecode"), follow the Linux Ubuntu install instructions in the ReadMe.md.  Issue the build command ```./build-linux.sh```  and display the PDF version of the rendered book.
 1) On Fedora install apache2 and php in one command.  
 1) Once finished create a file named info.php containing this code:
