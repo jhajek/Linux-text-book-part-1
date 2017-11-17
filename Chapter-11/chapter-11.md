@@ -176,6 +176,16 @@ Compared to the make up of a SysVinit service, systemd has a simple design for e
 
 You can see the dependencies the httpd service needs and will only start if the targets listed in \[Unit\] under *After* have started--which makes sense. The command ```sudo systemctl show --property "Wants" httpd.service``` will show only the property from the unit file that you identify with __--property__. The *ExecStart* and *ExecReload* are called when you start and restart the service--which point to the absolute path to the Apache2 binary.  The final value is when the service is installed it has a dependency of being in a mutil-user target--it obviously be used on a single user system.
 
+#### hostnamectl and timedatectl
+ 
+One of the components of systemd is hostnamectl which is designed to give you an easy interface into controlling the information relating to your systems hostname. Running the command ```man hostnamectl``` shows you what can be done.  
+
+> **Exercise:** Use the hostnamectl command to change your systems hostname to itmo-556 (or your class name).  Now close your shell and reopen it--what do you see?
+
+The ```timedatectl``` is used for setting timezone and to activate ntp (network time protocol) synchronization.  This part of systemd superceeds previous commands that ran to handle the clock.  
+
+> **Exercise:** Using the man command for timedatectl can you enable ntp synchronization?  Can you change the timezone to ETC?
+
 #### systemd-analyze
 
 Systemd was designed to bring modern OS principles to desktop and server Linux.  That includes a tool called ```systemd-analyze``` which breaks down the time it took for all services, modules, and parts of the kernel to finish loading.  To further debug these numbers use, ```systemd-analyze blame```.  This will print out individually which services/targets/units/mounts are taking the most time to load and allow you to investigate or disable those elements.  You can even use the builtin *plotting* feature of systemd-analyze, by typing, ``` systemd-analyze plot > plot.svg``` and then typing ```eog plot.svg``` to create a visual time based graph of your plot.  There are additional commands under systemd-analyze, ```critical-chain``` will print specific load time for dependent services of the service you provide, ```systemd-analyze critical-chain httpd.service```.   These tools and options available in the man page, are used to determine system boot-up performance statistics.
