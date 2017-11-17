@@ -441,6 +441,11 @@ __Instructions:__ Make a folder in your Github repo named Week-13, create a file
 1) Using ```systemctl``` find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
 1) Using ```systemd-cgls``` list and filter (grep) and show the sub-process IDs for the httpd.service
 1) Install and execute the ```procinfo``` command and display the system overview.
+1) Use the ```timedatectl``` command to change the clock of your system to UTC.
+1) Use the ```hostnamectl``` command to:
+    a) set-hostname to itmo-556-xyz (xyz is your initials)
+    b) set-location to Chicago
+    c) set-chassis to VM
 
 #### Footnotes
 
