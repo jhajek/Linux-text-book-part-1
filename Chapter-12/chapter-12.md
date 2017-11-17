@@ -17,7 +17,7 @@
 
   At the time of this writing (11/22/15) a single terabyte Western Digital Blue hard drive was selling for ~$50.  The cost has only decreased.  Storage is cheap and with that in mind, adding storage or capacity to a systmm is very easy.  Since we are dealing with virtual storage in this book we can easily attach and detach storage devices without being destructive to any underlying hardware.  In the days of having school sponsored computer labs, the ability to rip oopen a PC and add some storage was simply not allowed. For this chapter we will assume that you are using Virtual Box 5.x.
 
- With you virtual machine powered down, lets add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the main menu.
+ With your Ubuntu or Fedora virtual machine powered down, we will now add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu. 
 
 ![*Virtual Box settings panel*](images/Chapter-12/virtual-box/settings.png "Settings")
 \newpage
