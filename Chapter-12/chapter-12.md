@@ -5,9 +5,9 @@
 
    * Understand how to create and attach virtual disks in VirtualBox
    * Understand how the fdisk command is used to list, modify, and create filesystem partitions
-   * Understand the nature of different Linux filesystems, listing their pros and cons
+   * Compare and contrast different filesystems
    * Understand Linux tools relating to filesystems, df, mount/umount, mkfs, and the /etc/fstab directory
-   * Understand Logical Volume Management and how its partitioning scheme differs from fdisk.
+   * Understand how Logical Volume Management differs from file systems
 
 ### Outcomes
 
