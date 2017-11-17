@@ -148,14 +148,17 @@ The package system and architecture is on of the reasons for Debian's long stand
 
 Seeing as you may want to access a more recent build of an application that may not be in the standard Debian/Ubuntu distribution or not even submitted to a repository because the version is moving too fast or the maintainer just didn't want to package it up.  For example if you want to install a newer version of the php language on your system, you have to wait for another version of the OS or you can find the maintainer's repository and add their PPA directly.  That way when you can update in real time with them or even install beta software. The example below will add the php5 latest repository for installation.  
 
-You can manually edit the file ```/etc/apt/sources.list``` as well and enter PPAs manually.  Once a new PPA has been added you need to run ```sudo apt-get update``` so APT can see the new repositories and add them to it's cache.
+You can manually edit the file ```/etc/apt/sources.list``` as well and enter PPAs manually.  Once a new PPA has been added you need to run ```sudo apt-get update``` so APT can see the new repositories and add them to it's cache. 
 
-> __Example Usage:__
+> __Example Usage:__  Ubuntu 16.04 installs php 7.0 by default, but if you wanted to use or test php 7.1 you would need to add an additional repositiory or PPA to enable the php7.1 package to be installed. Try the below sequence:
+
 ```bash
-
-sudo add-apt-repository ppa:ondrej/php5
 sudo apt-get update
-sudo apt-get install php5
+sudo apt-get install php7.1
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.1
+php -v
 ```
 
 The command ```add-apt-repository``` doesn't come standard as part of an Ubuntu distribution  On 12.04 and earlier, install the python-software-properties package: [^109] ```sudo apt-get install python-software-properties```. On 14.04 and later: ```sudo apt-get install software-properties-common```.
@@ -185,7 +188,7 @@ These are the short steps:
 *  Now you will now be able to update your package manager and install Linux-libre:
     + ```sudo apt update```   
     + ```sudo apt install linux-libre-4.14``` or ```sudo apt install linux-libre```
-    
+
 ![*Linux-Libre*](images/Chapter-10/linux-libre/kernel-linux-libre.png "libre.png")
 
 Here is a list of all the configuration and cache files related to APT and their location:
