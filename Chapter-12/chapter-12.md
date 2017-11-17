@@ -460,15 +460,15 @@ __Instructions:__ Create a folder called Week-15 in your Github repo.  Also note
 
 1) Create two virtual disk in Virtual Box (attach them to either Fedora or Ubuntu) of 4 GB size each. Submit a screenshot of the Virtual Box settings screen showing two new virtual drives attached.  In your screenshot highlight one of the newly created disks to display its properties on the right hand side of the screen-capture this in the screenshot.
 
-2) Use the fdisk command to create two entire disk partitions (one on each of the newly created virtual disks) after going through the steps to create the full disk partitions, take a screenshot of the entire output of sudo fdisk -l showing that they have been formatted
+2) Use the ```fdisk``` command to create two entire disk partitions (one on each of the newly created virtual disks) after going through the steps to create the full disk partitions, take a screenshot of the entire output of ```sudo fdisk -l``` showing that they have been formatted
 
 3) Find the command that is used to display the devices and their partitions in a nice tree form--submit of screenshot of the output of that command.
 
-4) Use the mkfs command to create an ext2 filesystem on the partition you just created on /dev/sdb. Submit a screenshot of the command and its results
+4) Use the ```mkfs``` command to create an ext2 filesystem on the partition you just created on ```/dev/sdb```. Submit a screenshot of the command and its results
 
-5) Use the mkfs command to create an ext4 filesystem on the partition you just created on /dev/sdc. Submit a screenshot of the command and its results
+5) Use the mkfs command to create an ext4 filesystem on the partition you just created on ```/dev/sdc```. Submit a screenshot of the command and its results
 
-6) Use the mkdir command to create a mountpoint named data-drive in /mnt, change ownership and group to your user. Show the output of an ls -l on /mnt. Take a screenshot of the output of these commands.
+6) Use the ```mkdir``` command to create a mountpoint named *data-drive* under ```/mnt```, change ownership and group to your user. Show the output of an ls -l on /mnt. Take a screenshot of the output of these commands.
 
 7) Use the mount command to mount the partition of /dev/sdb to /mnt/data-drive
 
