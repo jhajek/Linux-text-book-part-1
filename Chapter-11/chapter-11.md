@@ -178,11 +178,11 @@ You can see the dependencies the httpd service needs and will only start if the 
 
 #### hostnamectl and timedatectl
  
-One of the components of systemd is hostnamectl which is designed to give you an easy interface into controlling the information relating to your systems hostname. Running the command ```man hostnamectl``` shows you what can be done.  
+One of the components of systemd is hostnamectl which is designed to give you an easy interface into controlling the information relating to your systems hostname. Running the command ```man hostnamectl``` shows you what can be done here [hostnamectl](https://www.freedesktop.org/software/systemd/man/hostnamectl "hostnamectl")
 
 > **Exercise:** Use the hostnamectl command to change your systems hostname to itmo-556 (or your class name).  Now close your shell and reopen it--what do you see?
 
-The ```timedatectl``` is used for setting timezone and to activate ntp (network time protocol) synchronization.  This part of systemd superceeds previous commands that ran to handle the clock.  
+The ```timedatectl``` is used for setting timezone and to activate ntp (network time protocol) synchronization.  This part of systemd superceeds previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl").  
 
 > **Exercise:** Using the man command for timedatectl can you enable ntp synchronization?  Can you change the timezone to ETC?
 
