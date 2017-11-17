@@ -417,7 +417,7 @@ __Objectives:__
 * Demonstrate knowledge to use a python installers
 * Demonstrate the ability to upgrade and update a Linux distribution via the commandline
 
-__Outcomes:__ At the conclusion of this lab you will have gained the mastery of installing Linux software packages from the command line in an array of different fashions and tools.
+__Outcomes:__ At the conclusion of this lab you will have gained the mastery of installing Linux software packages from the command line in an array of different fashions and tools. For each item take a screenshot of the the commandline needed to execute the requirement and a screenshot of the results.  (In the cases where the output is multiple screens long -- take just the last part of the output)   Create a folder in your Github repo named Week-13 and create a file named ReadMe-chapter-10.md.  Include all images.  Submit to Blackboard your Github URL.
 
 1) On Ubuntu an distribution what is the command you would use to install the package chromium-browser with the APT installer?
 1) On Fedora what is the command to install the package ```xeyes```?
