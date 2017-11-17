@@ -159,9 +159,7 @@ As filesystems became larger and the amount of data being written increased, the
 
  *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted. [^124][^125]"*
 
-Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of ext2, adding this new feature and support for larger drives helped with backward compatibility, but began extending the ext filesystem which was now over a decade old.  
-
-
+Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as it was now over a decade old.  
 
 : Limits of ext3
 
