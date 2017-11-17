@@ -163,7 +163,7 @@ php -v
 
 The command ```add-apt-repository``` doesn't come standard as part of an Ubuntu distribution  On 12.04 and earlier, install the python-software-properties package: [^109] ```sudo apt-get install python-software-properties```. On 14.04 and later: ```sudo apt-get install software-properties-common```.
 
-> __Example Usage:__ The application [gwibber](http://gwibber.com/ "Gwibber") is a microblogging aggregation application.  It has a PPA where they release daily or nightly builds of their software.  This is good if you are a developer or beta-tester or a user that needs access to cutting edge feature [^110].  If you were so inclined you can add their repository: ```sudo add-apt-repository ppa:gwibber-daily/ppa```
+> __Example Usage:__ There is an Apache2 repository (PPA) that can be added to get the latest version of Apache2.  Run the command ```apache2 -v```, then add this repository ```sudo add-apt-repository ppa:ondrej/apache2``` and ```sudo apt-get update```. Now execute ```sudo apt-get upgrade``` to upgrade the Apache server.  Now execute ```apache2 -v``` to show the new version.  
 
 There is also a PPA for Linux-libre.  Linux-libre is a GNU package that is a modified version of the Linux kernel. The aim of the project is to remove from non-free or significantly obfuscated code[^111] from the Linux kernel. The downside of removing proprietary firmware from the kernel is that it will cause lose functionality for certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards.
 
@@ -239,7 +239,7 @@ Once those RPMFusion repos have been added you can now retry the example above a
 
 *  ```sudo dnf update --refresh```
 *  ```sudo dnf install dnf-plugin-system-upgrade```
-*  ```sudo dnf system-upgrade download --releasever=23```
+*  ```sudo dnf system-upgrade download --releasever=27```
 *  ```sudo dnf system-upgrade reboot```
 
 ## Compiling and Installing source code
