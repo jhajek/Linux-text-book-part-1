@@ -3,7 +3,7 @@
 
 ### Objectives
 
-   * Understand how to create and be able to attach virtual disks in VirtualBox, to Linux systems
+   * Understand how to create and attach virtual disks in VirtualBox
    * Understand how the fdisk command is used to list, modify, and create filesystem partitions
    * Understand the nature of different Linux filesystems, listing their pros and cons
    * Understand Linux tools relating to filesystems, df, mount/umount, mkfs, and the /etc/fstab directory
