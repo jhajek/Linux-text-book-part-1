@@ -15,14 +15,15 @@ How to install;
 I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Latest 1.19.X package](https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb "Pandoc Latest deb package"). For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. 
 
 ### Linux dependencies - On Debian/Ubuntu
-* ```sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra``` 
 * texlive
 * texlive-latex-recommended
 * texlive-latex-extra
 * texlive-fonts-recommended
 * texlive-fonts-extra
+* Install these via this command:
+    + ```sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra```
 
-To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16.04 can add the repo via these steps:
+Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16.04 can add the repo via these steps:
 * ```wget http://packages.sil.org/sil.gpg```
 * ```sudo apt-key add sil.gpg```
 * ```sudo apt-add-repository "deb http://packages.sil.org/ubuntu/ $(lsb_release -sc) main"```
