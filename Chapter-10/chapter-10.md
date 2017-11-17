@@ -419,18 +419,25 @@ __Objectives:__
 
 __Outcomes:__ At the conclusion of this lab you will have gained the mastery of installing Linux software packages from the command line in an array of different fashions and tools. For each item take a screenshot of the the commandline needed to execute the requirement and a screenshot of the results.  (In the cases where the output is multiple screens long -- take just the last part of the output)   Create a folder in your Github repo named Week-13 and create a file named ReadMe-chapter-10.md.  Include all images.  Submit to Blackboard your Github URL.
 
-1) On Ubuntu an distribution what is the command you would use to install the package chromium-browser with the APT installer?
+1) Go the Apache Web Server project page and download the source code. [http://httpd.apache.org/download.cgi#apache24](http://httpd.apache.org/download.cgi#apache24 "Apache 2 source code").  Here you will extract the tarball and follow the instructions in the ```INSTALL``` file.   Note -- remove any existing httpd/apache2 installs via your package manager.   Once complete open a browser in your VM and display the Apache Welcome page as confirmation of succesful install (navigating to http://127.0.0.1).
 1) On Fedora what is the command to install the package ```xeyes```?
-1) On Fedora what is the command to add the RPMFusion packages for Free and Non-Free?  Execute those commands and install and run the Frodo C64 emulator.  Located here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/applications.emulators.group.html)
-1) On Fedora what is the command to install via DNF the Dropbox client Located Here: [http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/22/Everything/x86_64/os/repoview/user_interface.desktops.group.html)
+1) On Fedora what is the command to add the RPMFusion packages for Free and Non-Free?  Execute those commands and install and run the VLC media player.  Located here: [http://download1.rpmfusion.org/nonfree/fedora/releases/26/Everything/x86_64/os/repoview/applications.emulators.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/26/Everything/x86_64/os/repoview/applications.emulators.group.html)  
+    a) Install VLC and open it and run the sample video provided with VLC.
+1) On Fedora what is the command to install via DNF the Dropbox client Located Here: [http://download1.rpmfusion.org/nonfree/fedora/releases/26/Everything/x86_64/os/repoview/user_interface.desktops.group.html](http://download1.rpmfusion.org/nonfree/fedora/releases/26/Everything/x86_64/os/repoview/user_interface.desktops.group.html)
 1) On Ubuntu what would be the command to upgrade all the packages on the system?
 1) On Ubuntu what would be the command to upgrade the system or distribution release version?
 1) On Ubuntu what would be the command to add the Linux-libre repository and then upgrade the Kernel to a Free Linux kernel?
-1) On Fedora what would be the series of commands to upgrade Fedora 22 to Fedora 23?
-1) On Fedora what would be the command needed to install the necessary build tools, follow the install instruction here: [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html) and compile and build Apache 2 server, launch a local web-browser and open up http://localhost - what is the message it prints? Note in the documentation where it says /prefix that means the directory where you want to install this version of Apache2, by default it will go to /usr/local if you leave it blank.
+1) On Fedora what would be the series of commands to upgrade Fedora 26 to Fedora 27?
 1) On Fedora clone the Denyhosts repo from: https://github.com/denyhosts/denyhosts  
 execute this command: ```git clone https://github.com/denyhosts/denyhosts.git``` Follow the setup instructions and use python to install denyhosts.  Note - install any dependencies that may be noted or implied.
-1) On Ubuntu install apache2 and php in one command.  Once finished create a file named info.php containing this code:
+1) Using Python, install [Robotgame.net](https://robotgame.net/ "robot game")
+   a) Install the robot kit: [https://robotgame.net/kit](https://robotgame.net/kit "robot kit")
+   b) Create two files based on the sample code provided in [https://robotgame.net/gettingstarted#a3](https://robotgame.net/gettingstarted#a3 "item 3")
+   c) Run the two bots in the game via the command: ```rgrun bot1.py bot2.py```
+   d) Handle any dependecies via apt-get or pip
+1) Clone the [textbook sourcecode](https://github.com/jhajek/Linux-text-book-part-1.git "Textbook Sourcecode"), follow the Linux Ubuntu install instructions in the ReadMe.md.  Issue the build command ```./build-linux.sh```  and display the PDF version of the rendered book.
+1) On Fedora install apache2 and php in one command.  
+1) Once finished create a file named info.php containing this code:
 
 ```php
 <?php
