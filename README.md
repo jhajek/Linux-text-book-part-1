@@ -31,7 +31,7 @@ Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.o
 * ```sudo apt-get install fonts-sil-charis```
 
 To Install the Inconsolata font:
-* ```sudo apt-get install ttf-inconsolata```
+* ```sudo apt-get install fonts-inconsolata```
 * ```sudo fc-cache -fv```
 
 ## Mac OSX
