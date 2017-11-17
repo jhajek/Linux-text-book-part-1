@@ -67,12 +67,14 @@ Once you see the screen below - it means you have successfully created a new vir
 
 ![*Disk Information*](images/Chapter-12/virtual-box/information.png "Information")
 
-Adding a virtual disk is only the first step, there are three more steps before we can use this disk.  We need to partition the disk, create a filesystem, and then mount the disk so that it can be used by your operating system.
+Adding a virtual disk is only the first step, there are three more steps before we can use this disk.  We need to:
+1) partition the disk
+1) create a filesystem
+1) and then mount the disk so that it can be used by your operating system.
 
 ## Disk Partitioning and Formatting
 
-  According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of partition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where it'
-  s partitions are.    Each disk can have multiple partitions.  
+According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of partition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where it's partitions are.    Each disk can have multiple partitions.  
 
   Linux inherited a way to name each device and reference certain partitions attached to a system.  Windows simply uses the letter C, D, E, and so forth.  Linux and Unix use a device/partition nomenclature.  You can see this currently by typing the ```lsblk``` command, which will print out currently all the block devices, their device name and their partitions in a nice tree based format.
 
