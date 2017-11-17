@@ -32,7 +32,7 @@ Select the *STORAGE* option from the menu on the left--this is where you can att
 ![*Storage menu*](images/Chapter-12/virtual-box/storage.png "Storage")
 \newpage
 
-We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the protocol and data-bus in which the operating system communicates and receives data with your hard drive. Go ahead and highlight the SATA Controller entry.  
+We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the name of the signalling protocol the operating system uses to retrieve data from a hard drive. Go ahead and highlight the SATA Controller entry.  
 
 In order to add a new hard drive to your virtual machine, click the blue HDD icon with a __+__ sign at the bottom of the menu.
 
