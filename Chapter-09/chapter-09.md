@@ -648,7 +648,7 @@ Outcomes
 
    1)  What would be the command to execute to see the logs of the current boot only using journalctl?
 
-   1)  Which file and what value would I modify to change the journals settings to make the logs be stored in memory (volatile)?
+   1)  Which file and what value would I modify to change the journal's settings to make the logs be stored in memory (volatile)?
 
    1)  The journald values SystemMaxUse= and RuntimeMaxUse= default to 10% and 15% of the system disk respectively.  How would you modify that value to be 20% and 30% respectively?  (Note you can't add percentages you have to use your system and do some scratch math - you can execute a df -H command to see the size of your root partition)
 
