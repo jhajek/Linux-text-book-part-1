@@ -636,9 +636,9 @@ Outcomes
 
    1)  What would be the command to edit the ```/etc/sudoers``` file and give the group "mysql-admins" sudo privilege? (Show the ```/etc/sudoers``` being edited and enter the relevant line that you add to that file)
 
-   1)  What would be the command to edit the /etc/sudoers file to give the user "mysql-admin" sudo privilege to only use the mysql database backup command "mysqldump" ? (Show the ```/etc/sudoers``` being edited and enter the relevant line that you add to that file)
+   1)  What would be the command to edit the ```/etc/sudoers``` file to give the user "mysql-admin" sudo privilege to only use the mysql database backup command "mysqldump" ? (Show the ```/etc/sudoers``` being edited and enter the relevant line that you add to that file)
 
-   1)  What would be the command to edit the /etc/sudoers file to give the user "mysql-admin" sudo privilege to only execute the "mysql" command and not require a password?
+   1)  What would be the command to edit the ```/etc/sudoers``` file to give the user "mysql-admin" sudo privilege to only execute the ```mysql``` command and not require a password?
 
    1)  When you execute the command tail journalctl - you receive an error?  Show the error in a screenshot and explain why the error comes?
 
@@ -650,7 +650,7 @@ Outcomes
 
    1)  Which file and what value would I modify to change the journal's settings to make the logs be stored in memory (volatile)?
 
-   1)  The journald values SystemMaxUse= and RuntimeMaxUse= default to 10% and 15% of the system disk respectively.  How would you modify that value to be 20% and 30% respectively?  (Note you can't add percentages you have to use your system and do some scratch math - you can execute a df -H command to see the size of your root partition)
+   1)  The journald values SystemMaxUse= and RuntimeMaxUse= default to 10% and 15% of the system disk respectively.  How would you modify that value to be 20% and 30% respectively?  (Note you can't add percentages, you have to use your system and do some scratch math - you can execute a ```df -H``` command to see the size of your root partition)
 
    1)  What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at 2 am every Sunday?
 
@@ -658,13 +658,13 @@ Outcomes
 
    1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) every 45 minutes?
 
-   1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) on every 45 past the hour on Sundays?  
+   1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) on every 45 minutes past the hour on Sundays?  
 
-   1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at 2:45am on Tuesday?
+   1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at 2:45am on this coming Tuesday only?
 
    1) What command would you use to change the group ownership of the file todo-list.txt to be owned by the "accounting" group?  (If that group doesn't exist then create it on your system)
 
-   1) What command would you use to change the group ownership and file ownership (on one command) of the file todo-list.txt to be root:root?
+   1) What command would you use to change the group ownership and file ownership (on one command) of the file ```todo-list.txt``` to be ```root:root```?
 
 #### Footnotes
 
