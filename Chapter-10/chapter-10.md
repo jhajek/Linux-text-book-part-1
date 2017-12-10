@@ -193,15 +193,15 @@ These are the short steps:
 
 Here is a list of all the configuration and cache files related to APT and their location:
 
-    * /etc/apt/sources.list: Locations to fetch packages from.
-    * /etc/apt/sources.list.d/: Additional source list fragments.
-    * /etc/apt/apt.conf: APT configuration file.
-    * /etc/apt/apt.conf.d/: APT configuration file fragments.
-    * /etc/apt/preferences: version preferences file. This is where you would specify "pinning", i.e. a preference to get certain packages from a separate source or from a different version of a distribution.
-    * /var/cache/apt/archives/: storage area for retrieved package files.
-    * /var/cache/apt/archives/partial/: storage area for package files in transit.
-    * /var/lib/apt/lists/: storage area for state information for each package resource specified in sources.list
-    * /var/lib/apt/lists/partial/: storage area for state information in transit.
+* ```/etc/apt/sources.list```: Locations to fetch packages from.
+* ```/etc/apt/sources.list.d/```: Additional source list fragments.
+* ```/etc/apt/apt.conf```: APT configuration file.
+* ```/etc/apt/apt.conf.d/```: APT configuration file fragments.
+* ```/etc/apt/preferences```: version preferences file. This is where you would specify "pinning", i.e. a preference to get certain packages from a separate source or from a different version of a distribution.
+* ```/var/cache/apt/archives/```: storage area for retrieved package files.
+* ```/var/cache/apt/archives/partial/```: storage area for package files in transit.
+* ```/var/lib/apt/lists/```: storage area for state information for each package resource specified in sources.list
+* ```/var/lib/apt/lists/partial/```: storage area for state information in transit.
 
 ### yum & dnf
 
@@ -219,14 +219,29 @@ First we want to check if we have the correct RPM name.  We can search through o
 
 To enable the download the RPMFusion repos for adding additional software of free and non-free type you can type the following commands:
 
-  * ```sudo dnf install \
-  http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm```
-  *  ```sudo dnf install \
-http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm```
+* 
+```bash
+sudo dnf install http://download1.rpmfusion.org/free/fedora/\
+rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+```
+* 
+```bash
+sudo dnf install http://download1.rpmfusion.org/nonfree/fedora/\
+rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
 
 Note for RHEL/CentOS the installation URL is slightly different:
-  * ```sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/6/i386/rpmfusion-free-release-6-1.noarch.rpm```
-  * ```sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm```
+
+* 
+```bash
+sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/\
+updates/6/i386/rpmfusion-free-release-6-1.noarch.rpm
+```
+* 
+```bash
+sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/\
+rpmfusion-nonfree-release-6-1.noarch.rpm
+```
 
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
 
