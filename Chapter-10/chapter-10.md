@@ -62,7 +62,7 @@ This style of software installation put a high barrier to who could practically 
 
 The most important line being the __Depends__ option which controls dependencies and can prevent installation of these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Usinb ```dpkg``` is a clear step above using tarballs and compiling the code yourself. There are other tools that build on top of dpkg that are recommended to use.   Let's take a look at an example we have done before in chapter 4 where we downloaded a .deb file for the Vivaldi web browser and installed it via the Ubuntu Software Center.  Now let's perform the same action again using the ```dpkg``` command.
 
-> __Example Usage:__  You can download a .deb file from the Vivaldi website here: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in the Ubuntu or Gnome Software stores but you can download the .deb. file directly and install through dpkg.  If it is previously installed you might have to use the Ubuntu Software Center to remove it and then complete this exercise.  In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
+> __Example Usage:__  You can download a .deb file from the Vivaldi website here: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in the Ubuntu or Gnome Software stores but you can download the .deb. file directly and install through dpkg. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
 ```bash
 sudo dpkg -i ./vivaldi-beta_1.0.303.52-5_amd64.deb
 ```
@@ -73,7 +73,7 @@ After executing this command you will receive an error message. What is it telli
 ```bash
 sudo dpkg -i ./links_2.8-2_amd64.deb
 ```
-Note that this command installs properly without any error message. [http://packages.ubuntu.com/vivid/links](http://packages.ubuntu.com/vivid/links "links")
+Note that this command installs properly without any error message. [http://packages.ubuntu.com/](http://packages.ubuntu.com/ "links")
 
 > __Example Usage:__   There are other flags but the most common are these: ```sudo dpkg -r or --remove```, ```sudo dpkg -P or --purge```, ```sudo dpkg -l or --list```, and ```sudo dpkg --status links```
 
