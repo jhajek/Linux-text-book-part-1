@@ -3,7 +3,7 @@
 
 ### Objectives
 
-This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenants of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus  on the using the opensource technology of Linux.  The Objectives of this chapter are as follows:
+This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenants of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus on using the opensource technology of Linux.  The Objectives of this chapter are as follows:
 
    * Understand how to write and use basic shell scripts
    * Understand how to use conditional statements in Bash scripts

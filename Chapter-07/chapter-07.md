@@ -68,7 +68,7 @@ Bill Joy came into the picture out at Berkely.  He helped make an improved __em_
 
 ### vi has a Sharp Learning Curve
 
-  Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  The __vi editor__ is not a text editor comparable notepad, but vi was a specfic tool developed to create complex interaction with text in as few key strokes as possible. Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beatuiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
+  Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  The __vi editor__ is not a text editor comparable notepad, but vi was a specfic tool developed to create complex interaction with text in as few key strokes as possible. Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beautiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
 
 #### vi or vim?
 
@@ -212,19 +212,19 @@ __EX__ mode also contains the ability to search for occurrences of text patterns
 
 __vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC then :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.  See the sample file ```2016-05-31-using-s3cmd.md``` located in the chapter-07 directory of the files folder.
 
-s/Tuesday/Wednesday
+```s/Tuesday/Wednesday```
 
 :  The *s* tells us it is a single find and replace or substitute.  This is a single instance replacement.
 
-s/False/True/g
+```s/False/True/g```
 
 :  This command the *s* tells us to substitute the word *False* for the word *True* and the trailing *g* means every occurrence on that line.
 
-1,$s/&#47;/\//g
+```1,$s/&#47;/\//g```
 
 :  This command has a range prefix the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
 
-47,86s/<br \/>//g
+```47,86s/<br \/>//g```
 
 :  This command tells us to do the replacement of lines 47-86 and strip out all the extranuous ```<br />``` tags only.  Note the backslash to escape the forward slash.
 
