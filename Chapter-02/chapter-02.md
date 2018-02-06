@@ -37,7 +37,7 @@ Take the Windows operating system for instance in which you have just one versio
 
 ### Programming Language and Compiler Tools
 
-In the modern computing world we are used to installing programs via pre-compiled binaries or just clicking on an *exe* or *dmg* files for installing programs.  You need to compile source code (C or C++ for example) to build an executable binary. Most of the world's software is built using the C language.  You need a C compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  The Unix operating system and the Linux kernel are built using the C language.   Today most code is pre-compiled for you and you can use other languages besides C to build applications, but in the early days of Unix and Linux a C Compiler was critical to have as you were building the kernel, operating system, and all tooling from scratch.
+All computer programs start their life as code, the operating system is no different.  Primarily they are built in C, C++, and a bit of assembly code.  In order to run code, you need a language and a compiler that will turn this code into an application executable. In the modern computing world we are used to installing programs via pre-compiled binaries or just clicking on an *exe* or *dmg* file.  IN order to build a working Unix or Linux you need a C compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  The Unix operating system and the Linux kernel are built using the C language.   
 
 ### User Interface and User Tools
 
