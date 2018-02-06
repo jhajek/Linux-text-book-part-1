@@ -29,7 +29,7 @@ This text strives to be different than other books in the market in two areas;
 1) We will describe the philosophy of free and opensource software and it's origin and impact upon our computing world.  
 2) This book will cover the basic technical structure and how to use free and opensource operating systems--primarily Linux but where noted Unix and BSD based systems.  
   
-###For Instructors
+### For Instructors
 
 In addition to the text material this book includes:
 
@@ -86,7 +86,7 @@ Part of this book was inspired by a quote from my friend in regards to Linux tex
 
 ## Thanks 
 
-* Professor Sam - who taught me that it is pronounced *"etc F-stab"* not *"etc F S tab"* and how to read error messages. 
+* Professor Sam - who taught me that it is pronounced *"ee tee cee F-stab"* not *"etc F S tab"* and how to read error messages. 
 * Professor Ray Trygstad and Dean Robert Carlson, who gave me my first real IT job and showed me the wonders of Perl.
 * Illinois Institute of Technology who has entrusted me with much.
 * My wife and kids who supported me always.
