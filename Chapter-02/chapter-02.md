@@ -23,7 +23,9 @@ In this chapter the terms Linux and Unix are generally inter-changable from a co
 
 ## Where it Began and Why it Matters Now
 
-If you are reading this as a university textbook then you have undoubtedly heard of Linux and Unix based operating systems.  There is a good chance you have one in your pocket now or a laptop in front of you.  Google's Android OS is Linux and Apple's MacOS (formerly OSX) is based off on BSD Unix. Unix and Linux have a unique relationship.  At a foundational level all operating systems have three basic components that define them. An operating system can be boiled down into three main parts:   
+Marc Andreesen, founnder of the Netscape Communicator browser (precursor to FireFox) famously said, "Software is eating the world."  The majority of that is Free/Libre Opensource software and the majorioty of it is Linux or UNix based.  This trend of software and philosophy of software started over 40 years ago in Unix has come to predominate the technology scene today. There is a good chance you have one your pocket Google's Android OS, or a laptop with Apple's MacOS (formerly OSX) which is based off on BSD Unix.  Even Microsoft Windows 10 has a Linux compatibility layer now. 
+
+When we take a look all operating systems, at a foundational level all operating systems have three basic components. An operating system can be boiled down to three main parts:   
 
 ### The Kernel  [^1]
 
