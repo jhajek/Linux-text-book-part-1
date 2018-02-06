@@ -35,6 +35,10 @@ Any computer operating system must contain a kernel.  In the same way all plants
 
 Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor?  What about kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the kernel takes care of hardware communication for you.   
 
+### Programming Language and Compiler Tools
+
+In the modern computing world we are used to installing programs via pre-compiled binaries or just clicking on an *exe* or *dmg* files for installing programs.  You need to compile source code (C or C++ for example) to build an executable binary. Most of the world's software is built using the C language.  You need a C compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  The Unix operating system and the Linux kernel are built using the C language.   Today most code is pre-compiled for you and you can use other languages besides C to build applications, but in the early days of Unix and Linux a C Compiler was critical to have as you were building the kernel, operating system, and all tooling from scratch.
+
 ### User Interface and User Tools
 
 All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user applications"* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even after CRT monitors became prevalent the GUI command line shell still was the standard interface.  X Windows is the standard windowing toolkit that allows for GUIs, *Graphical User Interfaces* to exist across Linux and Unix and will be covered more in chapter 5.     
@@ -43,9 +47,7 @@ User tools include all tooling or commands (executable binaries) needed to funct
 
 User applications like a web browsers and email clients are seen as user created tooling that is an amalgamation of many smaller tools to accomplish a larger task. With out these user tools and user interface, your computer would be essentially useless with no way to interact with it.
 
-### Programming Language and Compiler Tools
-
-In the modern computing world we are used to installing programs via pre-compiled binaries or just clicking on an *exe* or *dmg* files for installing programs.  You need to compile source code (C or C++ for example) to build an executable binary. Most of the world's software is built using the C language.  You need a C compiler to build the kernel, operating system, system applications, user tools, and any additional tools you create. Without a C compiler you cannot build or make anything.  The Unix operating system and the Linux kernel are built using the C language.   Today most code is pre-compiled for you and you can use other languages besides C to build applications, but in the early days of Unix and Linux a C Compiler was critical to have as you were building the kernel, operating system, and all tooling from scratch.  
+  
 
 #### Linux is the same as Unix but...
 
