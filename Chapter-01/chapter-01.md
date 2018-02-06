@@ -20,7 +20,7 @@ date: 07/30/2015
 
   __Scott Guthrie__ "*Today I’m excited to announce our plans to bring SQL Server to Linux as well. This will enable SQL Server to deliver a consistent data platform across Windows Server and Linux, as well as on-premises and cloud. We are bringing the core relational database capabilities to preview today, and are targeting availability in mid-2017.*" [March 7, 2016 Scott Guthrie, Executive Vice President, Cloud and Enterprise Group, Microsoft](https://blogs.microsoft.com/blog/2016/03/07/announcing-sql-server-on-linux/#sm.0000164n8bkaqfeawtecf32pv82bz "Microsoft Loves Linux")
 
-When you hear the term *"free and opensource software"* what comes to mind? The quotes listed above state a range of opinions  and outlooks. Do you agree with any of these quotes?  Do you disagree? These are the questions to keep in mind as you begin to understand *free and opensource software*. 
+When you hear the term *"free and opensource software"* what comes to mind? The quotes listed above state a range of opinions and outlooks. Do you agree with any of these quotes?  Do you disagree? These are the questions to keep in mind as you begin to understand *free and opensource software*. 
 
 Most people are exposed to opensource through using Linux either in school or at work. In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within. 
   
