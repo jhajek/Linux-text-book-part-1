@@ -47,8 +47,6 @@ User tools include all tooling or commands (executable binaries) needed to funct
 
 User applications like a web browsers and email clients are seen as user created tooling that is an amalgamation of many smaller tools to accomplish a larger task. With out these user tools and user interface, your computer would be essentially useless with no way to interact with it.
 
-  
-
 #### Linux is the same as Unix but...
 
 Based on these three component we see that Unix is a complete operating system, but Linux is not. Linux just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system. Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*.
@@ -66,7 +64,7 @@ Based on these three component we see that Unix is a complete operating system, 
   * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel")
   * [Pretty much every top website except stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
 
-Some would argue that without free and opensource software that companies like Google and Facebook never could have existed because the cost of buying the equivalent opensource software would be prohibitive.
+Some would argue that without free and opensource software that companies like Google and Facebook never could have existed because the cost of buying the equivalent software would be prohibitive.
 
 ### Thompson, Ritchie, and Bell Labs
 
