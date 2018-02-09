@@ -616,7 +616,7 @@ The other major point of contention is with all the changes in systemd makes to 
 
 This leads to an interesting point.  As of 2016, all major Linux distros have adopted systemd.  Debian was the last hold out and they actually had a civil war and the community split over this issue.  Half of the developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focusing on removing all the systemd and udev dependencies and putting choice back in the user's hand.  
 
-In it's defense, systemd has many nice and actually new and needed features for Linux.  Leonart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.
+In it's defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.
 
 ### Conspiracy Theory
 
