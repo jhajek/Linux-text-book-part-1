@@ -557,6 +557,10 @@ In addition to compiling software and using package managers the Python language
 
 Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation). These instructions assume you are using VirtualBox 5.x, *you will need* to adjust the version numbers and path name if you are using a different version.
 
+### Installing Virtualbox Additions Package
+
+#### Ubuntu
+
 ```bash
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
@@ -566,7 +570,7 @@ sudo reboot
 ```
 #### Red Hat
 
- On Fedora 26 using dnf
+ On Fedora using dnf
 
 ```bash
 sudo dnf update kernel*
