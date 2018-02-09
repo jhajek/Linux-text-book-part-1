@@ -547,7 +547,6 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
    * Started a fork of NetBSD at the end of 1995   
    * OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [other projects](http://www.openbsd.org/innovations.html "BSD Innovaations") comes out of this project.
    + [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
-   + Recognizing the standard usage of SSH (secure shell) they are moving to port and integrate SSH natively to Windows.
    * Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most secure OS.
 
 #### NetBSD
