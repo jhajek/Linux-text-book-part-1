@@ -298,7 +298,7 @@ This should have been cause for great celebration amongst the Linux and GNU comm
 
 Creation Method
 
-  * Linus Torvalds as a graduate student at a university
+  * Linus Torvalds as a graduate student at a university because of his curiosity
   * Thompson and Ritchie developed as Bell Labs Engineers to solve computer problems
 
 Release Cycle
