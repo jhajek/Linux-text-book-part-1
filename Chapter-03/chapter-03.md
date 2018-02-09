@@ -666,7 +666,7 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. Live ISO
   c. Install Disk
   d. Trick question
-11) What is not a type of checksum hashes offered for an Ubuntu distribution?
+11) What is **not** a type of checksum hashes offered for an Ubuntu distribution?
   a. MD5
   b. SHA1
   c. SHA256
