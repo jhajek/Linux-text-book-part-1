@@ -516,7 +516,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
    * Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
    * Board of directors are elected and drives development decisions and policies
 
-#### PC-BSD / TrueOS
+#### TrueOS
 
    *  FreeBSD based distro with a focus on user interface and experience.
    *  Provides friendly installers and package managers for users on top of existing FreeBSD installation
