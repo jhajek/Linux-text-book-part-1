@@ -537,7 +537,6 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 #### Other BSD projects
 
   * Ghost BSD
-  * UbuntuBSD
 
 #### OpenBSD
 
