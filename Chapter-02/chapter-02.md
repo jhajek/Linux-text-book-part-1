@@ -567,7 +567,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 #### Solaris
 
   *  Oracle killed commercial Solaris in the middle of the night [September 3rd, 2017](http://dtrace.org/blogs/bmc/2017/09/04/the-sudden-death-and-eternal-life-of-solaris).
-  *  Commercial Unix distribution created by SUN in the 1980s.
+  *  Commercial Unix distribution created by SUN in the 1980s and bought by Oracle in 2010.
   *  Sought to merge the best of Sys V and BSD into one standard Unix.
   *  Ran on propriatery SPARC hardware platform
   *  Leader in operating system feature development.
