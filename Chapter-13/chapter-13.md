@@ -296,7 +296,9 @@ SQLite is not opensource persay, but placed in the public domain for anyone to u
 
 ### MongoDB
 
+Though there are many in this category, I have selected one NoSQL database.   The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests; GET, PUT, and DELETE which mirror the functionality of CRUD; Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.
 
+> NoSQL example
 
 ## Chapter Conclusions and Review
 
