@@ -12,7 +12,7 @@ How to install;
 
 ## Ubuntu Linux
  
-I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Latest 1.19.X package](https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb "Pandoc Latest deb package"). For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. 
+I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page](https://github.com/jgm/pandoc/releases "Pandoc Latest deb package").   For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. 
 
 ### Linux dependencies - On Debian/Ubuntu
 * texlive
@@ -41,7 +41,8 @@ To Install the Inconsolata font:
 ## Windows 
 You need Pandoc > 1.19.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
 
-*  [Pandoc Windows pandoc-1.19.1 msi](https://github.com/jgm/pandoc/releases/download/1.19.1/pandoc-1.19.1-windows.msi "Pandoc MSI")
+*  [Pandoc Windows](https://github.com/jgm/pandoc/releases "Pandoc MSI")
+    + It has been tested on Windows 10 with version 2.0 and 2.1.3
 *  [MikTex](http://miktex.org/download "Miktex Download")
 *  [Inconsolata Font](https://fonts.google.com/specimen/Inconsolata?selection.family=Inconsolata "Inconsolata")
 *  [Charis Sil Font](https://software.sil.org/charis/download/ "Charis Sil")
