@@ -259,7 +259,6 @@ Databases come in two types: **Relational databases** and **Non-relational datab
 
 >  Python select star example:
 
-
 ### Mysql and MariaDB
 
 Installation of a databadse is straight forward using the package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accesing a database remotely, you do not need to install the entire server just the client tools to use the applications.
@@ -273,10 +272,21 @@ sudo apt-get install mariadb-server
 sudo dnf install ?
 sudo dnf install ?
 
+MySQL was started by Monte Widens.  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes drop in a replacement for MySQL, even using the same commands to run the database.
 
+Now that our databases are installed, lets quickly import a bit of data and run the commands listed above to see SQL in action. Don't worry, this might be review but it s good to have command line experience.   And the answer to your question is, yes there are GUI tools that will let you do this.
+
+MySQL workbench
+PHP MyAdmin (requires Apache webserver and PHP in addition to MySQL)
 
 ### PostgreSQL
 
+
+### SQLite
+
+Intersting small database.  This project is intentially designed with low enterprise features.  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS.   
+
+SQLite is not opensource persay, but placed in the public domain for anyone to use.
 
 ### MongoDB
 
