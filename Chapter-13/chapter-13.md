@@ -251,6 +251,36 @@ Started in 2004 by Igor Sysoev, this product came out of a Russian company who f
 The OpenBSD project which values security and home grown solutions over pure availability.  Instead of trusting others code, the OpenBSD project built and maintain their own webserver (ported to other BSD?)  Justification:
 Read up from the OpenBSD docs
 
+## Database and NoSQL
+
+Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here]  -- *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accesed via the SQL syntax either via the command line or integrated into a programming language.
+
+>  SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
+
+>  Python select star example:
+
+
+### Mysql and MariaDB
+
+Installation of a databadse is straight forward using the package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accesing a database remotely, you do not need to install the entire server just the client tools to use the applications.
+
+sudo apt-get install mariadb  
+sudo apt-get install mysql
+
+sudo apt-get install mariadb-client
+sudo apt-get install mariadb-server
+
+sudo dnf install ?
+sudo dnf install ?
+
+
+
+### PostgreSQL
+
+
+### MongoDB
+
+
 
 ## Chapter Conclusions and Review
 
