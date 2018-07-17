@@ -288,6 +288,12 @@ Intersting small database.  This project is intentially designed with low enterp
 
 SQLite is not opensource persay, but placed in the public domain for anyone to use.
 
+```sudo apt-get install sqlite3```
+```sudo dnf install ?```
+```ports install ?```
+
+
+
 ### MongoDB
 
 
