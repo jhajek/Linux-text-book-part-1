@@ -193,11 +193,11 @@ Apache has over time grown and had to add new function while shedding old functi
 
 The apache webserver can be simply installed via Linux or BSD package manager.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```.
 
-> sudo apt-get install apache2
+> ```sudo apt-get install apache2```
 
-> sudo yum install httpd
+> ```sudo yum install httpd```
 
-> ports (freebsd)
+> ```ports (freebsd)```
 
 Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources.  You will need to tune the different settings as you go along as no two work loads are the same.  For our purposes in class the default configurations will suffice, but in the real world you will need to find
 additional documents or books to guide you along.
@@ -206,9 +206,9 @@ Apache has extendable modules so its base features can be extended without needi
 
 > Let's try
 
-sudo apt-get install php7.0
+```sudo apt-get install php7.0```
 
-sudo service apache2 reload (as opposed to restart)  jsut re-reads the configurable
+```sudo service apache2 reload (as opposed to restart)  jsut re-reads the configurable```
 
 (Advanced) Add code for HTTP/2 config
 
