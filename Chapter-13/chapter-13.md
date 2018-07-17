@@ -56,7 +56,7 @@ This is where the similarities end.  The *ifconfig* command is a single command.
 
 ```lshw```
 
-> lshw is a small tool to extract detailed information on the hardware configuration  of  the  machine.  It  can report  exact  memory  configuration,  firmware version, mainboard configuration, CPU version and speed, cache configuration, bus speed, etc. on DMI-capable x86 or IA-64 systems and on some PowerPC machines  (PowerMac  G4 is known to work).
+> ```lshw``` is a small tool to extract detailed information on the hardware configuration  of  the  machine.  It  can report  exact  memory  configuration,  firmware version, mainboard configuration, CPU version and speed, cache configuration, bus speed, etc. on DMI-capable x86 or IA-64 systems and on some PowerPC machines  (PowerMac  G4 is known to work).
 
 http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
 
