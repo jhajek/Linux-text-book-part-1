@@ -14,7 +14,7 @@
 
 ### Outcomes
 
-  At the conlcusion of this chapter you will have a basic understadning of remote access and file transfer commands availabe in Linux.  You will also have a basic undertanding of firewall commands and basic Server port configuration.
+At the conlcusion of this chapter you will have a basic understadning of remote access and file transfer commands availabe in Linux.  You will also have a basic undertanding of firewall commands and basic Server port configuration.
 
 ## Secure Shell
 
