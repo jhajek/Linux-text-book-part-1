@@ -238,9 +238,13 @@ Process is different in Redhat - things don't turn on by default and you have to
 
 This webserver does what it implies, it is essentially a stripped down version of Apache in all its functions.  It has lower overhead to deploy and is used in many cases for webservers that have a single function.  For instance it is popular for setting up for large websites that will serve just images to a main webpage.  
 
+> install instructions here
+
 ### Nginx
 
 Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique webserving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitiations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
+
+> install instructions here
 
 #### Nginx on RedHat
 
