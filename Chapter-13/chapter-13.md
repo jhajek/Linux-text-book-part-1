@@ -281,24 +281,32 @@ PHP MyAdmin (requires Apache webserver and PHP in addition to MySQL)
 
 ### PostgreSQL
 
+As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress [find link], was a product and a company in the 1980s.  The succesor to that project was PostgreSQL.
+
+> ```sudo apt-get install postgresql```
+```sudo dnf install postgresql```
+```ports install```
 
 ### SQLite
 
 Intersting small database.  This project is intentially designed with low enterprise features.  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS.   
 
-SQLite is not opensource persay, but placed in the public domain for anyone to use.
+SQLite is not opensource but instead placed in the public domain for anyone to use.
 
 ```sudo apt-get install sqlite3```
 ```sudo dnf install ?```
 ```ports install ?```
 
-
+> 
 
 ### MongoDB
 
-Though there are many in this category, I have selected one NoSQL database.   The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests; GET, PUT, and DELETE which mirror the functionality of CRUD; Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.
+Though there are many in this category, I have selected one NoSQL database.   The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.
 
-> NoSQL example
+> NoSQL install 
+```sudo apt-get install mongo```
+```sudo dnf install mongo```
+```ports install```
 
 ## Chapter Conclusions and Review
 
