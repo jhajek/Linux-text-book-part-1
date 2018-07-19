@@ -124,7 +124,7 @@ Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental rep
 
 ![*The architecture of systemd as it is used by Tizen. Several components, including telephony, bootmode, dlog and tizen service, are from Tizen and are not components of systemd.*](images/Chapter-11/systemd/systemd.png "systemd")
 
-Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at RedHat. Systemd is licensed under the LGPL 2.1 or later, [GNU Lesser General Public License](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License "LGPL"). You can see an indepth presentation of all these points at RedHat 2015 summit, [https://youtu.be/S9YmaNuvw5U](https://youtu.be/S9YmaNuvw5U "RedHat 2015 Summit").    It's main goal is to unify basic Linux configurations and service behaviors across all distributions.  
+Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at RedHat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.  Systemd is licensed under the LGPL 2.1 or later, [GNU Lesser General Public License](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License "LGPL").  
 
 From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system. [^117]"*   Unlike the SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1. The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too. Systemd includes many other items, 69 different binaries all rolled into PID 1.    
 
