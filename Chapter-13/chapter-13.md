@@ -208,7 +208,7 @@ Apache has extendable modules so its base features can be extended without needi
 
 ```sudo apt-get install php7.0```
 
-```sudo service apache2 reload (as opposed to restart)  jsut re-reads the configurable```
+```sudo systemctl reload apache2``` -- (as opposed to restart)  jsut re-reads the configurable
 
 (Advanced) Add code for HTTP/2 config
 
