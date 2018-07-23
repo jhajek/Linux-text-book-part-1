@@ -5,6 +5,8 @@
 
   * SSH
     + RSA keys
+    + OpenSSL
+    + LibreSSL
   * SFTP
   * SCP
   * Firewall
@@ -18,11 +20,17 @@ At the conlcusion of this chapter you will have a basic understadning of remote 
 
 ## Secure Shell
 
-SSH goes here
+The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  There was seen as no need for security or encryption of data sent over a network.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 199x introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  (Add link here to announcement)
+
+> You can access SSH from the command line via typing: ```ssh -V```
 
 ### RSA keys
 
-Public Private Key Encryption
+SSH works because of Public/Private Key Encryption and a standard created and widely adopted by the RSA company.  Without going to deep into RSA encryption, this set of public and private keys allows you to securely transmit information accross an untrusted network.  How does it work?
+
+Each person generates a **keypair**, a public key and a private key. Both halves of the key make up the single key used for authentication.  These keys are exactly what they sound like.  The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened.  Think of the public key as the lock on your front door.  Conceivably anyone can come up to that lock and try to insert a key.  Unless they have the particular key, the lock won't open.  
+
+The private key is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.
 
 ### SFTP
 
