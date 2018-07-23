@@ -305,7 +305,7 @@ SQLite is not opensource but instead placed in the public domain for anyone to u
 
 ### MongoDB
 
-Though there are many in this category, I have selected one NoSQL database.   The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.
+Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.  REST was not specifically developed to replace SQL commands via HTTP but became the default application of it.
 
 > NoSQL install 
 ```sudo apt-get install mongo```
@@ -394,7 +394,7 @@ Though there are many in this category, I have selected one NoSQL database.   Th
 
 ### Podcast Questions
 
-Working on it
+Working on it - NGINX?  Or MYSQL or PostGRESQL or MariaDB or MongoDB
 
 ### Lab
 
