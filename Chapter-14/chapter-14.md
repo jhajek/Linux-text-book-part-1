@@ -43,7 +43,7 @@ In order to exchange data securely you must...
 
 Secure FTP
 
-ALlows you to use the old but reliable ```FTP``` File Transfer Protocol.  Normally FTP usage is discouraged as the protocol was developed at a time when security was not a consideration.  All text, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.
+Allows you to use the old but reliable ```FTP``` File Transfer Protocol.  Normally FTP usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.
 
 ## SCP
 
