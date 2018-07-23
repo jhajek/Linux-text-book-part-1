@@ -24,6 +24,14 @@ The internet and networks were developed in a day and age where trust was implie
 
 > You can access SSH from the command line via typing: ```ssh -V```
 
+By default the SSH *client* is installed on all Linux and Unix systems.  It can be installed on a Microsoft Windows system as a native package by adding it through the settings panel (find instructions) as it is being actively developed in step with OpenSSH from BSD I would recommend this above all other solutions available. 
+
+You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This is predicated via either username account and password or RSA key.   
+
+> ```sudo apt-get install openssh-server```
+```sudo dnf install openssh-server```
+```ports install openssh-server```
+
 ### RSA keys
 
 SSH works because of Public/Private Key Encryption and a standard created and widely adopted by the RSA company.  Without going to deep into RSA encryption, this set of public and private keys allows you to securely transmit information accross an untrusted network.  How does it work?
@@ -36,7 +44,9 @@ Insert screen shots here:
 Insert screen shots here:
 Insert screen shots here:
 
-In order to exchange data securely you must...
+There is a command that will let you securely exchange RSA keys with a server.
+
+```ssh-copy-id username@host```  which requires you first to have an account on the server (host) you are connecting to.
 
 #### OpenSSL
 
