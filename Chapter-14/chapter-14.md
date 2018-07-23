@@ -38,6 +38,17 @@ Insert screen shots here:
 
 In order to exchange data securely you must...
 
+#### OpenSSL
+
+Opensource Library used for crytographic key generation and by OpenSSH.  In 2016 suffered an exploit due to the nature of the library maintaining older code from non-existant systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributred almost nothing to its development.   After the exploit a hugh infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
+
+[heartbleed]
+
+#### LibreSSL
+
+Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork of the OpenSSL repo and began to strip out as much uneeded code as possible and to write new code.  This library became the default cryptographic library on OpenBSD and was ported to Linux.  Though it is new and has a smaller attack surface, so many products (for better or worse) are using OpenSSL that they have not or cannot switch libraries.
+
+[BSD LibreSSL announcement and link]
 
 ### SFTP
 
@@ -80,6 +91,6 @@ Video By Brian Cantrill [https://www.youtube.com/watch?v=-zRN7XLCRhc](https://ww
 
 ### Lab
 
- Lab goes here
+Create two servers that have IP addresses.  Create a client and a server database.  Open the firewalls to allow secure conenctions
 
 #### Footnotes
