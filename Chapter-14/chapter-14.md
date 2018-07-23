@@ -47,7 +47,7 @@ Allows you to use the old but reliable ```FTP``` File Transfer Protocol.  Normal
 
 ## SCP
 
-Secure cp (copy) Allows for using the ```cp``` command to a remote system via SSH.
+Secure cp (copy) Allows for using the ```cp``` command to a remote system via SSH, as SFTP should be used for moving multiple files, this command is good for moving a single file quickly via the command line.
 
 ## Firewall
 
@@ -63,7 +63,7 @@ Used to block exteral communication on you system ports.   Not unlike plugs in t
  * Oracle DB - 1025
  * SQL Server (Microsoft)
 
-You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.
+You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If y9ou are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security and privacy.  
 
 ## Chapter Conclusions and Review
 
