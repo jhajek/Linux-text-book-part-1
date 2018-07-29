@@ -204,7 +204,7 @@ __EX__ mode also contains the ability to search for occurrences of text patterns
 
 :  This is where we can combine shell meta-characters inside of __vi__ for searching for Mozilla versions
 
-```?MSIE\+[6-8]*```
+```?MSIE\\+[6-8]*```
 
 :  This allows for backwards shell meta-character search. In this case notice the introduction of the escape character __\\__. Normally the __+__ sign has meaning but in our pattern we want to find all the old versions of Internet Explorer 6-8 that are visiting our blog.  To do this we pass the line escaping the __+__ because we want it to match as a text character not as a shell meta-character.
 
