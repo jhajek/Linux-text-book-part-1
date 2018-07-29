@@ -57,7 +57,7 @@ This is in progress packages needed so far are:
 * sil-charis-fonts
 * texlive-texliveonfly
 * texlive-opdftex.noarch
-    + ```sudo dnf install pandoc texlive texlive-latex-fonts texlive-xetex texlive-extra-recommended texlive-inconsolata-doc levien-inconsolata-fonts texlive-inconsolata texlive-arev-doc.noarch texlive-arev.noarch texlive-nfssext-cfr.noarch texlive-plnfss.noarch texlive-psnfss.noarch texlive-nfssext-cfr sil-charis-compact-fonts sil-charis-fonts texlive-texliveonfly texlive-opdftex.noarch```
+    + ```sudo dnf install pandoc texlive texlive-latex-fonts texlive-xetex  texlive-inconsolata-doc levien-inconsolata-fonts texlive-inconsolata texlive-arev-doc.noarch texlive-arev.noarch texlive-nfssext-cfr.noarch texlive-plnfss.noarch texlive-psnfss.noarch texlive-nfssext-cfr sil-charis-compact-fonts sil-charis-fonts texlive-texliveonfly texlive-pdftex.noarch```
 
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
