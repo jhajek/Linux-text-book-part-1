@@ -12,7 +12,7 @@ How to install;
 
 ## Ubuntu Linux
  
-I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page](https://github.com/jgm/pandoc/releases "Pandoc Latest deb package").   For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. 
+I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page for Pandoc 2.2.2-x](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb "Pandoc Latest deb package").   For PDF output, you’ll need LaTeX. 
 
 ### Linux dependencies - On Debian/Ubuntu
 * texlive
@@ -34,6 +34,8 @@ Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.o
 To Install the Inconsolata font:
 * ```sudo apt-get install fonts-inconsolata```
 * ```sudo fc-cache -fv```
+
+To confirm install from the command line type: ```pandoc -v```
 
 ### Linux Dependencies - On Fedora 28 
 
