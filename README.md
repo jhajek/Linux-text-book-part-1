@@ -37,7 +37,7 @@ To Install the Inconsolata font:
 
 ### Linux Dependencies - On Fedora 28 
 
-This is for installing Pandoc 2.2.2.x.  You will need to download the pandoc binary from [pandoc.org](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-linux.tar.gz "pandoc 2.2.2-1"), do not install via dnf or yum as those versions are a bit old.
+This is for installing Pandoc 2.2.2.x.  You will need to download the pandoc binary from [pandoc.org](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-linux.tar.gz "pandoc 2.2.2-1"), do not install via dnf or yum as those versions are a bit old.  Extract the tarball (tar.gz) and copy the contents of ```./pandoc-2.2.2-1/bin/```  to ```/usr/local/bin```.  You will need to use sudo because ```/usr/local/bin/``` is owned by root.
 
 * texlive
 * texlive-latex-fonts
@@ -54,6 +54,8 @@ This is for installing Pandoc 2.2.2.x.  You will need to download the pandoc bin
 * texlive-texliveonfly
 * texlive-pdftex.noarch
     + ```sudo dnf install texlive texlive-latex-fonts texlive-xetex texlive-inconsolata-doc levien-inconsolata-fonts texlive-inconsolata texlive-nfssext-cfr.noarch texlive-plnfss.noarch texlive-psnfss.noarch texlive-nfssext-cfr sil-charis-compact-fonts sil-charis-fonts texlive-texliveonfly texlive-pdftex.noarch```
+
+To check if the install went correctly type: ```pandoc -v``` on the command line.
 
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
