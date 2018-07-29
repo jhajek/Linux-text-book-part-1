@@ -12,7 +12,7 @@ How to install;
 
 ## Ubuntu Linux
  
-I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page for Pandoc 2.2.2-x](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb "Pandoc Latest deb package").   For PDF output, you’ll need LaTeX. 
+I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page for Pandoc 2.2.2-x](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb "Pandoc Latest deb package").   You will need to issue a dpkg command to install the deb package directly.  ```sudo dpkg -i pandoc-2.2.2.1-1-amd64.deb```
 
 ### Linux dependencies - On Debian/Ubuntu
 * texlive
