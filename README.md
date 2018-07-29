@@ -35,6 +35,23 @@ To Install the Inconsolata font:
 * ```sudo apt-get install fonts-inconsolata```
 * ```sudo fc-cache -fv```
 
+### Linux Dependencies - On Fedora 28 
+
+This is in progress but...
+
+sudo dnf install sudo dnf install pandoc
+sudo dnf install texlive-latex-fonts
+sudo dnf install texlive texlive-xetex
+sudo dnf install texlive
+sudo dnf install texlive texlive-extra-recommended
+sudo dnf install texlive-inconsolata-doc levien-inconsolata-fonts texlive-inconsolata
+sudo dnf install texlive-arev-doc.noarch texlive-arev.noarch 
+sudo dnf install texlive-nfssext-cfr.noarch texlive-plnfss.noarch texlive-psnfss.noarch texlive-nfssext-cfr
+sudo dnf install levien-inconsolata-fonts texlive-inconsolata-doc texlive-inconsolata
+sudo dnf install sil-charis-compact-fonts sil-charis-fonts
+sudo dnf install texlive-texliveonfly
+sudo dnf install texlive-opdftex.noarch
+
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
