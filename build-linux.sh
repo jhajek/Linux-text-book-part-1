@@ -17,7 +17,7 @@ rm -f ./output/docx/*.docx
 rm -f ./output/odt/*.odt
 
 #######################################################################################################################
-# PDF - #If you want to create a PDF, you’ll need to have LaTeX installed. (See MacTeX on OS X, MiKTeX on Windows, or
+# PDF - If you want to create a PDF, you’ll need to have LaTeX installed. (See MacTeX on OS X, MiKTeX on Windows, or
 # install the texlive package in linux.) Then do                
 ########################################################################################################################
 # --chapters starts chapters on odd number pages  
