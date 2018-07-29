@@ -37,17 +37,14 @@ To Install the Inconsolata font:
 
 ### Linux Dependencies - On Fedora 28 
 
-This is in progress packages needed so far are:
+This is for installing Pandoc 2.2.2.x.  You will need to download the pandoc binary from [pandoc.org](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-linux.tar.gz "pandoc 2.2.2-1"), do not install via dnf or yum as those versions are a bit old.
 
-* pandoc
 * texlive
 * texlive-latex-fonts
 * texlive-xetex
 * texlive-inconsolata-doc 
 * levien-inconsolata-fonts 
 * texlive-inconsolata
-* texlive-arev-doc.noarch 
-* texlive-arev.noarch 
 * texlive-nfssext-cfr.noarch 
 * texlive-plnfss.noarch 
 * texlive-psnfss.noarch 
@@ -56,7 +53,7 @@ This is in progress packages needed so far are:
 * sil-charis-fonts
 * texlive-texliveonfly
 * texlive-pdftex.noarch
-    + ```sudo dnf install pandoc texlive texlive-latex-fonts texlive-xetex  texlive-inconsolata-doc levien-inconsolata-fonts texlive-inconsolata texlive-arev-doc.noarch texlive-arev.noarch texlive-nfssext-cfr.noarch texlive-plnfss.noarch texlive-psnfss.noarch texlive-nfssext-cfr sil-charis-compact-fonts sil-charis-fonts texlive-texliveonfly texlive-pdftex.noarch```
+    + ```sudo dnf install texlive texlive-latex-fonts texlive-xetex texlive-inconsolata-doc levien-inconsolata-fonts texlive-inconsolata texlive-nfssext-cfr.noarch texlive-plnfss.noarch texlive-psnfss.noarch texlive-nfssext-cfr sil-charis-compact-fonts sil-charis-fonts texlive-texliveonfly texlive-pdftex.noarch```
 
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
