@@ -6,7 +6,7 @@
 
   * Understand how and why the Unix Operating System was created
   * Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
-  * Understand the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and Free Software
+  * Understand the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and *Free/Libre Software*
   * Understand the contributions of Linus Torvalds to the creation of Linux
   * Understand and explain how the AT&T and BSD lawsuit enabled the proliferation of Linux
   * Be able to describe and differentiate the five phases of Unix maturity
