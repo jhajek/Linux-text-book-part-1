@@ -11,7 +11,7 @@
   * Understand and explain how the AT&T and BSD lawsuit enabled the proliferation of Linux
   * Be able to describe and differentiate the five phases of Unix maturity
   * Understand the nature of modern commercial distributions of Linux and Unix operating systems
-  * Understand the principles and key differences of *"free/libre software"* and *"opensource software"*
+  * Understand the principles and key differences of *Free/Libre Software* and *Opensource Software*
 
 ### Outcomes
 
