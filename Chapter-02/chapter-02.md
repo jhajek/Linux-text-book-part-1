@@ -23,7 +23,7 @@ In this chapter the terms **Linux** and **Unix** are generally inter-changable f
 
 ## Where it Began and Why it Matters Now
 
-Marc Andreesen, founnder of the Netscape Communicator browser (precursor to FireFox) famously said, "Software is eating the world."  The majority of that is Free/Libre Opensource software and the majorioty of it is Linux or UNix based.  This trend of software and philosophy of software started over 40 years ago in Unix has come to predominate the technology scene today. There is a good chance you have one your pocket Google's Android OS, or a laptop with Apple's MacOS (formerly OSX) which is based off on BSD Unix.  Even Microsoft Windows 10 has a Linux compatibility layer now. 
+Marc Andreesen, founnder of the Netscape Communicator browser (precursor to FireFox) famously said, "Software is eating the world."  The majority of that is Free/Libre Opensource software and the majorioty of it is Linux or Unix based.  This trend of software and philosophy of software started over 40 years ago in Unix has come to predominate the technology scene today. There is a good chance you have one your pocket Google's Android OS, or a laptop with Apple's MacOS (formerly OSX) which is based off on BSD Unix.  Even Microsoft Windows 10 has a Linux compatibility layer now. 
 
 When we take a look all operating systems, at a foundational level all operating systems have three basic components. An operating system can be boiled down to three main parts:   
 
