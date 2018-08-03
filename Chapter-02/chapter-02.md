@@ -37,7 +37,7 @@ Take the Windows operating system for instance in which you have just one versio
 
 ### Programming Language and Compiler Tools
 
-Once you have a kernel to interface with the hardware, you need a programming lanugage that will let you build tools and code libraries to put the system to use.  In Unix and Linux most system tools and commands are built using the C language.  These tools such as gcc (GNU C Compuler) then help you to compile and build other tools to utilize the system. The Unix operating system and the Linux kernel are built using the C language.   
+Once you have a kernel to interface with the hardware, you need a programming lanugage that will let you build tools and code libraries to put the system to use.  In Unix and Linux most system tools and commands are built using the C language.  These tools such as gcc (GNU C Compuler) help you to compile and build other tools and programs.    
 
 ### User Interface and User Tools
 
