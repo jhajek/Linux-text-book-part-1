@@ -12,7 +12,7 @@ How to install;
 
 ## Ubuntu Linux
  
-I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page](https://github.com/jgm/pandoc/releases "Pandoc Latest deb package").   For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. 
+I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page for Pandoc 2.2.2-x](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb "Pandoc Latest deb package").   You will need to issue a dpkg command to install the deb package directly.  ```sudo dpkg -i pandoc-2.2.2.1-1-amd64.deb```
 
 ### Linux dependencies - On Debian/Ubuntu
 * texlive
@@ -34,6 +34,30 @@ Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.o
 To Install the Inconsolata font:
 * ```sudo apt-get install fonts-inconsolata```
 * ```sudo fc-cache -fv```
+
+To confirm install from the command line type: ```pandoc -v```
+
+### Linux Dependencies - On Fedora 28 
+
+This is for installing Pandoc 2.2.2.x.  You will need to download the pandoc binary from [pandoc.org](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-linux.tar.gz "pandoc 2.2.2-1"), do not install via dnf or yum as those versions are a bit old.  Extract the tarball (tar.gz) and copy the contents of ```./pandoc-2.2.2-1/bin/```  to ```/usr/local/bin```.  You will need to use sudo because ```/usr/local/bin/``` is owned by root.
+
+* texlive
+* texlive-latex-fonts
+* texlive-xetex
+* texlive-inconsolata-doc 
+* levien-inconsolata-fonts 
+* texlive-inconsolata
+* texlive-nfssext-cfr.noarch 
+* texlive-plnfss.noarch 
+* texlive-psnfss.noarch 
+* texlive-nfssext-cfr
+* sil-charis-compact-fonts 
+* sil-charis-fonts
+* texlive-texliveonfly
+* texlive-pdftex.noarch
+    + ```sudo dnf install texlive texlive-latex-fonts texlive-xetex texlive-inconsolata-doc levien-inconsolata-fonts texlive-inconsolata texlive-nfssext-cfr.noarch texlive-plnfss.noarch texlive-psnfss.noarch texlive-nfssext-cfr sil-charis-compact-fonts sil-charis-fonts texlive-texliveonfly texlive-pdftex.noarch```
+
+To check if the install went correctly type: ```pandoc -v``` on the command line.
 
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)

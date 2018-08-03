@@ -566,13 +566,13 @@ d. Expansion
 4. Which meta-character allows you to string commands together regardless of the successful execution of the previous command?
 a. &&
 b. ;
-c. \+
+c. \\+
 d. ||
 
 5. Which meta-character allows you to string commands together but will exit if one of the commands fails?
 a. &&
 b. ;
-c. \+
+c. \\+
 d. ||
 
 6. Which meta-character is the wildcard (0 or more matches.?
