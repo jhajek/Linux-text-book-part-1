@@ -37,11 +37,11 @@ Take the Windows operating system for instance in which you have just one versio
 
 ### Programming Language and Compiler Tools
 
-Once you have a kernel to interface with the hardware, you need a programming lanugage that will let you build tools and code libraries to put the system to use.  In Unix and Linux most system tools and commands are built using the C language.  These tools such as gcc (GNU C Compuler) help you to compile and build other tools and programs.    
+Once you have a kernel to interface with the hardware, you need a programming lanugage or standard library that will let you build tools and code libraries to put the system to use.  In Unix and Linux most system tools and commands are built using the C language.  These tools such as gcc (GNU C Compuler) help you to compile and build other tools and programs.    
 
 ### User Interface and User Tools
 
-All operating systems need a way for a user to interface with the kernel.  This is where the *"shell"* and *"user applications"* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even after CRT monitors became prevalent the GUI command line shell still was the standard interface.  X Windows is the standard windowing toolkit that allows for GUIs, *Graphical User Interfaces* to exist across Linux and Unix and will be covered more in chapter 5.     
+All operating systems need a way for a user to interface with the kernel.  This is where the *shell* and *user applications* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel and returns output to your screen.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even after CRT monitors became prevalent the GUI command line shell still was the standard interface.  X Windows is the standard windowing toolkit that allows for GUIs, *Graphical User Interfaces* to exist across Linux and Unix and will be covered more in chapter 5.     
 
 User tools include all tooling or commands (executable binaries) needed to function in an operating system: copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, redirect output from the screen to a file, etc, etc.  
 
