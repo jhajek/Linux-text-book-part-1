@@ -26,7 +26,7 @@ The [DEC VT-100](https://en.wikipedia.org/wiki/VT100 "VT-100") was the most popu
 
 ### VT-100
 
-![*VT-100*](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/DEC_VT100_terminal.jpg/270px-DEC_VT100_terminal.jpg "VT-100")[^25]
+![*VT-100*](images/Chapter-04/Terminals/DEC_VT100_terminal.jpg "VT-100")[^25]
 
 This screenshot is a file listing from the ```/dev``` (devices) folder on a Fedora 22 system
 
