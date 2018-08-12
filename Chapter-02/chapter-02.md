@@ -527,7 +527,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 
 #### DragonFly BSD
 
-![*DragonFly BSD*](http://www.dragonflybsd.org/images/small_logo.png)
+![*DragonFly BSD*](images/Chapter-02/Linux-logos/DragonFlyBSD/dragonflybsd_small_logo.png)
 
    * Fork of FreeBSD in April of 2005 by Matthew Dillon.
    * Has significantly diverged from the original FreeBSD code base.
