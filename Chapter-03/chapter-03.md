@@ -41,7 +41,7 @@ Virtualization works because your x86 (AMD and Intel) enable it at the CPU[^19].
 
 ### Virtualization Diagram   
 
-![*Virtualization Diagram*](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Hyper-V.png/640px-Hyper-V.png "Virtulization Diagram")
+![*Virtualization Diagram*](images/Chapter-03/Hypervisor/640px-Hyper-V.png "Virtulization Diagram")
 
 By having the hypervisor intercepting system calls from the virtualized operating system this allows for multiple operating systems to co-exist on one computer unaware of each other[^20].  The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two attendees.  The hypervisor essentially creates two classes of operating systems.  The "*host*" and potentially multiple "*guests*".  The *"guest"* operating system thinks it has complete control of the hardware - but the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available.  The hypervisor offers a *"virtualized kernel and drivers"* to the guest operating system.  In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands.  
 
