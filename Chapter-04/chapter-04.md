@@ -163,7 +163,7 @@ Shortly after the initial release of KDE and its licensing confusion, an enterpr
 
 #### Miguel de Icaza
 
-![*Miguel de Icaza*](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Miguel_de_Icaza.jpg/351px-Miguel_de_Icaza.jpg "Miguel de Icaza")
+![*Miguel de Icaza*](images/Chapter-04/People/351px-Miguel_de_Icaza.jpg "Miguel de Icaza")
 
 GNOME initially stood for GNU Network Object Model Environment but the acronym is no longer used[^28].  GNOME was a GNU project directly created under the GPL.  The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Tool Kit*, actually stands for the GIMP Tool Kit.  [GIMP](https://en.wikipedia.org/wiki/GIMP "GIMP") is the GNU Image Manipulation Program similar to Photoshop or Paint.Net in feature set.  GTK or now known as GTK+ are useful for creating standalone applications with multiple development language bindings as well.
 
