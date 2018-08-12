@@ -35,7 +35,7 @@ Every operating system is made up of multiple components as we mentioned in chap
 
 ### One Ring to Rule Them All...Operating System Rings
 
-![*Operating System Rings*](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/500px-Priv_rings.svg.png "One Ring")
+![*Operating System Rings*](images/Chapter-03/Hypervisor/500px-Priv_rings.svg.png "One Ring")
 
 Virtualization works because your x86 (AMD and Intel) enable it at the CPU[^19].  "To do this AMD and Intel introduced extensions to assist virtualization, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica). Both instruction sets added nine new machine code instructions that only work at "Ring -1," intended to be used by the hypervisor" [Andy Dorman - Informationweek.](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")   When dealing with virtualization you are functionally running multiple operating systems at one time.  Technically this is not possible as only one operating system can have control of your hardware at a time - so how does a hypervisor make this work?  
 
