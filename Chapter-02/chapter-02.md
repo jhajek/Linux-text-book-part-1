@@ -605,11 +605,11 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
   * Innovative company ahead of the technology curve by a few years--watch this space.
   * Releases all software even their production clouds as open source.
 
-## Phase Five of Unix Maturity - Changes to the Nature of Linux
+## Phase Five of Unix Maturity - Hard Changes to the Nature of Linux
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
-Not since Linux Torvalds has a man been so loved or so reviled in the Linux community. He is currently a developer for Red Hat[^18], and has also developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  His current project is *systemd*.  Systemd was designed as a modern replacement for the traditional SysVinit program.  SysVInit is the first process responsible for starting all system processes in Unix and Linux upon boot.
+Not since Linux Torvalds has a man been so loved or so reviled in the Linux community. He is currently a developer for Red Hat[^18], and has also developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  Lennart is mostly known for *systemd*.  Systemd was designed as a modern replacement for SysVinit, the program launched responsible for starting all other system processes in Unix giving Linux, giving Linux a systems management layer that had always been missing.  
 
 Poettering has angered many people by breaking certain Unix traditions and conventions in the name of speed and feature parity with MacOS and Windows.  For him, the Unix philosophy of having small programs do one thing well is a byproduct of bygone era where computers had small amounts of storage and low processing power.  He has no sentimentality for the work of Thompson and Ritchie, if something more efficient can be created. Lennart argues, if Linux wants to be taken serious like MacOS and Windows, these changes are not only necessary but actually closer to the core Unix philosophy then what SysVInit provides.  Lennart Poettering along with [Kay Sievers](https://en.wikipedia.org/wiki/Kay_Sievers "Sievers") are the lead systemd developers.  This technology has not been without controversy and brings some questions about free and opensource to the table.  
 
