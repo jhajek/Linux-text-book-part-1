@@ -617,7 +617,7 @@ The other major point of contention is with all the change systemd makes to the 
 
 This leads to an interesting point.  As of 2016, all major Linux distros adopted systemd--so the argument is over.  The first company to adopt systemd was RedHat, which Lennart had managed to convince his management to adopt hsi system, that is pretty impressive.  Debian was the last hold out and they had a sprited debate, which led to a number of resignations and the community split over this issue.  Debian developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focusing on removing all  systemd and udev dependencies from a Debian based linux distro.  
 
-In it's defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.
+In it's defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based sysetm compatability.  Systemd is entirely linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros.
 
 ### Conspiracy Theory
 
