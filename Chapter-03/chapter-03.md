@@ -6,7 +6,7 @@
   * Understand and know how to complete the Linux and BSD Operating System Install Process for the major distributions
   * Be able to compare and contrast the two major Linux Distribution family's install process with the BSD install process
   * Understand the term *distribution* and *distro*
-  * Understand the standard installation formats, full ISOs, minimal install ISOs, and Net-Installer ISOs and the different
+  * Understand the standard installation formats, full ISOs, minimal install ISOs, and net-installer ISOs and the different
   * Understand how to use industry standard virtualization platforms for installing distributions
 
 ### Outcomes
