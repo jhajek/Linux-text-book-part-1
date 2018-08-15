@@ -620,7 +620,7 @@ This leads to an interesting point.  As of 2016, all major Linux distros adopted
 
 In it's defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based sysetm compatability.  Systemd is entirely linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros.
 
-### Conspiracy Theory
+### Linux Conspiracy Theory?
 
 The fears of Linux community are that systemd will continue to coerce developers to make dependency choices based on systemd's requirements and eventually force Linux users into supporting systemd as "the standard Linux."  Some of the conspiracy theorists believe that since Red Hat is backing systemd, this is their way to corner the Linux market. Also some believe that Red Hat couldn't coerce Linus Torvalds under their wing and that this is the way to innovate around him.  Could this be an [*"embrace, extend, and extinguish"*](https://en.wikipedia.org/wiki/Embrace,_extend_and_extinguish "Embrace, extend, and extinguish") tactic that Oracle and Microsoft were once so famous for conducting on rival technologies?  
 
