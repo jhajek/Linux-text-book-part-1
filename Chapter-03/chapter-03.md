@@ -531,6 +531,13 @@ The one thing that you can say the mobile revolution brought into computing is t
 This is from Ubuntu and is geared towards their ecosystem 
 [snapcraft](https://snapcraft.io/ "Snapcraft")
 
+Snaps have the advantage of since it is account based (like the App Store or Microsoft Store) you can register your snaps and then instantly download them on another machine that supports snaps.
+
+> Let's sign up for an Ubuntu One account so we can use snaps.  
+
+> Let's install Android Studio
+
+
 ### flatpak 
 
 Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command.  You can see software available here:
@@ -541,6 +548,7 @@ Flatpak essentially connects the concepts of repositories and app packages, but 
 > Skype
 > Slack
 > 0 AD
+> Android Studio
 
 [Flatpak](https://www.flatpak.org/ "Flatpak")
 
