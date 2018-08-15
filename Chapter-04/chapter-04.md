@@ -175,7 +175,7 @@ In an interesting development Miguel ended up forming the company that became Xa
 >
 > Love, Miguel."* [^35]
 
-In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros.  Red Hat Linux adopted GNOME as well.  The GNOME has recently come into some controversy.
+In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros.  Red Hat and Debian adopted GNOME as well. With the release of Ubuntu 18.04, Ubuntu returned to the Gnome desktop.
 
 GNOME 2 was released in early 2002 and the last GNOME 2 release was in 2010.  Over this 8 years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different metaphor, called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks.
 
@@ -199,7 +199,7 @@ The LXDE project was started in 2006 by Hong Jen Yee.  This is a quote from the 
 
 > "LXDE is an energy saving and extremely fast and performing desktop solution. It works well with computers on the low end of the performance spectrum such as new generation netbooks and other small mobile computers...It can be built on top of various Linux distributions such as Ubuntu, Debian or Fedora" [^39]
 
-LXDE is the desktop environment of the Lubuntu distro which is a combination of LXDE and Ubuntu but is not limited to Ubuntu.  This desktop environment is even more spartan than Xfce but is still very usable. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux.  Recently the lead developer Hong Jen Yee also had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT.  LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.  LXQT and LXDE will remain in parallel development for the foreseeable future according to Hong Jen Yee.
+LXDE is the desktop environment of the Lubuntu distro which is a combination of LXDE and Ubuntu but is not limited to Ubuntu.  This desktop environment is even more spartan than Xfce but is still very usable. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux.  Recently the lead developer Hong Jen Yee also had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT.  LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.  LXQT and LXDE will remain in parallel development for the foreseeable future according to Hong Jen Yee but LXQT being where new developement--being QT based and actively developed.
 
 ### Enlightenment
 
