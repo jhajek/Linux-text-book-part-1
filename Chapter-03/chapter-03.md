@@ -280,9 +280,9 @@ This goes for any distro that derive from Debian.  You will need to install the 
 
 ## Package Managers
 
-  One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (\*.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had it's own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  
+One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (\*.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had it's own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  
 
-  Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named ```makefile``` that includes instructions and ordered steps that can be repeated every time software is built.  This allows software to be portable across systems (in theory).  The utility ```make``` is the binary that automatically builds executable programs and libraries from source code by reading the *makefiles*[^106]. Here is an example  makefile:
+Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named ```makefile``` that includes instructions and ordered steps that can be repeated every time software is built.  This allows software to be portable across systems (in theory).  The utility ```make``` is the binary that automatically builds executable programs and libraries from source code by reading the *makefiles*[^106]. Here is an example  makefile:
 
 ```makefile
      all: helloworld
@@ -310,9 +310,10 @@ This style of software installation put a high barrier to who could practically 
 
 #### .deb
 
- The first package manager was __dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primitive package manager.  The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
+The first package manager was __dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primitive package manager.  The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
 
- A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107].  One is the control data which is listed as such:
+A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107].  One is the control data which is listed as such:
+
 ```
      Package: hello
      Priority: optional
