@@ -524,6 +524,8 @@ Once those RPMFusion repos have been added you can now retry the example above a
 
 ## New package managers snapd and flatpak
 
+The one thing that you can say the mobile revolution brought into computing is the concept of an "app store."  Apple obviously came first, Google Play Store, and even the Microsoft Store took root.  The concept of an app store is pretty ubiquitous at this point.  These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store.  On a fundamental level Linux is conceptually not compatible with the concept of an app store.  But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability.  To this end two standardized methods were developed: flatpak and snapd.  Snapd was created by Ubuntu and is account based accross some Linux distros.  Flatpak is the competing standard championed by Red Hat.  
+
 ### snapd 
 
 This is from Ubuntu and is geared towards their ecosystem 
@@ -532,6 +534,13 @@ This is from Ubuntu and is geared towards their ecosystem
 ### flatpak 
 
 Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command.  You can see software available here:
+
+Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that flatpak manages its own applications and list of installed applications.
+
+> Let's install some flatpak applications:  
+> Skype
+> Slack
+> 0 AD
 
 [Flatpak](https://www.flatpak.org/ "Flatpak")
 
