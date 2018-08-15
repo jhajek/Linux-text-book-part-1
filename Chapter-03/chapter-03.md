@@ -527,11 +527,13 @@ Once those RPMFusion repos have been added you can now retry the example above a
 ### snapd 
 
 This is from Ubuntu and is geared towards their ecosystem 
+[snapcraft](https://snapcraft.io/ "Snapcraft")
 
 ### flatpak 
 
 Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command.  You can see software available here:
 
+[Flatpak](https://www.flatpak.org/ "Flatpak")
 
 ## Compiling and Installing source code
 
