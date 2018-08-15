@@ -79,6 +79,8 @@ TYPE I is used in server environments on hardware utilizing multiple core CPUs, 
 
    *  [Microsoft Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx "Hyper-V")
    *  [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
+   *  KVM
+   *  XEN
 
 ## Installations and ISOs
 
