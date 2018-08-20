@@ -18,57 +18,7 @@
 
 At the conlcusion of this chapter you will have a basic understadning of remote access and file transfer commands availabe in Linux.  You will also have a basic undertanding of firewall commands and basic Server port configuration.
 
-## Secure Shell
 
-The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  There was seen as no need for security or encryption of data sent over a network.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 199x introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  (Add link here to announcement)
-
-> You can access SSH from the command line via typing: ```ssh -V```
-
-By default the SSH *client* is installed on all Linux and Unix systems.  It can be installed on a Microsoft Windows system as a native package by adding it through the settings panel (find instructions) as it is being actively developed in step with OpenSSH from BSD I would recommend this above all other solutions available. 
-
-You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This is predicated via either username account and password or RSA key.   
-
-> ```sudo apt-get install openssh-server```
-```sudo dnf install openssh-server```
-```ports install openssh-server```
-
-### RSA keys
-
-SSH works because of Public/Private Key Encryption and a standard created and widely adopted by the RSA company.  Without going to deep into RSA encryption, this set of public and private keys allows you to securely transmit information accross an untrusted network.  How does it work?
-
-Each person generates a **keypair**, a public key and a private key. Both halves of the key make up the single key used for authentication.  These keys are exactly what they sound like.  The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened.  Think of the **public key** as the lock on your front door.  Conceivably anyone can come up to that lock and try to insert a key.  Unless they have the particular key, the lock won't open.   The **private key** is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.   
-
-How do you then exchange data?  First you generate a keypair.   On the command line you can issue the command: ```ssh-keygen``` and take notice of the prompts:
-
-Insert screen shots here:
-Insert screen shots here:
-Insert screen shots here:
-
-There is a command that will let you securely exchange RSA keys with a server.
-
-```ssh-copy-id username@host```  which requires you first to have an account on the server (host) you are connecting to.
-
-#### OpenSSL
-
-Opensource Library used for crytographic key generation and by OpenSSH.  In 2016 suffered an exploit due to the nature of the library maintaining older code from non-existant systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributred almost nothing to its development.   After the exploit a hugh infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
-
-[heartbleed]
-
-#### LibreSSL
-
-Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork of the OpenSSL repo and began to strip out as much uneeded code as possible and to write new code.  This library became the default cryptographic library on OpenBSD and was ported to Linux.  Though it is new and has a smaller attack surface, so many products (for better or worse) are using OpenSSL that they have not or cannot switch libraries.
-
-[BSD LibreSSL announcement and link]
-
-### SFTP
-
-Secure FTP
-
-Allows you to use the old but reliable ```FTP``` File Transfer Protocol.  Normally FTP usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.
-
-## SCP
-
-Secure cp (copy) Allows for using the ```cp``` command to a remote system via SSH, as SFTP should be used for moving multiple files, this command is good for moving a single file quickly via the command line.
 
 ## Firewall
 
