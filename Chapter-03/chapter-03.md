@@ -548,17 +548,44 @@ Snaps--similar to the appstore concept--allows you to:
 
 ### flatpak 
 
-Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command.  You can see software available here:
+Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command - [Flatpak](https://www.flatpak.org/ "Flatpak").  You can see software available at [Flathub](https://flathub.org/home "Flathub").
 
 Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that flatpak manages its own applications and list of installed applications.
 
-> Let's install some flatpak applications:  
-> Skype
-> Slack
-> 0 AD
-> Android Studio
+Let's install some flatpak applications:  The first thing is to install the flatpak package as it does not come standard in any Linux Distro. [That is done at the Flatpak repo page](https://www.flatpak.org/setup/ "flatpak"). Let's try it with an Ubuntu distribution:
 
-[Flatpak](https://www.flatpak.org/ "Flatpak")
+```sudo add-apt-repository ppa:alexlarsson/flatpak```
+```sudo apt update```
+```sudo apt install flatpak```
+    
+The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
+
+```sudo apt install gnome-software-plugin-flatpak```
+    
+Add the Flathub repository:
+```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
+
+Now let's look at how its done in RHEL/CentOS Linux:
+
+```sudo yum install flatpak```
+    
+Add the Flathub repository
+
+```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
+
+Once that is done here is an example of installing Flatpaks with Ubuntu based distro:
+
+  * sudo flatpak install flathub com.spotify.Client
+  * sudo flatpak install flathub org.gimp.GIMP 
+  * sudo flatpak install flathub com.visualstudio.code 
+  * sudo flatpak install flathub com.google.AndroidStudio
+
+These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```flatpak``` command from the commandline.
+
+* flatpak run com.google.AndroidStudio
+* flatpak run com.visualstudio.code
+* flatpak run org.gimp.GIMP
+* flatpak run com.spotify.Client
 
 ## Compiling and Installing source code
 
