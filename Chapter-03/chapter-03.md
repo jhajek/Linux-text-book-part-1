@@ -725,6 +725,9 @@ Through this chapter we gained an understanding of what x86 based virtualization
   c. Run the ```install``` command
   d. Run the ```make``` commmand
 
+19) What is the name of the new package manager Ubuntu/Canonical has developed?
+
+20) What is the name of the new package manager RedHat has developed?
 
 ### Podcast Questions
 
