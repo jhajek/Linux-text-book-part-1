@@ -412,19 +412,29 @@ d. Python
 
 ### Podcast Questions
 
-Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
+Adam Jacobs - Chef
+Please listen to or view this podcast and answer these questions:
+**Warning there is a little foul language in the podcast,** but far less than a standard PG-13 movie =)
 
-  *  ~6:32 Who is Linus Torvalds?
-  *  ~6:54 Where did he create Linux?
-  *  ~7:30 What did Unix have that other operating systems didn't at that time?
-  *  ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
-  *  ~10:30 About what month and what year did this happen?
-  *  ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project?
-  *  ~13:30-14:00 Why was it licensed under the GPL?
-  *  ~20:48 Why didn't Linus want to work for a Linux company?
-  *  ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
-  *  ~46:10 What is the way to become a great programmer?
-  *  ~51:17 What is Linus' farewell message to the audience?
+[https://twit.tv/shows/floss-weekly/episodes/219](https://twit.tv/shows/floss-weekly/episodes/219 "Adam Jacobs")
+
+  * ~3:22 What does Chef do?
+  * ~7:50 What problem did Adam have with each company he was dealing with in regards to infrastructure?
+  * ~9:50 Why was the project named Chef?
+  * ~10:44 Sys-admins are natural whats?
+  * ~11:30 Why did Chef choose Ruby instead of Perl?
+  * ~12:30 Did he just really say, "Up in your grill?"
+  * ~13:20 What did Adam learn about teaching people to user Chef from what he learned from beginning to play a guitar?
+  * ~15:50 Using Chef what do you end up doing all day?
+  * ~18:20-19:20 What is the relationship between Chef and OpsCode?
+  * ~21:10 If Chef is OpenSource -- how does OpsCode make money (2 ways)?
+  * ~25:30 Who are the big 3 of Configuration Management?
+  * ~29:15 What is the 1st rule of automation?
+  * ~32:35 What is difference between Kickstart and Chef?
+  * ~37:00 What is a Chef Cookbook?
+  * ~41:10 How do you describe DevOps/Web Operations?
+  * ~44:35  What is the "No butthead rule?"  **note translated from French
+  * ~49:00 Why is it delightful for Adam to work at OpsCode?
 
 ### Lab
 
