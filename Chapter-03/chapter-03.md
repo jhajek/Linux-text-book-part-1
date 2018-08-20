@@ -528,14 +528,13 @@ The one thing that you can say the mobile revolution brought into computing is t
 
 ### Snaps and snapd
 
-This is from Ubuntu and is geared towards their ecosystem 
-[snapcraft](https://snapcraft.io/ "Snapcraft")
+This is from Ubuntu and is geared towards their ecosystem.  The technology is housed at a nuetral organization site called [snapcraft](https://snapcraft.io/ "Snapcraft").
 
 Snaps have the advantage of since it is account based (like the App Store or Microsoft Store) you can register your snaps and then instantly download them on another machine that supports snaps.
 
-> Let's sign up for an Ubuntu One account so we can use snaps.  
+> Let's sign up for an Ubuntu One account [so we can use snaps](https://docs.snapcraft.io/core/install-ubuntu "Ubuntu snaps").  
 
-> Let's install Android Studio
+> Let's install Android Studio via snaps
 
 
 ### flatpak 
