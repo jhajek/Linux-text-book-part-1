@@ -580,6 +580,18 @@ Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [
 
 ### Installing Virtualbox Additions Package
 
+> "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html])https://www.virtualbox.org/manual/ch04.html "Source")
+
+The Guest Additions offer the following features:
+ * Mouse pointer integration
+ * Shared folders
+ * Better video support
+   + Finally, if the Guest Additions are installed, 3D graphics and 2D video for guest applications can be accelerated; see Section 4.5, “Hardware-accelerated graphics”.
+ * Seamless windows
+ * Time synchronization
+ * Shared clipboard
+ * Automated logons (credentials passing)
+
 #### Ubuntu
 
 ```bash

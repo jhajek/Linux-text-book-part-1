@@ -65,8 +65,10 @@ b. RedHat Family
   d. None of the above
 
 16.	Describe the purpose of Virtualbox Guest Additions?
+The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability.
 
 17. In APT, where are the additional source list fragments stored (file location)?
+```/etc/apt/sources.list.d/```
 
 18. After building software from source and running the ```./configure``` command, what is the next step?
 d. Run the ```make``` commmand
