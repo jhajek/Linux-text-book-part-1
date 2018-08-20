@@ -499,13 +499,11 @@ rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 Note for RHEL/CentOS the installation URL is slightly different:
  
 ```bash
-sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/\
-updates/6/i386/rpmfusion-free-release-6-1.noarch.rpm
+sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
 ```
  
 ```bash
-sudo yum install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/\
-rpmfusion-nonfree-release-6-1.noarch.rpm
+sudo yum install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
 ```
 
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
@@ -580,7 +578,7 @@ Once that is done here is an example of installing Flatpaks with Ubuntu based di
   * sudo flatpak install flathub com.visualstudio.code 
   * sudo flatpak install flathub com.google.AndroidStudio
 
-These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```flatpak``` command from the commandline.
+These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```.  You can find the official flatpak name by issuing the command: ```flatpak list```.
 
 * flatpak run com.google.AndroidStudio
 * flatpak run com.visualstudio.code
