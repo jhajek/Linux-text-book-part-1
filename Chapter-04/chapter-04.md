@@ -99,7 +99,7 @@ Ubuntu is the only Linux operating system to support Mir and development has bee
 
 > *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
 
-As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be abandoned--GNOME 3 and Wayland would be deployed.
+As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be depricated in favor of GNOME 3 and Wayland.
 
 ## Window Managers
 
