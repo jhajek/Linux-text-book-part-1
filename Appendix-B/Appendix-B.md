@@ -46,6 +46,36 @@ d. VirtualBox Guest Additions
 10. What is the name for a Linux installation that runs in memory?
 b. Live ISO 
 
+11. What is **not** a type of checksum hashes offered for an Ubuntu distribution?
+a. MD5
+
+12. What is the only type of hash used for checksums offered for Fedora ISOs?
+c. SHA256
+
+13. Which distro(s) supports the .deb package?
+b. Debian Family
+
+14. Which distro(s) supports the RPM package?
+b. RedHat Family
+
+15. We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
+  a. G++
+  b. APT
+  c. Python
+  d. None of the above
+
+16.	Describe the purpose of Virtualbox Guest Additions?
+
+17. In APT, where are the additional source list fragments stored (file location)?
+
+18. After building software from source and running the ```./configure``` command, what is the next step?
+d. Run the ```make``` commmand
+
+19. What is the name of the new package manager Ubuntu/Canonical has developed?
+ snap
+
+20. What is the name of the new package manager RedHat has developed?
+ flatpak
 
 ## Chapter 04
 Linux Desktop and GUI 
