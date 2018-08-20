@@ -717,7 +717,7 @@ Through this chapter we gained an understanding of what x86 based virtualization
 
 16) In APT, where are the additional source list fragments stored (file location)?
 
-17) Which company own Virtualbox?
+17) Which company owns Virtualbox?
 
 18) After building software from source and running the ```./configure``` command, what is the next step?
   a. Run the ```make install``` command
