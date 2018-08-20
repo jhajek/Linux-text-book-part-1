@@ -728,7 +728,7 @@ Through this chapter we gained an understanding of what x86 based virtualization
 
 ### Podcast Questions
 
-Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
+Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
 
   * ~2:35 Who is Andy Hall and Achim Hasenmuller?
   * ~3:00 What is Simon Phipps relationship to the VirtualBox project?
