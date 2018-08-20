@@ -714,22 +714,20 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. Debian Family
   c. Debian and RedHat
   d. None of the above
-13) Which distro(s) supports the RPM package?
+14) Which distro(s) supports the RPM package?
   a. CentOS only
   b. RedHat Family
   c. Debian and RedHat
   d. None of the above
-14) We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
+15) We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
   a. G++
   b. APT
   c. Python
   d. None of the above
 
-15)	Describe the purpose of Virtualbox Guest Additions?
+16)	Describe the purpose of Virtualbox Guest Additions?
 
-16) In APT, where are the additional source list fragments stored (file location)?
-
-17) Which company owns Virtualbox?
+17) In APT, where are the additional source list fragments stored (file location)?
 
 18) After building software from source and running the ```./configure``` command, what is the next step?
   a. Run the ```make install``` command
