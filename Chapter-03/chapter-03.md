@@ -576,7 +576,6 @@ sudo make install
 
 In addition to compiling software and using package managers the Python language has become common in its application usage and has its own installers for applications.  Looking at the Denyhosts project on their Github account, [https://github.com/denyhosts/denyhosts](https://github.com/denyhosts/denyhosts "Denyhosts") you will see the latest source code version 3.0 available but not in an RPM or DEB package but as a python install package.  We simply need to clone the repository down and enter the directory we just cloned.   We can then install the software, similar to the GCC build tools, by executing just this command: ```sudo python setup.py install```.  Note you may need a dependency depending on what system you are on - the installer will tell you what you need in addition to making this work.
 
-
 Apt is the Debian/Ubuntu package manager, we will learn about more in depth in [chapter 10](Package Installation). These instructions assume you are using VirtualBox 5.x, *you will need* to adjust the version numbers and path name if you are using a different version.
 
 ### Installing Virtualbox Additions Package
@@ -708,7 +707,11 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. RedHat Family
   c. Debian and RedHat
   d. None of the above
-
+14) We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
+  a. G++
+  b. APT
+  c. Python
+  d. None of the above
 
 ### Podcast Questions
 
