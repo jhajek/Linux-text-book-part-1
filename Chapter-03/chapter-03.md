@@ -532,9 +532,19 @@ This is from Ubuntu and is geared towards their ecosystem.  The technology is ho
 
 Snaps have the advantage of since it is account based (like the App Store or Microsoft Store) you can register your snaps and then instantly download them on another machine that supports snaps.
 
+Snaps--similar to the appstore concept--allows you to:
+
+* Simple to package leveraging your existing tools
+* Automatic updates for everyone
+* Reach tens of millions of Linux systems
+* Roll back versions effortlessly
+* Integrate easily with build and CI infrastructure
+* Free for open and closed source projects
+
 > Let's sign up for an Ubuntu One account [so we can use snaps](https://docs.snapcraft.io/core/install-ubuntu "Ubuntu snaps").  
 
-> Let's install Android Studio via snaps
+* Let's install Android Studio via snaps
+  + ```sudo snap install android-studio```
 
 
 ### flatpak 
