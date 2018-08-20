@@ -546,7 +546,6 @@ Snaps--similar to the appstore concept--allows you to:
 * Let's install Android Studio via snaps
   + ```sudo snap install android-studio```
 
-
 ### flatpak 
 
 Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command.  You can see software available here:
