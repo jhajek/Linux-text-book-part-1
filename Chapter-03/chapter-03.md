@@ -698,6 +698,17 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. SHA1
   c. SHA256
   d. MD4  
+13) Which distro(s) supports the .deb package?
+  a. Ubuntu only
+  b. Debian Family
+  c. Debian and RedHat
+  d. None of the above
+13) Which distro(s) supports the RPM package?
+  a. CentOS only
+  b. RedHat Family
+  c. Debian and RedHat
+  d. None of the above
+
 
 ### Podcast Questions
 
