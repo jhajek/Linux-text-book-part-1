@@ -673,6 +673,26 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 
 ### Lab
 
+Most of the popular and functional pieces of software you use everyday invovle Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
+
+Post your topics on the Blackboard Class Discussion board under the Chapter-02 Case Studies forum - both of your case study choices have to be unique from everyone else. Those who choose first will get the ones they want. There are over 200+ case studies there will be plenty of options.
+
+You can find them at [https://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services.   Its best to find a company that you use or support.
+
+Answer these questions (not all of the Answers are in each case study!)
+* What market does that company serve? (What do they do?) And have they always served that market?
+* What Operating System(s) are used?
+* What programming languages/frameworks are used?
+* What storage and what database technologies are used?
+* What is the current stock price and what was the IPO of the company? (if traded publicly.)
+* What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
+* What can you learn from this article relating to technology and infrastructure?
+
+Each Student will give a 1-2 minute presentation of one of their papers the following class.
+
+Deliverable:  Create a folder named **Chapter-02** and a sub-folder named **Presentation** under your ITMO-556 folder in your provided Github repo.  Name the file ReadMe.md.   In the markdown file include the topics listed above and your answers and properly mark the content up (including the question).  Include a company logo image at the start of each case study review.
+
+**Alternative Idea if GitHub repos are not available:**
 1.  Find 3 technology/news websites that deal with Free and Opensource releases and software (exclude the home pages of free and opensource distributions)
 
 1.  Find and listen to at least 3 podcasts related to free and opensource software/technology.  Write one paragrpah noting the name of the podcast, the URL, and summarize the content you heard.
