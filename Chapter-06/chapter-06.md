@@ -14,7 +14,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 
 ### Outcomes
 
-  At the conclusion of this chapter you will have a definite understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the __find__ and __locate__ commands that are used to find and filter files on the system.   We will use the __grep__ tool for find and replace options and advanced parsing of file content beyond what __find__ and __locate__ can do.   Finally we will use compression tools and for creating archives and for extracting them.
+  At the conclusion of this chapter you will have a definite understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the ```find``` and ```locate``` commands that are used to find and filter files on the system.   We will use the ```grep``` tool for find and replace options and advanced parsing of file content beyond what ```find``` and ```locate``` can do.   Finally we will use compression tools and for creating archives and for extracting them.
 
 ## Shell Meta-Characters
 
@@ -664,7 +664,10 @@ d. gzip
 
 ### Podcast Questions
 
-__FreeBSD__
+(Replace with Brian Kernighan GREP interview and a few others)
+TBA
+
+__FreeBSD__  
 
 Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](https://twit.tv/shows/floss-weekly/episodes/104 "FreeBSD")
 
@@ -680,7 +683,7 @@ Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](
   * What is Randi's opinion about "getting more women in open-source?"  ~40:00
   * What is Randi saying that is the wrong focus? ~49:00
   * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
-  * Would you like to try/use FreeBSD or PC-BSD?
+  * Would you try/use FreeBSD or PC-BSD?
 
 ### Lab
 

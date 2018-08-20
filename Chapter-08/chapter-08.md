@@ -568,19 +568,23 @@ d. FOR
 
 ### Podcast Questions
 
-CC Mixter - [https://twit.tv/shows/floss-weekly/episodes/316](https://twit.tv/shows/floss-weekly/episodes/316 "CCMixter.org")
+__FreeBSD__  
 
-* 6:30  What is the 30,000 foot view of CCMixter?
-* 7:39  How did it get started?
-* 8:30  What is Creative Commons and its relationship to Copyright?
-* 11:40 Who came to help mp3tunes protect themselves against the Major Music Corporations?
-* 13:25 How does an "opensource" musician make any money?
-* 17:45 How can you "sell" creative commons and opensource licensing to musicians?
-* 27:55 Is music a product or an experience?  Do you agree with Ms. Richard's statement?
-* 32:00 What kind of music is available at dig.ccmixter.org?  Is it all electronic music?
-* 38:00 What language is CCMixter written in?
-* 42:30 What serious security vulnerability does ccMixter.org have?
-* 47:00 What is the github URL to find the project source code?
+Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](https://twit.tv/shows/floss-weekly/episodes/104 "FreeBSD")
+
+  * What is FreeBSD? ~6:00
+  * Why did she switch from Linux to BSD? ~6:30
+  * Is FreeBSD Linux or Unix?  ~13:00
+  * Is FreeBSD a good option for most people as a desktop? ~14:14
+  * Using Mac OSX - what OS do you have under the hood? ~16:10
+  * What project did Randi take on that no one else wanted? ~19:10
+  * What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
+  * Are there any large companies that sponsor FreeBSD?  ~ 31:00
+  * How can you get involved in helping the FreeBSD community? ~38:15
+  * What is Randi's opinion about "getting more women in open-source?"  ~40:00
+  * What is Randi saying that is the wrong focus? ~49:00
+  * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
+  * Would you try/use FreeBSD or PC-BSD?
 
 ### Lab
 
