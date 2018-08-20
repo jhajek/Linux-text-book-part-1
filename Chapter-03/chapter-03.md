@@ -713,6 +713,19 @@ Through this chapter we gained an understanding of what x86 based virtualization
   c. Python
   d. None of the above
 
+15)	Describe the purpose of Virtualbox Guest Additions?
+
+16) In APT, where are the additional source list fragments stored (file location)?
+
+17) Which company own Virtualbox?
+
+18) After building software from source and running the ```./configure``` command, what is the next step?
+  a. Run the ```make install``` command
+  b. Run the ```sudo make install``` command
+  c. Run the ```install``` command
+  d. Run the ```make``` commmand
+
+
 ### Podcast Questions
 
 Listen to the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
