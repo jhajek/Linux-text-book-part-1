@@ -1,5 +1,5 @@
 #  Filesystems: Creating, Partitioning, and Mounting
-![*Easy as cake...*](images/Chapter-Header/Chapter-12/server_problem-2.png "Server Problem")
+![*Easy as cake...*](images/Chapter-Header/Chapter-11/server_problem-2.png "Server Problem")
 
 ### Objectives
 
@@ -19,53 +19,53 @@
 
  With your Ubuntu or Fedora virtual machine powered down, we will now add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu. 
 
-![*Virtual Box settings panel*](images/Chapter-12/virtual-box/settings.png "Settings")
+![*Virtual Box settings panel*](images/Chapter-11/virtual-box/settings.png "Settings")
 \newpage
 
 The next menu to come up will show the *SETTINGS* options and the name of the virtual machine you are working on.
 
-![*Virtual Box settings menu*](images/Chapter-12/virtual-box/settings-menu.png "Settings Menu")
+![*Virtual Box settings menu*](images/Chapter-11/virtual-box/settings-menu.png "Settings Menu")
 \newpage
 
 Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in Virtual Box.  In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well.  That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached.  
 
-![*Storage menu*](images/Chapter-12/virtual-box/storage.png "Storage")
+![*Storage menu*](images/Chapter-11/virtual-box/storage.png "Storage")
 \newpage
 
 We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the name of the signalling protocol the operating system uses to retrieve data from a hard drive. Go ahead and highlight the SATA Controller entry.  
 
 In order to add a new hard drive to your virtual machine, click the blue HDD icon with a __+__ sign at the bottom of the menu.
 
-![*Add Storage Icon*](images/Chapter-12/virtual-box/add-storage-icon.png "Storage Icon")
+![*Add Storage Icon*](images/Chapter-11/virtual-box/add-storage-icon.png "Storage Icon")
 
 Upon completion of that step a new menu will pop out of the HDD icon and give you and option to *Add Hard Disk*.
 
-![*Add Storage*](images/Chapter-12/virtual-box/add-storage.png "Add Storage")
+![*Add Storage*](images/Chapter-11/virtual-box/add-storage.png "Add Storage")
 \newpage
 
 Once you have selected *Add Hard Disk* a familiar set of screens come up, these are the same screens you walked through in chapter 2, and the same set of screens you walk through when setting up a new virtual machine.  You are presented first with an option to create a new disk or attach an existing one.  Usually you want to create a new disk.  
 
-![*Create New Disk*](images/Chapter-12/virtual-box/create-new.png "Create New")
+![*Create New Disk*](images/Chapter-11/virtual-box/create-new.png "Create New")
 
 Once that is selected you will be presented with the virtual disk type screen.  Since we will be working with Virtual Box, the default setting of VDI (VirtualBox Disk Image) will be the best selection.  But if you know this VM will be moving to another platform--you may want to choose accordingly.
 
-![*VDI step-through*](images/Chapter-12/virtual-box/vdi.png "VDI")
+![*VDI step-through*](images/Chapter-11/virtual-box/vdi.png "VDI")
 \newpage
 
 The next page allows you to choose either a dynamic or static allocated hard drive.  Dynamic is usually the best when you are working on a laptop or other development system, as you will be creating and destroying virtual machine rapidly, and static allocations of multiple gigabytes can become an issue after some time due to your disk filling up.
 
-![*Dynamic Filesystem*](images/Chapter-12/virtual-box/dynamic.png "Dynamic")
+![*Dynamic Filesystem*](images/Chapter-11/virtual-box/dynamic.png "Dynamic")
 \newpage
 
 This next screen allows you to change the location of where the virtual hard disk will be stored, as well as adjust the size of this new partition.  
-![*Hard Drive Size*](images/Chapter-12/virtual-box/size.png "Size")
+![*Hard Drive Size*](images/Chapter-11/virtual-box/size.png "Size")
 \newpage
 
 Once you see the screen below - it means you have successfully created a new virtual hard drive and have attached it to your virtual machine.  You can reverse the above operations by highlighting the virtual disk drive of choice and selecting the HDD icon with the minus sign and that will delete the hard drive.  But I recommend against that as your operating system won't know what happened and that could cause system instability.  Always best to unmount a partition from inside the operating system first before deleting the virtual hard drive. By highlighting the new disk or existing one, you can see the meta-data about the disk.
 
-![*Succesfully Added New disk*](images/Chapter-12/virtual-box/new-disk.png "New")
+![*Succesfully Added New disk*](images/Chapter-11/virtual-box/new-disk.png "New")
 
-![*Disk Information*](images/Chapter-12/virtual-box/information.png "Information")
+![*Disk Information*](images/Chapter-11/virtual-box/information.png "Information")
 
 Adding a virtual disk is only the first step, there are three more steps before we can use this disk.  We need to:
 1) partition the disk
@@ -78,16 +78,16 @@ According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program fo
 
   Linux inherited a way to name each device and reference certain partitions attached to a system.  Windows simply uses the letter C, D, E, and so forth.  Linux and Unix use a device/partition nomenclature.  You can see this currently by typing the ```lsblk``` command, which will print out currently all the block devices, their device name and their partitions in a nice tree based format.
 
-![*lsblk output from a virtual machine with 2 additional drives attached*](images/Chapter-12/fdisk/lsblk.png "lsblk")
+![*lsblk output from a virtual machine with 2 additional drives attached*](images/Chapter-11/fdisk/lsblk.png "lsblk")
 
 Here you will note that the drives are references by the prefix __sdx__ with the __x__ being the alphabet letter in incremental order.  Meaning that the first disk drive that your system detects in labeled __sda__, the next one would be __sdb__, and can you guess what the third and fourth system would be?  In the image above you notice that __sda__ has 3 partitions, sda1, sda2, and sda5.  These three partitions were created at installation time by the default Linux installer.  The first partition you can see has the character ```/``` in the far right column.  That is where the __root__ partition is mounted (meaning your entire filesystem). The second partition is where the ```/boot``` partition is mounted, and the final partition says __SWAP__ in the far right meaning this is a Linux SWAP partition--used by the operating system for moving data in and out of RAM in chunks at a time or called *pages*.
 
 You can create partitions on a new disk for a fresh OS installation or just create a single partition to contain data.  The program mentioned above to create partitions is a program called ```fdisk```.  The ```fdisk``` command is considered an essential and standard Linux tool and is part of the [util-linux](https://en.wikipedia.org/wiki/Util-linux "Util Linux") package.  The best command to get started with when dealing with new disks and creating partitions is ```sudo fdisk -l```.  This command will list the current existing disks and any partitions they may have.  It will also report the undetermined state of any newly attached disks.  See the image below for a sample output.  If you are using Fedora 22/23 you will see a bit of a different output, you will see partitions labeled __LVM__ which will be explained at the end of the chapter.  Ubuntu has the option to use ```fdisk``` traditional partitioning by default.
 \newpage
 
-![*sudo fdisk -l*](images/Chapter-12/fdisk/valid-partition.png "fdisk")  
+![*sudo fdisk -l*](images/Chapter-11/fdisk/valid-partition.png "fdisk")  
 
-![*sudo fdisk -l*](images/Chapter-12/fdisk/not-valid-partition.png "fdisk")    
+![*sudo fdisk -l*](images/Chapter-11/fdisk/not-valid-partition.png "fdisk")    
 
 The history of the Linux ```fdisk``` command goes way back.  Stemming from the early 1990's Hard drives at that time using the standard BIOS of the day were only allowed 4 __primary partitions__ on the operating system.  At those times, hard drives were small, and devices were expensive, and things we take for granted now, like optical drives, didn't really exist, so 4 primary partitions was thought to be more than anyone would ever need.  A primary partition could be broken up into an __extended partition__. Then each __extended partition__ could be further sub-divided into as many __logical partitions__ that fit on the drive.  At that time only one __primary partition__ could be active (or bootable and seeable) at a time, all other primary partitions would be hidden from the currently active operating system.  In this world ```fidsk``` was built, hence its concern with partitioning.  There has been an improvement since 2000 called LVM, which is covered and thankfully used almost exclusively now by default.
 
@@ -103,35 +103,35 @@ To work/modify a device that has no existing partitions (say ```sdb``` in the im
 
 To successfully create a partition on a new drive, let's select ```sdb``` in the example above.  The command ```sudo fdisk /dev/sdb``` will enter into ```fdisk``` and operate on this device.  Remember all *devices* are accessed through file handles in the ```/dev``` directory. Upon executing this command you are greeted with a status message reporting that the partition type cannot be detected or is not valid.  The error message seems a bit dated because you notice that it mentions DOS, SUN, SGI, and OSF--all outdated or unused partition types.  Similar to different languages or dialects, a partition also has to speak to an Operating system, and each operating system does it a bit different because of how particular filesystems are architected.  Fortunately this is a simple choice for us as we only need a Linux and a Linux SWAP partition for our uses--the rest are just artifacts of the past.
 
-![*sudo fdisk /dev/sdb*](images/Chapter-12/fdisk/fdisk.png "fdisk")
+![*sudo fdisk /dev/sdb*](images/Chapter-11/fdisk/fdisk.png "fdisk")
 
   Always type __m__ for menu because the single letter commands are not intuitive.  
 
-![*m for menu*](images/Chapter-12/fdisk/m-for-menu.png "Menu")
+![*m for menu*](images/Chapter-11/fdisk/m-for-menu.png "Menu")
 
   If you type the letter __l__ you will see the entire list of possible partitions, we are only interested in the value hex 82 and 83.  The next command to type is __p__ for printing out the current partition table--which will be blank.
 
 \newpage
 
-![*p for print*](images/Chapter-12/fdisk/p-for-print.png "Print")
+![*p for print*](images/Chapter-11/fdisk/p-for-print.png "Print")
 
 The next step is to type the __n__ command to create a new partition.  You will be presented with two choices for your new partition.  In this case you can select __primary partition__.  In most cases in creating data drives you can select primary partitions without concern.  If you find yourself creating many data drives or creating triple and quad bootable systems (multiple operating systems)  then you will want to conserve those primary partitions and use __extended/logical__ partitioning.  
 
-![*n is for new partition*](images/Chapter-12/fdisk/n-for-new.png "New")
+![*n is for new partition*](images/Chapter-11/fdisk/n-for-new.png "New")
 
 You are then presented with a series of options to choose a partition number, the beginning sector of your partition (usually best to choose the default) and the finishing sector (how big do you want your disk).  You can specify in a known quantity of K=kilobytes, M=megabytes, G=Gigabytes and prefacing that value with a __+__.  Selecting the default for the option of last sector will automatically fill up your disk with 1 single large partition.
 
-![*New Partition Options*](images/Chapter-12/fdisk/n-options.png "Options")
+![*New Partition Options*](images/Chapter-11/fdisk/n-options.png "Options")
 
 Let's see if our partition was created successfully.  You can type __m__ to display the menu again or type the __p__ directly to print out the current partition table.  You will notice that it has been modified.
 
-![*Successful Partition Creation*](images/Chapter-12/fdisk/p-finished.png "Finished")
+![*Successful Partition Creation*](images/Chapter-11/fdisk/p-finished.png "Finished")
 
 \newpage
 
 Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes will not be saved, and no partition information will be written.   Now you need to type __w__ to write the new partition data to the disk you are working on. The __w__ command will write and quit out automatically for you. After writing this partition data, you will see if show up in the ```sudo fdisk -l``` command.  After you see your new partition in ```fdisk``` of ```lsblk``` you are ready to move on to the next step of formatting a partition with a filesystem.
 
-![*Write the Partition table data to disk*](images/Chapter-12/fdisk/w-for-write.png "Write")
+![*Write the Partition table data to disk*](images/Chapter-11/fdisk/w-for-write.png "Write")
 
 ## Filesystems
 
@@ -262,13 +262,13 @@ An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4 
 
 There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The ```df``` command will list the disk usage.   There is an optional ```-H``` and ```-h``` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use ```df``` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: ```/home/controller```.
 
-![*df -H /home/controller*](images/Chapter-12/du/df-h.png "df")  
+![*df -H /home/controller*](images/Chapter-11/du/df-h.png "df")  
 
 The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using ls -l Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.  
 
 \newpage
 
-![*du -H --exlude=".\*" /home/controller*](images/Chapter-12/du/du-h.png "du")  
+![*du -H --exlude=".\*" /home/controller*](images/Chapter-11/du/du-h.png "du")  
 
 ## Logical Volume Manager
 
@@ -279,7 +279,7 @@ The question is under standard partitioning you don't. You simply backup, reinst
 LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users. [^130]"*
 \newpage
 
-![*LVM diagram*](images/Chapter-12/LVM/LVM.png "LVM")
+![*LVM diagram*](images/Chapter-11/LVM/LVM.png "LVM")
 
 This diagram creates three concepts to know when dealing with LVM:
 

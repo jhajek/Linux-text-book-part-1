@@ -1,5 +1,5 @@
 # Networking, Webservers, and Intro to Databases ROUGH DRAFT
-![*Some people just have aquariums...*](images/Chapter-Header/Chapter-13/network-2.png "Virus Aquarium")
+![*Some people just have aquariums...*](images/Chapter-Header/Chapter-12/network-2.png "Virus Aquarium")
 
 ### Objectives
 

@@ -1,5 +1,5 @@
 # Package Managers and Package Installation
-![*Always check the package dependencies...*](images/Chapter-Header/Chapter-10/authorization-2.png "Weakest Link?")
+![*Always check the package dependencies...*](images/Chapter-Header/Chapter-15/authorization-2.png "Weakest Link?")
 
 ### Objectives
 

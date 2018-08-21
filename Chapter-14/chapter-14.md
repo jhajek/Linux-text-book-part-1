@@ -1,5 +1,5 @@
 # The Future of Free and Opensource Software ROUGH DRAFT
-![*Creating technology to support technology.*](images/Chapter-Header/Chapter-15/tech_loops-2.png "Tech Loops")
+![*Creating technology to support technology.*](images/Chapter-Header/Chapter-14/tech_loops-2.png "Tech Loops")
 
 ### Objectives
 
