@@ -818,6 +818,9 @@ You will need to do some research and find the download links for the Linux and 
 
   + Debian Based
       - Ubuntu 18.04 Desktop edition
+      - Ubuntu 16.04 Desktop Edition
+      - Ubuntu 18.04 Server Edition
+      - Ubuntu 16.04 Server Edition
       - Linux Mint 18
       - Lubuntu 18.04 Desktop edition
       - Xubuntu 18.04 Desktop edition
@@ -826,7 +829,8 @@ You will need to do some research and find the download links for the Linux and 
 
     + Red Hat Based
         - Fedora 28 - Workstation edition
-        - Centos 7.x
+        - Fedora Atomic Immutable Desktop
+        - Centos 7.x - minimal install
 
     + BSD based
         - TrueOS (latest)
