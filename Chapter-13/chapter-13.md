@@ -7,10 +7,10 @@
   * Hashicorp Tech
     + Vagrant
     + Packer.io
+    + Consul
   * VuePress
   * GatsbyJS
   * Jekyll
-  * Consul
   * Docker OS Containers
 
 ### Outcomes
