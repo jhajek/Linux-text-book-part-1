@@ -622,7 +622,7 @@ In it's defense, systemd has many nice and actually new and needed features for 
 
 ### Linux Conspiracy Theory?
 
-The fears of Linux community are that systemd will continue to coerce developers to make dependency choices based on systemd's requirements and eventually force Linux users into supporting systemd as "the standard Linux."  Some of the conspiracy theorists believe that since Red Hat is backing systemd, this is their way to corner the Linux market. Also some believe that Red Hat couldn't coerce Linus Torvalds under their wing and that this is the way to innovate around him.  Could this be an [*"embrace, extend, and extinguish"*](https://en.wikipedia.org/wiki/Embrace,_extend_and_extinguish "Embrace, extend, and extinguish") tactic that Oracle and Microsoft were once so famous for conducting on rival technologies?  
+The fears of the Linux community are that systemd will continue to coerce developers to make dependency choices based on systemd's requirements and eventually force Linux users into supporting systemd as "the standard Linux."  Some of the conspiracy theorists believe that since Red Hat is backing systemd, this is their way to corner the Linux market. Also some believe that Red Hat couldn't coerce Linus Torvalds under their wing and that this is the way to innovate around him.  Could this be an [*"embrace, extend, and extinguish"*](https://en.wikipedia.org/wiki/Embrace,_extend_and_extinguish "Embrace, extend, and extinguish") tactic that Oracle and Microsoft were once so famous for conducting on rival technologies?  
 
 What makes this all the more intriguing is that Lennart works for Red Hat.  Would Red Hat mind if systemd technology improved the Linux experience at the cost of choice of software and freedom available to the user?  That is a good question.  This also begs the question - can Linux survive as an independent and open software project or does it need a commercial company backing it?  Could this be seen as Red Hat's grab for the entire Linux market?  
 
@@ -680,13 +680,13 @@ Post your topics on the Blackboard Class Discussion board under the Chapter-02 C
 You can find them at [https://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services.   Its best to find a company that you use or support.
 
 Answer these questions (not all of the Answers are in each case study!)
-* What market does that company serve? (What do they do?) And have they always served that market?
-* What Operating System(s) are used?
-* What programming languages/frameworks are used?
-* What storage and what database technologies are used?
-* What is the current stock price and what was the IPO of the company? (if traded publicly.)
-* What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
-* What can you learn from this article relating to technology and infrastructure?
+1. What market does that company serve? (What do they do?) And have they always served that market?
+1. What Operating System(s) are used?
+1. What programming languages/frameworks are used?
+1. What storage and what database technologies are used?
+1. What is the current stock price and what was the IPO of the company? (if traded publicly.)
+1. What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
+1. What can you learn from this article relating to technology and infrastructure?
 
 Each Student will give a 1-2 minute presentation of one of their papers the following class.
 
