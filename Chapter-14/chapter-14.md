@@ -4,9 +4,11 @@
 ### Objectives
 
    * IT and Automation
-   * Mitchel Hashimoto and Hashicorp
-   * RaspberryPi
-   * Certifications
+     + Preseed
+     + Kickstart
+     + Cobbler
+     + MaaS
+   * Docker OS Containers
 
 ### Outcomes
 

@@ -3,6 +3,10 @@
 
 ### Objectives
 
+* RaspberryPi
+* Certifications
+* Android compile from command line
+* Jenkins CI
  
 ### Outcomes
 

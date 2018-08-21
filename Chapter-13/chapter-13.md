@@ -11,7 +11,6 @@
   * VuePress
   * GatsbyJS
   * Jekyll
-  * Docker OS Containers
 
 ### Outcomes
 
