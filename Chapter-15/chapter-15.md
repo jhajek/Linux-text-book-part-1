@@ -11,7 +11,16 @@
 ### Outcomes
 
  
-## Package Managers
+## Where to go Now?
+
+   * Linux+
+   * LPI
+
+## Additional Resources
+
+*  [http://www.bsdnow.tv](http://www.bsdnow.tv "BSD Now")
+*  [http://twit.tv/floss](http://twit.tv/floss "FLOSS")
+*  [http://bsdtalk.blogspot.com/](http://bsdtalk.blogspot.com/ "BSD Talk")   
 
 ## Chapter Conclusions and Review
 

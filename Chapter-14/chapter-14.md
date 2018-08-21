@@ -12,10 +12,6 @@
 
 ### Outcomes
 
-## Where to go Now?
-
-   * Linux+
-   * LPI
 
 ## Automating the Install Answer Process With Preseed and Kickstart  
 
@@ -27,11 +23,7 @@
 
 Screen shot showing you need to host the file on the web somewhere or include the file in install media
 
-## Additional Resources
 
-*  [http://www.bsdnow.tv](http://www.bsdnow.tv "BSD Now")
-*  [http://twit.tv/floss](http://twit.tv/floss "FLOSS")
-*  [http://bsdtalk.blogspot.com/](http://bsdtalk.blogspot.com/ "BSD Talk")
 
 ## Chapter Conclusions and Review
 
