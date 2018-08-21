@@ -8,10 +8,14 @@
   * Understand the term *distribution* and *distro*
   * Understand the standard installation formats, full ISOs, minimal install ISOs, and net-installer ISOs and the different
   * Understand how to use industry standard virtualization platforms for installing distributions
+  * Learn the features of dnf, yum, and apt to install packages and dependencies in Linux
+  * Understand how to use GNU tools gcc and make for compiling source code
+  * Understand how to use the Python language interpreter in order to run Python based install scripts
+  * Compiling code from source
 
 ### Outcomes
 
-  At the end of this chapter you will understand how to complete multiple installations of all the major Linux and BSD platforms.  You will be comfortable using the industry standard virtualization platform to enable rapid install of these operating systems.  You will also be familiar with and be able to differentiate between processor architectures available.
+  At the end of this chapter you will understand how to complete multiple installations of all the major Linux and BSD platforms.  You will be comfortable using the industry standard virtualization platform to enable rapid install of these operating systems.  You will also be familiar with and be able to differentiate between processor architectures available. You will be able to install packages and manage dependencies through using standard package managers dnf, yum, and apt.  You will also be comfortable compiling software from source using a tar ball and python setup tools.
 
 ## Installation of a Linux Distribution
 
