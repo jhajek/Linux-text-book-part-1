@@ -738,16 +738,16 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. Live ISO
   c. Install Disk
   d. Trick question
-11) What is **not** a type of checksum hashes offered for an Ubuntu distribution?
-  a. MD5
-  b. SHA1
-  c. SHA256
-  d. MD4
-12) What is the only type of hash used for checksums offered for Fedora ISOs?
-  a. MD5
-  b. SHA1
-  c. SHA256
-  d. MD4  
+11) What feature doesn't dpkg handle/support?
+  a. Dependencies
+  b. Installing Dependencies
+  c. Versioning
+  d. Author Information
+12) What is the APT command to add an additional software repository in Ubuntu/Debian, named: ppa:linux-libre/ppa, to your APT system?
+  a. sudo add-repository ppa:linux-libre/ppa
+  b. sudo add-apt-repository ppa:linux-libre/ppa
+  c. sudo apt-add-repository ppa:linux-libre/ppa
+  d. sudo apt-add ppa:linux-libre/ppa  
 13) Which distro(s) supports the .deb package?
   a. Ubuntu only
   b. Debian Family
@@ -766,7 +766,11 @@ Through this chapter we gained an understanding of what x86 based virtualization
 
 16)	Describe the purpose of Virtualbox Guest Additions?
 
-17) In APT, where are the additional source list fragments stored (file location)?
+17) What is the RPM command to install a package from the command line?
+  a. rpm -qa *.rpm
+  b. rpm install *.rpm
+  c. rpm -q *.rpm
+  d. rpm -i *.rpm
 
 18) After building software from source and running the ```./configure``` command, what is the next step?
   a. Run the ```make install``` command
@@ -774,9 +778,17 @@ Through this chapter we gained an understanding of what x86 based virtualization
   c. Run the ```install``` command
   d. Run the ```make``` commmand
 
-19) What is the name of the new package manager Ubuntu/Canonical has developed?
+19) What is the name of the new package managers developed by Canonical and RedHat?
+  a.  flatpak and apt
+  b.  flatpak and snap
+  c.  snapcraft and flatter
+  d.  dnf and apt
 
-20) What is the name of the new package manager RedHat has developed?
+20) What is the DNF command used to install addtional software repositories? Use this URL to an RPM: http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+  a. sudo dnf install repo http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+  b. sudo dnf http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+  c. sudo dnf install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+  d. sudo install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
 
 ### Podcast Questions
 
