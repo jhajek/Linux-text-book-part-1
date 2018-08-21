@@ -460,7 +460,7 @@ These are the short steps:
     + ```sudo apt update```   
     + ```sudo apt install linux-libre-4.14``` or ```sudo apt install linux-libre```
 
-![*Linux-Libre*](images/Chapter-10/linux-libre/kernel-linux-libre.png "libre.png")
+![*Linux-Libre*](images/Chapter-03/linux-libre/kernel-linux-libre.png "libre.png")
 
 Here is a list of all the configuration and cache files related to APT and their location:
 
@@ -480,11 +480,11 @@ Fedora based Linux is in a bit of a transition. It's enterprise products RHEL an
 
 You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and RedHat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
 
-![*Installed Repositories Fedora 22*](images/Chapter-10/yum/etc-yum.png "YUM")
+![*Installed Repositories Fedora 22*](images/Chapter-03/yum/etc-yum.png "YUM")
 
 Frodo is the name of a Commodore 64 emulator - a computer that dominated the home market and the video game market in the years before the IBM PC became cheap enough and the Nintendo popped onto the scene. I still own one and have it in my basement, which I used in real life as a kid.  If we try to install it via ```sudo dnf install frodo``` we get this message, why?  
 
-![*Unable to Find a Match*](images/Chapter-10/yum/unable.png "Unable to find a match")
+![*Unable to Find a Match*](images/Chapter-03/yum/unable.png "Unable to find a match")
 
 First we want to check if we have the correct RPM name.  We can search through our repos looking for the name by typing the ```sudo dnf search [fF]rodo*``` command.  This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
 
@@ -515,7 +515,7 @@ If you are using CentOS or RHEL you need to first install the **EL-Repo** before
 Once those RPMFusion repos have been added you can now retry the example above and install, Frodo, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.  Now if we type ```sudo dnf install Frodo``` the package will be found and we will be able to install it to see the [Commadore 64](https://en.wikipedia.org/wiki/Commodore_64 "C64") in all its emulated glory.
 \newpage
 
-![*C64*](images/Chapter-10/yum/c64.png "C64")  
+![*C64*](images/Chapter-03/yum/c64.png "C64")  
 
 > __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
 
