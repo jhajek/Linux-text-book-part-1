@@ -694,13 +694,6 @@ Each Student will give a 1-2 minute presentation of one of their papers the foll
 
 Deliverable:  Create a folder named **Chapter-02** and a sub-folder named **Presentation** under your ITMO-556 folder in your provided Github repo.  Name the file ReadMe.md.   In the markdown file include the topics listed above and your answers and properly mark the content up (including the question).  Include a company logo image at the start of each case study review.
 
-**Alternative Idea if GitHub repos are not available:**
-1.  Find 3 technology/news websites that deal with Free and Opensource releases and software (exclude the home pages of free and opensource distributions)
-
-1.  Find and listen to at least 3 podcasts related to free and opensource software/technology.  Write one paragrpah noting the name of the podcast, the URL, and summarize the content you heard.
-
-Additional Idea - have everyone post their finds to a discussion board and require each entry to be unique.
-
 #### Footnotes
 
 [^1]: [By Bobbo (Own work) via Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3AKernel_Layout.svg)
