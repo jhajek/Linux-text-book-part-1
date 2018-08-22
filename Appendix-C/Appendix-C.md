@@ -36,3 +36,30 @@ Warning - there is some *French* words in this podcast, but the second part is h
 ~1:37:00 What is Oracle according to Brian?
 ~1:38:15 What does Brian believe about reverse engineering?
 ~1:43:15 What is the serious point that comes out of the anti-Oracle rant?
+
+### Adam Jacobs
+
+
+Adam Jacobs - Chef
+Please listen to or view this podcast and answer these questions:
+**Warning there is a little foul language in the podcast,** but far less than a standard PG-13 movie =)
+
+[https://twit.tv/shows/floss-weekly/episodes/219](https://twit.tv/shows/floss-weekly/episodes/219 "Adam Jacobs")
+
+  * ~3:22 What does Chef do?
+  * ~7:50 What problem did Adam have with each company he was dealing with in regards to infrastructure?
+  * ~9:50 Why was the project named Chef?
+  * ~10:44 Sys-admins are natural whats?
+  * ~11:30 Why did Chef choose Ruby instead of Perl?
+  * ~12:30 Did he just really say, "Up in your grill?"
+  * ~13:20 What did Adam learn about teaching people to user Chef from what he learned from beginning to play a guitar?
+  * ~15:50 Using Chef what do you end up doing all day?
+  * ~18:20-19:20 What is the relationship between Chef and OpsCode?
+  * ~21:10 If Chef is OpenSource -- how does OpsCode make money (2 ways)?
+  * ~25:30 Who are the big 3 of Configuration Management?
+  * ~29:15 What is the 1st rule of automation?
+  * ~32:35 What is difference between Kickstart and Chef?
+  * ~37:00 What is a Chef Cookbook?
+  * ~41:10 How do you describe DevOps/Web Operations?
+  * ~44:35  What is the "No butthead rule?"  **note translated from French
+  * ~49:00 Why is it delightful for Adam to work at OpsCode?
