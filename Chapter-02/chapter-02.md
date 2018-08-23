@@ -682,6 +682,7 @@ Post your topics on the Blackboard Class Discussion board under the Chapter-02 C
 You can find them at [https://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services.   Its best to find a company that you use or support.
 
 Answer these questions (not all of the Answers are in each case study!)
+
 1. What market does that company serve? (What do they do?) And have they always served that market?
 1. What Operating System(s) are used?
 1. What programming languages/frameworks are used?
@@ -691,8 +692,6 @@ Answer these questions (not all of the Answers are in each case study!)
 1. What can you learn from this article relating to technology and infrastructure?
 
 Each Student will give a 1-2 minute presentation of one of their papers the following class.
-
-Deliverable:  Create a folder named **Chapter-02** and a sub-folder named **Presentation** under your ITMO-556 folder in your provided Github repo.  Name the file ReadMe.md.   In the markdown file include the topics listed above and your answers and properly mark the content up (including the question).  Include a company logo image at the start of each case study review.
 
 #### Footnotes
 
