@@ -829,7 +829,7 @@ You will need to do some research and find the download links for the Linux and 
 
     + Red Hat Based
         - Fedora 28 - Workstation edition
-        - Fedora Atomic Immutable Desktop
+        - Fedora Desktop XFCE Spin
         - Centos 7.x - minimal install
 
     + BSD based
