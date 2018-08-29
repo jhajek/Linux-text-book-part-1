@@ -2,7 +2,9 @@
 
 
   \* ~2:35 Who is Andy Hall and Achim Hasenmuller?
+
   \* ~3:00 What is Simon Phipps relationship to the VirtualBox project?
+  
   \* ~4:45 What does VirtualBox do in Andy Hall's words?
 
 
