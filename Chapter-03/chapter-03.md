@@ -816,7 +816,7 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
   * ~31:00 What are 4 virtual networking modes in VirtualBox?
   * ~32:30 What is the difference between NAT and Bridged networking?
   * ~39:30 What Type of hypervisor is VirtualBox?
-  * ~51:30 Why can't you virtualize Mac OSX on VirtualBox?
+  * ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
 
 
 ### Lab
