@@ -335,9 +335,10 @@ A Debian package (or ```.deb``` file) is really just made up of two tarballs [^1
 
 The most important line being the __Depends__ option which controls dependencies and can prevent installation of these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Usinb ```dpkg``` is a clear step above using tarballs and compiling the code yourself. There are other tools that build on top of dpkg that are recommended to use.   Let's take a look at an example we have done before in chapter 4 where we downloaded a .deb file for the Vivaldi web browser and installed it via the Ubuntu Software Center.  Now let's perform the same action again using the ```dpkg``` command.
 
-> __Example Usage:__  You can download a .deb file from the Vivaldi website here: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in the Ubuntu or Gnome Software stores but you can download the .deb. file directly and install through dpkg. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
+> __Example Usage:__  You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through dpkg in Ubuntu's case. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
 ```bash
-sudo dpkg -i ./vivaldi-beta_1.0.303.52-5_amd64.deb
+sudo dpkg -i ./vivaldi-stable_1.15.1147.64-1_amd64.deb
+sudo rpm -iv ./vivaldi-stable-1.15.1147.64-1.x86_64.rpm
 ```
 
 After executing this command you will receive an error message. What is it telling you and why?  (Hint think 3P's from the previous chapter) You will notice that the dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
@@ -482,13 +483,13 @@ Fedora based Linux is in a bit of a transition. It's enterprise products RHEL an
 
 You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and RedHat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
 
-![*Installed Repositories Fedora 22*](images/Chapter-03/yum/etc-yum.png "YUM")
+![*Installed Repositories Fedora 28*](images/Chapter-03/yum/etc-yum.png "YUM")
 
-Frodo is the name of a Commodore 64 emulator - a computer that dominated the home market and the video game market in the years before the IBM PC became cheap enough and the Nintendo popped onto the scene. I still own one and have it in my basement, which I used in real life as a kid.  If we try to install it via ```sudo dnf install frodo``` we get this message, why?  
+[FFmpeg](https://en.wikipedia.org/wiki/FFmpeg "FFMpeg") is a free software project, the product of which is a vast software suite of libraries and programs for handling video, audio, and other multimedia files and streams.   If we try to install it via ```sudo dnf install ffmpeg``` we get this message, why?  
 
 ![*Unable to Find a Match*](images/Chapter-03/yum/unable.png "Unable to find a match")
 
-First we want to check if we have the correct RPM name.  We can search through our repos looking for the name by typing the ```sudo dnf search [fF]rodo*``` command.  This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
+First we want to check if we have the correct RPM name.  We can search through our repos looking for the name by typing the ```sudo dnf search [fF]mpeg*``` command.  This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
 
 To enable the download the RPMFusion repos for adding additional software of free and non-free type you can type the following commands:
  
@@ -506,18 +507,18 @@ Note for RHEL/CentOS the installation URL is slightly different:
  
 ```bash
 sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-28.noarch.rpm
 ```
  
 ```bash
 sudo yum install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+sudo yum install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-28.noarch.rpm
 ```
 
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
 
-Once those RPMFusion repos have been added you can now retry the example above and install, Frodo, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.  Now if we type ```sudo dnf install Frodo``` the package will be found and we will be able to install it to see the [Commadore 64](https://en.wikipedia.org/wiki/Commodore_64 "C64") in all its emulated glory.
+Once those RPMFusion repos have been added you can now retry the example above and install, FFMpeg, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that. 
 \newpage
-
-![*C64*](images/Chapter-03/yum/c64.png "C64")  
 
 > __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
 
