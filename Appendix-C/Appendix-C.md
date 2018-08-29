@@ -1,81 +1,130 @@
-# Appendix C
+# Appendix C - Markdown Code for Podcasts and Labs
 
-## Markdown Code for Podcasts and Labs
+## Chapter 02
 
-### Chapter 02
+### Podcast
+```
+Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
+
+ *  Who is Tim Orielly? ~3:00-5:00
+ *  What is Oscon? ~6:45
+ *  Who coined the term web 2.0? ~13:34
+ *  What did we learn from the IBM PC? ~18:30
+ *  What is web 2.0? ~19:30
+ *  Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00
+ *  Where is the money made in open source - software or data? ~ 34:00
+ *  What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
+ *  [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
+```
+
+### Lab
 
 ```
-  * ~2:35 Who is Andy Hall and Achim Hasenmuller?
-  * ~3:00 What is Simon Phipps relationship to the VirtualBox project?
-  * ~4:45 What does VirtualBox do in Andy Hall's words?
+Most of the popular and functional pieces of software you use everyday invovle Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
+
+Post your topics on the Blackboard Class Discussion board under the Chapter-02 Case Studies forum - both of your case study choices have to be unique from everyone else. Those who choose first will get the ones they want. There are over 200+ case studies there will be plenty of options.
+
+You can find them at [https://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services.   Its best to find a company that you use or support.
+
+Answer these questions (not all of the Answers are in each case study!)
+
+1. What market does that company serve? (What do they do?) And have they always served that market?
+1. What Operating System(s) are used?
+1. What programming languages/frameworks are used?
+1. What storage and what database technologies are used?
+1. What is the current stock price and what was the IPO of the company? (if traded publicly.)
+1. What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
+1. What can you learn from this article relating to technology and infrastructure?
+
+Each Student will give a 1-2 minute presentation of one of their papers the following class.
 ```
 
-### Chapter 03
+## Chapter 03
 
-Goes here
+## Podcast
 
----
+## Lab
 
-This section contains additional Podcast Q&A
+## Chapter 04
 
-### systemd
-systemd
-[https://www.youtube.com/watch?v=S9YmaNuvw5U&feature=youtu.be](https://www.youtube.com/watch?v=S9YmaNuvw5U&feature=youtu.be "systemd")
+## Podcast
 
-### Ubuntu Slaughters Kittens
-
-Brian Cantrill CTO of Joyent
-(You can skip the first ~6 minutes as it is all meta)
-Warning - there is some *French* words in this podcast, but the second part is hilarious
-
-*  MP4 -> [http://www.bsdnow.tv/episodes/2015_08_19-ubuntu_slaughters_kittens](http://www.bsdnow.tv/episodes/2015_08_19-ubuntu_slaughters_kittens "MP4")
-*  OGG -> [http://www.podtrac.com/pts/redirect.ogg/traffic.libsyn.com/jbmirror/bsd-0103.ogg](http://www.podtrac.com/pts/redirect.ogg/traffic.libsyn.com/jbmirror/bsd-0103.ogg "OGG")
-*  MP3 -> [http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/jbmirror/bsd-0103.mp3](http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/jbmirror/bsd-0103.mp3 "MP3")
-
-~6:26 How did Brian get into Unix?
-~9:20 Why were the early 1990's a bleak time for Operating Systems?
-~13:30 What is Brian's definition of a "hard problem"?
-~15:30 What were the 2 companies in 1996 that were interested in building an operating system?
-~18:35 What were some of the operating systems development features that came out from Sun in 1997-1999?
-~22:30 What does SmartOS believe in?
-~23:20 What are containers from a developer's point of view?
-~26:50 What is the Linux definition of an operating system compared to BSD/SmartOS's definition?
-~31:00-41:00 What is DTrace?
-~44:00 What does Ubuntu do to kittens during its login process?
-~47:00 What were the first Operating Systems to port Dtrace and why?
-~55:20 What are the advantages of using BSD/SmartOS vs Linux in the "Cloud Based" world?
-~1:05:00 What is Brian's criticism of Linux (Parent analogy)?
-~1:09:00 What is Brian's opinion of systemd?
-~1:18:00 How old is the BSD "source space"?
-~1:21:00 What does ```rm -rf /``` do on a BSD system? And how does SmartOS/Solaris handle it?
-~1:30:00 What happened when Brian Kernighan went into the ```nroff``` ([Unix text-formatter](https://en.wikipedia.org/wiki/Nroff "Nroff") source code to fix it?
-~1:37:00 What is Oracle according to Brian?
-~1:38:15 What does Brian believe about reverse engineering?
-~1:43:15 What is the serious point that comes out of the anti-Oracle rant?
-
-### Adam Jacobs
+## Lab
 
 
-Adam Jacobs - Chef
-Please listen to or view this podcast and answer these questions:
-**Warning there is a little foul language in the podcast,** but far less than a standard PG-13 movie =)
+## Chapter 5
 
-[https://twit.tv/shows/floss-weekly/episodes/219](https://twit.tv/shows/floss-weekly/episodes/219 "Adam Jacobs")
+## Podcast
 
-  * ~3:22 What does Chef do?
-  * ~7:50 What problem did Adam have with each company he was dealing with in regards to infrastructure?
-  * ~9:50 Why was the project named Chef?
-  * ~10:44 Sys-admins are natural whats?
-  * ~11:30 Why did Chef choose Ruby instead of Perl?
-  * ~12:30 Did he just really say, "Up in your grill?"
-  * ~13:20 What did Adam learn about teaching people to user Chef from what he learned from beginning to play a guitar?
-  * ~15:50 Using Chef what do you end up doing all day?
-  * ~18:20-19:20 What is the relationship between Chef and OpsCode?
-  * ~21:10 If Chef is OpenSource -- how does OpsCode make money (2 ways)?
-  * ~25:30 Who are the big 3 of Configuration Management?
-  * ~29:15 What is the 1st rule of automation?
-  * ~32:35 What is difference between Kickstart and Chef?
-  * ~37:00 What is a Chef Cookbook?
-  * ~41:10 How do you describe DevOps/Web Operations?
-  * ~44:35  What is the "No butthead rule?"  **note translated from French
-  * ~49:00 Why is it delightful for Adam to work at OpsCode?
+## Lab
+
+
+## Chapter 06
+
+## Podcast
+
+## Lab
+
+
+## Chapter 07
+
+## Podcast
+
+## Lab
+
+
+## Chapter 08
+
+## Podcast
+
+## Lab
+
+
+## Chapter 09
+
+## Podcast
+
+## Lab
+
+
+## Chapter 10
+
+## Podcast
+
+## Lab
+
+
+## Chapter 11
+
+## Podcast
+
+## Lab
+
+
+## Chapter 12
+
+## Podcast
+
+## Lab
+
+
+## Chapter 13
+
+## Podcast
+
+## Lab
+
+
+## Chapter 14
+
+## Podcast
+
+## Lab
+
+## Chapter 15
+
+## Podcast
+
+## Lab
+
+
