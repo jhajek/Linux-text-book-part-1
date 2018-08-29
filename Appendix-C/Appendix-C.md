@@ -3,6 +3,7 @@
 ## Markdown Code for Podcasts and Labs
 
 ### Chapter 02
+
 ```
   * ~2:35 Who is Andy Hall and Achim Hasenmuller?
   * ~3:00 What is Simon Phipps relationship to the VirtualBox project?
