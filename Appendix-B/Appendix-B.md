@@ -1,4 +1,4 @@
-2# Appendix 2
+# Appendix 2
 ![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-B/git_commit-2.png "Git Commit")
 
 This section contains the answers to the chapter review questions
