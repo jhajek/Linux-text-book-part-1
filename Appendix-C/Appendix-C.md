@@ -43,7 +43,52 @@ Each Student will give a 1-2 minute presentation of one of their papers the foll
 
 ### Podcast
 
+```
+Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
+
+  * ~2:35 Who is Andy Hall and Achim Hasenmuller?
+  * ~3:00 What is Simon Phipps relationship to the VirtualBox project?
+  * ~4:45 What does VirtualBox do in Andy Hall's words?
+  * ~6:30 What other company previously owned VirtualBox?
+  * ~11:20 According to Simon, what is the definition of open core?
+  * ~14:17 How does VirtualBox fit into Oracle's business model?
+  * ~16:15 As of the time of the podcast (2010) how many downloads did VirtualBox have?
+  * ~20:25 How does VirtualBox handle virtualized I/O?
+  * ~22:40 What did Intel and AMD introduce to help ease virtualization in VirtualBox?
+  * ~26:00 What two models of network card did VirtualBox choose to represent their virtual hardware and why?
+  * ~27:40 What does VirtualBox almost get native performance on?
+  * ~29:29 How does VirtualBox treat USB devices in Guest OSes?
+  * ~31:00 What are 4 virtual networking modes in VirtualBox?
+  * ~32:30 What is the difference between NAT and Bridged networking?
+  * ~39:30 What Type of hypervisor is VirtualBox?
+  * ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
+```
+
 ### Lab
+
+```
+You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
+
+  + Debian Based
+      - Ubuntu 18.04 Desktop edition
+      - Ubuntu 16.04 Desktop Edition
+      - Ubuntu 18.04 Server Edition
+      - Ubuntu 16.04 Server Edition
+      - Linux Mint 18
+      - Lubuntu 18.04 Desktop edition
+      - Xubuntu 18.04 Desktop edition
+      - Trisquel Linux
+      - Debian 9.x
+
+    + Red Hat Based
+        - Fedora 28 - Workstation edition
+        - Fedora Desktop XFCE Spin
+        - Centos 7.x - minimal install
+
+    + BSD based
+        - TrueOS (latest)
+        - FreeBSD 11.x
+```
 
 ## Chapter 04
 
