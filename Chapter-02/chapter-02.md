@@ -673,6 +673,8 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
  *  What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
  *  [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
 
+**Deliverable:** 
+
 ### Lab
 
 Most of the popular and functional pieces of software you use everyday invovle Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
