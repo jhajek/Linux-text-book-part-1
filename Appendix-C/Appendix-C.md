@@ -41,90 +41,90 @@ Each Student will give a 1-2 minute presentation of one of their papers the foll
 
 ## Chapter 03
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 ## Chapter 04
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 5
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 06
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 07
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 08
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 09
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 10
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 11
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 12
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 13
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
 ## Chapter 14
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 ## Chapter 15
 
-## Podcast
+### Podcast
 
-## Lab
+### Lab
 
 
