@@ -341,20 +341,26 @@ sudo dpkg -i ./vivaldi-stable_1.15.1147.64-1_amd64.deb
 sudo rpm -iv ./vivaldi-stable-1.15.1147.64-1.x86_64.rpm
 ```
 
-After executing this command you will receive an error message. What is it telling you and why?  (Hint think 3P's from the previous chapter) You will notice that the dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
+After executing this command you will receive an error message. What is it telling you and why?  You will notice that the dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
-> __Example Usage:__
+__Example Usage:__
 ```bash
 sudo dpkg -i ./links_2.8-2_amd64.deb
 ```
 Note that this command installs properly without any error message. [http://packages.ubuntu.com/](http://packages.ubuntu.com/ "links")
 
-> __Example Usage:__   There are other flags but the most common are these: ```sudo dpkg -r or --remove```, ```sudo dpkg -P or --purge```, ```sudo dpkg -l or --list```, and ```sudo dpkg --status links```
+__Example Usage:__   There are other flags but the most common are these: 
 
-> __Example Usage:__ Let's use the ```dpkg``` command to list all kernel version we have installed and the ```purge``` command to remove those old kernels entirely.  
+*  ```sudo dpkg -r or --remove```
+*  ```sudo dpkg -P or --purge```
+*  ```sudo dpkg -l or --list```
+*  ```sudo dpkg --status links```
+
+__Example Usage:__ Let's use the ```dpkg``` command to list all kernel versions we have installed and the ```purge``` command to remove those old kernels entirely.  
+
 ```bash
 sudo apt-get dist-upgrade
-dpkg -l | grep linux-image
+sudo dpkg -l | grep linux-image
 # x.x.-xx is the version that is not the most recent version as deleting that will
 # make your system unbootable.
 # uname -a will tell you the current kernel version
