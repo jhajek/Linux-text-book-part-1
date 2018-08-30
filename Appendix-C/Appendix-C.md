@@ -70,7 +70,7 @@ You will need to do some research and find the download links for the Linux and 
       - Ubuntu 16.04 Server Edition
       - Linux Mint 18
       - Lubuntu 18.04 Desktop edition
-      - Xubuntu 18.04 Desktop edition-4
+      - Xubuntu 18.04 Desktop edition
       - Trisquel Linux
       - Debian 9.x
 
