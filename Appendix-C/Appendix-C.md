@@ -3,7 +3,7 @@
 ## Chapter 02
 
 ### Podcast
-```
+
 Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
 
  *  Who is Tim Orielly? ~3:00-5:00
@@ -15,11 +15,9 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
  *  Where is the money made in open source - software or data? ~ 34:00
  *  What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
  *  [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
-```
 
 ### Lab
 
-```
 Most of the popular and functional pieces of software you use everyday invovle Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
 
 Post your topics on the Blackboard Class Discussion board under the Chapter-02 Case Studies forum - both of your case study choices have to be unique from everyone else. Those who choose first will get the ones they want. There are over 200+ case studies there will be plenty of options.
@@ -37,13 +35,11 @@ Answer these questions (not all of the Answers are in each case study!)
 1. What can you learn from this article relating to technology and infrastructure?
 
 Each Student will give a 1-2 minute presentation of one of their papers the following class.
-```
 
 ## Chapter 03
 
 ### Podcast
 
-```
 Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
 
   * ~2:35 Who is Andy Hall and Achim Hasenmuller?
@@ -62,11 +58,9 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
   * ~32:30 What is the difference between NAT and Bridged networking?
   * ~39:30 What Type of hypervisor is VirtualBox?
   * ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
-```
 
 ### Lab
 
-```
 You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
 
   + Debian Based
@@ -84,11 +78,11 @@ You will need to do some research and find the download links for the Linux and 
         - Fedora 28 - Workstation edition
         - Fedora Desktop XFCE Spin
         - Centos 7.x - minimal install
+        - Oracle Linux 7 - (4GB download)
 
     + BSD based
         - TrueOS (latest)
         - FreeBSD 11.x
-```
 
 ## Chapter 04
 
