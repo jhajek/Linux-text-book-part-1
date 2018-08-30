@@ -2,7 +2,31 @@
 
 ## Chapter 02
 
-### Podcast
+### Review Questions
+
+Either individually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001.  The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
+
+1. Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
+
+1. When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint?  Why or why not?
+
+1. Would Richard Stallman enter into a discussion on which is a **better** product: Microsoft Word or LibreOffice Writer? Why or why not?  Would Eric S. Raymond enter into a discussion on which is a **better** product: Microsoft Word or LibreOffice Writer? Why or why not?
+
+1. Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
+
+1. What were the two commercial Linux companies featured in the movie?
+
+1. What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that company's stock price.)
+
+1. According to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution?
+
+1. What was the first major commercial company to opensource a key product?  What did that product eventually become?
+
+1. How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?  
+
+1. What is the main difference between *"Free Software"* and *"Open Source Software"*?
+
+### Podcast Questions
 
 Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
 
@@ -34,11 +58,101 @@ Answer these questions (not all of the Answers are in each case study!)
 1. What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
 1. What can you learn from this article relating to technology and infrastructure?
 
-Each Student will give a 1-2 minute presentation of one of their papers the following class.
-
 ## Chapter 03
 
-### Podcast
+### Review Questions
+
+1)	What is the term for the industry standard file format that is used to install a Linux distro?
+  a. ISO
+  b. ZIP
+  c. Disk-ISO
+  d. Distro
+2)	What is currently the most common Linux install media type?
+  a. CD-ROMs
+  b. Network based installs
+  c. USB
+  d. Thunderbolt
+3) What is the name of recommended tool used to create bootable Linux install media?
+  a. Pendrive Linux
+  b. etcher.io
+  c. UNetbootin
+  d. Image Magick
+4)	What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
+
+5)	The operating system that the hypervisor resides on is called the _________ system?
+
+6)	Hosted or desktop virtualization is called what type of hypervisor?
+
+7)	Bare Metal or Native Virtualization is called what type of hypervisor?
+
+8)	Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
+  a. mount point
+  b. checksum
+  c. receipt
+  d. mdsum
+9) What is the name of the driver package you can install in VirtualBox in order to enable features such as shared clipboard, larger screen resolution, and mouse pointer integration?
+  a. Kernel modules
+  b. Kernel drivers
+  c. VirtualBox extensions
+  d. ISO extensions
+10) What is the name for a Linux distribution that runs in memory?
+  a. Rapid CD
+  b. Live ISO
+  c. Install Disk
+  d. Trick question
+11) What feature doesn't dpkg handle/support?
+  a. Dependencies
+  b. Installing Dependencies
+  c. Versioning
+  d. Author Information
+12) What is the APT command to add an additional software repository in Ubuntu/Debian, named: ppa:linux-libre/ppa, to your APT system?
+  a. sudo add-repository ppa:linux-libre/ppa
+  b. sudo add-apt-repository ppa:linux-libre/ppa
+  c. sudo apt-add-repository ppa:linux-libre/ppa
+  d. sudo apt-add ppa:linux-libre/ppa  
+13) Which distro(s) supports the .deb package?
+  a. Ubuntu only
+  b. Debian Family
+  c. Debian and RedHat
+  d. None of the above
+14) Which distro(s) supports the RPM package?
+  a. CentOS only
+  b. RedHat Family
+  c. Debian and RedHat
+  d. None of the above
+15) We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
+  a. G++
+  b. APT
+  c. Python
+  d. None of the above
+
+16)	Describe the purpose of Virtualbox Guest Additions?
+
+17) What is the RPM command to install a package from the command line?
+  a. rpm -qa *.rpm
+  b. rpm install *.rpm
+  c. rpm -q *.rpm
+  d. rpm -i *.rpm
+
+18) After building software from source and running the ```./configure``` command, what is the next step?
+  a. Run the ```make install``` command
+  b. Run the ```sudo make install``` command
+  c. Run the ```install``` command
+  d. Run the ```make``` commmand
+
+19) What is the name of the new package managers developed by Canonical and RedHat?
+  a.  flatpak and apt
+  b.  flatpak and snap
+  c.  snapcraft and flatter
+  d.  dnf and apt
+
+20) What is the DNF command used to install addtional software repositories? Use this URL to an RPM: http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+  a. sudo dnf install repo http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+  b. sudo dnf http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+  c. sudo dnf install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+  d. sudo install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+
+### Podcast Questions
 
 Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
 
