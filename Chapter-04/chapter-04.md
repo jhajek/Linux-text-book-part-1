@@ -191,7 +191,7 @@ Which is better GNOME or KDE?  With all major Linux systems that are using syste
 
 ### Xfce
 
-Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environments as the resources required were growing.  So a movement to create a lightweight desktop environment sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999.  At one point Debian was considering it as an alternative to GNOME 3, but dropped it because of adopting systemd--forcing Debian to take GNOME 3 as their default desktop.  Xubuntu is a common derivative distro made up of Ubuntu using Xfce instead of GNOME or Unity.  Xfce was based on the GTK+ 2 and was looking to move to GTK+ 3, but disagreed with some of their design decisions.  Now Xfce is looking to be re-written in Qt 5.
+Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environments as the resources required were growing.  So a movement to create a lightweight desktop environment sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999.  At one point Debian was considering it as an alternative to GNOME 3, but dropped it because of adopting systemd--forcing Debian to take GNOME 3 as their default desktop.  Xubuntu is a common derivative distro made up of Ubuntu using Xfce instead of GNOME or Unity.  Xfce until recently was using the GTK2 toolkit but is in the process of being rewritten in GTK3 conversion started with version 4.12 in 2015.  As of 2018, most of the major components have been re-written in GTK3.  When version 4.14 is released all major components will be converted to GTK3.
 
 ### LXDE/LXQT
 
@@ -222,7 +222,7 @@ Yes Android runs on the Linux Kernel and is a sense a custom Linux Distro itself
 ----------------------------------------------------- ------------------------ -------------------------------
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
 [GNOME 3](https://www.GNome.org/ "GNOME")             GTK+ 3                   https://GNome.org/
-[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3 -> Qt 5           http://www.xfce.org/
+[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 2 -> GTK+ 3           http://www.xfce.org/
 [LXDE](http://lxde.org/ "LXDE")                       GTK+ 2                   http://lxde.org/
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     http://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 2 -> 3              http://mate-desktop.org/
