@@ -136,7 +136,7 @@ sha256sum ./Fedora-Workstation-Live-x86_64-28-1.1.iso
 
 Output: ```BD5C9EE34B7698EB0852A320DA4FBDF616222A493D99F6054AA96AFA96207BFB```
 
-> Can you find the MD5 and SHA-256 of the sample PDF lolcated in the book source code, in the folder ```files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?  It should match: ```CE70A60EC56E35E1E9A25ACB1BEF6B2E``` and ```F9C51AC0D8CED38E86AB7D94784EED5F02DF7F662D65B35DE5069175B1C35166```.
+Can you find the MD5 and SHA-256 of the sample PDF lolcated in the book source code, in the folder ```files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?  It should match: ```CE70A60EC56E35E1E9A25ACB1BEF6B2E``` and ```F9C51AC0D8CED38E86AB7D94784EED5F02DF7F662D65B35DE5069175B1C35166```.
 
 ### Planning Your Install
 
