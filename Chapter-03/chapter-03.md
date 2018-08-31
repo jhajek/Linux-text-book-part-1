@@ -622,6 +622,17 @@ sudo make install
 
 In addition to compiling software and using package managers the Python language has become common in its application usage and has its own installers for applications.  Looking at the Denyhosts project on their GitHub account, [https://github.com/denyhosts/denyhosts](https://github.com/denyhosts/denyhosts "Denyhosts") you will see the latest source code version 3.0 available but not in an RPM or DEB package but as a python install package.  We simply need to clone the repository down and enter the directory we just cloned.   We can then install the software, similar to the GCC build tools, by executing just this command: ```sudo python setup.py install```.  Note you may need a dependency depending on what system you are on - the installer will tell you what you need in addition to making this work.
 
+You can see an example of how to install Python language packages (eggs).  Take for example the packages required to install [dronekit.io](http://dronekit.io "drone kit").  Drtone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones.  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` - Python Package Installer.
+
+```sudo apt-get install python-pip python-dev```
+
+```
+sudo pip install dronekit
+sudo pip install dronekit-sitl
+```
+
+![*Dronekit.io install*](images/Chapter-03/python-install/python-pip.png "Python PIP")
+
 ### Installing Virtualbox Additions Package
 
 > "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html])https://www.virtualbox.org/manual/ch04.html "Source")
