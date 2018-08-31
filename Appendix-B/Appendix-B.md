@@ -130,7 +130,7 @@ a.	GNOME 3
 Fedora 22 that you use to “launch applications?”
 a.	Activities
 20.	What is the name of the default Ubuntu desktop environment?
-a.	Unity
+GNOME3
 
 ## Chapter 05
 

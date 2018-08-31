@@ -424,7 +424,7 @@ apply)
 
 19)	What is the name of the button on the upper left hand corner of the GNOME 3 desktop that you use to “launch applications?”
 
-20)	What is the name of the default Ubuntu desktop environment?
+20)	What is the name of the default Ubuntu desktop environment as of April 2018?
 
 ### Podcast Questions
 
