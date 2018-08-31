@@ -112,28 +112,50 @@ Here are the commands to execute in Windows in Powershell:
 ```powershell
 Get-FileHash .\ubuntu-17.04-desktop-amd64.iso -Algorithm MD5 | format-list
 ```
+
+Output:
+
+```
 Algorithm : MD5
 Hash      : 18CC54AF55D7CA931BBB8588E8D9C1BD
 Path      : D:\\isos\\ubuntu-17.04-desktop-amd64.iso
+```
 
 ```powershell
 Get-FileHash .\Fedora-Server-netinst-x86_64-26-1.5.iso -Algorithm SHA256 | format-list
 ```
+
+Output:
+
+```
 Algorithm : SHA256
 Hash      : E260921EF5C7BD5EE2A7B2F2F1156AF6483014C73984E4CF37F2B6690E0155E5
 Path      : D:\\isos\\Fedora-Server-netinst-x86_64-26-1.5.iso
+```
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
 ```bash
 md5sum ./ubuntu-17.04-desktop-amd64.iso
 ```
+
+Output:
+
+```
 18CC54AF55D7CA931BBB8588E8D9C1BD ./ubuntu-17.04-desktop-amd64.iso
+```
 
 ```bash
 sha256sum ./Fedora-Server-netinst-x86_64-26-1.5.iso
 ```
+
+Output:
+
+```
 E260921EF5C7BD5EE2A7B2F2F1156AF6483014C73984E4CF37F2B6690E0155E5 ./Fedora-Server-netinst-x86_64-26-1.5.iso  
+```
+
+> Can you find the SHA-256 of the sample PDF lolcated in the book source code, in the folder ``` files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?  It should match: ```F9C51AC0D8CED38E86AB7D94784EED5F02DF7F662D65B35DE5069175B1C35166```.
 
 ### Planning Your Install
 
