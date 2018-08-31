@@ -687,7 +687,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
- If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.  If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:
+If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.  If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:
 
 ```
 Building the main Guest Additions Module[Failed]
