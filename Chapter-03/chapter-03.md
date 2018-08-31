@@ -638,6 +638,7 @@ sudo pip install dronekit-sitl
 > "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html])https://www.virtualbox.org/manual/ch04.html "Source")
 
 The Guest Additions offer the following features:
+
  * Mouse pointer integration
  * Shared folders
  * Better video support
