@@ -96,7 +96,7 @@ You also need to be aware of the type of architecture you are installing to.  Is
 
 The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the credit.  There is one other type of architecture called ARM or AARCH, AARCH64.  This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi.  It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.  
 
-Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be.  That way if you download and ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents to an ISO or perhaps just a corrupted download.  Most distros use a simple md5 hash, but a few, notably Fedora, has moved to more robust hashes using the SHA-256 hash.
+Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be.  That way if you download and ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents to an ISO or perhaps just a corrupted download.  Most distros  more robust hashes such as the SHA-256 hash, but for legacy purposes you still see md5 hashes.
 
 #### Links to get you started
 
@@ -110,52 +110,33 @@ Each distro also has a checksum feature provided by the site that issues the dow
 Here are the commands to execute in Windows in Powershell:
 
 ```powershell
-Get-FileHash .\ubuntu-17.04-desktop-amd64.iso -Algorithm MD5 | format-list
+Get-FileHash .\ubuntu-18.04-desktop-amd64.iso -Algorithm MD5 | format-list
 ```
 
-Output:
-
-```
-Algorithm : MD5
-Hash      : 18CC54AF55D7CA931BBB8588E8D9C1BD
-Path      : D:\\isos\\ubuntu-17.04-desktop-amd64.iso
-```
+Output: ```129292A182136A35E1F89C586DBAC2E2```
 
 ```powershell
-Get-FileHash .\Fedora-Server-netinst-x86_64-26-1.5.iso -Algorithm SHA256 | format-list
+Get-FileHash .\ubuntu-18.04-desktop-amd64.iso -Algorithm SHA256 | format-list
 ```
+Output: ```A55353D837CBF7BC006CF49EEFF05AE5044E757498E30643A9199B9A25BC9A34```
 
-Output:
-
-```
-Algorithm : SHA256
-Hash      : E260921EF5C7BD5EE2A7B2F2F1156AF6483014C73984E4CF37F2B6690E0155E5
-Path      : D:\\isos\\Fedora-Server-netinst-x86_64-26-1.5.iso
-```
+---
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
 ```bash
-md5sum ./ubuntu-17.04-desktop-amd64.iso
+md5sum ./Fedora-Workstation-Live-x86_64-28-1.1.iso
 ```
 
-Output:
-
-```
-18CC54AF55D7CA931BBB8588E8D9C1BD ./ubuntu-17.04-desktop-amd64.iso
-```
+Output: ```18CC54AF55D7CA931BBB8588E8D9C1BD```
 
 ```bash
-sha256sum ./Fedora-Server-netinst-x86_64-26-1.5.iso
+sha256sum ./Fedora-Workstation-Live-x86_64-28-1.1.iso
 ```
 
-Output:
+Output: ```BD5C9EE34B7698EB0852A320DA4FBDF616222A493D99F6054AA96AFA96207BFB```
 
-```
-E260921EF5C7BD5EE2A7B2F2F1156AF6483014C73984E4CF37F2B6690E0155E5 ./Fedora-Server-netinst-x86_64-26-1.5.iso  
-```
-
-> Can you find the SHA-256 of the sample PDF lolcated in the book source code, in the folder ``` files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?  It should match: ```F9C51AC0D8CED38E86AB7D94784EED5F02DF7F662D65B35DE5069175B1C35166```.
+> Can you find the MD5 and SHA-256 of the sample PDF lolcated in the book source code, in the folder ```files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?  It should match: ```CE70A60EC56E35E1E9A25ACB1BEF6B2E``` and ```F9C51AC0D8CED38E86AB7D94784EED5F02DF7F662D65B35DE5069175B1C35166```.
 
 ### Planning Your Install
 
