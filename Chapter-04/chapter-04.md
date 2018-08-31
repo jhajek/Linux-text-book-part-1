@@ -211,7 +211,7 @@ A distro of FreeBSD, called TrueOS, created their own native desktop environment
 
 #### Android
 
-Yes Android runs on the Linux Kernel and is a sense a custom Linux Distro itself.  It has a custom rendering layer that does not use X or Wayland.
+Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.  It has a custom rendering layer that does not use X or Wayland.
 
 ![*https://source.android.com/devices/graphics/*](images/Chapter-04/Android/ape_fwk_graphics-400-by-367.png "Android Rendering Layers")
 
@@ -233,11 +233,13 @@ Yes Android runs on the Linux Kernel and is a sense a custom Linux Distro itself
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
-### GNOME 3 Lockin
+### GNOME 3 Lockin Question
 
 By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red hat), and Ubuntu you see very little differentiation desktop-wise now.
 
 Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  
+
+As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom Unity shell and returned to using GNOME3.  Announcement here:
 
 ### Theming
 
@@ -289,13 +291,15 @@ __Ubuntu__
 __Fedora__
 > ```sudo dnf install i3 icewm xmonad mutter @xfce```
 
-#### Fedora Software Store
+#### Fedora GNOME Software Store
 
 ![*Fedora Software Store*](images/Chapter-04/software-store.png "Software Store")
 
- This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
+ This is a feature added by RedHat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
 
-### Ubuntu Unity Features
+### Ubuntu Unity Features - Depricated
+
+**As of April 2018 Ubuntu releasde Unity has been depricated in favor of GNOME3, this section is kept for historical reference.**
 
 [Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME 3 shell augmentation/replacement.  This means that Unity sits on top of GNOME 3 but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.
 
