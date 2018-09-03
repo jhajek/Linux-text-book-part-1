@@ -855,7 +855,7 @@ You will need to do some research and find the download links for the Linux and 
     - Oracle Linux 7 - (4GB download)
 
 + BSD based
-    - TrueOS (latest)
+    - TrueOS 18.06 or 18.03 
     - FreeBSD 11.x
 
 
