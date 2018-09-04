@@ -209,6 +209,8 @@ This project started in 1997 and intended to be a virtual desktop window manager
 
 A distro of FreeBSD, called TrueOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE but the amount of work needed to remove the Linux specific parts prevented new research from being done. Now they have independant development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE and allows Lumina to run on BSD based systems and Linux.
 
+Lumina has been written from scratch in C++/Qt5 and is not based on any existing desktop’s code-base, and does not use any of the Linux-based desktop frameworks (ConsoleKit, PolicyKit, D-Bus, systemd, etc..) and is now available cross platform [BSD and Linux](https://lumina-desktop.org/get-lumina/ "Lumina").
+
 #### Android
 
 Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.  It has a custom rendering layer that does not use X or Wayland.
@@ -221,14 +223,15 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 ----------------------------------------------------- ------------------------ -------------------------------
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
-[GNOME 3](https://www.gnome.org/ "GNOME")             GTK+ 3                   https://GNome.org/
-[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 2 -> GTK+ 3           http://www.xfce.org/
+[GNOME 3](https://www.GNome.org/ "GNOME")             GTK+ 3                   https://GNome.org/
+[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 2 -> GTK+ 3         http://www.xfce.org/
 [LXDE](http://lxde.org/ "LXDE")                       GTK+ 2                   http://lxde.org/
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     http://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 2 -> 3              http://mate-desktop.org/
 [Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   http://cinnamon.linuxmint.com/
 [Unity](https://unity.ubuntu.com/ "unity")            UnityNext/Qt 5 -> GTK+ 3 https://unity.ubuntu.com/
 [Enlightenment](https://www.enlightenment.org/ "E17") EFL                      https://www.enlightenment.org/
+[Lumina](https://lumina-desktop.org/ "lumina")        C++/Qt5                  https://lumina-desktop.org/
 ----------------------------------------------------- ------------------------ -------------------------------
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
