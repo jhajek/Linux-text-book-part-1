@@ -83,7 +83,7 @@ __var__         Variable data - used for storing databases, webserver files, and
 
 ![*Linux Filesystem Hierarchy Standard - items not bold from above will not be included*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
 
-There are 3 additional libraries that are non-standard but appear on pretty much all Linux distros [^62].  You can see a screenshot below.
+There are 3 additional directories that are non-standard but appear on pretty much all Linux distros [^62].  You can see a screenshot below.
 
 Directory       Function
 ----------  -----------------------------------------------------------------------------------------
