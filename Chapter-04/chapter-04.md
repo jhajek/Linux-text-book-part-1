@@ -446,6 +446,9 @@ Using the virtual machines you installed in the previous chapter, you will now i
 
 **Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it. 
 
+#### Package based install
+
+Clone the source code repository for the text book [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "Book source code") to your Ubuntu 18.04 desktop and Fedora 28 desktop.   Follow the install instructions in the repo to build a copy of the book.  Take a screen shot of the title page of the PDF
 
 You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows: For the __deliverable__ take a screenshot of each application successful install.  
 
