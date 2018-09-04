@@ -444,13 +444,14 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 
 Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.
 
+**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it. 
+
 #### Fedora Software
 
 You will install assorted softwares using the Gnome Software application in Fedora. The list of software is as follows: For the __deliverable__ take a screenshot of each application successful install.  
 
 1) Inkscape
 1) Audacity 
-1) Eclipse IDE
 1) GNOME Tweak Tool
 1) Chromium
 1) Geary
@@ -465,26 +466,34 @@ You will need to install two GNOME 3 extensions.  The first one is the example i
 1)  Caffeine
 1)  Dash to Dock
 1)  SystemMonitor
-1)  Axe Menu
+1)  Choose any other one plugin
 
 #### Ubuntu 
 
-You will be installing an assortment of Desktop Environments, Window Managers, and Themes in this exercise.  From the Ubuntu Software Center you will need to install the following applications and take screenshots of the applications open on the desktop. GIMP, Eclipse, Chrome (called Chromium of Linux), Stellarium, VLC, and the GNOME Tweak Tool.  For the __deliverable__ take a screenshot of the desktop with each application open and name the screenshots as follows:
+You will be installing an assortment of Desktop Environments, Window Managers, and Themes in this exercise using flatpak and snaps.  Install both Flatpak and snaps and install the following below: 
 
-*  lastname-firstname-ubuntu-gimp.(jpeg or png)
-*  lastname-firstname-ubuntu-eclipse.(jpeg or png)
-*  lastname-firstname-ubuntu-chromium.(jpeg or png)
-*  lastname-firstname-ubuntu-vlc.(jpeg or png)
-*  lastname-firstname-ubuntu-stellarium.(jpeg or png)
-*  lastname-firstname-ubuntu-tweak-tool.(jpeg or png)  
+Flatpak
+
+1)  Gimp
+1)  Visual Studio Code
+1)  VLC
+1)  Stellarium
+1)  Skype  
+
+Snap
+
+1) Android Studio 
+1) Spotify
+1) Slack
+1) 0 A.D.
+1) hold 
+1) hold
 
 #### Ubuntu window mangers and desktop environment
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  You need to open a text editor and commandline and take a screenshot containing your name and the name of the window manager. *Note* in regards to the other category - chose the evilwm.
 
-In addition you need to install the Lubuntu desktop environment (LXDE + Ubuntu) and Xubuntu desktop environment (Xfce + Ubuntu) through the Ubuntu Software Store as well.
-
-In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen. For the __deliverable__ take a screenshot of the desktop with a notepad or commandline with your name and the name of the window manager or environment. Label the screenshots as follows:
+In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen. 
 
 ![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
 
@@ -493,8 +502,8 @@ In order to change the default window manager or desktop environment you need to
 1) Tiling window manager
 1) Minimalistic window manager
 1) Other window manager
-1) Install XFCE desktop (not Xubuntu)
-1) Install LXDE desktop (not Lubuntu)
+1) Install Enlightenment (E17) on Ubuntu
+1) Install Lumina on Fedora 28
 
 #### Ubuntu Theme tweaking
 
@@ -517,7 +526,7 @@ Once these additional repositories have been installed you can select them by fo
 
 ![*Additional Themes*](images/Chapter-04/add-themes.png "Add Themes")
 
-__Deliverable__ will be to install the ultra-flat-theme and the ultra-flat-icon set and one additional theme from the Software Center. Take a screenshot with the new themes enabled with a text editor open with your name and the name of theme present. Name the screenshots as follows:
+Install these two themes:
 
 1)  Ultra Flat theme
 1)  MacBuntu Theme
@@ -526,7 +535,7 @@ Once installed in order to enable a new theme and icon set you need to make sure
 
 ![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
-Final __deliverable__ is to place all of the above screenshots) into a single pdf file named: __lastname-firstname-chapter-04-lab.pdf__ and submit to Blackboard.
+**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it. 
 
 #### Footnotes
 
