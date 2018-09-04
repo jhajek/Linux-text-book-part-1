@@ -221,7 +221,7 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 ----------------------------------------------------- ------------------------ -------------------------------
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
-[GNOME 3](https://www.GNome.org/ "GNOME")             GTK+ 3                   https://GNome.org/
+[GNOME 3](https://www.gnome.org/ "GNOME")             GTK+ 3                   https://GNome.org/
 [Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 2 -> GTK+ 3           http://www.xfce.org/
 [LXDE](http://lxde.org/ "LXDE")                       GTK+ 2                   http://lxde.org/
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     http://lxqt.org/about/
