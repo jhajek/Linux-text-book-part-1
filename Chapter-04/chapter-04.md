@@ -233,7 +233,7 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
-### GNOME 3 Lockin Question
+### GNOME 3 Lockin Question?
 
 By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red hat), and Ubuntu you see very little differentiation desktop-wise now.
 
