@@ -450,7 +450,9 @@ Using the virtual machines you installed in the previous chapter, you will now i
 
 Clone the source code repository for the text book [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "Book source code") to your Ubuntu 18.04 desktop and Fedora 28 desktop.   Follow the install instructions in the repo to build a copy of the book.  Take a screen shot of the title page of the PDF
 
-You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows: For the __deliverable__ take a screenshot of each application successful install.  
+#### GNOME Software Store
+
+You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows: 
 
 1) Inkscape
 1) Audacity 
@@ -463,35 +465,35 @@ You will install assorted softwares using the Gnome Software application in Fedo
 
 #### GNOME 3 Extensions
 
-You will need to install two GNOME 3 extensions.  The first one is the example in the book called *Caffeine*. Take screenshots with them each installed and activated. For the __deliverable__ take a screenshot of the desktop with each extension open/active and name the screenshots as follows from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
+You will need to install two GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
 
 1)  Caffeine
 1)  Dash to Dock
 1)  SystemMonitor
 1)  Choose any other one plugin
 
-#### Ubuntu 
+#### Ubuntu 18.04 Snaps Install
 
-You will be installing an assortment of Desktop Environments, Window Managers, and Themes in this exercise using flatpak and snaps.  Install both Flatpak and snaps and install the following below: 
+To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap:
 
-Flatpak
+1) Android Studio 
+1) Spotify
+1) Slack
+1) Skype
+
+#### Fedora 28 Flatpak Install
+
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via Snap:
 
 1)  Gimp
 1)  Visual Studio Code
 1)  VLC
 1)  Stellarium
-1)  Skype  
-
-Snap
-
-1) Android Studio 
-1) Spotify
-1) Slack
-1) 0 A.D.
+1)  0 A.D.  
 
 #### Ubuntu window mangers and desktop environment
 
-You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  You need to open a text editor and commandline and take a screenshot containing your name and the name of the window manager. *Note* in regards to the other category - chose the evilwm.
+You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  
 
 In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen. 
 
@@ -503,7 +505,7 @@ In order to change the default window manager or desktop environment you need to
 1) Minimalistic window manager
 1) Search the web for an additional window manager not listed
 1) Install Enlightenment (E17) on Ubuntu
-1) Install Lumina on Fedora 28
+1) Install Lumina on Fedora 28 - Link here
 
 #### Ubuntu Theme tweaking
 
