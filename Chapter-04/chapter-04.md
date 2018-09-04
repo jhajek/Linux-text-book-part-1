@@ -485,8 +485,6 @@ Snap
 1) Spotify
 1) Slack
 1) 0 A.D.
-1) hold 
-1) hold
 
 #### Ubuntu window mangers and desktop environment
 
@@ -500,7 +498,7 @@ In order to change the default window manager or desktop environment you need to
 1) Stacking window manager
 1) Tiling window manager
 1) Minimalistic window manager
-1) Other window manager
+1) Search the web for an additional window manager not listed
 1) Install Enlightenment (E17) on Ubuntu
 1) Install Lumina on Fedora 28
 
