@@ -395,9 +395,9 @@ What is the name of the missing category?
   b.	KDE, GNOME, E17, GNUSTEP
   c.	KDE, GNOME, X, LXDE
   d.	KDE, GNOME, Xfce, LXDE
-12)	What is the name of the windowing toolkit that KDE uses? (Two letters)
+12)	What is the name of the windowing toolkit that KDE uses? 
 
-13)	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign)
+13)	What is the name of the windowing toolkit that GNOME uses?
 
 14)	What is the name of the founder of the GNOME project?
 
@@ -420,7 +420,7 @@ apply)
   c.	Desktop environments have a changeable but consistent look-and-feel
   d.	Desktop environments have system configuration tools and user applications built in
   e.	Desktop environments have lower memory requirements than window managers
-18)	What is the default desktop environment for Fedora 22? (Name and versions)
+18)	What is the default desktop environment for Fedora 28? (Name and versions)
 
 19)	What is the name of the button on the upper left hand corner of the GNOME 3 desktop that you use to “launch applications?”
 
@@ -446,9 +446,8 @@ Using the virtual machines you installed in the previous chapter, you will now i
 
 **Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it. 
 
-#### Fedora Software
 
-You will install assorted softwares using the Gnome Software application in Fedora. The list of software is as follows: For the __deliverable__ take a screenshot of each application successful install.  
+You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows: For the __deliverable__ take a screenshot of each application successful install.  
 
 1) Inkscape
 1) Audacity 
