@@ -151,7 +151,7 @@ The KDE project (originally the K Desktop Environment) was the first opensource 
 
 In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2009.
 
-KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro in the way that GNOME and Red Hat are intricately tied together now. Distros such as openSUSE, KaOS, KDE NEON, Kubuntu and even Free-BSD are using KDE by default or have it available in software repositories. Qt recently split itself during the 5.0 release from one entire library into [three separate sub-components](https://en.wikipedia.org/wiki/KDE_Software_Compilation#Post-fourth_series "KDE 5 split"):
+KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro in the way that GNOME and Red Hat are intricately tied together now. Distros such as  [openSUSE](opensuse.org "opensuse"), [Mageia](mageia.org "Mageia"), [Chakra](www.chakralinux.org "Chakra Linux"), [Kubuntu](www.kubuntu.org "Kubuntu"), [PCLinuxOS](www.pclinuxos.com "PC Linux OS") and even Free-BSD are using KDE by default or have it available in software repositories. Qt recently split itself during the 5.0 release from one entire library into [three separate sub-components](https://en.wikipedia.org/wiki/KDE_Software_Compilation#Post-fourth_series "KDE 5 split"):
 
   *  KDE Desktop - Desktop called [Plasma 5](https://www.kde.org/workspaces/plasmadesktop/ "Plasma") released every three months
   *  KDE Applications - [KDE applications](https://en.wikipedia.org/wiki/KDE_Applications "KDE applications") updated and released every four months
@@ -508,7 +508,7 @@ In order to change the default window manager or desktop environment you need to
 1) Minimalistic window manager
 1) Search the web for an additional window manager not listed
 1) Install Enlightenment (E17) on Ubuntu
-1) Install Lumina on Fedora 28 - Link here
+1) Install Lumina on Fedora 28 - [https://lumina-desktop.org/get-lumina/](https://lumina-desktop.org/get-lumina/ "Lumina install")
 
 #### Ubuntu Theme tweaking
 
