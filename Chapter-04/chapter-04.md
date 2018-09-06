@@ -490,8 +490,8 @@ To install and configure flatpak and flathub, reference chapter 3.  To show thes
 
 1)  Gimp
 1)  Visual Studio Code
-1)  VLC
-1)  Stellarium
+1)  LibreOffice
+1)  Atom
 1)  0 A.D.  
 
 #### Ubuntu window mangers and desktop environment
