@@ -460,10 +460,7 @@ You will install assorted softwares using the Gnome Software application in Fedo
 1) Inkscape
 1) Audacity 
 1) GNOME Tweak Tool
-1) Chromium
-1) Geary
-1) Thunderbird
-1) gPodder
+1) Chromium Web Browser
 1) Xed (text editor). 
 
 #### GNOME 3 Extensions
