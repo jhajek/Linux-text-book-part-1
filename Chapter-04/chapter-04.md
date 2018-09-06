@@ -512,31 +512,10 @@ In order to change the default window manager or desktop environment you need to
 
 #### Ubuntu Theme tweaking
 
-Here we will install additional repositories on the command line (terminal) so we can add additional themes and icon sets directly from the Software Center.  In order to do this you need to launch a terminal.  Click the Ubuntu Icon and type terminal in the search box.
+We will use the tutorial at Noobslab to transform our Ubuntu 18.04 Desktop into a MacBuntu.
+Following the instructions here: [http://www.noobslab.com/2018/08/macbuntu-1804-transformation-pack-ready.html](http://www.noobslab.com/2018/08/macbuntu-1804-transformation-pack-ready.html "macbuntu")
 
-![*Ubuntu Icon*](images/Chapter-04/ubuntu-icon.png "Icon")  
-
-[Install Ultra Flat Theme](http://www.noobslab.com/2015/08/looking-for-completely-flat-design.html "Flat")
-
-```
-sudo add-apt-repository ppa:noobslab/themes
-```
-
-[Install Flat Icon set](http://www.noobslab.com/2015/03/square-icon-theme-is-now-available-in.html "Sqaure Icons")
-```
-sudo add-apt-repository ppa:noobslab/icons2
-```
-
-Once these additional repositories have been installed you can select them by following the image below directly in the Ubuntu Software Center.  Select the *Themes Collection by Noobs Lab*, you will now see a list of additional themes for install.  You can choose additional icon sets by selecting the *Collection of icons PPA*
-
-![*Additional Themes*](images/Chapter-04/add-themes.png "Add Themes")
-
-Install these two themes:
-
-1)  Ultra Flat theme
-1)  MacBuntu Theme
-
-Once installed in order to enable a new theme and icon set you need to make sure you have the Gnome-tweak-tool installed.  
+The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
 ![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
