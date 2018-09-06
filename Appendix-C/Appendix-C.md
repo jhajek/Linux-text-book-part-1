@@ -252,9 +252,9 @@ What is the name of the missing category?
   b.	KDE, GNOME, E17, GNUSTEP
   c.	KDE, GNOME, X, LXDE
   d.	KDE, GNOME, Xfce, LXDE
-12)	What is the name of the windowing toolkit that KDE uses? (Two letters)
+12)	What is the name of the windowing toolkit that KDE uses? 
 
-13)	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign)
+13)	What is the name of the windowing toolkit that GNOME uses?
 
 14)	What is the name of the founder of the GNOME project?
 
@@ -277,11 +277,11 @@ apply)
   c.	Desktop environments have a changeable but consistent look-and-feel
   d.	Desktop environments have system configuration tools and user applications built in
   e.	Desktop environments have lower memory requirements than window managers
-18)	What is the default desktop environment for Fedora 22? (Name and versions)
+18)	What is the default desktop environment for Fedora 28? (Name and versions)
 
 19)	What is the name of the button on the upper left hand corner of the GNOME 3 desktop that you use to “launch applications?”
 
-20)	What is the name of the default Ubuntu desktop environment?
+20)	What is the name of the default Ubuntu desktop environment as of April 2018?
 
 ### Podcast Questions
 
@@ -297,6 +297,86 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
   * ~44:30 Who is the most famous Fedora user?
   * ~1:01:00. What is the difference between Centos and RHEL?
 
+### Lab
+
+Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.
+
+**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it. 
+
+#### Package based install
+
+Clone the source code repository for the text book [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "Book source code") to your Ubuntu 18.04 desktop and Fedora 28 desktop.   Follow the install instructions in the repo to build a copy of the book.  Take a screen shot of the title page of the PDF
+
+#### GNOME Software Store
+
+You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows: 
+
+1) Inkscape
+1) Audacity 
+1) GNOME Tweak Tool
+1) Chromium
+1) Geary
+1) Thunderbird
+1) gPodder
+1) Xed (text editor). 
+
+#### GNOME 3 Extensions
+
+You will need to install two GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
+
+1)  Caffeine
+1)  Dash to Dock
+1)  SystemMonitor
+1)  Choose any other one plugin
+
+#### Ubuntu 18.04 Snaps Install
+
+To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap:
+
+1) Android Studio 
+1) Spotify
+1) Slack
+1) Skype
+
+#### Fedora 28 Flatpak Install
+
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via Snap:
+
+1)  Gimp
+1)  Visual Studio Code
+1)  LibreOffice
+1)  Atom
+1)  0 A.D.  
+
+#### Ubuntu window mangers and desktop environment
+
+You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  
+
+In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen. 
+
+![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
+
+1) Compositing window manager
+1) Stacking window manager
+1) Tiling window manager
+1) Minimalistic window manager
+1) Search the web for an additional window manager not listed
+1) Install Enlightenment (E17) on Ubuntu 18.04 
+1) Install Lumina on Fedora 28 - [https://lumina-desktop.org/get-lumina/](https://lumina-desktop.org/get-lumina/ "Lumina install")
+
+**Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the 
+
+* ```sudo apt-cache search i3```
+* ```sudo dnf search i3```
+
+#### Ubuntu Theme tweaking
+
+We will use the tutorial at Noobslab to transform our Ubuntu 18.04 Desktop into a MacBuntu.
+Following the instructions here: [http://www.noobslab.com/2018/08/macbuntu-1804-transformation-pack-ready.html](http://www.noobslab.com/2018/08/macbuntu-1804-transformation-pack-ready.html "macbuntu")
+
+The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
+
+![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
 
 ## Chapter 5
