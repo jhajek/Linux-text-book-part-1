@@ -510,7 +510,7 @@ In order to change the default window manager or desktop environment you need to
 1) Install Enlightenment (E17) on Ubuntu 18.04 
 1) Install Lumina on Fedora 28 - [https://lumina-desktop.org/get-lumina/](https://lumina-desktop.org/get-lumina/ "Lumina install")
 
-**Note:** then names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the 
+**Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the 
 
 * ```sudo apt-cache search i3```
 * ```sudo dnf search i3```
