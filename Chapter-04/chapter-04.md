@@ -507,7 +507,7 @@ In order to change the default window manager or desktop environment you need to
 1) Tiling window manager
 1) Minimalistic window manager
 1) Search the web for an additional window manager not listed
-1) Install Enlightenment (E17) on Ubuntu
+1) Install Enlightenment (E17) on Ubuntu 18.04 
 1) Install Lumina on Fedora 28 - [https://lumina-desktop.org/get-lumina/](https://lumina-desktop.org/get-lumina/ "Lumina install")
 
 #### Ubuntu Theme tweaking
