@@ -469,7 +469,7 @@ You will need to install two GNOME 3 extensions from [https://extensions.gnome.o
 
 1)  Caffeine
 1)  Dash to Dock
-1)  SystemMonitor
+1)  Freon 
 1)  Choose any other one plugin
 
 #### Ubuntu 18.04 Snaps Install
