@@ -381,9 +381,151 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
 ## Chapter 5
 
-### Podcast
+### Review Questions
+
+1)	 What is the numeric value of a file with the permissions rwxr--r--?
+    a.	777
+    b.	700
+    c.	766
+    d.	744
+2)	What is the numeric value of a file with the permissions rw-----?
+    a.	700
+    b.	400
+    c.	600
+    d.	007
+3)	What is the numeric value of a file with the permission rwxr-xr-x?
+    a.	711
+    b.	755
+    c.	644
+    d.	227
+4)	What is the name of the command you use to list the contents of a directory?
+    a.	lst
+    b.	less
+    c.	cat
+    d.	ls
+5)	What is the name of the command you use to display the content of a file to the screen?
+    a.	dg
+    b.	tac
+    c.	ls
+    d.	cat
+6)	What is the name of the command you use to display the content of a file to the screen that allows you to page up and down?
+    a.	more
+    b.	less
+    c.	ls
+    d.	page
+7)	Every shell command has three components:
+    a.	Command, arguments, flags
+    b.	Command, options, arguments
+    c.	Commands, arguments, options
+    d.	Commands, flags, options
+8)	What does the user use to issue commands to the kernel?
+    a.	Terminal
+    b.	Commandline
+    c.	Magic
+    d.	Shell
+9)	What is the name of the GNU shell that is standard across all Linux Distros
+    a.	ksh
+    b.	sh
+    c.	csh
+    d.	bash
+10)	Based on the ls command, what is the option to do a long listing?
+    a.	ls --all
+    b.	ls -n
+    c.	list
+    d.	ls –l
+11)	What is the command you can use to find out additional usage information about a shell command?
+    a.	about
+    b.	man
+    c.	F1
+    d.	/?
+12)	Which of these directories is not part of the LSB LFH?
+    a.	bin
+    b.	media
+    c.	temp
+    d.	opt
+13)	The Linux Filesystem is an upside down what?
+    a.	root
+    b.	object
+    c.	tree
+    d.	mess
+14)	What is the name of the top of the Linux Filesystem?
+    a.	/
+    b.	./
+    c.	../
+    d.	slashdot
+15)	Everything (directories, files, devices) in Unix/Linux is a what?
+
+16)	What is the name of the Unix system standard developed in ~1985 that defines at a minimum what a certified Unix based system must support?
+    a.	Xenix
+    b.	LSB
+    c.	POSIX
+    d.	Linux
+17)	What is the directory where configuration files are stored in Linux?
+    a.	bin
+    b.	sbin
+    c.	etc
+    d.	conf
+18)	What is the directory where all the essential command binaries are stored?
+    a.	bin
+    b.	sbin
+    c.	usr/sbin
+    d.	usr/bin
+19)	What is the directory that holds all of the user’s home directories? (no slash, just the name)
+
+20)	True or False - Leonart Poettering supports POSIX
+
+### Podcast Questions
+
+Centos - [http://twit.tv/floss/142](http://twit.tv/floss/142 "CentOS")
+
+Answer said questions:
+
+  * ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
+  * ~3:40 What is the short story about how Centos came about?
+  * ~4:58 Who is the largest commercial Enterprise Linux?
+  * ~7:17 How do the two projects relate to each other?  How do they relate to each other from the RedHat point of view?
+  * ~8:10 Who from RedHat is not happy with Centos?
+  * ~10:25 How do Centos users differ from RedHat's paying customers?
+  * ~19:00. How does the RHEL environment work vs Fedora environment? (RedHat Enterprise Linux)
+  * ~22:55 Since Centos is using the RHEL code base how long does Centos lag behind the RHEL codebase when a new release is issued?
+  * ~24:24 How does Centos make money?
+  * ~29:00 How does Centos pay for everything?
+  * ~30:00 Who was Lance Davis and what happened with him?
+  * ~35:00 Kiran mentioned 2 million users for Centos - what did they do right compared to other projects (whitebox linux) that didn't make it?
+  * ~44:00 Is Centos for Servers only or can you use it on the Desktop?
+  * Personal questions - is what Centos doing legal?  Is it ethical/moral?  Why or why not?
 
 ### Lab
+
+The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu 18.04 desktop or Fedora 28 desktop unless noted. 
+
+Preface all screenshots with an H3 header indicated the question number: for example, Question 01, Question 02, and so forth.
+
+1) Login to your Linux System. Using a package manager install the ```git``` program.  
+    i) issue the command ```git --version``` and take a screenshot of the output
+1) Navigate to your home directory and then to your Documents directory.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously no need to redo it).
+    i) Take a screenshot of the output of the ```ls``` command.  
+1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```.git``` is.  Repeat the process for the file named ```./title/metadata.yaml```   
+    i) Take a screen shot of the output of the previous commands.
+1) Use the ```wget``` command to retreive a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip](https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip "Packer") 
+    i) Take a screenshot of the ```ls``` command after you have executed the previous command.
+1) Use the ```unzip``` command to unzip the binary and extract the file directly to the location ```/usr/local/bin```.  **Hint:** use the ```man unzip``` command to find out the usage option in order to accomplish this.
+    i) To show this was succesful take a screenshot of the output of the command ```packer -v```.
+1) Use the ```wget``` command to retrieve an archived copy of the Hadoop binaries from the web.  You can use this address as an argument to your wget command: [http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz "Hadoop URL")
+    i) Take a screenshot of the ```ls``` command after you have executed the previous command.
+1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in later chapter.  ```tar``` is the commmand ```-xvzf``` is the options and you need to provide the argument of the hadoop*.tar.gz 
+        i) Take a screenshot of the output of the ```ls``` command to show the extracted hadoop directory.  
+1) Find the command that is used to rename a file or directory and rename the Hadoop directory to be ust hadoop
+    i) Take a screenshot of the output of the ```ls``` command.    
+1) What would be the command to delete the file hadoop*.zip?
+    i) Issue the command ```ls```, then type the command to remove the .tar.gz file, the type the ```ls``` command again to show it has been remove.  Take a screenshot of the combined output of all 3 directories.   
+1) Using a Web Browser from your GUI, navigate to and open the file named ```chapter-05-file-path-exercise.html``` located under the directory ```./Linux-text-book-part-1-master/files/Chapter-05/images/```:  Note that the images on the web page are broken.   Take a look at the source code (view source) and move the **stallman.jpg**  to the proper directory to make the webpage render that image properly in a single command using the command line.  
+    i) Take a screenshot of that single command and a screenshot of the web browser showing the **stallman.jpg** image properly rendering.
+1) Using the commandline again, move the **ms-loves-linux.png** image to the proper directory using the ```mv``` command in a single command:
+    i) Take a screenshot of that single command and a screenshot of the output of the web browser showing both the **stallman.jpg** and the **ms-loves-linux.png** images properly rendering. 
+1) Assume your PWD is your Home directory: In a series of commands, ```cd``` to Documents, then create a directory named ```packer-scripts```.  Under this directory create 5 sub-directories, ```ubuntu16-04```, ```ubuntu18-04```, ```fedora28```, ```centos7```, ```OmniOS```.  
+    i) With your PWD as ```~/Documents/packer-scripts```, execute the command that will give a long listing of the contents of the directory.  Take a screenshot of this command as well as the output.
+
 
 
 ## Chapter 06
