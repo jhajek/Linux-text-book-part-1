@@ -565,10 +565,14 @@ Answer said questions:
 
 The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu 18.04 desktop or Fedora 28 desktop unless noted. 
 
-1) Login to your Linux System. Navigate from your home directory to your Downloads directory:
-    i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
-1) A major problem in computing has always been how to move data and code around.  Use the ```wget``` command to download the source code for the text book to your local Downloads folder.  The code URL is: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip "URL")
-    i) Take a screen shot of the output of an ```ls``` command while in the Downloads directory, showing you have successfully downloaded the source code zip file. Name the file lastname-firstname-screenshot-week-5-wget.(jpg or png)
+Preface all screenshots with an H3 header indicated the question number: for example, Question 01, Question 02, and so forth.
+
+1) Login to your Linux System. Using a package manager install the ```git``` program.  
+    i) issue the command ```git --version``` and take a screenshot of the output
+1) Navigate to your home directory and then to your Documents directory.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously no need to redo it).
+    i) Take a screenshot of the output of the ```ls``` command.  
+1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the commadn to display what type of file ```.git``` is.    
+    i) Take a screen shot of the output of the previous commands.
 1) Use the ```unzip``` command to extract the files to a new directory called __book__ (you will need to use the ```man unzip``` command to find out the usage option in order to accomplish this.
     i) Take a screenshot of the output of the __book__ directory listed to the commandline screen.  Name the file lastname-firstname-screenshot-week-5-unzip.(jpg or png)    
 1) Use the ```file``` command to determine what type of file master.zip is.  Compare this to the file named *master* in the directory ```./Linux-text-book-part-1-master/files/Chapter-05/samples/``` 
