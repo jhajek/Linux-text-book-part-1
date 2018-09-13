@@ -676,7 +676,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-On Centos, RHEL, and older Fedora distros using yum
+On Centos using yum
 
 ```bash
 sudo yum update kernel*
