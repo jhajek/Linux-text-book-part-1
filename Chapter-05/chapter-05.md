@@ -571,39 +571,27 @@ Preface all screenshots with an H3 header indicated the question number: for exa
     i) issue the command ```git --version``` and take a screenshot of the output
 1) Navigate to your home directory and then to your Documents directory.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously no need to redo it).
     i) Take a screenshot of the output of the ```ls``` command.  
-1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the commadn to display what type of file ```.git``` is.    
+1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```.git``` is.  Repeat the process for the file named ```./title/metadata.yaml```   
     i) Take a screen shot of the output of the previous commands.
-1) Use the ```unzip``` command to extract the files to a new directory called __book__ (you will need to use the ```man unzip``` command to find out the usage option in order to accomplish this.
-    i) Take a screenshot of the output of the __book__ directory listed to the commandline screen.  Name the file lastname-firstname-screenshot-week-5-unzip.(jpg or png)    
-1) Use the ```file``` command to determine what type of file master.zip is.  Compare this to the file named *master* in the directory ```./Linux-text-book-part-1-master/files/Chapter-05/samples/``` 
-    i) Take a screenshot of the output of the 2 file commands.  Name the file lastname-firstname-screenshot-week-5-file.(jpg or png)  
-1) Using a Web Browser from your GUI, navigate to and open the file named ```chapter-05-file-path-exercise.html``` located under the directory ```./Linux-text-book-part-1-master/files/Chapter-05/images/```:  Note that the images on the web page are broken.   Take a look at the source code (view source) and move the **stallman.jpg** to the proper directory to make the webpage render that image properly.  
-    i) Take a screenshot of the output of the web browser showing the **stallman.jpg** image properly rendering,  Name the file lastname-firstname-screenshot-week-5-gui.(jpg or png)
-1) Using the commandline again move the **ms-loves-linux.png** image to the proper directory using the ```mv``` command.
-    i) Take a screenshot of the output of the web browser showing both the **stallman.jpg** and the **ms-loves-linux.png** images properly rendering. Name the file lastname-firstname-screenshot-week-5-cli.(jpg or png)
-1) In the ```./Linux-text-book-part-1-master/images``` directory you will notice that there is no Chapter-01 directroy.  Use the ```mkdir``` command to create it.
-    i) Take a screenshot of the output of an ls command showing the newly created directory.  Name the file lastname-firstname-screenshot-week-5-mkdir.(jpg or png)
-1) Use the ```mv``` command to move the images located in ```./Linux-text-book-part-1-master/files/Chapter-05/samples/images```, AndrewTanenbaum.jpg, Dennis\_Ritchie\_2011.jpg, and Ken\_n\_dennis.jpg into the recently created ```./Linux-text-book-part-1-master/images/Chapter-01``` directory. (issue the commands to move the images one at a time.)
-    i) Take a screenshot of the output of these three ```mv``` commands. Name the file lastname-firstname-screenshot-week-5-mv.(jpg or png)  
-1) What would be the command to move from you pwd back to your home directory?  
-    i)  Take a screenshot of the output of pwd command showing you are located in the Chapter-02 images directory, then issue the cd command to return to your home directory (include all these commands in one screenshot).  
-1) There is a file located under images/Appendix-A directory.  Use the cat command to display the content of this file.
-    i) Take a screenshot of the files output and it's message to you. Name the file lastname-firstname-screenshot-week-5-cat.(jpg or png)  
-1) Assume your pwd is ```./Linux-text-book-part-1-master/images/Chapter-04/X```  (cd to that directory) what would be the single cd command to move your pwd location to Chapter-05/shells (relative paths)?
-    i) Take a screenshot of the pwd command showing your initial location, the cd command to change to the Chapter-05/shells directory, then another pwd command (all in one screenshot). Name the file lastname-firstname-screenshot-week-5-cd1.(jpg or png)
-1) Assume your pwd is ```./Linux-text-book-part-1-master/images/Chapter-05/shells``` and you want to move your pwd over to Chapter-05/path.  What would be the single cd command to move your pwd location to Chapter-05/path (relative paths)?
-    i) Take a screenshot of the pwd command showing your initial location, then cd command to change the Chapter-05/path directory, then another pwd command (all in one screen). Name the file lastname-firstname-screenshot-week-5-cd2.(jpg or png)     
-1) Issue a ```pwd``` command make sure you are located in ```./Linux-text-book-part-1-master/files/Chapter-05/```.  There was a file mistaken included in the source code called **final-exam-answers.txt** that needs to be deleted. What would be the command to remove the file using a **relative** path to it's location?
-    i) Take a screenshot of the single command to remove the **final-exam-answers.txt** file using a *relative* paths from the location mentioned above.  Name the file lastname-firstname-screenshot-week-5-rm.(jpg or png)
-1) Use the ```mkdir``` command to create a new directory called Chapter-16 in book/Linux-text-book-part-1-master.
-    i) Take a screenshot of the output of an ls command after you have created the new directory in book/Linux-text-book-part-1-master. Name the file lastname-firstname-screenshot-week-5-mkdir-2.(jpg or png)
-1) Use the ```touch``` command to create a file named chapter-16.md under the Chapter-16 folder created in the previous step. Execute the command assuming that your pwd is book/Linux-text-book-part-1-master
-    i)  Take a screenshot of the output of an ls command after you have created the new file in the Chapter-16 directory.  Name the file lastname-firstname-screenshot-week-5-touch.(jpg or png)   
-1) Use the ```ls -l``` command to find the permission levels of the chapter-16.md file you just created.  Use an absolute path to the file's location
-    i) Take a screenshot of the output of an ```ls -l``` command with the absolute path to the chapter-16.md file.  Name the file lastname-firstname-screenshot-week-5-lsl.(jpg or png)
-1) What is the command to display the man page for ```ls```?
-    i) Take a screen shot of the output of the command above (initial page only remember 'q' to quit.) Name the file lastname-firstname-screenshot-week-5-manls.(jpg or png)
-   
+1) Use the ```wget``` command to retreive a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip](https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip "Packer") 
+    i) Take a screenshot of the ```ls``` command after you have executed the previous command.
+1) Use the ```unzip``` command to unzip the binary and extract the file directly to the location ```/usr/local/bin```.  **Hint:** use the ```man unzip``` command to find out the usage option in order to accomplish this.
+    i) To show this was succesful take a screenshot of the output of the command ```packer -v```.
+1) Use the ```wget``` command to retrieve an archived copy of the Hadoop binaries from the web.  You can use this address as an argument to your wget command: [http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz "Hadoop URL")
+    i) Take a screenshot of the ```ls``` command after you have executed the previous command.
+1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in later chapter.  ```tar``` is the commmand ```-xvzf``` is the options and you need to provide the argument of the hadoop*.tar.gz 
+        i) Take a screenshot of the output of the ```ls``` command to show the extracted hadoop directory.  
+1) Find the command that is used to rename a file or directory and rename the Hadoop directory to be ust hadoop
+    i) Take a screenshot of the output of the ```ls``` command.    
+1) What would be the command to delete the file hadoop*.zip?
+    i) Issue the command ```ls```, then type the command to remove the .tar.gz file, the type the ```ls``` command again to show it has been remove.  Take a screenshot of the combined output of all 3 directories.   
+1) Using a Web Browser from your GUI, navigate to and open the file named ```chapter-05-file-path-exercise.html``` located under the directory ```./Linux-text-book-part-1-master/files/Chapter-05/images/```:  Note that the images on the web page are broken.   Take a look at the source code (view source) and move the **stallman.jpg**  to the proper directory to make the webpage render that image properly in a single command using the command line.  
+    i) Take a screenshot of that single command and a screenshot of the web browser showing the **stallman.jpg** image properly rendering.
+1) Using the commandline again, move the **ms-loves-linux.png** image to the proper directory using the ```mv``` command in a single command:
+    i) Take a screenshot of that single command and a screenshot of the output of the web browser showing both the **stallman.jpg** and the **ms-loves-linux.png** images properly rendering. 
+1) Assume your PWD is your Home directory: In a series of commands, ```cd``` to Documents, then create a directory named ```packer-scripts```.  Under this directory create 5 sub-directories, ```ubuntu16-04```, ```ubuntu18-04```, ```fedora28```, ```centos7```, ```OmniOS```.  
+    i) With your PWD as ```~/Documents/packer-scripts```, execute the command that will give a long listing of the contents of the directory.  Take a screenshot of this command as well as the output.
+
 
 #### Footnotes   
 
