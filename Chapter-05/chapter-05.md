@@ -546,10 +546,10 @@ Centos - [http://twit.tv/floss/142](http://twit.tv/floss/142 "CentOS")
 
 Answer said questions:
 
-  * ~2:25 Why did Randal's previous employer have large (1000s) Red Hat systems deployed.
+  * ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
   * ~3:40 What is the short story about how Centos came about?
   * ~4:58 Who is the largest commercial Enterprise Linux?
-  * ~7:17 Since Centos appears to be pure piracy - how do the two projects relate to each other?  How do they relate from the RedHat point of view?
+  * ~7:17 How do the two projects relate to each other?  How do they relate to each other from the RedHat point of view?
   * ~8:10 Who from RedHat is not happy with Centos?
   * ~10:25 How do Centos users differ from RedHat's paying customers?
   * ~19:00. How does the RHEL environment work vs Fedora environment? (RedHat Enterprise Linux)
@@ -557,13 +557,13 @@ Answer said questions:
   * ~24:24 How does Centos make money?
   * ~29:00 How does Centos pay for everything?
   * ~30:00 Who was Lance Davis and what happened with him?
-  * ~35:00 - Kiran mentioned 2 million users for Centos - what did they do right compared to other projects (whitebox linux) that didn't make it?
+  * ~35:00 Kiran mentioned 2 million users for Centos - what did they do right compared to other projects (whitebox linux) that didn't make it?
   * ~44:00 Is Centos for Servers only or can you use it on the Desktop?
-  * Personal questions - is what Centos doing legal?  Is it ethical?  Why or why not?
+  * Personal questions - is what Centos doing legal?  Is it ethical/moral?  Why or why not?
 
 ### Lab
 
-The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.
+The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu 18.04 desktop or Fedora 28 desktop unless noted. 
 
 1) Login to your Linux System. Navigate from your home directory to your Downloads directory:
     i) Take a screenshot of the output of the ```ls``` command.  Name the file lastname-firstname-screenshot-week-5-ls.(jpg or png)
