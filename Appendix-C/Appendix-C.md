@@ -526,13 +526,198 @@ Preface all screenshots with an H3 header indicated the question number: for exa
 1) Assume your PWD is your Home directory: In a series of commands, ```cd``` to Documents, then create a directory named ```packer-scripts```.  Under this directory create 5 sub-directories, ```ubuntu16-04```, ```ubuntu18-04```, ```fedora28```, ```centos7```, ```OmniOS```.  
     i) With your PWD as ```~/Documents/packer-scripts```, execute the command that will give a long listing of the contents of the directory.  Take a screenshot of this command as well as the output.
 
-
-
 ## Chapter 06
 
-### Podcast
+### Review Questions
+
+Shell Meta-Characters, Pipes, Search, and Tools
+
+Chapter 06 review questions
+
+1.  What is the name for characters that have special meanings in the Linux shell?
+a. special chars
+b. marked characters
+c. shell characters
+d. shell meta-characters
+
+2. Assume your pwd is ~. If you wanted to list every directory only that started with the letters "Do" what would be the command?
+a. ls -l
+b. ls -la
+c. ls -l Do
+d. ls -l Do*
+
+3. In figure 95 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
+a. Lexical analysis and parse
+b. Execution
+c. Builtins
+d. Expansion
+
+4. Which meta-character allows you to string commands together regardless of the successful execution of the previous command?
+a. &&
+b. ;
+c. \\+
+d. ||
+
+5. Which meta-character allows you to string commands together but will exit if one of the commands fails?
+a. &&
+b. ;
+c. \\+
+d. ||
+
+6. Which meta-character is the wildcard (0 or more matches.?
+a. ?
+b. \*\*
+c. &
+d. \*
+
+7. Which meta-character is the single character wildcard?
+a. ?
+b. '
+c. &
+d. \*
+
+8. Square braces [] indicate sets or ______ of characters to be processed
+a. numbers
+b. letters
+c. characters
+d. ranges
+
+9. If you wanted to use brace expansion and create a series of nine files named: file1, file2, file3, etc etc all at once--what command would you use?  (type the full command using touch .
+a. touch file{1..9}
+
+10. If you wanted to assign the value of /etc/alternatives/java to a shell variable named JAVA_HOME--what would be the proper syntax?
+a. JAVA_HOME = /etc/alternatives/java
+b. /etc/alternatives/java = JAVA_HOME
+c. JAVA_HOME=/etc/alternatives/java
+d. $JAVA_HOME=/etc/alternatives/java
+
+11. What would be the proper syntax to display the content of a variable named JAVA_HOME in the shell?
+a. echo JAVA_HOME
+b. cat JAVA_HOME
+c. print JAVA_HOME
+d. echo $JAVA_HOME
+
+12. There are 3 standard I/O devices in a Linux system, standard in, standard out, and ________
+a. standard air
+b. standard I/O
+c. standard x
+d. standard error
+
+13. Standard In is what device by default?
+a. mouse
+b. screen
+c. tty
+d. keyboard
+
+14. Standard Out is what device by default?
+a.  mouse
+b.  screen
+c.  X
+d.  keyboard
+
+15. What meta-character can you use to redirect standard out to a file? (Choose all that apply.
+a. \>
+b. \>\>
+c. \<
+d. \>\>\>
+
+16. What meta-character is used to redirect the standard output of one command as the standard input of another command?
+a. ->
+b. &&
+c. ||
+d. |
+
+17. Which command is a shortcut to display the kernel's output messages?
+a. kern
+b. &kern
+c. top
+d. dmesg
+
+18. Which command is used to search within files using textual filter patterns?
+a. find
+b. locate
+c. slocate
+d. grep
+
+19. When you combine a tar (tape archive) and an additional compression method--what is the name for the resulting file?
+a. tar
+b. tarx
+c. tarall
+d. tarball
+
+20. What is the name of the GNU compression tool project released in 1992?
+a. xz
+b. zip
+c. DEFLATE
+d. gzip
+
+### Podcast Questions
+
+(Replace with Brian Kernighan GREP interview and a few others)
+TBA
+
+__FreeBSD__  
+
+Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](https://twit.tv/shows/floss-weekly/episodes/104 "FreeBSD")
+
+  * What is FreeBSD? ~6:00
+  * Why did she switch from Linux to BSD? ~6:30
+  * Is FreeBSD Linux or Unix?  ~13:00
+  * Is FreeBSD a good option for most people as a desktop? ~14:14
+  * Using Mac OSX - what OS do you have under the hood? ~16:10
+  * What project did Randi take on that no one else wanted? ~19:10
+  * What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
+  * Are there any large companies that sponsor FreeBSD?  ~ 31:00
+  * How can you get involved in helping the FreeBSD community? ~38:15
+  * What is Randi's opinion about "getting more women in open-source?"  ~40:00
+  * What is Randi saying that is the wrong focus? ~49:00
+  * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
+  * Would you try/use FreeBSD or PC-BSD?
 
 ### Lab
+
+The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell.
+
+1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retreive a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
+    i)  Take a screenshot of the above commands used to extract the zip file
+1. Now ```cd``` into the directoy you just decompressed. Type the command that will create folders named Chapter-16..31 in one command.
+    i) Take a screenshot of the above command with output 
+1. What command will list every file in the textbook directory that has any number of characters and a ```.sh``` two character file extension of any name?
+    i) Take a screenshot of the above command with output 
+1. What command inside the textbook directory will do a long listing of Chapters-02,04,06, and 08 only?
+    i) Take a screenshot of the above command with output
+1. What command will copy the content of file Chapter-02/chapter-02.md to a directory named Chapter-00/chapter-02.md.  Use meta-characters to string together commands.
+    i) Take a screenshot of the above command with output
+1. Create a shell variable named UT, assign the contents of the command ```uptime``` to UT and print a string to the screen with its value and a message describing what it is.
+    i) Take a screenshot of the above command with output
+1. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with dnf and skip the first instruction. Display the contents of the \*.out files in one commmand and pipe its output to the ```less``` command. Display the contents of the \*.err files in one commmand and pipe its output to the ```less``` command.  
+    i) Take a screenshot of the above command with output
+1. You are typing the command ```ls -l /topsecret``` and you want to redirect both standard out and standard error to a file named /tmp/out-and-error.txt, how would you do it?
+    i) Take a screenshot of the above command with output
+1. You will find a file named hosts.deny located in the files directory of the download of the textbook. It contains a list of IP addresses - what command would you use to count ONLY the number of lines?
+    i) Take a screenshot of the above command with output
+1. Using the error.log file located in the files directory - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
+    i) Take a screenshot of the above command with output
+1. What command would let you display the content of the hosts.deny file, cut out the the second column and sort it?
+    i) Take a screenshot of the above command with output
+1. What command would let you search the file error.log for the lines that contain the term "robots.txt"?
+    i) Take a screenshot of the above command with output
+1. What command would let you count the number of lines that have the term "robots.txt" in the file error.log?
+    i) Take a screenshot of the above command with output
+1. Using the ```find``` command and starting from the \~ directory what would be the command to find all files with the name .md?
+    i) Take a screenshot of the above command with output
+1. Using the find command and starting from the \~ directory what would be the command to find all the files that have been modified in the last hour prior?
+    i) Take a screenshot of the above command with output
+1. Using the command line install the git client, ```sudo apt-get install git``` or ```sudo dnf install git``` Then clone down these two repositories: ```git clone https://github.com/jhajek/C_Space.git``` and ```git clone https://github.com/jhajek/Space_java.git```  Use the tar command to create a tape archive of each of the directories.  Name them with their file name plus the .tar extension
+    i) Take a screenshot of the above command with output
+1. Add gzip compression for tar archives you just created Space_java.tar and C_Space.tar.  Not required but see if you can chain the commands and do it in one line.
+    i) Take a screenshot of the above command with output
+1. Add bzip2 compression to your Space_java.tar and C_Space.tar
+    i) Take a screenshot of the above command with output
+1. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz "kernel.org") Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the command to re-tar and re-compress it with xzip.     
+     i) Take a screenshot of the above command with output -- Note this may be best as a series of screenshots
+1.  1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
+     i) Take a screenshot of the above command with output
 
 
 ## Chapter 07
