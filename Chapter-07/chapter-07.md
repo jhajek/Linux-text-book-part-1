@@ -258,7 +258,7 @@ The second family of editors differs from the first in that they were created af
 
 #### GNU Nano
 
-  [GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file.
+[GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file.
 
 ### GUI Text Editors
 
@@ -276,8 +276,8 @@ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1
 
 #### Leafpad and Mousepad
 
-  *  [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for LXDE and was for Xfce until its replacement by mousepad. Leafpad is built using GTK+.
-  *  [Mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") comes standard in Xfce as a notepad clone.  It is built using GTK3+.
+*  [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for LXDE and was for Xfce until its replacement by mousepad. Leafpad is built using GTK+.
+*  [Mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") comes standard in Xfce as a notepad clone.  It is built using GTK3+.
 
 #### Sublime
 
@@ -320,7 +320,7 @@ The file is correctly named but we have a problem.  The system only knows about 
 
 ![*echo $PATH*](images/Chapter-07/editors/bash/system-path.png "System Path")
 
-  There is a system variable named $PATH that is constructed upon boot.  It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located.  Everytime you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary.  Note the absolute paths are chained together with colons ```:```. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name.  In our case the shell script ```list-ip.sh``` is located in ```~/Documents``` which is not in the system path listed in the image above.  So how can we reference it?   Remember the single-dot operator ```./```--that tells the operating system to look here--overriding the system path.  Try and type ```./list-ip.sh``` what happens now?
+There is a system variable named $PATH that is constructed upon boot.  It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located.  Everytime you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary.  Note the absolute paths are chained together with colons ```:```. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name.  In our case the shell script ```list-ip.sh``` is located in ```~/Documents``` which is not in the system path listed in the image above.  So how can we reference it?   Remember the single-dot operator ```./```--that tells the operating system to look here--overriding the system path.  Try and type ```./list-ip.sh``` what happens now?
 
 ![*Permission Denied!*](images/Chapter-07/editors/bash/permission-denied.png "Permission Denied")
 
@@ -330,8 +330,8 @@ The file is correctly named but we have a problem.  The system only knows about 
 
 ![*ls -l list-ip.sh*](images/Chapter-07/editors/bash/permissions.png "Permissions")
 
-  We can change permissions by using the ```chmod``` command.  What is the current numeric value of the permissions for the file list-ip.sh?  What would we need to change it to at a minimum?  If you said 764 you would be correct?  Why?  The minimum we need to do is add the __execute__ permission to the owner's permission section.
-  We would go from this ```rw-rw-r--``` to this ```rwxrw-r--```.  We could do that by typing ```chmod 765 list-ip.sh```.  There is an easier way with group and letter shortcuts.
+We can change permissions by using the ```chmod``` command.  What is the current numeric value of the permissions for the file list-ip.sh?  What would we need to change it to at a minimum?  If you said 764 you would be correct?  Why?  The minimum we need to do is add the __execute__ permission to the owner's permission section.
+We would go from this ```rw-rw-r--``` to this ```rwxrw-r--```.  We could do that by typing ```chmod 765 list-ip.sh```.  There is an easier way with group and letter shortcuts.
 
 : Permission Shortcuts
 
