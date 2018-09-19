@@ -79,7 +79,7 @@ Until 2013 Parallels Desktop was a direct competitor to VMware Workstation on th
 
 ### TYPE I Hypervisor - Bare Metal or Native Virtualization
 
-TYPE I is used in server environments on hardware utilizing multiple core CPUs, multiple terabytes of RAM, and multiple terabytes of hard drive space.  A TYPE I hypervisor includes a kernel and tiny purpose driven mini-operating system tuned just for managing and interfacing with virtual machines.  The kernel itself is the hypervisor also tuned with all unnecessary features removed.  This book will not cover TYPE II hypervisors or commercial implementations of them.
+TYPE I is used in server environments on hardware utilizing multiple core CPUs, multiple terabytes of RAM, and multiple terabytes of hard drive space.  A TYPE I hypervisor includes a kernel and tiny purpose driven mini-operating system tuned just for managing and interfacing with virtual machines.  The kernel itself is the hypervisor also tuned with all unnecessary features removed.  This book will not cover TYPE I hypervisors or commercial implementations of them.
 
    *  [Microsoft Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx "Hyper-V")
    *  [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
@@ -189,7 +189,7 @@ Next is the hard drive file format.  There are a few competing standards.  If yo
 
 ![*Drive Type*](images/Chapter-03/VirtualBox-Install/virtualbox-hard-disk-file-type.png "Drive Type")
 
-You can chose to dynamically allocate your hard drive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The hard drive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be an overhead processing in continually allocating space.  Statically allocating the hard drive space on the other hand will potentially lessen the number of systems that can go on your hard drive because potentially much space that is allocated is actually unused. Virtual hard drives for the guest OSes are treated as files from the point host OSes.
+You can choose to dynamically allocate your hard drive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The hard drive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be an overhead processing in continually allocating space.  Statically allocating the hard drive space on the other hand will potentially lessen the number of systems that can go on your hard drive because potentially much space that is allocated is actually unused. Virtual hard drives for the guest OSes are treated as files from the point host OSes.
 
 ![*Disk Type*](images/Chapter-03/VirtualBox-Install/virtualbox-storage-on-physical-disk.png "Disk Type")
 
@@ -336,7 +336,7 @@ A Debian package (or ```.deb``` file) is really just made up of two tarballs [^1
      The GNU hello program produces a familiar, friendly greeting.
 ```      
 
-The most important line being the __Depends__ option which controls dependencies and can prevent installation of these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Usinb ```dpkg``` is a clear step above using tarballs and compiling the code yourself. There are other tools that build on top of dpkg that are recommended to use.   Let's take a look at an example we have done before in chapter 4 where we downloaded a .deb file for the Vivaldi web browser and installed it via the Ubuntu Software Center.  Now let's perform the same action again using the ```dpkg``` command.
+The most important line being the __Depends__ option which controls dependencies and can prevent installation if these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Using ```dpkg``` is a clear step above using tarballs and compiling the code yourself. There are other tools that build on top of dpkg that are recommended to use.   Let's take a look at an example we have done before in chapter 4 where we downloaded a .deb file for the Vivaldi web browser and installed it via the Ubuntu Software Center.  Now let's perform the same action again using the ```dpkg``` command.
 
 > __Example Usage:__  You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through dpkg in Ubuntu's case. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
 ```bash
