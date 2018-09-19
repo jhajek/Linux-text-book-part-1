@@ -231,7 +231,7 @@ When you type a command that does not execute successfully it returns an error m
 
 #### Suppressing Standard Out and Error
 
-Each of the standards can be referenced numerically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard out__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to separate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
+Each of the standards can be referenced numerically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard error__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to separate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
 ```bash
 sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err
 sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err
