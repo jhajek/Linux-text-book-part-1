@@ -490,8 +490,12 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
-1) Using the ```cp``` command, make a copy of ```install-java-8-openjdk.sh``` called ```install-java-8-openjdk-fixed.sh```.  In this case there are numerous path, permission, and dependency errors.  Using vim, fix the shell script, give it executable permission, and have it run succesfully.   
-
+1) In vim using the file ```install-java-8-openjdk-fixed.sh```,  there are numerous path, permission, and dependency errors.  Using vim, fix the shell script, give it executable permission, and have it run succesfully.   
+    i) use the find command to locate tools.jar and change the path in line 9.
+    i) there are directories that don't exist -- change those paths
+    i) replace the references to my home directory
+    i) after sourcing the ```~/.bashrc``` file, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
+    
 __Deliverable:__  
 
 1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
