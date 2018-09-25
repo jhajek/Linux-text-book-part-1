@@ -476,17 +476,27 @@ Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show
 
 ### Lab Chapter 7
 
-__Objectives:__ The objective of this lab is to master the command and control of the vim editor as well as the commandline version control tool Git.  
+__Objectives:__ The objective of this lab is to master vi commands and shell scripts
 
 __Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
-*Prereqs:*  You will need to install the program ```vimtutor``` and ```git``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```. 
+*Prereqs:*  You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```. 
 
 1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
-    i) Create a folder named ITMO-556 and then a subfolder named Week-07 in your local git repo.  Include *vimtutor.txt* in Week-07 and push this code to Github.
-    i) __Deliverable:__ Submit your Github URL for your repo
+1) Inside of the ```files/Chapter-07``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
+    i)  Use the ex command to find all occurances of ```;``` and replace them with ```&&```.
+    i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
+    i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
+    i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
+1) Using the ```cp``` command, make a copy of ```install-java-8-openjdk.sh``` called ```install-java-8-openjdk-fixed.sh```.  In this case there are numerous path, permission, and dependency errors.  Using vim, fix the shell script, give it executable permission, and have it run succesfully.   
+
+__Deliverable:__  
+
+1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
+1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
+1) Push the file ```install-java-8-openjdk-new.sh``` to your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
 
 #### Footnotes
 
