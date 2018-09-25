@@ -354,11 +354,11 @@ We would go from this ```rw-rw-r--``` to this ```rwxrw-r--```.  We could do that
 ```chmod ug+rwx list-ip.sh```         Owner and group are give rwx permissions together.
 ------------------------------   -----------------------------------------------------------
 
-  You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be marked with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script.
+You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be marked with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script.
 
 ![*Execute Permission enabled - turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
 
-  In addition to creating a shell script you can chain the command to change the permissions of the shell script by using the ```&&```.   You can chain those two commands together like this: ```vim sort-ip.sh && chmod 755 script1.sh```  This will execute the vi command and once you save and exit the file then the next command to change mode or chmod will take place and grant the file execute permissions.
+In addition to creating a shell script you can chain the command to change the permissions of the shell script by using the ```&&```.   You can chain those two commands together like this: ```vim sort-ip.sh && chmod 755 script1.sh```  This will execute the vi command and once you save and exit the file then the next command to change mode or chmod will take place and grant the file execute permissions.
 
 ## Understanding .bashrc
 
