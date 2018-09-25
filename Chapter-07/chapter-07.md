@@ -3,7 +3,7 @@
 
 ### Objectives
 
-  In the chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining there use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
+  In the chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining their use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
 
 *  Understand the difference between stream editors and text editors
 *  Understand and learn how to use the vi editor
@@ -362,9 +362,9 @@ In addition to creating a shell script you can chain the command to change the p
 
 ## Understanding .bashrc
 
-When your system first boot up how does it know how to define system environment variables and system PATH variables?  Part of the boot process is to read and source the ```/etc/profile``` file.  This is a system wide profile so all users accounts created will inherit from this file.
+When your system first boots up how does it know how to define system environment variables and system PATH variables?  Part of the boot process is to read and source the ```/etc/profile``` file.  This is a system wide profile that all users accounts will inherit from this file.
 
-Next there is local login profile.  This is additional customization added to your account after you log in either remotely or locally via username/password.  There could be any number of files from this list in this order: ```~/.bash_profile``` or ```~/.bash_login``` or ```~/.profile``` (.profile is a hold over from the Korn shell--since bash is ksh compatible).
+Next there is local login profile.  This is additional customization added to your account after you log in via username/password.  There could be any number of files from this list in this order: ```~/.bash_profile``` or ```~/.bash_login``` or ```~/.profile``` (.profile is a hold over from the Korn shell--since bash is ksh compatible).
 
 Then once logged in upon launching a terminal there is another set of profiles to be processed. The ```~/.bashrc``` file is processed.   The template for this file is generally located in ```/etc/bashrc``` if you want to customize or replace a ```~/.bashrc``` file.  There is one final file that you can use to modify a system environment upon logout and that is the ```~/.bash_logout``` file.
 
