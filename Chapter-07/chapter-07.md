@@ -438,7 +438,7 @@ d. em -> ed -> vi -> vim
 
 12. Which command in ex mode (vi) will save the current file you are working on and exit the vi editor? (include the ":")
 
-13.  In the log file u\_ex150911.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash)
+13.  In the log file u\_ex150721.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash)
 
 14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
 
