@@ -358,8 +358,6 @@ You will notice that in the terminal (where supported) files marked executable w
 
 ![*Execute Permission enabled - turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
 
-In addition to creating a shell script you can chain the command to change the permissions of the shell script by using the ```&&```.   You can chain those two commands together like this: ```vim sort-ip.sh && chmod 755 script1.sh```  This will execute the vi command and once you save and exit the file then the next command to change mode or chmod will take place and grant the file execute permissions.
-
 ## Understanding .bashrc
 
 When your system first boots up how does it know how to define system environment variables and system PATH variables?  Part of the boot process is to read and source the ```/etc/profile``` file.  This is a system wide profile that all users accounts will inherit from this file.
@@ -438,7 +436,7 @@ d. em -> ed -> vi -> vim
 
 12. Which command in ex mode (vi) will save the current file you are working on and exit the vi editor? (include the ":")
 
-13.  In the log file u\_ex150721.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash)
+13.  In the log file u\_ex150911.log what would be the ex command to search forward for occurrences of YandexBot? (include the forward slash)
 
 14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
 
