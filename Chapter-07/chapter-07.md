@@ -494,7 +494,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) use the find command to locate tools.jar and change the path in line 9.
     i) there are directories that don't exist -- change those paths
     i) replace the references to my home directory
-    i) after sourcing the ```~/.bashrc``` file, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
+    i) after sourcing the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
     
 __Deliverable:__  
 
