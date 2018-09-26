@@ -722,10 +722,127 @@ The objectives of this lab will be to use the shell and understand meta-characte
 
 ## Chapter 07
 
-### Podcast
+### Review Questions
 
-### Lab
+Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles
 
+Chapter 07 review questions
+
+1.  What are the two main representatives of stream editors?  
+a. gedit and kate
+b. Nano and Joe
+c. vi and Nano
+d. vi and Emacs
+
+2. Which family of editors came first?
+a. Screen editors
+b. Butterfly editors
+c. GUI editors
+d. Stream Editors
+
+3. Emacs at it's core is what?
+a. A fine operating system in need of a good editor
+b. The heart and soul of hackers
+c. An interpreter for Emacs Lisp
+d. A C program
+
+4. Who created the vi editor?
+a. Richard Stallman
+b. Doug McIlroy
+c. Bill Joy
+d. Dave McKenzie
+
+4. What year was vi release in?
+a. 1972
+b. 1979
+c. 1999
+d. 1978
+
+5. Which of the following sequences of the history of vi is correct?
+a. Emacs -> ed -> ex -> vi
+b. ed -> em -> ex -> vi -> vim
+c. em -> ex -> vi
+d. em -> ed -> vi -> vim
+
+6.  What are the three modes in vi?  
+
+7.  What is the key you use in vi to transition between COMMAND MODE and INSERT mode? 
+
+8.  What command sequence (key) in vi will add text to the right of the current cursor position?  (just the letter)
+
+9.  What command sequence (key) in vi will move you to the beginning of the next word? (just the letter)
+
+10. What command sequence in vi will delete a single line based on the current cursor position? (just the letters)
+
+11. What command sequence in vi will delete 10 lines from the current cursor position? (just the numbers and letters)
+
+12. Which command in ex mode (vi) will save the current file you are working on and exit the vi editor? (include the ":")
+
+13.  In the log file u\_ex150911.log what would be the ex command to search forward for occurrences of YandexBot? (include the forward slash)
+
+14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
+
+15.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
+
+16.  Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
+
+17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give the owner of the file permission to execute the script?
+
+18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the other group?
+
+19. What is the correct sequence of profile inheritance?
+a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
+b. ~/.bashrc -> ~/.bash_profile or ~/.bash_login or ~/.profile -> /etc/profile
+
+20.  What is the command to display the contents of the PATH system variable on the command line?
+a. echo PATH
+b. echo $PATH
+c. echo path
+d. $PATH
+
+### Podcast Questions
+
+Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
+
+  *  ~6:32 Who is Linus Torvalds?
+  *  ~6:54 Where did he create Linux?
+  *  ~7:30 What did Unix have that other operating systems didn't at that time?
+  *  ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
+  *  ~10:30 About what month and what year did this happen?
+  *  ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project?
+  *  ~13:30-14:00 Why was it licensed under the GPL?
+  *  ~20:48 Why didn't Linus want to work for a Linux company?
+  *  ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
+  *  ~46:10 What is the way to become a great programmer?
+  *  ~51:17 What is Linus' farewell message to the audience?
+
+### Lab Chapter 7
+
+__Objectives:__ The objective of this lab is to master vi commands and shell scripts
+
+__Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
+
+*Prereqs:*  You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```. 
+
+1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
+    i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
+    i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
+1) Inside of the ```files/Chapter-07``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
+    i)  Use the ex command to find all occurances of ```;``` and replace them with ```&&```.
+    i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
+    i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
+    i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
+1) In vim using the file ```install-java-8-openjdk-fixed.sh```,  there are numerous path, permission, and dependency errors.  Using vim, fix the shell script, give it executable permission, and have it run succesfully.   
+    i) use the find command to locate tools.jar and change the path in line 9.
+    i) there are directories that don't exist -- change those paths
+    i) replace the references to my home directory
+    i) after sourcing the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
+    
+__Deliverable:__  
+
+1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
+1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
+1) Push the file ```install-java-8-openjdk-new.sh``` to your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
 
 ## Chapter 08
 
