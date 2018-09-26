@@ -243,6 +243,15 @@ In late 1985 the [FSF](http://www.fsf.org/ "FSF") -- *Free Software Foundation*,
 
 > *“Our mission is to preserve, protect and promote the freedom to use, study, copy, modify, and redistribute computer software, and to defend the rights of Free Software users.”*
 
+With this, they wrote the GPL - GNU Public Lisence, which is a legally enforceable copyleft license.  Copyleft is a play on the word copyright, which a copyright restricts the rights of a user.  Copyleft, on the other hand enshrines and enforces certain rights to the user of the software.  The **4 software freedoms** that the GPL licensed software enshrines are:
+
+1) the freedom to use the software for any purpose,
+1) the freedom to change the software to suit your needs,
+1) the freedom to share the software with your friends and neighbors, and
+1) the freedom to share the changes you make.
+
+> In using the term “Free software,” it means software that respects users' freedom and community. Roughly, it means that the users have the freedom to run, copy, distribute, study, change and improve the software. Thus, “free software” is a matter of liberty, not price. To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”. We sometimes call it “libre software,” borrowing the French or Spanish word for “free” as in freedom, to show we do not mean the software is gratis[^114]. 
+
 #### GCC, BASH, and GNU Coretools
 
 In 1984 RMS started his work of creating a free Unix-like operating system.  Since Unix was built upon the C programming language, the first thing needed to build a kernel, a shell, or any tooling was a *C compiler*.  This project was called GCC (GNU C Compiler) which was a *"free"* version of the proprietary Unix AT&T "cc" program (C Compiler).  
@@ -755,3 +764,5 @@ or <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>, <a
 
 [^18]: By Kushal Das (Own work) <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>
 <a href="https://commons.wikimedia.org/wiki/File%3ALennart_poettering.jpg">via Wikimedia Commons</a>   
+
+[^114]: <a href="https://www.gnu.org/philosophy/free-sw.en.html">https://www.gnu.org/philosophy/free-sw.en.html</a>
