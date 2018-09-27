@@ -827,7 +827,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
 1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
-1) Inside of the ```files/Chapter-07``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
+1) Inside of the ```files/Chapter-07/lab``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
     i)  Use the ex command to find all occurances of ```;``` and replace them with ```&&```.
     i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  

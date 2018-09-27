@@ -212,11 +212,11 @@ __EX__ mode also contains the ability to search for occurrences of text patterns
 
 __vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC then :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.  See the sample file ```2016-05-31-using-s3cmd.md``` located in the chapter-07 directory of the files folder.
 
-```s/Tuesday/Wednesday```
+```s/Hajek/Jhajek```
 
 :  The *s* tells us it is a single find and replace or substitute.  This is a single instance replacement.
 
-```s/False/True/g```
+```s/jeremy/ClassWork/g```
 
 :  This command the *s* tells us to substitute the word *False* for the word *True* and the trailing *g* means every occurrence on that line.
 
@@ -224,7 +224,7 @@ __vi__ also has the ability to find and replace via a single line or globally.  
 
 :  This command has a range prefix the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
 
-```47,86s/<br \/>//g```
+```,86s/<br \/>//g```
 
 :  This command tells us to do the replacement of lines 47-86 and strip out all the extranuous ```<br />``` tags only.  Note the backslash to escape the forward slash.
 
@@ -306,7 +306,7 @@ Remember the command to insert a new line?  That would be ```ESC shift + o```.  
 
 echo "Here is the content of the ~/Documents/hosts.deny file"
 echo "********************************************************"
-tail ~/Documents/hosts.deny
+tail ~/Linux-text-book-part-1/files/Chapter-07/logs/hosts.deny
 echo "********************************************************"
 ```
 
@@ -485,7 +485,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
 1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
-1) Inside of the ```files/Chapter-07``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
+1) Inside of the ```files/Chapter-07/lab``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
     i)  Use the ex command to find all occurances of ```;``` and replace them with ```&&```.
     i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  

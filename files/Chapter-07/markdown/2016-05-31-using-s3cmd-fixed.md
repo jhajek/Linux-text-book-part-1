@@ -24,9 +24,12 @@ tags:
 - S3cmd
 comments: []
 ---
-<p>Dear Team,</p>
-<p>  I would like to pass on that using S3cmd works fine with Eucalyptus 4.0.2 (will be installing and testing 4.2.2 soon) with a twist...   Assuming you are using Linux or the Bash on Windows 10 (Linux subsystem) for this exercise...</p>
-<p><a href="https://github.com/s3tools/s3cmd">S3cmd</a> is a commandline tool built in Python for accessing Object Storage via the commandline.  This is useful for <a href="https:&#47;&#47;aws.amazon.com&#47;s3&#47;">AWS S3</a>, but also for <a href="http:&#47;&#47;www8.hp.com&#47;us&#47;en&#47;cloud&#47;helion-eucalyptus.html">HP Eucalyptus Walrus</a> (Eucalyptus S3 Object storage--AWS compatible).</p>
+
+Dear Team,
+
+I would like to pass on that using S3cmd works fine with Eucalyptus 4.0.2 (will be installing and testing 4.2.2 soon) with a twist...   Assuming you are using Linux or the Bash on Windows 10 (Linux subsystem) for this exercise...
+
+[S3cmd](https://github.com/s3tools/s3cmd "S3cmd") is a commandline tool built in Python for accessing Object Storage via the commandline.  This is useful for <a href="">[AWS S3](https://aws.amazon.com/s3/ "AWS S3"), but also for <a href="http://www8.hp.com/us/en/cloud/helion-eucalyptus.html">HP Eucalyptus Walrus</a> (Eucalyptus S3 Object storage--AWS compatible).</p>
 <p><a href="https://forge.sat.iit.edu/wp-content/uploads/2016/05/s3cmd-permission-denied.png"><img src="https://forge.sat.iit.edu/wp-content/uploads/2016/05/s3cmd-permission-denied.png" alt="s3cmd-permission-denied" width="847" height="88" class="aligncenter size-full wp-image-1742" /></a></p>
 <p><strong><em>My command</em></strong> was as follows: <code>./s3cmd -v -c ./s3cfg la s3://vagrant-builds</code></p>
 <p>A bucket I created with my account credentials should have list and read permission.  Even switching to the ADMIN credentials the same error appears.</p>
