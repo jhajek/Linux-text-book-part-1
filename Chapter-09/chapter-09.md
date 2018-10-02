@@ -505,9 +505,7 @@ Secure cp (copy) Allows for using the ```cp``` command to a remote system via SS
 Through this chapter we learned about the su, sudo, and root user account paradigms.  We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored.  We learned about a newer logging format in the journald service from systemd.  Finally we learned about system monitoring tools for visual display of system resources being used.  Finally we learned about the 3Ps of Linux troubleshooting.
 
 ### Review Questions
-
-Review Questons Chapter 09
-
+s
 1) What user account has superuser privilege in Linux?
 a. ```sudo```
 b. ```su```
@@ -562,13 +560,13 @@ b.  The user RMS has sudo permissions
 c.  The group RMS has sudo permissions to all commands
 d.  The user RMS has sudo permissions and access to all commands, and requires no password to elevate to the sudo user
 
-10)  When using the su command to switch from a regular user account to the root user account, what do you type to return to the standard user account?
+10) When using the su command to switch from a regular user account to the root user account, what do you type to return to the standard user account?
 a.  quit
 b.  exit
 c.  stop
 d.  sudo reboot
 
-11)  What command would you use to edit the file at this location:  /var/www/html/index.html?
+11) What command would you use to edit the file at this location:  /var/www/html/index.html?
 a.  vi /var/www/html/index.html
 b.  sudo vim /var/www/html/index.html
 c.  vim /var/www/html/index.html
@@ -616,7 +614,7 @@ b.  usermod
 c.  adduser
 d.  add
 
-19) What command would be used to modify a user account settings and add them to the sudo users group (user is named controller)?
+19) What command would be used to modify a user account settings and add them to the sudo users group on an Ub untu distro (user is named controller)?
 a.  ```sudo useradd -aG sudo controller```
 b.  ```sudo usermod -aG sudo controller```
 c.  ```sudo usermod -G sudo controller```
@@ -655,10 +653,7 @@ Node.js Update
 * ~47:40 What is the Go language good at and what is it not?
 * ~50:55 Is there any relationship between NodeJS and Docker?
 
-
 ### Lab
-
-Chapter 09 Lab
 
 Objectives
 
