@@ -570,44 +570,30 @@ d. FOR
 
 __FreeBSD__  
 
-Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](https://twit.tv/shows/floss-weekly/episodes/104 "FreeBSD")
-
-  * What is FreeBSD? ~6:00
-  * Why did she switch from Linux to BSD? ~6:30
-  * Is FreeBSD Linux or Unix?  ~13:00
-  * Is FreeBSD a good option for most people as a desktop? ~14:14
-  * Using Mac OSX - what OS do you have under the hood? ~16:10
-  * What project did Randi take on that no one else wanted? ~19:10
-  * What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
-  * Are there any large companies that sponsor FreeBSD?  ~ 31:00
-  * How can you get involved in helping the FreeBSD community? ~38:15
-  * What is Randi's opinion about "getting more women in open-source?"  ~40:00
-  * What is Randi saying that is the wrong focus? ~49:00
-  * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
-  * Would you try/use FreeBSD or PC-BSD?
+TBA
 
 ### Lab
 
 __Objectives__
 
-  This lab will allow you to create shell scripts.  Use positional parameters, control structures, and write cron jobs.
+This lab will allow you to create shell scripts.  Use positional parameters, control structures, and write cron jobs.
 
 __Outcomes__
 
-  At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts.
+At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts.
 
 __Notes__ 
 
-In the Github repo provided to you please create a folder in your ITMO-556 directory named Week-11.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your Github URL.
+In the Github repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your Github URL.
 
-  1) What would be the command to create an array in Bash named itemARRAY?
+  1) What would be the command to create an array in Bash named itemARRAY? 
   1) Write a shell script that declares an array in Bash named dirarr. Using the mapfile command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
   1) Write a for loop to iterate through that array and print every element of the line out on the screen.  (Make sure you detect the length of the array and use a $LENGTH variable as your sentinel condition.
   1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
-  1)  Clone the contents of the textbook into your virtual machine from this URL: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "Textbook").  Locate the file install-java8.sh located in the **files** directory Chapter-08.  Modify the script to include IF statements to check for the existance of the path ```/datapool1``` and to print an error message if the path does not exist.
-  1) Modify install-java8.sh again--this time take a positional parameter and put that in place of the directory name ```/datapoo1```  
-  1) Modify the install-java8.sh from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script. 
-  1) Create a directory in your ~ named topsecret.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
+  1)  From the clones textbook code,  locate the file install-java8.sh located in the **files/Chapter-08/lab** directory.  Modify the script to include IF statements to check for the existance of the path ```/datapool1``` and to print an error message if the path does not exist.
+  1) Modify install-java8.sh again--this time take a positional parameter and put that in place of the directory name ```/datapoo1``` (this will allow you to customize the install location of the shell script).  
+  1) Modify the install-java8.sh from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script.
+  1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
   1) Write a shell script to check in the ~/topsecret directory to see if a given file name exists.  If TRUE print a message else print an error message with the given file name being passed.
   1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
   1) Write a shell script that take 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
