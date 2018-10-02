@@ -457,9 +457,17 @@ Entry                                Description                          Equiva
 
 Gawk is the GNU Project's implementation of the AWK programming language.  It conforms to the definition of the language in the POSIX 1003.1 standard.  This version in turn is based on the description in The  AWK  Programming Language, by Aho, Kernighan, and Weinberger.  Gawk provides the additional features found in the current version of Brian Kernighan's awk and numerous GNU-specific extensions.
 
+An AWK program consists of a sequence of optional directives, pattern-action statements, and optional function definitions.
+
+```pattern { action statements }```
+
+
 ### sed
 
-```Sed```  is  a stream editor.  A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline).  While in some ways similar to an editor which permits scripted edits (such as ```ed```), sed works by making only one pass over the input(s), and is consequently more efficient.  But it is sed's ability to filter text in a pipeline which particularly distinguishes it from other types of editors.  From man sed
+'sed' is a stream editor.  A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline). While in some ways similar to an editor which permits scripted edits (such as 'ed'), 'sed' works by making only one pass over the input(s), and is consequently more efficient.  But it is 'sed''s ability to filter text in a pipeline which particularly distinguishes it from other types
+of editors.
+
+```sed script inputfile```
 
 ```sed -e s/^ /$g ```
 
