@@ -456,7 +456,7 @@ The internet and networks were developed in a day and age where trust was implie
 
 By default the SSH *client* is installed on all Linux and Unix systems.  It can be installed on a Microsoft Windows system as a native package by adding it through the settings panel (find instructions) as it is being actively developed in step with OpenSSH from BSD I would recommend this above all other solutions available. 
 
-You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This is predicated via either username account and password or RSA key.   
+You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This is predicated via either username account and password or RSA key.
 
 > ```sudo apt-get install openssh-server```
 ```sudo dnf install openssh-server```

@@ -226,7 +226,7 @@ All programs can choose to *trap* these kill commands and ignore them or take di
 
 ### Killing Processes with systemd
 
-Systemd on the other hand has a mechanism for dealing with services directly, ```systemd kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to individual services but also to control groups of processes as well. 
+Systemd on the other hand has a mechanism for dealing with services directly, ```systemd kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to individual services but also to control groups of processes as well.
 
 #### cgroups
 
