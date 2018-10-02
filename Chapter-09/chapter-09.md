@@ -486,15 +486,15 @@ Opensource Library used for crytographic key generation and by OpenSSH.  In 2016
 
 #### LibreSSL
 
-Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork of the OpenSSL repo and began to strip out as much uneeded code as possible and to write new code.  This library became the default cryptographic library on OpenBSD and was ported to Linux.  Though it is new and has a smaller attack surface, so many products (for better or worse) are using OpenSSL that they have not or cannot switch libraries.
+Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork of the OpenSSL repo and began to strip out as much uneeded code as possible and to write new code.  This library became the default cryptographic library on OpenBSD and was ported to Linux.  Though it is new and has a smaller attack surface, so many products (for better or worse) are using OpenSSL that they have not or cannot switch libraries. Microsoft adopted its use in their native SSh client and server in Windows 10 as well. 
+
+[Native SSH link]
 
 [BSD LibreSSL announcement and link]
 
 ### SFTP
 
-Secure FTP
-
-Allows you to use the old but reliable ```FTP``` File Transfer Protocol.  Normally FTP usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.
+Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.
 
 ## SCP
 
@@ -502,7 +502,7 @@ Secure cp (copy) Allows for using the ```cp``` command to a remote system via SS
 
 ## Chapter Conclusions and Review
 
-  Through this chapter we learned about the su, sudo, and root user account paradigms.  We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored.  We learned about a newer logging format in the journald service from systemd.  Finally we learned about system monitoring tools for visual display of system resources being used.  Finally we learned about the 3Ps of Linux troubleshooting.
+Through this chapter we learned about the su, sudo, and root user account paradigms.  We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored.  We learned about a newer logging format in the journald service from systemd.  Finally we learned about system monitoring tools for visual display of system resources being used.  Finally we learned about the 3Ps of Linux troubleshooting.
 
 ### Review Questions
 
