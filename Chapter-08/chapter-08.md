@@ -443,13 +443,21 @@ Entry                                Description                          Equiva
 &#64;reboot            Run at startup                                        &#64;reboot
 -------------------- ------------------------------------------------- -----------------------
 
-## Where to find more
+### Where to find more
 
   [O'Reilly media](http://shop.oreilly.com/home.do "O\'Reilly Media") has many old but good books about Bash, vi, and shell scripting.
 
 * Bash [http://shop.oreilly.com/product/9780596009656.do](http://shop.oreilly.com/product/9780596009656.do "Bash Book")
 * Bash Cookbook [http://shop.oreilly.com/product/9780596526788.do](http://shop.oreilly.com/product/9780596526788.do "Bash Cookbook")
 * vi and vim [http://shop.oreilly.com/product/9780596529833.do](http://shop.oreilly.com/product/9780596529833.do "vi and vim")
+
+## Awk & Sed
+
+### AWK
+
+### sed 
+
+```Sed```  is  a stream editor.  A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline).  While in some ways similar to an editor which permits scripted edits (such as ```ed```), sed works by making only one pass over the input(s), and is consequently more efficient.  But it is sed's ability to filter text in a pipeline which particularly distinguishes it from other types of editors.
 
 ## Chapter Conclusions and Review
 
