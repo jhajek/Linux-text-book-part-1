@@ -598,6 +598,7 @@ In the Github repo provided to you please create a folder in your ITMO-556 direc
   1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
   1) Write a shell script that take 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
   1) Repeat the previous cron command but this time redirect the standard out and standard error to a file named ~/Documents/my.log
+  
 
 #### Footnotes
 
