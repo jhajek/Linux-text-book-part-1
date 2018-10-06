@@ -448,7 +448,7 @@ Entry                                Description                          Equiva
   [O'Reilly media](http://shop.oreilly.com/home.do "O\'Reilly Media") has many old but good books about Bash, vi, and shell scripting.
 
 * Bash [http://shop.oreilly.com/product/9780596009656.do](http://shop.oreilly.com/product/9780596009656.do "Bash Book")
-* Bash Cookbook [http://shop.oreilly.com/product/9780596526788.do](http://shop.oreilly.com/product/9780596526788.do "Bash Cookbook")
+* Bash Cookbook [http://shop.oreilly.com/product/0636920058304.do](http://shop.oreilly.com/product/0636920058304.do "Bash Cookbook")
 * vi and vim [http://shop.oreilly.com/product/9780596529833.do](http://shop.oreilly.com/product/9780596529833.do "vi and vim")
 
 ## Awk & Sed
