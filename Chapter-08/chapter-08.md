@@ -455,13 +455,29 @@ Entry                                Description                          Equiva
 
 ### awk & gawk
 
+https://www.youtube.com/watch?v=20QeFkwXgCE
+
 Gawk is the GNU Project's implementation of the AWK programming language.  It conforms to the definition of the language in the POSIX 1003.1 standard.  This version in turn is based on the description in The  AWK  Programming Language, by Aho, Kernighan, and Weinberger.  Gawk provides the additional features found in the current version of Brian Kernighan's awk and numerous GNU-specific extensions.
 
 An AWK program consists of a sequence of optional directives, pattern-action statements, and optional function definitions.
 
-```pattern { action statements }```
+```awk pattern { action statements }```
+```awk
+awk [options] <'program'> [file1] [file2][...]
+```
 
+grep "124.42.62.248" hosts.deny
 
+which Ip had the most HTTP 404 errors u_ex150726.log u_ex151002.log
+field name is sc-status
+How would we capture the top 5 offending IPs? (Figure out what columen number sc-status is)
+
+How could we look for everything that isn't a 404?
+
+Check Wordpress for filesystem hacks
+search for '/' or '..' or /etc   or names like passwd .htacess my.cnf
+
+awk '$11~/\.\.\//' u_ex150721.log
 ### sed
 
 'sed' is a stream editor.  A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline). While in some ways similar to an editor which permits scripted edits (such as 'ed'), 'sed' works by making only one pass over the input(s), and is consequently more efficient.  But it is 'sed''s ability to filter text in a pipeline which particularly distinguishes it from other types
