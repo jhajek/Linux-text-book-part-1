@@ -597,9 +597,26 @@ d. FOR
 
 ### Podcast Questions
 
-__FreeBSD__  
+__Jenkins__
 
-TBA
+[https://twit.tv/shows/floss-weekly/episodes/443](https://twit.tv/shows/floss-weekly/episodes/443 "jenkins on floss weekly podcast")
+
+Kohsuke Kawaguchi
+
+* ~3:30 What is Jenkins and what does it do?
+* ~7:54 What problem are people solving when using Jenkins?
+* ~9:25 What are Jenkins plugins and why do they exist? 
+* ~10:33 How did Jenkins get started?
+* ~13:30 What was happening to Sun in 2004/2005?
+* ~14:37 Why did the project name change from Hudson to Jenkins?
+* ~20:30 What licesnse does Jenkins use and why?
+* ~21:09 What language is Jenkins built on?
+* ~22:00 What is Koshuke's company name and who does he compare his company too?
+* ~29:25 What is the approximate size of the developer community?
+* ~34:55 What has changed in Jenkins since 2011?
+* ~40:00 What are some of the benefits of using a opensource softare with alarge comminity of users?
+* ~42:30 What does CloudBees provide for Jenkins customers?
+* ~45:20 Who has control over the Jenkins project - the Jenkins developer community or CloudBees?
 
 ### Lab
 
@@ -615,7 +632,7 @@ __Notes__
 
 In the Github repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your Github URL.
 
-  1) What would be the command to create an array in Bash named itemARRAY? 
+  1) What would be the command to create an array in Bash named itemARRAY?
 
   1) Write a shell script that declares an array in Bash named dirarr. Using the mapfile command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
   
@@ -639,7 +656,6 @@ In the Github repo provided to you please create a folder in your ITMO-556 direc
   
   1) Repeat the previous cron command but this time redirect the standard out and standard error to a file named ~/Documents/my.log
   
-
 #### Footnotes
 
 [^86]: [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
