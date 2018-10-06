@@ -466,7 +466,7 @@ An AWK program consists of a sequence of optional directives, pattern-action sta
 awk [options] <'program'> [file1] [file2][...]
 ```
 
-grep "124.42.62.248" hosts.deny
+grep "2.4.150.1" hosts.deny
 
 which Ip had the most HTTP 404 errors u_ex150726.log u_ex151002.log
 field name is sc-status
