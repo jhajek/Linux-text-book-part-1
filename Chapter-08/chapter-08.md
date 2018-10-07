@@ -455,50 +455,79 @@ Entry                                Description                          Equiva
 
 ### awk & gawk
 
-https://www.youtube.com/watch?v=20QeFkwXgCE
-
-Gawk is the GNU Project's implementation of the AWK programming language.  It conforms to the definition of the language in the POSIX 1003.1 standard.  This version in turn is based on the description in The  AWK  Programming Language, by Aho, Kernighan, and Weinberger.  Gawk provides the additional features found in the current version of Brian Kernighan's awk and numerous GNU-specific extensions.
+AWK is a programming language designed for text processing and typically used as a data extraction and reporting tool. It is a standard feature of most Unix-like operating systems[^91]. This original program was released in 1977, and was a powerful and focused lanugage.  We take things like Perl, Python, and even databases such as MySQL and SQLite. The ```awk``` language was designed to do all these things because at the time text based files was the universal datatype.  The initial program was developed by [Alfred Aho](https://en.wikipedia.org/wiki/Alfred_Aho "Alfred Aho"), [Peter Weinberger](https://en.wikipedia.org/wiki/Peter_J._Weinberger "peter J. Weinberger"), and [Brian Kerhnighan](https://en.wikipedia.org/wiki/Brian_Kernighan "Brian Kernighan") at Bell Labs.  
 
 An AWK program consists of a sequence of optional directives, pattern-action statements, and optional function definitions.
 
-```awk pattern { action statements }```
+```awk
+awk pattern { action statements }
+```
+
 ```awk
 awk [options] <'program'> [file1] [file2][...]
 ```
 
-grep "2.4.150.1" hosts.deny
+Lets compare what ```awk``` can do:
 
-which Ip had the most HTTP 404 errors u_ex150726.log u_ex151002.log
-field name is sc-status
-How would we capture the top 5 offending IPs? (Figure out what columen number sc-status is)
+* How would you find which ip caused the most HTTP 404 errors? Take these two files in ```files/Chapter-08/logs``` u_ex150721.log u_ex151002.log.
+* How would we capture the top 5 offending IPs? What column number is sc-status?
+* How could we look for everything that isn't a 404?
+* How would you check for Wordpress filesystem hacks by searching for '/' or '..' or /etc or names like passwd .htacess my.cnf?
+  + ```awk '$11~/\.\.\//' u_ex150721.log```
+* What is the difference between ```cat hosts.deny``` and ```awk '{print;}' hosts.deny```
+* How would you print out all lines of a file that contain a \# as the first character?
+  + ```awk '$0~/^#/' hosts.deny```
+* How would you print out all lines of a file that do not contain a \# as the first character?
+  + ```awk '$0!~/^#/' hosts.deny```
 
-How could we look for everything that isn't a 404?
-
-Check Wordpress for filesystem hacks
-search for '/' or '..' or /etc   or names like passwd .htacess my.cnf
-
-awk '$11~/\.\.\//' u_ex150721.log
-### sed
-
-'sed' is a stream editor.  A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline). While in some ways similar to an editor which permits scripted edits (such as 'ed'), 'sed' works by making only one pass over the input(s), and is consequently more efficient.  But it is 'sed''s ability to filter text in a pipeline which particularly distinguishes it from other types
-of editors.
-
-```sed script inputfile```
-
-```sed -e s/^ /$g ```
-
-```sed -i -e s/^ /$g filename ```
+The ```awk``` program works very well, but as the standard text based logs migrate to the binary format of ```journalctl``` what happens? The ```journalctl``` command has a --no-pager option to effectively print out all of the journal.  You can use ```awk``` in conjunction.  How would you scan the journal looking for all log entries related to the sshd daemon? How would you do it in grep and cut?  How would you do it in awk?
 
 ```bash
-#http://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Jails
-sudo sed -i "s/bantime = 600/bantime = 10000/g" /etc/fail2ban/jail.conf
-sudo systemctl enable fail2ban
-sudo service fail2ban restart
+sudo journalctl --no-pager | awk '$5 ~ /^sshd/'
 ```
+
+Lets take a look at this statement:[^90]
+
+*  \$5 tells awk to look at the fifth "column". 
+*  \~ tells awk to do a RegularExpression match \/....\/ is a Regular expression. 
+* Within the RE is the string Linux and the special character \^.
+* \^ causes the RE to match from the start (as opposed to matching anywhere in the line).
+* Seen together: Awk will match a regular expression with "Linux" at the start of the first column.
+
+You can find more information at this IBM tutorial: [Awk by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "Awk by example")
+
+### sed
+
+```sed``` is a stream editor.  A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline). While in some ways similar to an editor which permits scripted edits (such as 'ed'), 'sed' works by making only one pass over the input(s), and is consequently more efficient.  But it is the ability of ```sed``` to filter text in a pipeline which particularly distinguishes it from other types
+of editors.
+
+```sed
+sed script inputfile
+```
+
+The ```sed``` command uses regular expressesions between the ```\/..\/```[^92]
+
+* \^ Matches the beginning of the line
+* \$ Matches the end of the line
+* \. Matches any single character
+* \* Will match zero or more occurrences of the previous character
+* \[ \] Matches all the characters inside the \[ \]
+
+The command to show all lines that do not start with a '\#' below, how would you make the command print all the lines that do start with a '\#'?
+
+```sed -e '/^#/d' hosts.deny | head```
+
+Looking at this command, using the GNU version of ```sed``` they introduced the -i flag that will make your change and re-write it to the same file.  What is happening in the script below?
+
+```bash
+sudo sed -i "s/bantime = 600/bantime = 10000/g" /etc/fail2ban/jail.conf
+```
+
+For more information see this IBM tutorial: [sed by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "sed by example")
 
 ## Chapter Conclusions and Review
 
-  Through this chapter we learned about how to extend and improve our ability to write shell scripts.  We learned about system variables and their scope.  We also learned about positional paramteres and how to pass values into a shell script.  We learned about basic Bash control structures IF and FOR, and finally concluded learning about automating shell script launches using the cron service via cron tab.
+Through this chapter we learned about how to extend and improve our ability to write shell scripts.  We learned about system variables and their scope.  We also learned about positional paramteres and how to pass values into a shell script.  We learned about basic Bash control structures IF and FOR, and finally concluded learning about automating shell script launches using the cron service via cron tab.
 
 ### Review Questions
 
@@ -648,30 +677,36 @@ __Notes__
 
 In the Github repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your Github URL.
 
-  1) What would be the command to create an array in Bash named itemARRAY?
+1) What would be the command to create an array in Bash named itemARRAY?
 
-  1) Write a shell script that declares an array in Bash named dirarr. Using the mapfile command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
+1) Write a shell script that declares an array in Bash named dirarr. Using the mapfile command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
   
-  1) Write a for loop to iterate through that array and print every element of the line out on the screen.  (Make sure you detect the length of the array and use a $LENGTH variable as your sentinel condition.
+1) Write a for loop to iterate through that array and print every element of the line out on the screen.  (Make sure you detect the length of the array and use a $LENGTH variable as your sentinel condition.
   
-  1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
+1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
   
-  1)  From the clones textbook code,  locate the file install-java8.sh located in the **files/Chapter-08/lab** directory.  Modify the script to include IF statements to check for the existance of the path ```/datapool1``` and to print an error message if the path does not exist.
+1)  From the clones textbook code,  locate the file install-java8.sh located in the **files/Chapter-08/lab** directory.  Modify the script to include IF statements to check for the existance of the path ```/datapool1``` and to print an error message if the path does not exist.
   
-  1) Modify install-java8.sh again--this time take a positional parameter and put that in place of the directory name ```/datapoo1``` (this will allow you to customize the install location of the shell script).  
+1) Modify install-java8.sh again--this time take a positional parameter and put that in place of the directory name ```/datapoo1``` (this will allow you to customize the install location of the shell script).  
   
-  1) Modify the install-java8.sh from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script.
+1) Modify the install-java8.sh from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script.
   
-  1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
+1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
   
-  1) Write a shell script to check in the ~/topsecret directory to see if a given file name exists.  If TRUE print a message else print an error message with the given file name being passed.
+1) Write a shell script to check in the ~/topsecret directory to see if a given file name exists.  If TRUE print a message else print an error message with the given file name being passed.
   
-  1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
+1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
   
-  1) Write a shell script that take 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
+1) Write a shell script that take 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
   
-  1) Repeat the previous cron command but this time redirect the standard out and standard error to a file named ~/Documents/my.log
+1) Repeat the previous cron command but this time redirect the standard out and standard error to a file named ~/Documents/my.log
   
+1) Using awk and other tools, how would you find which ip caused the most HTTP 404 errors? Take a screenshot of the command and the output.  Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log.
+
+1) Using awk and other tools, how would you capture the top 5 offending IPs? Take a screenshot of the command and the output. Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log.
+
+1) Using sed, type the command to find the line **bind-address** located in the mariadb database server config file (you might need to install mariadb-server).  The file locations are: Fedora 28 ```/etc/my.cnf.d/mariadb-server.cnf``` and Ubuntu 16 and 18 ```/etc/mysql/mariadb.conf.d/50-server.cnf```.  Comment out the value, change the IP value to 0.0.0.0, and write the change back to the original file.  Take a screenshot of the command.
+
 #### Footnotes
 
 [^86]: [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
@@ -681,3 +716,9 @@ In the Github repo provided to you please create a folder in your ITMO-556 direc
 [^88]: [https://en.wikipedia.org/wiki/Cron#Nonstandard_predefined_scheduling_definitions](https://en.wikipedia.org/wiki/Cron#Nonstandard_predefined_scheduling_definitions)
 
 [^89]: [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html "Case Statements")
+
+[^90]: [https://unix.stackexchange.com/questions/72734/awk-print-line-only-if-the-first-field-start-with-string-as-linux1](https://unix.stackexchange.com/questions/72734/awk-print-line-only-if-the-first-field-start-with-string-as-linux1 "awk and print line only if the first field start with string as Linux1")
+
+[^91]: [https://en.wikipedia.org/wiki/AWK](https://en.wikipedia.org/wiki/AWK "AWK")
+
+[^92]: [https://www.ibm.com/developerworks/library/l-sed1/index.html](https://www.ibm.com/developerworks/library/l-sed1/index.html "sed")

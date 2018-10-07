@@ -719,7 +719,6 @@ The objectives of this lab will be to use the shell and understand meta-characte
 1.  1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
      i) Take a screenshot of the above command with output
 
-
 ## Chapter 07
 
 ### Review Questions
@@ -846,10 +845,183 @@ __Deliverable:__
 
 ## Chapter 08
 
-### Podcast
+### Review Questions
+
+1) True or False The Bash shell scripting language has traditional language constructs like C or Java?
+
+2) What meta-character do you use to access the content of a shell variable?
+a.  ```$```
+b.  ```#```
+c.  ```!```
+d.  No character - trick questions
+
+3) When assigning the standard output of a command to a variable what characters do you encase the command in?
+a. \`\`
+b. ```$```
+c. ```""```
+d. No characters - trick questions
+
+4) True or False - You can include shell meta-charecters inside of two backticks ```\`\```` - example: ```ANS=`ls -l test[1-5]````
+
+5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
+a.  ```DIR='ls -l ./test[1-4].txt'```
+b.  ```DIR = \`ls -l ./test[1-4].txt\````
+c.  ```$DIR=\`ls -l ./test[1-4].txt\````
+d.  ```DIR=\`ls -l ./test[1-4].txt\````
+
+6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables)
+a. ```#!/bin/bash```
+b. ```!#/bin/bash```
+c. ```#!/usr/local/bin/bash```
+d. ```#/bin/bash```
+e. ```#!/bin/ksh```
+
+7) If you stored the output of the command hostname into a variable named sys-hostname, what would be the command to print the content to the screen?
+a.  ```echo $HOSTNAME```
+b.  ```echo $hostname```
+c.  ```echo $SYS-HOSTNAME```
+d.  ```echo $sys-hostname```
+
+8) What is the name of the command to print out all the predefined system variables?
+
+9) What is the name of the command that allows you to take stdout of a command and insert the lines of output into an array?
+a. arrayfile
+b. declare
+c. for loop
+d. mapfile
+
+10)  Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
+a. ```mapfile SEARCHARRAY = (find ~ -name mozilla*)```
+b. ```mapfile SEARCHARRAY < < (find ~ -name mozilla*)```
+c. ```mapfile -t SEARCHARRAY < <(find ~ -name mozilla*)```
+d. ```mapfile -t SEARCHARRY < (find ~ -name mozilla*)```
+
+11)  Which below is a valid command to find the LENGTH of an array?
+a. ```${#SEARCHARRAY[@]}```
+b. ```${SEARCHARRAY[@]}```
+c. ```${SEARACHARRAY[#]}```
+d. ```${@SEARCHARRAY[#]}```
+
+12)Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy```
+a.  ```echo $0```
+b.  ```echo $1```
+c.  ```echo args[1]```
+d.  ```echo {$1}```
+
+13) Based on this shell script and positional parameters, what would the command be to print out the entire content of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```
+a.  ```echo $#```
+b.  ```echo @!```
+c.  ```echo $0```
+d.  ```echo $@```
+
+14) Based on this shell script and positional parameters, what would the command be to print out the LENGTH of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```
+a.  ```echo $#```
+b.  ```echo @!```
+c.  ```echo $0```
+d.  ```echo $@```
+
+15) In a Bash IF statement, what is the name for the pre-made test conditions?
+a. Primaries
+b. Secondary expressions
+c. Expression
+d. Primary expressions
+
+16) All values in a Bash IF statement are of what data type by default?
+a. INT
+b. STRING
+c. NULL
+d. CHAR
+
+17) Which of these answers will execute a shell script named ~/backup.sh at 2 am every night of the week?
+a. ```* * * * * ~/backup.sh```
+b. ```2 * * * * ~/backup.sh```
+c. ```* 2 * * * ~/backup.sh```
+d. ```* * * 2 * ~/backup.sh```
+
+18) Which of these answers will execute a shell script named ~/clean-directory.sh every 15 minutes?
+a. ```3/15 * * * * ~/clean-directory.sh```
+b. ```*/15 * * * * ~/clean-directory.sh```
+c. ```* 3/15 * * * ~/clean-directory.sh```
+d. ```* */15 * * * ~/clean-directory.sh```
+
+19) Which of the crontab builtins would you use to execute a cron job 1 time a year on midnight of January 1st?  The name of the script is ~/give-free-cash-to-students.sh
+a. ```* * * * 1 ~/give-free-cash-to-students.sh```
+b. ```1 * * * * ~/give-free-cash-to-students.sh```
+c. ```1 1 1 1 1 ~/give-free-cash-to-students.sh```
+d. &#64;```yearly ~/give-free-cash-to-students.sh```
+
+20) What is the name of the control structure that allows you to incrementally through the contents of an array?
+a. IF
+b. CASE
+c. UNTIL
+d. FOR
+
+### Podcast Questions
+
+__Jenkins__
+
+[https://twit.tv/shows/floss-weekly/episodes/443](https://twit.tv/shows/floss-weekly/episodes/443 "jenkins on floss weekly podcast")
+
+Kohsuke Kawaguchi
+
+* ~3:30 What is Jenkins and what does it do?
+* ~7:54 What problem are people solving when using Jenkins?
+* ~9:25 What are Jenkins plugins and why do they exist? 
+* ~10:33 How did Jenkins get started?
+* ~13:30 What was happening to Sun in 2004/2005?
+* ~14:37 Why did the project name change from Hudson to Jenkins?
+* ~20:30 What licesnse does Jenkins use and why?
+* ~21:09 What language is Jenkins built on?
+* ~22:00 What is Koshuke's company name and who does he compare his company too?
+* ~29:25 What is the approximate size of the developer community?
+* ~34:55 What has changed in Jenkins since 2011?
+* ~40:00 What are some of the benefits of using a opensource softare with alarge comminity of users?
+* ~42:30 What does CloudBees provide for Jenkins customers?
+* ~45:20 Who has control over the Jenkins project - the Jenkins developer community or CloudBees?
 
 ### Lab
 
+__Objectives__
+
+This lab will allow you to create shell scripts.  Use positional parameters, control structures, and write cron jobs.
+
+__Outcomes__
+
+At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts.
+
+__Notes__ 
+
+In the Github repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your Github URL.
+
+1) What would be the command to create an array in Bash named itemARRAY?
+
+1) Write a shell script that declares an array in Bash named dirarr. Using the mapfile command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
+  
+1) Write a for loop to iterate through that array and print every element of the line out on the screen.  (Make sure you detect the length of the array and use a $LENGTH variable as your sentinel condition.
+  
+1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
+  
+1)  From the clones textbook code,  locate the file install-java8.sh located in the **files/Chapter-08/lab** directory.  Modify the script to include IF statements to check for the existance of the path ```/datapool1``` and to print an error message if the path does not exist.
+  
+1) Modify install-java8.sh again--this time take a positional parameter and put that in place of the directory name ```/datapoo1``` (this will allow you to customize the install location of the shell script).  
+  
+1) Modify the install-java8.sh from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script.
+  
+1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
+  
+1) Write a shell script to check in the ~/topsecret directory to see if a given file name exists.  If TRUE print a message else print an error message with the given file name being passed.
+  
+1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
+  
+1) Write a shell script that take 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
+  
+1) Repeat the previous cron command but this time redirect the standard out and standard error to a file named ~/Documents/my.log
+  
+1) Using awk and other tools, how would you find which ip caused the most HTTP 404 errors? Take a screenshot of the command and the output.  Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log.
+
+1) Using awk and other tools, how would you capture the top 5 offending IPs? Take a screenshot of the command and the output. Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log.
+
+1) Using sed, type the command to find the line **bind-address** located in the mariadb database server config file (you might need to install mariadb-server).  The file locations are: Fedora 28 ```/etc/my.cnf.d/mariadb-server.cnf``` and Ubuntu 16 and 18 ```/etc/mysql/mariadb.conf.d/50-server.cnf```.  Comment out the value, change the IP value to 0.0.0.0, and write the change back to the original file.  Take a screenshot of the command.
 
 ## Chapter 09
 
