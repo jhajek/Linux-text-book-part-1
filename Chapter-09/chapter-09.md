@@ -450,11 +450,11 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
 
 ## Secure Shell
 
-The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  There was seen as no need for security or encryption of data sent over a network.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 199x introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  (Add link here to announcement)
+The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  The need for security or encryption of data sent over a network was not appearent.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 199x introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  (Add link here to announcement)
 
 > You can access SSH from the command line via typing: ```ssh -V```
 
-By default the SSH *client* is installed on all Linux and Unix systems.  It can be installed on a Microsoft Windows system as a native package by adding it through the settings panel (find instructions) as it is being actively developed in step with OpenSSH from BSD I would recommend this above all other solutions available. 
+By default the SSH *client* is installed on all Linux and Unix systems.  It can be installed on a Microsoft Windows system as a native package by adding it through the settings panel (find instructions) as it is being actively developed in step with OpenSSH from BSD I would recommend this above all other solutions available.
 
 You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This is predicated via either username account and password or RSA key.
 
@@ -466,7 +466,7 @@ You can install the OpenSSH *server* that allows clients to make remote connecti
 
 SSH works because of Public/Private Key Encryption and a standard created and widely adopted by the RSA company.  Without going to deep into RSA encryption, this set of public and private keys allows you to securely transmit information accross an untrusted network.  How does it work?
 
-Each person generates a **keypair**, a public key and a private key. Both halves of the key make up the single key used for authentication.  These keys are exactly what they sound like.  The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened.  Think of the **public key** as the lock on your front door.  Conceivably anyone can come up to that lock and try to insert a key.  Unless they have the particular key, the lock won't open.   The **private key** is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.   
+Each person generates a **keypair**, a public key and a private key. Both halves of the key make up the single key used for authentication.  These keys are exactly what they sound like.  The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened.  Think of the **public key** as the lock on your front door.  Conceivably anyone can come up to that lock and try to insert a key.  Unless they have the particular key, the lock won't open.   The **private key** is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.
 
 How do you then exchange data?  First you generate a keypair.   On the command line you can issue the command: ```ssh-keygen``` and take notice of the prompts:
 
@@ -494,7 +494,7 @@ Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork o
 
 ### SFTP
 
-Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.
+Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.  Some would argue the rise in using version control such as Git makes SFTP/FTP redundant.  
 
 ### SCP
 
