@@ -445,7 +445,7 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
   * Permission
      +  Every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la or see if you need sudo.
   * dePendencies
-     +  The last thing is are all the correct software dependencies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?  For example in the sample above running runwhen, you need Python3 installed.  If you typed ```python runwhen.py``` you would receive a strange python error which would take you off on a useless googling experience.  The problem is you needed to type ```python3 runwhen.py``` and if you don't have python3 installed you will have a dependency problem.
+     +  Are all the correct software dependencies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?  For example in the sample above running runwhen, you need Python3 installed.  If you typed ```python runwhen.py``` you would receive a strange python error which would take you off on a useless googling experience.  The problem is you needed to type ```python3 runwhen.py``` and if you don't have python3 installed you will have a dependency problem.
   * All else fails and you still have a problem, see if it is a full moon outside. =)
 
 ## Secure Shell
