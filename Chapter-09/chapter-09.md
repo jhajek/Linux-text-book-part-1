@@ -237,7 +237,7 @@ journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
 
 > See log entries created only by the SSH service
 ```bash
-journalctl _COMM=sshd
+  journalctl -u sshd
 ```
 
 ### Log rotation
@@ -643,7 +643,7 @@ Node.js Update
 * ~17:20 What are the two popular desktop apps built in NodeJS that Mikael mentioned?
 * ~ 19:30 What are some of the ways to learn NodeJS?
 * ~ 21:30 What did Microsoft do with NodeJS and where did it get Node?
-* ~ 22:30, Mikael mentions multiple languages: TypeScript, CoffeeScript, Electron, and Dart -- what are they and hwo do they relate to the NodeJS project? (Need to do some side research)
+* ~ 22:30 Mikael mentions multiple languages: TypeScript, CoffeeScript, Electron, and Dart -- what are they and how do they relate to the NodeJS project? (Need to do some side research)
 * ~25:27 What company started the NodeJS and eventually the NodeJS foundation? (Currently owned by Samsung)
 * ~ 26:43 What does the NodeJS foundation do (what is its role?)
 * ~ 34:00 Who is the guest and what is his job?
@@ -669,7 +669,7 @@ Outcomes
 
    At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm.  You will understand the binary logging mechanism of journald.  You will be able to add, delete, and modify user accounts.  Finally you will be able to schedule shell scripts to execute at repeated intervals.
 
-   __Note__ you will need to submit a screenshot of the correct command(s) in action.
+   __Note__ Submit the answers all contained in one shellscript 
    __Note__ if a command asks you to work on a user that doesn't exist it is assumed that you have to create it.
    __Note__ The ```mysqldump``` application requires the ```mysql-client``` package to be installed. [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
 
