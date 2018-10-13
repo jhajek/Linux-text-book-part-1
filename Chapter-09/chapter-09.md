@@ -468,14 +468,10 @@ Each person generates a **keypair**, a public key and a private key. Both halves
 
 How do you then exchange data?  First you generate a keypair.   On the command line you can issue the command: ```ssh-keygen``` and take notice of the prompts:
 
-![*Windows 10 Native ssh -V*](images/Chapter-09/ssh/windows10-ssh-v.png "Windows 10 Native ssh -V")
-![*Fedora 28 Native ssh -V*](images/Chapter-09/ssh/fedora28-ssh-v.png "Fedors 28 Native ssh -V")
-![*Ubuntu 16.04.5 Native ssh -V*](images/Chapter-09/ssh/ubuntu16045-ssh-v.png "Ubuntu 16.04.5 Native ssh -V")
-![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd11-ssh-v.png"FreeBSD 11.2 Native ssh -V")
-
-There is a command that will let you securely exchange RSA keys with a server.
-
-```ssh-copy-id username@host```  which requires you first to have an account on the server (host) you are connecting to.
+![*Windows 10 Native ssh -V*](images/Chapter-09/ssh/windows10-ssl-v.png "Windows 10 Native ssh -V")
+![*Fedora 28 Native ssh -V*](images/Chapter-09/ssh/fedora28-ssl-v.png "Fedors 28 Native ssh -V")
+![*Ubuntu 16.04.5 Native ssh -V*](images/Chapter-09/ssh/ubuntu16045-ssl-v.png "Ubuntu 16.04.5 Native ssh -V")
+![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd11-ssl-v.png "FreeBSD 11.2 Native ssh -V")
 
 #### OpenSSL
 
@@ -483,7 +479,7 @@ Opensource Library used for crytographic key generation and by OpenSSH.  In 2016
 
 The heartbleed OpenSSL bug even has its own website to explain the deatils of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
 
-> "he Heartbleed Bug is a serious vulnerability in the popular OpenSSL cryptographic software library. This weakness allows stealing the information protected, under normal conditions, by the SSL/TLS encryption used to secure the Internet. SSL/TLS provides communication security and privacy over the Internet for applications such as web, email, instant messaging (IM) and some virtual private networks (VPNs)[^106]."
+> "The Heartbleed Bug is a serious vulnerability in the popular OpenSSL cryptographic software library. This weakness allows stealing the information protected, under normal conditions, by the SSL/TLS encryption used to secure the Internet. SSL/TLS provides communication security and privacy over the Internet for applications such as web, email, instant messaging (IM) and some virtual private networks (VPNs)[^106]."
 
 > "The Heartbleed bug allows anyone on the Internet to read the memory of the systems protected by the vulnerable versions of the OpenSSL software. This compromises the secret keys used to identify the service providers and to encrypt the traffic, the names and passwords of the users and the actual content. This allows attackers to eavesdrop on communications, steal data directly from the services and users and to impersonate services and users[^106]."
 
@@ -504,7 +500,6 @@ Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork o
 
 Primary development occurs inside the OpenBSD source tree with the usual care the project is known for. On a regular basis the code is re-packaged for portable use by other operating systems (Linux, FreeBSD, Windows, etc)[^105]."  
 
-
 ### SFTP
 
 Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.  Some would argue the rise in using version control such as Git makes SFTP/FTP redundant.  
@@ -512,6 +507,18 @@ Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This a
 ### SCP
 
 Secure cp (copy) Allows for using the ```cp``` command to a remote system via SSH, as SFTP should be used for moving multiple files, this command is good for moving a single file quickly via the command line.
+
+### ssh-copy-id and ssh config file
+
+After generating an SSH keypair with the command ```ssh-keygen```, you now have the two keys located in you ```~/.ssh``` directory.  The file with the .pub extension is the public key, the other is the private key.  Guard the private key with your life.  
+
+![*ssh-keygen command output*](images/Chapter-09/ssh/ssh-keygen.png "ssh-keygen command output")
+
+There is a command that will let you securely exchange RSA keys with a server.
+
+```ssh-copy-id username@host```  which requires you first to have an account on the server (host) you are connecting to.
+
+
 
 ## Chapter Conclusions and Review
 
