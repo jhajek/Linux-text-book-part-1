@@ -468,9 +468,10 @@ Each person generates a **keypair**, a public key and a private key. Both halves
 
 How do you then exchange data?  First you generate a keypair.   On the command line you can issue the command: ```ssh-keygen``` and take notice of the prompts:
 
-Insert screen shots here:
-Insert screen shots here:
-Insert screen shots here:
+![*Windows 10 Native ssh -V*](images/Chapter-09/ssh/windows10-ssh-v.png "Windows 10 Native ssh -V")
+![*Fedora 28 Native ssh -V*](images/Chapter-09/ssh/fedors28-ssh-v.png "Fedors 28 Native ssh -V")
+![*Ubuntu 16.04.5 Native ssh -V*](images/Chapter-09/ssh/ubuntu16045-ssh-v "Ubuntu 16.04.5 Native ssh -V")
+![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd11-ssh-v "FreeBSD 11.2 Native ssh -V")
 
 There is a command that will let you securely exchange RSA keys with a server.
 
@@ -502,8 +503,6 @@ Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork o
 > "LibreSSL is a version of the TLS/crypto stack forked from OpenSSL in 2014, with goals of modernizing the codebase, improving security, and applying best practice development processes.
 
 Primary development occurs inside the OpenBSD source tree with the usual care the project is known for. On a regular basis the code is re-packaged for portable use by other operating systems (Linux, FreeBSD, Windows, etc)[^105]."  
-
-
 
 
 ### SFTP
@@ -681,11 +680,11 @@ Objectives
 
 Outcomes
 
-   At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm.  You will understand the binary logging mechanism of journald.  You will be able to add, delete, and modify user accounts.  Finally you will be able to schedule shell scripts to execute at repeated intervals.
+At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm.  You will understand the binary logging mechanism of journald.  You will be able to add, delete, and modify user accounts.  Finally you will be able to schedule shell scripts to execute at repeated intervals.
 
-   __Note__ Submit the answers all contained in one shellscript 
-   __Note__ if a command asks you to work on a user that doesn't exist it is assumed that you have to create it.
-   __Note__ The ```mysqldump``` application requires the ```mysql-client``` package to be installed. [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
+__Note__ Submit the answers all contained in one shellscript 
+__Note__ if a command asks you to work on a user that doesn't exist it is assumed that you have to create it.
+__Note__ The ```mysqldump``` application requires the ```mysql-client``` package to be installed. [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
 
    1)  What would be the command to add a user named "controller" to your system - using the system default values?  
 
