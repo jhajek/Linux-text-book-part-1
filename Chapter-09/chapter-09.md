@@ -513,7 +513,7 @@ Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This a
 
 Secure cp (copy) Allows for using the ```cp``` command to a remote system via SSH, as SFTP should be used for moving multiple files, this command is good for moving a single file quickly via the command line.
 
-### ssh-copy-id and ssh config file
+### ssh-copy-id
 
 After generating an SSH keypair with the command ```ssh-keygen```, you now have the two keys located in you ```~/.ssh``` directory.  The file with the .pub extension is the public key, the other is the private key.  Guard the private key with your life.  
 
@@ -523,8 +523,23 @@ There is a command that will let you securely exchange RSA keys with a server.
 
 ```ssh-copy-id username@hostname```  which requires you first to have an account on the server (host) you are connecting to.  There is an optional command if you want to transfer the identity other than the default id_rsa, ```ssh-copy-id -i identityname username@hostname```
 
+### ssh config file
 
+The ssh command has a provision for a file named ```config``` located in the ```~/.ssh``` directory.  This is where you can hardcode short cut information per connection.  Items such as:
 
+* Turning off stricthostkeychecking
+* predefining hostname
+* defining a non-default connection port
+* predefining a password (not recommended)
+* defining a non-default RSA private key
+
+The format of the file is as such:
+
+![*ssh config file](images/Chapter-09/ssh/config./png "ssh config file")
+
+By having this config file the command: ```ssh joseph@development.com -i id_ub2``` now becomes ```ssh devel```.
+
+The full range of options for the config file can be found in this Digital Ocean Turotial located at [https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client](https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client "Digital Ocean Tutorial for ssh config file")
 ## Chapter Conclusions and Review
 
 Through this chapter we learned about the su, sudo, and root user account paradigms.  We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored.  We learned about a newer logging format in the journald service from systemd.  Finally we learned about system monitoring tools for visual display of system resources being used.  Finally we learned about the 3Ps of Linux troubleshooting.
