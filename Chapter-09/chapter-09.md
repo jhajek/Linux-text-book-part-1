@@ -450,7 +450,7 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
 
 ## Secure Shell
 
-The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  The need for security or encryption of data sent over a network was not appearent.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 199x introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  (Add link here to announcement)
+The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  The need for security or encryption of data sent over a network was not appearent.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1994 introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  (Add link here to announcement)
 
 > You can access SSH from the command line via typing: ```ssh -V```
 
@@ -458,9 +458,7 @@ By default the SSH *client* is installed on all Linux and Unix systems.  It can 
 
 You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This is predicated via either username account and password or RSA key.
 
-> ```sudo apt-get install openssh-server```
-```sudo dnf install openssh-server```
-```ports install openssh-server```
+> ```sudo apt-get install openssh-server``` and ```sudo dnf install openssh-server```
 
 ### RSA keys
 
@@ -482,15 +480,22 @@ There is a command that will let you securely exchange RSA keys with a server.
 
 Opensource Library used for crytographic key generation and by OpenSSH.  In 2016 suffered an exploit due to the nature of the library maintaining older code from non-existant systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributred almost nothing to its development.   After the exploit a hugh infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
 
-[heartbleed]
+The heartbleed OpenSSL bug even has its own website to explain the deatils of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
+
+> "he Heartbleed Bug is a serious vulnerability in the popular OpenSSL cryptographic software library. This weakness allows stealing the information protected, under normal conditions, by the SSL/TLS encryption used to secure the Internet. SSL/TLS provides communication security and privacy over the Internet for applications such as web, email, instant messaging (IM) and some virtual private networks (VPNs)[^106]."
+
+> "The Heartbleed bug allows anyone on the Internet to read the memory of the systems protected by the vulnerable versions of the OpenSSL software. This compromises the secret keys used to identify the service providers and to encrypt the traffic, the names and passwords of the users and the actual content. This allows attackers to eavesdrop on communications, steal data directly from the services and users and to impersonate services and users[^106]."
 
 #### LibreSSL
 
-Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork of the OpenSSL repo and began to strip out as much uneeded code as possible and to write new code.  This library became the default cryptographic library on OpenBSD and was ported to Linux.  Though it is new and has a smaller attack surface, so many products (for better or worse) are using OpenSSL that they have not or cannot switch libraries. Microsoft adopted its use in their native SSh client and server in Windows 10 as well. 
+Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork of the OpenSSL project code and called it [LibreSSL](https://www.libressl.org/ "LibreSSL") and began to strip out as much uneeded code as possible and to write new code.  This library became the default cryptographic library on OpenBSD and was ported to Linux.  Though it is new and has a smaller attack surface, so many products (for better or worse) are using OpenSSL that they have not or cannot switch libraries. Microsoft adopted its use in their native SSh client and server in Windows 10 as well.
 
-[Native SSH link]
+> "LibreSSL is a version of the TLS/crypto stack forked from OpenSSL in 2014, with goals of modernizing the codebase, improving security, and applying best practice development processes.
 
-[BSD LibreSSL announcement and link]
+Primary development occurs inside the OpenBSD source tree with the usual care the project is known for. On a regular basis the code is re-packaged for portable use by other operating systems (Linux, FreeBSD, Windows, etc)[^105]."  
+
+
+
 
 ### SFTP
 
@@ -744,3 +749,7 @@ Outcomes
 [^103]: [http://hisham.hm/htop/](http://hisham.hm/htop/)
 
 [^104]: [https://en.wikipedia.org/wiki/Syslog](https://en.wikipedia.org/wiki/Syslog)
+
+[^105]: [https://www.libressl.org/](https://www.libressl.org/ "Libressl")
+
+[^106]: [http://heartbleed.com](http://heartbleed.com "heartbleed")
