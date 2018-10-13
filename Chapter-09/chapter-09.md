@@ -450,7 +450,7 @@ IF you have ever worked on Windows OS you will notice that they have much deeper
 
 ## Secure Shell
 
-The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  The need for security or encryption of data sent over a network was not appearent.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1994 introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  (Add link here to announcement)
+The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  The need for security or encryption of data sent over a network was not appearent.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1999, appearing first in OpenBSD 2.6, introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  In fact [Microsoft was the first ever gold-level sponsor of the OpenBSD project](https://undeadly.org/cgi?action=article&sid=20150708134520 "Microsoft was the first ever gold-level sponsor of the OpenBSD project").
 
 > You can access SSH from the command line via typing: ```ssh -V```
 
@@ -469,9 +469,9 @@ Each person generates a **keypair**, a public key and a private key. Both halves
 How do you then exchange data?  First you generate a keypair.   On the command line you can issue the command: ```ssh-keygen``` and take notice of the prompts:
 
 ![*Windows 10 Native ssh -V*](images/Chapter-09/ssh/windows10-ssh-v.png "Windows 10 Native ssh -V")
-![*Fedora 28 Native ssh -V*](images/Chapter-09/ssh/fedors28-ssh-v.png "Fedors 28 Native ssh -V")
-![*Ubuntu 16.04.5 Native ssh -V*](images/Chapter-09/ssh/ubuntu16045-ssh-v "Ubuntu 16.04.5 Native ssh -V")
-![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd11-ssh-v "FreeBSD 11.2 Native ssh -V")
+![*Fedora 28 Native ssh -V*](images/Chapter-09/ssh/fedora28-ssh-v.png "Fedors 28 Native ssh -V")
+![*Ubuntu 16.04.5 Native ssh -V*](images/Chapter-09/ssh/ubuntu16045-ssh-v.png "Ubuntu 16.04.5 Native ssh -V")
+![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd11-ssh-v.png"FreeBSD 11.2 Native ssh -V")
 
 There is a command that will let you securely exchange RSA keys with a server.
 
