@@ -537,7 +537,7 @@ The ssh command has a provision for a file named ```config``` located in the ```
 
 The format of the file is as such:
 
-![*ssh config file](images/Chapter-09/ssh/config./png "ssh config file")
+![*ssh config file](images/Chapter-09/ssh/config/.png "ssh config file")
 
 By having this config file the command: ```ssh joseph@development.com -i id_ub2``` now becomes ```ssh devel```.
 
