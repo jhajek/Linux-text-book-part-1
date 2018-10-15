@@ -564,7 +564,7 @@ Upon changing any values you need to restart the ssh service via ```sudo systemc
 Through this chapter we learned about the su, sudo, and root user account paradigms.  We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored.  We learned about a newer logging format in the journald service from systemd.  Finally we learned about system monitoring tools for visual display of system resources being used.  Finally we learned about the 3Ps of Linux troubleshooting.
 
 ### Review Questions
-s
+
 1) What user account has superuser privilege in Linux?
 a. ```sudo```
 b. ```su```
