@@ -474,7 +474,7 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 
 ![*Ubuntu 16.04.5 Native ssh -V*](images/Chapter-09/ssh/ubuntu16045-ssl-v.png "Ubuntu 16.04.5 Native ssh -V")
 
-![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd11-ssl-v.png "FreeBSD 11.2 Native ssh -V")
+![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd112-ssl-v.png "FreeBSD 11.2 Native ssh -V")
 
 #### OpenSSL
 
@@ -542,6 +542,23 @@ The format of the file is as such:
 By having this config file the command: ```ssh joseph@development.com -i id_ub2``` now becomes ```ssh devel```.
 
 The full range of options for the config file can be found in this Digital Ocean Turotial located at [https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client](https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client "Digital Ocean Tutorial for ssh config file")
+
+### SSH Service Daemons ans Security
+
+SSH has two configuration files that control its abilites.  Located at ```/etc/ssh/ssh_config``` and ```/etc/ssh/sshd_config```.  The first file contains user information about what options your client will present and use when connecting to a remote SSH server.  
+
+In the ssh_config file you can modify these lines to increase the security of the encryption ciphers you use.  By default OpenSSH defaults back to an older and weaker set of encryption ciphers such as:
+
+```Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc```
+
+You would uncomment the line andthe entries with a more robust list.  You would want to make sure that the coresponsiding SSH server in the ```sshd_config``` file had the same ciphers set other wise negotiation could fail and no connection would take place[^109].
+
+```Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr```
+
+You could also disable password authentication to a remove server and only use RSA key authentication.  Uncomment the line ```#PasswordAuthentication yes``` and change it to ```PasswordAuthentication no```[^108].
+
+Upon changing any values you need to restart the ssh service via ```sudo systemctl sshd reload```.
+
 ## Chapter Conclusions and Review
 
 Through this chapter we learned about the su, sudo, and root user account paradigms.  We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored.  We learned about a newer logging format in the journald service from systemd.  Finally we learned about system monitoring tools for visual display of system resources being used.  Finally we learned about the 3Ps of Linux troubleshooting.
@@ -792,3 +809,8 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
 [^106]: [http://heartbleed.com](http://heartbleed.com "heartbleed")
 
 [^107]: [https://www.linuxfoundation.org/press-release/2014/04/amazon-web-services-cisco-dell-facebook-fujitsu-google-ibm-intel-microsoft-netapp-rackspace-vmware-and-the-linux-foundation-form-new-initiative-to-support-critical-open-source-projects/](https://www.linuxfoundation.org/press-release/2014/04/amazon-web-services-cisco-dell-facebook-fujitsu-google-ibm-intel-microsoft-netapp-rackspace-vmware-and-the-linux-foundation-form-new-initiative-to-support-critical-open-source-projects/ "Linux foundation adopts OpenSSL as core infrastructure")
+
+[^108]: [https://askubuntu.com/questions/2271/how-to-harden-an-ssh-server/2279](https://askubuntu.com/questions/2271/how-to-harden-an-ssh-server/2279 "harden SSH server")
+
+[^109]: [https://unix.stackexchange.com/questions/333728/ssh-how-to-disable-weak-ciphers](https://unix.stackexchange.com/questions/333728/ssh-how-to-disable-weak-ciphers "SSH how to disable weak ciphers")
+
