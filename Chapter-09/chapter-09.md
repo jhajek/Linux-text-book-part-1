@@ -553,7 +553,8 @@ In the ssh_config file you can modify these lines to increase the security of th
 
 You would uncomment the line andthe entries with a more robust list.  You would want to make sure that the coresponsiding SSH server in the ```sshd_config``` file had the same ciphers set other wise negotiation could fail and no connection would take place[^109].
 
-```Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr```
+```Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,```
+```aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr```
 
 You could also disable password authentication to a remove server and only use RSA key authentication.  Uncomment the line ```#PasswordAuthentication yes``` and change it to ```PasswordAuthentication no```[^108].  By default Fedora and BSD based operating sysems allow the Root account to connect via SSH using a password.  This is inherantly dangerous, Ubuntu uses the value prohibit-password which would allow RSA but not password based auth. It is generally not a good idea to allow this and uncomment and change this setting from  ```PermitRootLogin yes``` to ```PermitRootLogin no```[^110].
 
@@ -791,6 +792,8 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
   i. Change the default port to be 5555
   i. Disable the value PermitRootLogin
 
+
+
 #### Footnotes
 
 [^90]: [http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html]( http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html "tldp root")
@@ -833,6 +836,5 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
 
 [^109]: [https://unix.stackexchange.com/questions/333728/ssh-how-to-disable-weak-ciphers](https://unix.stackexchange.com/questions/333728/ssh-how-to-disable-weak-ciphers "SSH how to disable weak ciphers")
 
-[^110]: [https://askubuntu.com/questions/449364/what-does-without-password-mean-in-sshd-config-file](https://askubuntu.com/questions/449364/what-does-without-password-mean-in-sshd-config-file "SSH what does without password mean in sshd conf"
+[^110]: [https://askubuntu.com/questions/449364/what-does-without-password-mean-in-sshd-config-file](https://askubuntu.com/questions/449364/what-does-without-password-mean-in-sshd-config-file "SSH what does without password mean in sshd conf")
 
-)
