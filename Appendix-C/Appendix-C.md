@@ -1025,10 +1025,233 @@ In the Github repo provided to you please create a folder in your ITMO-556 direc
 
 ## Chapter 09
 
-### Podcast
+### Review Questions
+s
+1) What user account has superuser privilege in Linux?
+a. ```sudo```
+b. ```su```
+c. ```superuser```
+d. ```root```
+
+2) Which command do you use to temporarily elevate your user's privilege to the superuser (root)?
+a. ```su```
+b. ```sudo```
+c. ```su -```
+d. ```root```
+
+3) How can you display the content of a file named topsecret.txt that has permissions 000 and is owned by another user?
+a.  You can't do that
+b.  ```root cat topsecret.txt```
+c.  ```sudo cat topsecret.txt```
+d.  ```su cat topsecret.txt```
+
+4) What licesnse is the sudo application under?
+a.  GPL
+b.  BSD
+c.  Public Domain
+d.  ISC
+
+5) Which operating system doesn't have an active root account by default?
+a. Debian
+b. Ubuntu
+c. All Debian based distros
+d. Fedora
+
+6) What is the name of the file where sudo privilege are kept?
+a. /etc/sudo
+b. visudo
+c. /etc/allow
+d. /etc/sudoers
+
+7) What is the name of the command used to modify /etc/sudoers to grant a new user sudo privilege?
+a. Just use vi to edit it directly
+b. Logout and log back in as root and do it
+c. visudo
+d. sudo visudo
+
+8) Based on this line in /etc/sudoers - ```%meninblack  ALL=(ALL:ALL) ALL``` - what does the first value by the % mean?
+a.  Name of a group
+b.  Name of a user
+c.  Name of the user group
+d.  Name of a process
+
+9) In the /etc/sudoers file - what does this line mean: ```RMS ALL=(root) NOPASSWD: ALL```
+a.  The user RMS has sudo permissions and access to all commands
+b.  The user RMS has sudo permissions
+c.  The group RMS has sudo permissions to all commands
+d.  The user RMS has sudo permissions and access to all commands, and requires no password to elevate to the sudo user
+
+10) When using the su command to switch from a regular user account to the root user account, what do you type to return to the standard user account?
+a.  quit
+b.  exit
+c.  stop
+d.  sudo reboot
+
+11) What command would you use to edit the file at this location:  /var/www/html/index.html?
+a.  vi /var/www/html/index.html
+b.  sudo vim /var/www/html/index.html
+c.  vim /var/www/html/index.html
+d.  You need to ```chown``` the file and change the owner
+
+12) On a Linux system, which directory are all the traditional system (non-systemd) logs kept in?
+a.  /var/run
+b.  /logs
+c.  /var/adm/log
+d.  /var/log
+
+13) Under systemd and journald where are the logs kept?
+a.  /var/log
+b.  /var/log/error
+c.  /var/log/journald
+d.  Trick question - as logs are stored in a binary format and retrieved via journalctl
+
+14) What is the command you use to query the system logs in systemd?
+a.  systemctl
+b.  journald
+c.  journalctl
+d.  showlogs
+
+15) How would you filter the systemd log based on time? (Which is valid syntax?)
+a.  ```journalctl --since=yesterday```
+b.  ```journalctl --since=tomorrow```
+c.  ```journalctl --yesterday```
+d.  ```journalctl --filter=yesterday```
+
+16) Where is the journald.conf file located?
+a. /etc/logrotate.conf
+b. /etc/systemd/journalctl.conf
+c. /etc/systemd.conf
+d. /etc/systemd/journald.conf
+
+17) What command provides a dynamic real-time view of a running system?
+a.  top
+b.  iostat
+c.  ranwhen
+d.  journalctl
+
+18) Debian based distros have an additional command to abstract the process to add users to the system - what is it?
+a.  useradd
+b.  usermod
+c.  adduser
+d.  add
+
+19) What command would be used to modify a user account settings and add them to the sudo users group on an Ub untu distro (user is named controller)?
+a.  ```sudo useradd -aG sudo controller```
+b.  ```sudo usermod -aG sudo controller```
+c.  ```sudo usermod -G sudo controller```
+d.  ```sudo userdel controller```
+
+20) Which below are valid useradd commands?  (Choose all that apply)
+a. ```sudo useradd -c "User for spring class" -d "/home/export/controller" -G sudo -s /bin/ksh -m controller```
+b. ```sudo useradd -D controller```
+c. ```sudo useradd controller```
+d. ```sudo useradd -G sudo -s /bin/ksh -m controller```
+e. ```sudo useradd -c "User for spring class" -G sudo -m controller```
+
+### Podcast Questions
+
+NodeJS - [https://twit.tv/shows/floss-weekly/episodes/387](https://twit.tv/shows/floss-weekly/episodes/387 "NodeJS")
+
+Node.js Update
+
+* ~4:20 Where does Aaron (guy wearing black) say he is starting to see Node JS more and more?
+* ~7:22 What is Node.js?
+* ~8:50 Accroding to Mikael, what are we seeing an explosion of?
+* ~9:15 What language(s) is NodeJS similar to?
+* ~9:35 What is Event Driven Programming?
+* ~10:45 what is NodeJS package manager/ecosystem?
+* ~12:05 what kind of things would use Node?
+* ~17:20 What are the two popular desktop apps built in NodeJS that Mikael mentioned?
+* ~ 19:30 What are some of the ways to learn NodeJS?
+* ~ 21:30 What did Microsoft do with NodeJS and where did it get Node?
+* ~ 22:30 Mikael mentions multiple languages: TypeScript, CoffeeScript, Electron, and Dart -- what are they and how do they relate to the NodeJS project? (Need to do some side research)
+* ~25:27 What company started the NodeJS and eventually the NodeJS foundation? (Currently owned by Samsung)
+* ~ 26:43 What does the NodeJS foundation do (what is its role?)
+* ~ 34:00 Who is the guest and what is his job?
+* ~ 38:48 How much did Mikael reduce his code when he switched from Python to NodeJS?
+* ~41:54 is is possible to run NodeJS for command line scripting?
+* ~45:00 Where is pretty much every NPM module hosted?
+* ~47:40 What is the Go language good at and what is it not?
+* ~50:55 Is there any relationship between NodeJS and Docker?
 
 ### Lab
 
+Objectives
+
+The objective of this lab are as follows:
+
+* Understand when and how to use the sudo command
+* Understand how to edit the /etc/sudoers file
+* Understand how to use the journald and journalctl logging mechanism in systemd
+* Understand how to add and manage user accounts
+* Understand the structure and use of the cron service
+* Understand how to modify, use, and secure the SSH service
+
+Outcomes
+
+At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm.  You will understand the binary logging mechanism of journald.  You will be able to add, delete, and modify user accounts.  Finally you will be able to schedule shell scripts to execute at repeated intervals.
+
+__Note__ Submit the answers all contained in one shellscript with a comment above stating which question the code answers
+__Note__ If a command asks you to work on a user that doesn't exist it is assumed that you have to create it.
+__Note__ The ```mysqldump``` application requires the ```mysql-client``` package to be installed. [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
+
+1)  What would be the command to add a user named "controller" to your system - using the system default values?  
+
+1)  What would be the command to modify the user's group to add them to a *superuser* group (sudo on Ubuntu or wheel on Fedora based)?
+
+1)  What would be the command to delete a user account named nsa-spy?  (Note you also have to include the steps to add this user... unless the NSA is already in your system =)
+
+1)  What would be the command to edit the ```/etc/sudoers``` file and give the user "mysql-backup" sudo privilege? (Show the /etc/sudoers being edited and enter the relevant line that you add to that file)
+
+1)  What would be the command to edit the ```/etc/sudoers``` file and give the group "mysql-admins" sudo privilege? (Show the ```/etc/sudoers``` being edited and enter the relevant line that you add to that file)
+
+1)  What would be the command to edit the ```/etc/sudoers``` file to give the user "mysql-admin" sudo privilege to only use the mysql database backup command "mysqldump" ? (Show the ```/etc/sudoers``` being edited and enter the relevant line that you add to that file)
+
+1)  What would be the command to edit the ```/etc/sudoers``` file to give the user "mysql-admin" sudo privilege to only execute the ```mysql``` command and not require a password?
+
+1)  When you execute the command tail journalctl - you receive an error?  Show the error in a screenshot and explain why the error comes?
+
+1) What would be the command to execute to find all the occurences of logs generated by SSHD in journalctl?  P.168 in the text book -- you may need to install ```openssh-server``` package if the command returns no results
+
+1)  What would be the command to execute to find all the logs generated by _PID=1 (systemd itself) and since yesterday?
+
+1)  What would be the command to execute to see the logs of the current boot only using journalctl?
+
+1)  Which file and what value would I modify to change the journal's settings to make the logs be stored in memory (volatile)?
+
+1)  The journald values SystemMaxUse= and RuntimeMaxUse= default to 10% and 15% of the system disk respectively.  How would you modify that value to be 20% and 30% respectively?  (Note you can't add percentages, you have to use your system and do some scratch math - you can execute a ```df -H``` command to see the size of your root partition)
+
+1)  What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at 2 am every Sunday?
+
+1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at the 1st day of every month?
+
+1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) every 45 minutes?
+
+1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) on every 45 minutes past the hour on Sundays?  
+
+1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at 2:45am on this coming Tuesday only?
+
+1) What command would you use to change the group ownership of the file todo-list.txt to be owned by the "accounting" group?  (If that group doesn't exist then create it on your system)
+
+1) What would be the command you would type to generate a RSA key pair?
+
+1) What would be the command to transfer an RSA key pair to a remote system named logserver with the username worker?
+
+1) What would be the command to connect via ssh using the identity logserver and connect to the non-standard port of 5555 instead of the default 22?
+
+1) The next questions require some setup:
+   i. You need two virtual mahcines for this part: One Ubuntu 16.04 and one Fedora 28 (or two comparablely different OSes, FreeBSD, Trisquel, etc etc).  
+   i. You will need to modify the Network settings to **Bridged** in Virtualbox to get a public IP (if you are at home your router should suffice, if you are on campus you can come to the lab).  
+   i. Install **openssh-server** on Fedora28.
+   i. Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system
+   i. Run the ssh audit on the client and server, list the weak ciphers installed by default
+
+1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomolies.
+
+1) On the SSH server make the following changes to the sshd_config file and paste them at the end of the ReadMe.md file
+  i. Not accept any password based authentication attempts
+  i. Change the default port to be 5555
+  i. Disable the value PermitRootLogin
 
 ## Chapter 10
 
