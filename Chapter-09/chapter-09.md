@@ -458,7 +458,7 @@ By default the SSH *client* is installed on all Linux and Unix systems.  It can 
 
 You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This is predicated via either username account and password or RSA key.
 
-> ```sudo apt-get install openssh-server``` and ```sudo dnf install openssh-server```
+> ```sudo apt-get install openssh-server``` or ```sudo dnf install openssh-server```
 
 ### RSA keys
 
@@ -507,11 +507,13 @@ Primary development occurs inside the OpenBSD source tree with the usual care th
 
 Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.  Some would argue the rise in using version control such as Git makes SFTP/FTP redundant.  
 
-```sftp username@hostname```
+```sftp \[-i identity_file\] username@hostname```
 
 ### SCP
 
 Secure cp (copy) Allows for using the ```cp``` command to a remote system via SSH, as SFTP should be used for moving multiple files, this command is good for moving a single file quickly via the command line.
+
+```scp \[-i identity_file\] username@hostname filename```
 
 ### ssh-copy-id
 
