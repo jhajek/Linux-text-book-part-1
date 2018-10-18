@@ -43,7 +43,7 @@ Every operating system is made up of multiple components as we mentioned in chap
 
 Virtualization works because your x86 CPU (AMD and Intel) enables it at the CPU[^19].  "To do this AMD and Intel introduced extensions to assist virtualization, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica). Both instruction sets added nine new machine code instructions that only work at "Ring -1," intended to be used by the hypervisor" [Andy Dorman - Informationweek.](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")   When dealing with virtualization you are functionally running multiple operating systems at one time.  Technically this is not possible as only one operating system can have control of your hardware at a time - so how does a hypervisor and virtualization make this work?  
 
-### Virtualization Diagram   
+### Virtualization Diagram
 
 ![*Virtualization Diagram*](images/Chapter-03/Hypervisor/640px-Hyper-V.png "Virtulization Diagram")
 
@@ -105,6 +105,7 @@ Each distro also has a checksum feature provided by the site that issues the dow
    * [Get Ubuntu](https://ubuntu.com "ubuntu")
      + [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
      + [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
+   * [Linux Distro Mirrors](https://mirrors.kernel.org "Linux Distro Mirrors")
    * [Get VirtualBox](http://virtualbox.org "VirtualBox")
 
 Here are the commands to execute in Windows in Powershell:
