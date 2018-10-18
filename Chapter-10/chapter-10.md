@@ -260,6 +260,7 @@ The ```/proc``` virtual filesystem provides you a file based interface to the pr
   lspci           Lists all the currently detected PCI devices              
   lsusb           Lists all the currently detected USB connections
   lsblk           Lists all block devices attached to the system (useful for hard-drives)
+  lshw            Lists
 --------------   ---------------------------------------------------------------------------
 
 #### Loading Modules
@@ -410,12 +411,12 @@ Systemd Podcast?
 
 __Objectives:__
 
-  * Modify GRUB settings
-  * Use ```systemctl``` to start, stop, and examine processes in systemd
-  * Use systemd-analyze to understand what services are loading during system boot
-  * Change systemd.targets
-  * Use the nice command to modify a processes priority
-  * List kernel modules currently loaded on your Linux system
+* Modify GRUB settings
+* Use ```systemctl``` to start, stop, and examine processes in systemd
+* Use systemd-analyze to understand what services are loading during system boot
+* Change systemd.targets
+* Use the nice command to modify a processes priority
+* List kernel modules currently loaded on your Linux system
 
 __Outcomes:__
 
