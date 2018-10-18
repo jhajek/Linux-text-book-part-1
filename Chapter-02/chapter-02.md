@@ -245,12 +245,12 @@ In late 1985 the [FSF](http://www.fsf.org/ "FSF") -- *Free Software Foundation*,
 
 With this, they wrote the GPL - GNU Public Lisence, which is a legally enforceable copyleft license.  Copyleft is a play on the word copyright, which a copyright restricts the rights of a user.  Copyleft, on the other hand enshrines and enforces certain rights to the user of the software.  The **4 software freedoms** that the GPL licensed software enshrines are:
 
-1) the freedom to use the software for any purpose,
-1) the freedom to change the software to suit your needs,
-1) the freedom to share the software with your friends and neighbors, and
-1) the freedom to share the changes you make.
+1) the freedom to use the software for any purpose
+1) the freedom to change the software to suit your needs
+1) the freedom to share the software with your friends and neighbors 
+1) the freedom to share the changes you make
 
-> In using the term “Free software,” it means software that respects users' freedom and community. Roughly, it means that the users have the freedom to run, copy, distribute, study, change and improve the software. Thus, “free software” is a matter of liberty, not price. To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”. We sometimes call it “libre software,” borrowing the French or Spanish word for “free” as in freedom, to show we do not mean the software is gratis[^114]. 
+> In using the term “Free software,” it means software that respects users' freedom and community. Roughly, it means that the users have the freedom to run, copy, distribute, study, change and improve the software. Thus, “free software” is a matter of liberty, not price. To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”. We sometimes call it “libre software,” borrowing the French or Spanish word for “free” as in freedom, to show we do not mean the software is gratis[^114]. You can see a really clear 10 minute presentation of the meaning of Free Software by Richard Stallman at [https://www.youtube.com/watch?v=ZPPikY3uLIQ](https://www.youtube.com/watch?v=ZPPikY3uLIQ "Stallman explains the Four Software Freedoms").
 
 #### GCC, BASH, and GNU Coretools
 
