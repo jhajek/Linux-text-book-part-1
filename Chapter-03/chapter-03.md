@@ -282,7 +282,7 @@ You may have noticed that when a guest VM is successfully installed the screen r
 
 VirtualBox guest additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image."  For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
 
-#### Package Managers for installing software 
+#### Package Managers for installing software
 
 This goes for any distro that derive from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  In order to do this we will talk about the various features, tool, and processes of installing software.   Generally this is done via **package managers**.
 
@@ -335,7 +335,7 @@ A Debian package (or ```.deb``` file) is really just made up of two tarballs [^1
      Depends: libc6 (>= 2.1)
      Description: The classic greeting, and a good example
      The GNU hello program produces a familiar, friendly greeting.
-```      
+```
 
 The most important line being the __Depends__ option which controls dependencies and can prevent installation if these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Using ```dpkg``` is a clear step above using tarballs and compiling the code yourself. There are other tools that build on top of dpkg that are recommended to use.   Let's take a look at an example we have done before in chapter 4 where we downloaded a .deb file for the Vivaldi web browser and installed it via the Ubuntu Software Center.  Now let's perform the same action again using the ```dpkg``` command.
 
@@ -470,7 +470,7 @@ These are the short steps:
 * As long as it matches configure the package manager to trust the key and then delete the temporary copy:
     + ```sudo apt-key add gpg.inc```
 *  Now you will now be able to update your package manager and install Linux-libre:
-    + ```sudo apt update```   
+    + ```sudo apt update```
     + ```sudo apt install linux-libre-4.14``` or ```sudo apt install linux-libre```
 
 ![*Linux-Libre*](images/Chapter-03/linux-libre/kernel-linux-libre.png "libre.png")
@@ -590,10 +590,10 @@ Add the Flathub repository
 
 Once that is done here is an example of installing Flatpaks with Ubuntu based distro:
 
-  * sudo flatpak install flathub com.spotify.Client
-  * sudo flatpak install flathub org.gimp.GIMP 
-  * sudo flatpak install flathub com.visualstudio.code 
-  * sudo flatpak install flathub com.google.AndroidStudio
+* sudo flatpak install flathub com.spotify.Client
+* sudo flatpak install flathub org.gimp.GIMP
+* sudo flatpak install flathub com.visualstudio.code
+* sudo flatpak install flathub com.google.AndroidStudio
 
 These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```.  You can find the official flatpak name by issuing the command: ```flatpak list```.
 
@@ -610,7 +610,7 @@ Let's take a look at this link.  This is the Apache webserver version 2.4.x late
 
 ### GNU GCC
 
-The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands; ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.    
+The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands; ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.
 
 ### GNU Make
 
@@ -630,7 +630,7 @@ You can see an example of how to install Python language packages (eggs).  Take 
 
 ```sudo apt-get install python-pip python-dev```
 
-```
+```bash
 sudo pip install dronekit
 sudo pip install dronekit-sitl
 ```
@@ -643,14 +643,14 @@ sudo pip install dronekit-sitl
 
 The Guest Additions offer the following features:
 
- * Mouse pointer integration
- * Shared folders
- * Better video support
-   + Finally, if the Guest Additions are installed, 3D graphics and 2D video for guest applications can be accelerated; see Section 4.5, “Hardware-accelerated graphics”.
- * Seamless windows
- * Time synchronization
- * Shared clipboard
- * Automated logons (credentials passing)
+* Mouse pointer integration
+* Shared folders
+* Better video support
+  + Finally, if the Guest Additions are installed, 3D graphics and 2D video for guest applications can be accelerated; see Section 4.5, “Hardware-accelerated graphics”.
+* Seamless windows
+* Time synchronization
+* Shared clipboard
+* Automated logons (credentials passing)
 
 #### Ubuntu
 
@@ -697,9 +697,9 @@ If successful you can reboot the Linux guest VM and you will notice the changes 
 Building the main Guest Additions Module[Failed]
 ```
 
-### VirtualBox Features       
+### VirtualBox Features
 
-If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.1.x (Septemeber 10th, 2017) is the [current version](https://www.virtualbox.org/wiki/Downloads "Latest VirtualBox").   
+If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.1.x (Septemeber 10th, 2017) is the [current version](https://www.virtualbox.org/wiki/Downloads "Latest VirtualBox").
 
 [*Feature List for VirtualBox*](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
 
