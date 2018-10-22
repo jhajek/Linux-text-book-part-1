@@ -162,7 +162,7 @@ Under the Upstart methodology you can simply start services and stop them with t
 
 ### Working With Services in systemctl
 
-> __Example Usage:__ On a systemd based system, service control is done with ```systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart httpd.service```  The ```.service``` can be left off and the system will assume the exetension. 
+> __Example Usage:__ On a systemd based system, service control is done with ```sudo systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart httpd.service```  The ```.service``` can be left off and the system will assume the exetension. 
 
 > __Example Usage:__ The ```systemctl``` command has additional abilities.  It absorbed the ```chkconfig``` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: ```sudo systemctl is-enabled httpd.service```.  Issue that command and what does it report?
 
