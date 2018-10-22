@@ -4,14 +4,14 @@
 ### Objectives
 
   * Understand the traditional SysVinit system and its relationship to starting system processes
-  * Understand the new systemd init system
+  * Understand the systemd init system
   * Understand the nature of starting, stopping, and service reporting
   * Understand how to use system tools to examine processes
   * Understand the nature of the /proc virtual-filesystem
 
 ### Outcomes
 
-At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work.  You will understand how to examine, start, and stop services in both arenas.  You will learn about the ```/proc``` virtual-filesystem and how it represents running processes as files.  Finally you will be able to use system tools like ```ps``` and ```kill``` to examine and manage system processes.
+At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work.  You will understand how to examine, start, and stop services in both arenas.  You will learn about the ```/proc``` virtual-filesystem and how it represents running processes as files.  You will be able to use the systemd mechanisms for process reporting and termination.
 
 ## Init Systems and Services
 
@@ -59,7 +59,7 @@ To make these changes permanent you need to execute the ```sudo update-grub``` c
 
 ### SysVinit
 
-I am going to describe the Unix System V init process - that was the basis of all Unix and Linux knowledge since the early 1980s.  This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this--Debian recently dropped it, with Fedora and Ubuntu abandoning circa 2015.  This is not in use anymore in Linux as we learned in Chapter 2 but we shall go over it for completeness sake.
+I am going to describe the Unix System V init process - this is the basis of all Unix and Linux knowledge since the early 1980s.  This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. Debian recently dropped it, with Fedora and Ubuntu abandoning circa 2015.  This is not in use anymore in Linux as we learned in Chapter 2 but we shall go over it for completeness sake.
 
 Now that the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by setting up the system processes.  The first task it executes is ```/sbin/init```.  This is referred to as the init process.  It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.  The ```/sbin/init/``` looks at the value stored in ```/etc/inittab``` to find the system __run level__.  The **run level** tells us which mode to start in and which associated services are needed.  These levels are general and each Linux distro modifies them as needed.  The default run level for a GUI based distro is **5**. The default run level for a server based OS is **3**.
 
@@ -126,7 +126,7 @@ Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental rep
 
 Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at RedHat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.  Systemd is licensed under the LGPL 2.1 or later, [GNU Lesser General Public License](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License "LGPL").  
 
-From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system. [^117]"*   Unlike the SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1. The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too. Systemd includes many other items, 69 different binaries all rolled into PID 1.    
+From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system. [^117]"*   Unlike the SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1. The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too. Systemd includes many other items, 69 different binaries all rolled into PID 1.
 
 > *"As an integrated software suite, systemd replaces the startup sequences and runlevels controlled by the traditional init daemon, along with the shell scripts executed under its control. systemd also integrates many other services that are common on Linux systems by handling user logins, the system console, device hotplugging (see udev), scheduled execution (replacing cron), logging, hostnames and locales. [^121]"*
 
@@ -154,7 +154,7 @@ Whenever you start a program in Linux, whether that is a service, or something a
 
 ### Working With Services in SysVinit/Upstart  
 
-Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | status```.  This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the text files information is parsed and placed in memory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```.
+Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | reload | status```.  This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the text files information is parsed and placed in memory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```.
 
 > __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
 
