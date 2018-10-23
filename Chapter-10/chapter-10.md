@@ -19,7 +19,7 @@ When you hit the power button, after a short pause, your system begins to whir t
 
 This boot order will assume that you are booting a [BIOS](https://en.wikipedia.org/wiki/BIOS "BIOS") based system and not a [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface#Platforms_using_EFI.2FUEFI "UEFI") system, but the overarching principles are still the same.  When the BIOS boots and successfully receives a positive result from the POST test, which will be a short *beep* there are hard coded basic I/O device drivers that are loaded into memory to allow the computer to complete basic I/O functions, display information, and read from a hard disk.  Immediately the system loads the MBR-Master Boot Record, which is the first sector of the first identified bootable device.  This is usually your hard drive but could be a flash drive, SD Card, or even a good old fashioned CD-ROM.  The Master Boot Record points to the VBR or Volume Boot Record.  
 
-In modern Linux the VBR is controlled by [GNU GRUB](https://www.gnu.org/software/grub/ "GNU GRUB").  *"Briefly, a boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd or Linux). The kernel, in turn, initializes the rest of the operating system (e.g. GNU)."* [^114]   
+In modern Linux the VBR is controlled by [GNU GRUB](https://www.gnu.org/software/grub/ "GNU GRUB").  *"Briefly, a boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd or Linux). The kernel, in turn, initializes the rest of the operating system (e.g. GNU)."* [^114]
 
 GNU GRUB superseded what is now called legacy GRUB (version 0.9x) and begins with version 2 to separate the different tools--though they are both called GRUB.  We will only talk here about GRUB 2 or GNU GRUB when referring to GRUB. GRUB itself has 3 stages in order to get you to stage two which is the loading of your Linux Kernel from disk into memory.  Stage 1 detects and finds the locations of and discovers various file systems on disk for loading at a later time.  Once this is accomplished GRUB loads stage 1.5 and passes control to it.  GRUB 1.5 will load file system drivers that are separate from the Operating System so the file ```/boot/grub/grub.cfg``` can be read, Fedora stores its grub configuration at ```/boot/grub2/grub.cfg```.  This file contains details about the path to various kernels for loading and various system configurations.  Once complete stage 2 is loaded and control is passed.  This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
 
@@ -56,6 +56,10 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
  GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a background image.
 
 To make these changes permanent you need to execute the ```sudo update-grub``` command after saving the file so the ```/boot/grub/grub.cfg``` will be regenerated and used on the next boot.
+
+### systemd-boot 
+
+There is a replacement in the works for GRUB called systemd-boot or also known as gummi-boot, which is German for "Inflatible boat."   The systemd-boot tool is designed for hardware that is moving forward using the UEFI firmware instead of BIOS and is designed to handle Secure Boot as well.  These are technologies that are increasingly standard on laptops and server hardware.  Currently systemd-boot is available in systemd systems but is not on by default.  You can see a tutorial at [https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/](https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/ "systemd-boot") here on how to enable it.
 
 ### SysVinit
 
@@ -119,6 +123,15 @@ exec myprocess
 ```
 
 Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental replacement in Fedora 9 - until version 18 when systemd was ready.  RHEL and CentOS used Upstart as well until RHEL 7, and ChromeOS still does (OS for Chromebooks).  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between SysVinit and its failings but in the end systemd won out.  MacOS uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris and Illumos/SmartOS use [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
+
+### Other SysVinit replacements
+
+Upstart wasn't the only replacement option, currently there are two major one, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*
+
+OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatability of SysVinit but improve or adopt systemd style improvements and management where feasbile.
+
+Here is a comparison table between systemd, sysVinit, and OpenRc
+![*Init system operation comparison*](images/Chapter-10/systemd/init-comparison.png "Init system operation comparison")
 
 ### Systemd and Systemctl
 
@@ -198,6 +211,53 @@ libudev
     It is the standard library for utilizing udev, which allows third-party applications to query udev resources.
 systemd-boot
     systemd-boot is a boot manager, formerly known as gummiboot. Kay Sievers merged it into systemd with rev 220.
+
+### Systemd service types
+
+Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.
+
+```bash
+#/lib/systemd/system/rsyslog.service
+[Unit]
+Description=System Logging Service
+Requires=syslog.socket
+Documentation=man:rsyslogd(8)
+Documentation=http://www.rsyslog.com/doc/
+
+[Service]
+Type=notify
+ExecStart=/usr/sbin/rsyslogd -n
+StandardOutput=null
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=syslog.service
+```
+
+This is an Ubuntu Upstart file for the ufw firewall service:
+
+```bash
+/etc/init$ cat ufw.conf
+# ufw - Uncomplicated Firewall
+#
+# The Uncomplicated Firewall is a front-end for iptables, to make managing a
+# Netfilter firewall easier.
+
+description     "Uncomplicated firewall"
+
+# Make sure we start before an interface receives traffic
+start on (starting network-interface
+          or starting network-manager
+          or starting networking)
+
+stop on runlevel [!023456]
+
+console output
+
+pre-start exec /lib/ufw/ufw-init start quiet
+post-stop exec /lib/ufw/ufw-init stop
+```
 
 #### hostnamectl and timedatectl
  
@@ -499,3 +559,4 @@ __Instructions:__ Make a folder in your Github repo named Week-13, create a file
 
 [^122]: [https://en.wikipedia.org/wiki/Systemd#Ancillary_components](https://en.wikipedia.org/wiki/Systemd#Ancillary_components "Wikipedia systemd Article")
 
+[^123]:[http://smarden.org/runit/](http://smarden.org/runit/ "runit wikipage")
