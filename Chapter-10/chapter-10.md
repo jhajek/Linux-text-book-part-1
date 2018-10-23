@@ -128,9 +128,8 @@ Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental rep
 
 Upstart wasn't the only replacement option, currently there are two major one, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*
 
-OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatability of SysVinit but improve or adopt systemd style improvements and management where feasbile.
+OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatability of SysVinit but improve or adopt systemd style improvements and management where feasible.  Here is a comparison table between systemd, sysVinit, and OpenRC:
 
-Here is a comparison table between systemd, sysVinit, and OpenRc
 ![*Init system operation comparison*](images/Chapter-10/systemd/init-comparison.png "Init system operation comparison")
 
 Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
@@ -197,22 +196,37 @@ Not just an init system replacement, systemd has replaced or merged the function
 
 Beside its primary purpose of providing a replacement Linux init system, systemd suite provides additional functionality, including its following components:
 
-: journald
-    systemd-journald is a daemon responsible for event logging, with append-only binary files serving as its logfiles. The system administrator may choose whether to log system events with systemd-journald, syslog-ng or rsyslog. The potential for corruption of the binary format has led to much heated debate.
-: logind
-    systemd-logind is a daemon that manages user logins and seats in various ways. It is an integrated login manager that offers multiseat improvements and replaces ConsoleKit, which is no longer maintained. For X11 display managers the switch to logind requires a minimal amount of porting. It was integrated in systemd version 30.
-: networkd
-    networkd is a daemon to handle the configuration of the network interfaces; in version 209, when it was first integrated, support was limited to statically assigned addresses and basic support for bridging configuration. In July 2014, systemd version 215 was released, adding new features such as a DHCP server for IPv4 hosts, and VXLAN support.
-: tmpfiles
-    systemd-tmpfiles is a utility that takes care of creation and clean-up of temporary files and directories. It is normally run once at startup and then in specified intervals.
-: timedated
-    systemd-timedated is a daemon that can be used to control time-related settings, such as the system time, system time zone, or selection between UTC and local time zone system clock. It is accessible through D-Bus. It was integrated in systemd version 30.
-: udevd
-    udev is a device manager for the Linux kernel, which handles the /dev directory and all user space actions when adding/removing devices, including firmware loading. In April 2012, the source tree for udev was merged into the systemd source tree.
-: libudev
-    It is the standard library for utilizing udev, which allows third-party applications to query udev resources.
-: systemd-boot
-    systemd-boot is a boot manager, formerly known as gummiboot. Kay Sievers merged it into systemd with rev 220.
+journald
+
+: systemd-journald is a daemon responsible for event logging, with append-only binary files serving as its logfiles. The system administrator may choose whether to log system events with systemd-journald, syslog-ng or rsyslog. The potential for corruption of the binary format has led to much heated debate.
+
+logind
+
+: systemd-logind is a daemon that manages user logins and seats in various ways. It is an integrated login manager that offers multiseat improvements and replaces ConsoleKit, which is no longer maintained. For X11 display managers the switch to logind requires a minimal amount of porting. It was integrated in systemd version 30.
+
+networkd
+
+: networkd is a daemon to handle the configuration of the network interfaces; in version 209, when it was first integrated, support was limited to statically assigned addresses and basic support for bridging configuration. In July 2014, systemd version 215 was released, adding new features such as a DHCP server for IPv4 hosts, and VXLAN support.
+
+tmpfiles
+
+: systemd-tmpfiles is a utility that takes care of creation and clean-up of temporary files and directories. It is normally run once at startup and then in specified intervals.
+
+timedated
+
+: systemd-timedated is a daemon that can be used to control time-related settings, such as the system time, system time zone, or selection between UTC and local time zone system clock. It is accessible through D-Bus. It was integrated in systemd version 30.
+
+udevd
+
+: udev is a device manager for the Linux kernel, which handles the /dev directory and all user space actions when adding/removing devices, including firmware loading. In April 2012, the source tree for udev was merged into the systemd source tree.
+
+libudev
+
+: It is the standard library for utilizing udev, which allows third-party applications to query udev resources.
+
+systemd-boot
+
+: systemd-boot is a boot manager, formerly known as gummiboot. Kay Sievers merged it into systemd with rev 220.
 
 ### Systemd service types
 
