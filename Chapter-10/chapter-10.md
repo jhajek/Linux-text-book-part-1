@@ -251,6 +251,8 @@ All programs can choose to *trap* these kill commands and ignore them or take di
 
 Systemd on the other hand has a mechanism for dealing with services directly, ```systemd kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to individual services but also to control groups of processes as well.
 
+The systemd service using ```systemd-cgls``` command and the ```systemd kill``` command have effectively replaced the traditional use of ```ps``` by instead grouping processes into **cgroups**.  Cgroups or Control Groups, allow for child processes to be grouped together, and concpets such as resource quotas or isolation can now be introduced.  This is a more effective manner in killing all the child processes of a parent process.   Cgroups are a Linux specific concept, which ultimately lead to the idea of OS containers and Docker--these are things that BSD and UNix don't have and can't run at the moment--which if OS containers might be the way of the future computing--doesn't bode well for BSD/Unix.
+
 #### cgroups
 
 Systemd uses cgroups as a way to hierarchically group and label processes, and (B) a way to then apply resource limits to these groups.  cgroups allow you to *police* the resource usage of processes and related subprocesses--which gives finer grained control over other tools.  
@@ -283,16 +285,22 @@ The ```/proc``` virtual filesystem provides you a file based interface to the pr
   lspci           Lists all the currently detected PCI devices              
   lsusb           Lists all the currently detected USB connections
   lsblk           Lists all block devices attached to the system (useful for hard-drives)
-  lshw            Lists
+  lshw            Lists detailed information on the hardware configuration of the machine
 --------------   ---------------------------------------------------------------------------
 
 #### Loading Modules
 
-You can list, load, and remove kernel modules form a running kernel.  This is desirable because it allows you to change functionality on a permanent basis or temporary basis without having to recompile the core Linux kernel each time you make a change - hence loadable kernel modules.  One of the best instances is [KVM](http://www.linux-kvm.org/page/Main_Page "KVM") KVM stands for *Kernel-based Virtual Machine* and though present in the Linux Kernel the module is not loaded until you install the KVM software libraries that call for that module to be loaded on boot.  If you had the KVM/Qemu virtualization applications installed (```sudo dnf install qemu-kvm libvirtd```) then you would type ```lsmod | grep kvm*```) to see the modules loaded.
+You can list, load, and remove kernel modules form a running kernel.  This is desirable because it allows you to change functionality on a permanent basis or temporary basis without having to recompile the core Linux kernel each time you make a change - hence loadable kernel modules.  One of the best instances is [KVM](http://www.linux-kvm.org/page/Main_Page "KVM") KVM stands for *Kernel-based Virtual Machine* and though present in the Linux Kernel the module is not loaded until you install the KVM software libraries that call for that module to be loaded on boot.  If you had the KVM/Qemu virtualization applications installed (```sudo dnf install qemu-kvm libvirtd```) then you would type ```lsmod | grep kvm*```) to see the modules loaded or type ```sudo apt-get install zfsutils-linux``` to load the ZFS kernel modules for Ubuntu.
 
-> __Example Usage:__ You will notice for instance if you type ```lsmod | grep vbox*``` you will see VirtualBox kernel modules loaded - you wouldn't see these if you were on a natively installed Linux system.   
+> __Example Usage:__ You will notice for instance if you type ```lsmod | grep vbox*``` you will see VirtualBox kernel modules loaded - you wouldn't see these if you were on a natively installed Linux system.
 
 > __Example Usage:__ The ```modprobe``` command is a more intelligent way to add kernel modules than ```insmod```.  The command ```lsmod``` will list activated kernel modules and ```rmmod``` will unload a kernel module.
+
+You can also use the ```systemctl``` command with filter options to find modules that have loaded or failed to load.
+
+> __Example Usage:__ You will notice your can filter the systemctl command: ```sudo systemctl --failed```, the normal behavior is to show all running and failed.
+
+![*sudo systemctl --failed*](images/Chapter-10/systemd/systemctl-failed.png "Image of failed services output for systemctl --failed")
 
 ## Single User Mode
 
