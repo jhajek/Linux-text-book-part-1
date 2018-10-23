@@ -197,26 +197,26 @@ Not just an init system replacement, systemd has replaced or merged the function
 
 Beside its primary purpose of providing a replacement Linux init system, systemd suite provides additional functionality, including its following components:
 
-journald
+: journald
     systemd-journald is a daemon responsible for event logging, with append-only binary files serving as its logfiles. The system administrator may choose whether to log system events with systemd-journald, syslog-ng or rsyslog. The potential for corruption of the binary format has led to much heated debate.
-logind
+: logind
     systemd-logind is a daemon that manages user logins and seats in various ways. It is an integrated login manager that offers multiseat improvements and replaces ConsoleKit, which is no longer maintained. For X11 display managers the switch to logind requires a minimal amount of porting. It was integrated in systemd version 30.
-networkd
+: networkd
     networkd is a daemon to handle the configuration of the network interfaces; in version 209, when it was first integrated, support was limited to statically assigned addresses and basic support for bridging configuration. In July 2014, systemd version 215 was released, adding new features such as a DHCP server for IPv4 hosts, and VXLAN support.
-tmpfiles
+: tmpfiles
     systemd-tmpfiles is a utility that takes care of creation and clean-up of temporary files and directories. It is normally run once at startup and then in specified intervals.
-timedated
+: timedated
     systemd-timedated is a daemon that can be used to control time-related settings, such as the system time, system time zone, or selection between UTC and local time zone system clock. It is accessible through D-Bus. It was integrated in systemd version 30.
-udevd
+: udevd
     udev is a device manager for the Linux kernel, which handles the /dev directory and all user space actions when adding/removing devices, including firmware loading. In April 2012, the source tree for udev was merged into the systemd source tree.
-libudev
+: libudev
     It is the standard library for utilizing udev, which allows third-party applications to query udev resources.
-systemd-boot
+: systemd-boot
     systemd-boot is a boot manager, formerly known as gummiboot. Kay Sievers merged it into systemd with rev 220.
 
 ### Systemd service types
 
-Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.
+Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The units that systemd include are ```.service```, ```.mount```, ```.target``` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understadning systemd unit files").
 
 ```bash
 #/lib/systemd/system/rsyslog.service
@@ -260,6 +260,8 @@ console output
 pre-start exec /lib/ufw/ufw-init start quiet
 post-stop exec /lib/ufw/ufw-init stop
 ```
+
+FreeBSD still uses ```rc``` files which are shell scripts for starting services.  You can find them listed in ```/etc/rc.d/```.  Take a look at ```/etc/rc.d/syslogd``` and you will see it is a 74 line shell script, compared to the 12 line systemd unit file.
 
 #### hostnamectl and timedatectl
  
