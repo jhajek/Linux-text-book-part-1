@@ -133,6 +133,8 @@ OpenRC and runit do not use systemd at all and therefore any software that requi
 Here is a comparison table between systemd, sysVinit, and OpenRc
 ![*Init system operation comparison*](images/Chapter-10/systemd/init-comparison.png "Init system operation comparison")
 
+Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
+
 ### Systemd and Systemctl
 
 ![*The architecture of systemd as it is used by Tizen. Several components, including telephony, bootmode, dlog and tizen service, are from Tizen and are not components of systemd.*](images/Chapter-10/systemd/systemd.png "systemd")
