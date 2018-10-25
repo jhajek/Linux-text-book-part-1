@@ -584,6 +584,10 @@ __Instructions:__ Make a folder in your Github repo named Week-13, create a file
     c) Reboot the system and take a screenshot of the output of the ```ps -ef``` command focusing on PID 1.
 1) What would be the command to change the systemd target runlevel to recovery mode?  Execute this command and take a screenshot of the result.
 1) Review the content of the mysql.service file, list the contents of the ```[Install]``` header that must load before and after the mysql service starts.
+1) Using GCC ```sudo dnf install gcc``` or ```sudo apt-get install build essential```, create and compile a simple C++ code that is an infinite loop -- just put ```while true``` in the body of main.   Execute this script (note you could do this in Python as well, your choice).  Use ```systemd-cgtop``` to display the usage and capture that output.  
+    a) use the ```ps``` and various filters to show only information related to this process.
+    b) use the ```systemd-cgls``` command and filters to display the process information
+    c) use the kill command from systemd to kill the cgroup related to the infinite loop process.
 
 #### Footnotes
 
