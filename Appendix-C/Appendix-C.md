@@ -1255,9 +1255,200 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
 
 ## Chapter 10
 
-### Podcast
+### Review Questions
+
+1) What is the name of *beep* sound heard in the initial boot of a PC (assume you are using BIOS not UEFI)?
+a) PERC
+b) POST
+c) GRUB
+d) BIOS
+
+2) What is the name of the GNU software that is the first software program that runs when a computer with Linux installed starts?
+a) BIOS
+b) LILO
+c) GRUB
+d) GLOADER
+
+3) In what Linux directory is the kernel and initrd image stored?
+a) /root
+b) /root/kernel
+c) /boot
+d) /boot/vmlinux
+
+4) What is the name of the pre-kernel gzip file located in /boot that helps the kernel load?
+a) vmlinuz
+b) initrd
+c) initram
+d) init
+
+5) Where is the file location where the GNU Grub configuration is stored that a user would edit?
+a) /boot/grub/grub.cfg
+b) /etc/default/grub
+c) /etc/grub/grub.cfg
+d) /boot/kernel/conf
+
+6) In the /etc/default/grub file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
+a) GRUB_CMDLINE_LINUX_DEDFAULT
+b) GRUB_BACKGROUND
+c) GRUB_GFXMODE
+d) GRUB_TIMEOUT
+
+7) What is the command to make changes to /etc/default/grub permanent?
+a) No special command just edit and save /etc/default/grub
+b) sudo apt-get update
+c) sudo update-grub
+d) sudo updatedb
+
+8) Under SysVinit - what is the ancestor process that launches first and everyother process is started by it?
+a)  root
+b)  sbin
+c)  init
+d)  systemd
+
+9) Under SysVinit - what runlevel is considered multi-user command-line only?
+a) 1
+b) m
+c) 3
+d) 5
+
+10) Under SysVinit - what runlevel is considered multi-user GUI only?
+a) 1
+b) 0
+c) 3
+d) 5
+
+11) Which company created the Upstart init system as an improvement of SysVinit?
+a) RedHat
+b) Debian
+c) Oracle
+d) Ubuntu
+
+12) What is the name of the init system that has replaced SysVinit in every single major Linux distribution (Not including Devuan and Gentoo Linux)?
+a)  systemX
+b)  systemd
+c)  systemV
+d)  initrd
+
+13) What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
+a) systemd
+b)  systemd-init
+c)  service
+d) systemctl
+
+14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora 22 using systemd?
+a)  sudo service apache2 stop
+b)  sudo systemctl disable apache2.service
+c)  sudo systemctl stop apache2.service
+d)  sudo systemctl disable httpd.service
+
+15) What is the Linux command to inspect processes (not part of systemd)?
+a) p
+b) ps
+c) proc
+d) meminfo
+
+16) SysVinit used the concept of PIDs and PPIDs--what did systemd replace these with?
+a) proc-groups
+b) sys-groups
+c) cgroups
+d) xgroups
+
+17) What is the signal name for a kill -2 command?
+a) SIGHUP
+b) SIGINT
+c) SIGKILL
+d) SIGTERM
+
+18) The /proc filesystem provides you what?  (choose all that apply)
+a) Provides you a file based interface to the processes that are running on your system
+b) It can be regarded as a control and information centre for the kernel
+c) Shows up to the second process usage--updated in real time
+d) Is a replacement for the top command
+
+19) What command can be used to list all the pci devices attached to your system?
+a) ls --pci
+b) ls -p
+c) lsusb
+d) lspci
+
+20) What is the runlevel target that has a single user only as root, using no password: commonly called single-user mode?
+a) runlevel3.target
+b) runlevel5.target
+c) runlevel0.target
+d) runlevel1.target
+
+### Podcast Questions
+
+View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https://www.youtube.com/watch?v=6AeWu1fZ7bY](https://www.youtube.com/watch?v=6AeWu1fZ7bY "Benno Rice - The tragedy of Systemd") and answer the following questions:
+
+1) ~1:00 Who is Benno Rice?
+1) ~1:31 What is Contempt Culture?
+1) ~3:21 What is inits job?
+1) ~6:11 What lead to the concept of a service?
+1) ~8:35 What does the traditional rc system not do?
+1) ~9:27 What OS had a strong initial notice of services from the beginning?
+1) ~10:00 On MacOS what did launchd replace?
+1) ~11:53 In 2010 What was Lennart Poeterring looking at?
+1) ~13:48 What other service did Lennart asy he was heavily borrowing from?
+1) ~14:01 What does Lennart say that systemd is about?
+1) ~14:43 What is the layer inbetween the kernel and the userspace created by systemd?
+1) ~17:11 Does systemd violate the UNIX philosophy?
+1) ~20:33 What does Benno think is incredible about what Lennary accomplished?
+1) ~25:26 Why is using systemd as a recruiting tool for BSD (which doesn't have it) a bad idea?
+1) ~28:20 What are a few features that BSD could gain from systemd?
+1) ~28:20 Why can't BSD run containers?
 
 ### Lab
+
+__Objectives:__
+
+* Modify GRUB settings
+* Use ```systemctl``` to start, stop, and examine processes in systemd
+* Use systemd-analyze to understand what services are loading during system boot
+* Change systemd.targets
+* Use the nice command to modify a processes priority
+* List kernel modules currently loaded on your Linux system
+
+__Outcomes:__
+
+At the conclusion of this lab you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  
+
+__Instructions:__ Make a folder in your Github repo named Week-13, create a file called ReadMe.md.  In this file you will make a header H2 (## in markdown) for each question and will post a screenshot of the commmand and output that each question requires.
+ 
+1) Change the default grub settings in Ubuntu add a background image (preferably dark) and remove or disable the ```quiet splash``` option) make sure to execute  ```update-grub``` before rebooting or changes won't be written.
+1) Use the ```systemd-analyze``` tools to print out the most recent boot time for your system
+1) Install MariaDB server, ```sudo dnf install mariadb```.
+    a) Use the command ```systemctl status <servicename>``` after MaraiDB is installed to display its current status, then enable the service via ```systemctl```, and then start the service. Now reboot your system.
+1) With MariaDB enabled, use the ```systemd-analyze``` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.  
+1) Use ```systemd-analyze blame``` to collect start times of each element after installing and enabling the MariaDB service 
+1) Use systemctl to enable and start the httpd.service (Fedora)
+1) Use systemctl to SIGHUP the httpd.service (Fedora)
+1) Change the ```systemd``` target to the systemd commandline only level, display the ```systemd``` default target level - then change back to the GUI target (or runlevel5).
+1) Using systemctl and the ```--show option```, display the "After" and "Wants" of the sshd.service  
+1) nice a command - create/compile a C infinite loop program and nice it to lowest priority and then highest priority.  Open a second terminal tab/window and use htop (install it if needed) to display that process' system usage
+1) Launch multiple tabs in Firefox using these:  ```firefox -new-tab -url https://www.krebsonsecurity.com -new-tab -url http://twit.tv/floss/```. Find the process IDs via ```ps -ef``` and kill those tabs/processes with a ```kill -2``` command
+  a) Repeat the above commands and this time systemd and the proper cgroups to kill the FireFox processes
+1) Using ```lsmod``` and ```grep``` list all of the kernel modules loaded on your system that contain VirtualBox (search for ```vb*```).
+1) Run the systemd-systemctl command to list the VirtualBox kernel modules that are loaded
+1) Run the command that will list all the PCI devices attached to your system
+1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware
+1) Using ```systemctl``` find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
+1) Using ```systemd-cgls``` list and filter (grep) and show the sub-process IDs for the httpd.service
+1) Use the ```timedatectl``` command to change the clock of your system to UTC.
+1) Use the ```hostnamectl``` command to:
+    a) set-hostname to itmo-556-xyz (xyz is your initials)
+    b) set-location to Chicago
+    c) set-chassis to VM
+1) Install a copy of Devuan Linux [devuan.org](https://devuan.org "Devuan Linux").  Take a screenshot of the ```ps -ef``` command focusing on PID 1.   
+    a) Install the openRC init system via ```sudo apt-get install openrc```
+    b) The install process asks you to run a command after succesful install: ```for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done```  explain what this command is doing.
+    c) Reboot the system and take a screenshot of the output of the ```ps -ef``` command focusing on PID 1.
+1) What would be the command to change the systemd target runlevel to recovery mode?  Execute this command and take a screenshot of the result.
+1) Review the content of the mysql.service file, list the contents of the ```[Install]``` header that must load before and after the mysql service starts.
+1) Using GCC ```sudo dnf install gcc``` or ```sudo apt-get install build essential```, create and compile a simple C++ code that is an infinite loop -- just put ```while true``` in the body of main.   Execute this script (note you could do this in Python as well, your choice).  Use ```systemd-cgtop``` to display the usage and capture that output.  
+    a) use the ```ps``` and various filters to show only information related to this process.
+    b) use the ```systemd-cgls``` command and filters to display the process information
+    c) use the kill command from systemd to kill the cgroup related to the infinite loop process.
 
 
 ## Chapter 11
