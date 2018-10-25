@@ -297,11 +297,11 @@ The ```timedatectl``` is used for setting timezone and to activate ntp (network 
 
 #### systemd-analyze
 
-Systemd was designed to bring modern OS principles to desktop and server Linux.  That includes a tool called ```systemd-analyze``` which breaks down the time it took for all services, modules, and parts of the kernel to finish loading.  To further debug these numbers use, ```systemd-analyze blame```.  This will print out individually which services/targets/units/mounts are taking the most time to load and allow you to investigate or disable those elements.  You can even use the builtin *plotting* feature of systemd-analyze, by typing, ``` systemd-analyze plot > plot.svg``` and then typing ```eog plot.svg``` to create a visual time based graph of your plot.  There are additional commands under systemd-analyze, ```critical-chain``` will print specific load time for dependent services of the service you provide, ```systemd-analyze critical-chain httpd.service```.   These tools and options available in the man page, are used to determine system boot-up performance statistics.
+Systemd was designed to bring modern OS principles to desktop and server Linux.  That includes a tool called ```systemd-analyze``` which breaks down the time it took for all services, modules, and parts of the kernel to finish loading.  To further debug these numbers use, ```systemd-analyze blame```.  This will print out individually which services/targets/units/mounts are taking the most time to load and allow you to investigate or disable those elements.  You can even use the builtin *plotting* feature of systemd-analyze, by typing, ```systemd-analyze plot > plot.svg``` and then typing ```eog plot.svg``` to create a visual time based graph of your plot.  There are additional commands under systemd-analyze, ```critical-chain``` will print specific load time for dependent services of the service you provide, ```systemd-analyze critical-chain httpd.service```.   These tools and options available in the man page, are used to determine system boot-up performance statistics.
 
 ### ps
 
-The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".   
+The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
 
 ![*ps command*](images/Chapter-10/processes/ps.png "ps")
 
@@ -316,8 +316,6 @@ These additional commands will share more information:
   * ```ps xawf -eo pid,user,cgroup,args``` [^119]  Shows cgroup ownership details.
   *  systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership.
     + cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
-
-\newpage
 
 ### kill
 
@@ -397,8 +395,6 @@ If you have a system with an issue--or damage that needs to be repaired.  Perhap
 Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands.  You learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under SysVinit.  Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in file format dynamically on boot and during a system's use.
 
 ### Review Questions
-
-Chapter 11 Review Questions
 
 1) What is the name of *beep* sound heard in the initial boot of a PC (assume you are using BIOS not UEFI)?
 a) PERC
@@ -570,12 +566,13 @@ __Instructions:__ Make a folder in your Github repo named Week-13, create a file
 1) Using systemctl and the ```--show option```, display the "After" and "Wants" of the sshd.service  
 1) nice a command - create/compile a C infinite loop program and nice it to lowest priority and then highest priority.  Open a second terminal tab/window and use htop (install it if needed) to display that process' system usage
 1) Launch multiple tabs in Firefox using these:  ```firefox -new-tab -url https://www.krebsonsecurity.com -new-tab -url http://twit.tv/floss/```. Find the process IDs via ```ps -ef``` and kill those tabs/processes with a ```kill -2``` command
-1) Using ```lsmod``` and ```grep``` list all of the kernel modules loaded on your system that contain VirtualBox (search for ```vb*```).   
+  a) Repeat the above commands and this time systemd and the proper cgroups to kill the FireFox processes
+1) Using ```lsmod``` and ```grep``` list all of the kernel modules loaded on your system that contain VirtualBox (search for ```vb*```).
+1) Run the systemd-systemctl command to list the VirtualBox kernel modules that are loaded
 1) Run the command that will list all the PCI devices attached to your system
-1) Type the command to display info about your CPU and use ```grep flags``` to filter the response to show only the processor flags.  
+1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware
 1) Using ```systemctl``` find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
 1) Using ```systemd-cgls``` list and filter (grep) and show the sub-process IDs for the httpd.service
-1) Install and execute the ```procinfo``` command and display the system overview.
 1) Use the ```timedatectl``` command to change the clock of your system to UTC.
 1) Use the ```hostnamectl``` command to:
     a) set-hostname to itmo-556-xyz (xyz is your initials)
@@ -585,6 +582,8 @@ __Instructions:__ Make a folder in your Github repo named Week-13, create a file
     a) Install the openRC init system via ```sudo apt-get install openrc```
     b) The install process asks you to run a command after succesful install: ```for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done```  explain what this command is doing.
     c) Reboot the system and take a screenshot of the output of the ```ps -ef``` command focusing on PID 1.
+1) What would be the command to change the systemd target runlevel to recovery mode?  Execute this command and take a screenshot of the result.
+1) Review the content of the mysql.service file, list the contents of the ```[Install]``` header that must load before and after the mysql service starts.
 
 #### Footnotes
 
