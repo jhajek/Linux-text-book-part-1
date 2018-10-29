@@ -3,21 +3,32 @@
 
 ### Objectives
 
-   * Understand how to create and attach virtual disks in VirtualBox
-   * Understand how the fdisk command is used to list, modify, and create filesystem partitions
-   * Compare and contrast different filesystems
-   * Understand Linux tools relating to filesystems, df, mount/umount, mkfs, and the /etc/fstab directory
-   * Understand how Logical Volume Management differs from file systems
+   * Compare and contrast different Linux filesystems
+   * Understand how to create and attach virtual disks
+   * Understand how the ```fdisk``` command is used to list, modify, and create filesystem partitions
+   * Understand Linux tools relating to filesystems, disk utilization, and mounting
+   * Understand how Logical Volume Management, extents, and disk based partitions differ
 
 ### Outcomes
 
   At the conclusion of this chapter you will be able to add additional virtual disks to any Linux version installed in Virtual Box.  You will be able to format devices and create filesystems on newly formatted devices.  You will understand how to partition a device and install filesystems.  This chapter will give you experience with the tools needed to perform these actions.  We will study the LVM -- Linux Volume Manager and its new concept for dealing with disks.  Finally we will learn the concept of mounting and unmounting of disks.
 
+## Storage Types
+
+In looking at the prices of disk based storage from the Fall of 2015, a single terabyte Western Digital Blue hard drive was selling for ~$50.  In the time since, the proce of storage has only decreased. Storage is cheap and with that in mind, adding *storage* or *capacity* to a system is trivial.  In fact the types of storage available since 2015 have changed drastically.  
+
+### Physcial Media
+
+The orginal, cheapest, and densest storage type in dollars per meagbits is still a mechanical harddrive.  Often refered to as an HDD.  
+
+![*Image of Western Digital HDD*](images/Chapter-11/addlinkhere "Image of Western Digital Hard Drive HDD")
+Since we are dealing with virtual storage in this book we can easily attach and detach storage devices without being destructive to any underlying hardware.  In the days of having school sponsored computer labs, the ability to rip oopen a PC and add some storage was simply not allowed. 
+
 ## Disk Management in VirtualBox
 
-  At the time of this writing (11/22/15) a single terabyte Western Digital Blue hard drive was selling for ~$50.  The cost has only decreased.  Storage is cheap and with that in mind, adding storage or capacity to a systmm is very easy.  Since we are dealing with virtual storage in this book we can easily attach and detach storage devices without being destructive to any underlying hardware.  In the days of having school sponsored computer labs, the ability to rip oopen a PC and add some storage was simply not allowed. For this chapter we will assume that you are using Virtual Box 5.x.
+For this chapter we will assume that you are using Virtual Box 5.x.
 
- With your Ubuntu or Fedora virtual machine powered down, we will now add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu. 
+With your Ubuntu or Fedora virtual machine powered down, we will now add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu. 
 
 ![*Virtual Box settings panel*](images/Chapter-11/virtual-box/settings.png "Settings")
 \newpage
