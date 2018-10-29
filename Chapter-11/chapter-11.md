@@ -40,7 +40,7 @@ The latest incarnation of disk based technology is NVMe - which stands for - the
 Insert Picture of NVMe here
 Insert Price here
 
-The future of disk is something of a Hybrid between ram and solid state/flash memory.  Intel launched a platform called Optane
+The future of disk is something of a Hybrid between ram and solid state/flash memory.  Intel launched a platform called Optane.  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of hard disk to the point that is is close or equal in speed to RAM (Non-volitile memory)  there by elimating potential system bottleneck and making the platform of memory a sinlge platform.  As of 2018 the cost and technology is still a bit prohibitive, but this is where the industry will move in the next 5 to 10 years.
 
 Show optane image
 
