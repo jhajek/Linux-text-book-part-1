@@ -22,6 +22,11 @@ In looking at the prices of disk based storage from the Fall of 2015, a single t
 The orginal, cheapest, and densest storage type in dollars per meagbits is still a mechanical harddrive.  Often refered to as an HDD.  
 
 ![*Image of Western Digital HDD*](images/Chapter-11/addlinkhere "Image of Western Digital Hard Drive HDD")
+
+These are made up of spinning platters where bits are stored via magnetic charge.  These systems have down sides in that parts of the surface ware out over time as well as they have mechanical parts (servos) that can fail over time.  They require constant amounts of power and if you scale this over large data centers these costs can quickly add up.  In addition as the size of storage density has increased, the need to develop new storage mediums has arisen.  What was once a single magnetic platter, became three parallel platters, then became five spinning platters, which then became glass platters, which then became vertical electron based storage (somehow they got electrons to stand up instead of lay flat), then moving the latest Helium filled 10 TB disks.   Along the way with this growth technologies such as the SATA 1,3, and 6 bus technology was introduced for trasnmitting data faster from the disk to the CPU.  Also on disk based cache memory was added which was essentially a 16-64mb disk on the disk to cache frequently accessed data.  On top of that NCQ - Native Command Queueing was introduces which looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make.  All of this is happening at 5400-7200 rpms, revolutions per minute.
+
+I
+
 Since we are dealing with virtual storage in this book we can easily attach and detach storage devices without being destructive to any underlying hardware.  In the days of having school sponsored computer labs, the ability to rip oopen a PC and add some storage was simply not allowed. 
 
 ## Disk Management in VirtualBox
