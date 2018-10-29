@@ -25,7 +25,21 @@ The orginal, cheapest, and densest storage type in dollars per meagbits is still
 
 These are made up of spinning platters where bits are stored via magnetic charge.  These systems have down sides in that parts of the surface ware out over time as well as they have mechanical parts (servos) that can fail over time.  They require constant amounts of power and if you scale this over large data centers these costs can quickly add up.  In addition as the size of storage density has increased, the need to develop new storage mediums has arisen.  What was once a single magnetic platter, became three parallel platters, then became five spinning platters, which then became glass platters, which then became vertical electron based storage (somehow they got electrons to stand up instead of lay flat), then moving the latest Helium filled 10 TB disks.   Along the way with this growth technologies such as the SATA 1,3, and 6 bus technology was introduced for trasnmitting data faster from the disk to the CPU.  Also on disk based cache memory was added which was essentially a 16-64mb disk on the disk to cache frequently accessed data.  On top of that NCQ - Native Command Queueing was introduces which looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make.  All of this is happening at 5400-7200 rpms, revolutions per minute.
 
-I
+In early 2012, a new medium called a Solid State Drive, or SSD was relased.  These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data.  The imeediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into positon to read the correct bits.  The increased speeds dramatically and while the original SSDs storage was low and comparitvely today the dollar per megabit ration is not as good as a HDD, the read based access time was orders of magnitude faster.   
+
+Add SSD and HDD chart here
+
+Add image of SSD here
+
+The orginal SSD disks were put out by RAM manufactureres and were actually pretty terible.  The only good one were built by INtel and Samsung.  The other manufactures have caught up and you can get drives in 256, 512, and 1 TB sizes.  Since there are no moving parts the battery or power usage is far reduced from an HDD.  SSDs do have potential issues with ware leveling and block failure, but in the chips controlling these devices the manufactureres have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data trasnfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitiation that HDDs suffered to be overcome.  
+
+As a price point marketing creation you might see SSHDs which are called Hybrid Drives.  They contain 4 to 16 GB of flash disk and the rest of the drive is a mechanical 3 to 5 platter disk.  This is supposed to give you the advantage of cahcing frequent data on the flash data, but the idea never caught on as the price of SSD and HDD both have dropped drastically, making this solution not neccesary.  
+
+The latest incarnation of disk based technology is NVMe - which stands for - these are solid state drives, but instad of sending data over the SATA interface, they conenct directly to the high speed PICe bus -- just like your Video Card does.  This allows for higher throughput than a traditional SSD and the size reduction is drastic allowing these disks to go into smaller form factor PCs.  The price is high as the technology is still reletively new, but the performance gain is worth the investment.
+
+Insert Picture of NVMe here
+Insert PRice here
+
 
 Since we are dealing with virtual storage in this book we can easily attach and detach storage devices without being destructive to any underlying hardware.  In the days of having school sponsored computer labs, the ability to rip oopen a PC and add some storage was simply not allowed. 
 
