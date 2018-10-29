@@ -313,8 +313,6 @@ In this chapter we learned and mastered the tools and concepts needed to manage,
 
 ### Review Questions
 
-Chapter 12 Review Questions
-
 1) What is the fdisk program?
 a) a dialog-driven program for the creation and manipulation of partition tables.
 b) a filesystem creation tool
