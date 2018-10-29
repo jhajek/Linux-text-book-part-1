@@ -38,7 +38,11 @@ As a price point marketing creation you might see SSHDs which are called Hybrid 
 The latest incarnation of disk based technology is NVMe - which stands for - these are solid state drives, but instad of sending data over the SATA interface, they conenct directly to the high speed PICe bus -- just like your Video Card does.  This allows for higher throughput than a traditional SSD and the size reduction is drastic allowing these disks to go into smaller form factor PCs.  The price is high as the technology is still reletively new, but the performance gain is worth the investment.
 
 Insert Picture of NVMe here
-Insert PRice here
+Insert Price here
+
+The future of disk is something of a Hybrid between ram and solid state/flash memory.  Intel launched a platform called Optane
+
+Show optane image
 
 
 Since we are dealing with virtual storage in this book we can easily attach and detach storage devices without being destructive to any underlying hardware.  In the days of having school sponsored computer labs, the ability to rip oopen a PC and add some storage was simply not allowed. 
