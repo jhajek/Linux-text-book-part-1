@@ -108,6 +108,7 @@ Once you see the screen below - it means you have successfully created a new vir
 ![*Disk Information*](images/Chapter-11/virtual-box/information.png "Information")
 
 Adding a virtual disk is only the first step, there are three more steps before we can use this disk.  We need to:
+
 1) partition the disk
 1) create a filesystem
 1) and then mount the disk so that it can be used by your operating system.
