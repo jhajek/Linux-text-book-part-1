@@ -17,13 +17,15 @@
 
 In looking at the prices of disk based storage from the Fall of 2015, a single terabyte Western Digital Blue hard drive was selling for ~$50.  In the time since, the proce of storage has only decreased. Storage is cheap and with that in mind, adding *storage* or *capacity* to a system is trivial.  In fact the types of storage available since 2015 have changed drastically.  
 
-### Physcial Media
+### Mechanical Hard Drives HDDs
 
 The orginal, cheapest, and densest storage type in dollars per meagbits is still a mechanical harddrive.  Often refered to as an HDD.  
 
 ![*Image of Western Digital HDD*](images/Chapter-11/addlinkhere "Image of Western Digital Hard Drive HDD")
 
 These are made up of spinning platters where bits are stored via magnetic charge.  These systems have down sides in that parts of the surface ware out over time as well as they have mechanical parts (servos) that can fail over time.  They require constant amounts of power and if you scale this over large data centers these costs can quickly add up.  In addition as the size of storage density has increased, the need to develop new storage mediums has arisen.  What was once a single magnetic platter, became three parallel platters, then became five spinning platters, which then became glass platters, which then became vertical electron based storage (somehow they got electrons to stand up instead of lay flat), then moving the latest Helium filled 10 TB disks.   Along the way with this growth technologies such as the SATA 1,3, and 6 bus technology was introduced for trasnmitting data faster from the disk to the CPU.  Also on disk based cache memory was added which was essentially a 16-64mb disk on the disk to cache frequently accessed data.  On top of that NCQ - Native Command Queueing was introduces which looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make.  All of this is happening at 5400-7200 rpms, revolutions per minute.
+
+### Solid State Drives SSDs
 
 In early 2012, a new medium called a Solid State Drive, or SSD was relased.  These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data.  The imeediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into positon to read the correct bits.  The increased speeds dramatically and while the original SSDs storage was low and comparitvely today the dollar per megabit ration is not as good as a HDD, the read based access time was orders of magnitude faster.   
 
@@ -35,6 +37,8 @@ The orginal SSD disks were put out by RAM manufactureres and were actually prett
 
 As a price point marketing creation you might see SSHDs which are called Hybrid Drives.  They contain 4 to 16 GB of flash disk and the rest of the drive is a mechanical 3 to 5 platter disk.  This is supposed to give you the advantage of cahcing frequent data on the flash data, but the idea never caught on as the price of SSD and HDD both have dropped drastically, making this solution not neccesary.  
 
+### NVMe
+
 The latest incarnation of disk based technology is NVMe - which stands for - these are solid state drives, but instad of sending data over the SATA interface, they conenct directly to the high speed PICe bus -- just like your Video Card does.  This allows for higher throughput than a traditional SSD and the size reduction is drastic allowing these disks to go into smaller form factor PCs.  The price is high as the technology is still reletively new, but the performance gain is worth the investment.
 
 Insert Picture of NVMe here
@@ -44,14 +48,15 @@ The future of disk is something of a Hybrid between ram and solid state/flash me
 
 Show optane image
 
+### Virtual Hard Drives
 
-Since we are dealing with virtual storage in this book we can easily attach and detach storage devices without being destructive to any underlying hardware.  In the days of having school sponsored computer labs, the ability to rip oopen a PC and add some storage was simply not allowed. 
+When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VmWare, and Cloud based services, in place disk cna be reformated and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files.
 
-## Disk Management in VirtualBox
+### Disk Management in VirtualBox
 
-For this chapter we will assume that you are using Virtual Box 5.x.
+For this chapter we will assume that you are using Virtual Box 5.x, but these concepts apply to any virtual machine or Hypervisor.  This also assumes you have free space on your computer.  Since the point of this lab is to explore and not prouction usage, you may want to get an external USB drive and use that for this chapter so as not to fill up your hard drive.
 
-With your Ubuntu or Fedora virtual machine powered down, we will now add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu. 
+With your Ubuntu or Fedora virtual machine powered down, let's add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu.
 
 ![*Virtual Box settings panel*](images/Chapter-11/virtual-box/settings.png "Settings")
 \newpage
@@ -59,6 +64,7 @@ With your Ubuntu or Fedora virtual machine powered down, we will now add some ne
 The next menu to come up will show the *SETTINGS* options and the name of the virtual machine you are working on.
 
 ![*Virtual Box settings menu*](images/Chapter-11/virtual-box/settings-menu.png "Settings Menu")
+
 \newpage
 
 Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in Virtual Box.  In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well.  That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached.  
