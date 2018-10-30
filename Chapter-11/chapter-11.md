@@ -44,14 +44,18 @@ As a price point marketing creation you might see SSHDs which are called Hybrid 
 
 ### NVMe
 
-The latest incarnation of disk based technology is NVMe - which stands for - these are solid state drives, but instad of sending data over the SATA interface, they conenct directly to the high speed PICe bus -- just like your Video Card does.  This allows for higher throughput than a traditional SSD and the size reduction is drastic allowing these disks to go into smaller form factor PCs.  The price is high as the technology is still reletively new, but the performance gain is worth the investment.
+The latest incarnation of SSD disk based technology is [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") which stands for Non-Volatile Memory Express. These are solid state drives, but instad of sending data over the SATA interface, they conenct directly to the high-speed PCIe bus, just like your video card does.  The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 4x parallel transfer lanes as opposed to a serial fashion which SATA was designed for.  NVMe comes in expansion card factor and comes in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137]. The price is high as the technology is still reletively new, but the performance gain is worth the investment.
 
-Insert Picture of NVMe here
-Insert Price here
+   PCIe Version     Per Lane Throughput        1x        4x          8x        16x
+-----------------  ----------------------  ---------- ---------- ---------- -----------
+     PCIe 1.0       2 Gbit/s (250 MB/s)     2 Gbit/s   8 Gbit/s   16 Gbit/s  32 Gbit/s
+     PCIe 2.0       4 Gbit/s (500 MB/s)     4 Gbit/s   16 Gbit/s  32 Gbit/s  64 Gbit/s
+     PCIe 3.0       7 Gbit/s                7 Gbit/s   28 Gbit/s  56 Gbit/s  112 Gbit/s
+     PCIe 4.0       15 Gbit/s               15 Gbit/s  60 Gbit/s  120 Gbit/s 240 Gbit/s
 
-The future of disk is something of a Hybrid between ram and solid state/flash memory.  Intel launched a platform called Optane.  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of hard disk to the point that is is close or equal in speed to RAM (Non-volitile memory)  there by elimating potential system bottleneck and making the platform of memory a sinlge platform.  As of 2018 the cost and technology is still a bit prohibitive, but this is where the industry will move in the next 5 to 10 years.
+![*M2 and mini-Sata*](images/Chapter-11/ssd/M.2_and_mSATA_SSDs_comparison.jpg "M.2 and mSata SSD")
 
-Show optane image
+The future of disk is something of a hybrid between ram and solid state/flash memory.  Intel launched trademakred platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane").  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of hard disk to the point that is is close to or equal in speed to RAM (Non-volitile memory).  There by elimating potential system bottleneck and making the platform of memory a sinlge platform.  As of 2018 the cost and technology is still a bit prohibitive, but this is where the industry will move in the next 5 to 10 years.
 
 ### Virtual Hard Drives
 
@@ -608,3 +612,7 @@ e) Create mountpoints under ```/mnt``` and mount them and list them all with a `
 [^134]: <a href="https://commons.wikimedia.org/wiki/File:Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg">By photo: Qurren (talk)Taken with Canon IXY 10S (Digital IXUS 210)</a> or <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0 </a>
 
 [^135]: <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0 By Evan-Amos</a> <a href="https://commons.wikimedia.org/wiki/File:Laptop-hard-drive-exposed.jpg">from Wikimedia Commons</a>
+
+[^136]: [https://www.lifewire.com/pci-express-pcie-2625962](https://www.lifewire.com/pci-express-pcie-2625962 "PCi Express")
+
+[^137]: <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0 By Anand Lal Shimpi, anandtech.com</a> <a href="https://commons.wikimedia.org/wiki/File:M.2_and_mSATA_SSDs_comparison.jpg">via Wikimedia Commons</a>)
