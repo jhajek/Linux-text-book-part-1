@@ -200,11 +200,11 @@ Traditionally your ```/boot``` partition is formatted as __ext2__ because it is 
 
 ### ext3/ext4
 
-As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evident and critical.  The CPU could now handle to overhead of managing data writes to disk to ensure that those operations happen.
+As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evident and critical.  The CPU could now handle to overhead of managing data writes to disk to ensure that those operations actually happened.
 
  *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted. [^124][^125]"*
 
-Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as it was now over a decade old.  
+Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as thwy were now over a decade old.  
 
 : Limits of ext3
 
@@ -215,30 +215,67 @@ Block size   Max file size   Max file system size
   4 KiB         2 TiB             16 TiB
 ----------- --------------- ----------------------  
 
-By 2008 it became appearant that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __ext__ filesystem a bit longer, but the growth of __ext__ had hit the end, and a newer filesystem needed to be developed to handle the larger sets of data and the massively improved hardware that existed since 1992, when ext __was__ developed.
+By 2008 it became appearant that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __ext__ filesystem a bit longer, but the growth of __ext__ had hit the end, and a newer filesystem needed to be developed to handle the larger sets of data and the massively improved hardware that existed since 1992, when ext was developed.
 
-Ext4 saw the capacity extension of __ext3__ and introduction to __extents__. The __ext4__ filesystem can support volumes with sizes up to 1 exibyte (EiB) and files with sizes up to 16 tebibytes (TiB). However, Red Hat recommends using XFS instead of ext4 for volumes larger than 100 TB.
+Ext4 saw the capacity extension of __ext3__ and introduction to __extents__. The __ext4__ filesystem can support volumes with sizes up to 1 exibyte (EiB) and files with sizes up to 16 tebibytes (TiB).
 
 In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in __ext4__ can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].  
 
-Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type ```mkfs.etx4 /dev/sdX1```  and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems that fill the voids left by __ext4__.
+Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type ```mkfs.etx4```  and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems that fill the voids left by __ext4__.
+
+## Logical Volume Manager
+
+In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored int he users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
+
+The question is under standard partitioning you don't. You simply backup, reinstall, and reformat the entire drive.  This is very time consuming and a risky operation that is usually not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the Linux kernel since version 2.6.
+
+LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users.[^130]"*
+\newpage
+
+![*LVM diagram*](images/Chapter-11/LVM/LVM.png "LVM")
+
+This diagram creates three concepts to know when dealing with LVM:
+
+*  Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit [^131].
+*  Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device) [^132].
+*  Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home) [^133].
+    + Physical Extent (PE) - This is the unit of storage (blocks) that a PV is split into
+    + Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*.  The LVM counts how many extents are possible and makes this its *disk* so to speak.
+
+### Physical Volumes
+
+The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use.  Note that you can choose to use the entire disk ```/dev/sdb``` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the ```pvcreate``` command to *create* physical volumes, same case with the partition.
+
+### Volume Groups
+
+Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to.  The command to add PVs to an LG is: ```vgcreate VOLUME-GROUP-NAME /dev/sdx /dev/sdy```. You can extend this volume group by simply adding another ```pvcreate /dev/sdx1``` command for example and then using the ```vgextend VOLUME-GROUP-NAME /dev/sdz```.  There is also a ```vgreduce``` command that will remove a PV from a Volume Group.  The volume group allows for a single logical management unit for multiple disk/partitions.  This is useful as well for adding additional storage and removing storage devices that may have failed or are not performing at required parameters.  
+
+### Logical Volumes
+
+From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to Linear, but that is an application based decision.  Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command ```lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME``` will extend the LV to become 50 GB in size.  Using ```-L+50G``` will add 50 additional gigabytes to an existing LV's size.
+
+Once you have successfully created an LV, now it needs a file-system installed.  Here you can add XFS, Btrfs, ZFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each file-system type (XFS, Btrfs, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.   
+
+One definite feature not included in traditional partitioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in (Btrfs and ZFS, but not XFS or ext4 they are too old).  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or COW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV.
+
+LVM is sperate component from traditional filesystems and was seen as a stop gap method until new integrated filesystem replacements like XFS, btrfs, or ZFS could be developed or integrated to the Linux Kernel.
 
 ### XFS
 
-XFS is a robust and highly-scalable single host 64-bit journaling file system. It is entirely extent-based, so it supports very large files and file system sizes. The maximum supported file system size is 100 TB. The number of files an XFS system can hold is limited only by the space available in the file system [^127].   
+XFS is a robust and highly-scalable single host 64-bit journaling file system. It is entirely extent-based, so it supports very large files and file system sizes. The maximum supported file system size is 100 TB. The number of files an XFS system can hold is limited only by the space available in the file system[^127].
 
 XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used- also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices [^127].
 
-XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than btrfs or other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  Recently RedHat began in RHEL 7.x to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.  
+XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  RedHat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.  
 
-XFS is notoriously bad at being used by an everyday computer usage pattern that reads and writes many small files, so it is not suitable for Fedora or Ubuntu, but works perfect on a system storing large database files or archiving large images or x-ray data.  You can install the tools needed to make a partion of the XFS format by typing:
+XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partion of the XFS format by typing:
 
   * XFS tools are already installed on Fedora
   * sudo apt-get install xfsprogs
 
 ### Btrfs
 
-Theodore Ts'o has recommended moving to Btrfs (pronounced *butter fs*) as a replacement for ext4 moving forward, but development on btrfs is still in beta and not quite stable for production.   Btrfs uses copy-on-write, which is a strategy where as multiple processes using the same piece of data, don't make copies of it each, but use pointers to the initial data, thereby speeding up the system, reducing the number of writes needed. The project was initially created by Oracle, for use on their own storage products, but was GPL'd and now many companies contribute to the codebase. The project is marked stable and included in the Linux kernel since July of 2013.  
+Theodore Ts'o has recommended moving to Btrfs (pronounced *butter fs*) as a replacement for ext4 moving forward, but development on btrfs is still in beta and not quite stable for production.   Btrfs uses copy-on-write, which is a strategy where as multiple processes using the same piece of data, don't make copies of it each, but use pointers to the initial data, thereby speeding up the system, reducing the number of writes needed. The project was initially created by Oracle in 2007, for use on their own storage products, but was GPL'd and now many companies contribute to the codebase.  Development continued on Btrfs after Oracle aquried the ZFS filesystem when they bought Sun. The project is marked stable and included in the Linux kernel since July of 2013.  
 
 Chris Mason, the principal Btrfs author, has stated that its goal was, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable. [^128]"*
 
@@ -253,7 +290,7 @@ A third alternative is a filesystem originally developed by Sun, called ZFS.  ZF
 
 ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called CDDL, which is similar to GPL, but allowed Sun and Oracle to license proprietary parts of the filesystem, as not free. This prevented ZFS from being adopted natively into the Linux kernel because of the GPL incompatability.  FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 8 of FreeBSD.  
 
-Recently Ubuntu Linux added an additional repository that you can manually add to your system to include the CDDL licensed ZFS code on Linux as a loadable kernel module.  You can load the module, you just can't install your operating system on ZFS natively while installing because the module isn't included in the Linux kernel.  Here is an example to install the ZFS PPA, load the module and then format and create a zpool logical mirror (RAID1) in 5 steps,  tutorial comes from here: [ http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html]( http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html "ZFS Tutorial")
+Recently Ubuntu Linux added an additional repository that you can manually add to your system to include the CDDL licensed ZFS code on Linux as a loadable kernel module.  You can load the module, you just can't install your operating system on ZFS natively while installing because the module isn't included in the Linux kernel.  Here is an example to install the ZFS PPA, load the module and then format and create a zpool logical mirror (RAID1) in 5 steps,  tutorial comes from here: [http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html]( http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html "ZFS Tutorial")
 
 ```bash
  sudo add-apt-repository ppa:zfs-native/stable
@@ -314,43 +351,6 @@ The ```du``` command is disk usage.  This is a helpful command to show the exact
 \newpage
 
 ![*du -H --exlude=".\*" /home/controller*](images/Chapter-11/du/du-h.png "du")  
-
-## Logical Volume Manager
-
-In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored int he users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
-
-The question is under standard partitioning you don't. You simply backup, reinstall, and reformat the entire drive.  This is very time consuming and a risky operation that is usually not taken lightly.  What to do?  A solution to this problem, called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), was created in 1998.  LVM version 2 is the current full featured version baked in to the Linux kernel since version 2.6.
-
-LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users. [^130]"*
-\newpage
-
-![*LVM diagram*](images/Chapter-11/LVM/LVM.png "LVM")
-
-This diagram creates three concepts to know when dealing with LVM:
-
-*  Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit [^131].
-*  Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device) [^132].
-*  Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home) [^133].
-    + Physical Extent (PE) - This is the unit of storage (blocks) that a PV is split into
-    + Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*.  The LVM counts how many extents are possible and makes this its *disk* so to speak.
-
-### Physical Volumes
-
-The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use.  Note that you can choose to use the entire disk ```/dev/sdb``` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the ```pvcreate``` command to *create* physical volumes, same case with the partition.
-
-### Volume Groups
-
-Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to.  The command to add PVs to an LG is: ```vgcreate VOLUME-GROUP-NAME /dev/sdx /dev/sdy```. You can extend this volume group by simply adding another ```pvcreate /dev/sdx1``` command for example and then using the ```vgextend VOLUME-GROUP-NAME /dev/sdz```.  There is also a ```vgreduce``` command that will remove a PV from a Volume Group.  The volume group allows for a single logical management unit for multiple disk/partitions.  This is useful as well for adding additional storage and removing storage devices that may have failed or are not performing at required parameters.  
-
-### Logical Volumes
-
-From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to Linear, but that is an application based decision.  Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command ```lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME``` will extend the LV to become 50 GB in size.  Using ```-L+50G``` will add 50 additional gigabytes to an existing LV's size.
-
-Once you have successfully created an LV, now it needs a file-system installed.  Here you can add XFS, Btrfs, ZFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each file-system type (XFS, Btrfs, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.   
-
-One definite feature not included in traditional partitioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in (Btrfs and ZFS, but not XFS or ext4 they are too old).  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or COW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV.
-
-LVM is used mostly during partitioning during installation and new file-systems like Btrfs and ZFS seek to replicate its abilities at a file-system level.  LVM has many more detailed and powerful commands worth exploring.
 
 ## Chapter Conclusions and Review
 
