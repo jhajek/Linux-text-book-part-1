@@ -19,19 +19,24 @@ In looking at the prices of disk based storage from the Fall of 2015, a single t
 
 ### Mechanical Hard Drives HDDs
 
-The orginal, cheapest, and densest storage type in dollars per meagbits is still a mechanical harddrive.  Often refered to as an HDD.  
+The orginal, cheapest, and densest storage type in dollars per meagbits is still a mechanical harddrive.  Often refered to as an HDD[^135].  
 
-![*Image of Western Digital HDD*](images/Chapter-11/addlinkhere "Image of Western Digital Hard Drive HDD")
+![*Hard Drive*](images/Chapter-11/hdd/256px-Laptop-hard-drive-exposed.jpg "Hard Drive Internals")
 
-These are made up of spinning platters where bits are stored via magnetic charge.  These systems have down sides in that parts of the surface ware out over time as well as they have mechanical parts (servos) that can fail over time.  They require constant amounts of power and if you scale this over large data centers these costs can quickly add up.  In addition as the size of storage density has increased, the need to develop new storage mediums has arisen.  What was once a single magnetic platter, became three parallel platters, then became five spinning platters, which then became glass platters, which then became vertical electron based storage (somehow they got electrons to stand up instead of lay flat), then moving the latest Helium filled 10 TB disks.   Along the way with this growth technologies such as the SATA 1,3, and 6 bus technology was introduced for trasnmitting data faster from the disk to the CPU.  Also on disk based cache memory was added which was essentially a 16-64mb disk on the disk to cache frequently accessed data.  On top of that NCQ - Native Command Queueing was introduces which looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make.  All of this is happening at 5400-7200 rpms, revolutions per minute.
+These are made up of spinning platters where bits are stored via magnetic charge.  These systems have down sides in that parts of the surface ware out over time as well as they have mechanical parts (servos) that can fail over time.  They require constant amounts of power and if you scale this over large data centers these costs can quickly add up.  In addition as the size of storage density has increased, the need to develop new storage mediums has arisen.  What was once a single magnetic platter, became three parallel platters, then became five spinning platters, which then became glass platters, which then became vertical electron based storage (somehow they got electrons to stand up instead of lay flat), then moving the latest Helium filled 10 TB disks.   Along the way with this growth technologies such as the SATA 1,2, and 3.x bus technology was introduced for transmitting data faster from the disk to the CPU.  Also on-disk based cache memory was added which was essentially a 16-64mb disk on the disk to cache frequently accessed data.  On top of that [NCQ](https://sata-io.org/developers/sata-ecosystem/native-command-queuing "Native Command Queueing") - Native Command Queueing was introduces which looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make.  All of this is happening at 5400-7200 rpms, revolutions per minute.
 
 ### Solid State Drives SSDs
 
-In early 2012, a new medium called a Solid State Drive, or SSD was relased.  These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data.  The imeediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into positon to read the correct bits.  The increased speeds dramatically and while the original SSDs storage was low and comparitvely today the dollar per megabit ration is not as good as a HDD, the read based access time was orders of magnitude faster.   
+In early 2012, a new medium called a Solid State Drive, or SSD was relased.  These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data.  The imeediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into positon to read the correct bits.  The increased speeds dramatically and while the original SSDs storage was low and comparitvely today the dollar per megabit ration is not as good as a HDD, the read based access time was orders of magnitude faster.
 
-Add SSD and HDD chart here
+  SATA Version              Throughput
+---------------------  -----------------------
+  SATA revision 3.2      16 Gbit/s 1.97 GB/s
+  SATA revision 3.0      6 Gbit/s  600 MB/s
+  SATA revision 2.0      3 Gbit/s  300 MB/s
+  SATA revision 1.0      1.5 Gbit/s 150 MB/s
 
-Add image of SSD here
+![*Standard SSD connector*](images/Chapter-11/ssd/256px-Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg "Standard SSD connector")[^134]
 
 The orginal SSD disks were put out by RAM manufactureres and were actually pretty terible.  The only good one were built by INtel and Samsung.  The other manufactures have caught up and you can get drives in 256, 512, and 1 TB sizes.  Since there are no moving parts the battery or power usage is far reduced from an HDD.  SSDs do have potential issues with ware leveling and block failure, but in the chips controlling these devices the manufactureres have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data trasnfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitiation that HDDs suffered to be overcome.  
 
@@ -599,3 +604,7 @@ e) Create mountpoints under ```/mnt``` and mount them and list them all with a `
 [^132]: [http://tldp.org/HOWTO/LVM-HOWTO/pv.html](http://tldp.org/HOWTO/LVM-HOWTO/pv.html)
 
 [^133]: [http://tldp.org/HOWTO/LVM-HOWTO/lv.html](http://tldp.org/HOWTO/LVM-HOWTO/lv.html)
+
+[^134]: <a href="https://commons.wikimedia.org/wiki/File:Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg">By photo: Qurren (talk)Taken with Canon IXY 10S (Digital IXUS 210)</a> or <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0 </a>
+
+[^135]: <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0 By Evan-Amos</a> <a href="https://commons.wikimedia.org/wiki/File:Laptop-hard-drive-exposed.jpg">from Wikimedia Commons</a>
