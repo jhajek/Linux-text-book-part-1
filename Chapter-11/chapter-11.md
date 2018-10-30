@@ -273,38 +273,40 @@ LVM is sperate component from traditional filesystems and was seen as a stop gap
 
 XFS is a robust and highly-scalable single host 64-bit journaling file system. It is entirely extent-based, so it supports very large files and file system sizes. The maximum supported file system size is 100 TB. The number of files an XFS system can hold is limited only by the space available in the file system[^127].
 
-XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used- also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices [^127].
+XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used- also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices[^127].
 
 XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  RedHat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.  
 
-XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partion of the XFS format by typing:
-
-  * XFS tools are already installed on Fedora
-  * sudo apt-get install xfsprogs
+XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partion of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  
 
 ### Btrfs
 
 Theodore Ts'o has recommended moving to Btrfs (pronounced *butter fs*) as a replacement for ext4 moving forward, but development on btrfs is still in beta and not quite stable for production.   Btrfs uses copy-on-write, which is a strategy where as multiple processes using the same piece of data, don't make copies of it each, but use pointers to the initial data, thereby speeding up the system, reducing the number of writes needed. The project was initially created by Oracle in 2007, for use on their own storage products, but was GPL'd and now many companies contribute to the codebase.  Development continued on Btrfs after Oracle aquried the ZFS filesystem when they bought Sun. The project is marked stable and included in the Linux kernel since July of 2013.  
 
-Chris Mason, the principal Btrfs author, has stated that its goal was, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable. [^128]"*
+Chris Mason, the principal Btrfs author, has stated that its goal was, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
 
-Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and checksuming.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.
+Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and checksuming.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  Suse Linux is the only major Linux distribution that has adopted btrfs as the default filesystem on their [Enterprise Edition Linux](https://www.suse.com/documentation/sles-12/singlehtml/stor_admin/stor_admin.html#sec.filesystems.major.btrfs "Suse Linux adopts btrfs as default"). [Oracle maintains the documentation for btrfs](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html "Oracle maintains the documentation for btrfs").
 
-  * ```sudo dnf install btrfs-progs -y``` or ```sudo yum install btrfs-progs -y``` 		
-  * ```sudo apt-get install btrfs-tools -y```	 
+  * ```sudo dnf install btrfs-progs```
+  * ```sudo yum install btrfs-progs```
+  * ```sudo apt-get install btrfs-tools```
 
 ### ZFS
 
-A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an elegantly designed filesystem.   *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID,(RAID-Z) [^129]"*   
+A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an elegantly designed filesystem.   *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID,(RAID-Z)[^129]."*
 
-ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called CDDL, which is similar to GPL, but allowed Sun and Oracle to license proprietary parts of the filesystem, as not free. This prevented ZFS from being adopted natively into the Linux kernel because of the GPL incompatability.  FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 8 of FreeBSD.  
+ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to GPL, but allowed Sun and Oracle to include propriatary parts of the Operating System with opensource code. This prevented ZFS from being adopted natively into the Linux kernel because of the GPL incompatability.  FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 8 of FreeBSD.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
 
-Recently Ubuntu Linux added an additional repository that you can manually add to your system to include the CDDL licensed ZFS code on Linux as a loadable kernel module.  You can load the module, you just can't install your operating system on ZFS natively while installing because the module isn't included in the Linux kernel.  Here is an example to install the ZFS PPA, load the module and then format and create a zpool logical mirror (RAID1) in 5 steps,  tutorial comes from here: [http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html]( http://serverascode.com/2014/07/01/zfs-ubuntu-trusty.html "ZFS Tutorial")
+* [GPL Violations Related to Combining ZFS and Linux](https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/ "GPL Violations Related to Combining ZFS and Linux")
+* [Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS](https://www.fsf.org/licensing/zfs-and-linux "Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS")
+* [Ubuntu ZFS announcement](https://blog.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04 "Ubuntu ZFS Annoucement")
+
+Recently Ubuntu Linux added an additional repository that you can manually add to your system to include the CDDL licensed ZFS code on Linux as a loadable kernel module.  You can load the module, you just can't install your operating system on ZFS natively while installing because the module isn't included in the Linux kernel.  Here is an example to install the ZFS PPA, load the module and then format and create a zpool logical mirror (RAID1) in 5 steps,  tutorial comes from here: [https://wiki.ubuntu.com/Kernel/Reference/ZFS](https://wiki.ubuntu.com/Kernel/Reference/ZFS "ZFS Tutorial")
 
 ```bash
- sudo add-apt-repository ppa:zfs-native/stable
- sudo apt-get update
- sudo apt-get install -y ubuntu-zfs
+sudo apt install zfsutils-linux  
+# In addition to be able to have ZFS on root, install:
+sudo apt install zfs-initramfs
 
 # Now check to see if the zfs module is loaded
  modprobe zfs
@@ -316,6 +318,8 @@ Recently Ubuntu Linux added an additional repository that you can manually add t
  zfs list
  df -h | grep tank
 ```  
+
+ZFS doesn't have native support for the Fedora OS, seeing as they put their weight behind XFS and are even depricating btrfs from future RHEL releases.   A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux")  Supports third party packages for deployment and testing.
 
 ## Mounting and Unmounting of disks
 
@@ -344,10 +348,32 @@ An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4 
 9. user - Permit any user to mount the filesystem. This automatically implies noexec, nosuid,nodev unless overridden.
 10. nouser - Only permit root to mount the filesystem. This is also a default setting.
 11. defaults - Use default settings. Equivalent to rw, suid, dev, exec, auto, nouser, async.
-12. netdev - this is a network device, mount it after bringing up the network. Only valid with fstype nfs.    
+12. netdev - this is a network device, mount it after bringing up the network. Only valid with fstype nfs.
 
-### systemd mounting units and ZFS mounting
+### iSCSI
 
+The [iSCSI protocol](https://en.wikipedia.org/wiki/ISCSI "iSCSI") is a reimplemntation of the SCSI disk communication protocol.  SCSI was an alternative that could move data faster than the then ATA (pre-SATA) standard.  Once SATA became available the SCSI based hardware was more expensive and was replaced by cheaper SATA.  The SCSI protocol was well known and heavily invested in by IBM and Cisco and was standardized by the year 2000.  iSCSI integrated SCSI commands over IP.  Allowing you to seperate your disks and storage and access them over a local network via the iSCSI protocol.  Disks were formatted as LVMs or directly as a ZFS, btrfs, or XFS based drive and then presented as __iSCSI targets__ over the network. The system that connects to a target in an __initiator__.   iSCSI devices can replace the need for SAN technology (Storage Area Networks) and work on commodity hardware over basic ethernet cables and switches.  All modern Oses come with support for being either a target or an innitiator.  A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD and TrueOS.
+
+### systemd mounting units
+
+Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*"   ZFS will takecare of automounting its own partitions.  Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the ```blkid``` command. 
+
+If you wanted to maintain mount points in systemd you can create a **.mount** file like this example[^138].  The file name is located in the comment below as the content of the ```What=``` directive is the output of the command ```blkid```, but could be a ```/dev/name``` as well.
+
+```bash
+# vi /etc/systemd/system/var-lib-docker.mount
+[Unit]
+Description=Docker mount
+
+[Mount]
+What=/dev/disk/by-uuid/5813cd72-ff30-44bc-a7a3-27c68fe3e6c7
+Where=/var/lib/docker
+Type=btrfs
+Options=defaults
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ### Disk related tools
 
@@ -383,7 +409,7 @@ d) VDD
 a) partitioning
 b) make a filesystem
 c) mount a filesystem
-d)
+d) add an extent
 
 4) Which command will print out currently all the block devices, their device name, and their partitions in a nice tree based format.
 a) lspci
@@ -492,10 +518,10 @@ d) vgmknodes
 [DragonFly BSD](https://dragonflybsd.org "Dragon Fly BSD") - Listen to this podcast: [https://ia802605.us.archive.org/9/items/bsdtalk248/bsdtalk248.mp3](https://ia802605.us.archive.org/9/items/bsdtalk248/bsdtalk248.mp3 "DragonFly BSD")  
 
 ~1:25 What did DragonFly BSD drop with the 4.0 release?
-~1:40 What was the other major feature that DragonFly BSD add?
-~3:40 What modification did they add to the Packer Filter?
-~10:00 What is the largest system DragonFly BSD have access to?
-~11:45 What is the difference between DragonFly BSD's network stack compared to other BSD and Linux?
+~1:40 What was the other major feature that DragonFly BSD added?
+~3:40 What modification did they add to the Packet Filter?
+~10:00 What is the largest system DragonFly BSD has access to?
+~11:45 What is the difference between DragonFly BSD's network stack compared to BSD and Linux?
 ~13:25 What is the limitations of the Hammer 1 Filesystem?
 ~13:45 What features will Hammer 2 Filesystem add?
 ~15:45 What is the intended use case of Hammer 2 FS?
@@ -508,8 +534,6 @@ d) vgmknodes
 ~40:23 How does GPL based Linux software cross over into BSD distros?
 
 ### Lab
-
-Chapter 12 Lab
 
 Objectives
 
@@ -616,3 +640,5 @@ e) Create mountpoints under ```/mnt``` and mount them and list them all with a `
 [^136]: [https://www.lifewire.com/pci-express-pcie-2625962](https://www.lifewire.com/pci-express-pcie-2625962 "PCi Express")
 
 [^137]: <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0 By Anand Lal Shimpi, anandtech.com</a> <a href="https://commons.wikimedia.org/wiki/File:M.2_and_mSATA_SSDs_comparison.jpg">via Wikimedia Commons</a>)
+
+[^138]: [https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/](https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/ "Systemd Mount file")
