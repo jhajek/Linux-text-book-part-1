@@ -39,7 +39,7 @@ In early 2012, a new medium called a Solid State Drive, or SSD was relased.  The
 
 ![*Standard SSD connector*](images/Chapter-11/ssd/256px-Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg "Standard SSD connector")[^134]
 
-The orginal SSD disks were put out by RAM manufactureres and were actually pretty terible.  The only good one were built by INtel and Samsung.  The other manufactures have caught up and you can get drives in 256, 512, and 1 TB sizes.  Since there are no moving parts the battery or power usage is far reduced from an HDD.  SSDs do have potential issues with ware leveling and block failure, but in the chips controlling these devices the manufactureres have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data trasnfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitiation that HDDs suffered to be overcome.  
+The orginal SSD disks were put out by RAM manufactureres and had RAM controller write issues.  The good ones were built by Intel and Samsung.  The other manufactures have caught up and you can get drives in 256, 512, and 1 TB sizes.  Since there are no moving parts the battery or power usage is far reduced from an HDD.  SSDs do have potential issues with ware leveling and block failure, but in the chips controlling these devices the manufactureres have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data trasnfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitiation that HDDs suffered to be overcome.  
 
 As a price point marketing creation you might see SSHDs which are called Hybrid Drives.  They contain 4 to 16 GB of flash disk and the rest of the drive is a mechanical 3 to 5 platter disk.  This is supposed to give you the advantage of cahcing frequent data on the flash data, but the idea never caught on as the price of SSD and HDD both have dropped drastically, making this solution not neccesary.  
 
@@ -54,7 +54,7 @@ The latest incarnation of SSD disk based technology is [NVMe](https://en.wikiped
      PCIe 3.0       7 Gbit/s                7 Gbit/s   28 Gbit/s  56 Gbit/s  112 Gbit/s
      PCIe 4.0       15 Gbit/s               15 Gbit/s  60 Gbit/s  120 Gbit/s 240 Gbit/s
 
-![*M2 and mini-Sata*](images/Chapter-11/ssd/M.2_and_mSATA_SSDs_comparison.jpg "M.2 and mSata SSD")
+![*mini-Sata and M.2*](images/Chapter-11/ssd/M.2_and_mSATA_SSDs_comparison.jpg "mini-Sata and M.2")
 
 The future of disk is something of a hybrid between ram and solid state/flash memory.  Intel launched trademakred platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane").  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of hard disk to the point that is is close to or equal in speed to RAM (Non-volitile memory).  There by elimating potential system bottleneck and making the platform of memory a sinlge platform.  As of 2018 the cost and technology is still a bit prohibitive, but this is where the industry will move in the next 5 to 10 years.
 
@@ -69,7 +69,6 @@ For this chapter we will assume that you are using Virtual Box 5.x, but these co
 With your Ubuntu or Fedora virtual machine powered down, let's add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu.
 
 ![*Virtual Box settings panel*](images/Chapter-11/virtual-box/settings.png "Settings")
-\newpage
 
 The next menu to come up will show the *SETTINGS* options and the name of the virtual machine you are working on.
 
@@ -77,7 +76,7 @@ The next menu to come up will show the *SETTINGS* options and the name of the vi
 
 \newpage
 
-Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in Virtual Box.  In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well.  That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached.  
+Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in Virtual Box.  In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well.  That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached. 
 
 ![*Storage menu*](images/Chapter-11/virtual-box/storage.png "Storage")
 \newpage
@@ -196,7 +195,7 @@ If you have used Windows before you are familiar with Fat32 and NTFS filesystems
 
 ### ext/ext2
 
-The ext filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created for research purposes. It had a severe limitations since ext was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesytem.   By January of 1993, __ext2__ had been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written [^123].  
+The MINIX filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created. It had severe limitations since MINIX filesystem was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesytem.   By January of 1993, __ext2__ had been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written [^123].  
 
 : Limits of ext2
 
@@ -212,7 +211,7 @@ Traditionally your ```/boot``` partition is formatted as __ext2__ because it is 
 
 As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evident and critical.  The CPU could now handle to overhead of managing data writes to disk to ensure that those operations actually happened.
 
- *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted. [^124][^125]"*
+ *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted[^124][^125]."*
 
 Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as thwy were now over a decade old.  
 
