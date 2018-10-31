@@ -273,7 +273,7 @@ LVM is a sperate component from traditional filesystems and was seen as a stop g
 
 XFS is a robust and highly-scalable single host 64-bit journaling file system. It is entirely extent-based, so it supports very large files and file system sizes. The maximum supported file system size is 100 TB. The number of files an XFS system can hold is limited only by the space available in the file system[^127].
 
-XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used- also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices[^127].
+XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used-also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices[^127].
 
 XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  RedHat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.  
 
@@ -301,7 +301,7 @@ ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the 
 * [Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS](https://www.fsf.org/licensing/zfs-and-linux "Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS")
 * [Ubuntu ZFS announcement](https://blog.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04 "Ubuntu ZFS Annoucement")
 
-FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module.  Ubuntu now supports the root parition being ZFS as well.  Here is an example to install the ZFS module, load the module, and then format and create a zpool logical mirror (RAID1) in a few steps,  tutorial comes from here: [https://wiki.ubuntu.com/Kernel/Reference/ZFS](https://wiki.ubuntu.com/Kernel/Reference/ZFS "ZFS Tutorial").
+FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and ZFS is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module.  Ubuntu now supports the root parition being ZFS as well.  Here is an example to install the ZFS module, load the module, and then format and create a zpool logical mirror (RAID1) in a few steps,  tutorial comes from here: [https://wiki.ubuntu.com/Kernel/Reference/ZFS](https://wiki.ubuntu.com/Kernel/Reference/ZFS "ZFS Tutorial").
 
 ```bash
 sudo apt install zfsutils-linux  
@@ -320,6 +320,12 @@ sudo apt install zfs-initramfs
 ```  
 
 ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even depricating btrfs from future RHEL releases.   A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought ZFS to Windows [link here]().
+
+### UFS and APFS
+
+The BSD systems and MacOS until recently [find APFS announcement]()  [find adam leventhal APFS article]() had used the Union File System of UFS (wiki article) This filesystem was native to Unix goin back to and would be considered similar to ext4 on Linux in capability and state.   This is why FreeBSD adopted ZFS to be able to extend the filesyste, capability of UFS.
+
+Apple while being one of the first companies to port ZFS to their MacOS (whihc is BSD based) eventually decided to deploy a new filesystem called APFS (apple filesystem)  which has a mix of ZFS like features that were home grown by Apple.  The goal for apple was to use this filesystem accross their platform, from MacOS to iOS devices with a focus on Flash bashed (SSD and NVMe) devices that UFS wasn't designed for.  The system hasn't been without its bugs but remember it is a comparatively new filesystem and filesystems are complex.
 
 ## Mounting and Unmounting of disks
 
