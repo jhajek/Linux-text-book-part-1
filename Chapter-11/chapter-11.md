@@ -268,7 +268,7 @@ Once you have added the disks/partitions to the PV, now you need to create a Vol
 
 From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to Linear, but that is an application based decision.  Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command ```lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME``` will extend the LV to become 50 GB in size.  Using ```-L+50G``` will add 50 additional gigabytes to an existing LV's size.
 
-Once you have successfully created an LV, now it needs a file-system installed.  Here you can add XFS, Btrfs, ZFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each file-system type (XFS, Btrfs, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.   
+Once you have successfully created an LV, now it needs a file-system installed.  Here you can add XFS, Btrfs, ZFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each file-system type (XFS, Btrfs, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.
 
 One definite feature not included in traditional partitioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in (Btrfs and ZFS, but not XFS or ext4 they are too old.  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or COW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV.
 
@@ -276,7 +276,28 @@ LVM is a sperate component from traditional filesystems and was seen as a stop g
 
 ### Filesystem Snapshots
 
-When dealing with LVM there is an ability to provide a snapshot, that is a point in time exact copy of a logical volume[^139].   
+When dealing with LVM there is an ability to provide a snapshot, that is a point in time exact copy of a logical volume[^139].  Assuming your have your physical volumes, your volume groups, and logical volumes created, lets now create a snapshot of a logical volume (assume that we formated the logical volume with ext4 and mounted it to ```/mnt/disk1```).  
+
+```bash
+cd /mnt/disk1
+# command to create a random file of 5MB
+head -c 5 MB /dev/urandom > datafile.txt
+ls -l
+# Picking up from the tutorial at http://tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html
+lvcreate -L0500M -s -n disk-backup /dev/volgroupname/logicalvolname
+# Type the random command to change the data since the original snapshot
+head -c 25 MB /dev/urandom >> datafile.txt
+# You will now have a new device called /dev/volgroupname/disk-backup
+# Mount this to /mnt/disk2
+sudo mkdir -p /mnt/disk2
+sudo mount -t ext4 /dev/volgroupname/disk-backup /mnt/disk2
+cd /mnt/disk2
+ls -l
+ls -l /mnt/disk1
+# What do you see?  Why?
+```
+
+You can remove the snapshots by unmounting the partition ```umount``` and the using the ```lvremove``` command.
 
 ### XFS
 
