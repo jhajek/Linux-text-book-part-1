@@ -281,12 +281,12 @@ When dealing with LVM there is an ability to provide a snapshot, that is a point
 ```bash
 cd /mnt/disk1
 # command to create a random file of 5MB
-head -c 5 MB /dev/urandom > datafile.txt
+head -c 5MB /dev/urandom > datafile.txt
 ls -l
 # Picking up from the tutorial at http://tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html
-lvcreate -L0500M -s -n disk-backup /dev/volgroupname/logicalvolname
+lvcreate -L592M -s -n disk-backup /dev/volgroupname/logicalvolname
 # Type the random command to change the data since the original snapshot
-head -c 25 MB /dev/urandom >> datafile.txt
+head -c 25MB /dev/urandom >> datafile.txt
 # You will now have a new device called /dev/volgroupname/disk-backup
 # Mount this to /mnt/disk2
 sudo mkdir -p /mnt/disk2
