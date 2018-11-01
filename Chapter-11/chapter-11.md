@@ -375,6 +375,18 @@ ZFS also has a unique component called a ZIL and a SLOG:
 
 In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a serpate SSD based disk and can speed up data access[^141] [^142].  ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up andy silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 tank/log```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  Essentially if enabled each file is hased with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables.  
 
+#### Finding a physical disk
+
+Insert image of 24 disk super micro
+
+ZFS, btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but hwo do you identify which physcial disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial numebr of the disk via the ```hdparam``` tool.  This script would enumerate through all of the disks you have on a sysetm and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive /dev/sda through /dev/sdg[^143] run the commmand on your system and see what comes out.
+
+```bash
+
+for i in a b c d e f g; do echo -n "/dev/sd$i: "; hdparm -I /dev/sd$i | awk '/Serial Number/ {print $3}'; done
+
+```
+
 ### HFS+, UFS, and APFS
 
 The BSD systems has its own filesystem, UFS, [the Unix File System](http://www.ivoras.net/blog/tree/2013-10-24.why-ufs-in-freebsd-is-great.html "Unix Filesystem"). This filesystem was native to Unix going back to the System 7 Unix release.  Though UFS has been updated since and is officially UFS2, which was released around 1994 when BSD split from Unix due to the AT&T lawsuit.  UFS2 is considered similar to ext4 on Linux in capabilities at the current time.  FreeBSD and then other BSDs adopted ZFS to be able to extend the filesyste, capability of UFS.  All Illumos, or OpenSolaris based distros use ZFS natively as well.
@@ -718,3 +730,5 @@ e) Create mountpoints under ```/mnt``` and mount them and list them all with a `
 [^141]: [https://pthree.org/2012/12/07/zfs-administration-part-iv-the-adjustable-replacement-cache/](https://pthree.org/2012/12/07/zfs-administration-part-iv-the-adjustable-replacement-cache/ "L2ARC ZFS")
 
 [^142]: [http://www.c0t0d0s0.org/archives/5329-Some-insight-into-the-read-cache-of-ZFS-or-The-ARC.html](http://www.c0t0d0s0.org/archives/5329-Some-insight-into-the-read-cache-of-ZFS-or-The-ARC.html "Original L2ARC cache data")
+
+[^143]: [https://pthree.org/2012/12/11/zfs-administration-part-vi-scrub-and-resilver/](https://pthree.org/2012/12/11/zfs-administration-part-vi-scrub-and-resilver/ "hdparam")
