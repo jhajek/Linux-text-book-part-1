@@ -375,7 +375,9 @@ ZFS also has a mechanism to send and receive snapshots, which done in a small en
 
 #### Additional ZFS Features
 
-In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a serpate SSD based disk and can speed up data access[^141] [^142].  ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up andy silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  You can check the status of a disk with the command ```zpool status datapool``` and execute a scrub command ```zpool scrub datapool```.
+In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a serpate SSD based disk and can speed up data access[^141] [^142].  The ZIL and the L2ARC if not defined on seperate disks will take a small portion of the each zpool created.  This is fine for low volume disk writes, but puts extra overhead on the system.  If you have fast SSDs that are small in size, say 30 to 80 GB, you can stripe them and place the L2ARC cache and or ZIL on these disks.  ZIL is a write only function and L2ARC cache becomes read predominant.   Using a zpool called datapool we are attaching two additional disk /dev/sde and /dev/sdf. You can add the directives for the log and cache after the zpool create command:  ```zpool add datapool cache /dev/sde2 /dev/sdf2 log mirror /dev/sde1 /dev/sdf1```.  You can use the /dev/ locations of disks, but disks can move around and be renamed.  It is often better to use the unique user ID or uuid for a disk, which doesn't change.  You can see your UUIDs with the ```blkid``` command[^141].
+
+ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up andy silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  You can check the status of a disk with the command ```zpool status datapool``` and execute a scrub command ```zpool scrub datapool```.
 
 ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 tank/log```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  Essentially if enabled each file is hased with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables.  
 
@@ -632,64 +634,83 @@ Outcomes
 
   At the conclusion of this lab you will have successfully created a new virtual disk in Virtual Box, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the /etc/fstab.
 
-__Instructions:__ Create a folder called Week-15 in your Github repo.  Also note to self show the systemd disk mounting writing of service files and compare to ZFS and the automounting
-
-1) Create two virtual disk in Virtual Box (attach them to either Fedora or Ubuntu) of 4 GB size each. Submit a screenshot of the Virtual Box settings screen showing two new virtual drives attached.  In your screenshot highlight one of the newly created disks to display its properties on the right hand side of the screen-capture this in the screenshot.
-
-2) Use the ```fdisk``` command to create two entire disk partitions (one on each of the newly created virtual disks) after going through the steps to create the full disk partitions, take a screenshot of the entire output of ```sudo fdisk -l``` showing that they have been formatted
-
-3) Find the command that is used to display the devices and their partitions in a nice tree form--submit of screenshot of the output of that command.
-
-4) Use the ```mkfs``` command to create an ext2 filesystem on the partition you just created on ```/dev/sdb```. Submit a screenshot of the command and its results
-
-5) Use the mkfs command to create an ext4 filesystem on the partition you just created on ```/dev/sdc```. Submit a screenshot of the command and its results
-
-6) Use the ```mkdir``` command to create a mountpoint named *data-drive* under ```/mnt```, change ownership and group to your user. Show the output of an ls -l on /mnt. Take a screenshot of the output of these commands.
-
-7) Use the mount command to mount the partition of /dev/sdb to /mnt/data-drive
-
-8) Use the mkdir command to create a mountpoint named backup-drive in /mnt, change ownership and group to your user. Show the output of an ls -l on /mnt. Take a screenshot of the output of these commands.
-
-9) Use the mount command to mount the partition of /dev/sdc to /mnt/backup-drive
-
-10) Show the output of the df -H command displaying the two new successful mountpoints
-
-11) Edit the /etc/fstab file to make these two mountpoints automount at boot
-
-12) Follow the example in the book under the ZFS header to create a ZFS mirror pool. To complete this add two additional Virtual hard drives.  Follow the steps outlined in the script, present a screen shot containing the output of lsblk, zfs list, and df -H | grep tank
-
-13) From the BTRFS tutorial: [https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices "BTRFS")  -- Take a screenshot of each ```df -H``` command
-a) You will have to install the btrfs tools relevant to your operating system (either Ubuntu or Fedora)
-b) Create 3 additional virtual disks of 2 GB size and 1 of 4 GB size
-c) use ```lsblk``` to list these partitions   
-d) use mkfs.btrfs -d raid0  to create a 3 disk stripe (leave the 4GB disk out of this stripe)
-e) use any device as your mountpoint for btrfs
-f) open a terminal window and execute ```df -H```  
-
-14) Continuing the previous question:
-a) Add the fourth device (4 GB size) to the btrfs stripe
-b) Then balance the metadata according to the tutorial
-c) open a terminal window and execute ```df -H```
-
-15) Continuing the previous question:
-a) Remove one of the devices
-b) open a terminal window and execute ```df -H```
-
-16) Add a line in your /etc/fstab to mount this btrfs stripe at boot, reboot and see if it works by typing df -H
-
-17) Using an entirely newly created virtual disk, create an XFS based filesystem and mount-point, show the command to mount the XFS partition.  
-a) You need to install the XFS filesystem tools relevant to your operating system (either Ubuntu or Fedora)
-
-18) Show the entry in /etc/fstab to mount the XFS partition.  
-
-19) Use the ```du``` command to find and list the size of the Denyhosts directory you cloned in the previous chapter.
-
-20) Create 3 additional virtual disks each of 4 GB in size (delete and previous partitions if need be)
-a) Add all three volumes (entire disk) as LVM PVs (Physical Volumes)
-b) Create a Volume group named vg-456
-c) Create 4 logical volumes of 3 GB size each within that Volume Group
-d) Create an ext4 and xfs partitions on the first 2 LVs and on the 3rd and 4th create a Btrfs Mirror (RAID1)
-e) Create mountpoints under ```/mnt``` and mount them and list them all with a ```df -H``` commmand
+	1. Create 1 virtual drive 
+		a. Use fdisk to create a primary partition
+		b. Format it with ext4
+		c. Mount it to /mnt/disk1
+		d. Add it to your fstab
+	2. Create 2 virtual drives
+		a. Create a single volume group named vg-group
+		b. Create 1 logical volume named lv-group
+		c. Format it with XFS
+		d. Mount it to /mnt/disk2
+		e. Add the lv-group to your fstab
+	3. Using the same LVM as before 
+		a. add an additional virtualbox disk and the create a LVM physical disk
+		b. Grow the volume group and logical volume
+		c. Grow the XFS file system
+	4. Using LVM of the previous exercise on the logical volume lv-group create a 25 mb text file named datadump.txt 
+		a. Following this tutorial: http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html create an LVM snapshot of the logical volume named lv-group named the snapshot lv-backup
+		b. Mount the snapshot to /mnt/disk3 (create this location if not existing)
+		c. Ls -l the contents of /mnt/disk3  
+	5. Install a copy of FreeBSD 11
+		a. Attach two additional virtual disks
+		b. Create a zpool stripe containing both disks
+		c. Execute a zpool list command to display the contents of the zpool
+	6. Using 18.04 set networking to bridged mode (take note of your public IP by typing:  ip  a sh)
+		a. Attach a virtual disk 
+		b. Using this tutorial: https://langhard.net/en/ubuntu-16-04-serve-iscsi-target/   configure the system using as an ISCSI target  
+		c. Use the proper iscsi command to list the current targets
+	7. Using a second Ubuntu 18.04 instance with its network mode set to bridged (note the public IP)
+		a. Using this tutorial: https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html  configure and complete iSCSI initiator
+		b. List the currently available iSCSI targets on your network
+		c. Create two files on the connected iSCSI target - file1.txt and file2.txt and list those files
+	8. Create 3 Virtual disks and install the ZFS package
+		a. Attach it to an existing Ubuntu 18.04 system
+		b. Create a zpool stripe with two disks name it datapool
+		c. Execute a zpool list command
+		d. Expand the capacity of the zpool by adding the third disk in
+		e. Execute the zpool status command
+		f. Now take the first disk out of the zpool
+		g. Execute the zpool status command
+	9. From the previous exercise using your ZFS pool named datapool create a 25 megabyte file named datadump.txt
+		a. Attach a third virtual disk to the system and create a zpool named backup
+		b. Execute the ls -l command to display the file and its size
+		c. Take a ZFS snapshot of the datapool named @today
+		d. Using the ZFS send and recv commands copy the @today snapshot to the zpool named backup
+		e. Execute ls -l command on the zpool backup
+		f. Using the command of X append an additional 25 mb to /datapool/datadump.txt
+		g. Execute an ls -l on zpool datapool and backup to compare the two files
+	10. On the same Ubuntu 18.04 system create a systemd mount.unit file for both ZFS partitions created in the previous exercise.
+		a. List both contents here
+		b. Reboot the system and make sure it works
+	11. Btrfs snapshots
+	12. Using the 2 Ubuntu 18.04 systems you used in exercises 7 and 8 create a 25 megabyte file named databasedump.txt on the zpool datapool
+		a. On the first system (the system without zpool datapool) create a datapool name backuppool (you might need to attach a virtual disk to do this) 
+		b. Take a snapshot of the zpool datapool and name it @now
+		c. Execute the remote send and recv command over ssh to migrate the snapshot to the pool backuppool
+			i. You may need to exchange SSH keys via ssh-keygen and ssh-copy-id first 
+	13. On the zpool named datapool on Ubuntu 18.04
+		a. Execute a zpool list command
+		b. Enable LZ4 compression on the zpool datapool 
+		c. Execute a zpool list command to display that compression is enabled
+	14. On the zpool named datapool execute a zpool status command
+		a. Execute a scrub of the zpool datapool
+		b. Create a cron job that executes a zfs scrub on the zpool datapool at 3 am every Sunday morning
+	15. Using the sample from the text on your Ubuntu 18.04 system add two additional virtual disk
+		a. Create two partitions on each of these devices
+		b. Then using the sample code add these two devices as a log and a cache to the zpool datapool
+		c. Execute a zfs status command for the zpool named datapool 
+	16. Research:
+		a. Using newegg.com  find the current price per Gigabyte for the following along with listing the throughput of the drive
+			i. Seagate Barracuda 4 TB
+			ii. Western Digital Blue 1 TB
+			iii. Western Digital Red 10 TB
+			iv. Samsung 970 EVO M.2 500 GB
+			v. Corsair Force MP300 M.2 960 GB
+			vi. Intel Optane M.2 32 GB 
+				1) Need to explain what 3D XPoint  technology is)
+		
 
 #### Footnotes
 
