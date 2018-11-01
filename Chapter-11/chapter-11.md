@@ -365,7 +365,13 @@ Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands s
   + ```zfs list -t snapshot```
 * ```zfs rollback```
 
-ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments essentially creates a serialized synchronization feature.  This can be done on the same system as well as over a network conenction to a remote computer.  Try to do that on ext4.  To syncrhonize a ZFS filesystem first create a snapshot of a zpool.  using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partiton  ```zfs send datapool@today | zfs recv backuppool/backup```.  You can pipe the command over ```ssh``` to restore to a remote system, ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```.
+ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments essentially creates a serialized synchronization feature.  This can be done on the same system as well as over a network conenction to a remote computer.  Try to do that on ext4.  To syncrhonize a ZFS filesystem:
+
+* first create a snapshot of a zpool 
+* Using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partiton
+    +  ```zfs send datapool@today | zfs recv backuppool/backup```.  
+* You can pipe the command over ```ssh``` to restore to a remote system
+    + ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```.
 
 #### ZFS ZIL and SLOG
 
@@ -603,21 +609,21 @@ d) vgmknodes
 
 [DragonFly BSD](https://dragonflybsd.org "Dragon Fly BSD") - Listen to this podcast: [https://ia802605.us.archive.org/9/items/bsdtalk248/bsdtalk248.mp3](https://ia802605.us.archive.org/9/items/bsdtalk248/bsdtalk248.mp3 "DragonFly BSD")  
 
-~1:25 What did DragonFly BSD drop with the 4.0 release?
-~1:40 What was the other major feature that DragonFly BSD added?
-~3:40 What modification did they add to the Packet Filter?
-~10:00 What is the largest system DragonFly BSD has access to?
-~11:45 What is the difference between DragonFly BSD's network stack compared to BSD and Linux?
-~13:25 What is the limitations of the Hammer 1 Filesystem?
-~13:45 What features will Hammer 2 Filesystem add?
-~15:45 What is the intended use case of Hammer 2 FS?
-~18:00 What sub-system is still in the works needed to make DragonFly BSD a stable work station?
-~25:00 What is package-ng?
-~30:00 How does DragonFly BSD handle suspend and resume functions common to laptops?
-~35:50 What is the growing issue about systemd in relation to BSD?
-~38:00 Of the 20,000 packages available in DragonFly BSD where are they primarily targeted?
-~38:30 Out of FreeBSD, OpenBSD, NetBSD, and DragonFly -- what is each project focusing on?
-~40:23 How does GPL based Linux software cross over into BSD distros?
+* ~1:25 What did DragonFly BSD drop with the 4.0 release?
+* ~1:40 What was the other major feature that DragonFly BSD added?
+* ~3:40 What modification did they add to the Packet Filter?
+* ~10:00 What is the largest system DragonFly BSD has access to?
+* ~11:45 What is the difference between DragonFly BSD's network stack compared to BSD and Linux?
+* ~13:25 What is the limitations of the Hammer 1 Filesystem?
+* ~13:45 What features will Hammer 2 Filesystem add?
+* ~15:45 What is the intended use case of Hammer 2 FS?
+* ~18:00 What sub-system is still in the works needed to make DragonFly BSD a stable work station?
+* ~25:00 What is package-ng?
+* ~30:00 How does DragonFly BSD handle suspend and resume functions common to laptops?
+* ~35:50 What is the growing issue about systemd in relation to BSD?
+* ~38:00 Of the 20,000 packages available in DragonFly BSD where are they primarily targeted?
+* ~38:30 Out of FreeBSD, OpenBSD, NetBSD, and DragonFly -- what is each project focusing on?
+* ~40:23 How does GPL based Linux software cross over into BSD distros?
 
 ### Lab
 
@@ -632,14 +638,14 @@ Objectives
 
 Outcomes
 
-  At the conclusion of this lab you will have successfully created a new virtual disk in Virtual Box, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the /etc/fstab.
+At the conclusion of this lab you will have successfully created a new virtual disk in Virtual Box, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the /etc/fstab.
 
-	1. Create 1 virtual drive 
+1. Create 1 virtual drive 
 		a. Use fdisk to create a primary partition
 		b. Format it with ext4
 		c. Mount it to /mnt/disk1
 		d. Add it to your fstab
-	2. Create 2 virtual drives
+2. Create 2 virtual drives
 		a. Create a single volume group named vg-group
 		b. Create 1 logical volume named lv-group
 		c. Format it with XFS
