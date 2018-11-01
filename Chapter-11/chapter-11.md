@@ -238,7 +238,12 @@ In order to enhance processing you may in your partitioning decisions want to pl
 
 The question is under standard partitioning you don't. You simply backup, reinstall, and reformat the entire drive.  This is very time consuming and a risky operation that is usually not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
 
-LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users.[^130]"*
+LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*  In order to install LVM2 on Fedora/Centos and Ubuntu you can type:
+
+* ```sudo apt-get install lvm2```
+* ```sudo dnf install lvm2```
+* ```sudo yum install lvm2```
+
 \newpage
 
 ![*LVM diagram*](images/Chapter-11/LVM/LVM.png "LVM")
@@ -268,6 +273,10 @@ Once you have successfully created an LV, now it needs a file-system installed. 
 One definite feature not included in traditional partitioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in (Btrfs and ZFS, but not XFS or ext4 they are too old.  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or COW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV.
 
 LVM is a sperate component from traditional filesystems and was seen as a stop gap method until newer filesystems could be created that would effectively do the samething as LVM + Ext4. Filesystems like XFS, btrfs, or ZFS have been developed and integrated to the Linux Kernel.
+
+### Filesystem Snapshots
+
+When dealing with LVM there is an ability to provide a snapshot, that is a point in time exact copy of a logical volume[^139].   
 
 ### XFS
 
@@ -332,10 +341,6 @@ Though Apple Was one of the first companies to [port ZFS to MacOS](http://dtrace
 ### DragonFly BSD and Hammer FS
 
 DragonFly BSD developer Matthew Dillion has been spearheading the development of his own distributed cluster based filesystem called [Hammer](https://www.dragonflybsd.org/hammer/ "Hammer Filesystem").  His goal is to have finer grained snapshoting--even per file on a constant basis and make snapshots almost a constant occurance across the filesystem for easy migration of a filesystem to a Hammer slave.   Work has recently finished on the Hammer 2 FS which is bringing this idea closer to reality, Hammer 2 is available as a stable filesystem, but not yet ready for production on a cluster.
-
-### Filesystem Snapshots
-
-Add info here
 
 ## Mounting and Unmounting of disks
 
@@ -660,3 +665,5 @@ e) Create mountpoints under ```/mnt``` and mount them and list them all with a `
 [^137]: <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0 By Anand Lal Shimpi, anandtech.com</a> <a href="https://commons.wikimedia.org/wiki/File:M.2_and_mSATA_SSDs_comparison.jpg">via Wikimedia Commons</a>)
 
 [^138]: [https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/](https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/ "Systemd Mount file")
+
+[^139]: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "TLDP LVM Snapshots")
