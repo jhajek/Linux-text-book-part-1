@@ -715,7 +715,7 @@ At the conclusion of this lab you will have successfully created a new virtual d
 			iv. Samsung 970 EVO M.2 500 GB
 			v. Corsair Force MP300 M.2 960 GB
 			vi. Intel Optane M.2 32 GB 
-				1) Need to explain what 3D XPoint  technology is)
+				1) Need to explain what 3D XPoint technology is
 		
 
 #### Footnotes
