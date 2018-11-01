@@ -297,7 +297,7 @@ ls -l /mnt/disk1
 # What do you see?  Why?
 ```
 
-You can remove the snapshots by unmounting the partition ```umount``` and the using the ```lvremove``` command.
+You can remove the snapshots by unmounting the partition ```umount``` and the using the ```lvremove``` command.  How would you do this same process using ext4 without LVM?  
 
 ### XFS
 
@@ -307,7 +307,7 @@ XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a hi
 
 XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  RedHat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.  
 
-XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partion of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  
+XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partion of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.  
 
 ### Btrfs
 
@@ -349,7 +349,15 @@ sudo apt install zfs-initramfs
  df -h | grep mydatapool
 ```  
 
-ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even depricating btrfs from future RHEL releases.   A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought ZFS to Windows [link here]().
+ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even depricating btrfs from future RHEL releases.   A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows").
+
+Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands such as:
+
+* ```zpool```
+  + create, list, destroy
+  
+  
+    You can create a snapshot of the filesystem created above, named mydatapool, by issuing this command: ```zfs snapshot mydatapool@snap1```.  
 
 ### HFS+, UFS, and APFS
 
