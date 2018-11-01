@@ -354,10 +354,26 @@ ZFS doesn't have native support for Fedora OS, seeing as they put their weight b
 Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands such as:
 
 * ```zpool```
+  + create, list, destroy, status
+  + creates a datapool
+* ```zfs```
   + create, list, destroy
-  
-  
-    You can create a snapshot of the filesystem created above, named mydatapool, by issuing this command: ```zfs snapshot mydatapool@snap1```.  
+  + used to create a ZFS filesystem on a zpool
+* ```zfs snapshot```
+  + volume@snapname
+  + ```zfs snapshot mydatapool@snap1```
+  + ```zfs list -t snapshot```
+* ```zfs rollback```
+
+ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments essentially creates a serialized synchronization feature.  This can be done on the same system as well as over a network conenction to a remote computer.  Try to do that on ext4.  To syncrhonize a ZFS filesystem first create a snapshot of a zpool.  using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partiton  ```zfs send datapool@today | zfs recv backuppool/backup```.  You can pipe the command over ```ssh``` to restore to a remote system, ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```.
+
+ZFS also has a unique component called a ZIL and a SLOG:
+
+"*ZFS Intent Log, or ZIL- A logging mechanism where all of the data to be the written is stored, then later flushed as a transactional write. Similar in function to a journal for journaled filesystems, like ext3 or ext4. Typically stored on platter disk. Consists of a ZIL header, which points to a list of records, ZIL blocks and a ZIL trailer. The ZIL behaves differently for different writes. For writes smaller than 64KB (by default), the ZIL stores the write data. For writes larger, the write is not stored in the ZIL, and the ZIL maintains pointers to the synched data that is stored in the log record[^140]*".
+
+"*Separate Intent Log, or SLOG- A separate logging device that caches the synchronous parts of the ZIL before flushing them to slower disk. This would either be a battery-backed DRAM drive or a fast SSD. The SLOG only caches synchronous data, and does not cache asynchronous data. Asynchronous data will flush directly to spinning disk. Further, blocks are written a block-at-a-time, rather than as simultaneous transactions to the SLOG. If the SLOG exists, the ZIL will be moved to it rather than residing on platter disk. Everything in the SLOG will always be in system memory[^140]*".
+
+In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a serpate SSD based disk and can speed up data access[^141] [^142].  ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up andy silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 tank/log```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  Essentially if enabled each file is hased with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables.  
 
 ### HFS+, UFS, and APFS
 
@@ -696,3 +712,9 @@ e) Create mountpoints under ```/mnt``` and mount them and list them all with a `
 [^138]: [https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/](https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/ "Systemd Mount file")
 
 [^139]: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "TLDP LVM Snapshots")
+
+[^140]: [https://pthree.org/2012/12/06/zfs-administration-part-iii-the-zfs-intent-log](https://pthree.org/2012/12/06/zfs-administration-part-iii-the-zfs-intent-log "ZFS ZIL LOG")
+
+[^141]: [https://pthree.org/2012/12/07/zfs-administration-part-iv-the-adjustable-replacement-cache/](https://pthree.org/2012/12/07/zfs-administration-part-iv-the-adjustable-replacement-cache/ "L2ARC ZFS")
+
+[^142]: [http://www.c0t0d0s0.org/archives/5329-Some-insight-into-the-read-cache-of-ZFS-or-The-ARC.html](http://www.c0t0d0s0.org/archives/5329-Some-insight-into-the-read-cache-of-ZFS-or-The-ARC.html "Original L2ARC cache data")
