@@ -395,8 +395,11 @@ ZFS, btrfs, and LVM have the ability to remove disks from pools and volumes.   T
 
 ```bash
 
-for i in a b c d e f g; do echo -n "/dev/sd$i: "; hdparm -I /dev/sd$i | awk '/Serial Number/ {print $3}'; done
-
+for i in a b c d e f g;
+do 
+echo -n "/dev/sd$i: " 
+hdparm -I /dev/sd$i | awk '/Serial Number/ {print $3}'
+done
 ```
 
 ### HFS+, UFS, and APFS
@@ -708,7 +711,7 @@ At the conclusion of this lab you will have successfully created a new virtual d
 		b. Then using the sample code add these two devices as a log and a cache to the zpool datapool
 		c. Execute a zfs status command for the zpool named datapool 
 	16. Research:
-		a. Using newegg.com  find the current price per Gigabyte for the following along with listing the throughput of the drive
+		a. Using newegg.com find the current price per Gigabyte for the following along with listing the throughput of the drive
 			i. Seagate Barracuda 4 TB
 			ii. Western Digital Blue 1 TB
 			iii. Western Digital Red 10 TB
