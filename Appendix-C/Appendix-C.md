@@ -1672,7 +1672,8 @@ b. Create a cron job that executes a zfs scrub on the zpool datapool at 3 am eve
 a. Create two partitions on each of these devices
 b. Then using the sample code add these two devices as a log and a cache to the zpool datapool
 c. Execute a zfs status command for the zpool named datapool 
-15. Research:
+15. On your Fedora 28 system execute any of the commands listed to print out the disk serial numbers
+16. Research:
 a. Using newegg.com find the current price per Gigabyte for the following along with listing the throughput of the drive
 b. Seagate Barracuda 4 TB
 c. Western Digital Blue 1 TB
