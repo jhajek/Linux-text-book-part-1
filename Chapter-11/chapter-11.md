@@ -389,7 +389,7 @@ ZFS can enable transparent compression using GZIP or LZ4 with a simple set comma
 
 #### Finding a physical disk
 
-![*HP HP EVA4400 storage array*](images/Chapter-11/disk/278px-HP_EVA4400-1.jpg "HP storage array")
+![*HP HP EVA4400 storage array*](images/Chapter-11/disk/278px-HP_EVA4400-1.jpg "HP storage array")[^144]
 
 ZFS, btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but hwo do you identify which physcial disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial numebr of the disk via the ```hdparm``` tool.  This script would enumerate through all of the disks you have on a sysetm and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive ```/dev/sda``` through ```/dev/sdg```[^143] run the commmand on your system and see what comes out.
 
