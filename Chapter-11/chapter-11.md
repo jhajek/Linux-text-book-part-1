@@ -389,9 +389,9 @@ ZFS can enable transparent compression using GZIP or LZ4 with a simple set comma
 
 #### Finding a physical disk
 
-Insert image of 24 disk super micro
+![*HP HP EVA4400 storage array*](images/Chapter-11/disk/278px-HP_EVA4400-1.jpg "HP storage array")
 
-ZFS, btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but hwo do you identify which physcial disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial numebr of the disk via the ```hdparam``` tool.  This script would enumerate through all of the disks you have on a sysetm and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive /dev/sda through /dev/sdg[^143] run the commmand on your system and see what comes out.
+ZFS, btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but hwo do you identify which physcial disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial numebr of the disk via the ```hdparm``` tool.  This script would enumerate through all of the disks you have on a sysetm and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive ```/dev/sda``` through ```/dev/sdg```[^143] run the commmand on your system and see what comes out.
 
 ```bash
 
@@ -763,4 +763,6 @@ g. Intel Optane M.2 32 GB - Need to explain what 3D XPoint technology is
 
 [^142]: [http://www.c0t0d0s0.org/archives/5329-Some-insight-into-the-read-cache-of-ZFS-or-The-ARC.html](http://www.c0t0d0s0.org/archives/5329-Some-insight-into-the-read-cache-of-ZFS-or-The-ARC.html "Original L2ARC cache data")
 
-[^143]: [https://pthree.org/2012/12/11/zfs-administration-part-vi-scrub-and-resilver/](https://pthree.org/2012/12/11/zfs-administration-part-vi-scrub-and-resilver/ "hdparam")
+[^143]: [https://pthree.org/2012/12/11/zfs-administration-part-vi-scrub-and-resilver/](https://pthree.org/2012/12/11/zfs-administration-part-vi-scrub-and-resilver/ "hdparm")
+
+[^144]: <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0 By Redline</a> <a href="https://commons.wikimedia.org/wiki/File:HP_EVA4400-1.jpg">from Wikimedia Commons</a>
