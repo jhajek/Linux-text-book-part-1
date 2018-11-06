@@ -125,12 +125,11 @@ How to configure a static address
 This was the naming convention under pre-systemd init systems.  Systemd decided their was a marked advantage to enumerate PCI devices via their bus slot on the motherboard, in this way a device will always have a guranteed and predictable device name.  The down side is you loose readability.
 ```/etc/sysconfig/network-scripts/ifcfg-enp5s0```
 
-this is due to systemd changing the way network cards are enumerated.  Instead of devices have a driver name (eth0 is the common way to name a device driver of X)  systemd names each device by their position on the PCI bus.  Lennary Poeterring explains why here, "Find explanation"
+This is due to systemd changing the way network cards are enumerated.  Instead of devices have a driver name (eth0 is the common way to name a device driver of X)  systemd names each device by their position on the PCI bus.  Lennary Poeterring explains why here, "Find explanation"
 
 #### FreeBSD
 
 How to configure a static address/dhcp
-
 
 #### NETMASK
 
@@ -191,6 +190,9 @@ This command in various configurations can display the current state of all port
 
 > ```route```
 
+### systemd network control
+
+
 ## Webservers
 
 August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
@@ -247,12 +249,6 @@ Get Apache License
 #### Apache in RedHat based Distros
 
 Process is different in Redhat - things don't turn on by default and you have to add modules manually.
-
-#### Lighttpd
-
-This webserver does what it implies, it is essentially a stripped down version of Apache in all its functions.  It has lower overhead to deploy and is used in many cases for webservers that have a single function.  For instance it is popular for setting up for large websites that will serve just images to a main webpage.  
-
-> install instructions here
 
 ### Nginx
 
