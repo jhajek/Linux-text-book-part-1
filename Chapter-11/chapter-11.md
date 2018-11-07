@@ -726,7 +726,7 @@ b. Then using the sample code add these two devices as a log and a cache to the 
 c. Execute a zfs status command for the zpool named datapool 
 15. On your Fedora 28 system execute any of the commands listed to print out the disk serial numbers
 16. Research:
-a. Using newegg.com find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
+a. Using [Newegg.com](http://newegg.com "Newegg.com") find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
 b. Seagate Barracuda 4 TB
 c. Western Digital Blue 1 TB
 d. Western Digital Red 10 TB
