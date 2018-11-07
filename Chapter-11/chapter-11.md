@@ -674,7 +674,7 @@ a. add an additional virtualbox disk and the create a LVM physical disk
 b. Grow the volume group and logical volume
 c. Grow the XFS file system
 4. Using LVM of the previous exercise on the logical volume lv-group create a 25 mb text file named datadump.txt 
-a. Following this tutorial: http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html create an LVM snapshot of the logical volume named lv-group named the snapshot lv-backup
+a. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named lv-group named the snapshot lv-backup
 b. Mount the snapshot to /mnt/disk3 (create this location if not existing)
 c. Ls -l the contents of /mnt/disk3  
 5. Install a copy of FreeBSD 11
@@ -683,10 +683,10 @@ b. Create a zpool stripe containing both disks
 c. Execute a zpool list command to display the contents of the zpool
 6. Using 18.04 set networking to bridged mode (take note of your public IP by typing:  ip  a sh)
 a. Attach a virtual disk 
-b. Using this tutorial: https://langhard.net/en/ubuntu-16-04-serve-iscsi-target/   configure the system using as an ISCSI target  
+b. Using this tutorial: [https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/](https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/ "Configure iSCSI target") configure the system using as an ISCSI target  
 c. Use the proper iscsi command to list the current targets
 7. Using a second Ubuntu 18.04 instance with its network mode set to bridged (note the public IP)
-a. Using this tutorial: https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html  configure and complete iSCSI initiator
+a. Using this tutorial: [https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html "Configure iSCSI initiator") configure and complete iSCSI initiator
 b. List the currently available iSCSI targets on your network
 c. Create two files on the connected iSCSI target - file1.txt and file2.txt and list those files
 8. Create 3 Virtual disks and install the ZFS package
@@ -726,7 +726,7 @@ b. Then using the sample code add these two devices as a log and a cache to the 
 c. Execute a zfs status command for the zpool named datapool 
 15. On your Fedora 28 system execute any of the commands listed to print out the disk serial numbers
 16. Research:
-a. Using newegg.com find the current price per Gigabyte for the following along with listing the throughput of the drive
+a. Using newegg.com find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
 b. Seagate Barracuda 4 TB
 c. Western Digital Blue 1 TB
 d. Western Digital Red 10 TB
