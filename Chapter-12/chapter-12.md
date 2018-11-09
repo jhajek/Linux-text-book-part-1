@@ -208,21 +208,22 @@ Find that list of 20 system admin tools form Brendan Gregg article
 ### systemd network control
 
 
+
 ## Webservers
 
-August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
+August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  For history's sake, an early copy of it was found on an old system and restored here: find URL.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
 
-The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver was one of the opensoruce tools, along with the MySQL database, that made the first dot-com boom at the turn of the century possible.  
+The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson, with research coming out of the UNiversity of Illinois.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver was one of the opensoruce tools, along with the MySQL database, that made the first dot-com boom at the turn of the century possible.  
 
 Webservers listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.  The webserver by default will serve pages out of the ```/var/www/html``` directory on Linux and ```/var/www``` on FreeBSD.
 
 ### Apache
 
-Without Apache, companies such as Google, Facebook, Twitter, and many other companies started upon opensource never would have been able to get started.
+Without Apache, companies such as Google, Facebook, Twitter, and many others started upon opensource never would have been able to get started.
 
-Apache has over time grown and had to add new function while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticze Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  Apache holds a dominate percentage of market share of all webserver software in use.  
+Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticze Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  Apache holds a dominate percentage of market share of all webserver software in use.  
 
-The apache webserver can be simply installed via Linux or BSD package manager.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```.
+The apache webserver can be simply installed via Linux or BSD package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```.
 
 > ```sudo apt-get install apache2```
 
@@ -230,15 +231,13 @@ The apache webserver can be simply installed via Linux or BSD package manager.  
 
 > ```ports (freebsd)```
 
-Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources.  You will need to tune the different settings as you go along as no two work loads are the same.  For our purposes in class the default configurations will suffice, but in the real world you will need to find
-additional documents or books to guide you along.
+Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources.  You will need to tune the different settings as you go along as no two work loads are the same.  For our purposes in class the default configurations will suffice, but in the real world you will need to find additional documents or books to guide you along.
 
-Apache has extendable modules so its base features can be extended without needing to recompile the entire program.  Using apt-get you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilitie3s for instance.  
+Apache has extendable modules so its base features can be extended without needing to recompile the entire program.  Using apt-get you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilities for instance.  
 
-> Let's try
+> Let's try this
 
-```sudo apt-get install php7.0```
-
+```sudo apt-get install php```
 ```sudo systemctl reload apache2``` -- (as opposed to restart)  jsut re-reads the configurable
 
 (Advanced) Add code for HTTP/2 config
@@ -258,12 +257,14 @@ echo phpinfo();
 You should be able to load this page in your webbrowser by accessing: ```http://localhost/index.php```
 
 Also you can add SSL certs
-
+Digital Ocean self-signed exercise
 Get Apache License
 
 #### Apache in RedHat based Distros
 
 Process is different in Redhat - things don't turn on by default and you have to add modules manually.
+Digital Ocean self-signed exercise
+
 
 ### Nginx
 
@@ -292,6 +293,7 @@ Databases come in two types: **Relational databases** and **Non-relational datab
 
 Installation of a databadse is straight forward using the package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accesing a database remotely, you do not need to install the entire server just the client tools to use the applications.
 
+```bash
 sudo apt-get install mariadb  
 sudo apt-get install mysql
 
@@ -300,6 +302,7 @@ sudo apt-get install mariadb-server
 
 sudo dnf install ?
 sudo dnf install ?
+```
 
 MySQL was started by Monte Widens.  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes drop in a replacement for MySQL, even using the same commands to run the database.
 
@@ -352,6 +355,12 @@ Used to block exteral communication on you system ports.   Not unlike plugs in t
  * SQL Server (Microsoft)
 
 You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If y9ou are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security and privacy.  
+
+Firewalld for systemd  and pf for BSD   
+
+### pfsense
+
+Firewall distro
 
 ## Chapter Conclusions and Review
 
