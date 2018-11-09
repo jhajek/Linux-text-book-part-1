@@ -8,9 +8,13 @@
     + Vagrant
     + Packer.io
     + Consul
-  * VuePress
-  * GatsbyJS
-  * Jekyll
+    + Vault
+  * Chef 
+  * Ansible
+  * Puppet
+  * cfEngine
+  * salt  
+  * Docker OS Containers
 
 ### Outcomes
 
@@ -26,8 +30,7 @@ At the conlcusion of this chapter you will have a basic understadning of how to 
 
 ### Podcast Questions
 
-Rise of Illumos slides [http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Illumos")
-Video By Brian Cantrill [https://www.youtube.com/watch?v=-zRN7XLCRhc](https://www.youtube.com/watch?v=-zRN7XLCRhc "SmrtOS")
+Bryan Cantril Hashiconf Jails the first decade
 
 ### Lab
 

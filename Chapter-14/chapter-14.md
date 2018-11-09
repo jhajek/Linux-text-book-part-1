@@ -1,14 +1,20 @@
-# IT Orchestration and Automation ROUGH DRAFT
+# Installing Linux Applications and Language Frameworks ROUGH DRAFT
 ![*Creating technology to support technology.*](images/Chapter-Header/Chapter-14/tech_loops-2.png "Tech Loops")
 
 ### Objectives
 
-   * IT and Automation
-     + Preseed
-     + Kickstart
-     + Cobbler
-     + MaaS
-   * Docker OS Containers
+  * Javascript
+    + VuePress
+    + GatsbyJS
+    + React
+    + Nodejs
+  * Python
+    + django
+  * PHP 
+  * Ruby
+     + Jekyll
+     + Ruby on Rails
+  
 
 ### Outcomes
 
@@ -24,7 +30,6 @@
 Screen shot showing you need to host the file on the web somewhere or include the file in install media
 
 
-
 ## Chapter Conclusions and Review
 
   Conclusion goes here
@@ -35,7 +40,8 @@ Screen shot showing you need to host the file on the web somewhere or include th
 
 ### Podcast Questions
 
-TBA
+Rise of Illumos slides [http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Illumos")
+Video By Brian Cantrill [https://www.youtube.com/watch?v=-zRN7XLCRhc](https://www.youtube.com/watch?v=-zRN7XLCRhc "SmrtOS")
 
 ### Lab
 
