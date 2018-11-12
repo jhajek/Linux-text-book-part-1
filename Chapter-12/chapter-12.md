@@ -77,7 +77,7 @@ These look familiar don't they? The *ifconfig* command is a single command.  To 
                                            ```ip maddr``` (for netstat -g)
          ```route```                       ```ip r``` (ip route)
 
-Table:  [Networking Commands and Their Replacements](https://www.tecmint.com/deprecated-linux-networking-commands-and-their-replacements/ "Networking Commands and their replacements")
+Table:  [Commands and Their Replacements](https://www.tecmint.com/deprecated-linux-networking-commands-and-their-replacements/ "Networking Commands and their replacements")
 
 ### udev and ethernet naming conventions under systemd
 
@@ -87,9 +87,22 @@ With the adoption of systemd, the convention for naming network cards changed fr
 
 "*The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth" to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications...[^2*]"
 
+What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 28, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?
+
+https://unix.stackexchange.com/questions/81834/how-can-i-change-the-default-ens33-network-device-to-old-eth0-on-fedora-19
+
+Edit /etc/default/grub
+At the end of GRUB_CMDLINE_LINUX line append net.ifnames=0 biosdevname=0
+Save the file
+Type
+grub2-mkconfig -o /boot/grub2/grub.cfg"
+or type
+grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+Type reboot
+
 http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
 
-Contents of the ```/etc/network/interfaces``` file
+Contents of the ```/etc/network/interfaces``` file for Ubuntu
 
 ```bash
 auto eth0
@@ -113,7 +126,7 @@ iface enp0s8 inet static
      gateway 192.168.0.1
 ```
 
-Using the same laptop, Ubuntu 14.04 and Ubuntu 16.04 named my ethernet cards differently.  This is due to systemd's policy of naming devices due to their position on the system bus (motherboard).      
+Using the same laptop, Ubuntu 14.04 and Ubuntu 16.04 named my ethernet cards differently.  This is due to systemd's policy of naming devices due to their position on the system bus (motherboard).
 
 The systemd group [argued here](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "ethernet argument"):
 
