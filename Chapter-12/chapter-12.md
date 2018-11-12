@@ -81,11 +81,17 @@ Table:  [Networking Commands and Their Replacements](https://www.tecmint.com/dep
 
 ### udev and ethernet naming conventions under systemd
 
+With the adoption of systemd, the convention for naming network cards changed from a driver based enumeration to [Predictable Network Interface Names](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "Predicatable Network Interface Names").
+
+"*Basic idea is that unlike previous *nix naming scheme where probing for hardware occurs in no particular order and may change between reboots, here interface name depends on physical location of hardware and can be predicted/guessed by looking at ```lspci``` or ```lshw``` output[^1].*"
+
+"*The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth" to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications...[^2*]"
+
 http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
 
 Contents of the ```/etc/network/interfaces``` file
 
-```
+```bash
 auto eth0
 iface eth0 inet static
      address 192.168.0.42
@@ -97,7 +103,7 @@ iface eth0 inet static
 
 Note the change in device name due to systemd
 
-```
+```bash
 auto enp0s8
 iface enp0s8 inet static
      address 192.168.0.42
@@ -111,7 +117,7 @@ Using the same laptop, Ubuntu 14.04 and Ubuntu 16.04 named my ethernet cards dif
 
 The systemd group [argued here](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "ethernet argument"):
 
-> The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth0", "eth1", ... to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names "eth0", "eth1" and so on is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications, for example in firewall rules which are coded for certain naming schemes, and which are hence very sensitive to unpredictable changing names. 
+> The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth0", "eth1", ... to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names "eth0", "eth1" and so on is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications, for example in firewall rules which are coded for certain naming schemes, and which are hence very sensitive to unpredictable changing names.
 
 > The following different naming schemes for network interfaces are now supported by udev natively: 
 1) Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1) 
@@ -328,37 +334,41 @@ Intersting small database.  This project is intentially designed with low enterp
 SQLite is not opensource but instead placed in the public domain for anyone to use.
 
 ```sudo apt-get install sqlite3```
+
 ```sudo dnf install ?```
+
 ```ports install ?```
 
-> 
 
 ### MongoDB
 
 Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.  REST was not specifically developed to replace SQL commands via HTTP but became the default application of it.
 
-> NoSQL install 
+> NoSQL install
+
 ```sudo apt-get install mongo```
+
 ```sudo dnf install mongo```
+
 ```ports install```
 
 ## Firewall
 
 Used to block exteral communication on you system ports.   Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.
 
- * SSH - 22
- * FTP - 21
- * SMTP - 25 (depricated not used as it is an unsecured transport method)
- * HTTP - 80
- * HTTPS - 443 (HTTP with TLS/SSL)
- * SMTP over SSL - 990
- * MySQL - 3309
- * Oracle DB - 1025
- * SQL Server (Microsoft)
+* SSH - 22
+* FTP - 21
+* SMTP - 25 (depricated not used as it is an unsecured transport method)
+* HTTP - 80
+* HTTPS - 443 (HTTP with TLS/SSL)
+* SMTP over SSL - 990
+* MySQL - 3309
+* Oracle DB - 1025
+* SQL Server (Microsoft)
 
 You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If y9ou are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security and privacy.  
 
-Firewalld for systemd  and pf for BSD   
+Firewalld for systemd  and pf for BSD
 
 ### pfsense
 
@@ -366,7 +376,7 @@ Firewall distro
 
 ## Chapter Conclusions and Review
 
-  In this chapter we learned about the basic components of networking. We learned how to configure these settings and general network troubleshooting.
+In this chapter we learned about the basic components of networking. We learned how to configure these settings and general network troubleshooting.
 
 ### Review Questions
 
@@ -453,3 +463,7 @@ Working on it - NGINX?  Or MYSQL or PostGRESQL or MariaDB or MongoDB
 Use the tools listed above.
 
 #### Footnotes
+
+[^1]: [https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1](https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1 "why-is-my-network-interface-named-enp0s25-instead-of-eth0?")
+
+[^2]: [https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0](https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0 "why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0")
