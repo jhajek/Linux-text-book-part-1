@@ -11,7 +11,7 @@
 
 ## Outcomes
 
-At the conclusion of this chapter you will have explored the nature of the network settings for the two major Linux distribution families and for BSD.  You will be comfortable using various commandline troubleshooting tools to help solve network issues and problems.  You will deploy two major webserver platforms and understand the differences between Apache and Nginx in their memory models and request handling models.  Finally you will have gained experience deploying, installing, and configuring MySQL and MariaDB SQL databases and a popular NoSQL database Mongodb.
+At the conclusion of this chapter you will have explored the nature of the network settings for the two major Linux distribution families and for BSD.  You will be comfortable using various commandline troubleshooting tools to help solve network issues and problems.  You will deploy two major webserver platforms and understand the differences between Apache and Nginx in their memory models and request handling models.  Finally you will have gained experience deploying, installing, and configuring MySQL and MariaDB SQL databases and a popular NoSQL database MongoDB.
 
 ### Networking
 
@@ -48,6 +48,8 @@ Settings these values statically in each operating system is different but the c
 
 Each network interface card or NIC has a 64 bit hardware address assigned to it.  This is unique and split into two parts.  The first three octets are the OUI, Organizational Unit Identifier, which is given to a particular company to help identifyt their products.  The last three octets are random numbers that are chosend by the manufacturer after the OUI is assigned for each device they manufacture.    In some cases MAC addresses can be set via software.   MAC addresses are used by switches to convert the last leg of a TCP/IP connection to an actual physical port and are at the second layer of the TCP/IP model.
 
+![*Mac Addresses*](images/Chapter-12/mac/mac.png "Mac Addresses")
+
 #### Ubuntu
 
 Canonical, that develops Ubuntu, keeps an excellent wiki with this information, [https://help.ubuntu.com/community/InternetAndNetworking](https://help.ubuntu.com/community/InternetAndNetworking "Ubuntu Network Wiki").
@@ -60,25 +62,38 @@ These look familiar don't they? The *ifconfig* command is a single command.  To 
 
 * ```ipconfig -a```
 * ```ifconfig [-v] interface [aftype] options | address```
-* ```ping```
-* ```traceroute```
+* ```arp```
+* ```route```
+* ```iwconfig```
 * ```netstat```
 
 ### iproute2
 
 * ```ip link show```
 * ```ip [ OPTIONS ] OBJECT { COMMAND | help }```
-* ```route```
-* ```dig```
 
-```lshw```
+#### Replacement Commands Table
 
-> ```lshw``` is a small tool to extract detailed information on the hardware configuration  of  the  machine.  It  can report  exact  memory  configuration,  firmware version, mainboard configuration, CPU version and speed, cache configuration, bus speed, etc. on DMI-capable x86 or IA-64 systems and on some PowerPC machines  (PowerMac G4 is known to work).
+  Net-Tools Deprecated Commands           Ip2-route Replacement Commands
+---------------------------------   -----------------------------------------
+         ```arp```                        ```ip n``` (ip neighbor)
+       ```ifconfig```                     ```ip a``` (ip addr)
+                                          ```ip link```
+                                          ```ip -s``` (ip -stats)
+        ```iptunnel```                    ```ip tunnel```
+        ```iwconfig```                     ```iw```
+        ```nameif```                       ```ip link``` or ```ifrename```
+        ```netstat```                      ```ss```
+                                           ```ip route``` (for netstat -r)
+                                           ```ip -s link``` (for netstat -i)
+                                           ```ip maddr``` (for netstat -g)
+         ```route```                       ```ip r``` (ip route)
 
-http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
-
+Table:  [Networking Commands and Their Replacements](https://www.tecmint.com/deprecated-linux-networking-commands-and-their-replacements/ "Networking Commands and their replacements")
 
 ### udev and ethernet naming conventions under systemd
+
+http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
 
 Contents of the ```/etc/network/interfaces``` file
 
