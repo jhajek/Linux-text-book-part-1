@@ -52,25 +52,13 @@ Each network interface card or NIC has a 64 bit hardware address assigned to it.
 
 #### Ubuntu
 
-Canonical, that develops Ubuntu, keeps an excellent wiki with this information, [https://help.ubuntu.com/community/InternetAndNetworking](https://help.ubuntu.com/community/InternetAndNetworking "Ubuntu Network Wiki").
+Canonical, that develops Ubuntu, keeps an excellent wiki with this information, [Ubuntu Network Wiki](https://help.ubuntu.com/community/InternetAndNetworking "Ubuntu Network Wiki").
 
 There are multiple ways to discover this information.  There are two suites of tools.  The original is ```net-tools``` the newer group is called the ```iproute2``` tools.  If you have used a computer before, from BSD to Windows (which used the BSD TCP-stack) these commands will be familiar.  But the *net-tools* suite development was actively **ceased** in 2001 in favor of *iproute2*.
 
-### Net-tools
+### Comparison of Net-tools and iproute2
 
 These look familiar don't they? The *ifconfig* command is a single command.  To view other details such as the ARP table, RARP command, view or change routes you would have to use additional commands.  As a contrast, the *iproute2* command handles all of that from the *ip* command.  Older Linux (pre-2015) definately have net-tools installed.  That is quickly changing as some distributions are only including the ```iproute2``` package.  One good example why to use the ```iproute2``` tools, is ```net-tools``` was created before IPv6 became a standard.
-
-* ```ipconfig -a```
-* ```ifconfig [-v] interface [aftype] options | address```
-* ```arp```
-* ```route```
-* ```iwconfig```
-* ```netstat```
-
-### iproute2
-
-* ```ip link show```
-* ```ip [ OPTIONS ] OBJECT { COMMAND | help }```
 
 #### Replacement Commands Table
 
