@@ -136,14 +136,14 @@ The systemd group [argued here](https://www.freedesktop.org/wiki/Software/system
 1) Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1) 
 1) Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1) 
 1) Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0) 
-1) Names incorporating the interfaces's MAC address (example: enx78e7d1ea46da) 
+1) Names incorporating the interfaces's MAC address (example: enx78e7d1ea46da)
 1) Classic, unpredictable kernel-native ethX naming (example: eth0)
 
 > What you gain by using this standard:
 1) Stable interface names across reboots 
 1) Stable interface names even when hardware is added or removed, i.e. no re-enumeration takes place (to the level the firmware permits this)
-1) Stable interface names when kernels or drivers are updated/changed 
-1) Stable interface names even if you have to replace broken ethernet cards by new ones 
+1) Stable interface names when kernels or drivers are updated/changed
+1) Stable interface names even if you have to replace broken ethernet cards by new ones
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
