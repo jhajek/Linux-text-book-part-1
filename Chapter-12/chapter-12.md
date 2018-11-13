@@ -23,8 +23,6 @@ Former CEO of SUN, Scott McNealy once famously said, "The network is the compute
 * NETMASK and CIDR
 * Gateways
 * DNS
-* Compare configuration of these settings across operating systems
-* Various network troubleshooting tools
 
 ### IP Addresses
 
