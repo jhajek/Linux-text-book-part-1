@@ -262,7 +262,7 @@ DNS is set and configured as noted above in the various networking files.  Note 
 
 #### iputils
 
-Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to trouble shoot the problem and identify where the problem is.  Those tools are seperate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here:
+Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to trouble shoot the problem and identify where the problem is.  Those tools are seperate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might be installed by default.
 
 * arping
 * clockdiff
@@ -284,24 +284,6 @@ Ping, just like the concept of a submarine using sonar to find objects, communic
 
 > ```traceroute``` example
 Tool used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic. ```traceroute www.yahoo.com```, what is the output?
-
-> ```dig```
-
-> ```nslookup```
-
-> ```dhclient```
-Used to release and renew a dhcp address
-
->  ```netstat``` used for examining the networking status of your machine
-This command in various configurations can display the current state of all ports and network connection currently running on your system.
-
-> ```route```
-
-Find that list of 20 system admin tools form Brendan Gregg article
-
-### systemd network control
-
-
 
 ## Webservers
 
