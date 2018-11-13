@@ -285,6 +285,11 @@ Ping, just like the concept of a submarine using sonar to find objects, communic
 > ```traceroute``` example
 Tool used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic. ```traceroute www.yahoo.com```, what is the output?
 
+There are additional tools that extend basic troubleshooting features such as:
+
+* iptraf-ng - Network traffic visualization
+* tcpdump – Detailed Network Traffic Analysis
+
 ## Webservers
 
 August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  For history's sake, an early copy of it was found on an old system and restored here: find URL.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
