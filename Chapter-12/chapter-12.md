@@ -87,6 +87,25 @@ With the adoption of systemd, the convention for naming network cards changed fr
 
 "*The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth" to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications...[^2*]"
 
+The systemd group [argued here](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "ethernet argument"):
+
+The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth0", "eth1", ... to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names "eth0", "eth1" and so on is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications, for example in firewall rules which are coded for certain naming schemes, and which are hence very sensitive to unpredictable changing names.
+
+The following different naming schemes for network interfaces are now supported by udev natively: 
+1) Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1) 
+1) Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1) 
+1) Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0) 
+1) Names incorporating the interfaces's MAC address (example: enx78e7d1ea46da)
+1) Classic, unpredictable kernel-native ethX naming (example: eth0)
+
+What you gain by using this standard:
+1) Stable interface names across reboots 
+1) Stable interface names even when hardware is added or removed, i.e. no re-enumeration takes place (to the level the firmware permits this)
+1) Stable interface names when kernels or drivers are updated/changed
+1) Stable interface names even if you have to replace broken ethernet cards by new ones
+
+There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
+
 What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 28, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10.    The way to reset the values is listed below:
 
 * Edit ```/etc/default/grub```
@@ -101,9 +120,35 @@ What does this mean?  Well let us take a look at the output of the ```ip a sh```
 
 ### Network Configuration Troubles
 
-Here is where things get tricky.  In the future I would like to think this is will all be sorted out, but for now, buckle up.  So networking was always controlled by a service under sysVinit, that was usually ```sudo service networking restart```. This was common accross all Linux.  This worked fine when network connections were static and usually a 1 to 1 realtionship with a computer or pc.  That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done.  In December of 2013 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations.  Debian and Ubuntu would soon follow behind and Network Manager became the default way to manage network connections.  It used a YAML like file structure to give values to the network service.
+Here is where things get tricky.  In the future I would like to think this is will all be sorted out, but for now, buckle up.  So networking was always controlled by a service under sysVinit, that was usually ```sudo service networking restart```. This was common accross all Linux.  This worked fine when network connections were static and usually a 1 to 1 realtionship with a computer or pc.  That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done.  In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations.  Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service.  Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
 
-Contents of the ```/etc/network/interfaces``` file for Ubuntu
+As of Ubuntu 18.04 there is a Network Manager replacement in the works.  It is called [netplan.io](https://netplan.io "netplan").  Netplan is an Ubuntu style version of Network manager which reads YAML stule files from a network configuration located in ```/etc/netplan/*.yaml```.  Netplan works on top of Network Manager as well as systemd-networkd.  
+
+Systemd-networkd is the systemd utitlity to take over network service and IP address authority.  It is still a work in progress which has implemented many of the Network Manager features but not all of them.  You can disable Network Manager as a service and enable/start systemd-networkd.  Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```.  That directory is blank by default as systemd-networkd is not enabled by default.  Files in that directory need to end in a .network extension. The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation"). The systemd-networkd .network file has an INI style value structure[^3]:
+
+```bash
+# Name of the file /etc/systemd/network/20-wired.network
+[Match]
+Name=enp1s0
+
+[Network]
+DHCP=ipv4
+```
+
+```bash
+Wired adapter using a static IP
+/etc/systemd/network/20-wired.network
+[Match]
+Name=enp1s0
+
+[Network]
+Address=10.1.10.9/24
+Gateway=10.1.10.1
+DNS=10.1.10.1
+#DNS=8.8.8.8
+```
+
+This is the structure of the ```/etc/network/interfaces``` file for Ubuntu and Debian:
 
 ```bash
 auto eth0
@@ -127,41 +172,40 @@ iface enp0s8 inet static
      gateway 192.168.0.1
 ```
 
-Using the same laptop, Ubuntu 14.04 and Ubuntu 16.04 named my ethernet cards differently.  This is due to systemd's policy of naming devices due to their position on the system bus (motherboard).
+Here is the basic structure for the Network Manager based Fedora/CentOS systems located at[^4]: ```/etc/sysconfig/network-scripts/ifcfg-eth0``` or ```/etc/sysconfig/network-scripts/ifcfg-enp5s0```
 
-The systemd group [argued here](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "ethernet argument"):
+```bash
+DEVICE="eth0"
+BOOTPROTO="dhcp"
+ONBOOT="yes"
+TYPE="Ethernet"
+PERSISTENT_DHCLIENT="yes"
+```
 
-> The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth0", "eth1", ... to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names "eth0", "eth1" and so on is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications, for example in firewall rules which are coded for certain naming schemes, and which are hence very sensitive to unpredictable changing names.
+```bash
+TYPE=Ethernet
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+NAME=p3p1
+UUID=7622e20e-3f2a-4b5c-83d8-f4f6e22ed7ec
+ONBOOT=yes
+DNS1=10.0.0.1
+IPADDR0=10.0.0.2
+PREFIX0=24
+GATEWAY0=10.0.0.1
+HWADDR=00:14:85:BC:1C:63
+IPV6_PEERDNS=yes
+IPV6_PEERROUTES=yes
+```
 
-> The following different naming schemes for network interfaces are now supported by udev natively: 
-1) Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1) 
-1) Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1) 
-1) Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0) 
-1) Names incorporating the interfaces's MAC address (example: enx78e7d1ea46da)
-1) Classic, unpredictable kernel-native ethX naming (example: eth0)
+#### Netplan.io
 
-> What you gain by using this standard:
-1) Stable interface names across reboots 
-1) Stable interface names even when hardware is added or removed, i.e. no re-enumeration takes place (to the level the firmware permits this)
-1) Stable interface names when kernels or drivers are updated/changed
-1) Stable interface names even if you have to replace broken ethernet cards by new ones
 
-There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
-
-#### Red Hat
-
-How to configure a static address
-
-```/etc/sysconfig/network-scripts/ifcfg-eth0```
-
-This was the naming convention under pre-systemd init systems.  Systemd decided their was a marked advantage to enumerate PCI devices via their bus slot on the motherboard, in this way a device will always have a guranteed and predictable device name.  The down side is you loose readability.
-```/etc/sysconfig/network-scripts/ifcfg-enp5s0```
-
-This is due to systemd changing the way network cards are enumerated.  Instead of devices having a driver name (eth0 is the common way to name a device driver of X)  systemd names each device by their position on the PCI bus.  Lennary Poeterring explains why here, "Find explanation"
-
-#### FreeBSD
-
-How to configure a static address/dhcp
 
 #### NETMASK
 
@@ -481,3 +525,7 @@ Use the tools listed above.
 [^1]: [https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1](https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1 "why-is-my-network-interface-named-enp0s25-instead-of-eth0?")
 
 [^2]: [https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0](https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0 "why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0")
+
+[^3]: [https://wiki.archlinux.org/index.php/Systemd-networkd](https://wiki.archlinux.org/index.php/Systemd-networkd "systesmd-networkd")
+
+[^4]: [https://superuser.com/questions/645487/static-ip-address-with-networkmanager](https://superuser.com/questions/645487/static-ip-address-with-networkmanager "Static NetMan IP")
