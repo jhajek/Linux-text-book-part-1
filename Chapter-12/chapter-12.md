@@ -294,7 +294,7 @@ There are additional tools that extend basic troubleshooting features such as:
 
 August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  For history's sake, an early copy of it was found on an old system and restored here: find URL.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
 
-The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson, with research coming out of the UNiversity of Illinois.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver was one of the opensoruce tools, along with the MySQL database, that made the first dot-com boom at the turn of the century possible.  
+The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson, with research coming out of the University of Illinois.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver was one of the opensoruce tools, along with the MySQL database, that made the first dot-com boom at the turn of the century possible.  
 
 Webservers listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.  The webserver by default will serve pages out of the ```/var/www/html``` directory on Linux and ```/var/www``` on FreeBSD.
 
@@ -353,9 +353,7 @@ Started in 2004 by Igor Sysoev, this product came out of a Russian company who f
 
 > install instructions here
 
-#### Nginx on RedHat
-
-  Figure this one out
+Centos and Fedora will need the epel-release package first yum install epel-release
 
 ### OpenBSD httpd process
 
