@@ -87,20 +87,21 @@ With the adoption of systemd, the convention for naming network cards changed fr
 
 "*The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth" to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications...[^2*]"
 
-What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 28, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?
+What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 28, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10.    The way to reset the values is listed below:
 
-https://unix.stackexchange.com/questions/81834/how-can-i-change-the-default-ens33-network-device-to-old-eth0-on-fedora-19
+* Edit ```/etc/default/grub```
+* At the end of ```GRUB_CMDLINE_LINUX``` line append ```net.ifnames=0 biosdevname=0```
+* Save the file
+* Type ```grub2-mkconfig -o /boot/grub2/grub.cfg```
+* or type ```grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg```
+* reboot
 
-Edit /etc/default/grub
-At the end of GRUB_CMDLINE_LINUX line append net.ifnames=0 biosdevname=0
-Save the file
-Type
-grub2-mkconfig -o /boot/grub2/grub.cfg"
-or type
-grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
-Type reboot
+[Source](https://unix.stackexchange.com/questions/81834/how-can-i-change-the-default-ens33-network-device-to-old-eth0-on-fedora-19 "how to reset to old names")
+[Source](http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html "how to reset to old names")
 
-http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
+### Network Configuration Troubles
+
+Here is where things get tricky.  In the future I would like to think this is will all be sorted out, but for now, buckle up.  So networking was always controlled by a service under sysVinit, that was usually ```sudo service networking restart```. This was common accross all Linux.  This worked fine when network connections were static and usually a 1 to 1 realtionship with a computer or pc.  That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done.  In December of 2013 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations.  Debian and Ubuntu would soon follow behind and Network Manager became the default way to manage network connections.  It used a YAML like file structure to give values to the network service.
 
 Contents of the ```/etc/network/interfaces``` file for Ubuntu
 
