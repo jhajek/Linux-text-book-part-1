@@ -260,26 +260,30 @@ DNS--Domain Name services  allow you to resolve written domain names.  google.co
 
 DNS is set and configured as noted above in the various networking files.  Note that DNS was not an initial part of TCP/IP networking so it was not natively contained in the network service configuration, DNS came later in the internet.
 
-#### Tools
+#### iputils
 
-Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to trouble shoot the problem and identify where the problem is. The first tool that should be in your tool box is *ping*.
+Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to trouble shoot the problem and identify where the problem is.  Those tools are seperate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here:
 
-There are two sets of tools - **net tools** suite and the **iproute** suite.  **Net tools** goes way back as very beginning of TCP/IP based networking in BSD 4.  By default operating systems (RHEL 7+, Fedora 23+, and Ubuntu 16.04+) do not install these tools anymore.  They use the ```iproute``` package instead.  Where applicable I will attempt to show both.
+* arping
+* clockdiff
+* ninfod
+* ping
+* rarpd
+* rdisc
+* tftpd
+* tracepath
+* traceroute6
 
-> ```ip``` example
-```ip address show``` or ```ip a sh``` for short.  You can find all usage patterns by typing ```man ip```.
-
-> ```ifconfig``` example
-```ifconfig -a``` or ```ifconfig --all```  you can find all usage patterns by typing ```man ifconfig```.
+The first tool that should be in your tool box is *ping*.
 
 > ```ping``` example
 ```ping www.google.com```  
 ```ping 192.168.0.1```
 
-Ping just like the concept of a submarine using sonar to find objects - simple communicates with another IP address to see if the other system is "alive" and that your system and network are working properly to get the packet from your network to a different network.  Enhanced ping here: https://github.com/orf/gping
+Ping, just like the concept of a submarine using sonar to find objects, communicates with another IP address to see if the other system is "alive" and that your system and network are working properly to get the packet from your network to a different network.  There are many tools to enhance the output of ping as well such as [gping](https://github.com/orf/gping "Ping with graph").
 
 > ```traceroute``` example
-Tool used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic.
+Tool used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic. ```traceroute www.yahoo.com```, what is the output?
 
 > ```dig```
 
