@@ -310,18 +310,23 @@ The apache webserver can be simply installed via Linux or BSD package managers. 
 
 > ```sudo yum install httpd```
 
-> ```ports (freebsd)```
+```bash
+#FreeBSD 11 using Ports 
+sudo portsnap fetch
+sudo portsnap extract
+sudo portsnap update
+cd /usr/ports/www/apache2
+make install
+```
 
 Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources.  You will need to tune the different settings as you go along as no two work loads are the same.  For our purposes in class the default configurations will suffice, but in the real world you will need to find additional documents or books to guide you along.
 
 Apache has extendable modules so its base features can be extended without needing to recompile the entire program.  Using apt-get you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilities for instance.  
 
-> Let's try this
+> Let's try installing apache2 and php at the same time and look at the dependecy list
 
-```sudo apt-get install php```
+```sudo apt-get install apache2 php```
 ```sudo systemctl reload apache2``` -- (as opposed to restart)  jsut re-reads the configurable
-
-(Advanced) Add code for HTTP/2 config
 
 See the sample code in the back of the book for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
 
@@ -335,17 +340,10 @@ echo phpinfo();
 
 ```
 
-You should be able to load this page in your webbrowser by accessing: ```http://localhost/index.php```
+You should be able to load this page in the browser in your virtual machine by accessing: ```http://localhost/index.php```
 
 Also you can add SSL certs
 Digital Ocean self-signed exercise
-Get Apache License
-
-#### Apache in RedHat based Distros
-
-Process is different in Redhat - things don't turn on by default and you have to add modules manually.
-Digital Ocean self-signed exercise
-
 
 ### Nginx
 
