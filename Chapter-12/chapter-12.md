@@ -349,22 +349,19 @@ Digital Ocean self-signed exercise
 
 Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique webserving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitiations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
 
-> install instructions here
+> Centos and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
 
-Centos and Fedora will need the epel-release package first yum install epel-release
+For instructions on configuring and installing the php library for nginx, [https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04 "Digitla Ocean 18.04 nginx php").
 
 ### OpenBSD httpd process
 
-The OpenBSD project which values security and home grown solutions over pure availability.  Instead of trusting others code, the OpenBSD project built and maintain their own webserver (ported to other BSD?)  Justification:
-Read up from the OpenBSD docs
+The OpenBSD project which values security and home grown solutions over pure availability.  Instead of trusting others code, the OpenBSD project built and maintain [their own webserver](https://bsd.plumbing/about.html#features "OpenBSD httpd").
 
 ## Database and NoSQL
 
 Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here]  -- *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accesed via the SQL syntax either via the command line or integrated into a programming language.
 
 >  SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
-
->  Python select star example:
 
 ### Mysql and MariaDB
 
@@ -377,24 +374,20 @@ sudo apt-get install mysql
 sudo apt-get install mariadb-client
 sudo apt-get install mariadb-server
 
-sudo dnf install ?
-sudo dnf install ?
+sudo dnf install mariadb mariadb-server
+sudo dnf install mariadb-client
 ```
 
 MySQL was started by Monte Widens.  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes drop in a replacement for MySQL, even using the same commands to run the database.
 
-Now that our databases are installed, lets quickly import a bit of data and run the commands listed above to see SQL in action. Don't worry, this might be review but it s good to have command line experience.   And the answer to your question is, yes there are GUI tools that will let you do this.
-
-MySQL workbench
-PHP MyAdmin (requires Apache webserver and PHP in addition to MySQL)
+Now that our databases are installed, lets quickly import a bit of data and run the commands listed above to see SQL in action. Don't worry, this might be review but it s good to have command line experience.   
 
 ### PostgreSQL
 
-As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress [find link], was a product and a company in the 1980s.  The succesor to that project was PostgreSQL.
+As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The succesor to that project was PostgreSQL (see the pun?).
 
 > ```sudo apt-get install postgresql```
 ```sudo dnf install postgresql```
-```ports install```
 
 ### SQLite
 
@@ -404,9 +397,7 @@ SQLite is not opensource but instead placed in the public domain for anyone to u
 
 ```sudo apt-get install sqlite3```
 
-```sudo dnf install ?```
-
-```ports install ?```
+```sudo dnf install sqlite```
 
 
 ### MongoDB
@@ -415,15 +406,13 @@ Though there are many in this category, I have selected one NoSQL database.  The
 
 > NoSQL install
 
-```sudo apt-get install mongo```
+```sudo apt-get install mongodb```
 
-```sudo dnf install mongo```
-
-```ports install```
+```sudo dnf install mongodb```
 
 ## Firewall
 
-Used to block exteral communication on you system ports.   Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.
+Used to block exteral communication on you system ports.   Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.  These numbers are useful to know, but applications have changed.  For instance SMTP is no longer unencrypted and used over port 25,but port 567 or 995.  
 
 * SSH - 22
 * FTP - 21
@@ -433,15 +422,11 @@ Used to block exteral communication on you system ports.   Not unlike plugs in t
 * SMTP over SSL - 990
 * MySQL - 3309
 * Oracle DB - 1025
-* SQL Server (Microsoft)
 
-You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If y9ou are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security and privacy.  
+You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security and privacy.  
 
-Firewalld for systemd  and pf for BSD
-
-### pfsense
-
-Firewall distro
+Ubuntu uses UFW (Uncomplicated Firewall).  Fedora uses firewalld.  https://help.ubuntu.com/community/UFW  https://firewalld.org/
+fail2ban integration.
 
 ## Chapter Conclusions and Review
 
