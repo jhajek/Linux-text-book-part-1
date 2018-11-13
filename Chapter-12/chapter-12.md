@@ -58,7 +58,7 @@ There are multiple ways to discover this information.  There are two suites of t
 
 ### Comparison of Net-tools and iproute2
 
-These look familiar don't they? The *ifconfig* command is a single command.  To view other details such as the ARP table, RARP command, view or change routes you would have to use additional commands.  As a contrast, the *iproute2* command handles all of that from the *ip* command.  Older Linux (pre-2015) definately have net-tools installed.  That is quickly changing as some distributions are only including the ```iproute2``` package.  One good example why to use the ```iproute2``` tools, is ```net-tools``` was created before IPv6 became a standard.
+These look familiar don't they? The *ifconfig* command is a single command.  To view other details such as the ARP table, RARP command, view or change routes you would have to use additional commands.  As a contrast, the *iproute2* command handles all of that from the *ip* command.  Older Linux (pre-2015) definately have net-tools installed.  That is quickly changing as some distributions are only including the ```iproute2``` package.  One good example why to use the ```iproute2``` tools, is ```net-tools``` was created before IPv6 became a standard.  There is a [iproute2 cheatsheet](https://github.com/dmbaturin/iproute2-cheatsheet "iproute2 cheatsheet") too.
 
 #### Replacement Commands Table
 
@@ -247,20 +247,18 @@ The problem is those division of IP octets are very clean, unfortunately leads t
 
 #### Gateway
 
-The gateway value is your networks default router.  This value is literally the gateway to your network.  Which IP do you send to get packets out of the network?  
+The gateway value is your networks default router.  This value is literally the gateway to your network. Usually this IP address ends in a .1 or a .254, but does not have to.   
 
 #### DNS
 
-DNS--Domain Name services  allow you to resolve written domain names.  google.com, web.iit.edu, twit.tv, etc, etc and turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers here in this book, but focus on client configuration.
+DNS--Domain Name services  allow you to resolve written domain names.  google.com, web.iit.edu, twit.tv, etc, etc and turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers here in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
 
-8.8.8.8 8.8.4.4 1.1.1.1 Cloud Flare <-  is there and IBM one 4.4.4.4?
-OpenDNS servers   
+* Google has two public DNS services, [8.8.8.8 and 8.8.4.4](https://developers.google.com/speed/public-dns/ "Google Public DNS")
+* [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS") 
+* [IBM Quad9 9.9.9.9](https://www.quad9.net/ "IBM Quad9") 
+* [OpenDNS servers](https://www.opendns.com/ "Opendns")
 
-Ubuntu pre 16.04 traditional networking (non-systemd)
-
-systemd RedHat/Centos
-
-FreeBSD
+DNS is set and configured as noted above in the various networking files.  Note that DNS was not an initial part of TCP/IP networking so it was not natively contained in the network service configuration, DNS came later in the internet.
 
 #### Tools
 
