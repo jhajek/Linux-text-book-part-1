@@ -205,7 +205,33 @@ IPV6_PEERROUTES=yes
 
 #### Netplan.io
 
+Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^5]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By defualt in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allowes Network Manager to manage by default unless specifically altered below.
 
+```bash
+# To let the interface named ‘enp3s0’ get an address via DHCP, create a YAML file with the following:
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp3s0:
+      dhcp4: true
+```
+
+To instead set a static IP address, use the addresses key, which takes a list of (IPv4 or IPv6), addresses along with the subnet prefix length (e.g. /24). Gateway and DNS information can be provided as well:
+
+```bash
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp3s0:
+      addresses:
+        - 10.10.10.2/24
+      gateway4: 10.10.10.1
+      nameservers:
+          search: [mydomain, otherdomain]
+          addresses: [10.10.10.1, 1.1.1.1]
+```
 
 #### NETMASK
 
@@ -529,3 +555,5 @@ Use the tools listed above.
 [^3]: [https://wiki.archlinux.org/index.php/Systemd-networkd](https://wiki.archlinux.org/index.php/Systemd-networkd "systesmd-networkd")
 
 [^4]: [https://superuser.com/questions/645487/static-ip-address-with-networkmanager](https://superuser.com/questions/645487/static-ip-address-with-networkmanager "Static NetMan IP")
+
+[^5]: [https://netplan.io/examples](https://netplan.io/examples "netplan examples")
