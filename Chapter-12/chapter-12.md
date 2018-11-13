@@ -21,7 +21,7 @@ Former CEO of SUN, Scott McNealy once famously said, "The network is the compute
     + Static and DHCP
     + MAC Address
 * NETMASK and CIDR
-* Gateways
+* Gateway
 * DNS
 
 ### IP Addresses
@@ -65,7 +65,7 @@ These look familiar don't they? The *ifconfig* command is a single command.  To 
          ```arp```                        ```ip n``` (ip neighbor)
        ```ifconfig```                     ```ip a``` (ip addr)
                                           ```ip link```
-                                          ```ip -s``` (ip -stats)
+                                          ```ip s``` (ip -stats)
         ```iptunnel```                    ```ip tunnel```
         ```iwconfig```                     ```iw```
         ```nameif```                       ```ip link``` or ```ifrename```
