@@ -307,9 +307,9 @@ Applcations have grown enourmously beyond just serving simple html webpages.  Sy
 
 Without Apache, companies such as Google, Facebook, Twitter, and many others started upon opensource never would have been able to get started.
 
-Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticze Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  Apache holds a dominate percentage of market share of all webserver software in use.  
+Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticze Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
 
-The apache webserver can be simply installed via Linux or BSD package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```.
+The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```. 
 
 > ```sudo apt-get install apache2```
 
@@ -324,9 +324,9 @@ cd /usr/ports/www/apache2
 make install
 ```
 
-Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources.  You will need to tune the different settings as you go along as no two work loads are the same.  For our purposes in class the default configurations will suffice, but in the real world you will need to find additional documents or books to guide you along.
+Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources and is not much use beyond for testing.  You will need to tune the different settings as you go along as no two work loads are the same, unfortunately there is no direct tutorial you can just configure and run a large business with.  For our purposes in class the default configurations will suffice, but in the real world you will need to find additional documents or books to guide you along.
 
-Apache has extendable modules so its base features can be extended without needing to recompile the entire program.  Using apt-get you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilities for instance.  
+Apache has extendable modules so its base features can be enhanced without needing to recompile the entire program.  Using ```apt-get``` you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilities for instance.  
 
 > Let's try installing apache2 and php at the same time and look at the dependecy list
 
@@ -347,8 +347,18 @@ echo phpinfo();
 
 You should be able to load this page in the browser in your virtual machine by accessing: ```http://localhost/index.php```
 
-Also you can add SSL certs
-Digital Ocean self-signed exercise
+#### HTTP/2
+
+
+#### Self-signed Certs
+
+One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been depricated and replaced with TLS 1.2 and 1.3 (Transport Layer Security), but many people still use the phrase *SSL* when they really mean *TLS*.
+
+You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party.  In that they don't have a chain of trust about them.  Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site.  Now you have the option of overriding this and or accepting these self-signed browers into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
+
+There is an EFF lead iniative called Let's Encrypt that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via ```apt```, ```yum```, and ```dnf``` to make this experience easy and remove all reasons to not encrypt web traffic.  [Show SSL adoption chart] TLS 1.3 Security Now podcast?
+
+Digital Ocean self-signed exercise tutorial
 
 ### Nginx
 
@@ -364,13 +374,13 @@ The OpenBSD project which values security and home grown solutions over pure ava
 
 ## Database and NoSQL
 
-Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here]  -- *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accesed via the SQL syntax either via the command line or integrated into a programming language.
+Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here], *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accesed via the SQL syntax either via the command line or integrated into a programming language.
 
 >  SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
 
 ### Mysql and MariaDB
 
-Installation of a databadse is straight forward using the package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accesing a database remotely, you do not need to install the entire server just the client tools to use the applications.
+Installation of a databadse is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accesing a database remotely, you do not need to install the entire server just the client tools to use the applications.
 
 ```bash
 sudo apt-get install mariadb  
