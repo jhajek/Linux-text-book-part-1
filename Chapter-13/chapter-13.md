@@ -50,9 +50,6 @@ At that time, [Hashicorp](https://hashicorp.com "Hashicorp") was born.  This was
 
 Vagrant is just that, an abstraction layer between you and VirtualBox, Hyper-V, Docker, and even Vmware desktop.  It is written in the Ruby Language and comes as a self-contained binary that runs accross all platforms.
 
-Reasons to use Vagrant
-List them here
-
 Vagrant commands
 List them here from OneNote
 
