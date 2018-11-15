@@ -24,7 +24,7 @@ At the conlcusion of this chapter you will have a basic understanding of how to 
 
 One of the main things that computers are good at is executing repetive tasks.  One of the things humans seem to dislike is repeating the same task.  So how to solve this when it comes to computers, where there are only a small number of tasks that are repeated over and over.  One of the problems that has been common is the divide between the developers (devs) and the operations (ops) people.  Developers need hardware to test their code on and then more hardware to run their code in production.  Operations people have to maintain those systems and the code and the lifecycle of the application.  Developers started to think, could we deploy our infrastructure in the same way we deploy code?  Could we automate the way out of this problem?  A young developer named Mitchel Hashimoto had the same problem.  
 
-Image of Mitchell Hashimoto
+![*Mitchell Hashimoto*](images/Chapter-13/people/mh.png "mitchell hashimoto")[^1]
 
 Micthcell realized that while using Virtual Box, he could be productive by keeping copies of the production servers where his code would reside as a local vm on his system.  He realized their were some limitations to what Virtual Box would allow for in the way of access to the system.  Virtual Box just provided an interface to virtualize an operating system, and had no provisions for quickly deploying or automating an OS deployment.  
 
@@ -51,7 +51,7 @@ While Vagrant is used to manage vms, there was no tool that could be used to qui
 
 Packer Reason to hav eit
 
-Packer examples and example build code  https://github.com/jhajek/packer-vagrant-build-scripts
+Packer examples and example build code https://github.com/jhajek/packer-vagrant-build-scripts.git
 
 ### Pressed and Kickstart
 
@@ -77,3 +77,5 @@ Bryan Cantril Hashiconf Jails the first decade - Woot!
 
 
 #### Footnotes
+
+[^1]: [http://d13pix9kaak6wt.cloudfront.net/background/users/m/i/t/mitchellh_1370739801_5.jpg](http://d13pix9kaak6wt.cloudfront.net/background/users/m/i/t/mitchellh_1370739801_5.jpg "Mitchell Hashimoto")
