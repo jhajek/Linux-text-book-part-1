@@ -57,7 +57,7 @@ List them here from OneNote
 
 While Vagrant is used to manage vms, there was no tool that could be used to quickly and reliably create vms.  The next tool that Hashicorp introduced was called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installtion of operating systems.  Operating systems from Windows to Linux distros to BSD are made to be installed manually.  A few technologies for network based installs exist, but even these assume their is a physcial computer to correlate to.  Packer wen tone step further by allowing you to speficify all the answers to the installation questions, you could now have a repeatable installation.  You could now audit this install as well as take this same install (with minor modifications) and make artifacts that can exist on different platforms.  You could build a VirtualBox VM and at the same time have an Amazon Web Services artifact so that all of your developers, operations, testers, and QA can have access to the same machine.
 
-Packer Reason to hav eit
+Packer Reason to have it
 
 Packer examples and example build code https://github.com/jhajek/packer-vagrant-build-scripts.git
 
