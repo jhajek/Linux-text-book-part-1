@@ -3,18 +3,13 @@
 
 ## Objectives
 
-  Learn about:
-  * Hashicorp Tech
-    + Vagrant
-    + Packer.io
-    + Consul
-    + Vault
-  * Chef 
-  * Ansible
-  * Puppet
-  * cfEngine
-  * salt  
-  * Docker OS Containers
+* IT Orchestration and Automation tools
+  + Vagrant
+  + Packer.io
+  + Consul
+  + Vault
+  + Additional automation tools
+* Docker OS Containers
 
 ## Outcomes
 
