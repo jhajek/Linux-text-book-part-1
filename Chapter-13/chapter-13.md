@@ -17,7 +17,7 @@ At the conlcusion of this chapter you will have a basic understanding of how to 
 
 ### Automation and Hashicorp
 
-One of the main things that computers are good at is executing repetive tasks.  One of the things humans seem to dislike is repeating the same task.  So how to solve this when it comes to computers, where there are only a small number of tasks that are repeated over and over.  One of the problems that has been common is the divide between the developers (devs) and the operations (ops) people.  Developers need hardware to test their code on and then more hardware to run their code in production.  Operations people have to maintain those systems and the code and the lifecycle of the application.  Developers started to think, could we deploy our infrastructure in the same way we deploy code?  Could we automate the way out of this problem?  A young developer named Mitchel Hashimoto had the same problem.  
+One of the main things that computers are good at is executing repetive tasks.  One of the things humans seem to dislike is repeating the same task.  So how to solve this when it comes to computers, where there are only a small number of tasks that are repeated over and over.  One of the problems that has been common is the divide between the developers (devs) and the operations (ops) people.  Developers need hardware to test their code on and then more hardware to run their code in production.  Operations people have to maintain those systems and the code and the lifecycle of the application.  Developers started to think, could we deploy our infrastructure in the same way we deploy code?  Could we automate the way out of this problem?  A young developer named Mitchell Hashimoto had the same problem.  
 
 ![*Mitchell Hashimoto*](images/Chapter-13/people/mh.png "mitchell hashimoto")[^1]
 
@@ -60,13 +60,19 @@ Packer examples and example build code https://github.com/jhajek/packer-vagrant-
 
 Examples
 
-### Consol and Service Mesh/Discovery
+### Consol for Service Mesh/Discovery
 
 [Consol](https://www.consul.io "Consol")
 
+### Vault for Secret Sharing
+
+One of the biggest problems in computers and cyber security is the sharing of *secrets*.  A secret is generally anything that gives privillege to a user, such as a username and password combo, or and authentication token, or an URL even. Not only do you have the trouble of keeping this secure from hackers and exploits, but you also have the problem of distributing them.  If you share a secret, then it is not a secret anymore.  But in launching multiple distributed servers, how to you give each instance access to these secrets?  A second question is how to you manage and expire them? 
+
+This problem was solved by a service called Valut by Hashicorp.
+
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
+Conclusion goes here
 
 ### Review Questions
 
