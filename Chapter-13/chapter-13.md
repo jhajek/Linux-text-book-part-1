@@ -56,13 +56,31 @@ Packer Reason to have it
 
 Packer examples and example build code https://github.com/jhajek/packer-vagrant-build-scripts.git
 
-### Pressed and Kickstart
+### Answer Files
 
-Examples
+Most operating system installations are designed for a manual install process.  This makes sense as for almost 40 years we have been using PC's (Personal Computers).  A first step in automating the install process is to automate the answering of the installation questions.  This is the most repetive process of the install, as well as something that is not conducive to the human, as you spend most of your time waiting.  
+
+The first solution came from Sun in 198x and was called Jumpstart.  This was used to hold installtion information and as a target system was booted, it would communicate to the Jumpstart server and complete the entire install over the network, OS and handle configuration.
+
+The next phase came in Linux with Fedora creating the Kickstart answer file system [Link here] to handle not the OS install part, but at least the OS configuration and software retrieval.  Remember the SUN product was created before pervasive internet and package managers and had to rely on software being centrally available on the local network.
+
+Debian created their own answer file system call [preeseed].  
+
+In the source code repository see Files > Chapter 13 > answer-files for working kickstart and preseed examples.
+
+You can interrupt a manual install and point to a kickstart file, but it needs to be done over the network.  When you are installing an operating system you don't yet have a filesystem to read files from!  
+
+Example of preseed or kickstart
 
 ### Consol for Service Mesh/Discovery
 
-[Consol](https://www.consul.io "Consol")
+As applications moved from single systems to distributed systems, then to multi-tiers, the issue of IP addresses comes into focus.  What happens when you have services being launch and virtual systems being destroyed?  How do you manage the IP addresses?  Well on the internet we have DNS for name resolution and lookup.  If you look up [https://youtube.com](https://youtube.com "YouTube.com") you do not need to know the IP address, as the DNS service will look it up for you.  Now, think about the internals of YouTube itself.  Extra servers need to come online all the time to handle surges in requests or QPS (queries per second).  How do they handle IP allocation internally?  They use some kind of **service discovery** or **service mesh**.  
+
+The concept of service discovery is essentially an internal or local DNS.  Each system hard codes its own localized DNS entry then via a protocol called *gossip*, agents talk to each other and "spread" the local DSN entries.  An application can simple make a ```curl``` or http based request to the internal agent and resolve the IP internally.
+
+Hashicorp created a software called [Consol](https://www.consul.io "Consol").  
+
+Description of Consol.
 
 ### Vault for Secret Sharing
 
@@ -70,9 +88,21 @@ One of the biggest problems in computers and cyber security is the sharing of *s
 
 This problem was solved by a service called Valut by Hashicorp.
 
+Example
+
+### Network Based Install Tools
+
+Cobbler -- a modern version of Jumpstart, which is good for network based install and configuration of static hardware.
+MaaS - Metal as a DService.  This was built by Canonical (Ubuntu) to manage and deploy systems, it includes and builds upon Cobbler.  
+
+Chef
+Puppet
+Ansible
+CfEngine  Mark - In serch of Certainty
+
 ## Chapter Conclusions and Review
 
-Conclusion goes here
+In this chapter we learned how a spread in technology lead to a desire to automate and ease installation and configuration. A new generation of technology brought a new generation of tools.  These tools are a part of what we called cloud-native, immutable infrastructure, and are the standard ways to deploy operating systems and hardware accross the industry.
 
 ### Review Questions
 
@@ -84,6 +114,7 @@ Bryan Cantril Hashiconf Jails the first decade - Woot!
 
 ### Lab
 
+Complete Vagrant Tutorial, complete my Packer tutorial, complete Consol tutorial, complete Vault tutorial?
 
 #### Footnotes
 
