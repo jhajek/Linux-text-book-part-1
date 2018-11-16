@@ -1,0 +1,65 @@
+{
+    "builders": [{
+        "name": "ubuntu-mini-vanilla-18041-server",
+        "type": "virtualbox-iso",
+        "guest_os_type": "Ubuntu_64",
+        "guest_additions_mode": "disable",
+        "iso_url": "http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-amd64/current/images/netboot/mini.iso",
+        "iso_checksum": "cce936c1f9d1448c7d8f74b76b66f42eb4f93d4a",
+        "iso_checksum_type": "sha1",
+ "http_directory" : ".",
+  "http_port_min" : 9001,
+  "http_port_max" : 9001,
+        "ssh_username": "vagrant",
+        "ssh_password": "vagrant",
+        "ssh_wait_timeout": "30m",
+        "communicator": "ssh", 
+        "ssh_pty": "true", 
+        "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now", 
+        "vm_name": "ubuntu-vanilla-18041-server",
+        "hard_drive_interface": "sata",
+        "disk_size": 20000,
+        "boot_wait": "5s",
+ "boot_command" : [
+  "<tab>",
+  "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+  "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+  "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+  "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+  "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+  "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+  "linux initrd=initrd.gz",
+  " auto=true",
+  " url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed-mini.cfg ",
+  " hostname=ubuntu-mini-server",
+  " net.ifnames=0",
+  " DEBCONF_DEBUG=5",
+  "<enter>"
+        ],  
+ "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "2048"
+        ]
+
+    ]
+  }],
+ 
+  "provisioners": [
+  {
+    "type": "shell",
+  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+    "script": "../scripts/post_install_vagrant.sh"
+  }
+],
+  "post-processors": [
+ {
+  "type": "vagrant",
+ "keep_input_artifact": false,
+ "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
+ }
+]
+}
+
