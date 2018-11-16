@@ -9,7 +9,6 @@
   + Consul
   + Vault
   + Additional automation tools
-* Docker OS Containers
 
 ## Outcomes
 
@@ -62,9 +61,9 @@ Most operating system installations are designed for a manual install process.  
 
 The first solution came from Sun in 198x and was called Jumpstart.  This was used to hold installtion information and as a target system was booted, it would communicate to the Jumpstart server and complete the entire install over the network, OS and handle configuration.
 
-The next phase came in Linux with Fedora creating the Kickstart answer file system [Link here] to handle not the OS install part, but at least the OS configuration and software retrieval.  Remember the SUN product was created before pervasive internet and package managers and had to rely on software being centrally available on the local network.
+The next phase came in Linux with Fedora creating the Kickstart answer file system [Link here]   [Kickstart documentation](https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html) to handle not the OS install part, but at least the OS configuration and software retrieval.  Remember the SUN product was created before pervasive internet and package managers and had to rely on software being centrally available on the local network.  it can be generated from scratch or upon a successful install a default kickstart is located in /root/anaconda-ks.cfg
 
-Debian created their own answer file system call [preeseed].  
+[Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")  Debian created their own answer file system call [preeseed].  
 
 In the source code repository see Files > Chapter 13 > answer-files for working kickstart and preseed examples.
 
