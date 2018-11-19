@@ -455,7 +455,6 @@ Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would
 * work
 * home
 * internal
-* trusted
 
 ```sudo firewall-cmd --zone=public --add-port=22/tcp --permanent```
 
