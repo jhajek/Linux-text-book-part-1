@@ -238,7 +238,7 @@ network:
 
 The netmask value or subnet of your network is actually a part of you Ip address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your Ip address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one fo the IP octets.  But this turned out to be highly inneficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fixed value from 1-254 in your first IP octect and the remaining three octets would be variable.  Apple famously has the 16.0.0.0 Class A giving them access to 255*255*255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE. 
 
-Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.   
+Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
 
 Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses.  
 
@@ -255,8 +255,8 @@ The gateway value is your networks default router.  This value is literally the 
 DNS--Domain Name services  allow you to resolve written domain names.  google.com, web.iit.edu, twit.tv, etc, etc and turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers here in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
 
 * Google has two public DNS services, [8.8.8.8 and 8.8.4.4](https://developers.google.com/speed/public-dns/ "Google Public DNS")
-* [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS") 
-* [IBM Quad9 9.9.9.9](https://www.quad9.net/ "IBM Quad9") 
+* [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS")
+* [IBM Quad9 9.9.9.9](https://www.quad9.net/ "IBM Quad9")
 * [OpenDNS servers](https://www.opendns.com/ "Opendns")
 
 DNS is set and configured as noted above in the various networking files.  Note that DNS was not an initial part of TCP/IP networking so it was not natively contained in the network service configuration, DNS came later in the internet.
@@ -283,11 +283,10 @@ The first tool that should be in your tool box is *ping*.
 
 Ping, just like the concept of a submarine using sonar to find objects, communicates with another IP address to see if the other system is "alive" and that your system and network are working properly to get the packet from your network to a different network.  There are many tools to enhance the output of ping as well such as [gping](https://github.com/orf/gping "Ping with graph").
 
-
-The traceroute tool is used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic. Try these commands and describe the output:
+The ```traceroute``` tool is used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic. Try these commands and describe the output:
 
 ```bash
-traceroute www.yahoo.com 
+traceroute www.yahoo.com
 traceroute www.yahoo.co.jp
 ```
 
@@ -302,7 +301,7 @@ August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the 
 
 The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson, with research coming out of the University of Illinois.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver came out of this code base and became the name and the first product of the Apache Opensource Foundation.  When we look to two technologies that were used by the dotcom compnaies that survived the first and second crashes, we find that both Tyhe Apache webserver along with the MySQL database made the web possible.  
 
-Applcations have grown enourmously beyond just serving simple html webpages.  System have even have begun bypassing webservers in echange for beconign application servers and serving traffic or aggregating traffic directly on a per request basis.  We will cover in deatil in the next chapters som eof those application servers.  For now let us start with webservers. They listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.  The webserver by default will serve pages out of the ```/var/www/html``` directory on Linux and ```/var/www``` on FreeBSD.   
+Applcations have grown enourmously beyond just serving simple html webpages.  System have even have begun bypassing webservers in echange for beconign application servers and serving traffic or aggregating traffic directly on a per request basis.  We will cover in deatil in the next chapters som eof those application servers.  For now let us start with webservers. They listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.  The webserver by default will serve pages out of the ```/var/www/html``` directory on Linux and ```/var/www``` on FreeBSD.
 
 ### Apache
 
@@ -310,14 +309,14 @@ Without Apache, companies such as Google, Facebook, Twitter, and many others sta
 
 Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticze Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
 
-The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```. 
+The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```.
 
 > ```sudo apt-get install apache2```
 
 > ```sudo yum install httpd```
 
 ```bash
-#FreeBSD 11 using Ports 
+#FreeBSD 11 using Ports
 sudo portsnap fetch
 sudo portsnap extract
 sudo portsnap update
@@ -338,7 +337,7 @@ See the sample code in the back of the book for a sample PHP webpage or copy and
 
 ```php
 // Two slashes is a comment
-<?php   
+<?php
 
 echo phpinfo();
 
@@ -357,7 +356,7 @@ One of the major innovations Netscape made with their original webserver product
 
 You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party.  In that they don't have a chain of trust about them.  Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site.  Now you have the option of overriding this and or accepting these self-signed browers into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
 
-There is an EFF lead iniative called Let's Encrypt that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via ```apt```, ```yum```, and ```dnf``` to make this experience easy and remove all reasons to not encrypt web traffic.  [Show SSL adoption chart] TLS 1.3 Security Now podcast?
+There is an EFF led iniative called Let's Encrypt that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via ```apt```, ```yum```, and ```dnf``` to make this experience easy and remove all reasons to not encrypt web traffic.  [Show SSL adoption chart] TLS 1.3 Security Now podcast?
 
 Digital Ocean self-signed exercise tutorial
 
@@ -377,7 +376,7 @@ The OpenBSD project which values security and home grown solutions over pure ava
 
 Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here], *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accesed via the SQL syntax either via the command line or integrated into a programming language.
 
->  SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
+> SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
 
 ### Mysql and MariaDB
 
@@ -396,7 +395,7 @@ sudo dnf install mariadb-client
 
 MySQL was started by Monte Widens.  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes drop in a replacement for MySQL, even using the same commands to run the database.
 
-Now that our databases are installed, lets quickly import a bit of data and run the commands listed above to see SQL in action. Don't worry, this might be review but it s good to have command line experience.   
+Now that our databases are installed, lets quickly import a bit of data and run the commands listed above to see SQL in action. Don't worry, this might be review but it s good to have command line experience.
 
 ### PostgreSQL
 
@@ -450,7 +449,7 @@ In this chapter we learned about the basic components of networking. We learned 
 
 ### Review Questions
 
-1.    What tool would you use in order to display your IP address if you were using RHEL 7?
+1. What tool would you use in order to display your IP address if you were using RHEL 7?
   a.  ifconfig
   b.  ipconfig
   c.  ip address show
