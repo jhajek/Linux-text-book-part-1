@@ -1,4 +1,5 @@
-# Networking, Webservers, and Intro to Databases ROUGH DRAFT
+# Networking, Webservers, and Intro to Databases
+
 ![*Some people just have aquariums...*](images/Chapter-Header/Chapter-12/network-2.png "Virus Aquarium")
 
 ## Objectives
@@ -89,11 +90,11 @@ The systemd group [argued here](https://www.freedesktop.org/wiki/Software/system
 
 The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth0", "eth1", ... to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names "eth0", "eth1" and so on is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications, for example in firewall rules which are coded for certain naming schemes, and which are hence very sensitive to unpredictable changing names.
 
-The following different naming schemes for network interfaces are now supported by udev natively: 
+The following different naming schemes for network interfaces are now supported by udev natively:
 
-1) Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1) 
-1) Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1) 
-1) Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0) 
+1) Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1)
+1) Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1)
+1) Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0)
 1) Names incorporating the interfaces's MAC address (example: enx78e7d1ea46da)
 1) Classic, unpredictable kernel-native ethX naming (example: eth0)
 
@@ -349,7 +350,6 @@ You should be able to load this page in the browser in your virtual machine by a
 
 #### HTTP/2
 
-
 #### Self-signed Certs
 
 One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been depricated and replaced with TLS 1.2 and 1.3 (Transport Layer Security), but many people still use the phrase *SSL* when they really mean *TLS*.
@@ -393,7 +393,7 @@ sudo dnf install mariadb mariadb-server
 sudo dnf install mariadb-client
 ```
 
-MySQL was started by Monte Widens.  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes drop in a replacement for MySQL, even using the same commands to run the database.
+MySQL was started by Monte Widens.  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database.
 
 Now that our databases are installed, lets quickly import a bit of data and run the commands listed above to see SQL in action. Don't worry, this might be review but it s good to have command line experience.
 
@@ -417,7 +417,7 @@ SQLite is not opensource but instead placed in the public domain for anyone to u
 
 ### MongoDB
 
-Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.  REST was not specifically developed to replace SQL commands via HTTP but became the default application of it.
+Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.  REST is the outgrowth of the succesful spread of HTTP as a protocol.
 
 > NoSQL install
 
@@ -440,8 +440,15 @@ Used to block exteral communication on you system ports.   Not unlike plugs in t
 
 You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security and privacy.  
 
-Ubuntu uses UFW (Uncomplicated Firewall).  Fedora uses firewalld.  https://help.ubuntu.com/community/UFW  https://firewalld.org/
-fail2ban integration.
+### Ubuntu UFW
+
+Ubuntu uses UFW (Uncomplicated Firewall).  https://help.ubuntu.com/community/UFW.  
+
+
+### Firewalld
+
+Most other distributions using systemd have switched to firewalld as their main firewall interface.  Fedora turns their firewall on by default.   uses firewalld. https://firewalld.org/
+fail2ban integration.  
 
 ## Chapter Conclusions and Review
 
