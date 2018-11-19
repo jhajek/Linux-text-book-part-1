@@ -438,17 +438,46 @@ Used to block exteral communication on you system ports.   Not unlike plugs in t
 * MySQL - 3309
 * Oracle DB - 1025
 
-You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security and privacy.  
+You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security, privacy, and government regulation.  
+
+### Firewalld
+
+Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, Centos 7 does not.  
+
+Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones.  The default system rules are stored in /var/lib/...something.  When declaring a new rule you need to declare if the rule is permananet or will be reset when the firewalld service is reloaded.  The firewalld system contains zones:
+
+* trusted or untrusted
+* drop
+ + incoming packets are dropped, outbound packets are allowed
+* block
+ + incoming packets are rejected with an icmp-host-prohibited response
+* public
+* work
+* home
+* internal
+* trusted
+
+```sudo firewall-cmd --zone=public --add-port=22/tcp --permanent```
+
+```
+Firewalld examples for fine grained access
+
+Firewalld includes a standard interface so third party tools and build integration into your firewall.  Fail2ban is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP{ addresses that are trying to brute force hack your system. You can do permananet banning or a timeout based banning.  Fail2ban has a firewalld integration where you can add firewall rules to block bad IPs.
+
+Exmaple of fail2ban integration
+
+```bash
+
+# you may need the epel-release package on Fedora/Centos
+sudo dnf install fail2ban
+sudo apt-get install fail2ban
+
+```
 
 ### Ubuntu UFW
 
 Ubuntu uses UFW (Uncomplicated Firewall).  https://help.ubuntu.com/community/UFW.  
 
-
-### Firewalld
-
-Most other distributions using systemd have switched to firewalld as their main firewall interface.  Fedora turns their firewall on by default.   uses firewalld. https://firewalld.org/
-fail2ban integration.  
 
 ## Chapter Conclusions and Review
 
@@ -496,39 +525,39 @@ In this chapter we learned about the basic components of networking. We learned 
   c.  24
   d.  256
 
-1.  How does CIDR block addressing differ from Class based networking (A-D)?
+1. How does CIDR block addressing differ from Class based networking (A-D)?
 
-1.  What tool is used to release a dhcp address from the command line?
+1. What tool is used to release a dhcp address from the command line?
   a.  rhclient
   b.  ipconfig /release
   c.  dhclient -r
   d.  xclient -r
 
-1.  What tool is used to monitor and examine all current local ports and TCP/IP connections?
+1. What tool is used to monitor and examine all current local ports and TCP/IP connections?
   a.  stat
   b.  net
   c.  wireshark
   d.  netstat
 
-1.  Where are your network card settings located on Ubuntu 16.04 by default?
+1. Where are your network card settings located on Ubuntu 16.04 by default?
 
-1.  Where are you network card settings located by default in CentOS 7.1?
+1. Where are you network card settings located by default in CentOS 7.1?
 
-1.  Where are your network settings located by default in FreeBSD 11.0?
+1. Where are your network settings located by default in FreeBSD 11.0?
 
-1.  What are the three major opensource webservers?
+1. What are the three major opensource webservers?
   a. Apache, Nginx, and openhttpd
   b. httpd, Nginx, openhttpd
   c. Apache, IIS, Nginx
   d. Apache, Lighttd, Nginx
 
-1.  What are two related and major opensource databases?
+1. What are two related and major opensource databases?
   a. SQL and MySQL
   b. MariaDB and MySQL
   c. MySQL and Oracle DB
   d. Nginx and MySQL
 
-1.  Name one major No-SQL database mentioned in this chapter?
+1. Name one major No-SQL database mentioned in this chapter?
 
 ### Podcast Questions
 
