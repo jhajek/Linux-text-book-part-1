@@ -403,7 +403,23 @@ sudo dnf install mariadb-client
 # make sure to start and enable the maria or mysql service on Fedora/Centos
 ```
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database.
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli.
+
+* Log in
+  + ```sudo mysql -u root -p```
+  + enter your password at the prompt
+* Enter commands at the CLI
+  + ```CREATE DATABASE records;```
+  + ```USE records;```
+  + ```create table tutorials_tbl(
+   tutorial_id INT NOT NULL AUTO_INCREMENT,
+   tutorial_title VARCHAR(100) NOT NULL,
+   tutorial_author VARCHAR(40) NOT NULL,
+   submission_date DATE,
+   PRIMARY KEY ( tutorial_id )
+  );```
+* Quit
+  + quit;
 
 ### PostgreSQL
 
