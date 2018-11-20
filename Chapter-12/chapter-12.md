@@ -419,11 +419,15 @@ SQLite is not opensource but instead placed in the public domain for anyone to u
 
 Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records.  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.  REST is the outgrowth of the succesful spread of HTTP as a protocol.
 
-> NoSQL install
+MongoDB packages are maintained by MongoDB -- and are released outside of Linux distro release cycles.  The installation process is different for Ubuntu and CentOS.  The instructions to add a custom repository are located here: 
 
-```sudo apt-get install mongodb```
+* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/ "Install on Ubuntu")
+* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/ "Install on RedHat Centos")
+* Make sure to start the mongod service
+* [https://docs.mongodb.com/manual/mongo/](https://docs.mongodb.com/manual/mongo/ "Mongo Shell")
+ + [Run Mongo insert sample](https://docs.mongodb.com/manual/tutorial/insert-documents/ "Mongo Insert Sample")
+ + [Run Mongo query sample](https://docs.mongodb.com/manual/tutorial/query-documents/ "Mongo query example")
 
-```sudo dnf install mongodb```
 
 ## Firewall
 
@@ -458,18 +462,17 @@ Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would
 
 ```sudo firewall-cmd --zone=public --add-port=22/tcp --permanent```
 
-```
-Firewalld examples for fine grained access
-
-Firewalld includes a standard interface so third party tools and build integration into your firewall.  Fail2ban is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP{ addresses that are trying to brute force hack your system. You can do permananet banning or a timeout based banning.  Fail2ban has a firewalld integration where you can add firewall rules to block bad IPs.
-
-Exmaple of fail2ban integration
+Firewalld includes a standard interface so third party tools and build integration into your firewall.  Fail2ban is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP{ addresses that are trying to brute force hack your system. You can do permananet banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs.
 
 ```bash
 
 # you may need the epel-release package on Fedora/Centos
-sudo dnf install fail2ban
-sudo apt-get install fail2ban
+sudo dnf install fail2ban fail2ban-firewalld
+sudo apt-get install fail2ban fail2ban-firewalld
+sudo yum install fail2ban fail2ban-firewalld
+
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
 
 ```
 
@@ -578,7 +581,11 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 ### Lab
 
-Use the tools listed above.
+1. Using firewalld open port 22 permanantly to allow SSH connections to your Fedora 28 or Centos 7 system.
+1. Install mysql-server, PHP, and Nginx, and a self-signed cert.  
+  i. Create a sample webpage that displays ```phpinfo()``` at https://localhost/index.php
+  i. Locate the file index.php in ```/var/www/html```
+1. 
 
 #### Footnotes
 
