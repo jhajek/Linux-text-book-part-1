@@ -435,7 +435,7 @@ Used to block exteral communication on you system ports.   Not unlike plugs in t
 * HTTP - 80
 * HTTPS - 443 (HTTP with TLS/SSL)
 * SMTP over SSL - 990
-* MySQL - 3309
+* MySQL - 3306
 * Oracle DB - 1025
 
 You can use rules to deny or allows traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security, privacy, and government regulation.  
