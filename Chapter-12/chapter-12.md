@@ -384,7 +384,8 @@ The OpenBSD project which values security and home grown solutions over pure ava
 
 Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here], *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accesed via the SQL syntax either via the command line or integrated into a programming language.
 
-> SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
+* SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
+* A NoSQL sample would look like this: ```db.inventory.find( { status: { $in: [ "A", "D" ]}})```
 
 ### Mysql and MariaDB
 
@@ -399,6 +400,7 @@ sudo apt-get install mariadb-server
 
 sudo dnf install mariadb mariadb-server
 sudo dnf install mariadb-client
+# make sure to start and enable the maria or mysql service on Fedora/Centos
 ```
 
 MySQL was started by Monte Widens.  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database.
