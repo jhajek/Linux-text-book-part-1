@@ -434,14 +434,14 @@ MongoDB packages are maintained by MongoDB -- and are released outside of Linux 
  + [Run Mongo insert sample](https://docs.mongodb.com/manual/tutorial/insert-documents/ "Mongo Insert Sample")
  + [Run Mongo query sample](https://docs.mongodb.com/manual/tutorial/query-documents/ "Mongo query example")
 
-
 ## Firewall
 
-Used to block exteral communication on you system ports.   Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.  These numbers are useful to know, but applications have changed.  For instance SMTP is no longer unencrypted and used over port 25,but port 567 or 995.  
+Used to block exteral communication on you system ports.   Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.  These numbers are useful to know, but applications have changed.  For instance SMTP is no longer unencrypted and used over port 25,but port 567 or 995.  Also the use of Git over http has replaced the need for FTP/SFTP/SSH and other protocols to send and retrieve data.
 
 * SSH - 22
 * FTP - 21
 * SMTP - 25 (depricated not used as it is an unsecured transport method)
+* DNS - 53
 * HTTP - 80
 * HTTPS - 443 (HTTP with TLS/SSL)
 * SMTP over SSL - 990
@@ -484,8 +484,25 @@ sudo systemctl start fail2ban
 
 ### Ubuntu UFW
 
-Ubuntu uses UFW (Uncomplicated Firewall).  https://help.ubuntu.com/community/UFW.  
+Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW "Ubuntu UFW"). It is installed but not enabled by default.  You can enable it:  ```sudo ufw enable``` and print out the status via ```sudo ufw status```.  Syntax examples include:
 
+* Allow or deny by port number
+ + ```sudo ufw allow 53```
+ + ```sudo ufw deny 53```
+* Allow or deny by service
+ + sudo ufw allow ssh
+ + sudo ufw deny ssh 
+* Allow from IP
+ + ```sudo ufw allow from 207.46.232.182```
+* Allow from subnet/CIDR block
+ + ```sudo ufw allow from 192.168.1.0/24```
+ + ```sudo ufw allow from 192.168.0.4 to any port 22```
+ + ```sudo ufw allow from 192.168.0.4 to any port 22 proto tcp```
+* Enable/Disable ufw logging
+ + ```sudo ufw logging on```
+ + ```sudo ufw logging off```
+
+```Firewalld``` can be installed on ubuntu via apt-get and then enabled and started as a service in place of UFW if you want to maintain that service and not use UFW.
 
 ## Chapter Conclusions and Review
 
