@@ -403,24 +403,22 @@ sudo dnf install mariadb-client
 # make sure to start and enable the maria or mysql service on Fedora/Centos
 ```
 
-MySQL was started by Monte Widens.  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database.
-
-Now that our databases are installed, lets quickly import a bit of data and run the commands listed above to see SQL in action. Don't worry, this might be review but it s good to have command line experience.
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database.
 
 ### PostgreSQL
 
-As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The succesor to that project was PostgreSQL (see the pun?).
+As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The succesor to that project was PostgreSQL (see the pun?).  PostgreSQL has the added advantage of being opensouce, backed by a commercial company, as well as not being MySQL which is owned by Oracle.  Installation is provided in custom repos that need to added to a system before using a package manager.
 
-> ```sudo apt-get install postgresql```
-```sudo dnf install postgresql```
+* [PostgreSQL Downloads for Ubuntu and Fedora/Centos](https://www.postgresql.org/download/ "PostgreSQL downloads")
 
 ### SQLite
 
-Intersting small database.  This project is intentially designed with low enterprise features.  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS.   
+Is an intersting small database.  It aschews some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^6]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQLlite3 via the normal package mechanism and it is usually close to being up to date.
 
-SQLite is not opensource but instead placed in the public domain for anyone to use.
 
 ```sudo apt-get install sqlite3```
+
+```sudo yum install sqlite```
 
 ```sudo dnf install sqlite```
 
@@ -608,3 +606,5 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 [^4]: [https://superuser.com/questions/645487/static-ip-address-with-networkmanager](https://superuser.com/questions/645487/static-ip-address-with-networkmanager "Static NetMan IP")
 
 [^5]: [https://netplan.io/examples](https://netplan.io/examples "netplan examples")
+
+[^6]: [https://sqlite.org/about.html](https://sqlite.org/about.html "Sqlite3")
