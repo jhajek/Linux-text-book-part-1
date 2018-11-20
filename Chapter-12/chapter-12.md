@@ -329,10 +329,10 @@ Webservers have various configurable components.  The basic configuration out of
 
 Apache has extendable modules so its base features can be enhanced without needing to recompile the entire program.  Using ```apt-get``` you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilities for instance.  
 
-> Let's try installing apache2 and php at the same time and look at the dependecy list
+> Let's try installing apache2 and php at the same time and look at the dependecy list:
 
-```sudo apt-get install apache2 php```
-```sudo systemctl reload apache2``` -- (as opposed to restart)  jsut re-reads the configurable
+* ```sudo apt-get install apache2 php```
+* ```sudo systemctl reload apache2``` -- (as opposed to restart)  just re-reads the configurable
 
 See the sample code in the back of the book for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
 
@@ -415,11 +415,9 @@ As always in technology, product names often have a joke or a story behind them.
 
 Is an intersting small database.  It aschews some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^6]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQLlite3 via the normal package mechanism and it is usually close to being up to date.
 
-```sudo apt-get install sqlite3```
-
-```sudo yum install sqlite```
-
-```sudo dnf install sqlite```
+* ```sudo apt-get install sqlite3```
+* ```sudo yum install sqlite```
+* ```sudo dnf install sqlite```
 
 ### MongoDB
 
@@ -458,9 +456,9 @@ Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would
 
 * trusted or untrusted
 * drop
- + incoming packets are dropped, outbound packets are allowed
+  + incoming packets are dropped, outbound packets are allowed
 * block
- + incoming packets are rejected with an icmp-host-prohibited response
+  + incoming packets are rejected with an icmp-host-prohibited response
 * public
 * work
 * home
@@ -487,20 +485,20 @@ sudo systemctl start fail2ban
 Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW "Ubuntu UFW"). It is installed but not enabled by default.  You can enable it:  ```sudo ufw enable``` and print out the status via ```sudo ufw status```.  Syntax examples include:
 
 * Allow or deny by port number
- + ```sudo ufw allow 53```
- + ```sudo ufw deny 53```
+  + ```sudo ufw allow 53```
+  + ```sudo ufw deny 53```
 * Allow or deny by service
- + sudo ufw allow ssh
- + sudo ufw deny ssh 
+  + sudo ufw allow ssh
+  + sudo ufw deny ssh 
 * Allow from IP
  + ```sudo ufw allow from 207.46.232.182```
 * Allow from subnet/CIDR block
- + ```sudo ufw allow from 192.168.1.0/24```
- + ```sudo ufw allow from 192.168.0.4 to any port 22```
- + ```sudo ufw allow from 192.168.0.4 to any port 22 proto tcp```
+  + ```sudo ufw allow from 192.168.1.0/24```
+  + ```sudo ufw allow from 192.168.0.4 to any port 22```
+  + ```sudo ufw allow from 192.168.0.4 to any port 22 proto tcp```
 * Enable/Disable ufw logging
- + ```sudo ufw logging on```
- + ```sudo ufw logging off```
+  + ```sudo ufw logging on```
+  + ```sudo ufw logging off```
 
 ```Firewalld``` can be installed on ubuntu via apt-get and then enabled and started as a service in place of UFW if you want to maintain that service and not use UFW.
 
