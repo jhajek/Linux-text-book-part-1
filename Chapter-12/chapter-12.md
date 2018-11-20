@@ -419,7 +419,7 @@ MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Mich
    PRIMARY KEY ( tutorial_id )
   );```
 * Quit
-  + quit;
+  + ```quit;```
 
 ### PostgreSQL
 
@@ -429,7 +429,7 @@ As always in technology, product names often have a joke or a story behind them.
 
 ### SQLite
 
-Is an intersting small database.  It aschews some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^6]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQLlite3 via the normal package mechanism and it is usually close to being up to date.
+Is an intersting small database.  It aschews some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^6]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQlite3 via the normal package mechanism and it is usually close to being up to date.  Note that SQlite3 doesn't listen on external ports by default it is included as an external library in your application.
 
 * ```sudo apt-get install sqlite3```
 * ```sudo yum install sqlite```
@@ -459,6 +459,8 @@ Used to block exteral communication on you system ports.   Not unlike plugs in t
 * HTTP - 80
 * HTTPS - 443 (HTTP with TLS/SSL)
 * SMTP over SSL - 990
+* MongoDB - 27017
+* PostgreSQL - 5432
 * MySQL - 3306
 * Oracle DB - 1521
 
@@ -468,7 +470,7 @@ You can use rules to deny or allows traffic based on source IP, source Port, Des
 
 Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, Centos 7 does not.  
 
-Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones.  The default system rules are stored in /var/lib/...something.  When declaring a new rule you need to declare if the rule is permananet or will be reset when the firewalld service is reloaded.  The firewalld system contains zones:
+Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When declaring a new rule you need to declare if the rule is permananet or will be reset when the firewalld service is reloaded.  The firewalld system contains zones:
 
 * trusted or untrusted
 * drop
