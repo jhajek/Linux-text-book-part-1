@@ -490,7 +490,7 @@ Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would
 
 ```sudo firewall-cmd --zone=public --add-port=22/tcp --permanent```
 
-Firewalld includes a standard interface so third party tools and build integration into your firewall.  Fail2ban is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP{ addresses that are trying to brute force hack your system. You can do permananet banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs.
+Firewalld includes a standard interface so third party tools and build integration into your firewall.  Fail2ban is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP{ addresses that are trying to brute force hack your system. You can do permananet banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
 
 ```bash
 
