@@ -1,4 +1,4 @@
-# Appendix A
+# Appendix A - Standards and Licenses
 ![*"ISO 8601 was published on 06/05/88 and most recently amended on 12/01/04."*](images/Chapter-Header/Appendix-A/iso_8601-2.png "Standard Formats")
 
 ## POSIX Standard 
@@ -83,3 +83,13 @@ Most Linux distros are very POSIX compliant, but not certified because they don'
     The question was asked by StackOverflow user [Claws](http://stackoverflow.com/users/193653/claws)
     and is licensed under CC BY-SA 3.0 ( http://creativecommons.org/licenses/by-sa/3.0/ ).
     Question URL: http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix
+
+## Apache 2.0 license
+
+
+
+## GNU GPL v3
+
+
+## MIT License
+

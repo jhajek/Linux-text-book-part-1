@@ -1,4 +1,7 @@
-# Appendix C - Markdown Code for Podcasts and Labs
+# Appendix C - Markdown Code for Podcasts, Labs, and Review Questions
+![*Security is a strange term...*](images/Chapter-Header/Appendix-C/authorization-2.png "No Drivers Here")
+
+This appendix includes all the review questions, labs, and podcast questions for each chapter in a single convenient place.
 
 ## Chapter 02
 
