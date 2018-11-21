@@ -47,13 +47,15 @@ The database server will have:
 The Webserver will have:
 
 * Install Apache2 or Nginx, php, and mysql-client library (just the client)
-  + We will be generating a self-signed cert (follow the Digital Ocean tutorial)
+* We will be generating a self-signed cert (follow the Digital Ocean tutorial)
   + You can generate the cert manually or there is a process to automate the creation of a self-signed cert
   + https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04
-  + Modify the Webserver configuration to serve only on 443
-  + Enable and start the firwall service allowing connections on port 22 and port 80 and 443
+* Modify the Webserver configuration to serve only on 443
+* Enable and start the firwall service allowing connections on port 22 and port 80 and 443
   + Enable and start the Webserver Service
-  + Format and create a mount point called ```/mnt/disk1``` and ```/mnt/disk2``` create and LVM volume PGs, VG, and a single LG with XFS on this volume. (You will need to install the proper package to use XFS)
+* Format and create a mount point called ```/mnt/disk1``` and ```/mnt/disk2``` 
+  + create and LVM volume PGs, VG, and a single LG with XFS on this volume. 
+  + You will need to install the proper package to use XFS
 
 #### Extra Options
 
@@ -61,8 +63,10 @@ The Webserver will have:
 * Adding HTTP/2 to the webbrowser support
 * Using a NoSQl Database instead of MySQL/MariaDB
 
-### Deliverable
+## Deliverable
 
-Create a folder in your private Github repo named **final-project** submit all Packer build scripts, preseed/kickstarts, and shell scripts needed to run and build this application.  Include a Readme.md file with any additional instructions   
+Create a folder in your private Github repo named **final-project** submit all Packer build scripts, preseed/kickstarts, and shell scripts needed to run and build this application.  Include a Readme.md with a screenshot that matches this screenshot and list any additional instructions or notes.
+
+![*Final Project Output*](images/Appendix-D/output/final-result.png "Final Project Result")
 
 
