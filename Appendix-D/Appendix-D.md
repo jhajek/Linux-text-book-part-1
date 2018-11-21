@@ -67,6 +67,6 @@ The Webserver will have:
 
 Create a folder in your private Github repo named **final-project** submit all Packer build scripts, preseed/kickstarts, and shell scripts needed to run and build this application.  Include a Readme.md with a screenshot that matches this screenshot and list any additional instructions or notes.
 
-![*Final Project Output*](images/Appendix-D/output/final-result.png "Final Project Result")
+![*Final Project Output*](images/Appendix-D/output/final-results.png "Final Project Result")
 
 
