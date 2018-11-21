@@ -537,73 +537,57 @@ In this chapter we learned about the basic components of networking. We learned 
   b.  ipconfig
   c.  ip address show
   d.  show address
-
 1. What tool would you use in order to display your IP address if you were using a version of Ubuntu Linux before 16.04?
   a.  ifconfig
   b.  ipconfig
   c.  ip address show
   d.  ip -4 a
-
 1. What tool would you use to establish if a server is reponding to requests
   a.  pong
   b.  ping
   c.  google
   d.  traceroute
-
 1. What is the purpose of a NETMASK?
-
 1. What is the purpose of DNS?
-
 1. What is a valid class C address?
   a.  10.0.0.0
   b.  172.24.0.0
   c.  192.168.1.0
   d.  221.0.0.0
-
 1. If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
   a. 23
   b. 254
   c. 512
   d. 256
-
 1. If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
   a.  10
   b.  0
   c.  24
   d.  256
-
 1. How does CIDR block addressing differ from Class based networking (A-D)?
-
 1. What tool is used to release a dhcp address from the command line?
   a.  rhclient
   b.  ipconfig /release
   c.  dhclient -r
   d.  xclient -r
-
 1. What tool is used to monitor and examine all current local ports and TCP/IP connections?
   a.  stat
   b.  net
   c.  wireshark
   d.  netstat
-
 1. Where are your network card settings located on Ubuntu 16.04 by default?
-
 1. Where are you network card settings located by default in CentOS 7.1?
-
 1. Where are your network settings located by default in FreeBSD 11.0?
-
 1. What are the three major opensource webservers?
   a. Apache, Nginx, and openhttpd
   b. httpd, Nginx, openhttpd
   c. Apache, IIS, Nginx
   d. Apache, Lighttd, Nginx
-
 1. What are two related and major opensource databases?
   a. SQL and MySQL
   b. MariaDB and MySQL
   c. MySQL and Oracle DB
   d. Nginx and MySQL
-
 1. Name one major No-SQL database mentioned in this chapter?
 
 ### Podcast Questions
