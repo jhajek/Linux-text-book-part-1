@@ -26,14 +26,22 @@ It is recommended to complete these steps manually first then taking note, write
 
 You will use Packer.io to build two systems that have all the necessary code, configurations, and setup needed to deploy the entire webserver and database.
 
-The database will have:
+The database server will have:
 
+* Install needed packages
+  + zfsutils and mysql-server
+* Preseed the root database password in the debconf set-selection section
+* Preseed the contents of the root password in a ~/.my.cnf file to use later in running database CREATE and INSERT scripts
+* Enable firewall
+  + Open Firewall port connection to 3306 for only the webserver's IP
 * A second and third hard drive partition attached 
 * Create a zpool called **datapool** accross /dev/sdb and /dev/sdc
   + Mount this zpool to ```/mnt/datadisk``` and change permissions and ownership so that **vagrant** owns it
 * Modify the default location of the MySQL database to be on the ```/mnt/datadisk``` location
 * Modify the default setting to allow MySQL to listen on external connections
-* Create a zpool snapshot
+* Create a zpool snapshot 
+* enable mysql to start at boot and start mysql service
+* Clone sampel code at https://github.com/jhajek/db-samples.git
 
 
 
