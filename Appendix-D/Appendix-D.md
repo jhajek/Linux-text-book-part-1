@@ -28,7 +28,7 @@ The database server will have:
 * Install needed packages
   + zfsutils and mysql-server
 * Preseed the root database password in the debconf set-selection section
-* Preseed the contents of the root password in a ~/.my.cnf file to use later in running database CREATE and INSERT scripts
+* Preseed the contents of the root password in a ```~/.my.cnf``` file to use later in running database CREATE and INSERT scripts
 * A second and third hard drive partition attached will be attached at creation time 
 * Create a zpool called **datapool** accross /dev/sdb and /dev/sdc
   + Mount this zpool to ```/mnt/datadisk``` and change permissions and ownership so that **vagrant** owns it
