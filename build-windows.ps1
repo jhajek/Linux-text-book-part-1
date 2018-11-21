@@ -68,7 +68,7 @@ If (Test-Path ./output/mobi/Understanding-Free-and-Opensource-Operating-Systems-
 }
 #>
 
-$STAMP=Get-Date(Get-Date).ToUniversalTime()-uformat "%m%d%y-%H%M%S"
+$STAMP=Get-Date(Get-Date).ToUniversalTime()-uformat "%m%d%Y-%H%M%S"
 #$STAMP=[Math]::Floor([decimal](Get-Date(Get-Date).ToUniversalTime()-uformat "%m%d%y-%H%M%S"))
 
 #######################################################################################################################
