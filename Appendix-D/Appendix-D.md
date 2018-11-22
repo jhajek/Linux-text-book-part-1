@@ -5,9 +5,11 @@ This Appendix lists the final project that applies all of the learned concepts a
 
 ## Objectives
 
-* Item 1
-* Item 2
-* Item 3
+* Understand and demonstrate how to use the concepts of automation by building and deploying servers using Packer and Vagrant
+* Understand how to install software via shell script
+* Understand how to preseed values for using MySQL database
+* Understand and display knowledge of configuring the firewall service
+* Understand how to create and disk partitions, create filesystems, and mount those partitions
 
 ## Outcomes
 
@@ -31,7 +33,8 @@ The database server will have:
 * Preseed the contents of the root password in a ```~/.my.cnf``` file to use later in running database CREATE and INSERT scripts
 * A second and third hard drive partition attached will be attached at creation time 
 * Create a zpool called **datapool** accross /dev/sdb and /dev/sdc
-  + Mount this zpool to ```/mnt/datadisk``` and change permissions and ownership so that **vagrant** owns it
+  + Mount this zpool to ```/mnt/datadisk``` and change permissions and ownership so that user **vagrant** owns it
+  + Add an entry for this disk to ```/etc/fstab``` to be mounted at boot time
 * Modify the default location of the MySQL database to be on the ```/mnt/datadisk``` location
 * Modify the default setting to allow MySQL to listen on external connections
 * Create a zpool snapshot 
@@ -55,6 +58,7 @@ The Webserver will have:
   + Enable and start the Webserver Service
 * Format and create a mount point called ```/mnt/disk1``` and ```/mnt/disk2``` 
   + create and LVM volume PGs, VG, and a single LG with XFS on this volume. 
+  + Using the sample in chapter 11, create a systemd .mount file to mount this partition at boot time
   + You will need to install the proper package to use XFS
 
 #### Extra Options
@@ -62,6 +66,26 @@ The Webserver will have:
 * Consul and service discovery
 * Adding HTTP/2 to the webbrowser support
 * Using a NoSQl Database instead of MySQL/MariaDB
+
+#### Notes
+
+Here is a sample of using a multiline ```cat``` to create a text file
+
+```bash
+
+cat << EOT >> /home/vagrant/.bashrc 
+
+########## Inserted by Jeremy
+export JAVA_HOME=/usr
+export HADOOP_HOME=/home/vagrant/hadoop-2.6.5
+export PATH=/sbin:/usr/sbin:/bin:/usr/bin:/home/vagrant/hadoop-2.6.5/bin:/home/vagrant/hadoop-2.6.5/sbin:/usr/local/bin
+export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-oracle/lib/tools.jar
+EOT
+
+```
+See the webserver and database tutorial for the manual install steps of this project.  It is a PDF located in the **files** directory included in the source code of the book. 
+
+Sample code is located [https://github.com/jhajek/packer-vagrant-build-scripts](https://github.com/jhajek/packer-vagrant-build-scripts "sample code").  In the directory ```packer``` > ```vanilla-install``` > ```centos-7-vanilla-multi-disks.json``` and ```ubuntu18041-vanilla-multi-drives.json``` have the code needed for attaching additional disks at boot time via packer.  The pressed and ks directories are needed to make the ```packer build``` commands to work.
 
 ## Deliverable
 
