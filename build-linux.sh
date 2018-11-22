@@ -6,7 +6,7 @@ set -e
 # Dependency needed http://tex.stackexchange.com/questions/43108/texlive-does-not-find-sty-file
 # Hello from ITMO 544-444
 
-STAMP=`date +%m%d%y-%H%M%S`
+STAMP=`date +%m%d%Y-%H%M%S`
 
 
 #delete previous build artifacts but not the README.md

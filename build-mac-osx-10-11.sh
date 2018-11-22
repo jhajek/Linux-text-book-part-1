@@ -11,7 +11,7 @@ set -e
 # sudo tlmgr install titlesec
 # 
 
-STAMP=`date +%m%d%y-%H%M%S`
+STAMP=`date +%m%d%Y-%H%M%S`
 
 
 #delete previous build artifacts but not the README.md
