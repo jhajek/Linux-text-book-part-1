@@ -83,7 +83,7 @@ export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-oracle/lib/tools.jar
 EOT
 
 ```
-See the webserver and database tutorial for the manual install steps of this project.  It is a PDF located in the **files** directory included in the source code of the book. 
+See the webserver and database tutorial for the manual install steps of this project.  It is a PDF located at: ```files/Appendix-D/webserver-database-tutorial.pdf``` directory included in the source code of the book. 
 
 Sample code is located [https://github.com/jhajek/packer-vagrant-build-scripts](https://github.com/jhajek/packer-vagrant-build-scripts "sample code").  In the directory ```packer``` > ```vanilla-install``` > ```centos-7-vanilla-multi-disks.json``` and ```ubuntu18041-vanilla-multi-drives.json``` have the code needed for attaching additional disks at boot time via packer.  The pressed and ks directories are needed to make the ```packer build``` commands to work.
 
