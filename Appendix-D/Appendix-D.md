@@ -77,7 +77,6 @@ cat << EOT >> /home/vagrant/.bashrc
 ########## Inserted by Jeremy
 export JAVA_HOME=/usr
 export HADOOP_HOME=/home/vagrant/hadoop-2.6.5
-export PATH=/sbin:/usr/sbin:/bin:/usr/bin:/home/vagrant/hadoop-2.6.5/bin:/home/vagrant/hadoop-2.6.5/sbin:/usr/local/bin
 export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-oracle/lib/tools.jar
 EOT
 
