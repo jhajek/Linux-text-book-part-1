@@ -84,12 +84,15 @@ EOT
 ```
 See the webserver and database tutorial for the manual install steps of this project.  It is a PDF located at: ```files/Appendix-D/webserver-database-tutorial.pdf``` directory included in the source code of the book. 
 
-Sample code is located [https://github.com/jhajek/packer-vagrant-build-scripts](https://github.com/jhajek/packer-vagrant-build-scripts "sample code").  In the directory ```packer``` > ```vanilla-install``` > ```centos-7-vanilla-multi-disks.json``` and ```ubuntu18041-vanilla-multi-drives.json``` have the code needed for attaching additional disks at boot time via packer.  The pressed and ks directories are needed to make the ```packer build``` commands to work.
+Sample code is located [https://github.com/jhajek/packer-vagrant-build-scripts](https://github.com/jhajek/packer-vagrant-build-scripts "sample code").  In the directory ```packer``` > ```vanilla-install```.  There are two packer build templates:
+
+* ```centos-7-vanilla-multi-disks.json```
+* ```ubuntu18041-vanilla-multi-drives.json```
+
+That have the code needed for attaching additional disks at boot time via packer.  The pressed and ks directories are needed to make the ```packer build``` commands to work.  In additional the ```post-processor``` shell scripts are in the directory ```scripts``` you can use the ```post_install_vagrant.sh``` and the script ```post_install_vagrat-centos-7.sh``` for post-install customization via shell script.
 
 ## Deliverable
 
 Create a folder in your private Github repo named **final-project** submit all Packer build scripts, preseed/kickstarts, and shell scripts needed to run and build this application.  Include a Readme.md with a screenshot that matches this screenshot and list any additional instructions or notes.
 
 ![*Final Project Output*](images/Appendix-D/output/final-results.png "Final Project Result")
-
-
