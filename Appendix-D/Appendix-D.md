@@ -1,4 +1,5 @@
 # Appendix D - Final Project
+
 ![*Projects sometimes get out of hand...*](images/Chapter-Header/Appendix-D/cautionary.png "Project gets out of hand")
 
 This Appendix lists the final project that applies all of the learned concepts and puts it together into a single deliverable.
@@ -13,15 +14,13 @@ This Appendix lists the final project that applies all of the learned concepts a
 
 ## Outcomes
 
-At the conclusion of this project your will...
+At the conclusion of this project your will have succesfully demonstrated the basic installation and system administration concepts talked about in this book.  Congratualions.
 
 ### Description
 
 You are to create a client server application using a webserver and a database.   The webserver will retrieve data from the database.  The database will be pre-configured to allow only connections from the webserver.
 
-It is recommended to complete these steps manually first then taking note, write the events into a shell script for the automation process.
-
-You will use Packer.io to build two systems that have all the necessary code, configurations, and setup needed to deploy the entire webserver and database.
+It is recommended to complete these steps manually first then taking note, write the events into a shell script for the automation process. You will use Packer.io to build two systems that have all the necessary code, configurations, and setup needed to deploy the entire webserver and database.
 
 ### Part 1 Using Ubuntu 18.04
 
@@ -31,7 +30,7 @@ The database server will have:
   + zfsutils and mysql-server
 * Preseed the root database password in the debconf set-selection section
 * Preseed the contents of the root password in a ```~/.my.cnf``` file to use later in running database CREATE and INSERT scripts
-* A second and third hard drive partition attached will be attached at creation time 
+* A second and third hard drive partition attached will be attached at creation time
 * Create a zpool called **datapool** accross /dev/sdb and /dev/sdc
   + Mount this zpool to ```/mnt/datadisk``` and change permissions and ownership so that user **vagrant** owns it
   + Add an entry for this disk to ```/etc/fstab``` to be mounted at boot time
@@ -52,16 +51,16 @@ The Webserver will have:
 * Install Apache2 or Nginx, php, and mysql-client library (just the client)
 * We will be generating a self-signed cert (follow the Digital Ocean tutorial)
   + You can generate the cert manually or there is a process to automate the creation of a self-signed cert
-  + https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04
+  + [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04 "Self Signed Tutorial")
 * Modify the Webserver configuration to serve only on 443
 * Enable and start the firwall service allowing connections on port 22 and port 80 and 443
   + Enable and start the Webserver Service
-* Format and create a mount point called ```/mnt/disk1``` and ```/mnt/disk2``` 
-  + create and LVM volume PGs, VG, and a single LG with XFS on this volume. 
+* Format and create a mount point called ```/mnt/disk1``` and ```/mnt/disk2```
+  + create and LVM volume PGs, VG, and a single LG with XFS on this volume.
   + Using the sample in chapter 11, create a systemd .mount file to mount this partition at boot time
   + You will need to install the proper package to use XFS
 
-#### Extra Options
+#### Optional Extra Project Components
 
 * Consul and service discovery
 * Adding HTTP/2 to the webbrowser support
