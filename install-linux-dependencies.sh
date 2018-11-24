@@ -13,5 +13,5 @@ sudo apt-add-repository -y "deb http://packages.sil.org/ubuntu/ $(lsb_release -s
 sudo apt-get update
 sudo apt-get -y install fonts-sil-charis
 
-udo apt-get -y install fonts-inconsolata
+sudo apt-get -y install fonts-inconsolata
 sudo fc-cache -fv
