@@ -8,7 +8,7 @@ sudo apt-get -y install texlive texlive-latex-recommended texlive-latex-extra te
 
 
 wget http://packages.sil.org/sil.gpg
-sudo apt-key -y add sil.gpg
+sudo apt-key add sil.gpg
 sudo apt-add-repository -y "deb http://packages.sil.org/ubuntu/ $(lsb_release -sc) main"
 sudo apt-get update
 sudo apt-get -y install fonts-sil-charis
