@@ -21,8 +21,9 @@ I would recommend installing Pandoc directly from the latest Debian package.  Lo
 * texlive-fonts-recommended
 * texlive-fonts-extra
 * texlive-xetex
+* texlive-math-extra
 * Install these via this command:
-    + ```sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex```
+    + ```sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-math-extra```
 
 Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16.04 can add the repo via these steps:
 * ```wget http://packages.sil.org/sil.gpg```
