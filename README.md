@@ -89,12 +89,11 @@ If you receive this error:
 
 The way to remidiate it to launch the MikTex Package Manger, search for fontspec, uninstall the ```fontspec``` package, then reinstall it.
 
-
-__Kindle .mobi__
+### Kindle .mobi
 
 To generate .mobi files for use on Kindle devices or apps, you need to install Kindlegen from [here](https://www.amazon.com/gp/feature.html?docId=1000234621) Works on Windows, MacOS, and Linux.
 
-__Reading PDF and ePUB__
+#### Reading PDF and ePUB
 
 You can use any PDF reader.  Currently Microsft Edge browser has native ePub support in [Edge Browser](https://blogs.windows.com/windowsexperience/2017/04/20/week-microsoft-edge-browser-built-books-reading/#fhI8gshdmfAGSrIu.97 "ePub").
 
