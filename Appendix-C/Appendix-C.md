@@ -1654,7 +1654,7 @@ b. Execute the ```ls -l``` command to display the file and its size
 c. Take a ZFS snapshot of the datapool named @today
 d. Using the ZFS send and recv commands copy the @today snapshot to the zpool named backup
 e. Execute ```ls -l``` command on the zpool backup
-f. Using the command of X append an additional 25 mb to ```/datapool/datadump.txt```
+f. Using the commandline, append an additional 25 mb to ```/datapool/datadump.txt```
 g. Execute an ```ls -l``` on zpool datapool and backup to compare the two files
 10. On the same Ubuntu 18.04 system create a systemd mount.unit file for both ZFS partitions created in the previous exercise.
 a. List both contents here
