@@ -579,7 +579,7 @@ __Instructions:__ Make a folder in your Github repo named Week-13, create a file
     a) set-hostname to itmo-556-xyz (xyz is your initials)
     b) set-location to Chicago
     c) set-chassis to VM
-1) Install a copy of Devuan Linux [devuan.org](https://devuan.org "Devuan Linux").  Take a screenshot of the ```ps -ef``` command focusing on PID 1.
+1) Install a copy of Devuan Linux from [devuan.org](https://devuan.org "Devuan Linux").  Take a screenshot of the ```ps -ef``` command focusing on PID 1.
     a) Install the openRC init system via ```sudo apt-get install openrc```
     b) The install process asks you to run a command after succesful install: ```for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done```  explain what this command is doing.
     c) Reboot the system and take a screenshot of the output of the ```ps -ef``` command focusing on PID 1.
