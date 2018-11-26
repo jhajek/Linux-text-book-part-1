@@ -474,7 +474,7 @@ b)  systemd-init
 c)  service
 d) systemctl
 
-14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora 22 using systemd?
+14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora using systemd?
 a)  sudo service apache2 stop
 b)  sudo systemctl disable apache2.service
 c)  sudo systemctl stop apache2.service
