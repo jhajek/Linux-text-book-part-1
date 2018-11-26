@@ -1430,7 +1430,7 @@ __Instructions:__ Make a folder in your Github repo named Week-13, create a file
 1) Using systemctl and the ```--show option```, display the "After" and "Wants" of the sshd.service  
 1) nice a command - create/compile a C infinite loop program and nice it to lowest priority and then highest priority.  Open a second terminal tab/window and use htop (install it if needed) to display that process' system usage
 1) Launch multiple tabs in Firefox using this command:  
-    a)```firefox -new-tab -url https://www.krebsonsecurity.com -new-tab -url http://twit.tv/floss/```. Find the process IDs via ```ps -ef``` and kill those tabs/processes with a ```kill -2``` command
+    a)```firefox -new-tab -url krebsonsecurity.com -new-tab -url twit.tv/floss/```. Find the process IDs via ```ps -ef``` and kill those tabs/processes with a ```kill -2``` command
     b) Repeat the above launch command and this time use systemd and the proper cgroups to kill the FireFox processes
 1) Using ```lsmod``` and ```grep``` list all of the kernel modules loaded on your system that contain VirtualBox (search for ```vb*```).
 1) Run the systemd-systemctl command to list the VirtualBox kernel modules that are loaded
@@ -1632,7 +1632,7 @@ c. ```ls -l``` the contents of /mnt/disk3
 5. Install a copy of FreeBSD 11
 a. Attach two additional virtual disks
 b. Create a zpool stripe containing both disks
-c. Execute a zpool list command to display the contents of the zpool
+c. Execute a ```zpool status``` command to display the contents of the zpool
 6. Using Ubuntu 18.04 set networking to bridged mode (take note of your public IP by typing: ```ip a sh```
 a. Attach a virtual disk
 b. Using this tutorial: [https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/](https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/ "Configure iSCSI target") configure the system using as an ISCSI target  
@@ -1644,11 +1644,11 @@ c. Create two files on the connected iSCSI target - file1.txt and file2.txt and 
 8. Create 3 Virtual disks and install the ZFS package
 a. Attach it to an existing Ubuntu 18.04 system
 b. Create a zpool stripe with two disks name it datapool
-c. Execute a zpool list command
+c. Execute a ```zpool status``` and a ```zpool list``` command
 d. Expand the capacity of the zpool by adding the third disk in
-e. Execute the ```zpool list``` command
+e. Execute the ```zpool status``` command
 f. Now take the first disk out of the zpool
-g. Execute the ```zpool list``` command
+g. Execute the ```zpool status``` command
 9. From the previous exercise using your ZFS pool named datapool create a 25 megabyte file named datadump.txt
 a. Attach a third virtual disk to the system and create a zpool named backup
 b. Execute the ```ls -l``` command to display the file and its size
@@ -1665,8 +1665,8 @@ a. On the first system (the system without zpool datapool) create a datapool nam
 b. Take a snapshot of the zpool datapool and name it @now
 c. Execute the remote send and recv command over ssh to migrate the snapshot to the pool backuppool
 d. You may need to exchange SSH keys via ```ssh-keygen``` and ```ssh-copy-id``` first
-12. On the zpool named datapool on Ubuntu 18.04
-a. Execute a zpool list command
+12. On the zpool named datapool on Ubuntu
+a. Execute a ```zpool status``` command
 b. Enable LZ4 compression on the zpool datapool
 c. Execute a zpool list command to display that compression is enabled
 13. On the zpool named datapool execute a ```zpool status``` command
