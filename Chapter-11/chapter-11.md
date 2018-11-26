@@ -733,7 +733,6 @@ d. Western Digital Red 10 TB
 e. Samsung 970 EVO M.2 500 GB
 f. Corsair Force MP300 M.2 960 GB
 g. Intel Optane M.2 32 GB - Need to explain what 3D XPoint technology is
-		
 
 #### Footnotes
 
