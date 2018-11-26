@@ -42,7 +42,7 @@ Let's look at the contents in more detail.  First to edit the ```/etc/sudoers```
 The first line is where you set the system path a user receives when they become a sudo user.  
  ```Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"```  
 
-> __Example Usage:__  Using either Fedora 22 or Ubuntu 15.04: as your user account from the commandline type ```echo $PATH``` now type ```sudo sh``` and then ```echo $PATH``` notice what happens to the prompt?  Are the paths different?  Why?  Type ```exit``` to exit back to the normal user.
+> __Example Usage:__  Using either Fedora or Ubuntu as your user account from the commandline type ```echo $PATH``` now type ```sudo sh``` and then ```echo $PATH``` notice what happens to the prompt?  Are the paths different?  Why?  Type ```exit``` to exit back to the normal user.
 
 The next line of interest is:
 ```
@@ -282,7 +282,7 @@ SystemMaxFiles and RuntimeMaxFiles
 
 ### top
 
-![*Fedora 22 top screenshot*](images/Chapter-09/monitoring/top/top.png "top")
+![*Fedora top screenshot*](images/Chapter-09/monitoring/top/top.png "top")
 \newpage
 
    The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.) The image below displays the system average loads over longer rolling periods.  1 minute, 5 minutes, and 15 minute rolling average.
