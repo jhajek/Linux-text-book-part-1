@@ -1029,7 +1029,7 @@ In the Github repo provided to you please create a folder in your ITMO-556 direc
 ## Chapter 09
 
 ### Review Questions
-s
+
 1) What user account has superuser privilege in Linux?
 a. ```sudo```
 b. ```su```
@@ -1243,9 +1243,9 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
 1) What would be the command to connect via ssh using the identity logserver and connect to the non-standard port of 5555 instead of the default 22?
 
 1) The next questions require some setup:
-   i. You need two virtual mahcines for this part: One Ubuntu 16.04 and one Fedora 28 (or two comparablely different OSes, FreeBSD, Trisquel, etc etc).  
+   i. You need two virtual mahcines for this part: One Ubuntu based and one Fedora based (or two comparablely different OSes, FreeBSD, Trisquel, etc etc).  
    i. You will need to modify the Network settings to **Bridged** in Virtualbox to get a public IP (if you are at home your router should suffice, if you are on campus you can come to the lab).  
-   i. Install **openssh-server** on Fedora28.
+   i. Install **openssh-server** on Fedora.
    i. Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system
    i. Run the ssh audit on the client and server, list the weak ciphers installed by default
 
