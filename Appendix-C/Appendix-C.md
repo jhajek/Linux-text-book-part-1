@@ -1429,8 +1429,9 @@ __Instructions:__ Make a folder in your Github repo named Week-13, create a file
 1) Change the ```systemd``` target to the systemd commandline only level, display the ```systemd``` default target level - then change back to the GUI target (or runlevel5).
 1) Using systemctl and the ```--show option```, display the "After" and "Wants" of the sshd.service  
 1) nice a command - create/compile a C infinite loop program and nice it to lowest priority and then highest priority.  Open a second terminal tab/window and use htop (install it if needed) to display that process' system usage
-1) Launch multiple tabs in Firefox using these:  ```firefox -new-tab -url https://www.krebsonsecurity.com -new-tab -url http://twit.tv/floss/```. Find the process IDs via ```ps -ef``` and kill those tabs/processes with a ```kill -2``` command
-  a) Repeat the above commands and this time systemd and the proper cgroups to kill the FireFox processes
+1) Launch multiple tabs in Firefox using this command:  
+    a)```firefox -new-tab -url https://www.krebsonsecurity.com -new-tab -url http://twit.tv/floss/```. Find the process IDs via ```ps -ef``` and kill those tabs/processes with a ```kill -2``` command
+    b) Repeat the above launch command and this time use systemd and the proper cgroups to kill the FireFox processes
 1) Using ```lsmod``` and ```grep``` list all of the kernel modules loaded on your system that contain VirtualBox (search for ```vb*```).
 1) Run the systemd-systemctl command to list the VirtualBox kernel modules that are loaded
 1) Run the command that will list all the PCI devices attached to your system
