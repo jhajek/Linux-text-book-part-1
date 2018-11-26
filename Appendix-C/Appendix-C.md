@@ -1609,7 +1609,7 @@ Outcomes
 
 At the conclusion of this lab you will have successfully created a new virtual disk in Virtual Box, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the /etc/fstab.
 
-1. Create 1 virtual drive 
+1. Create 1 virtual drive
 a. Use fdisk to create a primary partition
 b. Format it with ext4
 c. Mount it to /mnt/disk1
@@ -1620,24 +1620,24 @@ b. Create 1 logical volume named lv-group
 c. Format it with XFS
 d. Mount it to /mnt/disk2
 e. Add the lv-group to your fstab
-3. Using the same LVM as before 
+3. Using the same LVM as before
 a. add an additional virtualbox disk and the create a LVM physical disk
 b. Grow the volume group and logical volume
 c. Grow the XFS file system
-4. Using LVM of the previous exercise on the logical volume lv-group create a 25 mb text file named datadump.txt 
-a. Following this tutorial: http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html create an LVM snapshot of the logical volume named lv-group named the snapshot lv-backup
+4. Using LVM of the previous exercise on the logical volume lv-group create a 25 mb text file named datadump.txt
+a. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named lv-backup
 b. Mount the snapshot to /mnt/disk3 (create this location if not existing)
 c. Ls -l the contents of /mnt/disk3  
 5. Install a copy of FreeBSD 11
 a. Attach two additional virtual disks
 b. Create a zpool stripe containing both disks
 c. Execute a zpool list command to display the contents of the zpool
-6. Using 18.04 set networking to bridged mode (take note of your public IP by typing:  ip  a sh)
-a. Attach a virtual disk 
-b. Using this tutorial: https://langhard.net/en/ubuntu-16-04-serve-iscsi-target/   configure the system using as an ISCSI target  
+6. Using Ubuntu 18.04 set networking to bridged mode (take note of your public IP by typing: ```ip a sh```
+a. Attach a virtual disk
+b. Using this tutorial: [https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/](https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/ "Configure iSCSI target") configure the system using as an ISCSI target  
 c. Use the proper iscsi command to list the current targets
 7. Using a second Ubuntu 18.04 instance with its network mode set to bridged (note the public IP)
-a. Using this tutorial: https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html  configure and complete iSCSI initiator
+a. Using this tutorial: [https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html "Configure iSCSI initiator") configure and complete iSCSI initiator
 b. List the currently available iSCSI targets on your network
 c. Create two files on the connected iSCSI target - file1.txt and file2.txt and list those files
 8. Create 3 Virtual disks and install the ZFS package
@@ -1645,39 +1645,39 @@ a. Attach it to an existing Ubuntu 18.04 system
 b. Create a zpool stripe with two disks name it datapool
 c. Execute a zpool list command
 d. Expand the capacity of the zpool by adding the third disk in
-e. Execute the zpool status command
+e. Execute the ```zpool list``` command
 f. Now take the first disk out of the zpool
-g. Execute the zpool status command
+g. Execute the ```zpool list``` command
 9. From the previous exercise using your ZFS pool named datapool create a 25 megabyte file named datadump.txt
 a. Attach a third virtual disk to the system and create a zpool named backup
-b. Execute the ls -l command to display the file and its size
+b. Execute the ```ls -l``` command to display the file and its size
 c. Take a ZFS snapshot of the datapool named @today
 d. Using the ZFS send and recv commands copy the @today snapshot to the zpool named backup
-e. Execute ls -l command on the zpool backup
-f. Using the command of X append an additional 25 mb to /datapool/datadump.txt
-g. Execute an ls -l on zpool datapool and backup to compare the two files
+e. Execute ```ls -l``` command on the zpool backup
+f. Using the command of X append an additional 25 mb to ```/datapool/datadump.txt```
+g. Execute an ```ls -l``` on zpool datapool and backup to compare the two files
 10. On the same Ubuntu 18.04 system create a systemd mount.unit file for both ZFS partitions created in the previous exercise.
 a. List both contents here
 b. Reboot the system and make sure it works
 11. Using the 2 Ubuntu 18.04 systems you used in exercises 7 and 8 create a 25 megabyte file named databasedump.txt on the zpool datapool
-a. On the first system (the system without zpool datapool) create a datapool name backuppool (you might need to attach a virtual disk to do this) 
+a. On the first system (the system without zpool datapool) create a datapool name backuppool (you might need to attach a virtual disk to do this)
 b. Take a snapshot of the zpool datapool and name it @now
 c. Execute the remote send and recv command over ssh to migrate the snapshot to the pool backuppool
-d. You may need to exchange SSH keys via ssh-keygen and ssh-copy-id first 
+d. You may need to exchange SSH keys via ```ssh-keygen``` and ```ssh-copy-id``` first
 12. On the zpool named datapool on Ubuntu 18.04
 a. Execute a zpool list command
-b. Enable LZ4 compression on the zpool datapool 
+b. Enable LZ4 compression on the zpool datapool
 c. Execute a zpool list command to display that compression is enabled
-13. On the zpool named datapool execute a zpool status command
+13. On the zpool named datapool execute a ```zpool list``` command
 a. Execute a scrub of the zpool datapool
 b. Create a cron job that executes a zfs scrub on the zpool datapool at 3 am every Sunday morning
 14. Using the sample from the text on your Ubuntu 18.04 system add two additional virtual disk
 a. Create two partitions on each of these devices
 b. Then using the sample code add these two devices as a log and a cache to the zpool datapool
-c. Execute a zfs status command for the zpool named datapool 
-15. On your Fedora 28 system execute any of the commands listed to print out the disk serial numbers
+c. Execute a ```zfs status``` command for the zpool named datapool
+15. On your Fedora system execute any of the commands listed to print out the disk serial numbers
 16. Research:
-a. Using newegg.com find the current price per Gigabyte for the following along with listing the throughput of the drive
+a. Using [Newegg.com](http://newegg.com "Newegg.com") find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
 b. Seagate Barracuda 4 TB
 c. Western Digital Blue 1 TB
 d. Western Digital Red 10 TB
