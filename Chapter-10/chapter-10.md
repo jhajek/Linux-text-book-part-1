@@ -372,7 +372,7 @@ The ```/proc``` virtual filesystem provides you a file based interface to the pr
   lshw            Lists detailed information on the hardware configuration of the machine
 --------------   ---------------------------------------------------------------------------
 
-#### Loading Modules
+### Loading Modules
 
 You can list, load, and remove kernel modules form a running kernel.  This is desirable because it allows you to change functionality on a permanent basis or temporary basis without having to recompile the core Linux kernel each time you make a change - hence loadable kernel modules.  One of the best instances is [KVM](http://www.linux-kvm.org/page/Main_Page "KVM") KVM stands for *Kernel-based Virtual Machine* and though present in the Linux Kernel the module is not loaded until you install the KVM software libraries that call for that module to be loaded on boot.  If you had the KVM/Qemu virtualization applications installed (```sudo dnf install qemu-kvm libvirtd```) then you would type ```lsmod | grep kvm*```) to see the modules loaded or type ```sudo apt-get install zfsutils-linux``` to load the ZFS kernel modules for Ubuntu.
 
@@ -525,14 +525,14 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 1) ~3:21 What is inits job?
 1) ~6:11 What lead to the concept of a service?
 1) ~8:35 What does the traditional rc system not do?
-1) ~9:27 What OS had a strong initial notice of services from the beginning?
+1) ~9:27 What OS had a strong initial concept of services from the beginning?
 1) ~10:00 On MacOS what did launchd replace?
 1) ~11:53 In 2010 What was Lennart Poeterring looking at?
-1) ~13:48 What other service did Lennart asy he was heavily borrowing from?
+1) ~13:48 What other service did Lennart say he was heavily borrowing from?
 1) ~14:01 What does Lennart say that systemd is about?
 1) ~14:43 What is the layer inbetween the kernel and the userspace created by systemd?
 1) ~17:11 Does systemd violate the UNIX philosophy?
-1) ~20:33 What does Benno think is incredible about what Lennary accomplished?
+1) ~20:33 What does Benno think is incredible about what Lennart accomplished?
 1) ~25:26 Why is using systemd as a recruiting tool for BSD (which doesn't have it) a bad idea?
 1) ~28:20 What are a few features that BSD could gain from systemd?
 1) ~28:20 Why can't BSD run containers?
