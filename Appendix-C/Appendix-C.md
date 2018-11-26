@@ -1668,7 +1668,7 @@ d. You may need to exchange SSH keys via ```ssh-keygen``` and ```ssh-copy-id``` 
 a. Execute a zpool list command
 b. Enable LZ4 compression on the zpool datapool
 c. Execute a zpool list command to display that compression is enabled
-13. On the zpool named datapool execute a ```zpool list``` command
+13. On the zpool named datapool execute a ```zpool status``` command
 a. Execute a scrub of the zpool datapool
 b. Create a cron job that executes a zfs scrub on the zpool datapool at 3 am every Sunday morning
 14. Using the sample from the text on your Ubuntu 18.04 system add two additional virtual disk
