@@ -530,7 +530,7 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 1) ~11:53 In 2010 What was Lennart Poeterring looking at?
 1) ~13:48 What other service did Lennart say he was heavily borrowing from?
 1) ~14:01 What does Lennart say that systemd is about?
-1) ~14:43 What is the layer inbetween the kernel and the userspace created by systemd?
+1) ~14:43 What is the layer in-between the kernel and the userspace created by systemd?
 1) ~17:11 Does systemd violate the UNIX philosophy?
 1) ~20:33 What does Benno think is incredible about what Lennart accomplished?
 1) ~25:26 Why is using systemd as a recruiting tool for BSD (which doesn't have it) a bad idea?
