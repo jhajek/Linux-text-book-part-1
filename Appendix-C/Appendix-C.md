@@ -1628,7 +1628,7 @@ c. Grow the XFS file system
 4. Using LVM of the previous exercise on the logical volume lv-group create a 25 mb text file named datadump.txt
 a. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named lv-backup
 b. Mount the snapshot to /mnt/disk3 (create this location if not existing)
-c. Ls -l the contents of /mnt/disk3  
+c. ```ls -l``` the contents of /mnt/disk3  
 5. Install a copy of FreeBSD 11
 a. Attach two additional virtual disks
 b. Create a zpool stripe containing both disks
