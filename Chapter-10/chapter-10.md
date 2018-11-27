@@ -550,10 +550,8 @@ __Objectives:__
 
 __Outcomes:__
 
-At the conclusion of this lab you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  
+At the conclusion of this lab you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.
 
-__Instructions:__ Make a folder in your Github repo named Week-13, create a file called ReadMe.md.  In this file you will make a header H2 (## in markdown) for each question and will post a screenshot of the commmand and output that each question requires.
- 
 1) Change the default grub settings in Ubuntu add a background image (preferably dark) and remove or disable the ```quiet splash``` option) make sure to execute  ```update-grub``` before rebooting or changes won't be written.
 1) Use the ```systemd-analyze``` tools to print out the most recent boot time for your system
 1) Install MariaDB server, ```sudo dnf install mariadb```.
