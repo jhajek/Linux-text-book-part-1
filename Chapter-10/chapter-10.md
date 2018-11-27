@@ -555,7 +555,7 @@ At the conclusion of this lab you will be able to manage, edit, and list system 
 1) Change the default grub settings in Ubuntu add a background image (preferably dark) and remove or disable the ```quiet splash``` option) make sure to execute  ```update-grub``` before rebooting or changes won't be written.
 1) Use the ```systemd-analyze``` tools to print out the most recent boot time for your system
 1) Install MariaDB server, ```sudo dnf install mariadb```.
-    a) Use the command ```systemctl status <servicename>``` after MaraiDB is installed to display its current status, then enable the service via ```systemctl```, and then start the service. Now reboot your system.
+    a) Use the command ```systemctl status <servicename>``` after MariaDB is installed to display its current status, then enable the service via ```systemctl```, and then start the service. Now reboot your system.
 1) With MariaDB enabled, use the ```systemd-analyze``` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.  
 1) Use ```systemd-analyze blame``` to collect start times of each element after installing and enabling the MariaDB service 
 1) Use systemctl to enable and start the httpd.service (Fedora)
