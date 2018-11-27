@@ -575,8 +575,8 @@ At the conclusion of this lab you will be able to manage, edit, and list system 
 1) Use the ```timedatectl``` command to change the clock of your system to UTC.
 1) Use the ```hostnamectl``` command to:
     a) set-hostname to itmo-556-xyz (xyz is your initials)
-    b) set-location to Chicago
-    c) set-chassis to VM
+    b) set-location to: Chicago
+    c) set-chassis to: r1u23
 1) Install a copy of Devuan Linux from [devuan.org](https://devuan.org "Devuan Linux").  Take a screenshot of the ```ps -ef``` command focusing on PID 1.
     a) Install the openRC init system via ```sudo apt-get install openrc```
     b) The install process asks you to run a command after succesful install: ```for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done```  explain what this command is doing.
