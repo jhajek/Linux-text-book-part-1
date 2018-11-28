@@ -71,7 +71,7 @@ You can interrupt a manual install and point to a kickstart file, but it needs t
 
 Example of preseed or kickstart
 
-### Consol for Service Mesh/Discovery
+### Consul for Service Mesh/Discovery
 
 As applications moved from single systems to distributed systems, then to multi-tiers, the issue of IP addresses comes into focus.  What happens when you have services being launch and virtual systems being destroyed?  How do you manage the IP addresses?  Well on the internet we have DNS for name resolution and lookup.  If you look up [https://youtube.com](https://youtube.com "YouTube.com") you do not need to know the IP address, as the DNS service will look it up for you.  Now, think about the internals of YouTube itself.  Extra servers need to come online all the time to handle surges in requests or QPS (queries per second).  How do they handle IP allocation internally?  They use some kind of **service discovery** or **service mesh**.  
 

@@ -614,7 +614,6 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 1. Install mysql-server, PHP, and Nginx, and a self-signed cert.  
   i. Create a sample webpage that displays ```phpinfo()``` at https://localhost/index.php
   i. Locate the file index.php in ```/var/www/html```
-1. 
 
 #### Footnotes
 

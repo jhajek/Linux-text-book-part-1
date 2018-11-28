@@ -20,7 +20,7 @@
 
 *  [http://www.bsdnow.tv](http://www.bsdnow.tv "BSD Now")
 *  [http://twit.tv/floss](http://twit.tv/floss "FLOSS")
-*  [http://bsdtalk.blogspot.com/](http://bsdtalk.blogspot.com/ "BSD Talk")   
+*  [http://bsdtalk.blogspot.com/](http://bsdtalk.blogspot.com/ "BSD Talk")
 
 ## Chapter Conclusions and Review
 
@@ -35,7 +35,7 @@
 
 __Objectives:__
 
-__Outcomes:__ 
+__Outcomes:__
 
 #### Footnotes
 
