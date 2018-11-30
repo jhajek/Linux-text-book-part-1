@@ -252,19 +252,12 @@ A few technologies for network based installs exist, but even these assume their
 As stated on the Packer.io webpage the advantages of using packer are as follows[^4]:
 
 * **Super fast infrastructure deployment**
-
   + Packer images allow you to launch completely provisioned and configured machines in seconds rather than several minutes or hours. This benefits not only production, but development as well, since development virtual machines can also be launched in seconds, without waiting for a typically much longer provisioning time.
-
 * **Multi-provider portability**
-
-  +Because Packer creates identical images for multiple platforms, you can run production in AWS, staging/QA in a private cloud like OpenStack, and development in desktop virtualization solutions such as VMware or VirtualBox. Each environment is running an identical machine image, giving ultimate portability.
-
-**Improved stability** 
-
+  + Because Packer creates identical images for multiple platforms, you can run production in AWS, staging/QA in a private cloud like OpenStack, and development in desktop virtualization solutions such as VMware or VirtualBox. Each environment is running an identical machine image, giving ultimate portability.
+* **Improved stability**
  + Packer installs and configures all the software for a machine at the time the image is built. If there are bugs in these scripts, they'll be caught early, rather than several minutes after a machine is launched.
-
-**Greater testability** 
-
+* **Greater testability**
  + After a machine image is built, that machine image can be quickly launched and smoke tested to verify that things appear to be working. If they are, you can be confident that any other machines launched from that image will function properly.
 
 
