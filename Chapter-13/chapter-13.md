@@ -243,7 +243,9 @@ This command is issues after the vagrant up command and allows you to establish 
 
 ### Packer
 
-While Vagrant is used to manage vms, there was no tool that could be used to quickly and reliably create vms.  The next tool that Hashicorp introduced was called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installtion of operating systems.  Operating systems from Windows to Linux distros to BSD are made to be installed manually.  A few technologies for network based installs exist, but even these assume their is a physcial computer to correlate to.  Packer wen tone step further by allowing you to speficify all the answers to the installation questions, you could now have a repeatable installation.  You could now audit this install as well as take this same install (with minor modifications) and make artifacts that can exist on different platforms.  You could build a VirtualBox VM and at the same time have an Amazon Web Services artifact so that all of your developers, operations, testers, and QA can have access to the same machine.
+While by 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs.  This problem was solved by Hashicorp and is called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installtion of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^3]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  This makes sense if you think about it, unlike installing software, there is no existing operating sytsem when you are installing an operating system, making automatic installation difficult--especially since having a constant network connection is a relatively recent occurance.
+
+Packer solved this A few technologies for network based installs exist, but even these assume their is a physcial computer to correlate to.  Packer went one step further by allowing you to speficify all the answers to the installation questions, you could now have a repeatable installation.  You could now audit this install as well as take this same install (with minor modifications) and make artifacts that can exist on different platforms.  You could build a VirtualBox VM and at the same time have an Amazon Web Services artifact so that all of your developers, operations, testers, and QA can have access to the same machine.
 
 Packer Reason to have it
 
@@ -276,6 +278,10 @@ Puppet
 Ansible
 CfEngine  Mark - In serch of Certainty
 
+### IT Orchestration
+
+
+
 ## Chapter Conclusions and Review
 
 In this chapter we learned how a spread in technology lead to a desire to automate and ease installation and configuration. A new generation of technology brought a new generation of tools.  These tools are a part of what we called cloud-native, immutable infrastructure, and are the standard ways to deploy operating systems and hardware accross the industry.
@@ -301,3 +307,5 @@ Vagrant provides a tutorial on https://www.vagrantup.com/docs/getting-started/
 [^1]: [http://d13pix9kaak6wt.cloudfront.net/background/users/m/i/t/mitchellh_1370739801_5.jpg](http://d13pix9kaak6wt.cloudfront.net/background/users/m/i/t/mitchellh_1370739801_5.jpg "Mitchell Hashimoto")
 
 [^2]: [https://www.vagrantup.com/docs/why-vagrant/](https://www.vagrantup.com/docs/why-vagrant/ "Why try Vagrant?")
+
+[^3]: [https://www.packer.io/intro/index.html](https://www.packer.io/intro/index.html "Pacjer.io")
