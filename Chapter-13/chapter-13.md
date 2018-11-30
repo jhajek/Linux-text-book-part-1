@@ -262,9 +262,226 @@ As stated on the Packer.io webpage the advantages of using packer are as follows
 * **Greater testability**
   + After a machine image is built, that machine image can be quickly launched and smoke tested to verify that things appear to be working. If they are, you can be confident that any other machines launched from that image will function properly.
 
-
-
 Packer examples and example build code https://github.com/jhajek/packer-vagrant-build-scripts.git
+
+Packer - Conventions
+Hashicorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using JSON - https://en.wikipedia.org/wiki/JSON.   In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation.  On Linux this "answer file" is split between the major Linux distribution families: 
+
+Preseed Used for all Debian and Ubuntu based server installs - example and explanation resources can be found here:
+	• https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
+	• https://help.ubuntu.com/lts/installation-guide/amd64/apb.html
+
+Kickstart 
+Used for all RedHat and CentOS based server installs - example and explanation resources can be found here:
+	• https://www.centos.org/docs/5/html/Installation_Guide-en-US/s1-kickstart2-file.html
+	• https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html
+
+Packer JSON Template Sample
+
+Let us look at an example JSON template file: This source can be retrieved from here: 
+https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanilla-install/ubuntu16043-vanilla.json
+
+{
+    "builders": [{
+        "name": "ubuntu-vanilla-16043-server",
+        "type": "virtualbox-iso",
+        "guest_os_type": "Ubuntu_64",
+        "guest_additions_mode": "disable",
+    "iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
+    "iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
+        "iso_checksum_type": "sha256",
+ "http_directory" : ".",
+  "http_port_min" : 9001,
+  "http_port_max" : 9001,
+        "ssh_username": "vagrant",
+        "ssh_password": "vagrant",
+        "ssh_wait_timeout": "30m",
+        "communicator": "ssh", 
+        "ssh_pty": "true", 
+        "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now", 
+        "vm_name": "ubuntu-vanilla-16043-server",
+        "hard_drive_interface": "sata",
+        "disk_size": 20000,
+        "boot_wait": "5s",
+ "boot_command" : [
+            "<enter><f6><esc>",
+	          "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>", 
+	          "<bs><bs><bs><bs><bs>",
+	          "<bs><bs><bs><bs><bs>",
+	          "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+	          "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs><bs><bs>",
+            "<bs><bs><bs>",
+	          "/install/vmlinuz noapic ",
+            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed.cfg ",
+            "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+            "hostname=pleasechangeme ",
+            "fb=false debconf/frontend=noninteractive ",
+            "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+            "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+            "initrd=/install/initrd.gz -- <enter>"
+        ],  
+ "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "2048"
+        ]
+
+    ]
+  }],
+ 
+  "provisioners": [
+  {
+    "type": "shell",
+  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+    "script": "../scripts/post_install_vagrant.sh"
+  }
+],
+  "post-processors": [
+ {
+  "type": "vagrant",
+ "keep_input_artifact": false,
+ "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
+ }
+]
+}
+
+
+
+There are 3 section we are interested in:
+	1. Builders
+	2. Provisioners
+	3. Post-Processors
+	4. Vboxmanage is listed but is not required and is an artifact related to VirtualBox
+	
+Builders:
+The majority of this information is taken from https://www.packer.io/docs/
+
+Builders are the initial syntax needed to build for a single platform.  This forms the bulk of the JSON Key-Value pairs you see above in the sample template I provided.  The Builder of choice above is for VirtualBox initially, but if my target platform had been something else then I could have switched.  Note the syntax will be different for each builder as some require things others do not (Amazon and Azure require account keys for instance).  
+
+The builder in the template above is a Virtualbox ISO builder.  That is defined on line 2: 
+"type": "virtualbox-iso"
+
+Many of these values will change or be different depending on the builder you use. Consult the documentation.
+
+  The builders available are:
+
+	1. Amazon EC2 (AMI)
+	2. Azure
+	3. Cloudstack
+	4. Digital Ocean
+	5. Docker
+	6. Google Compute Engine
+	7. Hyper-V
+	8. OpenStack
+	9. Parallels
+	10. QEMU
+	11. Triton (Joyent/Samsung Public Cloud)
+	12. VirtualBox (both iso and ovf)
+	13. Vmware
+	
+
+Provisioners:
+
+Provisioner are tools that you can use to customize your machine image after the base install is finished.  Though tempting to just use the Kickstart or Pressed files to do the custom install--this is not a good idea.  You should leave the "answer files" as clean or basic as possible so that you may reuse them and do your customization here via a provisionser.
+
+ 
+  "provisioners": [
+  {
+    "type": "shell",
+    "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+    "script": "../scripts/post_install_vagrant.sh"
+  }
+],
+
+In the sample above I chose to implement an inline shell command, "execute command" and then via a shell script.  Shell scripts are very easy to use and flexible.  Provisioners can also be connected to use Provisioning 3rd party tools such as Puppet, Chef, Salt, Ansible, as well as PowerShell.  These tools are called Orchestration tools and I would recommend checking them out if your interest or job lies in this domain.
+
+If you are using Packer to build Vagrant boxes, this code below is needed to be included in a shell script that is run in the provisioners block via a script key-value pair.  Contents would look like below, and you would add any additional code after these lines.  This is nothing but a shell script so any Linux commands you would normally execute in a shell script can be executed here.
+
+```bash
+
+#!/bin/bash
+set -e
+set -v
+
+# http://superuser.com/questions/196848/how-do-i-create-an-administrator-user-on-ubuntu
+# http://unix.stackexchange.com/questions/1416/redirecting-stdout-to-a-file-you-dont-have-write-permission-on
+# This line assumes the user you created in the preseed directory is vagrant
+echo "vagrant ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/init-users
+sudo cat /etc/sudoers.d/init-users
+
+# Installing vagrant keys
+wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
+sudo mkdir -p /home/vagrant/.ssh
+sudo chown -R vagrant:vagrant /home/vagrant/.ssh
+cat ./vagrant.pub >> /home/vagrant/.ssh/authorized_keys
+sudo chown -R vagrant:vagrant /home/vagrant/.ssh/authorized_keys
+echo "All Done!"
+
+# Add your code here
+
+```
+
+**Post-Processors:**
+
+Packer has the ability to build a virtual machine or OS Container once and export it to many different types of platforms in a single execution stretch.  The initial artifact can be exported and converted across all of the formats listed below.  Therein lies the power of Packer as you can deploy your production environment to any platform for any person: Dev, QA, Test, Ops, Sec, and so forth.
+
+Once the Build step and Provision step are complete the last step (which is optional) is the post-processor step.  This is where you can convert your base image you built into various other formats.  Note that the directory named "build"  is completely arbitrary and was created by me as it made sense.
+
+```json
+
+"post-processors": [
+  {
+    "type": "vagrant",
+    "keep_input_artifact": true,
+    "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
+  }
+]
+
+```
+
+Here you see I am converting the VirtualBox *.ovf file into a Vagrant Box file *.box.   If you leave off the keep_input_artifact option, the initial artifact will be deleted and only the post-processor result will remain.  If you are concerned about harddrive space - set this value to false.
+
+Types of Post-Processing include:
+
+1. Amazon AMI
+1. Atlas (Hashicorp artifact enterprise deployment tool)
+1. Compress (simply a compressed archive)
+1. Docker
+1. Google Compute Engine
+1. Vagrant and Vagrant Cloud (cloud based storage and management of Vagrant Boxes)
+1. VMWare vShpere
+
+You can use multiple post-processors if desired.
+
+vboxmanage
+
+This command is related to using Virtual Box and will change the amount of memory allocated to the Virtual Machine image during the build process.  The amounts listed below have no bearing on the machine image that is produced.
+
+```json
+
+"vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "2048"
+        ]
+    ]
+
+```
 
 ### Answer Files
 
