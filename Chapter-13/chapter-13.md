@@ -355,10 +355,10 @@ https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanill
 
 There are 4 section we are interested in:
 
-1. Builders
-1. Provisioners
-1. Post-Processors
-1. Vboxmanage
+1. builders
+1. provisioners
+1. post-processors
+1. vboxmanage
   + listed but is not required and is an artifact related to VirtualBox
 
 #### Builders
