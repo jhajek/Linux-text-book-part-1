@@ -359,7 +359,7 @@ There are 4 section we are interested in:
 1. provisioners
 1. post-processors
 1. vboxmanage
-  + listed but is not required and is an artifact related to VirtualBox
++ listed but is not required and is an artifact related to VirtualBox
 
 #### Builders
 
@@ -513,7 +513,7 @@ CfEngine  Mark - In serch of Certainty
 
 ### IT Orchestration
 
-
+Place holder here
 
 ## Chapter Conclusions and Review
 
