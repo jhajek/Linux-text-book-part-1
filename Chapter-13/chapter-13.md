@@ -267,16 +267,8 @@ Packer examples and example build code https://github.com/jhajek/packer-vagrant-
 Packer - Conventions
 Hashicorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using JSON - https://en.wikipedia.org/wiki/JSON.   In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation.  On Linux this "answer file" is split between the major Linux distribution families: 
 
-Preseed Used for all Debian and Ubuntu based server installs - example and explanation resources can be found here:
-	• https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
-	• https://help.ubuntu.com/lts/installation-guide/amd64/apb.html
 
-Kickstart 
-Used for all RedHat and CentOS based server installs - example and explanation resources can be found here:
-	• https://www.centos.org/docs/5/html/Installation_Guide-en-US/s1-kickstart2-file.html
-	• https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html
-
-Packer JSON Template Sample
+#### Packer JSON Build Template
 
 Let us look at an example JSON template file: This source can be retrieved from here: 
 https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanilla-install/ubuntu16043-vanilla.json
@@ -298,9 +290,9 @@ https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanill
         "ssh_username": "vagrant",
         "ssh_password": "vagrant",
         "ssh_wait_timeout": "30m",
-        "communicator": "ssh", 
-        "ssh_pty": "true", 
-        "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now", 
+        "communicator": "ssh",
+        "ssh_pty": "true",
+        "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
         "vm_name": "ubuntu-vanilla-16043-server",
         "hard_drive_interface": "sata",
         "disk_size": 20000,
@@ -309,7 +301,7 @@ https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanill
             "<enter><f6><esc>",
 	          "<bs><bs><bs><bs><bs>",
             "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>", 
+            "<bs><bs><bs><bs><bs>",
 	          "<bs><bs><bs><bs><bs>",
 	          "<bs><bs><bs><bs><bs>",
 	          "<bs><bs><bs><bs><bs>",
@@ -343,12 +335,11 @@ https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanill
 
     ]
   }],
- 
   "provisioners": [
   {
     "type": "shell",
-  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
-    "script": "../scripts/post_install_vagrant.sh"
+  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+  "script": "../scripts/post_install_vagrant.sh"
   }
 ],
   "post-processors": [
@@ -497,8 +488,18 @@ In the book source code see Files > Chapter 13 > answer-files for working kickst
 
 You can interrupt a manual install and point to a kickstart file, but it needs to be done over the network.  When you are installing an operating system you don't yet have a filesystem to read files from!  
 
-Example of preseed or kickstart
+Working example of a preseed and a kickstart file can be found in the source code of the book: ```files > Chapter-13 > packer-build-templates > preseed``` and ```files > Chapter-13 > packer-build-templates > ks```
 
+Preseed Used for all Debian and Ubuntu based server installs - example and explanation resources can be found here:
+
+* https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
+* https://help.ubuntu.com/lts/installation-guide/amd64/apb.html
+
+Kickstart
+Used for all RedHat and CentOS based server installs - example and explanation resources can be found here:
+
+* https://www.centos.org/docs/5/html/Installation_Guide-en-US/s1-kickstart2-file.html
+* https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html
 
 ### Network Based Install Tools
 
