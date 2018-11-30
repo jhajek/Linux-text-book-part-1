@@ -216,10 +216,11 @@ The ```--provision``` flag tells Vagrant to re-provision and re-read and parse t
 
 Command: vagrant up --provider virtualbox
 
-    When using a Vagrant box from Hashicorp or any other it is a good idea to use the --provider flag to tell Vagrant which platform it will be virtualizing.  This is optional but if you experience problems this is a good troubleshooting tip.
+When using a Vagrant box from Hashicorp or any other it is a good idea to use the --provider flag to tell Vagrant which platform it will be virtualizing.  This is optional but if you experience problems this is a good troubleshooting tip.
 
 Command: vagrant reload
- This is akin to a reboot or restart of a virtual machine. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.  Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+
+This is akin to a reboot or restart of a virtual machine. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.  Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
 
 Command: vagrant reload --provision
 
