@@ -264,9 +264,9 @@ As stated on the Packer.io webpage the advantages of using packer are as follows
 
 Packer examples and example build code https://github.com/jhajek/packer-vagrant-build-scripts.git
 
-Packer - Conventions
-Hashicorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using JSON - https://en.wikipedia.org/wiki/JSON.   In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation.  On Linux this "answer file" is split between the major Linux distribution families: 
+#### Packer - Conventions
 
+Hashicorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using [JSON](https://en.wikipedia.org/wiki/JSON "JSON").   In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation.  On Linux this "answer file" is split between the major Linux distribution families:
 
 #### Packer JSON Build Template
 
@@ -421,7 +421,7 @@ cat ./vagrant.pub >> /home/vagrant/.ssh/authorized_keys
 sudo chown -R vagrant:vagrant /home/vagrant/.ssh/authorized_keys
 echo "All Done!"
 
-# Add your code here
+# Add additional code here
 
 ```
 
