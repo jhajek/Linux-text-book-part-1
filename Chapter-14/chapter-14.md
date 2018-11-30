@@ -5,6 +5,8 @@
 
 * Service Discovery and Service mesh
 * Secret Sharing
+  + Packer
+  + Vault
 * Docker OS Containers
 * Application deployment
     + VuePress
