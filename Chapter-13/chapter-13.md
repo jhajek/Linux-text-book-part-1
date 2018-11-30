@@ -276,79 +276,79 @@ https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanill
 ```json
 
 {
-    "builders": [{
-        "name": "ubuntu-vanilla-16043-server",
-        "type": "virtualbox-iso",
-        "guest_os_type": "Ubuntu_64",
-        "guest_additions_mode": "disable",
+  "builders": [{
+    "name": "ubuntu-vanilla-16043-server",
+    "type": "virtualbox-iso",
+    "guest_os_type": "Ubuntu_64",
+    "guest_additions_mode": "disable",
     "iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
     "iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
-        "iso_checksum_type": "sha256",
- "http_directory" : ".",
-  "http_port_min" : 9001,
-  "http_port_max" : 9001,
-        "ssh_username": "vagrant",
-        "ssh_password": "vagrant",
-        "ssh_wait_timeout": "30m",
-        "communicator": "ssh",
-        "ssh_pty": "true",
-        "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-        "vm_name": "ubuntu-vanilla-16043-server",
-        "hard_drive_interface": "sata",
-        "disk_size": 20000,
-        "boot_wait": "5s",
- "boot_command" : [
-            "<enter><f6><esc>",
-	          "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-	          "<bs><bs><bs><bs><bs>",
-	          "<bs><bs><bs><bs><bs>",
-	          "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-	          "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs><bs><bs>",
-            "<bs><bs><bs>",
-	          "/install/vmlinuz noapic ",
-            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed.cfg ",
-            "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
-            "hostname=pleasechangeme ",
-            "fb=false debconf/frontend=noninteractive ",
-            "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
-            "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
-            "initrd=/install/initrd.gz -- <enter>"
-        ],  
- "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "2048"
-        ]
-
+    "iso_checksum_type": "sha256",
+    "http_directory" : ".",
+    "http_port_min" : 9001,
+    "http_port_max" : 9001,
+    "ssh_username": "vagrant",
+    "ssh_password": "vagrant",
+    "ssh_wait_timeout": "30m",
+    "communicator": "ssh",
+    "ssh_pty": "true",
+    "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+    "vm_name": "ubuntu-vanilla-16043-server",
+    "hard_drive_interface": "sata",
+    "disk_size": 20000,
+    "boot_wait": "5s",
+  "boot_command" : [
+    "<enter><f6><esc>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs><bs><bs>",
+    "<bs><bs><bs>",
+    "/install/vmlinuz noapic ",
+    "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed.cfg ",
+    "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+    "hostname=pleasechangeme ",
+    "fb=false debconf/frontend=noninteractive ",
+    "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+    "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+    "initrd=/install/initrd.gz -- <enter>"
+  ],  
+  "vboxmanage": [
+    [
+      "modifyvm",
+      "{{.Name}}",
+      "--memory",
+      "2048"
     ]
-  }],
-  "provisioners": [
-  {
-    "type": "shell",
-  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-  "script": "../scripts/post_install_vagrant.sh"
+  ]
   }
 ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "script": "../scripts/post_install_vagrant.sh"
+    }
+  ],
   "post-processors": [
- {
-  "type": "vagrant",
- "keep_input_artifact": false,
- "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
- }
-]
+    {
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
+    }
+  ]
 }
 
 ```
