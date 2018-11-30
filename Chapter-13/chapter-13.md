@@ -50,12 +50,12 @@ The second way to is add it manually
 
 When executing the vagrant box command from the command line (in Windows recommend using powershell) you will see this list of subcommands as the output:
 
-   * add
-   * list
-   * outdated
-   * remove
-   * repackage
-   * update
+   * ```add```
+   * ```list```
+   * ```outdated```
+   * ```remove```
+   * ```repackage```
+   * ```update```
 
 ```vagrant box add```
 
@@ -241,7 +241,9 @@ This command is used to destroy the current instance of a virtual machine -- but
 
 This command is issues after the vagrant up command and allows you to establish an SSH session directly into the vagrant box, with a pre-setup username and password, with NO ASK set in the sudoers file, making for seamless entry.  You should never need to access and username or password in Vagrant as that defeats the purpose of Vagrant.  But for completeness's sake it is vagrant:vagrant. NOTE - the vagrant ssh command works perfectly by default on all Linux, MacOS, and Windows 10 hosts.  
 
-### Packer
+## Packer
+
+### The Problem Packer Solves
 
 While by 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs.  This problem was solved by Hashicorp and is called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installtion of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  This makes sense if you think about it, unlike installing software, there is no existing operating sytsem when you are installing an operating system, making automatic installation difficult--especially since having a constant network connection is a relatively recent occurance.
 
