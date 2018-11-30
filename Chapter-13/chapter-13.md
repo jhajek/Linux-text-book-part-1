@@ -457,7 +457,7 @@ Types of Post-Processing include:
 
 You can use multiple post-processors if desired.
 
-vboxmanage
+#### vboxmanage
 
 This command is related to using Virtual Box and will change the amount of memory allocated to the Virtual Machine image during the build process.  The amounts listed below have no bearing on the machine image that is produced.
 
@@ -473,6 +473,47 @@ This command is related to using Virtual Box and will change the amount of memor
     ]
 
 ```
+
+#### Packer, Putting it Together
+
+There are two key commands to use in Packer, assuming you have added the packer executable to your system path.  First type: packer -v and see if you get version information output.
+
+**Command:** ```packer -v```
+
+Execute this command to see if you get a version output.  If this command throws an error -- go back and check the PATH & INSTALL section and make sure you have closed and reopened your shell.  
+
+![*Output of packer -v*](images/Chapter-13/packer/ "Output of packer -v")
+
+**Command:**  ```packer validate```
+
+This command will check the syntax of your *.json packer template for syntax errors or missing brackets.  It will not check logic but just syntax.  Good idea to run it to make sure everything is in order.  Using the samples provided in the Github repo you can validate the *.JSON template with this command:
+
+![*Output of packer validate*](images/Chapter-13/packer/ "Output of packer validate")
+
+**Command:**  ```packer build```
+
+This command will be what is used to execute and run the packer *.json template.
+
+![*Output of packer build*](images/Chapter-13/packer/ "Output of packer build")
+
+**Directory:** ```packer_cache```
+
+![*Packer Cache Directory on Windows*](images/Chapter-13/packer/ "Packer Cache Directory on Windows")
+
+When running packer build on the first time, Packer will use the iso_url and iso_checksum to retrieve you install media, in the sample above it is listed as:
+
+```json
+
+    "iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
+    "iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
+
+```
+
+This URL is the actual remote location of the install media which will be retrieved and cached into a directory named packer_cache.  The iso file will be renamed with the iso_checksum. Subsequent packer_build commands will use this cached iso media.  You can also copy this cached iso file to other directories as long as it is placed in a packer_cache directory--this can be used to speed up downloads.
+
+#### When Packer Fails
+
+If any part of the Packer build step fails or generates and error, Packer will roll back and delete any artifacts it has created. It won't leave you with broken items. Sometimes Packer fails right on the last step without much of an error message.  In this case I recommend just re-run the packer build command. Upon completion, cd into the build directory that was created during the post-processor process and go back to the beginning of the Vagrant Tutorial and the section regarding using vagrant box add of custom boxes.
 
 ### Answer Files
 
