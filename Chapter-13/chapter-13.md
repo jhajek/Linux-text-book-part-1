@@ -281,6 +281,8 @@ Packer JSON Template Sample
 Let us look at an example JSON template file: This source can be retrieved from here: 
 https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanilla-install/ubuntu16043-vanilla.json
 
+```json
+
 {
     "builders": [{
         "name": "ubuntu-vanilla-16043-server",
@@ -358,42 +360,37 @@ https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanill
 ]
 }
 
+```
 
+There are 4 section we are interested in:
 
-There are 3 section we are interested in:
-	1. Builders
-	2. Provisioners
-	3. Post-Processors
-	4. Vboxmanage is listed but is not required and is an artifact related to VirtualBox
-	
-Builders:
-The majority of this information is taken from https://www.packer.io/docs/
+1. Builders
+1. Provisioners
+1. Post-Processors
+1. Vboxmanage
+  + listed but is not required and is an artifact related to VirtualBox
 
-Builders are the initial syntax needed to build for a single platform.  This forms the bulk of the JSON Key-Value pairs you see above in the sample template I provided.  The Builder of choice above is for VirtualBox initially, but if my target platform had been something else then I could have switched.  Note the syntax will be different for each builder as some require things others do not (Amazon and Azure require account keys for instance).  
+#### Builders
 
-The builder in the template above is a Virtualbox ISO builder.  That is defined on line 2: 
-"type": "virtualbox-iso"
+The majority of this information is taken from [https://www.packer.io/docs/](https://www.packer.io/docs/ "Packer docs"). Builders are the initial syntax needed to build for a single platform.  This forms the bulk of the JSON Key-Value pairs you see above in the sample template I provided.  The Builder of choice above is for VirtualBox initially, but if my target platform had been something else then I could have switched.  Note the syntax will be different for each builder as some require things others do not (Amazon and Azure require account keys for instance).  The builder in the template above is a Virtualbox ISO builder.  That is defined on line 2: ```"type": "virtualbox-iso"```. Many of these values will change or be different depending on the builder you use. Consult the documentation.
 
-Many of these values will change or be different depending on the builder you use. Consult the documentation.
+The builders available are:
 
-  The builders available are:
+1. Amazon EC2 (AMI)
+1. Azure
+1. Cloudstack
+1. Digital Ocean
+1. Docker
+1. Google Compute Engine
+1. Hyper-V
+1. OpenStack
+1. Parallels
+1. QEMU
+1. Triton (Joyent/Samsung Public Cloud)
+1. VirtualBox (both iso and ovf)
+1. Vmware
 
-	1. Amazon EC2 (AMI)
-	2. Azure
-	3. Cloudstack
-	4. Digital Ocean
-	5. Docker
-	6. Google Compute Engine
-	7. Hyper-V
-	8. OpenStack
-	9. Parallels
-	10. QEMU
-	11. Triton (Joyent/Samsung Public Cloud)
-	12. VirtualBox (both iso and ovf)
-	13. Vmware
-	
-
-#### Provisioners:
+#### Provisioners
 
 Provisioner are tools that you can use to customize your machine image after the base install is finished.  Though tempting to just use the Kickstart or Pressed files to do the custom install--this is not a good idea.  You should leave the "answer files" as clean or basic as possible so that you may reuse them and do your customization here via a provisionser.
 
