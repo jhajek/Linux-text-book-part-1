@@ -393,18 +393,21 @@ Many of these values will change or be different depending on the builder you us
 	13. Vmware
 	
 
-Provisioners:
+#### Provisioners:
 
 Provisioner are tools that you can use to customize your machine image after the base install is finished.  Though tempting to just use the Kickstart or Pressed files to do the custom install--this is not a good idea.  You should leave the "answer files" as clean or basic as possible so that you may reuse them and do your customization here via a provisionser.
 
- 
-  "provisioners": [
+```json
+
+"provisioners": [
   {
     "type": "shell",
-    "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+    "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
     "script": "../scripts/post_install_vagrant.sh"
   }
-],
+]
+
+```
 
 In the sample above I chose to implement an inline shell command, "execute command" and then via a shell script.  Shell scripts are very easy to use and flexible.  Provisioners can also be connected to use Provisioning 3rd party tools such as Puppet, Chef, Salt, Ansible, as well as PowerShell.  These tools are called Orchestration tools and I would recommend checking them out if your interest or job lies in this domain.
 
@@ -434,7 +437,7 @@ echo "All Done!"
 
 ```
 
-**Post-Processors:**
+#### Post-Processors
 
 Packer has the ability to build a virtual machine or OS Container once and export it to many different types of platforms in a single execution stretch.  The initial artifact can be exported and converted across all of the formats listed below.  Therein lies the power of Packer as you can deploy your production environment to any platform for any person: Dev, QA, Test, Ops, Sec, and so forth.
 
