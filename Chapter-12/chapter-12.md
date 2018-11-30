@@ -82,9 +82,9 @@ Table:  [Commands and Their Replacements](https://www.tecmint.com/deprecated-lin
 
 With the adoption of systemd, the convention for naming network cards changed from a driver based enumeration to [Predictable Network Interface Names](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "Predicatable Network Interface Names").
 
-"*Basic idea is that unlike previous *nix naming scheme where probing for hardware occurs in no particular order and may change between reboots, here interface name depends on physical location of hardware and can be predicted/guessed by looking at ```lspci``` or ```lshw``` output[^1].*"
+"*Basic idea is that unlike previous *nix naming scheme where probing for hardware occurs in no particular order and may change between reboots, here interface name depends on physical location of hardware and can be predicted/guessed by looking at ```lspci``` or ```lshw``` output[^145].*"
 
-"*The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth" to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications...[^2]*"
+"*The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth" to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications...[^146]*"
 
 The systemd group [argued here](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "ethernet argument"):
 
@@ -125,7 +125,7 @@ Here is where things get tricky.  In the future I would like to think this is wi
 
 As of Ubuntu 18.04 there is a Network Manager replacement.  It is called [netplan.io](https://netplan.io "netplan").  Netplan is an Ubuntu style version of Network manager which reads YAML stule files from a network configuration located in ```/etc/netplan/*.yaml```.  Netplan works on top of Network Manager as well as systemd-networkd.  
 
-Systemd-networkd is the systemd utitlity to take over network service and IP address authority.  It is still a work in progress which has implemented many of the Network Manager features but not all of them.  You can disable Network Manager as a service and enable/start systemd-networkd.  Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```.  That directory is blank by default as systemd-networkd is not enabled by default.  Files in that directory need to end in a .network extension. The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation"). The systemd-networkd .network file has an INI style value structure[^3]:
+Systemd-networkd is the systemd utitlity to take over network service and IP address authority.  It is still a work in progress which has implemented many of the Network Manager features but not all of them.  You can disable Network Manager as a service and enable/start systemd-networkd.  Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```.  That directory is blank by default as systemd-networkd is not enabled by default.  Files in that directory need to end in a .network extension. The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation"). The systemd-networkd .network file has an INI style value structure[^147]:
 
 ```bash
 # Name of the file /etc/systemd/network/20-wired.network
@@ -173,7 +173,7 @@ iface enp0s8 inet static
      gateway 192.168.0.1
 ```
 
-Here is the basic structure for the Network Manager based Fedora/CentOS systems located at[^4]: ```/etc/sysconfig/network-scripts/ifcfg-eth0``` or ```/etc/sysconfig/network-scripts/ifcfg-enp5s0```
+Here is the basic structure for the Network Manager based Fedora/CentOS systems located at[^148]: ```/etc/sysconfig/network-scripts/ifcfg-eth0``` or ```/etc/sysconfig/network-scripts/ifcfg-enp5s0```
 
 ```bash
 DEVICE="eth0"
@@ -207,7 +207,7 @@ IPV6_PEERROUTES=yes
 
 #### Netplan.io
 
-Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^5]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By defualt in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allowes Network Manager to manage by default unless specifically altered below.
+Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By defualt in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allowes Network Manager to manage by default unless specifically altered below.
 
 ```bash
 # To let the interface named ‘enp3s0’ get an address via DHCP, create a YAML file with the following:
@@ -352,7 +352,7 @@ You should be able to load this page in the browser in your virtual machine by a
 
 "*Websites that are efficient minimize the number of requests required to render an entire page by minifying (reducing the amount of code and packing smaller pieces of code into bundles, without reducing its ability to function) resources such as images and scripts. However, minification is not necessarily convenient nor efficient and may still require separate HTTP connections to get the page and the minified resources. HTTP/2 allows the server to "push" content, that is, to respond with data for more queries than the client requested. This allows the server to supply data it knows a web browser will need to render a web page, without waiting for the browser to examine the first response, and without the overhead of an additional request cycle.*" 
 
-"*Additional performance improvements in the first draft of HTTP/2 (which was a copy of SPDY) come from multiplexing of requests and responses to avoid the head-of-line blocking problem in HTTP 1 (even when HTTP pipelining is used), header compression, and prioritization of requests. HTTP/2 no longer supports HTTP 1.1's chunked transfer encoding mechanism, as it provides its own, more efficient, mechanisms for data streaming[^8].*"
+"*Additional performance improvements in the first draft of HTTP/2 (which was a copy of SPDY) come from multiplexing of requests and responses to avoid the head-of-line blocking problem in HTTP 1 (even when HTTP pipelining is used), header compression, and prioritization of requests. HTTP/2 no longer supports HTTP 1.1's chunked transfer encoding mechanism, as it provides its own, more efficient, mechanisms for data streaming[^152].*"
 
 The best resource I found was a technical deep-dive on HTTP/2 by [Steve Gibson at Security Now Podcast episode 495](https://twit.tv/shows/security-now/episodes/495 "SN 495")
 
@@ -435,7 +435,7 @@ As always in technology, product names often have a joke or a story behind them.
 
 ### SQLite
 
-Is an intersting small database.  It aschews some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^6]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQlite3 via the normal package mechanism and it is usually close to being up to date.  Note that SQlite3 doesn't listen on external ports by default it is included as an external library in your application.
+Is an intersting small database.  It aschews some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQlite3 via the normal package mechanism and it is usually close to being up to date.  Note that SQlite3 doesn't listen on external ports by default it is included as an external library in your application.
 
 * ```sudo apt-get install sqlite3```
 * ```sudo yum install sqlite```
@@ -443,7 +443,7 @@ Is an intersting small database.  It aschews some of the bigger features to be m
 
 ### MongoDB
 
-Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records--the NoSQL really refers to no relations or relational structure[^7].  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.  REST is the outgrowth of the succesful spread of HTTP as a protocol.
+Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records--the NoSQL really refers to no relations or relational structure[^151].  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.  REST is the outgrowth of the succesful spread of HTTP as a protocol.
 
 MongoDB packages are maintained by MongoDB -- and are released outside of Linux distro release cycles.  The installation process is different for Ubuntu and CentOS.  The instructions to add a custom repository are located here: 
 
@@ -617,18 +617,18 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 #### Footnotes
 
-[^1]: [https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1](https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1 "why-is-my-network-interface-named-enp0s25-instead-of-eth0?")
+[^145]: [https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1](https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1 "why-is-my-network-interface-named-enp0s25-instead-of-eth0?")
 
-[^2]: [https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0](https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0 "why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0")
+[^146]: [https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0](https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0 "why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0")
 
-[^3]: [https://wiki.archlinux.org/index.php/Systemd-networkd](https://wiki.archlinux.org/index.php/Systemd-networkd "systesmd-networkd")
+[^147]: [https://wiki.archlinux.org/index.php/Systemd-networkd](https://wiki.archlinux.org/index.php/Systemd-networkd "systesmd-networkd")
 
-[^4]: [https://superuser.com/questions/645487/static-ip-address-with-networkmanager](https://superuser.com/questions/645487/static-ip-address-with-networkmanager "Static NetMan IP")
+[^148]: [https://superuser.com/questions/645487/static-ip-address-with-networkmanager](https://superuser.com/questions/645487/static-ip-address-with-networkmanager "Static NetMan IP")
 
-[^5]: [https://netplan.io/examples](https://netplan.io/examples "netplan examples")
+[^149]: [https://netplan.io/examples](https://netplan.io/examples "netplan examples")
 
-[^6]: [https://sqlite.org/about.html](https://sqlite.org/about.html "Sqlite3")
+[^150]: [https://sqlite.org/about.html](https://sqlite.org/about.html "Sqlite3")
 
-[^7]: [https://en.wikipedia.org/wiki/NoSQL](https://en.wikipedia.org/wiki/NoSQL "NoSQL")
+[^151]: [https://en.wikipedia.org/wiki/NoSQL](https://en.wikipedia.org/wiki/NoSQL "NoSQL")
 
-[^8]: [https://en.wikipedia.org/wiki/HTTP/2](https://en.wikipedia.org/wiki/HTTP/2 "HTTP/2")
+[^152]: [https://en.wikipedia.org/wiki/HTTP/2](https://en.wikipedia.org/wiki/HTTP/2 "HTTP/2")
