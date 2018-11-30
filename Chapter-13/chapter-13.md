@@ -94,38 +94,42 @@ ubuntu/xenial64      (virtualbox, 20170119.1.0)
 
 Here you notice that the last two boxes were added directly from the Hashicorp boxes repository (vagrant box add ubuntu/trusty64 and vagrant box add ubuntu/xenial64)
 
-The top two boxes were custom Vagrant boxes I created (we are getting to that part) that are treated as third part boxes.  To add them I issued a command like this:   (The vanilla term is my own convention, it just means this is a default OS install -- no extra packages)
+The top two boxes were custom Vagrant boxes I created (we are getting to that part) that are treated as third party boxes.  To add them I issued a command like this:   (The vanilla term is my own convention, it just means this is a default OS install -- no extra packages)
 
+```bash
 vagrant box add ./centos-vanilla-1611-server-virtualbox-1485312680.box --name centos-7-vanilla
 vagrant box add ./ubuntu-vanilla-16041-server-virtualbox-1485314496.box --name ubuntu-16041-vanilla
+```
 
-Command: vagrant box remove
+```vagrant box remove```
 
 The same way that you add boxes you can remove them from your list.  You need to know the name of the box that was added, run a vagrant box list command and find the name that way.  The below commands would remove the boxes added in the previous section.
 
-	• vagrant box remove centos-7-vanilla
-	• vagrant box remove ubuntu-16041-vanilla
+* ```vagrant box remove centos-7-vanilla```
+* ```vagrant box remove ubuntu-16041-vanilla```
 
-Command: vagrant init
+**Command:** ```vagrant init```
 
 Once your Vagrant boxes have been added to your system and Vagrant has them in a list, you can now create a Vagrantfile.  You have one Vagrantfile per-Vagrant box.  It would make the most sense to create a sub-directory with the same box name to house the Vagrantfile.
 
-For instance if the output of the command:
+For instance if the output of the command ```vagrant box list```:
+
+```bash
 PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
 centos-vanilla-1611  (virtualbox, 0)
 ubuntu-vanilla-16041 (virtualbox, 0)
 ubuntu/trusty64      (virtualbox, 20161121.0.0)
 ubuntu/xenial64      (virtualbox, 20170119.1.0)
+```
 
 Then it would make sense to create a folder named after each of these boxes under the directory vagrant.  NOTE - I arbitrarily created the directory vagrant under Documents.  Why? It seems to make logical sense.  See screenshot:
 
 
+**Note**--for good measure I added a directory called data which will be used for mounting shared drives--I will explain in a bit. Once you have created these folders, cd into one.  For instance take the trusty64 and xenial64.  You would cd into trusty64 directory and type: vagrant init ubuntu/trusty64.  This will create a file called Vagrantfile that points and works with the trusty64 vagrant box.  The idea behind the Vagrantfile  is that it has a shorthand syntax that is universally translated by Vagrant into specific virtualization platforms.  The Vagrantfile  handles all the properties that could be set (such as RAM, CPU, shared drives, port forwarding, networking, and so forth).   Make sure you issue the vagrant init command from inside of the proper folder you just created.
 
-Note--for good measure I added a directory called data which will be used for mounting shared drives--I will explain in a bit.
+Here is a sample Vagrantfile, which is available in the book source code [files > Chapter-13 > vagrant-init-files](https://github.com/jhajek/Linux-text-book-part-1/tree/master/files/Chapter-13/vagrant-init-files "Vagrantfile"), from my system that was built when I issued the command: ```vagrant init ubuntu/xenial64```:
 
-Once you have created these folders, cd into one.  For instance take the trusty64 and xenial64.  You would cd into trusty64 directory and type: vagrant init ubuntu/trusty64.  This will create a file called Vagrantfile that points and works with the trusty64 vagrant box.  The idea behind the Vagrantfile  is that it has a shorthand syntax that is universally translated by Vagrant into specific virtualization platforms.  The Vagrantfile  handles all the properties that could be set (such as RAM, CPU, shared drives, port forwarding, networking, and so forth).   Make sure you issue the vagrant init command from inside of the proper folder you just created.
-
-Here is a sample Vagrantfile  from my system that was built when I issued the command: vagrant init ubuntu/xenial64
+```ruby
 
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -199,14 +203,15 @@ Vagrant.configure("2") do |config|
   # SHELL
 end
 
-Command: vagrant up
+```
 
-Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located.  A vagrant up command looks in the local directory for a Vagrantfile to begin parsing.  This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (Virtual Box in our case) will be changed.  On subsequent runs the Vagrantfile will be ignored.
-Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+**Command:** ```vagrant up```
 
-Command: vagrant up --provision
+Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located.  A vagrant up command looks in the local directory for a Vagrantfile to begin parsing.  This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (Virtual Box in our case) will be changed.  On subsequent runs the Vagrantfile will be ignored. **Note** - This command is issues not from inside the virtual machine but from the commandline of the host system.
 
-  The --provision flag tells Vagrant to re-provision and re-read and parse the Vagrantfile and make any additional changes while launching the virtual machine. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+**Command:**  ```vagrant up --provision```
+
+The ```--provision``` flag tells Vagrant to re-provision and re-read and parse the Vagrantfile and make any additional changes while launching the virtual machine. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
 
 Command: vagrant up --provider virtualbox
 
