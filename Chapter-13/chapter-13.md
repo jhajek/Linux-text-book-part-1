@@ -494,11 +494,11 @@ This command will check the syntax of your *.json packer template for syntax err
 
 This command will be what is used to execute and run the packer *.json template.
 
-![*Output of packer build*](images/Chapter-13/packer/ "Output of packer build")
+![*Output of packer build*](images/Chapter-13/packer/build.png "Output of packer build")
 
 **Directory:** ```packer_cache```
 
-![*Packer Cache Directory on Windows*](images/Chapter-13/packer/ "Packer Cache Directory on Windows")
+![*Packer Cache Directory on Windows*](images/Chapter-13/packer/cache.png "Packer Cache Directory on Windows")
 
 When running packer build on the first time, Packer will use the iso_url and iso_checksum to retrieve you install media, in the sample above it is listed as:
 
