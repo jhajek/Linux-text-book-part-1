@@ -544,14 +544,12 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 [Cobbler](http://cobbler.github.io/ "Cobber") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
 [MaaS - Metal as a DService](https://maas.io "Maas.io").  This was built by Canonical (Ubuntu) to manage and deploy systems, it includes and builds upon Cobbler.  
 
+### IT Orchestration
+
 Chef
 Puppet
 Ansible
 CfEngine  Mark - In serch of Certainty
-
-### IT Orchestration
-
-Place holder here
 
 ## Chapter Conclusions and Review
 
