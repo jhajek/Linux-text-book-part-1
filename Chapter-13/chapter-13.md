@@ -262,7 +262,7 @@ As stated on the Packer.io webpage the advantages of using packer are as follows
 * **Greater testability**
   + After a machine image is built, that machine image can be quickly launched and smoke tested to verify that things appear to be working. If they are, you can be confident that any other machines launched from that image will function properly.
 
-Packer examples and example build code https://github.com/jhajek/packer-vagrant-build-scripts.git
+Packer examples and example build code [https://github.com/jhajek/packer-vagrant-build-scripts.git](https://github.com/jhajek/packer-vagrant-build-scripts.git "sample packer code repo")
 
 #### Packer - Conventions
 
@@ -270,8 +270,8 @@ Hashicorp essentially built a tool that captures each install step.  These steps
 
 #### Packer JSON Build Template
 
-Let us look at an example JSON template file: This source can be retrieved from here: 
-https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanilla-install/ubuntu16043-vanilla.json
+Let us look at an example JSON template file: This source can be retrieved from:
+[https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanilla-install/ubuntu16043-vanilla.json](https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanilla-install/ubuntu16043-vanilla.json "Packer Template")
 
 ```json
 
