@@ -519,33 +519,30 @@ If any part of the Packer build step fails or generates and error, Packer will r
 
 Most operating system installations are designed for a manual install process.  This makes sense as for almost 40 years we have been using PC's (Personal Computers).  A first step in automating the install process is to automate the answering of the installation questions.  This is the most repetive process of the install, as well as something that is not conducive to the human, as you spend most of your time waiting.  
 
-The first solution came from Sun in 198x and was called Jumpstart.  This was used to hold installtion information and as a target system was booted, it would communicate to the Jumpstart server and complete the entire install over the network, OS and handle configuration.
+#### Fedora and Kickstart
 
-The next phase came in Linux with Fedora creating the Kickstart answer file system [Link here]   [Kickstart documentation](https://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/s1-kickstart2-file.html) to handle not the OS install part, but at least the OS configuration and software retrieval.  Remember the SUN product was created before pervasive internet and package managers and had to rely on software being centrally available on the local network.  it can be generated from scratch or upon a successful install a default kickstart is located in /root/anaconda-ks.cfg
+The first solution came from Sun in 1994 and was called [Jumpstart](https://en.wikipedia.org/wiki/JumpStart_(Solaris) "jumpstart"). This was used to hold installtion information and as a target system was booted, it would communicate to the Jumpstart server and complete the entire install over the network, OS and handle configuration.
 
-[Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")  Debian created their own answer file system call [preeseed].  
+The next phase came in Linux with Fedora creating the [Kickstart](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Kickstart Reference") answer file system.  Kickstart does not handle the part of OS install, but the OS configuration and software retrieval/installation.  Kickstart files can be generated from a template or scratch or upon a successful install a default kickstart is located in the location ```/root/anaconda-ks.cfg```. Examples and explanation resources can be found here:
 
-In the book source code see Files > Chapter 13 > answer-files for working kickstart and preseed examples.
+* [Fedora 28 Kickstart Reference](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Foedora 29 Reference")
+* [Centos Kickstart Reference](https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html "CentOS Kickstart Reference")
 
-You can interrupt a manual install and point to a kickstart file, but it needs to be done over the network.  When you are installing an operating system you don't yet have a filesystem to read files from!  
+#### Debian, Ubuntu, and Preseed
+
+[Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")  Debian created their own answer file system called [preeseed].  You can interrupt a manual install and point to a kickstart file, but it needs to be done over the network.  When you are installing an operating system you don't yet have a filesystem to read files from!  
 
 Working example of a preseed and a kickstart file can be found in the source code of the book: ```files > Chapter-13 > packer-build-templates > preseed``` and ```files > Chapter-13 > packer-build-templates > ks```
 
 Preseed Used for all Debian and Ubuntu based server installs - example and explanation resources can be found here:
 
-* https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
-* https://help.ubuntu.com/lts/installation-guide/amd64/apb.html
-
-Kickstart
-Used for all RedHat and CentOS based server installs - example and explanation resources can be found here:
-
-* https://www.centos.org/docs/5/html/Installation_Guide-en-US/s1-kickstart2-file.html
-* https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html
+* [Sample Preseed Template](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt "Preseed Template")
+* [Preseed Ubuntu Guide](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed Guide")
 
 ### Network Based Install Tools
 
-Cobbler -- a modern version of Jumpstart, which is good for network based install and configuration of static hardware.
-MaaS - Metal as a DService.  This was built by Canonical (Ubuntu) to manage and deploy systems, it includes and builds upon Cobbler.  
+[Cobbler](http://cobbler.github.io/ "Cobber") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
+[MaaS - Metal as a DService](https://maas.io "Maas.io").  This was built by Canonical (Ubuntu) to manage and deploy systems, it includes and builds upon Cobbler.  
 
 Chef
 Puppet
