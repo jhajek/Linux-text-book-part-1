@@ -11,7 +11,7 @@
 ### Outcomes
 
  
-## Where to go Now?
+## Where to go Now
 
    * Linux+
    * LPI
@@ -24,18 +24,25 @@
 
 ## Chapter Conclusions and Review
 
+Place holder
 
 ### Review Questions
 
+Place Holder
 
 ### Podcast Questions
 
+Rise of Illumos slides [http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Illumos")
+Video By Brian Cantrill [https://www.youtube.com/watch?v=-zRN7XLCRhc](https://www.youtube.com/watch?v=-zRN7XLCRhc "SmrtOS")
 
 ### Lab
 
 __Objectives:__
 
+Place holder
+
 __Outcomes:__
 
-#### Footnotes
+Place Holder
 
+#### Footnotes

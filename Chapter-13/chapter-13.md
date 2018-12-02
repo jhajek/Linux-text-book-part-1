@@ -575,15 +575,13 @@ Questions go here
 
 ### Podcast Questions
 
-Bryan Cantril Hashiconf Jails the first decade - Woot!
+
 
 ### Lab
 
 Complete Vagrant Tutorial, complete my Packer tutorial, complete Consol tutorial, complete Vault tutorial?
 
 Vagrant provides a tutorial on https://www.vagrantup.com/docs/getting-started/ 
-
-
 
 #### Footnotes
 
