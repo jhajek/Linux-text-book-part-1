@@ -559,7 +559,7 @@ In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to 
   + [Podcast](https://twit.tv/shows/floss-weekly/episodes/257 "Ansible Podcast")
 * [CfEngine](https://cfengine.com/ "CFengine")
   + [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFengine Podcast")
-  + Dr. Mark Burgess wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
+  + [Dr. Mark Burgess](https://en.wikipedia.org/wiki/Mark_Burgess_(computer_scientist) "Dr Mark Burgess") wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
 
 
 ## Chapter Conclusions and Review
