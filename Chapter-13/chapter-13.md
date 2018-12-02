@@ -564,11 +564,11 @@ In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to 
 
 ## Chapter Conclusions and Review
 
-In this chapter we learned how a spread in technology lead to a desire to automate and ease installation and configuration. A new generation of technology brought a new generation of tools.  These tools are a part of what we called cloud-native, immutable infrastructure, and are the standard ways to deploy operating systems and hardware accross the industry.
+In this chapter we learned how a spread in technology led to a desire to automate and ease installation and configuration. A new generation of technology brought a new generation of tools.  These tools are a part of what we called cloud-native, immutable infrastructure, and are the standard ways to deploy operating systems and hardware accross the industry.
 
 ### Review Questions
 
-  Questions go here
+Questions go here
 
 ### Podcast Questions
 
