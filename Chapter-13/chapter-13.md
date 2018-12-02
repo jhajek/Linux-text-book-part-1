@@ -482,13 +482,13 @@ There are two key commands to use in Packer, assuming you have added the packer 
 
 Execute this command to see if you get a version output.  If this command throws an error -- go back and check the PATH & INSTALL section and make sure you have closed and reopened your shell.  
 
-![*Output of packer -v*](images/Chapter-13/packer/ "Output of packer -v")
+![*Output of packer -v*](images/Chapter-13/packer/version.png "Output of packer -v")
 
 **Command:**  ```packer validate```
 
 This command will check the syntax of your *.json packer template for syntax errors or missing brackets.  It will not check logic but just syntax.  Good idea to run it to make sure everything is in order.  Using the samples provided in the Github repo you can validate the *.JSON template with this command:
 
-![*Output of packer validate*](images/Chapter-13/packer/ "Output of packer validate")
+![*Output of packer validate*](images/Chapter-13/packer/validate.png "Output of packer validate")
 
 **Command:**  ```packer build```
 
