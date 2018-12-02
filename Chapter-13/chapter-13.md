@@ -542,6 +542,7 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 ### Network Based Install Tools
 
 [Cobbler](http://cobbler.github.io/ "Cobber") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
+
 [MaaS - Metal as a DService](https://maas.io "Maas.io").  This was built by Canonical (Ubuntu) to manage and deploy systems, it includes and builds upon Cobbler.  
 
 ### IT Orchestration
@@ -549,16 +550,16 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to see a world of automation opening up to us.  In a sense these technologies are the culmination of the Unix concepts of small tools doing one things--or shell scripts on steroids, so to speak.  Each of these technologies is beyond the scope of this book, but here are some podcasts and links to learn more about them.
 
 * [SaltStack](https://www.saltstack.com/ "Saltstack")
-+ [Podcast](https://twit.tv/shows/floss-weekly/episodes/262 "SaltStack Podcast")
+  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/262 "SaltStack Podcast")
 * [Chef](https://www.chef.io/ "Chef.io")
-+ [Podcast](https://twit.tv/shows/floss-weekly/episodes/219 "Chef Podcast")
+  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/219 "Chef Podcast")
 * [Puppet](https://puppet.com/ "Puppet")
-+ [Podcast](https://twit.tv/shows/floss-weekly/episodes/93 "Puppet")
+  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/93 "Puppet")
 * [Ansible](https://www.ansible.com/ "Ansible")
-+ [Podcast](https://twit.tv/shows/floss-weekly/episodes/257 "Ansible Podcast")
+  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/257 "Ansible Podcast")
 * [CfEngine](https://cfengine.com/ "CFengine")
-+ [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFengine Podcast")
-+ Dr. Mark Burgess wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
+  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFengine Podcast")
+  + Dr. Mark Burgess wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
 
 
 ## Chapter Conclusions and Review
