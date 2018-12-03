@@ -586,8 +586,9 @@ Complete Vagrant Tutorial located at [https://www.vagrantup.com/docs/getting-sta
 * skip the **SHARING** section
 * upon completion take a screenshot of the output of the ```vagrant box list``` command.
 
+The second part would be to run the packer build templates for Centos 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```.  For each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the Vagrant init command and Vagrant Up command.
 
-Vagrant provides a tutorial on  
+upon completion take a screenshot of the output of the ```vagrant box list``` command.
 
 #### Footnotes
 
