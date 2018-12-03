@@ -575,13 +575,19 @@ Questions go here
 
 ### Podcast Questions
 
-
+Place holderg
+evelyn
 
 ### Lab
 
-Complete Vagrant Tutorial, complete my Packer tutorial, complete Consol tutorial, complete Vault tutorial?
+Complete Vagrant Tutorial located at [https://www.vagrantup.com/docs/getting-started/](https://www.vagrantup.com/docs/getting-started/ "Vagrant getting started").  In the tutorial:
 
-Vagrant provides a tutorial on https://www.vagrantup.com/docs/getting-started/ 
+* replace the term ```hashicorp/percise64``` with ```ubuntu/bionic64```b
+* skip the **SHARING** section
+* upon completion take a screenshot of the ```vagrant box list``` command.
+
+
+Vagrant provides a tutorial on  
 
 #### Footnotes
 
