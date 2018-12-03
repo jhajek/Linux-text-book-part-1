@@ -582,7 +582,7 @@ evelyn
 
 Complete Vagrant Tutorial located at [https://www.vagrantup.com/docs/getting-started/](https://www.vagrantup.com/docs/getting-started/ "Vagrant getting started").  In the tutorial:
 
-* replace the term ```hashicorp/percise64``` with ```ubuntu/bionic64```b
+* replace the term ```hashicorp/percise64``` with ```ubuntu/bionic64```
 * skip the **SHARING** section
 * upon completion take a screenshot of the output of the ```vagrant box list``` command.
 
