@@ -467,74 +467,10 @@ e. ```sudo useradd -c "User for spring class" -G sudo -m controller```
 
 Chapter 10 Review Questions
 
-1) How was software initially distributed in Linux--before package managers?
-b. tarballs
-
-2) Who created the initial build system we still use today to build Linux software? 
-c. Stuart Feldman
-
-3) What is the name of the tool that uses makefiles to build software?
-a. make
-
-4) What is the name of the package format Debian distribution uses? 
-c. .deb
-
-5) What is the name of the package format the Fedora/RedHat based distros use?
-a. RPM
-
-6) What is the name of the tool used to install .deb files directly on the command line?
-b. dpkg -i *.deb
-
-7) What feature doesn't dpkg handle/support? 
-b. Installing Dependencies
-
-8) In 1998 RedHat released it's package manager format - what its name? 
-a. RPM
-
-9) What is the name of the Debian Installer tool that works in conjunction with the dpkg package manager?
-b. APT
-
-10) What is the APT command that allows you to install a package named apache2?
-d. apt-get install apache2
-
-11) What is the APT command to list all packages currently installed on your Ubuntu 15.04 system?
-b. dpkg -l
-
-12) What is the APT command to add an additional software repository, named: ppa:linux-libre/ppa, to your APT system?
-b. sudo add-apt-repository ppa:linux-libre/ppa
-
-13) What is the command to sync your system with the latest package repositories?
-a. sudo apt-get upgrade
-
-14) What is the command to upgrade your Debian based system packages and to the newest kernel version?
-d.  sudo apt-get dist-upgrade
-
-15) What is the RPM command to install a package from the command line?
-d. rpm -i *.rpm
-
-16) What is the DNF command used to install additional software repositories? Use this URL to an RPM:http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
-c. sudo dnf install http://download1.rpmfusion.org/nonfree/el/updates/6/i386/rpmfusion-nonfree-release-6-1.noarch.rpm
-
-17) What is the name of RPM repository that was mentioned in the textbook?
-a. RPMFusion
-
-18) What is the command you run first when compiling code from source to run a "sanity check" on your system before you begin compilation?
-b. ./configure
-
-19) What is the name of the C compiler that is standard on all Linux systems?
-c. GCC
-
-20) What other language has a build/install system that is simpler than using C and makefiles?
-d. Python
-
-## Chapter 11
-
-Chapter 11 Review Questions
-
 1) What is the name of *beep* sound heard in the initial boot of a PC (assume you are using BIOS not UEFI)?
 b) POST
 
-2) What is the name of the GNU software that is the first software program that runs when a computer with Linux installed starts? 
+2) What is the name of the GNU software that is the first software program that runs when a computer with Linux installed starts?
 c) GRUB
 
 3) In what Linux directory is the kernel and initrd image stored?
@@ -546,17 +482,17 @@ b) initrd
 5) Where is the file location where the GNU Grub configuration is stored that a user would edit?
 b) /etc/default/grub
 
-6) In the /etc/default/grub.conf file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
-a) GRUB_CMDLINE_LINUX_DEDFAULT
+6) In the /etc/default/grub file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
+b) GRUB_BACKGROUND
 
-7) What is the command to make changes to /etc/default/grub.conf permanent?
+7) What is the command to make changes to /etc/default/grub permanent?
 c) sudo update-grub
 
 8) Under SysVinit - what is the ancestor process that launches first and everyother process is started by it?
 c)  init
 
 9) Under SysVinit - what runlevel is considered multi-user command-line only?
-c) 3 
+c) 3
 
 10) Under SysVinit - what runlevel is considered multi-user GUI only?
 d) 5
@@ -570,8 +506,8 @@ b)  systemd
 13) What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
 d) systemctl
 
-14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora 22 using systemd?
-d)  sudo systemctl disable httpd.service
+14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora using systemd?
+b)  sudo systemctl disable apache2.service
 
 15) What is the Linux command to inspect processes (not part of systemd)?
 b) ps
@@ -580,7 +516,7 @@ b) ps
 c) cgroups
 
 17) What is the signal name for a kill -2 command?
-b) SIGINT
+a) SIGINT
 
 18) The /proc filesystem provides you what?  (choose all that apply)
 a) Provides you a file based interface to the processes that are running on your system
@@ -590,11 +526,11 @@ b) It can be regarded as a control and information centre for the kernel
 d) lspci
 
 20) What is the runlevel target that has a single user only as root, using no password: commonly called single-user mode?
-d) runlevel1.target 
+d) runlevel1.target
 
-## Chapter 12
+## Chapter 11
 
-Chapter 12 Review Questions
+Chapter 11 Review Questions
 
 1) What is the fdisk
 a) a dialog-driven program for the creation and manipulation of partition tables.
@@ -656,6 +592,9 @@ a) pvcreate
 20) What is the command used to create a LVM volume group?
 a) vgcreate
 
+## Chapter 12
+
+TBA
 
 ## Chapter 13
 
@@ -664,8 +603,3 @@ TBA
 ## Chapter 14
 
 TBA
-
-## Chapter 15
-
-TBA
-
