@@ -243,6 +243,10 @@ This command is used to destroy the current instance of a virtual machine -- but
 
 This command is issues after the vagrant up command and allows you to establish an SSH session directly into the vagrant box, with a pre-setup username and password, with NO ASK set in the sudoers file, making for seamless entry.  You should never need to access and username or password in Vagrant as that defeats the purpose of Vagrant.  But for completeness's sake it is vagrant:vagrant. NOTE - the vagrant ssh command works perfectly by default on all Linux, MacOS, and Windows 10 hosts.  
 
+**Command:** ```vagrant plugin install vagrant-vbguest```
+
+This command specifically enables the automatic installation of the VirtualBox Additions to enable VirtualBox specific features such as shared folders.
+
 ## Packer
 
 ### The Problem Packer Solves
