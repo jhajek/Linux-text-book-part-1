@@ -279,7 +279,7 @@ Let us look at an example JSON template file: This source can be retrieved from:
 
 {
   "builders": [{
-    "name": "ubuntu-vanilla-16043-server",
+    "name": "ubuntu-vanilla-16045-server",
     "type": "virtualbox-iso",
     "guest_os_type": "Ubuntu_64",
     "guest_additions_mode": "disable",
@@ -295,7 +295,7 @@ Let us look at an example JSON template file: This source can be retrieved from:
     "communicator": "ssh",
     "ssh_pty": "true",
     "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-    "vm_name": "ubuntu-vanilla-16043-server",
+    "vm_name": "ubuntu-vanilla-16045-server",
     "hard_drive_interface": "sata",
     "disk_size": 20000,
     "boot_wait": "5s",
@@ -382,6 +382,19 @@ The builders available are:
 1. Triton (Joyent/Samsung Public Cloud)
 1. VirtualBox (both iso and ovf)
 1. Vmware
+
+#### How does the Operating System get installed?
+
+In the builder, there is an iso_url and iso_checksum values that will retrieve installation media and run a checksum against it to make sure that the file is not damaged or corrupt.
+
+```json
+
+    "iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
+    "iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
+
+```
+
+This URL is the actual remote location of the install media which will be retrieved and cached into a directory named packer_cache.  The iso file will be renamed with the iso_checksum. Subsequent packer_build commands will use this cached iso media.  You can also copy this cached iso file to other directories as long as it is placed in a local ```packer_cache``` directory--this can be used to speed up downloads.
 
 #### Provisioners
 
@@ -498,20 +511,11 @@ This command will be what is used to execute and run the packer *.json template.
 
 ![*Output of packer build*](images/Chapter-13/packer/build.png "Output of packer build")
 
-**Directory:** ```packer_cache```
+**Packer Environment Variables:** ```PACKER_CACHE_DIR```
 
 ![*Packer Cache Directory on Windows*](images/Chapter-13/packer/cache.png "Packer Cache Directory on Windows")
 
-When running packer build on the first time, Packer will use the iso_url and iso_checksum to retrieve you install media, in the sample above it is listed as:
-
-```json
-
-    "iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
-    "iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
-
-```
-
-This URL is the actual remote location of the install media which will be retrieved and cached into a directory named packer_cache.  The iso file will be renamed with the iso_checksum. Subsequent packer_build commands will use this cached iso media.  You can also copy this cached iso file to other directories as long as it is placed in a packer_cache directory--this can be used to speed up downloads.
+When running ```packer build``` Packer will cache the the install media--the iso.  You can set this location to a central directory as this will save time downloading the same media over and over. On Windows you can configure the ```PACKER_CACHE_DIR``` by setting a file location in your user account environment variables.  In Linux and Mac you can set an environment vaariable in your user profile. 
 
 #### When Packer Fails
 
