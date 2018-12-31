@@ -253,18 +253,18 @@ The gateway value is your networks default router.  This value is literally the 
 
 #### DNS
 
-DNS--Domain Name services  allow you to resolve written domain names.  The sites google.com, web.iit.edu, twit.tv, etc, etc, turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers here in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
+DNS--Domain Name services  allow you to resolve written domain names.  The sites google.com, web.iit.edu, twit.tv, etc, etc, turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
 
 * Google has two public DNS services, [8.8.8.8 and 8.8.4.4](https://developers.google.com/speed/public-dns/ "Google Public DNS")
 * [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS")
 * [IBM Quad9 9.9.9.9](https://www.quad9.net/ "IBM Quad9")
 * [OpenDNS servers](https://www.opendns.com/ "Opendns")
 
-DNS is set and configured as noted above in the various networking files.  Note that DNS was not an initial part of TCP/IP networking so it was not natively contained in the network service configuration, DNS came later in the internet.
+DNS is set and configured as noted above in the various networking files.  Note that DNS was not an initial part of TCP/IP networking so it was not natively contained in the network service configuration, DNS came later to the internet.
 
 #### iputils
 
-Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to trouble shoot the problem and identify where the problem is.  Those tools are seperate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might be installed by default.
+Most of the time the network works fine, but when it doesn't you need to be able to use builtin system tools to troubleshoot the problem and identify where the problem is.  Those tools are seperate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might be installed by default.
 
 * arping
 * clockdiff
@@ -274,6 +274,7 @@ Most of the time the network works fine, but when it doesn't you need to be able
 * rdisc
 * tftpd
 * tracepath
+* traceroute
 * traceroute6
 
 The first tool that should be in your tool box is *ping*.
@@ -298,7 +299,7 @@ There are additional tools that extend basic troubleshooting features such as:
 
 ## Webservers
 
-August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  For history's sake, an early copy of it was found on an old system and restored here: find URL.  He was working at the CERN research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the HTTP protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
+August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  For history's sake, an early copy of it was found on an old system and [restored](http://info.cern.ch/hypertext/WWW/TheProject.html "First webpage").  He was working at the [CERN](https://en.wikipedia.org/wiki/CERN "CERN") research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the Hypertext Transfer Protocol -- [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "HTTP Protocol") protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
 
 The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson, with research coming out of the University of Illinois.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver came out of this code base and became the name and the first product of the Apache Opensource Foundation.  When we look to two technologies that were used by the dotcom compnaies that survived the first and second crashes, we find that both Tyhe Apache webserver along with the MySQL database made the web possible.  
 
@@ -390,7 +391,7 @@ Centos and Fedora will need to add the ```epel-release``` package first, ```sudo
 
 For instructions on configuring and installing the php library for nginx, [https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04 "Digitla Ocean 18.04 nginx php").
 
-### OpenBSD httpd process
+### OpenBSD httpd Process
 
 The OpenBSD project which values security and home grown solutions over pure availability.  Instead of trusting others code, the OpenBSD project built and maintain [their own webserver](https://bsd.plumbing/about.html#features "OpenBSD httpd").
 
