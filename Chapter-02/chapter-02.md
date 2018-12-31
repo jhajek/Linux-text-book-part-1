@@ -624,21 +624,21 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
    * Project was called OpenSolaris but was killed when Oracle purchased Sun in 2010
    * [Explanation of how OpenSolaris was killed and *closed* sourced by Oracle.](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Fork")
 
-#### Illunmos
+#### Illumos
 
 ![*Open Indiana*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
 
-   *  After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers.  The last verson of OpenSolaris was forked into a project called Illumos. [^15]
+   *  After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers,  the last verson of OpenSolaris was forked into a project called Illumos. [^15]
    *  Illumos is not a distro but a reference implementation in which other OSes are based.
-    + openindiana
-    + Nexanta
-    + SmartOS
+    + [openindiana](https://www.openindiana.org/ "open indiana")
+    + [OmniOS](https://omniosce.org/ "Omni OS")
+    + [SmartOS](https://www.joyent.com/smartos "Smart OS")
 
-#### SmartOS   
+#### SmartOS
 
   *  [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
    + Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
-  * Recently purchased by Samsung for their OS container technology stack called Triton and Manta.
+  * Recently purchased by Samsung for their OS container technology stack called [Triton](https://www.joyent.com/triton/compute "Joyent Triton") and Manta.
   * Innovative company ahead of the technology curve by a few years--watch this space.
   * Releases all software even their production clouds as open source.
 
