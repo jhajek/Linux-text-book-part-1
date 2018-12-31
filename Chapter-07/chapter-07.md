@@ -490,7 +490,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
-1) In vim using create a shell script named ```chapter-07-created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
+1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
     i) Create a script with the proper shebang on the first line.
     i) Type the command to update package repositories.
     i) type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto accept any question.
@@ -506,7 +506,7 @@ cat << EOT >> ~/.bashrc
 ########## Inserted by User ##########
 export JAVA_HOME=/usr
 export HADOOP_HOME=$HOME/hadoop-2.8.5
-export PATH=$PATH:/$HADOOP_HOME/bin:/$HADOOP_HOME/sbin
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar
 EOT
 ```    
@@ -519,7 +519,7 @@ Submit your Github URL for your repo to Blackboard.
 
 1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  
 1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  
-1) Push the file ```chapter-07-created-shell-script.sh``` to your week-07 > itmo-556 Github repo.  
+1) Push the file ```created-shell-script.sh``` to your week-07 > itmo-556 Github repo.  
 
 #### Footnotes
 
