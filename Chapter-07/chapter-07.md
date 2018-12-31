@@ -497,7 +497,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
     i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
     i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
-    i) after sourcing the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.  
+    i) Use the providedafter sourcing the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.  
     
 __Deliverable:__  
 
@@ -505,7 +505,7 @@ Submit your Github URL for your repo to Blackboard.
 
 1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  
 1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  
-1) Push the file ```install-java-8-openjdk-new.sh``` to your week-07 > itmo-556 Github repo.  
+1) Push the file ```chapter-07-created-shell-script.sh``` to your week-07 > itmo-556 Github repo.  
 
 #### Footnotes
 
