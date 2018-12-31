@@ -619,7 +619,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 ### Lab
 
-1. Using firewalld open port 22 permanantly to allow SSH connections to your Fedora 28 or Centos 7 system.
+1. Using firewalld open port 22 permanantly to allow SSH connections to your Fedora or Centos system.
 1. Install mysql-server, PHP, and Nginx, and a self-signed cert.  
   i. Create a sample webpage that displays ```phpinfo()``` at https://localhost/index.php
   i. Locate the file index.php in ```/var/www/html```
