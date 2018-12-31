@@ -249,7 +249,7 @@ The problem is those division of IP octets are very clean, unfortunately leads t
 
 #### Gateway
 
-The gateway value is your networks default router.  This value is literally the gateway to your network. Usually this IP address ends in a .1 or a .254, but does not have to.   
+The gateway value is your networks default router.  This value is literally the gateway in and out of your network. Usually this IP address ends in a .1 or a .254, but does not have to.   
 
 #### DNS
 
