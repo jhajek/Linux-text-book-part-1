@@ -326,7 +326,7 @@ There is a system variable named $PATH that is constructed upon boot.  It includ
 
 ### Changing Permissions for Execution
 
-  The error message tells us that we have ```permission denied```.  Remember back to chapter 6 when we dealt with file permissions?  In order for a shell script to be executable we need to give it __execute__ permission.
+The error message tells us that we have ```permission denied```.  Remember back to chapter 6 when we dealt with file permissions? In order for a shell script to be executable we need to give it __execute__ permission.
 
 ![*ls -l list-ip.sh*](images/Chapter-07/editors/bash/permissions.png "Permissions")
 
