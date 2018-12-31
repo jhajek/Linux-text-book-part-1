@@ -487,7 +487,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
 1) Inside of the ```files/Chapter-07/lab``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
     i)  Use the ex command to find all occurances of ```;``` and replace them with ```&&```.
-    i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
+    i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```2.8.5```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
 1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   

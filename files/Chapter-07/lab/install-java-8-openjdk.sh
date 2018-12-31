@@ -17,7 +17,7 @@ sudo apt-get install -y openjdk-8-jdk
 
 sudo apt-get -y update ; sudo apt-get -y install pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban
 
-cd /tmp; wget http://mirror.cc.columbia.edu/pub/software/apache/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz
+cd /tmp; wget http://archive.apache.org/dist/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz
 tar -xvzf hadoop-2.6.5.tar.gz 
 mv /tmp/hadoop-2.6.5 /datapool1
  
