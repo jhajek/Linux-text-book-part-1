@@ -28,5 +28,5 @@ cat << EOT >> ~/.bashrc
 export JAVA_HOME=/usr
 export HADOOP_HOME=/datapool1/hadoop-2.8.5
 export PATH=/sbin:/usr/sbin:/bin:/usr/bin:/datapool1/hadoop-2.8.5/bin:/datapool1/hadoop-2.8.5/sbin:/usr/local/bin
-export HADOOP_CLASSPATH=/usr/lib/wrong-path/tools.jar
+export HADOOP_CLASSPATH=$TOOLSPATH
 EOT
