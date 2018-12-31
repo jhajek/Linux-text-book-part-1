@@ -224,7 +224,7 @@ __vi__ also has the ability to find and replace via a single line or globally.  
 
 :  This command has a range prefix the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
 
-```,86s/<br \/>//g```
+```47,86s/<br \/>//g```
 
 :  This command tells us to do the replacement of lines 47-86 and strip out all the extranuous ```<br />``` tags only.  Note the backslash to escape the forward slash.
 
