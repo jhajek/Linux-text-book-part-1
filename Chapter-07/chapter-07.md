@@ -289,9 +289,9 @@ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1
 
 ## Creating Shell Scripts
 
-Let's open up a terminal and create a shell script.  To do this type: ```vi list-ip.sh``` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive.  Although we are using the *bash* shell you can create scripts that can be run in other shells.  The first line of a shell script overrides the default shell and runs the script with the shell you determine.
+Let's open up a terminal and create a shell script.  To do this type: ```vi list-ip.sh``` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive or more commonly called, **shebang**.  Although we are using the *bash* shell you can create scripts that can be run with other shells.  The first line of a shell script overrides the default shell and runs the script with the shell you determine.
 
-The first line of any shell script should (but is not required) to include:  ```#!/bin/bash``` to make sure that our script is executed with the bash shell.  Normally the ```#``` means a comment, but with the ```!``` after it followed by a path, the comment function is overruled.   ```#!``` can also be pronounced *crunch* *bang*.  
+The first line of any bash script should include:  ```#!/bin/bash``` to make sure that our script is executed with the bash shell.  Normally the ```#``` means a comment, but with the ```!``` after it followed by a path, the comment function is overruled.   ```#!``` can also be pronounced *crunch* *bang*.  
 
 Not all systems store the bash binary in ```/bin/bash```.  You will need to check before you hard code that value.  You can use the ```which``` command that will show you the paths to the binaries.  
 
@@ -490,17 +490,21 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
-1) In vim using the file ```install-java-8-openjdk-fixed.sh```,  there are numerous path, permission, and dependency errors.  Using vim, fix the shell script, give it executable permission, and have it run succesfully.   
-    i) use the find command to locate tools.jar and change the path in line 9.
-    i) there are directories that don't exist -- change those paths
-    i) replace the references to my home directory
-    i) after sourcing the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
+1) In vim using create a shell script to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
+    i) Execute the command to update package repositories
+    i) Execute the command to install the ```java 8 openjdk``` and the package ```software-properties-common``` with the flag to auto accept any answer
+    i) Chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it
+    i) Execute the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
+    i) Execute the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
+    i) after sourcing the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.  
     
 __Deliverable:__  
 
-1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
-1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
-1) Push the file ```install-java-8-openjdk-new.sh``` to your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
+Submit your Github URL for your repo to Blackboard.
+
+1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  
+1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  
+1) Push the file ```install-java-8-openjdk-new.sh``` to your week-07 > itmo-556 Github repo.  
 
 #### Footnotes
 
