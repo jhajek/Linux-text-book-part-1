@@ -642,7 +642,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
   * Innovative company ahead of the technology curve by a few years--watch this space.
   * Releases all software even their production clouds as open source.
 
-## Phase Five of Unix Maturity - Hard Changes to the Nature of Linux
+## 5th Phase of Unix Maturity - Hard Changes to the Nature of Linux
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
