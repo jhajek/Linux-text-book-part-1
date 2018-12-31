@@ -490,12 +490,13 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
-1) In vim using create a shell script to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
-    i) Execute the command to update package repositories
-    i) Execute the command to install the ```java 8 openjdk``` and the package ```software-properties-common``` with the flag to auto accept any answer
-    i) Chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it
-    i) Execute the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
-    i) Execute the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
+1) In vim using create a shell script named ```chapter-07-created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
+    i) Create a script with the proper shebang on the first line.
+    i) Type the command to update package repositories.
+    i) type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto accept any question.
+    i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
+    i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
+    i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
     i) after sourcing the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.  
     
 __Deliverable:__  
