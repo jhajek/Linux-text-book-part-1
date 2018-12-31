@@ -555,7 +555,8 @@ You would uncomment the line andthe entries with a more robust list.  You would 
 
 ```bash
 
-Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,
+aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 
 ```
 
