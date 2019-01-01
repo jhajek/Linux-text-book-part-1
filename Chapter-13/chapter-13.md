@@ -583,8 +583,14 @@ Questions go here
 
 ### Podcast Questions
 
-Place holderg
-evelyn
+https://twit.tv/shows/triangulation/episodes/41?autostart=false
+https://twit.tv/shows/triangulation/episodes/76?autostart=false
+https://twit.tv/shows/triangulation/episodes/121?autostart=false
+https://twit.tv/shows/triangulation/episodes/142?autostart=false
+https://twit.tv/shows/triangulation/episodes/373?autostart=false
+https://twit.tv/shows/floss-weekly/episodes/341?autostart=false
+https://twit.tv/shows/floss-weekly/episodes/351?autostart=false
+https://twit.tv/shows/floss-weekly/episodes/397?autostart=false
 
 ### Lab
 
