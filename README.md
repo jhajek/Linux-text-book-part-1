@@ -63,6 +63,14 @@ To check if the install went correctly type: ```pandoc -v``` on the command line
 ## Mac OSX
   * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
+To Install the Charis SIL font:
+* ```wget https://software.sil.org/downloads/r/charis/CharisSIL-5.000.zip -P /tmp```
+* ```unzip /tmp/CharisSIL-5.000.zip -d ~/Library/Fonts```
+
+To Install the Inconsolata font:
+* ```wget https://fonts.google.com/download?family=Inconsolata -O /tmp/Inconsolata.zip```
+* ```unzip /tmp/Inconsolata.zip -d ~/Library/Fonts/Inconsolata```
+
 ## Windows 
 You need Pandoc > 1.19.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
 
