@@ -636,7 +636,7 @@ d. \>\>\>
 a. ->
 b. &&
 c. ||
-d. |
+d. \|
 
 17. Which command is a shortcut to display the kernel's output messages?
 a. kern
