@@ -493,11 +493,12 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
    *  [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam online gaming company's official Linux distro
    *  [Kylin Linux](http://distrowatch.com/ubuntukylin "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
    *  [Raspian](http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
-   *  [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux FSF distro, entirely GPL compliant software.
-   *  [trisquel](https://trisquel.info "Tri-skel") GNU/FSF recommended and Richard Stallman uses this one.
    *  [tails](https://tails.boum.org/ "tails") The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user.
    *  [elementaryOS](http://elementary.io/)elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.  
    *  [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian distro
+   *  [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux-Libre FSF distro, entirely GPL compliant software.
+   *  [trisquel](https://trisquel.info "Tri-skel") GNU/Linux-Libre FSF recommended and Richard Stallman uses this one.
+   *  [PureOS](https://www.pureos.net/ "PureOS") GNU/Linux FSF distro, entirely GPL compliant software.
 
 ### Red Hat Family
 
@@ -512,7 +513,18 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies.  
 
-For example Fedora 24 was released on 06/21/16, Fedora 23 was released on 11/03/15, Fedora 22 was released on 05/26/2015, Fedora 21 was released 12/09/2014, and Fedora 20 was released 12/17/2013.  Fedora 20-23 are no longer supported anymore - even though they were released within the last two years! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  In reality the Fedora Project is really just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
+* Fedora 29 was released on 10/30/18
+* Fedora 28 was released on 05/01/18
+* Fedora 27 was released on 11/14/17
+* Fedora 26 was released on 07/11/17
+* Feodra 25 was released on 11/22/16
+* Fedora 24 was released on 06/21/16
+* Fedora 23 was released on 11/03/15
+* Fedora 22 was released on 05/26/15
+* Fedora 21 was released on 12/09/14
+* Fedora 20 was released on 12/17/13
+
+Fedora 20-27 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  In reality the Fedora Project is really just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
 
 #### Red Hat Enterprise Linux--RHEL
 
