@@ -10,20 +10,14 @@
 * OS Containers
   + Docker
 * Application deployment
-    + VuePress
-    + GatsbyJS
-    + React
-    + Nodejs
-  * Python
-    + django
-  * PHP
-  * Ruby
-     + Jekyll
-     + Ruby on Rails
-  
+  + Jenkins
+  + VuePress
+  + GatsbyJS
+  + Jekyll
+
 ## Outcomes
 
-At the conclusion of this chapter you will have gained an understanding of how non-trivial applications are creeated, maintained, and securely deployed.  You will have learned about Operating System Containers and how to deploy applications using Docker. 
+At the conclusion of this chapter you will have gained an understanding of how non-trivial applications are creeated, maintained, and securely deployed.  You will have learned about Operating System Containers and how to deploy applications using Docker.
 
 ### Service Mesh and Service Discovery
 
