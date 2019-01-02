@@ -1,4 +1,4 @@
-# Installing Linux Applications and Language Frameworks ROUGH DRAFT
+# OS Containers, Discovery, Secrets, and Applications
 ![*Creating technology to support technology.*](images/Chapter-Header/Chapter-14/tech_loops-2.png "Tech Loops")
 
 ## Objectives
@@ -43,29 +43,25 @@ One of the biggest problems in computers and cyber security is the sharing of *s
 
 ### OS Containers
   
-The concept of OS containers has been around since the early part of the 1980s.  Starting with the ```chroot``` command and then the advent of BSD Jails to isolate insecure applications co-habitating on a single system.  As the new century came about, SUN had moved the concept of containers further with that of Solaris Zones.  The purpose of Zones was for "*...partitioning technology is used to virtualize operating system services and provide an isolated and secure environment for running applications[^159].*"
+The concept of OS containers has been around since the early part of the 1980s.  Starting with the ```chroot``` command and then the advent of BSD Jails to isolate insecure applications co-habitating on a single system.  As the new century came about, SUN had moved the concept of containers further with that of Solaris Zones.  The purpose of Zones was for "*...partitioning technology is used to virtualize operating system services and provide an isolated and secure environment for running applications[^159].*"  But not until 2013 and the release of Docker did the world really understand what containers were good for and the paradigm revolution.  OS Containers had always been pushed as a way to reduce sever sprawl and as an Operations tool.  [Docker](https://docker.io "Docker") showed that OS Containers were essentially a development deployment tool and a way to make a protable "binary" of your application.  
 
 ![*OS Containers*](images/Chapter-14/docker/docker-containerized-appliction-blue-border_2.png "docker containerized appliction")
 
-![*Virtual Machine*](images/Chapter-14/docker/container-vm-whatcontainer_2.png "Virtual Machine Diagram")
+\newpage
 
+![*Virtual Machine*](images/Chapter-14/docker/container-vm-whatcontainer_2.png "Virtual Machine Diagram")
 
 https://www.docker.com/resources/what-container
 
 
 ### Developing and Deploying Applications Using Containers
-    
-   * Javascript
+
+
+
+    + Jenkins
     + VuePress
     + GatsbyJS
-    + React
-    + Nodejs
-  * Python
-    + django
-  * PHP
-  * Ruby
-     + Jekyll
-     + Ruby on Rails
+    + Jekyll
 
 ## Chapter Conclusions and Review
 
