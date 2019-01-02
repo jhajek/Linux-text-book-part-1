@@ -494,8 +494,8 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
    *  [Kylin Linux](http://distrowatch.com/ubuntukylin "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
    *  [Raspian](http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
    *  [tails](https://tails.boum.org/ "tails") The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user.
-   *  [elementaryOS](http://elementary.io/)elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.  
-   *  [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian distro
+   *  [elementaryOS](http://elementary.io/) elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.  
+   *  [Kali Linux](https://www.kali.org/ "Kali Linux") Security based Debian distro
    *  [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux-Libre FSF distro, entirely GPL compliant software.
    *  [trisquel](https://trisquel.info "Tri-skel") GNU/Linux-Libre FSF recommended and Richard Stallman uses this one.
    *  [PureOS](https://www.pureos.net/ "PureOS") GNU/Linux FSF distro, entirely GPL compliant software.
@@ -511,7 +511,7 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 ![*Fedora Project*](images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
 
-The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies.  
+The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, as well as an [Atomic Edition](https://getfedora.org/en/atomic/ "RedHat Atomic").  Atomic is for use in OS containers on Kubernetes.  Recently RedHat purchased CoreOS and will be merging their Atomic project with CoreOS ContainerLinux.  
 
 * Fedora 29 was released on 10/30/18
 * Fedora 28 was released on 05/01/18
@@ -571,7 +571,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
    *  Provides friendly installers and package managers for users on top of existing FreeBSD installation
    *  Created new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
    *  Project started by Kris Moore who has been a FreeBSD developer
-   *  Project was recently renamed TrueOS
+   *  Project was recently renamed [TrueOS](https://www.trueos.org/ "TrueOS")
 
 #### DragonFly BSD
 
@@ -585,8 +585,8 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 
 #### Other BSD projects
 
-  * Ghost BSD
-  * Hardened BSD
+  * [Ghost BSD](https://www.ghostbsd.org/ "Ghost BSD")
+  * [Hardened BSD](https://hardenedbsd.org/ "Hardened BSD")
 
 #### OpenBSD
 
