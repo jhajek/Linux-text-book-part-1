@@ -20,7 +20,6 @@
      + Jekyll
      + Ruby on Rails
   
-
 ## Outcomes
 
 
