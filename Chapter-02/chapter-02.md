@@ -423,13 +423,6 @@ The creators of the opensource initiative (OSI) took a different approach to mar
 
 In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you cna include that allow for remixing and redistribution or no distribution.  There are options that allow for commerical redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "Commons."
 
-### How to choose a license
-
-
-http://www.gnu.org/licenses/license-recommendations.html
-
-
-
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux
 
 As the 1990s came to a close we began to see established companies adopting and using opensource projects in enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the GNU coretools and a GUI interface.  Of all the Linux companies that started at that time, Red Hat Linux is one of the few remaining and by far the most successful. How successful?  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
