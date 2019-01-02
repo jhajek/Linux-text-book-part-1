@@ -550,6 +550,22 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can be installed and run unchanged. One may ask, isn't this illegal too? Is Oracle breaking the law? Are they stealing RHEL software and reselling it?  Is this piracy? Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.   
 
+### Additional Linux Distros
+
+* [Gentoo Linux](https://www.gentoo.org/ "Gentoo Linux")
+  + Unique Linux distro that builds itself upon install to become completely customized, small, and secure
+  + Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system. 
+* Suse Linux
+  + [openSuse Linux](https://www.opensuse.org "Open SuseLinux")
+  + [Suse Enterprise Linux](https://www.suse.com/products/desktop/ "SLED")
+* [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
+  + Rolling release designed by Intel with auto-updating features built into the OS. 
+* [Alpine Linux](https://www.alpinelinux.org/ "Alpine Linux")
+  + Alpine uses musl libc and busybox making it a smaller GNU/Linux 
+  + Uses OpenRC init systems
+  + Uses [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
+ "Alpine Linux APK") package manager
+
 ### Unix and the BSD Family Distros
 
 While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume on the BSD forks of Unix.  The BSD code splintered into 3 main families or distros that are all descended from the original BSD Unix project.  This leaves large pieces of BSD code compatible with each other. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.  The BSD world is not immune from forks and divisions.
