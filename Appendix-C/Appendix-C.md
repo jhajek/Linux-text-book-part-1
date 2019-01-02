@@ -675,7 +675,6 @@ Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](
   * What is Randi's opinion about "getting more women in open-source?"  ~40:00
   * What is Randi saying that is the wrong focus? ~49:00
   * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
-  * Would you try/use FreeBSD or PC-BSD?
 
 ### Lab
 
@@ -831,20 +830,39 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
 1) Inside of the ```files/Chapter-07/lab``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
     i)  Use the ex command to find all occurances of ```;``` and replace them with ```&&```.
-    i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```3.0.0```.
+    i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```2.8.5```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
-1) In vim using the file ```install-java-8-openjdk-fixed.sh```,  there are numerous path, permission, and dependency errors.  Using vim, fix the shell script, give it executable permission, and have it run succesfully.   
-    i) use the find command to locate tools.jar and change the path in line 9.
-    i) there are directories that don't exist -- change those paths
-    i) replace the references to my home directory
-    i) after sourcing the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
+1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
+    i) Create a script with the proper shebang on the first line.
+    i) Type the command to update package repositories.
+    i) type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto accept any question.
+    i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
+    i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
+    i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
+    i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the commmand to display the content of the ```$RESULT``` variable. 
+    i) Add these lines to the END of your shell script:
+    
+```bash
+cat << EOT >> ~/.bashrc 
+
+########## Inserted by User ##########
+export JAVA_HOME=/usr
+export HADOOP_HOME=$HOME/hadoop-2.8.5
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar
+EOT
+```    
+
+Source the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.  
     
 __Deliverable:__  
 
-1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
-1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
-1) Push the file ```install-java-8-openjdk-new.sh``` to your week-07 > itmo-556 Github repo.  Submit your Github URL for your repo to Blackboard.
+Submit your Github URL for your repo to Blackboard.
+
+1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  
+1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  
+1) Push the file ```created-shell-script.sh``` to your week-07 > itmo-556 Github repo.  
 
 ## Chapter 08
 
@@ -1737,16 +1755,62 @@ Docker - [https://twit.tv/shows/floss-weekly/episodes/330](https://twit.tv/shows
 
 ### Lab
 
-
 ## Chapter 14
 
 ### Podcast
+
+See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantril Hashiconf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
+
+1. ~0:30 Where does Bryan work, who recently bought that company, and what do they do?
+1. ~1:33 What is the date of the birth of containers?
+1. ~3:25 What was the next iteration of containers?
+1. ~3:49 What is the purpose of a Jail?
+1. ~5:10 What did SUN call their full application environment they created in 2002?
+1. ~6:13 What is every application running on?
+1. ~8:43 What did Amazon announce in 2006?
+1. ~9:00 In 2006 what was Joyent using in 2006, and what was Amazon using?
+1. ~9:25 What became defacto for the cloud?
+1. ~11:18 What happens to the RAM when you give it to an operating system?
+1. ~14:40 What does Joyent's Manta service allow you to do with containers and objects?
+1. ~18:58 What command hadn't been created in 1986?
+1. ~21:45 When did the world figure out containers and what was this product?
+1. ~22:57 Why did the container revolution start with Docker?
+1. ~24:07 Containers allow developers to do what?
+1. ~26:00 What is Triton and what does it do?
+1. ~31:42 What are the two approaches to the container ecosystem, and what is the difference?
+1. ~33:25 What is the Hashi ethos?
+1. ~37:00 What was the mistake that happened with the pilot operator release valve at 3 Mile Island?
+1. ~39:05 With container based systems in what terms must we think in?
+1. ~40:00 Why is scheduling containers inside of Virtual Machines a bad idea?
+1. ~What are Joyent's thoughts regarding Virtual Machines in the application stack?
 
 ### Lab
 
 ## Chapter 15
 
 ### Podcast
+
+Kubernetes
+
+[https://twit.tv/shows/floss-weekly/episodes/351?autostart=false](https://twit.tv/shows/floss-weekly/episodes/351?autostart=false "FLOSS Kubernetes")
+
+1. ~8:37 What problem is Kubernetes solving and how does it solve it?
+1. ~9:16 What is a "PaaS" and what does it do?
+1. ~10:20 Was Kubernetes built from the ground up as an opensource project?
+1. ~12:35 How does Kubernetes handle IP addressing for containers? 
+1. ~14:35 What is the unit of abstraction with Kubernetes?
+1. ~15:10 What does the word Kubernetes mean?
+1. ~16:25 How does Kubernetes and Docker relate/intertwine?
+1. ~24:00 What is the big selling point of using Kubernetes mentioned?
+1. ~27:10 Does Kubernetes take care of all features needed to run an applicaiton or are additional software pieces needed?
+1. ~28:55 What is the difference between an OS Container and a Virtual Machine?
+1. ~31:01 How does Kubernetes deal with quality of service in relation to applications?
+1. ~33:31 How does Kubernetes differ from SUN Solaris containers (zones)?
+1. ~36:45 Does Kubernetes run on other cloud providers (Azure or AWS)?
+1. ~37:42 How are customers using Kubernetes in production?
+1. ~44:23 In what service does Kubernetes keep its system state in?
+1. ~45:43 Why did Google decide to use its own Go language to develop Kubernetes?
+1. ~52:02 What is the relationship between Google/Kubernetes and RedHat's OpenShift Paas?
 
 ### Lab
 
