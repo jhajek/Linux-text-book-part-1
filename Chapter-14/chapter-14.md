@@ -1,4 +1,4 @@
-# OS Containers, Discovery, Secrets, and Applications
+# OS Containers, Service Discovery, Secrets, and Applications
 ![*Creating technology to support technology.*](images/Chapter-Header/Chapter-14/tech_loops-2.png "Tech Loops")
 
 ## Objectives
