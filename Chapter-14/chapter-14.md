@@ -3,13 +3,13 @@
 
 ## Objectives
 
+* OS Containers
+  + Docker
 * Service Discovery and Service Mesh
   + Consul
 * Secret Sharing
   + Vault
-* OS Containers
-  + Docker
-* Application deployment
+* Application Deployment
   + Jenkins
   + VuePress
   + GatsbyJS
@@ -17,7 +17,19 @@
 
 ## Outcomes
 
-At the conclusion of this chapter you will have gained an understanding of how non-trivial applications are creeated, maintained, and securely deployed.  You will have learned about Operating System Containers and how to deploy applications using Docker.
+At the conclusion of this chapter you will have gained an understanding of how non-trivial applications are creeated, maintained, and securely deployed using Operating System Containers.  You will have learned the basic differences and advantages of OS Containers and Virtual Machines and a representation of tools that demonstrate these concepts. 
+
+### Operating System Containers
+
+In the beginning of this book we saw the Mini-Computer, the PDP-7, which is what UNIX was designed to run on by ken Thompson and Dennis Rithcie.  UNIX made the change when computers migrated to IBM mainframes, then to Intel based servers, then to Virtual Machines.  But according to Bryan Cantrill, CTO of Samsung Joyent, Virtual Machines were initially sold to companies as hardware consolidation options.  Once everyting was consolidated any operational or financial advantages were lost.  You essentially moved your existing infrastructure into virtualized hardware.  
+
+Hardware Virtualization was the idea that you would completely emulate an entire machine in software.  While this simplified the abstraction it resulted in the uneeded duplication of hardware in software.  You can see in Figure 7.2 the structure of Virtual Machines. 
+
+![*Virtual Machine*](images/Chapter-14/docker/container-vm-whatcontainer_2.png "Virtual Machine Diagram")
+
+\newpage
+
+
 
 ### Service Mesh and Service Discovery
 
@@ -41,29 +53,23 @@ The concept of OS containers has been around since the early part of the 1980s. 
 
 ![*OS Containers*](images/Chapter-14/docker/docker-containerized-appliction-blue-border_2.png "docker containerized appliction")
 
-\newpage
-
-![*Virtual Machine*](images/Chapter-14/docker/container-vm-whatcontainer_2.png "Virtual Machine Diagram")
-
 https://www.docker.com/resources/what-container
 
 
 ### Developing and Deploying Applications Using Containers
 
-
-
-    + Jenkins
-    + VuePress
-    + GatsbyJS
-    + Jekyll
++ Jenkins
++ VuePress
++ GatsbyJS
++ Jekyll
 
 ## Chapter Conclusions and Review
 
-  Conclusion goes here
+Conclusion goes here
 
 ### Review Questions
 
-  Questions go here
+Questions go here
 
 ### Podcast Questions
 
