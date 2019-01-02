@@ -1712,7 +1712,28 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 ## Chapter 13
 
-### Podcast
+### Podcast Questions
+
+Docker - [https://twit.tv/shows/floss-weekly/episodes/330](https://twit.tv/shows/floss-weekly/episodes/330 "FLOSS Docker interview")
+
+1. ~3:37 What is the overview of Docker and what does it do?
+1. ~4:58 Linux Containers already existed, what does Docker do differently (who are they targeting)?
+1. ~6:45 Is Docker language specific?
+1. ~7:39 How is Docker similar to a static binary?
+1. ~10:15-12:00 How do Docker containers shift the line between developers and operations people?
+1. ~13:30 How does the analogy of Docker and cargo shipping containers relate?
+1. ~22:15 How does source code get from Git to a Docker Container?
+1. ~22:50 Is a container like a server or a binary?
+1. ~25:20 How does Docker handle container orchestration?
+1. ~28:00 What does Docker Swarm do?
+1. ~28:33 What does Docker Compose do?
+1. ~32:00 What features does Docker not contain out of the box?
+1. ~33:30 What is the process to build container images that are identical too each other?
+1. ~36:01 What can you do with Docker IDs to make a clean predictable starting point?
+1. ~37:45 How does Docker prevent builds from differing over a large number of machines?
+1. ~42:15 Can Docker run containers that are different than the host OS and why?
+1. ~48:23 What language is Docker written in?
+1. ~51:00 How is Docker developed, what is the project's example?
 
 ### Lab
 
