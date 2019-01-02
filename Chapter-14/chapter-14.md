@@ -75,8 +75,8 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 1. ~33:25 What is the Hashi ethos?
 1. ~37:00 What was the mistake that happened with the pilot operator release valve at 3 Mile Island?
 1. ~39:05 With container based systems in what terms must we think in?
-1. ~40:00 Why is scheduling containers inside of VMs a bad idea?
-1. ~What is Joyents thoughts regarding VMs in the application stack?
+1. ~40:00 Why is scheduling containers inside of Virtual Machines a bad idea?
+1. ~What are Joyent's thoughts regarding Virtual Machines in the application stack?
 
 ### Lab
 

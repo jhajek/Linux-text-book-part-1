@@ -680,7 +680,6 @@ Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](
   * What is Randi's opinion about "getting more women in open-source?"  ~40:00
   * What is Randi saying that is the wrong focus? ~49:00
   * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
-  * Would you try/use FreeBSD or PC-BSD?
 
 ### Lab
 
