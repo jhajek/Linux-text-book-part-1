@@ -38,9 +38,7 @@ In addition to the text material this book includes:
   *  Weekly supplemental podcast questions
   *  Chapter Labs for reinforcing chapter content
      + Provided in text format
-     + For those who use it, provided in Blackboard quiz form -- ready for import
-  * Standard PowerPoint chapter slides in template form
-  * Additional Microsoft Sway presentations for the first six chapters   
+     + For those who use it, provided in Blackboard quiz form -- ready for import 
   * Example programs and source code for exercises
    
 The text of the book is opensource and build instructions are in our GitHub repository for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") Instructors can feel free to fork the repo or submit pull requests.  This is to ensure that we have a living document that can be changed and updated and republished quickly.  
@@ -71,14 +69,6 @@ Part of this book was inspired by a quote from my friend in regards to Linux tex
  * Appendix A image - [http://imgs.xkcd.com/comics/iso_8601.png](http://imgs.xkcd.com/comics/iso_8601.png  "Dates")
  * Appendix B images - [http://imgs.xkcd.com/comics/git_commit.png](http://imgs.xkcd.com/comics/git_commit.png  "Git Commit")
  * Appendix C images - 
- 
-### Links to Microsoft Sway Presentations
-
- * [Chapter 2](https://sway.com/i5Cx_zt57c-YGmIr?ref=Link&loc=mysways "Chapter 02")
- * [Chapter 3](https://sway.com/qxWQ6byqAI2bInXn?ref=Link&loc=mysways "Chapter 03")
- * [Chapter 4](https://sway.com/McBZPp8hXVHiMQO0?ref=Link&loc=mysways "Chapter 04")
- * [Chapter 5](https://sway.com/Yxo8uWW38K0L66WC?ref=Link&loc=mysways "Chapter 05") 
- * [Chapter 6](https://sway.com/jqtPt3oXBh6rHZOG?ref=Link&loc=mysways "Chapter 06")
 
 ## Author(s)
 

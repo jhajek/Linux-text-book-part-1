@@ -409,6 +409,27 @@ Open source doesn't just mean access to the source code. According to the [Opens
 10. License Must Be Technology-Neutral
     i) No provision of the license may be predicated on any individual technology or style of interface.
 
+### Opensource Licensing
+
+The creators of the opensource initiative (OSI) took a different approach to market free software not as a moral issue, but as a development improvement and business use case.  This lead to the creation of similar licenses to the GPL, but what was termed as **weak copyleft** or as the Free Software Foundation calls them, *Pushover Copyleft*.   These licenses allow for contributions back to the creators as well as the ability to use, share, and inspect the code.  They provide one key additional feature in that they let you take your copy and keep the changes--making it proprietary.  Github itself has created a site to help you choose a license for your software called, ["Choose a License."](https://choosealicense.com/ "Choose a License")
+
+* [MIT](https://opensource.org/licenses/MIT "MIT License")
+* [APACHE Public License 2.0](https://opensource.org/licenses/Apache-2.0 "Apache Public License")
+* [BSD 3 Cluase](https://opensource.org/licenses/BSD-3-Clause "BSD 3 Clause")
+* [BSD 2 Clause or FreeBSD license](https://opensource.org/licenses/BSD-2-Clause "BSD 2 Clause")
+* [ISC Liscense](https://opensource.org/licenses/ISC "ISC")
+* [Mozilla Public License](https://opensource.org/licenses/MPL-2.0 "MPL")
+* [CDDL](https://opensource.org/licenses/CDDL-1.0 "CDDL")
+
+In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you cna include that allow for remixing and redistribution or no distribution.  There are options that allow for commerical redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "Commons."
+
+### How to choose a license
+
+
+http://www.gnu.org/licenses/license-recommendations.html
+
+
+
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux
 
 As the 1990s came to a close we began to see established companies adopting and using opensource projects in enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the GNU coretools and a GUI interface.  Of all the Linux companies that started at that time, Red Hat Linux is one of the few remaining and by far the most successful. How successful?  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
