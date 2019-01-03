@@ -19,7 +19,7 @@
 
 At the conclusion of this chapter you will have gained an understanding of how non-trivial applications are creeated, maintained, and securely deployed using Operating System Containers.  You will have learned the basic differences and advantages of OS Containers and Virtual Machines and will be able to use industry standard tools that demonstrate these concepts.
 
-### Operating System Containers and Virtual Machines
+## Operating System Containers and Virtual Machines
 
 In the class so far, we have made extensive use of virtual machines.  This technology greatly reduced our needs for physical lab space and extra computers.  And the technology is execllent and mature from a hardware point of view.  If we want to test installing an Apache Webserver or Nginx or even FreeBSD, we can do so in using a virtual machine.  We can use Packer and Vagrant to automate the creation of these virtual machines.  This is is a huge advantage when we look at things operationally.  But IT operations doesn't just run servers, they run applications which are the lifeblood of any business.  When we look at virtual machines from an application point of view we begin to see some redundancies.  For instance I can launch multiple Ubuntu and Debian and other Linux virtual machines and have isolated applications.  But each operating system has virtualized hardware, drivers, BIOS, even a virtual floppy disk driver (which can be exploited, see VENOM).  
 
@@ -33,13 +33,15 @@ When you look at Linux binaries such as ```ls``` or ```grep``` they are precompi
 
 ![*OS Containers*](images/Chapter-14/docker/docker-containerized-appliction-blue-border_2.png "docker containerized appliction")
 
-### Where did Containers come from
+### Where did Containers Come From?
 
 We know the birthday of containers.  it started in 4.1 BSD in 1984.  Bill Joy submited the code to create the ancestor of containers, the ```chroot``` command.  This command was used to *contain* a user or application into a certain directory structure, while allowing multiple users to still share the same system.  The ```chroot``` command gave wat to FreeBSD ```jails``` command which essentially was used to contain vulnerable or misbehaving software.  This would allow you to *jail* and application such as a webserver or FTP server so that there processes would not effect other users.
 
 Taking the idea of a BSD Jail, SUN developed a further extension for [Solaris called Zones](https://docs.oracle.com/cd/E36784_01/html/E36848/zones.intro-2.html#scrolltoc "Oracle Solaris Zones Docs") in 2004. The purpose of Zones is stated as "*...partitioning technology (is) used to virtualize operating system services and provide an isolated and secure environment for running applications[^159].*" This technology lives on in IllumOS based distributions today. Zones were an improvement over FreeBSD Jails.  But were still postiioned as an IT tool for consolidating servers and reducing costs.  
 
-This all changed in 2013.  A failing Platform as a Service company called DotCloud make a last minute attempt to save itself by opensourcing and presenting their OS Container management tool, called **Docker**.  It was at this presentation that OS Containers were no longer seen as an operations tool, but was presented in a format that allowed developers to see OS Containers as a way to package up software dependencies and application code and deploy it almost as a single binary.  The anology of a shipping container is not lost.  Once shipping was standardized into container weights and heights, world wide shipping on boats, trains, and trucks became vastly streamlined.  In Figure 7.3 you see that applicaitons are using th esame kernel.  This is possible because of the way Linux is constructed.  Linux is a kernel, and therefore you can place any operating system on top of it.  In addition to this natural structure, Linux uses a technology called **cgroups** to create **namespaces** which further allow for isolation of applications.
+This all changed in 2013.  A failing Platform as a Service company called DotCloud make a last minute attempt to save itself by opensourcing and presenting their OS Container management tool, called **Docker**.  It was at this presentation that OS Containers were no longer seen as an operations tool, but was presented in a format that allowed developers to see OS Containers as a way to package up software dependencies and application code and deploy it almost as a single binary.  The anology of a shipping container is not lost.  Once shipping was standardized into container weights and heights, world wide shipping on boats, trains, and trucks became vastly streamlined.  In Figure 7.3 you see that applicaitons are using the same kernel.  This is possible because of the way Linux is constructed.  Linux is a kernel, and therefore you can place any operating system on top of it.  In addition to this natural structure, Linux uses a technology called **cgroups** to create **namespaces** which further allow for isolation of applications.   Containers then lead t the concept of immutable infrastructure.  Since they are so small you simply build them and if there is a problem, you re-build and redeploy.  No need for induvidual managment.
+
+## Docker Containers
 
 [Docker](https://docker.io "Docker") showed that OS Containers were essentially a development deployment tool and a way to make a portable "binary" of your application.  We can install Docker on any Linux based operating system.  Let's try this on an Ubuntu 18.04 system.  This shell script can be found in the source code directory for the textbook under Chapter-14 or at this URL [Find URL](URL)
 
@@ -59,13 +61,23 @@ sudo systemctl enable docker
 
 What can you do with docker?  Once installed you have a few commands that are needed to get up and running.  To get started with we will pull some pre-made docker containers and work with them. In the Lab portion we will work with Packer and create our own Docker containers.  
 
-* docker pull
-* docker images
-* docker ps
-* docker start | stop
+* Get Docker container images
+ + ```docker pull```
+* List Docker container images
+ + ```docker images```
+ + ```docker ps```
+* Start, stop and run container images
+ + ```docker run```
+ + ```docker start | stop```
+ + ```docker rm```
+
+From the commandline I can issue the command: ```docker pull ubuntu```.  This will go the the Docker registry, not unlike the Vagrant Box registry, and pull an Ubuntu 18.04 container (~35mb) to your system.  Try it and see what happens.
+
+You can now list the Ubuntu container image by issuing the ```docker images``` command.  When you do, what do you see?  Try to pull someother containers.  Try ```docker pull ruby``` or ```docker pull alpine``` or ```docker pull jenkins```.  What happens?  There is an entire public container registry with commonly installed applications.  These are good for exploration and experimenting but not wise to use in a production system.  URL HERE. 
 
 
-```docker pull ubuntu```
+
+
 ```docker run --name ubuntu1804 -it ubuntu```
 
 -i for interactive -t for a pseudo-TTY  
