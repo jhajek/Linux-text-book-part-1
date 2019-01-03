@@ -70,11 +70,19 @@ Part of this book was inspired by a quote from my friend in regards to Linux tex
  * Appendix B images - [http://imgs.xkcd.com/comics/git_commit.png](http://imgs.xkcd.com/comics/git_commit.png  "Git Commit")
  * Appendix C images - 
 
-## Author(s)
+## Authors and Contributors
 
-[Jeremy Hajek](https://appliedtech.iit.edu/people/jeremy-hajek "Jeremy Hajek") - Industry Associate Professor at the Illinois Institute of Technology 
+[Jeremy Hajek](https://appliedtech.iit.edu/people/jeremy-hajek "Jeremy Hajek") - Industry Associate Professor at the Illinois Institute of Technology
 
-## Thanks 
+Special thanks to those who have submitted pull requests and bug reports
+
+* [njdwklopper](https://github.com/njdwklopper "Github Profile for njdwklopper")
+* [HackingGate](https://github.com/HackingGate "Github profile for HackingGate")
+* [ttruty](https://github.com/ttruty "Github profile for ttruty")
+* [kwillet7](https://github.com/kwillett7 "Github profile for kwillet7")
+* [paul-arg](https://github.com/paul-arg "Github profile for paul-arg")
+
+## Thanks
 
 * Professor Sam - who taught me that it is pronounced *"ee tee cee F-stab"* not *"etc F S tab"* and how to read error messages. 
 * Professor Ray Trygstad and Dean Robert Carlson, who gave me my first real IT job and showed me the wonders of Perl.
