@@ -59,7 +59,7 @@ sudo systemctl enable docker
 
 ```
 
-What can you do with docker?  Once installed you have a few commands that are needed to get up and running.  To get started with we will pull some pre-made docker containers and work with them. In the Lab portion we will work with Packer and create our own Docker containers.  
+What can you do with docker?  The [commandline reference](https://docs.docker.com/engine/reference/commandline "Docker CLI reference") is pretty complete.  Once installed you have a few commands that are needed to get up and running.  To get started with we will pull some pre-made docker containers and work with them. In the Lab portion we will work with Packer and create our own Docker containers.  
 
 * Get Docker container images
  + ```docker pull```
@@ -71,20 +71,19 @@ What can you do with docker?  Once installed you have a few commands that are ne
  + ```docker start | stop```
  + ```docker rm```
 
+https://www.docker.com/resources/what-container
+
 From the commandline I can issue the command: ```docker pull ubuntu```.  This will go the the Docker registry, not unlike the Vagrant Box registry, and pull an Ubuntu 18.04 container (~35mb) to your system.  Try it and see what happens.
 
-You can now list the Ubuntu container image by issuing the ```docker images``` command.  When you do, what do you see?  Try to pull someother containers.  Try ```docker pull ruby``` or ```docker pull alpine``` or ```docker pull jenkins```.  What happens?  There is an entire public container registry with commonly installed applications.  These are good for exploration and experimenting but not wise to use in a production system.  URL HERE. 
+You can now list the Ubuntu container image by issuing the ```docker images``` command.  When you do, what do you see?  Try to pull someother containers.  Try ```docker pull mysql```, or ```docker pull alpine```, or ```docker pull jenkins```.  What happens?  There is an entire public container registry with commonly installed applications.  These are good for exploration and experimenting but not wise to use in a production system.  URL HERE.
+
+Now we see these items listed by issuing the command: ```docker images```, but how to interact with them?  We issue the command: ```docker run```.  The entire ```docker run``` documentation is explained [https://docs.docker.com/engine/reference/commandline/run/#examples](https://docs.docker.com/engine/reference/commandline/run/#examples "Docker run documentation"). There are two ways to run containers.  They can be run as a background process accesible over the network or the can be run with an interactive remote shell.  For those downloading basic Ubuntu containers this will be the best option as you can then experiement to get your applicaiton exactly the way you want it to look.  
+
+Let's run the command: ```docker run --name my-apache-server -it ubuntu```.  What happens?  Type the command: ```docker ps``` and note that this screen shows us the running container instances.  The ```--name``` flag allows us to give us a reference name for this instance of the container.  The ```-i``` flag allows us to have an interactive shell and the ```-t``` gives us a psuedo-TTY; or terminal.  Note that this is a root shell and you can pass commands remotely wihtout needing an interactive shell.  Simple remove the ```-i -t or -it``` flags. 
+
+Now we need to install something for our applicaiton.  Let's start with something super simple. A hello-world PHP and Apache applicaiton.  In order to run these applications you will need to install all the dependencies via apt-get.  You will even need to install ```git``` to clone the sample code since this is a virtualized operating system, the installed packages are very few in number (by design).
 
 
-
-
-```docker run --name ubuntu1804 -it ubuntu```
-
--i for interactive -t for a pseudo-TTY  
-
-https://docs.docker.com/engine/reference/commandline/run/#examples
-
-https://www.docker.com/resources/what-container
 
 ### Service Mesh and Service Discovery
 
