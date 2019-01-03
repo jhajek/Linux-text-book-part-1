@@ -523,7 +523,7 @@ Looking at this command, using the GNU version of ```sed``` they introduced the 
 sudo sed -i "s/bantime = 600/bantime = 10000/g" /etc/fail2ban/jail.conf
 ```
 
-For more information see this IBM tutorial: [sed by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "sed by example")
+For more information see this IBM tutorial: [sed by example](https://www.ibm.com/developerworks/library/l-sed1/index.html "sed by example")
 
 ## Chapter Conclusions and Review
 

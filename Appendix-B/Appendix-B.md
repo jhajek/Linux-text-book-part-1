@@ -252,7 +252,7 @@ a. \>
 b. \>\>
 
 16. What meta-character is used to redirect the standard output of one command as the standard input of another command?
-d. | 
+d. \| 
 
 17. Which command is a shortcut to display the kernel's output messages?
 d. dmesg
