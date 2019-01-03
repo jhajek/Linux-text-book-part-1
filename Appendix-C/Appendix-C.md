@@ -840,10 +840,11 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
     i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
     i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
-    i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the commmand to display the content of the ```$RESULT``` variable. 
+    i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the commmand to display the content of the ```$RESULT``` variable.
     i) Add these lines to the END of your shell script:
-    
+
 ```bash
+
 cat << EOT >> ~/.bashrc 
 
 ########## Inserted by User ##########
@@ -852,10 +853,10 @@ export HADOOP_HOME=$HOME/hadoop-2.8.5
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar
 EOT
-```    
+```
 
-Source the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.  
-    
+Source the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
+
 __Deliverable:__  
 
 Submit your Github URL for your repo to Blackboard.
