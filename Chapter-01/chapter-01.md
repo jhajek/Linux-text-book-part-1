@@ -84,7 +84,7 @@ Special thanks to those who have submitted pull requests and bug reports
 
 ## Thanks
 
-* Professor Sam - who taught me that it is pronounced *"ee tee cee F-stab"* not *"etc F S tab"* and how to read error messages. 
+* [Professor Sam](https://appliedtech.iit.edu/people/sheikh-sam-shamsuddin "Sam") - who taught me that it is pronounced *"ee tee cee F-stab"* not *"etc F S tab"* and how to read error messages. 
 * Professor Ray Trygstad and Dean Robert Carlson, who gave me my first real IT job and showed me the wonders of Perl.
 * Illinois Institute of Technology who has entrusted me with much.
 * My wife and kids who supported me always.
