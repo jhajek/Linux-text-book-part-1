@@ -523,7 +523,7 @@ A tape archive that is additionally compressed by another tool is called a __tar
 
 > __Example usage:__ Each one of these tar archives has been further compressed by one of the 4 Unix/Linux compression methods ```file linux-4.3-rc3.tar.Z; file linux-4.3-rc3.tar.gzip; file linux-4.3-rc3.tar.bzip2; file linux-4.3-rc3.tar.xz```
 
-> __Example usage:__  Previously you had to pass a flag to the ```tar``` command to tell it what type of compression algorithm to decompress with but now ```tar``` is smart and will autodetect for you.  The flags you need to simply pass are -x for extract, -v for verbose (optional), and -f for force (optional) ```wget https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz; tar -xvf linux-4.3-rc3.tar.xz```  
+> __Example usage:__  Previously you had to pass a flag to the ```tar``` command to tell it what type of compression algorithm to decompress with but now ```tar``` is smart and will autodetect for you.  The flags you need to simply pass are -x for extract, -v for verbose (optional), and -f for file (optional) ```wget https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz; tar -xvf linux-4.3-rc3.tar.xz```  
 
 ![*Archive and Compress Diagram*](images/Chapter-06/tar/640px-Targzip-svg-xcf.png "Archive and Compress")
 
@@ -636,7 +636,7 @@ d. \>\>\>
 a. ->
 b. &&
 c. ||
-d. |
+d. \|
 
 17. Which command is a shortcut to display the kernel's output messages?
 a. kern
