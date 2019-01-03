@@ -29,6 +29,12 @@ Hardware Virtualization was the idea that you would completely emulate an entire
 
 \newpage
 
+```docker pull ubuntu```
+```docker run --name ubuntu1804 -it ubuntu```
+
+-i for interactive -t for a pseudo-TTY  
+
+https://docs.docker.com/engine/reference/commandline/run/#examples
 
 
 ### Service Mesh and Service Discovery
@@ -54,7 +60,6 @@ The concept of OS containers has been around since the early part of the 1980s. 
 ![*OS Containers*](images/Chapter-14/docker/docker-containerized-appliction-blue-border_2.png "docker containerized appliction")
 
 https://www.docker.com/resources/what-container
-
 
 ### Developing and Deploying Applications Using Containers
 
