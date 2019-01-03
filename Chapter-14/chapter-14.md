@@ -1,4 +1,4 @@
-# OS Containers, Service Discovery, Secrets, and Applications
+# OS Containers, Service Discovery, Secrets, and Applications - Rough Draft
 ![*Creating technology to support technology.*](images/Chapter-Header/Chapter-14/tech_loops-2.png "Tech Loops")
 
 ## Objectives
@@ -23,7 +23,7 @@ At the conclusion of this chapter you will have gained an understanding of how n
 
 In the beginning of this book we saw the Mini-Computer, the PDP-7, which is what UNIX was designed to run on by ken Thompson and Dennis Rithcie.  UNIX made the change when computers migrated to IBM mainframes, then to Intel based servers, then to Virtual Machines.  But according to Bryan Cantrill, CTO of Samsung Joyent, Virtual Machines were initially sold to companies as hardware consolidation options.  Once everyting was consolidated any operational or financial advantages were lost.  You essentially moved your existing infrastructure into virtualized hardware.  
 
-Hardware Virtualization was the idea that you would completely emulate an entire machine in software.  While this simplified the abstraction it resulted in the uneeded duplication of hardware in software.  You can see in Figure 7.2 the structure of Virtual Machines. 
+Hardware Virtualization was the idea that you would completely emulate an entire machine in software.  While this simplified the abstraction it resulted in the uneeded duplication of hardware in software.  You can see in Figure 7.2 the structure of Virtual Machines.
 
 ![*Virtual Machine*](images/Chapter-14/docker/container-vm-whatcontainer_2.png "Virtual Machine Diagram")
 
