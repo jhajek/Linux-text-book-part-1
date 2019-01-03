@@ -79,11 +79,16 @@ You can now list the Ubuntu container image by issuing the ```docker images``` c
 
 Now we see these items listed by issuing the command: ```docker images```, but how to interact with them?  We issue the command: ```docker run```.  The entire ```docker run``` documentation is explained [https://docs.docker.com/engine/reference/commandline/run/#examples](https://docs.docker.com/engine/reference/commandline/run/#examples "Docker run documentation"). There are two ways to run containers.  They can be run as a background process accesible over the network or the can be run with an interactive remote shell.  For those downloading basic Ubuntu containers this will be the best option as you can then experiement to get your applicaiton exactly the way you want it to look.  
 
-Let's run the command: ```docker run --name my-apache-server -it ubuntu```.  What happens?  Type the command: ```docker ps``` and note that this screen shows us the running container instances.  The ```--name``` flag allows us to give us a reference name for this instance of the container.  The ```-i``` flag allows us to have an interactive shell and the ```-t``` gives us a psuedo-TTY; or terminal.  Note that this is a root shell and you can pass commands remotely wihtout needing an interactive shell.  Simple remove the ```-i -t or -it``` flags. 
+Let's run the command: ```docker run --name my-apache-server -it ubuntu```.  What happens?  Type the command: ```docker ps``` and note that this screen shows us the running container instances.  The ```--name``` flag allows us to give us a reference name for this instance of the container.  The ```-i``` flag allows us to have an interactive shell and the ```-t``` gives us a psuedo-TTY; or a terminal.  Note that this is a root shell and you can pass commands remotely wihtout needing an interactive shell.  Simple remove the ```-i -t or -it``` flags.
+
 
 Now we need to install something for our applicaiton.  Let's start with something super simple. A hello-world PHP and Apache applicaiton.  In order to run these applications you will need to install all the dependencies via apt-get.  You will even need to install ```git``` to clone the sample code since this is a virtualized operating system, the installed packages are very few in number (by design).
 
+You can clone the simple PHP project from this URL, or you can find the code located in the ```Chapter-14 > PHP``` files directory. You can use the ```docker cp``` command to *insert* files directly to an OS Container, but it makes sense to use Git.  
 
+You will need to install git, apache2, and php, clone the code and copy its content to ```/var/www/html```.   
+
+Now how to we get the website to render?  You wlll notice that one of the advantages of a Virtual Machine is that each VM has its own networking stack and this makes the abstraction easy to grasp.  In the case of OS Containers, there is only one networking stack, so we need to ALLOW or open containers upon internal networking ports--similar to the concept of port forwarding.  You can do this by adding the ```-p``` flag and then a port mapping such as ```80:80``` which will tell Docker to send requests on port 80 to port 80 inside the container.  
 
 ### Service Mesh and Service Discovery
 
