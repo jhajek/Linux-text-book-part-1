@@ -41,9 +41,10 @@ Taking the idea of a BSD Jail, SUN developed a further extension for [Solaris ca
 
 This all changed in 2013.  A failing Platform as a Service company called DotCloud make a last minute attempt to save itself by opensourcing and presenting their OS Container management tool, called **Docker**.  It was at this presentation that OS Containers were no longer seen as an operations tool, but was presented in a format that allowed developers to see OS Containers as a way to package up software dependencies and application code and deploy it almost as a single binary.  The anology of a shipping container is not lost.  Once shipping was standardized into container weights and heights, world wide shipping on boats, trains, and trucks became vastly streamlined.  In Figure 7.3 you see that applicaitons are using th esame kernel.  This is possible because of the way Linux is constructed.  Linux is a kernel, and therefore you can place any operating system on top of it.  In addition to this natural structure, Linux uses a technology called **cgroups** to create **namespaces** which further allow for isolation of applications.
 
-[Docker](https://docker.io "Docker") showed that OS Containers were essentially a development deployment tool and a way to make a portable "binary" of your application.  We can install Docker on any Linux based operating system.  Let's try this on an Ubuntu 18.04 system.
+[Docker](https://docker.io "Docker") showed that OS Containers were essentially a development deployment tool and a way to make a portable "binary" of your application.  We can install Docker on any Linux based operating system.  Let's try this on an Ubuntu 18.04 system.  This shell script can be found in the source code directory for the textbook under Chapter-14 or at this URL [Find URL](URL)
 
 ```bash
+# Bash Script to install docker-ce from URL
 
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
@@ -55,6 +56,14 @@ sudo apt-get install -y docker-ce
 sudo systemctl enable docker
 
 ```
+
+What can you do with docker?  Once installed you have a few commands that are needed to get up and running.  To get started with we will pull some pre-made docker containers and work with them. In the Lab portion we will work with Packer and create our own Docker containers.  
+
+* docker pull
+* docker images
+* docker ps
+* docker start | stop
+
 
 ```docker pull ubuntu```
 ```docker run --name ubuntu1804 -it ubuntu```
