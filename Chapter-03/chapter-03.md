@@ -81,10 +81,10 @@ Until 2013 Parallels Desktop was a direct competitor to VMware Workstation on th
 
 TYPE I is used in server environments on hardware utilizing multiple core CPUs, multiple terabytes of RAM, and multiple terabytes of hard drive space.  A TYPE I hypervisor includes a kernel and tiny purpose driven mini-operating system tuned just for managing and interfacing with virtual machines.  The kernel itself is the hypervisor also tuned with all unnecessary features removed.  This book will not cover TYPE I hypervisors or commercial implementations of them.
 
-   *  [Microsoft Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx "Hyper-V")
-   *  [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
-   *  [KVM](https://www.linux-kvm.org/page/Main_Page "KVM homepage")
-   *  [XEN](https://xenproject.org/ "Xen Project")
+* [Microsoft Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx "Hyper-V")
+* [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
+* [KVM](https://www.linux-kvm.org/page/Main_Page "KVM homepage")
+* [XEN](https://xenproject.org/ "Xen Project")
 
 ## Installations and ISOs
 
