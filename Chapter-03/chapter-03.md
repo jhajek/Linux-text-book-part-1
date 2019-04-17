@@ -340,13 +340,17 @@ A Debian package (or ```.deb``` file) is really just made up of two tarballs [^1
 
 The most important line being the __Depends__ option which controls dependencies and can prevent installation if these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Using ```dpkg``` is a clear step above using tarballs and compiling the code yourself. There are other tools that build on top of dpkg that are recommended to use.   Let's take a look at an example we have done before in chapter 4 where we downloaded a .deb file for the Vivaldi web browser and installed it via the Ubuntu Software Center.  Now let's perform the same action again using the ```dpkg``` command.
 
-> __Example Usage:__ Recently with Oracle changing the nature of how Java is supported with the transition from Java 8 to 11 and into the future, concerned companies created their own OpenJDK for download that will be supported.  One such instance is [Amazon Corretto](https://aws.amazon.com/corretto/ "Amazon Corretto OpenJDK").  These releases are created in ```.deb``` packages.  Let's download one and install it.   This is a link to a recent version [https://d3pxv6yz143wms.cloudfront.net/8.212.04.1/java-1.8.0-amazon-corretto-jdk_8.212.04-1_amd64.deb](https://d3pxv6yz143wms.cloudfront.net/8.212.04.1/java-1.8.0-amazon-corretto-jdk_8.212.04-1_amd64.deb "Amazon Corretto OpenJDK URL)".  Click on the link and save the ```.deb``` file on Ubuntu. Now using the ```dpkg``` command we can install the package manually (note there may be an error message about a missing dependency).
+Recently with Oracle changing the nature of how Java is supported with the transition from Java 8 to 11 and into the future, concerned companies created their own OpenJDK for download that will be supported.  One such instance is [Amazon Corretto](https://aws.amazon.com/corretto/ "Amazon Corretto OpenJDK").  These releases are created in ```.deb``` packages.  Let's download one and install it.   This is a link to a recent version [https://d3pxv6yz143wms.cloudfront.net/8.212.04.1/java-1.8.0-amazon-corretto-jdk_8.212.04-1_amd64.deb](https://d3pxv6yz143wms.cloudfront.net/8.212.04.1/java-1.8.0-amazon-corretto-jdk_8.212.04-1_amd64.deb "Amazon Corretto OpenJDK URL").  Click on the link and save the ```.deb``` file on Ubuntu. Now using the ```dpkg``` command we can install the package manually (note there may be an error message about a missing dependency).
+
+> __Example Usage:__
 
 ```bash
 sudo dpkg -i ./java-1.8.0-amazon-corretto-jdk_8.212.04-1_amd64.deb
 ```
 
-> __Example Usage:__  You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through dpkg in Ubuntu's case. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
+You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through dpkg in Ubuntu's case. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
+
+> __Example Usage:__  
 
 ```bash
 sudo dpkg -i ./vivaldi-stable_2.4.1488.40-1_amd64.deb
