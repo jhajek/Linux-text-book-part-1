@@ -98,15 +98,15 @@ The 32-bit distro is most commonly referred to as the x86 or 586, 686 architectu
 
 Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be.  That way if you download and ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents to an ISO or perhaps just a corrupted download.  Most distros  more robust hashes such as the SHA-256 hash, but for legacy purposes you still see md5 hashes.
 
-#### Links to get you started
+### Links to get you started
 
-   * [Get Fedora](https://getfedora.org "Get Fedora")
-     + [Fedora checksum page for Linux and Mac](https://getfedora.org/en/verify "Verify")
-   * [Get Ubuntu](https://ubuntu.com "ubuntu")
-     + [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
-     + [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
-   * [Linux Distro Mirrors](https://mirrors.kernel.org "Linux Distro Mirrors")
-   * [Get VirtualBox](http://virtualbox.org "VirtualBox")
+* [Get Fedora](https://getfedora.org "Get Fedora")
+  * [Fedora checksum page for Linux and Mac](https://getfedora.org/en/verify "Verify")
+* [Get Ubuntu](https://ubuntu.com "ubuntu")
+  * [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
+  * [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
+* [Linux Distro Mirrors](https://mirrors.kernel.org "Linux Distro Mirrors")
+* [Get VirtualBox](http://virtualbox.org "VirtualBox")
 
 Here are the commands to execute in Windows in Powershell:
 
