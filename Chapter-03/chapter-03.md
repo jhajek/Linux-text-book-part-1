@@ -119,6 +119,7 @@ Output: ```129292A182136A35E1F89C586DBAC2E2```
 ```powershell
 Get-FileHash .\ubuntu-18.04-desktop-amd64.iso -Algorithm SHA256 | format-list
 ```
+
 Output: ```A55353D837CBF7BC006CF49EEFF05AE5044E757498E30643A9199B9A25BC9A34```
 
 ---
@@ -143,24 +144,24 @@ Can you find the MD5 and SHA-256 of the sample PDF lolcated in the book source c
 
 Before beginning there are a series of questions you should ask yourself, "What do I need in this distro?"
 
-  *  Strict Security?
-  *  Ease of use?
-  *  Stable release with long term support?
-  *  Will this be a desktop install or server install?  GUI or no GUI?
-  *  What software will you be needing?
-    + Serving web pages?
-    + Building Android applications?
-    + Hacking your neighbor's wi-fi?
-    + Developer platform?
-    + Server edition (no gui)
-    + Cloud edition
-  *  What processor do I have, 32-bit, 64-bit, ARM?  How much RAM do I have or need?
-  *  Is this an old PC or laptop I am using--does it lack processor extensions that can aid in rendering media efficiently?
-    + [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions "SSE")
-    + [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions "AVX")
-  *  Licensing for business?
-    + Does it need to be GPL compliant?
-    + Can proprietary programs and codecs be included?
+* Strict Security?
+* Ease of use?
+* Stable release with long term support?
+* Will this be a desktop install or server install?  GUI or no GUI?
+* What software will you be needing?
+  * Serving web pages?
+  * Building Android applications?
+  * Hacking your neighbor's wi-fi?
+  * Developer platform?
+  * Server edition (no gui)
+  * Cloud edition
+* What processor do I have, 32-bit, 64-bit, ARM?  How much RAM do I have or need?
+* Is this an old PC or laptop I am using--does it lack processor extensions that can aid in rendering media efficiently?
+  * [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions "SSE")
+  * [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions "AVX")
+* Licensing for business?
+  * Does it need to be GPL compliant?
+  * Can proprietary programs and codecs be included?
 
 ### Create Your First Guest Virtual Machine
 
