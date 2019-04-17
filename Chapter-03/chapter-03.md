@@ -325,7 +325,7 @@ The first package manager was __dpkg__ which was created by Matt Welsh, Carl Str
 
 A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107].  One is the control data which is listed as such:
 
-```
+```yaml
      Package: hello
      Priority: optional
      Section: devel
