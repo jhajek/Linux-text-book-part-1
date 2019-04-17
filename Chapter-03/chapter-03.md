@@ -468,20 +468,20 @@ There is also a PPA for Linux-libre.  Linux-libre is a GNU package that is a mod
 These are the short steps:
 
 * To use this repository first add it to your system. Run this command:
-    + ```sudo apt edit-sources``` 
+  * ```sudo apt edit-sources```
 * And add the line:
-    + ```deb http://linux-libre.fsfla.org/pub/linux-libre/freesh/ freesh main``` 
+  * ```deb http://linux-libre.fsfla.org/pub/linux-libre/freesh/ freesh main``` 
 * You should also fetch and install the GPG key with which the repository is signed:
-    + ```wget https://jxself.org/gpg.inc``` 
+  * ```wget https://jxself.org/gpg.inc``` 
 * Check that it's the right key:
-    + ```gpg --with-fingerprint gpg.inc``` 
+  * ```gpg --with-fingerprint gpg.inc``` 
 * Make sure that you see:
-    + ```Key fingerprint = F611 A908 FFA1 65C6 9958 4ED4 9D0D B31B 545A 3198``` 
+  * ```Key fingerprint = F611 A908 FFA1 65C6 9958 4ED4 9D0D B31B 545A 3198``` 
 * As long as it matches configure the package manager to trust the key and then delete the temporary copy:
-    + ```sudo apt-key add gpg.inc```
-*  Now you will now be able to update your package manager and install Linux-libre:
-    + ```sudo apt update```
-    + ```sudo apt install linux-libre-4.14``` or ```sudo apt install linux-libre```
+  * ```sudo apt-key add gpg.inc```
+* Now you will now be able to update your package manager and install Linux-libre:
+  * ```sudo apt update```
+  * ```sudo apt install linux-libre-4.14``` or ```sudo apt install linux-libre```
 
 ![*Linux-Libre*](images/Chapter-03/linux-libre/kernel-linux-libre.png "libre.png")
 
@@ -542,10 +542,10 @@ Once those RPMFusion repos have been added you can now retry the example above a
 
 > __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
 
-*  ```sudo dnf update --refresh```
-*  ```sudo dnf install dnf-plugin-system-upgrade```
-*  ```sudo dnf system-upgrade download --releasever=28```
-*  ```sudo dnf system-upgrade reboot```
+* ```sudo dnf update --refresh```
+* ```sudo dnf install dnf-plugin-system-upgrade```
+* ```sudo dnf system-upgrade download --releasever=28```
+* ```sudo dnf system-upgrade reboot```
 
 ## New package managers snaps and flatpak
 
