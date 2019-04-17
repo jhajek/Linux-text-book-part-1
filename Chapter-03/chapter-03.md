@@ -356,17 +356,19 @@ sudo rpm -iv ./vivaldi-stable-2.4.1488.40-1.x86_64.rpm
 After executing this command you will receive an error message. What is it telling you and why?  You will notice that the dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
 __Example Usage:__
+
 ```bash
 sudo dpkg -i ./links_2.8-2_amd64.deb
 ```
+
 Note that this command installs properly without any error message. [http://packages.ubuntu.com/](http://packages.ubuntu.com/ "links")
 
 __Example Usage:__   There are other flags but the most common are these: 
 
-*  ```sudo dpkg -r or --remove```
-*  ```sudo dpkg -P or --purge```
-*  ```sudo dpkg -l or --list```
-*  ```sudo dpkg --status links```
+* ```sudo dpkg -r or --remove```
+* ```sudo dpkg -P or --purge```
+* ```sudo dpkg -l or --list```
+* ```sudo dpkg --status links```
 
 __Example Usage:__ Let's use the ```dpkg``` command to list all kernel versions we have installed and the ```purge``` command to remove those old kernels entirely.  
 
@@ -399,7 +401,7 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 ```rpm -i file.rpm```
 
 > __Example Usage:__ Remove a package from the system:
-```rpm -e pkgname```             
+```rpm -e pkgname```
 
 > __Example Usage:__ Get information about a remote package
 ```rpm -qpi <url>```
