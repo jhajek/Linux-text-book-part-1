@@ -671,6 +671,7 @@ cd /media/$USER/VBOXGUESTADDITIONS_5.0.2_102096/
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
+
 #### Red Hat
 
  On Fedora using dnf
@@ -703,9 +704,7 @@ sudo reboot
 
 If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.  If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:
 
-```
-Building the main Guest Additions Module[Failed]
-```
+```Building the main Guest Additions Module[Failed]```
 
 ### VirtualBox Features
 
@@ -713,17 +712,17 @@ If you are using Windows, Mac, or Linux you need to download the appropriate ver
 
 [*Feature List for VirtualBox*](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
 
-*  Guest multiprocessing (SMP).
-*  USB device support.
-*  Seamless windowing
-*  Shared folders
-*  Hardware compatibility.
-*  Full ACPI support.
-*  Multiscreen resolutions.
-*  Built-in iSCSI support.
-*  PXE Network boot.
-*  Remote machine display
-*  Video and screenshot capture within virtual machines
+* Guest multiprocessing (SMP).
+* USB device support.
+* Seamless windowing
+* Shared folders
+* Hardware compatibility.
+* Full ACPI support.
+* Multiscreen resolutions.
+* Built-in iSCSI support.
+* PXE Network boot.
+* Remote machine display
+* Video and screenshot capture within virtual machines
 
 ## Chapter Conclusions and Review
 
@@ -731,12 +730,12 @@ Through this chapter we gained an understanding of what x86 based virtualization
 
 ### Review Questions
 
-1)	What is the term for the industry standard file format that is used to install a Linux distro?
+1) What is the term for the industry standard file format that is used to install a Linux distro?
   a. ISO
   b. ZIP
   c. Disk-ISO
   d. Distro
-2)	What is currently the most common Linux install media type?
+2) What is currently the most common Linux install media type?
   a. CD-ROMs
   b. Network based installs
   c. USB
@@ -746,15 +745,15 @@ Through this chapter we gained an understanding of what x86 based virtualization
   b. etcher.io
   c. UNetbootin
   d. Image Magick
-4)	What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
+4) What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
 
-5)	The operating system that the hypervisor resides on is called the _________ system?
+5) The operating system that the hypervisor resides on is called the _________ system?
 
-6)	Hosted or desktop virtualization is called what type of hypervisor?
+6) Hosted or desktop virtualization is called what type of hypervisor?
 
-7)	Bare Metal or Native Virtualization is called what type of hypervisor?
+7) Bare Metal or Native Virtualization is called what type of hypervisor?
 
-8)	Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
+8) Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
   a. mount point
   b. checksum
   c. receipt
@@ -795,7 +794,7 @@ Through this chapter we gained an understanding of what x86 based virtualization
   c. Python
   d. None of the above
 
-16)	Describe the purpose of Virtualbox Guest Additions?
+16) Describe the purpose of Virtualbox Guest Additions?
 
 17) What is the RPM command to install a package from the command line?
   a. rpm -qa *.rpm
@@ -825,22 +824,22 @@ Through this chapter we gained an understanding of what x86 based virtualization
 
 Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
 
-  * ~2:35 Who is Andy Hall and Achim Hasenmuller?
-  * ~3:00 What is Simon Phipps relationship to the VirtualBox project?
-  * ~4:45 What does VirtualBox do in Andy Hall's words?
-  * ~6:30 What other company previously owned VirtualBox?
-  * ~11:20 According to Simon, what is the definition of open core?
-  * ~14:17 How does VirtualBox fit into Oracle's business model?
-  * ~16:15 As of the time of the podcast (2010) how many downloads did VirtualBox have?
-  * ~20:25 How does VirtualBox handle virtualized I/O?
-  * ~22:40 What did Intel and AMD introduce to help ease virtualization in VirtualBox?
-  * ~26:00 What two models of network card did VirtualBox choose to represent their virtual hardware and why?
-  * ~27:40 What does VirtualBox almost get native performance on?
-  * ~29:29 How does VirtualBox treat USB devices in Guest OSes?
-  * ~31:00 What are 4 virtual networking modes in VirtualBox?
-  * ~32:30 What is the difference between NAT and Bridged networking?
-  * ~39:30 What Type of hypervisor is VirtualBox?
-  * ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
+* ~2:35 Who is Andy Hall and Achim Hasenmuller?
+* ~3:00 What is Simon Phipps relationship to the VirtualBox project?
+* ~4:45 What does VirtualBox do in Andy Hall's words?
+* ~6:30 What other company previously owned VirtualBox?
+* ~11:20 According to Simon, what is the definition of open core?
+* ~14:17 How does VirtualBox fit into Oracle's business model?
+* ~16:15 As of the time of the podcast (2010) how many downloads did VirtualBox have?
+* ~20:25 How does VirtualBox handle virtualized I/O?
+* ~22:40 What did Intel and AMD introduce to help ease virtualization in VirtualBox?
+* ~26:00 What two models of network card did VirtualBox choose to represent their virtual hardware and why?
+* ~27:40 What does VirtualBox almost get native performance on?
+* ~29:29 How does VirtualBox treat USB devices in Guest OSes?
+* ~31:00 What are 4 virtual networking modes in VirtualBox?
+* ~32:30 What is the difference between NAT and Bridged networking?
+* ~39:30 What Type of hypervisor is VirtualBox?
+* ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
 
 **Deliverable:** Copy these questions  
 
@@ -869,10 +868,9 @@ You will need to do some research and find the download links for the Linux and 
     - TrueOS 18.06 or 18.03 
     - FreeBSD 11.x
 
-
 ![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
 
-#### Footnotes   
+#### Footnotes
 
 [^19]: <a title="wikipedia:User:Hertzsprung" class="extiw" href="//en.wikipedia.org/wiki/User:Hertzsprung">Hertzsprung</a> at <a title="wikipedia:" class="extiw" href="//en.wikipedia.org/wiki/">English Wikipedia</a> [<a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> or <a href="http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0">CC BY-SA 2.5-2.0-1.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3APriv_rings.svg">via Wikimedia Commons</a>
 
