@@ -1,7 +1,7 @@
-#  Hardware and Installation
+# Hardware and Installation
 ![*Must be a Linux User...*](images/Chapter-Header/Chapter-03/surgery.png  "Understanding the Technology and Philosophy of Unix/Linux")
 
-### Objectives
+## Objectives
 
 * Understand and know how to complete the Linux and BSD Operating System Install Process for the major distributions
 * Be able to compare and contrast the two major Linux Distribution family's install process with the BSD install process
@@ -13,7 +13,7 @@
 * Understand how to use the Python language interpreter in order to run Python based install scripts
 * Compiling code from source
 
-### Outcomes
+## Outcomes
 
 At the end of this chapter you will understand how to complete multiple installations of all the major Linux and BSD platforms.  You will be comfortable using the industry standard virtualization platform to enable rapid install of these operating systems.  You will also be familiar with and be able to differentiate between processor architectures available. You will be able to install packages and manage dependencies through using standard package managers dnf, yum, and apt.  You will also be comfortable compiling software from source using a tar ball and python setup tools.
 
@@ -76,6 +76,10 @@ VMware also released a desktop product that is similar to VirtualBox on Windows 
 #### Parallels Desktop for Mac
 
 Until 2013 Parallels Desktop was a direct competitor to VMware Workstation on the desktop of Windows and Linux. As of 2013 those products were discontinued in favor of Parallels focusing their desktop product on the Mac.  
+
+#### Windows Subsystem for Linux 2
+
+"WSL 2 uses the latest and greatest in virtualization technology to run its Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 will NOT be a traditional VM experience. When you think of a VM, you probably think of something that is slow to boot up, exists in a very isolated environment, consumes lots of computer resources and requires your time to manage it. WSL 2 does not have these attributes. It will still give the remarkable benefits of WSL 1: High levels of integration between Windows and Linux, extremely fast boot times, small resource footprint, and best of all will require no VM configuration or management."  [https://devblogs.microsoft.com/commandline/announcing-wsl-2/](https://devblogs.microsoft.com/commandline/announcing-wsl-2/ "WSL 2").
 
 ### TYPE I Hypervisor - Bare Metal or Native Virtualization
 
