@@ -489,7 +489,7 @@ These are the short steps:
   * ```sudo apt-key add gpg.inc```
 * Now you will now be able to update your package manager and install Linux-libre:
   * ```sudo apt update```
-  * ```sudo apt install linux-libre-4.14``` or ```sudo apt install linux-libre```
+  * ```sudo apt install linux-libre-5.2```, ```sudo apt install linux-libre```, ```sudo apt install linux-libre-lts```
 
 ![*Linux-Libre*](images/Chapter-03/linux-libre/kernel-linux-libre.png "libre.png")
 
