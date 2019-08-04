@@ -33,7 +33,7 @@ When we take a look all operating systems, at a foundational level all operating
 
 In the same way all plants require a seed or a kernel to grow, any computer operating system must contain a kernel.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a Wi-Fi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They speak to the kernel via *device drivers*.  The figure above describes a two way flow of data; the user interacts with the operating system and the operating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom built to communicate with the CPU.  The kernel abstracts away this concern.  The majority of operating system code and drivers is built in C or C++.
 
-Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor?  What kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the Windows kernel or Linux Kernel abstracts these differences away.
+Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor? [Even an ARM processor](https://docs.microsoft.com/en-us/windows/arm/ "windows on arm")?  What kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the Windows kernel or Linux Kernel abstracts these differences away.
 
 ### Programming Language and Compiler Tools
 
@@ -51,18 +51,18 @@ User applications like a web browsers and email clients are seen as user created
 
 Based on these three component we see that Unix is a complete operating system, but Linux is not. Linux just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system. Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*.
 
-#### Who Uses Unix and Linux Today?  
+#### Who Uses Unix and Linux
 
-  * [Facebook](http://royal.pingdom.com/2010/06/18/the-software-behind-facebook/ "Facebook architecture")
-  * [Oracle](https://en.wikipedia.org/wiki/Oracle_Linux "Unbreakable Oracle Linux")
-  * [Google](http://highscalability.com/google-architecture "You Tube Architecture" )
-  * [Amazon](http://highscalability.com/blog/2007/9/18/amazon-architecture.html "Amazon Architecture")
-  * [NYSE -New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange "NYSE architecture")
-  * [CME - Chicago Mercantile Exchange](https://en.wikipedia.org/wiki/Chicago_Mercantile_Exchange "CME architecture")
-  * [Netflix](http://highscalability.com/blog/2015/11/9/a-360-degree-view-of-the-entire-netflix-stack.html "Netflix arch")
-  * [WhatsApp](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html "whatsApp Architecture")
-  * [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,00 Lines of Code to the Linux Kernel")
-  * [Pretty much every top website except stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
+* [Facebook](http://royal.pingdom.com/2010/06/18/the-software-behind-facebook/ "Facebook architecture")
+* [Oracle](https://en.wikipedia.org/wiki/Oracle_Linux "Unbreakable Oracle Linux")
+* [Google](http://highscalability.com/google-architecture "You Tube Architecture" )
+* [Amazon](http://highscalability.com/blog/2007/9/18/amazon-architecture.html "Amazon Architecture")
+* [NYSE -New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange "NYSE architecture")
+* [CME - Chicago Mercantile Exchange](https://en.wikipedia.org/wiki/Chicago_Mercantile_Exchange "CME architecture")
+* [Netflix](http://highscalability.com/blog/2015/11/9/a-360-degree-view-of-the-entire-netflix-stack.html "Netflix arch")
+* [WhatsApp](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html "whatsApp Architecture")
+* [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,000 Lines of Code to the Linux Kernel")
+* [Pretty much every top website except stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
 
 Some would argue that without free and opensource software that companies like Google and Facebook never could have existed because the cost of buying the equivalent software would be prohibitive.
 
@@ -86,25 +86,25 @@ In 1969-70, the *"Unix"* concept had never been attempted.  Thompson had no idea
 
 Unix differences from existing commercial Operating Systems
 
-  * Written by Ken Thompson on his spare time
-  * No company owned it or committee designed it for commercial purposes
-  * Built by engineers
-  * Solved problems that engineers had
-  * Had a consistent design philosophy
-  * Designed to be portable and work on many hardware vendor platforms
+* Written by Ken Thompson on his spare time
+* No company owned it or committee designed it for commercial purposes
+* Built by engineers
+* Solved problems that engineers had
+* Had a consistent design philosophy
+* Designed to be portable and work on many hardware vendor platforms
 
 Thompson's Unix success was also a byproduct of its main design philosophy:
 
-  *  Everything is a file
-    + This means that everything can be read from or written to: all the way from devices to text files
-  *  Unix is portable
-    + Tools and OS code can be recompiled for different environments because everything is written in C.
-  * I/O is redirectable between small executables
-    + Small tools that do one and only one thing well
-    + Output of one command becomes the input of another command.
-    + Complex applications are built by chaining the output of small executables together with *pipes* -> "|"
+* Everything is a file
++ This means that everything can be read from or written to: all the way from devices to text files
+* Unix is portable
++ Tools and OS code can be recompiled for different environments because everything is written in C.
+* I/O is redirectable between small executables
++ Small tools that do one and only one thing well
++ Output of one command becomes the input of another command.
++ Complex applications are built by chaining the output of small executables together with *pipes* -> "|"
 
-The best demonstration of these tenants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\ "Jon Bently") in 1986 to:
+The best demonstration of these tenants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\\ "Jon Bently") in 1986 to:
 
 > *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.*
 
@@ -247,7 +247,7 @@ With this, they wrote the GPL - GNU Public Lisence, which is a legally enforceab
 
 1) the freedom to use the software for any purpose
 1) the freedom to change the software to suit your needs
-1) the freedom to share the software with your friends and neighbors 
+1) the freedom to share the software with your friends and neighbors
 1) the freedom to share the changes you make
 
 > In using the term “Free software,” it means software that respects users' freedom and community. Roughly, it means that the users have the freedom to run, copy, distribute, study, change and improve the software. Thus, “free software” is a matter of liberty, not price. To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”. We sometimes call it “libre software,” borrowing the French or Spanish word for “free” as in freedom, to show we do not mean the software is gratis[^114]. You can see a really clear 10 minute presentation of the meaning of Free Software by Richard Stallman at [https://www.youtube.com/watch?v=ZPPikY3uLIQ](https://www.youtube.com/watch?v=ZPPikY3uLIQ "Stallman explains the Four Software Freedoms").
@@ -381,8 +381,8 @@ There has been some compromise between the two camps by using the term __FLOSS__
 
 You can read Raymond's two seminal books on Unix and opensource philosophy online as they are free and opensource licensed:
 
-  * [The Art of Unix Usability](http://www.catb.org/~esr/writings/taouu/html/ "Book link")
-  * [The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/ "CatB")
+* [The Art of Unix Usability](http://www.catb.org/~esr/writings/taouu/html/ "Book link")
+* [The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/ "CatB")
 
 ### Opensource Software Definition
 
@@ -431,20 +431,20 @@ As the 1990s came to a close we began to see established companies adopting and 
 
 As the new century dawned, the realization of Stallman's dream for the the GNU operating system was now a reality.  Companies began to combine the opensource Linux kernel, free GNU coretools, and by integrating GUIs such as X11, KDE, and the GNU GNOME project, began to create what one would say was a GNU/Linux based operating system. Each company made their own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well.
 
-It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might ask that without the financial backing of a commercial entity could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.     
+It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might ask that without the financial backing of a commercial entity could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.
 
 As of 2017, we have almost 25 years of Linux Kernel and Linux distribution work. Current Linux distributions hail from two primary and distinct families: __Debian__ and __Red Hat__.   There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
 
 #### Additional Popular Linux Distros
 
-   *  [Slackware](http://www.slackware.com/info/ "Slackware")
-   *  [Gentoo Linux](https://www.gentoo.org/get-started/about/ "Gentoo Linux")
-   *  [SUSE Linux](https://en.wikipedia.org/wiki/SUSE_Linux_distributions "SUSE Linux")
-   *  [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian distro
-   *  [antiX Linux](http://antix.mepis.org/index.php?title=Main_Page "antiX") - lightweight Debian derivative focused on old machines.
-   *  [Arch Linux](https://www.archlinux.org/ "Arch Linux")
-   *  [Tails Linux](https://tails.boum.org/ "Tails Linux") - Online security focused Debian based distro
-   *  and many more at [http://www.distrowatch.com](http://www.distrowatch.com "Distro Watch")
+* [Slackware](http://www.slackware.com/info/ "Slackware")
+* [Gentoo Linux](https://www.gentoo.org/get-started/about/ "Gentoo Linux")
+* [SUSE Linux](https://en.wikipedia.org/wiki/SUSE_Linux_distributions "SUSE Linux")
+* [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian distro
+* [antiX Linux](http://antix.mepis.org/index.php?title=Main_Page "antiX") - lightweight Debian derivative focused on old machines.
+* [Arch Linux](https://www.archlinux.org/ "Arch Linux")
+* [Tails Linux](https://tails.boum.org/ "Tails Linux") - Online security focused Debian based distro
+* and many more at [http://www.distrowatch.com](http://www.distrowatch.com "Distro Watch")
 
 ### The Debian-based Family
 
@@ -460,16 +460,16 @@ Unfortunately on December 31st, 2015, Ian Murdock succumbed to mental illness an
 
 The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercially backed Linux distro still in existence.  The current release is Debian 8.5 codenamed Jessie, as of June 2016. The Debian project has unique characteristics that were designed into the project from the very beginning. Many believe these features are the key to their long term success and usage across the Linux landscape as there are [currently 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") in existance according to distrowatch.com.
 
-   * Initial release schedule was yearly but as Debian project has grown now is two year release schedule
-   * It is the only major Linux distribution not backed by a corporation.  
-   * Debian is an all volunteer project and organization--project leader is elected on a rotating basis
-   * Dedicated to protecting software rights and freedoms of users
-   * First major distribution to come with a [software contract](https://www.debian.org/social_contract "Contract") - stating what rights the project will guarantee to the user.
-   * Debian supports free and opensource software as superior to closed source but will allow for closed source software/drivers to be installed by the user.
-   * Supported at various times 11 different processor types giving it a wide install base.
-   * The Debian project and its history can be found at:
-     + [About the Debian Project](https://www.debian.org/intro/about)
-	 + [History of Debian](https://www.debian.org/doc/manuals/project-history)
+* Initial release schedule was yearly but as Debian project has grown now is two year release schedule
+* It is the only major Linux distribution not backed by a corporation.  
+* Debian is an all volunteer project and organization--project leader is elected on a rotating basis
+* Dedicated to protecting software rights and freedoms of users
+* First major distribution to come with a [software contract](https://www.debian.org/social_contract "Contract") - stating what rights the project will guarantee to the user.
+* Debian supports free and opensource software as superior to closed source but will allow for closed source software/drivers to be installed by the user.
+* Supported at various times 11 different processor types giving it a wide install base.
+* The Debian project and its history can be found at:
+  + [About the Debian Project](https://www.debian.org/intro/about)
+	+ [History of Debian](https://www.debian.org/doc/manuals/project-history)
 
 #### Ubuntu
 
@@ -501,25 +501,26 @@ Linux Mint started also in 2006 as a fork of the Ubuntu project but with a diffe
 
 Some of the other notable Debian/Ubuntu based distros are as follows:
 
-   *  [Xubuntu](http://xubuntu.org "Xubuntu")
-   *  [Lubuntu](http://lubuntu.net "Lubuntu")
-   *  [Kubuntu](http://www.kubuntu.org/ "Kubuntu") Ubuntu remixed with the KDE desktop Environment
-   *  [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam online gaming company's official Linux distro
-   *  [Kylin Linux](http://distrowatch.com/ubuntukylin "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
-   *  [Raspian](http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
-   *  [tails](https://tails.boum.org/ "tails") The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user.
-   *  [elementaryOS](http://elementary.io/) elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.  
-   *  [Kali Linux](https://www.kali.org/ "Kali Linux") Security based Debian distro
-   *  [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux-Libre FSF distro, entirely GPL compliant software.
-   *  [trisquel](https://trisquel.info "Tri-skel") GNU/Linux-Libre FSF recommended and Richard Stallman uses this one.
-   *  [PureOS](https://www.pureos.net/ "PureOS") GNU/Linux FSF distro, entirely GPL compliant software.
+* [Xubuntu](http://xubuntu.org "Xubuntu")
+* [Lubuntu](http://lubuntu.net "Lubuntu")
+* [Kubuntu](http://www.kubuntu.org/ "Kubuntu") Ubuntu remixed with the KDE desktop Environment
+* [Linux Mint](https://linuxmint.com/ "Linux Mint")
+* [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam online gaming company's official Linux distro
+* [Ubuntu Kylin](http://www.ubuntukylin.com/ "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
+* [Raspian](http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
+* [Tails](https://tails.boum.org/ "tails") The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user.
+* [elementaryOS](http://elementary.io/) elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.  
+* [Kali Linux](https://www.kali.org/ "Kali Linux") Security based Debian distro
+* [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux-Libre FSF distro, entirely GPL compliant software.
+* [Trisquel](https://trisquel.info "Tri-skel") GNU/Linux-Libre FSF recommended and Richard Stallman uses this one.
+* [PureOS](https://www.pureos.net/ "PureOS") GNU/Linux FSF distro, entirely GPL compliant software.
 
 ### Red Hat Family
 
 Red Hat Linux distribution was formed after the Debian project by Marc Ewing and Bob Young.  The company went public August 11th, 1999.  Red Hat source code is currently shared across three main distributions: The Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. Currently there are [25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or as Fedora calls them *"spins"* -- this term is unique to Fedora.
 
-  *  [About Red Hat](http://www.redhat.com/en/about/company)
-  *  [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
+* [About Red Hat](http://www.redhat.com/en/about/company)
+* [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
 
 #### Fedora Project
 
@@ -527,6 +528,7 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, as well as an [Atomic Edition](https://getfedora.org/en/atomic/ "RedHat Atomic").  Atomic is for use in OS containers on Kubernetes.  Recently RedHat purchased CoreOS and will be merging their Atomic project with CoreOS ContainerLinux.  
 
+* Fedora 30 was released on 04/30/19
 * Fedora 29 was released on 10/30/18
 * Fedora 28 was released on 05/01/18
 * Fedora 27 was released on 11/14/17
@@ -538,13 +540,13 @@ The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Projec
 * Fedora 21 was released on 12/09/14
 * Fedora 20 was released on 12/17/13
 
-Fedora 20-27 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  In reality the Fedora Project is really just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
+Fedora 20-29 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  In reality the Fedora Project is really just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
 
 #### Red Hat Enterprise Linux--RHEL
 
 ![*RHEL*](images/Chapter-02/Linux-logos/RHEL/320px-RedHat.svg.png "RHEL")
 
-Red hat's founder Mark Ewing had been an IBM employee prior to forming Red hat.  He knew something about enterprise software and more importantly enterprise profits.  Red hat began it's life as a desktop Linux company.  They quickly shifted their focus to compete not with Microsoft and Apple, but to take on the Unix enterprise giants of IBM, HP, Sun and AT&T.  These companies had one thing in common: they were all Unix vendors.  Red hat's vector was to dislodge the established Unix vendors with Red Hat Enterprise Linux (RHEL). They would succesfully attack this market with entirely opensource products and runnning on commodity Intel x86 based processors.  With Oracle also sensing a chance to capture market share along with RHEL, it announced it would port its database products to RHEL and this platform became to the go to choice for using Oracle as a database. By Oracle doing this they have all but abandoned Solaris and positioned themselves to take on Windows Server and MsSQL Server. 
+Red hat's founder Mark Ewing had been an IBM employee prior to forming Red hat.  He knew something about enterprise software and more importantly enterprise profits.  Red hat began it's life as a desktop Linux company.  They quickly shifted their focus to compete not with Microsoft and Apple, but to take on the Unix enterprise giants of IBM, HP, Sun and AT&T.  These companies had one thing in common: they were all Unix vendors.  Red hat's vector was to dislodge the established Unix vendors with Red Hat Enterprise Linux (RHEL). They would succesfully attack this market with entirely opensource products and runnning on commodity Intel x86 based processors.  With Oracle also sensing a chance to capture market share along with RHEL, it announced it would port its database products to RHEL and this platform became to the go to choice for using Oracle as a database. By Oracle doing this they have all but abandoned Solaris and positioned themselves to take on Windows Server and MsSQL Server.
 
 The key to RHEL's success in the enterprise is its long term stability.  The RHEL application platform is expected to run for 5+ years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red hat instead takes "snapshots" from the Fedora project and freezes them to produce RHEL versions.  For example, as of fall 2015 the released version of RHEL was 7.1 which is a freeze of the technology from Fedora 19, which was released July of 2013.  
 
@@ -562,20 +564,20 @@ Eventually all of Red Hat's copyrighted material was removed and CentOS then in 
 
 Not to be out done by CentOS, Oracle saw that many of their customers were paying Red hat for operating systems licenses, buying support contracts, and running an Oracle database on top of it.  Oracle wanted a piece of this pie.  Oracle made a fork of RHEL's opensource code as well, adding Oracle product code and services and redistributing it as Oracle Linux.
 
-[Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can be installed and run unchanged. One may ask, isn't this illegal too? Is Oracle breaking the law? Are they stealing RHEL software and reselling it?  Is this piracy? Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.   
+[Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can be installed and run unchanged. One may ask, isn't this illegal too? Is Oracle breaking the law? Are they stealing RHEL software and reselling it?  Is this piracy? Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.
 
 ### Additional Linux Distros
 
 * [Gentoo Linux](https://www.gentoo.org/ "Gentoo Linux")
   + Unique Linux distro that builds itself upon install to become completely customized, small, and secure
-  + Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system. 
+  + Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system.
 * Suse Linux
   + [openSuse Linux](https://www.opensuse.org "Open SuseLinux")
   + [Suse Enterprise Linux](https://www.suse.com/products/desktop/ "SLED")
 * [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
-  + Rolling release designed by Intel with auto-updating features built into the OS. 
+  + Rolling release designed by Intel with auto-updating features built into the OS.
 * [Alpine Linux](https://www.alpinelinux.org/ "Alpine Linux")
-  + Alpine uses musl libc and busybox making it a smaller GNU/Linux 
+  + Alpine uses musl libc and busybox making it a smaller GNU/Linux
   + Uses OpenRC init systems
   + Uses [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
  "Alpine Linux APK") package manager
@@ -588,101 +590,101 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 
 ![*FreeBSD*](images/Chapter-02/Linux-logos/FreeBSD/128px-Freebsd_logo.svg.png "FreeBSD")
 
-   * Released in November 1994
-   * Essentially the inheritor of the BSD code base
-   * Largest BSD implementation used by WhatsApp and Netflix.
-   * No direct commercial backing, instead run by a non-profit foundation.
-   * Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
-   * Board of directors are elected and drives development decisions and policies
+* Released in November 1994
+* Essentially the inheritor of the BSD code base
+* Largest BSD implementation used by WhatsApp and Netflix.
+* No direct commercial backing, instead run by a non-profit foundation.
+* Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
+* Board of directors are elected and drives development decisions and policies
 
 #### TrueOS
 
-   *  FreeBSD based distro with a focus on user interface and experience.
-   *  Provides friendly installers and package managers for users on top of existing FreeBSD installation
-   *  Created new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
-   *  Project started by Kris Moore who has been a FreeBSD developer
-   *  Project was recently renamed [TrueOS](https://www.trueos.org/ "TrueOS")
+* FreeBSD based distro with a focus on user interface and experience.
+* Provides friendly installers and package managers for users on top of existing FreeBSD installation
+* Created new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
+* Project started by Kris Moore who has been a FreeBSD developer
+* Project was recently renamed [TrueOS](https://www.trueos.org/ "TrueOS")
 
 #### DragonFly BSD
 
 ![*DragonFly BSD*](images/Chapter-02/Linux-logos/DragonFlyBSD/dragonflybsd_small_logo.png)
 
-   * Fork of FreeBSD in April of 2005 by Matthew Dillon.
-   * Has significantly diverged from the original FreeBSD code base.
-   * Maintains its own package repositories
-   * Focused on unique techniques to handle multiprocessing in the FreeBSD kernel
-   * Introduced a new filesystem called [HAMMER and HAMMER2](https://en.wikipedia.org/wiki/HAMMER "HAMMER FS")
+* Fork of FreeBSD in April of 2005 by Matthew Dillon.
+* Has significantly diverged from the original FreeBSD code base.
+* Maintains its own package repositories
+* Focused on unique techniques to handle multiprocessing in the FreeBSD kernel
+* Introduced a new filesystem called [HAMMER and HAMMER2](https://en.wikipedia.org/wiki/HAMMER "HAMMER FS")
 
 #### Other BSD projects
 
-  * [Ghost BSD](https://www.ghostbsd.org/ "Ghost BSD")
-  * [Hardened BSD](https://hardenedbsd.org/ "Hardened BSD")
+* [Ghost BSD](https://www.ghostbsd.org/ "Ghost BSD")
+* [Hardened BSD](https://hardenedbsd.org/ "Hardened BSD")
 
 #### OpenBSD
 
 ![*OpenBSD*](images/Chapter-02/Linux-logos/OpenBSD/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png "OpenBSD")
 
-   * Theo de Raadt was banned/left from the NetBSD project in 1994.
-   + He complained that they were developing too slow and not focusing on security.
-   * Started a fork of NetBSD at the end of 1995   
-   * OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [other projects](http://www.openbsd.org/innovations.html "BSD Innovaations") comes out of this project.
-   + [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
-   * Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most secure OS.
+* Theo de Raadt was banned/left from the NetBSD project in 1994.
+  + He complained that they were developing too slow and not focusing on security.
+* Started a fork of NetBSD at the end of 1995
+* OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [other projects](http://www.openbsd.org/innovations.html "BSD Innovaations") comes out of this project.
+  + [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
+* Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most secure OS.
 
 #### NetBSD
 
 ![*NetBSD*](images/Chapter-02/Linux-logos/NetBSD/128px-NetBSD.svg.png "NetBSD")
 
-   * Released October of 1994 as another version of the BSD code after the lawsuit.
-   * Focuses on portability to run this OS on nearly every platform you can think of.
+* Released October of 1994 as another version of the BSD code after the lawsuit.
+* Focuses on portability to run this OS on nearly every platform you can think of.
 
 #### Minix 3
 
-   * [Minix 3](https://en.wikipedia.org/wiki/MINIX_3 "Minix 3") released October of 2005.
-   * Since then the OS went from a teaching tool to a product being used commercially.
-   * Began using NetBSD userland applications for a GUI and package management.
+* [Minix 3](https://en.wikipedia.org/wiki/MINIX_3 "Minix 3") released October of 2005.
+* Since then the OS went from a teaching tool to a product being used commercially.
+* Began using NetBSD userland applications for a GUI and package management.
+* Intel Management Engine, contained on all modern [Intel CPUs run Minix at Ring -3](https://itsfoss.com/fact-intel-minix-case/ "Minix runs on Intel CPUs").
 
 ### Solaris Based Unix Distros
 
 #### Solaris
 
-  *  Oracle killed commercial Solaris in the middle of the night [September 3rd, 2017](http://dtrace.org/blogs/bmc/2017/09/04/the-sudden-death-and-eternal-life-of-solaris).
-  *  Commercial Unix distribution created by SUN in the 1980s and bought by Oracle in 2010.
-  *  Sought to merge the best of Sys V and BSD into one standard Unix.
-  *  Ran on propriatery SPARC hardware platform
-  *  Leader in operating system feature development.
-    + ZFS
-    + Dtrace
-    + Zones (OS Containers/Jails)
-    + Network based installation -- Jumpstart
-  * By 2006 began the process of opensourcing their technology and operating system.
+* Oracle killed commercial Solaris in the middle of the night [September 3rd, 2017](http://dtrace.org/blogs/bmc/2017/09/04/the-sudden-death-and-eternal-life-of-solaris).
+* Commercial Unix distribution created by SUN in the 1980s and bought by Oracle in 2010.
+* Sought to merge the best of Sys V and BSD into one standard Unix.
+* Ran on propriatery SPARC hardware platform
+* Leader in operating system feature development.
+  + ZFS
+  + Dtrace
+  + Zones (OS Containers/Jails)
+  + Network based installation -- Jumpstart
+* By 2006 began the process of opensourcing their technology and operating system.
 
 #### OpenSolaris
 
 ![*OpenSolaris*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenSolaris_Logo-2.svg.png "Open Solaris")
 
-   * In 2006 Sun had experimented with creating and opensource user based distro from their Unix based Solaris OS [^16]
-   * They hired Ian Murdock (the guy who started Debian) to oversee this project
-   * Project was called OpenSolaris but was killed when Oracle purchased Sun in 2010
-   * [Explanation of how OpenSolaris was killed and *closed* sourced by Oracle.](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Fork")
+* In 2006 Sun had experimented with creating and opensource user based distro from their Unix based Solaris OS [^16]
+* They hired Ian Murdock (the guy who started Debian) to oversee this project
+* Project was called OpenSolaris but was killed when Oracle purchased Sun in 2010
+* [Explanation of how OpenSolaris was killed and *closed* sourced by Oracle.](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Fork")
 
 #### Illumos
 
 ![*Open Indiana*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
 
-   *  After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers,  the last verson of OpenSolaris was forked into a project called Illumos. [^15]
-   *  Illumos is not a distro but a reference implementation in which other OSes are based.
-    + [openindiana](https://www.openindiana.org/ "open indiana")
-    + [OmniOS](https://omniosce.org/ "Omni OS")
-    + [SmartOS](https://www.joyent.com/smartos "Smart OS")
+* After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers,  the last verson of OpenSolaris was forked into a project called Illumos. [^15]
+* Illumos is not a distro but a reference implementation in which other OSes are based.
+  + [OmniOS](https://omniosce.org/ "Omni OS")
+  + [SmartOS](https://www.joyent.com/smartos "Smart OS")
 
 #### SmartOS
 
-  *  [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
-   + Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
-  * Recently purchased by Samsung for their OS container technology stack called [Triton](https://www.joyent.com/triton/compute "Joyent Triton") and Manta.
-  * Innovative company ahead of the technology curve by a few years--watch this space.
-  * Releases all software even their production clouds as open source.
+* [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
+  + Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
+* Recently purchased by Samsung for their OS container technology stack called [Triton](https://www.joyent.com/triton/compute "Joyent Triton") and Manta.
+* Innovative company ahead of the technology curve by a few years--watch this space.
+* Releases all software even their production clouds as open source.
 
 ## 5th Phase of Unix Maturity - Hard Changes to the Nature of Linux
 
@@ -699,6 +701,10 @@ According to BSD developer Benno Rice at the BSDcan 2018 presentaiton on systemd
 This leads to an interesting point because by 2016, all major Linux distros had adopted systemd.  The first company to adopt systemd was RedHat.  Debian was the last hold out and they had a sprited debate, which led to a number of resignations and the community split over this issue.  Debian developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focusing on removing all systemd and udev dependencies from a Debian based linux distro.  
 
 In it's defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based sysetm compatability.  Systemd is entirely Linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros.
+
+## 6th Phase of Linux Maturity, OpenSource isn't a business model
+
+
 
 ## Chapter Conclusion and Summary
 
@@ -732,15 +738,15 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
 
- *  Who is Tim Orielly? ~3:00-5:00
- *  What is Oscon? ~6:45
- *  Who coined the term web 2.0? ~13:34
- *  What did we learn from the IBM PC? ~18:30
- *  What is web 2.0? ~19:30
- *  Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00
- *  Where is the money made in open source - software or data? ~ 34:00
- *  What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
- *  [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
+* Who is Tim Orielly? ~3:00-5:00
+* What is Oscon? ~6:45
+* Who coined the term web 2.0? ~13:34
+* What did we learn from the IBM PC? ~18:30
+* What is web 2.0? ~19:30
+* Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00
+* Where is the money made in open source - software or data? ~ 34:00
+* What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
+* [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
 
 ### Lab
 
