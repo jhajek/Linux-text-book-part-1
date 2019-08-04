@@ -100,7 +100,7 @@ You also need to be aware of the type of architecture you are installing to. In 
 
 The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the credit.  There is one other type of architecture called ARM or AARCH, AARCH64.  This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi.  It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.  
 
-Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be.  That way if you download and ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents to an ISO or perhaps just a corrupted download.  Most distros  more robust hashes such as the SHA-256 hash, but for legacy purposes you still see md5 hashes.
+Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be.  That way if you download an ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents or perhaps just a corrupted download.  Most distros use the SHA-256 hash, but for legacy purposes you still see md5 hashes.
 
 ### Links to get you started
 
@@ -199,7 +199,7 @@ You can choose to dynamically allocate your hard drive space or statically alloc
 
 ![*Disk Type*](images/Chapter-03/VirtualBox-Install/virtualbox-storage-on-physical-disk.png "Disk Type")
 
-The final option dialog is where you can choose where to store your virtual machine's virtual hard drive. Usually the default is fine unless you know you need to store the hard drive on a separate partition or disk.   Also VirtualBox will make a suggestion on a recommended virtual hard drive size.   
+The final option dialog is where you can choose where to store your virtual machine's virtual hard drive. Usually the default is fine unless you know you need to store the hard drive on a separate partition or disk.   Also VirtualBox will make a suggestion on a recommended virtual hard drive size.
 
 Now click *finish* and you should be ready to go.  
 
@@ -283,7 +283,7 @@ You can click the *Finish Install* button to complete the install.  You will be 
 
 ### VirtualBox Extensions
 
-You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is.  So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware.  In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system.  These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.     
+You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is.  So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware.  In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system.  These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.
 
 VirtualBox guest additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image."  For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
 
@@ -478,13 +478,13 @@ These are the short steps:
 * To use this repository first add it to your system. Run this command:
   * ```sudo apt edit-sources```
 * And add the line:
-  * ```deb http://linux-libre.fsfla.org/pub/linux-libre/freesh/ freesh main``` 
+  * ```deb http://linux-libre.fsfla.org/pub/linux-libre/freesh/ freesh main```
 * You should also fetch and install the GPG key with which the repository is signed:
-  * ```wget https://jxself.org/gpg.inc``` 
+  * ```wget https://jxself.org/gpg.inc```
 * Check that it's the right key:
-  * ```gpg --with-fingerprint gpg.inc``` 
+  * ```gpg --with-fingerprint gpg.inc```
 * Make sure that you see:
-  * ```Key fingerprint = F611 A908 FFA1 65C6 9958 4ED4 9D0D B31B 545A 3198``` 
+  * ```Key fingerprint = F611 A908 FFA1 65C6 9958 4ED4 9D0D B31B 545A 3198```
 * As long as it matches configure the package manager to trust the key and then delete the temporary copy:
   * ```sudo apt-key add gpg.inc```
 * Now you will now be able to update your package manager and install Linux-libre:
@@ -520,7 +520,7 @@ You can find the installed repositories in ```/etc/yum.repos.d```.  Each file li
 First we want to check if we have the correct RPM name.  We can search through our repos looking for the name by typing the ```sudo dnf search [fF]mpeg*``` command.  This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
 
 To enable the download the RPMFusion repos for adding additional software of free and non-free type you can type the following commands:
- 
+
 ```bash
 sudo dnf install http://download1.rpmfusion.org/free/fedora/\
 rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -532,12 +532,12 @@ rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 Note for RHEL/CentOS the installation URL is slightly different:
- 
+
 ```bash
 sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
 sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-30.noarch.rpm
 ```
- 
+
 ```bash
 sudo yum install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
 sudo yum install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-30.noarch.rpm
@@ -545,7 +545,7 @@ sudo yum install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-relea
 
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
 
-Once those RPMFusion repos have been added you can now retry the example above and install, FFMpeg, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that. 
+Once those RPMFusion repos have been added you can now retry the example above and install, FFMpeg, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.
 \newpage
 
 > __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
@@ -590,18 +590,18 @@ Let's install some flatpak applications:  The first thing is to install the flat
 ```sudo add-apt-repository ppa:alexlarsson/flatpak```
 ```sudo apt update```
 ```sudo apt install flatpak```
-    
+
 The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
 
 ```sudo apt install gnome-software-plugin-flatpak```
-    
+
 Add the Flathub repository:
 ```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
 
 Now let's look at how its done in RHEL/CentOS Linux:
 
 ```sudo yum install flatpak```
-    
+
 Add the Flathub repository
 
 ```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
