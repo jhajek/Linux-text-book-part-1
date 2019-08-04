@@ -111,34 +111,34 @@ Each distro also has a checksum feature provided by the site that issues the dow
 Here are the commands to execute in Windows in Powershell:
 
 ```powershell
-Get-FileHash .\ubuntu-18.04-desktop-amd64.iso -Algorithm MD5 | format-list
+Get-FileHash .\ubuntu-18.04.2-desktop-amd64.iso -Algorithm MD5 | format-list
 ```
 
-Output: ```129292A182136A35E1F89C586DBAC2E2```
+Output: ```69809DC7E058B81BC781FE3E24D3204F```
 
 ```powershell
-Get-FileHash .\ubuntu-18.04-desktop-amd64.iso -Algorithm SHA256 | format-list
+Get-FileHash .\ubuntu-18.04.2-desktop-amd64.iso -Algorithm SHA256 | format-list
 ```
 
-Output: ```A55353D837CBF7BC006CF49EEFF05AE5044E757498E30643A9199B9A25BC9A34```
+Output: ```22580B9F3B186CC66818E60F44C46F795D708A1AD86B9225C458413B638459C4```
 
 ---
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
 ```bash
-md5sum ./Fedora-Workstation-Live-x86_64-28-1.1.iso
+md5sum ./Fedora-Workstation-Live-x86_64-30-1.2.iso
 ```
 
-Output: ```18CC54AF55D7CA931BBB8588E8D9C1BD```
+Output: ```94c63f564a81d3450d1c606bfe5d0327```
 
 ```bash
-sha256sum ./Fedora-Workstation-Live-x86_64-28-1.1.iso
+sha256sum ./Fedora-Workstation-Live-x86_64-30-1.2.iso
 ```
 
-Output: ```BD5C9EE34B7698EB0852A320DA4FBDF616222A493D99F6054AA96AFA96207BFB```
+Output: ```a4e2c49368860887f1cc1166b0613232d4d5de6b46f29c9756bc7cfd5e13f39f```
 
-Can you find the MD5 and SHA-256 of the sample PDF lolcated in the book source code, in the folder ```files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?  It should match: ```CE70A60EC56E35E1E9A25ACB1BEF6B2E``` and ```F9C51AC0D8CED38E86AB7D94784EED5F02DF7F662D65B35DE5069175B1C35166```.
+Can you find the MD5 and SHA-256 of the sample PDF lolcated in the book source code, in the folder ```files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?
 
 ### Planning Your Install
 
@@ -507,7 +507,7 @@ Fedora based Linux is in a bit of a transition. It's enterprise products RHEL an
 
 You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and RedHat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
 
-![*Installed Repositories Fedora 28*](images/Chapter-03/yum/etc-yum.png "YUM")
+![*Installed Repositories Fedora 30*](images/Chapter-03/yum/etc-yum.png "YUM")
 
 [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg "FFMpeg") is a free software project, the product of which is a vast software suite of libraries and programs for handling video, audio, and other multimedia files and streams.   If we try to install it via ```sudo dnf install ffmpeg``` we get this message, why?  
 
@@ -531,12 +531,12 @@ Note for RHEL/CentOS the installation URL is slightly different:
  
 ```bash
 sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
-sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-28.noarch.rpm
+sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-30.noarch.rpm
 ```
  
 ```bash
 sudo yum install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
-sudo yum install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-28.noarch.rpm
+sudo yum install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-30.noarch.rpm
 ```
 
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
