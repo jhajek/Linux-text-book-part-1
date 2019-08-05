@@ -464,8 +464,6 @@ sudo apt-get install php7.3
 php -v
 ```
 
-The command ```add-apt-repository``` doesn't come standard as part of an Ubuntu distribution  On 12.04 and earlier, install the python-software-properties package: [^109] ```sudo apt-get install python-software-properties```. On 14.04 and later: ```sudo apt-get install software-properties-common```.
-
 > __Example Usage:__ There is an Apache2 repository (PPA) that can be added to get the latest version of Apache2.  Run the command ```apache2 -v```, then add this repository ```sudo add-apt-repository ppa:ondrej/apache2``` and ```sudo apt-get update```. Now execute ```sudo apt-get upgrade``` to upgrade the Apache server.  Now execute ```apache2 -v``` to show the new version.  
 
 There is also a PPA for Linux-libre.  Linux-libre is a GNU package that is a modified version of the Linux kernel. The aim of the project is to remove from non-free or significantly obfuscated code[^111] from the Linux kernel. The downside of removing proprietary firmware from the kernel is that it will cause lose functionality for certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards.
@@ -490,7 +488,9 @@ These are the short steps:
   * ```sudo apt-key add gpg.inc```
 * Now you will now be able to update your package manager and install Linux-libre:
   * ```sudo apt update```
-  * ```sudo apt install linux-libre-5.2```, ```sudo apt install linux-libre```, ```sudo apt install linux-libre-lts```
+  * ```sudo apt install linux-libre-5.2```
+  * ```sudo apt install linux-libre```
+  * ```sudo apt install linux-libre-lts```
 
 ![*Linux-Libre*](images/Chapter-03/linux-libre/kernel-linux-libre.png "libre.png")
 
