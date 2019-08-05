@@ -638,7 +638,7 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 
 ![*OpenBSD*](images/Chapter-02/Linux-logos/OpenBSD/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png "OpenBSD")
 
-* Theo de Raadt was banned/left from the NetBSD project in 1994.
+* [Theo de Raadt](https://en.wikipedia.org/wiki/Theo_de_Raadt "Theo de Raadt") was banned/left from the NetBSD project in 1994.
   * He complained that they were developing too slow and not focusing on security.
 * Started a fork of NetBSD at the end of 1995
 * OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [other projects](http://www.openbsd.org/innovations.html "BSD Innovaations") comes out of this project.
