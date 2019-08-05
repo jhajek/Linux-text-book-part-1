@@ -580,6 +580,8 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 #### Intel Clear Linux
 
+![*Intel Clear Linux*](images/Chapter-02/Linux-logos/ClearLinux/ClearLinuxProject_logo_landing.svg "Intel Clear Linux")
+
 * [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
   * Rolling release designed by Intel with auto-updating features built into the OS.
 
@@ -720,7 +722,7 @@ In it's defense, systemd has many nice and actually new and needed features for 
 
 ## Chapter Conclusion and Summary
 
-In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the founding of the UNIX operating system and hwo it lead directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software.  You were introduced to the major Linux distribution families as well as the BSD derivative distros.  Finally you were introduced to the five phases of UNIX maturity and how they relate to business and commercial interests.  [Additional Reading on the history of UNIX and BSD can be found here.](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix")
+In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the founding of the UNIX operating system and hwo it lead directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software.  You were introduced to the major Linux distribution families as well as the BSD derivative distros.  Finally you were introduced to the five phases of UNIX maturity and how they relate to business and commercial interests.  [Additional Reading on the history of UNIX and BSD can be found here](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix").
 
 ### Review Questions
 
