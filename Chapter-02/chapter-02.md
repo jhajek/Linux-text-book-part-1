@@ -584,11 +584,13 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 * [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
   * Rolling release designed by Intel with auto-updating features built into the OS.
+* _"Clear Linux OS is an open source, rolling release Linux distribution optimized for performance and security, from the Cloud to the Edge, designed for customization, and manageability [https://clearlinux.org/](https://clearlinux.org/ "Clear Linux")."_
 
 #### Alpine Linux
 
 * [Alpine Linux](https://www.alpinelinux.org/ "Alpine Linux")
-  * Alpine uses musl libc and busybox making it a smaller GNU/Linux
+  * Alpine uses musl libc and busybox making it a smaller than GNU/Linux
+  * Designed to be minimal by design
   * Uses OpenRC init systems
   * Uses [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management "Alpine Linux APK") package manager
 
