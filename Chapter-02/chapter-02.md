@@ -675,13 +675,13 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 
 * After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers,  the last verson of OpenSolaris was forked into a project called Illumos. [^15]
 * Illumos is not a distro but a reference implementation in which other OSes are based.
-  + [OmniOS](https://omniosce.org/ "Omni OS")
-  + [SmartOS](https://www.joyent.com/smartos "Smart OS")
+  * [OmniOS](https://omniosce.org/ "Omni OS")
+  * [SmartOS](https://www.joyent.com/smartos "Smart OS")
 
 #### SmartOS
 
 * [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
-  + Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
+  * Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
 * Recently purchased by Samsung for their OS container technology stack called [Triton](https://www.joyent.com/triton/compute "Joyent Triton") and Manta.
 * Innovative company ahead of the technology curve by a few years--watch this space.
 * Releases all software even their production clouds as open source.
