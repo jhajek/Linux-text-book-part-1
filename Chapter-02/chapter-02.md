@@ -346,10 +346,10 @@ AT&T seeing this decided in the early 1992 to take the BSD project to court in o
 
 After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. Also they are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red hat.  All are maintained by volunteer organizations.
 
-  *  FreeBSD
-   + DragonFlyBSD
-  *  OpenBSD
-  *  NetBSD
+* FreeBSD
+  * DragonFlyBSD
+* OpenBSD
+* NetBSD
 
 ## Third Phase of Unix Maturity - Free and Opensource Software Enter the Enterprise
 
@@ -468,8 +468,8 @@ The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the s
 * Debian supports free and opensource software as superior to closed source but will allow for closed source software/drivers to be installed by the user.
 * Supported at various times 11 different processor types giving it a wide install base.
 * The Debian project and its history can be found at:
-  + [About the Debian Project](https://www.debian.org/intro/about)
-	+ [History of Debian](https://www.debian.org/doc/manuals/project-history)
+  * [About the Debian Project](https://www.debian.org/intro/about)
+  * [History of Debian](https://www.debian.org/doc/manuals/project-history)
 
 #### Ubuntu
 
@@ -569,17 +569,17 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 ### Additional Linux Distros
 
 * [Gentoo Linux](https://www.gentoo.org/ "Gentoo Linux")
-  + Unique Linux distro that builds itself upon install to become completely customized, small, and secure
-  + Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system.
+  * Unique Linux distro that builds itself upon install to become completely customized, small, and secure
+  * Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system.
 * Suse Linux
-  + [openSuse Linux](https://www.opensuse.org "Open SuseLinux")
-  + [Suse Enterprise Linux](https://www.suse.com/products/desktop/ "SLED")
+  * [openSuse Linux](https://www.opensuse.org "Open SuseLinux")
+  * [Suse Enterprise Linux](https://www.suse.com/products/desktop/ "SLED")
 * [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
-  + Rolling release designed by Intel with auto-updating features built into the OS.
+  * Rolling release designed by Intel with auto-updating features built into the OS.
 * [Alpine Linux](https://www.alpinelinux.org/ "Alpine Linux")
-  + Alpine uses musl libc and busybox making it a smaller GNU/Linux
-  + Uses OpenRC init systems
-  + Uses [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
+  * Alpine uses musl libc and busybox making it a smaller GNU/Linux
+  * Uses OpenRC init systems
+  * Uses [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
  "Alpine Linux APK") package manager
 
 ### Unix and the BSD Family Distros
@@ -625,10 +625,10 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 ![*OpenBSD*](images/Chapter-02/Linux-logos/OpenBSD/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png "OpenBSD")
 
 * Theo de Raadt was banned/left from the NetBSD project in 1994.
-  + He complained that they were developing too slow and not focusing on security.
+  * He complained that they were developing too slow and not focusing on security.
 * Started a fork of NetBSD at the end of 1995
 * OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [other projects](http://www.openbsd.org/innovations.html "BSD Innovaations") comes out of this project.
-  + [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
+  * [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
 * Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most secure OS.
 
 #### NetBSD
@@ -654,10 +654,10 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 * Sought to merge the best of Sys V and BSD into one standard Unix.
 * Ran on propriatery SPARC hardware platform
 * Leader in operating system feature development.
-  + ZFS
-  + Dtrace
-  + Zones (OS Containers/Jails)
-  + Network based installation -- Jumpstart
+  * ZFS
+  * Dtrace
+  * Zones (OS Containers/Jails)
+  * Network based installation -- Jumpstart
 * By 2006 began the process of opensourcing their technology and operating system.
 
 #### OpenSolaris

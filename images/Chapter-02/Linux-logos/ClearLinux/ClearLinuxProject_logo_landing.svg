@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="178.687" height="79.422" viewBox="0 0 178.687 79.422">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.828" y1="0.467" x2="0.339" y2="0.516" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7dd2f7"/>
+      <stop offset="1" stop-color="#b1e4fa"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.045" y1="0.19" x2="1.046" y2="0.872" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#33bef2"/>
+      <stop offset="0.75" stop-color="#88e1b8"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.467" y1="0.466" x2="0.712" y2="0.716" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="0.099" y1="0.012" x2="0.927" y2="1.52" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#33bef2"/>
+      <stop offset="0.85" stop-color="#88e1b8"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-5" x1="0.628" y1="0.426" x2="0.264" y2="0.977" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00aeff"/>
+      <stop offset="1" stop-color="#88e1b8"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-6" x1="0.5" y1="0.154" x2="0.5" y2="0.872" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d1d3d5"/>
+      <stop offset="1" stop-color="#f6f7f8"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-7" x1="0.045" y1="1.113" x2="0.923" y2="0.311" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f6f7f8" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#f0f2f4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-8" x1="0.5" y1="0.203" x2="0.5" y2="0.736" xlink:href="#linear-gradient-6"/>
+    <linearGradient id="linear-gradient-9" x1="-0.535" y1="0.191" x2="0.951" y2="0.657" gradientUnits="objectBoundingBox">
+      <stop offset="0.08" stop-color="#fdb814"/>
+      <stop offset="0.35" stop-color="#ffe966"/>
+      <stop offset="0.75" stop-color="#f6f7f8"/>
+      <stop offset="1" stop-color="#f0f2f4"/>
+    </linearGradient>
+  </defs>
+  <g id="ClearLinuxProject_logo_primary" transform="translate(-95.313 -39.578)">
+    <g id="Group_240" data-name="Group 240" transform="translate(95.313 39.578)">
+      <path id="Path_174" data-name="Path 174" d="M86.619,129.734,78.88,83.86,66.4,82.5Z" transform="translate(-60.125 -70.543)" fill="url(#linear-gradient)"/>
+      <path id="Path_175" data-name="Path 175" d="M101,54.335l30.5,10.528L103.231,48.2Z" transform="translate(-82.664 -48.2)" fill="url(#linear-gradient-2)"/>
+      <path id="Path_176" data-name="Path 176" d="M66.3,60.192l12.1-5.856L80.628,48.2Z" transform="translate(-60.06 -48.2)" fill="url(#linear-gradient-3)"/>
+      <path id="Path_177" data-name="Path 177" d="M66.3,71.656l20.881,2.231L78.4,65.8Z" transform="translate(-60.06 -59.665)" fill="url(#linear-gradient-4)"/>
+      <path id="Path_178" data-name="Path 178" d="M109.785,73.887l21.718,2.44L101,65.8Z" transform="translate(-82.664 -59.665)" fill="#0070c5"/>
+      <path id="Path_179" data-name="Path 179" d="M48.4,136l26.529-6.2L54.64,82.6Z" transform="translate(-48.4 -70.608)" fill="url(#linear-gradient-5)"/>
+      <path id="Path_180" data-name="Path 180" d="M74.929,218,79.5,228.632l-31.1-4.427Z" transform="translate(-48.4 -158.809)" fill="url(#linear-gradient-6)"/>
+      <path id="Path_181" data-name="Path 181" d="M74.929,195.657,69.8,183.7,48.4,201.862Z" transform="translate(-48.4 -136.466)" fill="url(#linear-gradient-7)"/>
+      <path id="Path_182" data-name="Path 182" d="M79.5,240.227l-8.715,5.787L48.4,235.8Z" transform="translate(-48.4 -170.404)" fill="url(#linear-gradient-8)"/>
+      <path id="Path_183" data-name="Path 183" d="M110.436,87.306l13.456,34.337-9.482,21.264-4.6-10.632L102,86.4Z" transform="translate(-83.315 -73.084)" fill="url(#linear-gradient-9)"/>
+    </g>
+    <text id="Clear_Linux_Project" data-name="Clear Linux*
+Project" transform="translate(150 90)" fill="#fff" font-size="22" font-family="IntelClear-Bold, Intel Clear" font-weight="700"><tspan x="0" y="0">Clear Linux*</tspan><tspan font-family="IntelClear-Regular, Intel Clear" font-weight="400"><tspan x="0" y="23">Project</tspan></tspan></text>
+  </g>
+</svg>
