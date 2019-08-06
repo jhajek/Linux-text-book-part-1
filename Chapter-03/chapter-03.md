@@ -867,27 +867,21 @@ You will need to do some research and find the download links for the Linux and 
   * Ubuntu 18.04 Server Edition
   * Lubuntu 18.04 Desktop edition
   * Trisquel Linux
-  * Debian 9.x
+  * Debian 10.x
 
 * Red Hat Based
   * Fedora 30 - Workstation edition
   * Centos 7.x - minimal install
 
 * BSD based
-  * Project Trident 18.x
+  * OmniOS Community Edition
 
 * Other Linux
   * Alpine Linux
-
-* Pick one of this list
-  * DragonFlyBSD
-  * FreeBSD 12
-  * Xubuntu
-  * Gentoo Linux
+  * MX Linux
+  * openSuse Tumbleweed
   * Arch Linux
-  * Oracle Linux (4GB download)
   * Linux Mint
-  * OmniOS
 
 ![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
 
