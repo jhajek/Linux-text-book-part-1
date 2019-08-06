@@ -308,8 +308,8 @@ This should have been cause for great celebration amongst the Linux and GNU comm
 
 Creation Method
 
-  * Linus Torvalds as a graduate student at a university because of his curiosity
-  * Thompson and Ritchie developed as Bell Labs Engineers to solve computer problems
+* Linus Torvalds as a graduate student at a university because of his curiosity
+* Thompson and Ritchie developed as Bell Labs Engineers to solve computer problems
 
 Release Cycle
 
@@ -386,7 +386,7 @@ You can read Raymond's two seminal books on Unix and opensource philosophy onlin
 
 ### Opensource Software Definition
 
-Open source doesn't just mean access to the source code. According to the [Opensource Initiative](https://opensource.org/ "Opensource Initiative") written by Bruce Perens, the now 10 rights enshrined in the OSD encompases the 4 software freedoms and extend them with a focus on applications in the business world. The distribution terms of open-source software must comply with the [following criteria:](https://opensource.org/osd-annotated "Annotated definition") 
+Open source doesn't just mean access to the source code. According to the [Opensource Initiative](https://opensource.org/ "Opensource Initiative") written by Bruce Perens, the now 10 rights enshrined in the OSD encompases the 4 software freedoms and extend them with a focus on applications in the business world. The distribution terms of open-source software must comply with the [following criteria:](https://opensource.org/osd-annotated "Annotated definition")
 
 1. Free Redistribution
     i) The license shall not restrict any party from selling or giving away the software as a component of an aggregate software distribution containing programs from several different sources. The license shall not require a royalty or other fee for such sale.
@@ -411,14 +411,14 @@ Open source doesn't just mean access to the source code. According to the [Opens
 
 ### Opensource Licensing
 
-The creators of the opensource initiative (OSI) took a different approach to market free software not as a moral issue, but as a development improvement and business use case.  This lead to the creation of similar licenses to the GPL, but what was termed as **weak copyleft** or as the Free Software Foundation calls them, *Pushover Copyleft*.   These licenses allow for contributions back to the creators as well as the ability to use, share, and inspect the code.  They provide one key additional feature in that they let you take your copy and keep the changes--making it proprietary.  Github itself has created a site to help you choose a license for your software called, ["Choose a License."](https://choosealicense.com/ "Choose a License")
+The creators of the Opensource initiative (OSI) took a different approach to market free software not as a moral issue, but as a development improvement and business use case.  This lead to the creation of similar licenses to the GPL, but what was termed as **weak copyleft** or as the Free Software Foundation calls them, *Pushover Copyleft*.   These licenses allow for contributions back to the creators as well as the ability to use, share, and inspect the code.  They provide one key additional feature in that they let you make a copy and keep the changes--making them proprietary.  GitHub has created a site to help you choose a license for your software called, ["Choose a License."](https://choosealicense.com/ "Choose a License")
 
 * [MIT](https://opensource.org/licenses/MIT "MIT License")
 * [APACHE Public License 2.0](https://opensource.org/licenses/Apache-2.0 "Apache Public License")
 * [BSD 3 Cluase](https://opensource.org/licenses/BSD-3-Clause "BSD 3 Clause")
 * [BSD 2 Clause or FreeBSD license](https://opensource.org/licenses/BSD-2-Clause "BSD 2 Clause")
 * [ISC Liscense](https://opensource.org/licenses/ISC "ISC")
-* [Mozilla Public License](https://opensource.org/licenses/MPL-2.0 "MPL")
+* [MPLv2 - Mozilla Public License](https://opensource.org/licenses/MPL-2.0 "MPL")
 * [CDDL](https://opensource.org/licenses/CDDL-1.0 "CDDL")
 
 In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you cna include that allow for remixing and redistribution or no distribution.  There are options that allow for commerical redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "Commons."
