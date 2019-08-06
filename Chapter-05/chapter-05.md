@@ -1,26 +1,26 @@
 # The Linux Filesystem, Path, Shell, and File Permissions
 ![*The Shells*](images/Chapter-Header/Chapter-05/seashell2.png "Linux Shells")
 
-### Objectives
+## Objectives
 
-  *  Understand the structure of the Linux Filesystem
-  *  Understand the difference between absolute and relative paths.
-  *  Understand the function of the Linux Shell and its relation to the operating system.
-  *  Understand the fundamental shell commands for traversing and modifying the contents of the filesystem.
-  *  Learn the Linux commandline nomenclature.
-  *  Understand the nomenclature describing file permissions and security
+* Understand the structure of the Linux Filesystem
+* Understand the difference between absolute and relative paths.
+* Understand the function of the Linux Shell and its relation to the operating system.
+* Understand the fundamental shell commands for traversing and modifying the contents of the filesystem.
+* Learn the Linux commandline nomenclature.
+* Understand the nomenclature describing file permissions and security
 
-### Outcomes
+## Outcomes
 
-  At the completion of this chapter you will understand how to use the Linux shell for modifying the contents of the operating system.  You will understand the nature of the filesystem and how to navigate it.  You will be able to demonstrate full awareness of absolute and relative paths and understand the system path.  You will know basic shell commands for manipulating content in the filesystem.  
+At the completion of this chapter you will understand how to use the Linux shell for modifying the contents of the operating system.  You will understand the nature of the filesystem and how to navigate it.  You will be able to demonstrate full awareness of absolute and relative paths and understand the system path.  You will know basic shell commands for manipulating content in the filesystem.  
 
-#### Chapter Conventions
+### Chapter Conventions
 
-   The terms __commandline__, __terminal__, and __shell__ have been used interchangeably so far to convey the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
+The terms __commandline__, __terminal__, and __shell__ have been used interchangeably so far to convey the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
 
-   The terms __files__, __folders__, and __directories__ can be used interchangeably in regards to this chapter's contents.  Remember from Chapter 2, everything in Unix is a *file*, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in block quotes throughout the chapter with little exercises that will let you follow along as you read.  
+The terms __files__, __folders__, and __directories__ can be used interchangeably in regards to this chapter's contents.  Remember from Chapter 2, everything in Unix is a *file*, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in block quotes throughout the chapter with little exercises that will let you follow along as you read.  
 
-## What is a Filesystem?
+## What is a Filesystem
 
 A filesystem is a way for the operating system to manage and access files.  It is how data is segregated and the mechanism the operating system uses to retrieve and write data.  The benefit of a filesystem is it will keep track of the locations in memory of your files.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table of all files location in memory and looks up the address of the file.  That address is given to the kernel which then passes it to the disk controller for the data retrieval portion.  The bits are effectively returned to the operating system from the kernel and the image is rendered to the screen.  Specific Linux filesystem and their commands will be covered in chapter 12.  
 
@@ -36,34 +36,30 @@ How does this compare to other operating systems? Windows operates on a separate
 
 ### POSIX Standard
 
-Why are the two filesystem hierarchies different?  The answer goes back to the dawn of commercial Unix in the early 1980s.  By 1985 there was a growing concern, especially from Richard Stallman, that the GNU project would suffer a Coup d'état by Unix vendors who would subtly change the way Unix interfaced with software and make GNU software incompatible and therefore impractical for use. Richard Stallman spurred on a nascent IEEE standards group to create something called __POSIX__ (pronounced *pah-zicks*), the __Portable Operating System Interface__.  
+Why are the two filesystem hierarchies different?  The answer goes back to the dawn of commercial Unix in the early 1980s.  By 1985 there was a growing concern, especially from Richard Stallman, that the GNU project would suffer a Coup d'état by Unix vendors who would subtly change the way Unix interfaced with software and make GNU software incompatible and therefore impractical for use. Richard Stallman spurred on a nascent IEEE standards group to create __POSIX__ (pronounced *pah-zicks*), the __Portable Operating System Interface__.  
 
 > "This is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems.[^49]"  
 
-In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX insures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7 or POSIX 7.   For more details on the specifics of POSIX and what is does see APPENDIX A at the back of the book.
+In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX ensures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7 or POSIX 7.   For more details on the specifics of POSIX and what is does see APPENDIX A at the back of the book.
 
-It is great to have a standard but what exactly does POSIX do?  Even in that question the answer varies widely, since Unix was already in use at the time for over 15+ years before a standard was in place.  This required them to back-define some issues and cave on other issues. POSIX defines at a minimum what a certified Unix based system must support feature and API wise, no more, no less.  It does not restrict extra non-POSIX features from being included.  In reality there is no POSIX Unix version like there is GPL compliant GNU/Linux distros. Most Linux distros are very POSIX compliant by nature, but very few systems are certified POSIX compatible.  POSIX doesn't define a default filesystem other than requiring /, /tmp, and /dev be present.  
+It is great to have a standard but what exactly does POSIX do?  Even in that question the answer varies widely, since Unix was already in use at the time for over 15+ years before a standard was in place.  This required the standard to back-define some issues and cave on other issues. POSIX defines at a minimum what a certified Unix based system must support feature and API wise, no more, no less.  It does not restrict extra non-POSIX features from being included.  In reality there is no POSIX Unix version like there is GPL compliant GNU/Linux distros. Most Linux distros are very POSIX compliant by nature, but very few systems are certified POSIX compatible.  For exmaple, POSIX doesn't define a default filesystem other than requiring /, /tmp, and /dev be present.  
 
 ### The Linux Standard Base
 
-Seeing the good that POSIX standardization brought to the Unix world, a similar industry group formed the [Linux Standard Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), or LSB.  The LSB was put together for two main purposes. First it was hoped that application vendors (Oracle, Postgress, Sun, JBoss, IBM, etc, etc) would certify their products to work across different Linux distros that are LSB certified.  Vendors pay a significant amount of money to Microsoft to get drivers certified across Windows for instance.  Second was for creating a central Linux identity and reference guide for distros to comply with.  The LSB started by extending POSIX and included new items unique to Linux.  *"The LSB specifies for example: standard libraries, system commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system (including spoolers such as CUPS) and tools like Foomatic, and several extensions to the X Window System."* [^50] This initial standard body came together and was published in January of 2001.
+Seeing the good that POSIX standardization brought to the Unix world, a similar industry group formed the [Linux Standard Base](https://en.wikipedia.org/wiki/Linux_Standard_Base "LSB"), or LSB.  The LSB was put together for two main purposes. First it was hoped that application vendors (Oracle, Postgress, Sun, JBoss, IBM, etc, etc) would certify their products to work across different Linux distros that are LSB certified.  Vendors pay a significant amount of money to Microsoft to get drivers certified across versions of Windows for instance.  Second was for creating a central Linux identity and reference guide for distros to comply with.  The LSB started by extending POSIX and included new items unique to Linux.  *"The LSB specifies for example: standard libraries, system commands and utilities that extend the POSIX standard, the layout of the file system hierarchy, run levels, the printing system (including spoolers such as CUPS) and tools like Foomatic, and several extensions to the X Window System."* [^50] This initial standard body came together and was published in January of 2001.
 
 Most importantly the LSB sought to create an __ABI__, [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface "ABI").  This is different than an API, which assumes that there will be the same standard libraries to code against on every Linux distro.  The ABI gives assurance that code __compiled__ using a C compiler with the ABI compatibility feature turned on will generate a binary file that will run on all LSB compliant Linux systems.  This is similar to a Windows .exe package you create. It runs on all Windows platforms from XP all the way to Windows 10, those operating systems are ABI compliant.  The LSB wanted to guarantee this so that major vendors of software would not have to maintain multiple software versions, just maintain one version with ABI compatibility, thus preventing a barrier Linux enterprise adoption.
 
-The Linux Standard Base chose RPM (Red Hat Package Manager)[^51] as the standard way to distribute Linux packages but did not specify how a distro would install them, leaving this up to the individual distro.  This caused Debian based distros-to create a conversion layer package manager called *Alien* which translates the RPM standard so it can be installed using the native *apt* package manager of Debian based distros.
-
-### The Problem with the LSB
-
 The dream of a unified Linux standard never really occurred. __No one implements LSB the way it was intended__. This post from the Debian LSB mailing list marked July 3rd 2015 says it all:  
 
-> The crux of the issue is, I think, whether this whole game is worth the work: I am yet to hear about software distribution happening through LSB packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4. [^59]
+> "*The crux of the issue is, I think, whether this whole game is worth the work: I am yet to hear about software distribution happening through LSB packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4 [^59].*"
 
 #### Linux Filesystem Standard Hierarchy
 
 The one useful thing that came out of the LSB is the __Filesystem Hierarchy Standard__, or *FHS* [^47][^61].  This is a voluntary standard maintained by the [Linux Foundation](http://www.linuxfoundation.org/ "Linux Foundation") that includes a standard hierarchy of directories and optional directories that exists under the __root__ in a standard Linux distro.  You should *memorize* each directory name and its general function [^63].  
 
 Directory           Function
-----------  ----------------------------------------------------------------------------------------
+----------  ---------------------------------------------------------------------------------------------
 __bin__         Essential command binaries
 __boot__        Static files of the boot loader that copy the kernel into memory on boot
 __dev__         Device file handles
@@ -79,18 +75,18 @@ __tmp__         Temporary files - some distros clear this directory upon reboot 
 __usr__         Secondary hierarchy - contains X, KDE or GNOME, plus documentation
 __var__         Variable data - used for storing databases, webserver files, and application logs
 *proc*        Virtual filesystem created at runtime providing process and kernel information as files.
-----------  -----------------------------------------------------------------------------------------
+----------  ---------------------------------------------------------------------------------------------
 
 ![*Linux Filesystem Hierarchy Standard - items not bold from above will not be included*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
 
 There are 3 additional directories that are non-standard but appear on pretty much all Linux distros [^62].  You can see a screenshot below.
 
 Directory       Function
-----------  -----------------------------------------------------------------------------------------
+----------  --------------------------------------------------------------------------------------------
 __home__        Users' home directories, containing saved files, personal settings, place that you own.
 __root__        Home directory for the root user - not to be confused with /
 __lib64__       Alternate home for 64 bit libraries
-----------  -----------------------------------------------------------------------------------------  
+----------  ---------------------------------------------------------------------------------------------
 
 ![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu 15.04 root directory listing")
 
@@ -112,7 +108,7 @@ local             Tertiary hierarchy for local data, specific to this host.
 sbin              Non-essential system binaries, e.g., daemons for various network-services.
 src               Source code, e.g., the kernel source code with its header files.
 X11R6             X Window System, Version 11, Release 6 (up to FHS-2.3, optional).
----------  ------------------------------------------------------------------------------------
+---------  ----------------------------------------------------------------------------------------
 
 #### Red Hat vs POSIX and LSB
 
@@ -546,20 +542,20 @@ Centos - [http://twit.tv/floss/142](http://twit.tv/floss/142 "CentOS")
 
 Answer said questions:
 
-  * ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
-  * ~3:40 What is the short story about how Centos came about?
-  * ~4:58 Who is the largest commercial Enterprise Linux?
-  * ~7:17 How do the two projects relate to each other?  How do they relate to each other from the RedHat point of view?
-  * ~8:10 Who from RedHat is not happy with Centos?
-  * ~10:25 How do Centos users differ from RedHat's paying customers?
-  * ~19:00. How does the RHEL environment work vs Fedora environment? (RedHat Enterprise Linux)
-  * ~22:55 Since Centos is using the RHEL code base how long does Centos lag behind the RHEL codebase when a new release is issued?
-  * ~24:24 How does Centos make money?
-  * ~29:00 How does Centos pay for everything?
-  * ~30:00 Who was Lance Davis and what happened with him?
-  * ~35:00 Kiran mentioned 2 million users for Centos - what did they do right compared to other projects (whitebox linux) that didn't make it?
-  * ~44:00 Is Centos for Servers only or can you use it on the Desktop?
-  * Personal questions - is what Centos doing legal?  Is it ethical/moral?  Why or why not?
+* ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
+* ~3:40 What is the short story about how Centos came about?
+* ~4:58 Who is the largest commercial Enterprise Linux?
+* ~7:17 How do the two projects relate to each other?  How do they relate to each other from the RedHat point of view?
+* ~8:10 Who from RedHat is not happy with Centos?
+* ~10:25 How do Centos users differ from RedHat's paying customers?
+* ~19:00. How does the RHEL environment work vs Fedora environment? (RedHat Enterprise Linux)
+* ~22:55 Since Centos is using the RHEL code base how long does Centos lag behind the RHEL codebase when a new release is issued?
+* ~24:24 How does Centos make money?
+* ~29:00 How does Centos pay for everything?
+* ~30:00 Who was Lance Davis and what happened with him?
+* ~35:00 Kiran mentioned 2 million users for Centos - what did they do right compared to other projects (whitebox linux) that didn't make it?
+* ~44:00 Is Centos for Servers only or can you use it on the Desktop?
+* Personal questions - is what Centos doing legal?  Is it ethical/moral?  Why or why not?
 
 ### Lab
 
