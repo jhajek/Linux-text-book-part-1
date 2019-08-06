@@ -864,7 +864,6 @@ You will need to do some research and find the download links for the Linux and 
 
 * Debian Based
   * Ubuntu 18.04 Desktop edition
-  * Ubuntu 18.04 Server Edition
   * Lubuntu 18.04 Desktop edition
   * Trisquel Linux
   * Debian 10.x
