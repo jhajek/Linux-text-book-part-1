@@ -397,7 +397,7 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 
 #### RPM
 
- A few years after dpkg became standard on Debian based distros, the Red Hat company created their own package manager out of necessity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.)  Red Hat created their own package manager that is used across those Fedora or RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution too.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113].
+ A few years after dpkg became standard on Debian based distros, the Red Hat Linux created their own package manager out of necessity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.)  It is used across Fedora and RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113].
 
 > __Example Usage:__ List all installed packages:
 ```rpm -qa```
