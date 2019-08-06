@@ -408,6 +408,7 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 > __Example Usage:__ Install a package from a local file:
 ```rpm -i file.rpm```
 
+
 > __Example Usage:__ Remove a package from the system:
 ```rpm -e pkgname```
 
