@@ -788,6 +788,7 @@ Answer these questions (not all of the Answers are in each case study!)
 1. What Operating System(s) are used?
 1. What programming languages/frameworks are used?
 1. What storage and what database technologies are used?
+1. What Opensource license is the technology stack licensed under?
 1. What is the current stock price and what was the IPO of the company? (if traded publicly.)
 1. What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
 1. What can you learn from this article relating to technology and infrastructure?
@@ -832,7 +833,7 @@ or <a href="http://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, <a 
 <a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a> or <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File%3AUbuntu_logo_copyleft_1.svg">via Wikimedia Commons</a>
 
 [^11]: By Martin Schmitt (cropped by Mary Gardiner) (http://www.flickr.com/photos/foobarbaz/141522112/)
-<a href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File%3AMark_Shuttleworth_by_Martin_Schmitt.jpg">via Wikimedia Commons</a>   
+<a href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File%3AMark_Shuttleworth_by_Martin_Schmitt.jpg">via Wikimedia Commons</a>
 
 [^12]: By Clement Lefebvre <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>
 <a href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg">via Wikimedia Commons</a>
@@ -841,7 +842,7 @@ or <a href="http://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, <a 
 <a href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg">via Wikimedia Commons</a>
 
 [^14]: By CentOS Project (http://wiki.centos.org/ArtWork/Logo/Type)
-<a href="http://www.gnu.org/licenses/gpl.html">GPL</a> or Public domain, <a href="https://commons.wikimedia.org/wiki/File%3ACentOS_Logotype.png">via Wikimedia Commons</a>    
+<a href="http://www.gnu.org/licenses/gpl.html">GPL</a> or Public domain, <a href="https://commons.wikimedia.org/wiki/File%3ACentOS_Logotype.png">via Wikimedia Commons</a>
 
 [^15]: By openindiana.org [Public domain]
 <a href="https://commons.wikimedia.org/wiki/File%3AOpenIndiana_logo_large.svg">via Wikimedia Commons</a>
@@ -853,6 +854,6 @@ or <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>, <a
 <a href="https://commons.wikimedia.org/wiki/File%3AJoyent-logo.png">via Wikimedia Commons</a>
 
 [^18]: By Kushal Das (Own work) <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>
-<a href="https://commons.wikimedia.org/wiki/File%3ALennart_poettering.jpg">via Wikimedia Commons</a>   
+<a href="https://commons.wikimedia.org/wiki/File%3ALennart_poettering.jpg">via Wikimedia Commons</a>
 
 [^114]: <a href="https://www.gnu.org/philosophy/free-sw.en.html">https://www.gnu.org/philosophy/free-sw.en.html</a>
