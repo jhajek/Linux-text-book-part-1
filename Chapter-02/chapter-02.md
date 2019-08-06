@@ -730,7 +730,11 @@ The major ones are:
 * Redis - link
 * Elastic - link
 
-There solution was to add provisions to existing opensource licenses that forbid companies from offering a cloud hosted version of their software.  This is allowable via licensing, but the downside is that it violates the main tenants of Opensource, and hence cannot be considered Opensource anymore.  
+There solution was to add provisions to existing opensource licenses that forbid companies from offering a cloud hosted version of their software.  This is allowable via licensing, but the downside is that it violates the main tenants of Opensource, and hence cannot be considered Opensource anymore.  These companies are in a difficult position.  They want to develop software and I think truly embrace the Opensource way of development, but they are all Venture Funded companies, meaning they need to make a financial return to their investors.  They see the major Cloud providors and their hosted versions of the software as the major threat.   This has caused a few of the companies listed to make hosted alliances with Google and Microsoft.
+
+Some would argue that this is where the GPL with its strong copyleft would prevent this from happening.  When Amazon essentially forked MongoDB and created a product called DocumentDB, the GPL would force Amazon, by its license, to release the changes made to the MongoDB source code--leveling the playing field economically.  The FSF and GPL people will tell you, the license is not about money or commerce, but freedom.
+
+Others will site the fact that very few succesful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception.  Apple for instance has removed all GPLv3 based software from its MacOS due to concerns about GPLv3.  
 
 ## Chapter Conclusion and Summary
 
