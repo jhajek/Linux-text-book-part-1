@@ -719,18 +719,15 @@ In it's defense, systemd has many nice and actually new and needed features for 
 
 ## 6th Phase of Linux Maturity, OpenSource isn't a business model
 
-As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used accross the industry and these companies happen to be Venture Capital funded. These companies, who had relied on opensource software as their business model, are now come into competition directly with large Cloud vendors, mostly Amazon Web services. These cloud companies offer cloud hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providors, vastly out number the original company's developer workforce.  
+As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used accross the industry and these companies happen to be Venture Capital funded. These companies, who had relied on opensource software as their business model, are now come into competition directly with large Cloud vendors, mostly Amazon Web services. These cloud companies offer cloud hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providors, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against cloud providors.  
 
-What can these companies do?  
+* MongoDB - [Server Side Public License](https://www.mongodb.com/licensing/server-side-public-license "Server Side Public License")
+* Confluent - [Community License v1](https://www.confluent.io/confluent-community-license "Confluence Community License")
+* Redis - [Source Available License](https://redislabs.com/community/licenses/ "Source Available License")
+* CockroachDB - [Community License Agreement](https://www.cockroachlabs.com/cockroachdb-community-license/ "Community License Agreement")
+* AWS and Elastic - In a bit of irony, after the Elastic company moved some of their products features to an Enterprise Edition, propriatery source, Amazon felt that they were being financially injured by this, and made a statement rebuking Elastic for not [keeping Opensource open](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/ "Keeping Opensource Open").  Amazon neglected to mention that they had forked Elastics code, made a hosted version on the AWS cloud and was not contributing any code or money back to Elastic.  Mind you this was all legal according to the Apache Public License.  
 
-The major ones are:
-
-* MongoDB - link
-* Confluent - link
-* Redis - link
-* Elastic - link
-
-There solution was to add provisions to existing opensource licenses that forbid companies from offering a cloud hosted version of their software.  This is allowable via licensing, but the downside is that it violates the main tenants of Opensource, and hence cannot be considered Opensource anymore.  These companies are in a difficult position.  They want to develop software and I think truly embrace the Opensource way of development, but they are all Venture Funded companies, meaning they need to make a financial return to their investors.  They see the major Cloud providors and their hosted versions of the software as the major threat.   This has caused a few of the companies listed to make hosted alliances with Google and Microsoft.
+Their solution was to add provisions to existing opensource licenses that forbid companies from offering a cloud hosted version of their software.  This is allowable via licensing, but the downside is that it violates the main tenants of Opensource, and hence cannot be considered Opensource anymore.  These companies are in a difficult position.  They want to develop software and I think truly embrace the Opensource way of development, but they are all Venture Funded companies, meaning they need to make a financial return to their investors.  They see the major Cloud providors and their hosted versions of the software as the major threat.   This has caused a few of the companies listed to make hosted alliances with Google and Microsoft.
 
 Some would argue that this is where the GPL with its strong copyleft would prevent this from happening.  When Amazon essentially forked MongoDB and created a product called DocumentDB, the GPL would force Amazon, by its license, to release the changes made to the MongoDB source code--leveling the playing field economically.  The FSF and GPL people will tell you, the license is not about money or commerce, but freedom.
 
@@ -780,6 +777,8 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 
 ### Lab
 
+#### Activity 1
+
 Most of the popular and functional pieces of software you use everyday invovle Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
 
 Post your topics on the Blackboard Class Discussion board under the Chapter-02 Case Studies forum - both of your case study choices have to be unique from everyone else. Those who choose first will get the ones they want. There are over 200+ case studies there will be plenty of options.
@@ -798,6 +797,24 @@ Answer these questions (not all of the Answers are in each case study!)
 1. What can you learn from this article relating to technology and infrastructure?
 
 Each Student will give a 1-2 minute presentation of one of their papers the following class.
+
+#### Activity 2
+
+Read this stream of three articles.  Its a commentary on the Opensource license changes, a response from one of the CEOs, and then a reply to the reponse.
+
+* [http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/](http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/ "OpenSource confronts its midlife crisis")
+* [https://medium.com/@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6](https://medium.com/@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6 "Quick Comment on Licensing")
+* [http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/](http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/ "A Eula in FOSS clothing")
+
+Answer these questions with a few short sentences:
+
+1) What is Bryan Cantrill's initial main point in the first article?
+1) Do you agree with him, why or why not?
+1) What is Jay Kreps response/contention in the second article?
+1) Do you agree with him, why or why not?
+1) What is the main point of Bryan Cantrill's rejoinder in the third article?
+1) Do you agree with him, why or why not?
+1) What is the solution in your opinion?
 
 #### Footnotes
 
