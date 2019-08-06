@@ -752,7 +752,7 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 1. Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
 
-1. What were the two commercial Linux companies featured in the movie?
+1. What were the two commercial Linux companies featured in the movie (Note-one does not exist any longer)?
 
 1. What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that company's stock price.)
 
