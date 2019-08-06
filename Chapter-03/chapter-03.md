@@ -361,7 +361,7 @@ sudo dpkg -i ./vivaldi-stable_2.4.1488.40-1_amd64.deb
 sudo rpm -iv ./vivaldi-stable-2.4.1488.40-1.x86_64.rpm
 ```
 
-After executing this command you will receive an error message. What is it telling you and why?  You will notice that the dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
+After executing this command you will receive an error message. What is it telling you and why?  You will notice that dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
 __Example Usage:__
 
@@ -469,7 +469,7 @@ php -v
 
 There is also a PPA for Linux-libre.  Linux-libre is a GNU package that is a modified version of the Linux kernel. The aim of the project is to remove from non-free or significantly obfuscated code[^111] from the Linux kernel. The downside of removing proprietary firmware from the kernel is that it will cause lose functionality for certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards.
 
-*"The resulting combination of the GNU Operating System and the kernel named Linux is the GNU+Linux operating system, although many (incorrectly) refer to it as "Linux": http://www.gnu.org/gnu/linux-and-gnu.html [^112]"*  
+The resulting combination of the GNU Operating System and the kernel named Linux is the GNU+Linux operating system, although many (incorrectly) refer to it as ["Linux"](http://www.gnu.org/gnu/linux-and-gnu.html "GNU/Linux")[^112].
 
 > __Example Usage:__ Let's set our kernel free... The full instructions are at this website:  [https://jxself.org/linux-libre/](https://jxself.org/linux-libre/ "Libre-Linux")  Once successful, reboot your system and/while holding down shift - you should see the menu in the image below appear. Choose *Advanced Options For Ubuntu* and you will see your GNU/Libre kernels.  Try to boot from one.
 
