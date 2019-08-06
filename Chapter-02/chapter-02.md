@@ -298,7 +298,7 @@ By September of 1991 Linux kernel version 0.01 had been posted to the University
 
 By February of 1992 Linux 0.12 kernel had been released.  As more users began to download and use Linux, Linus decided to give the project a proper license for its use.  Having seen Richard Stallman speak at the University of Helsinki a few years prior, Linus was inspired and decided to release the Linux Kernel under the GPLv2 license.  This was the smartest thing anyone could have done and no one could have foresaw the great economic value the Linux kernel and GNU tools licensed under the GPL has generated for many companies.  This combination allowed Google to start and grow to its tremendous size.  This combination allowed companies such as Amazon, Yahoo, and Google to get a tremendous start by allowing them to customize the Linux operating system not having to place precious startup capital into Unix licenses.
 
-The reason why Linux is so popular is because of this fledgling kernel that worked enough for people to use, hack on, build upon, and improve now had a governance structure with the GPL that could accept code contributions and be available for commercial work as well.  Being GPL the Linux kernel was instantly compatible with all of the entire GNU project's tools base.  You instantly had the kernel that GNU was missing and the Linux kernel had all the tools and applications it needed to be usable.     
+The reason why Linux is so popular is because of this fledgling kernel that worked enough for people to use, hack on, build upon, and improve now had a governance structure with the GPL that could accept code contributions and be available for commercial work as well.  Being GPL the Linux kernel was instantly compatible with all of the entire GNU project's tools base.  You instantly had the kernel that GNU was missing and the Linux kernel had all the tools and applications it needed to be usable.
 
 People began downloading and compiling the Linux kernel, adding the GNU tools, and making fully capable Unix-like operating systems for personal use soon after commercial use.  Linus' brilliance comes not from ingenuity but comes from good engineering principals like knowing when not to go down dead-end development trails.  Torvalds' work was not perfect but was good enough that others could take it and start to use it and improve upon it.  From 1992 to 2001 the Linux kernel grew rapidly in size and features and spawned commercial companies to sell and support Linux Distributions. Stallman's dream of a complete free and opensource operating system was being realized.  
 
@@ -313,28 +313,28 @@ Creation Method
 
 Release Cycle
 
-  * Linux releases a new kernel in short windows and maintains an LTS, Long Term Support Kernel version as well
-   + Linux distributions have to plan around this and choose which kernel to use.
-  * Unix/BSD maintain a complete operating system and release everything together in a 1 to 2 year cycle
+* Linux releases a new kernel in short windows and maintains an LTS, Long Term Support Kernel version as well
+  * Linux distributions have to plan around this and choose which kernel to use.
+* Unix/BSD maintain a complete operating system and release everything together in a 1 to 2 year cycle
 
 License
 
- *  The Linux kernel is licensed and protected under the GPLv2 and allows individuals and corporations alike to contribute back to the Linux kernel, but source code must be open and freely available.
- *  Each BSD project is licensed under a permissive license which allows for derivative works to be made without requiring that the source code be given back to the main project.  BSD distros do take outside contributions.
-   + Commercial Unix does not take outside contributions
+* The Linux kernel is licensed and protected under the GPLv2 and allows individuals and corporations alike to contribute back to the Linux kernel, but source code must be open and freely available.
+* Each BSD project is licensed under a permissive license which allows for derivative works to be made without requiring that the source code be given back to the main project.  BSD distros do take outside contributions.
+  * Commercial Unix does not take outside contributions
 
 Tooling
 
-  * Any Linux based operating system need to make use of a set of coretools -- usually the GNU coretools to be able to function
-  * BSD/Unix may use some GNU coretools but has their own versions internally built in with the distro
+* Any Linux based operating system need to make use of a set of coretools -- usually the GNU coretools to be able to function
+* BSD/Unix may use some GNU coretools but has their own versions internally built in with the distro
 
 #### Linus' Personality
 
 Some people think Linus' personality is a shtick or a comedy act he puts on.  But whatever it is he is very straight forward in dealing with people, and will not spare anyone a harsh public rebuking if he thinks they made a sloppy mistake.  He justifies this as kernel work is hard and you need to be prepared to take difficult criticism if you are going to survive here. Some consider Linus really mean and even aggressively mean spirited to those with whom he has disagreements.  When approached about this, Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
 
-*  [Torvalds' right to offend](http://www.wired.com/2013/07/linus-torvalds-right-to-offend/ "rights")
-*  [Torvalds doesn't care](http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/ "Doesn't care")
-*  [Linus' response to previous article](http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/ "Response")
+* [Torvalds' right to offend](http://www.wired.com/2013/07/linus-torvalds-right-to-offend/ "rights")
+* [Torvalds doesn't care](http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/ "Doesn't care")
+* [Linus' response to previous article](http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/ "Response")
 
 On September 16, 2018, Linus Torvalds issued a public apology for his past behavior and temporarily stepped down as Linux Kernel maintainer.  You can read the apology letter on the [Kernel mailing list](https://lkml.org/lkml/2018/9/16/167 "Linus Apology").   Some say the apology wasn't needed, some say it is too little too late.  Others wonder if a man of Linus' age (48) can be reformed.  Some see this as a step in the right direction and offer a chance for redemption, some would prefer him never to return.  This opens a bigger question of what happens to the Linux Kernel if Linus never returns, who becomes the maintainer?  Time will tell.
 
@@ -575,7 +575,7 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 [Gentoo Linux](https://www.gentoo.org/ "Gentoo Linux")
 
-* Unique Linux distro that builds itself upon install to become completely customized, small, and secure
+* Unique Linux distro that builds itself upon install to become completely customized, small, and secure.
 * Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system.
 
 #### Intel Clear Linux
@@ -600,7 +600,7 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 ### Unix and the BSD Family Distros
 
-While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume on the BSD forks of Unix.  The BSD code splintered into 3 main families or distros that are all descended from the original BSD Unix project.  This leaves large pieces of BSD code compatible with each other. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.  The BSD world is not immune from forks and divisions.
+While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume on the BSD forks of Unix.  The BSD code splintered into 3 main families or distros that are all descended from the original BSD Unix project.  This leaves large pieces of BSD code compatible with each other. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.  The BSD world is not immune from forks and division.
 
 #### FreeBSD
 
@@ -680,9 +680,9 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 
 ![*OpenSolaris*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenSolaris_Logo-2.svg.png "Open Solaris")
 
-* In 2006 Sun had experimented with creating and opensource user based distro from their Unix based Solaris OS [^16]
-* They hired Ian Murdock (the guy who started Debian) to oversee this project
-* Project was called OpenSolaris but was killed when Oracle purchased Sun in 2010
+* In 2006 Sun had opensourced their Unix-based Solaris OS [^16]
+* They hired Ian Murdock (founder of Debian) to oversee this project
+* Project was called OpenSolaris, but was killed when Oracle purchased Sun in 2010
 * [Explanation of how OpenSolaris was killed and *closed* sourced by Oracle.](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Fork")
 
 #### Illumos
@@ -690,17 +690,16 @@ While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been
 ![*Open Indiana*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
 
 * After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers,  the last verson of OpenSolaris was forked into a project called Illumos. [^15]
-* Illumos is not a distro but a reference implementation in which other OSes are based.
+* Illumos is not a distro, but a reference implementation in which other OSes are based.
   * [OmniOS](https://omniosce.org/ "Omni OS")
   * [SmartOS](https://www.joyent.com/smartos "Smart OS")
 
 #### SmartOS
 
 * [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
-  * Combines the best of the BSD/Solaris products but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
+  * Combines the best of the BSD/Solaris product but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
 * Recently purchased by Samsung for their OS container technology stack called [Triton](https://www.joyent.com/triton/compute "Joyent Triton") and Manta.
-* Innovative company ahead of the technology curve by a few years--watch this space.
-* Releases all software even their production clouds as open source.
+* Releases all software, even their production clouds as open source.
 
 ## 5th Phase of Unix Maturity - Hard Changes to the Nature of Linux
 
@@ -712,15 +711,26 @@ Why would this technology be so devisive?  Well, the init system is at the root 
 
 The other major point of contention is with all the change systemd makes to the init process, many other pieces of software need to change as well.  Linux has always been about the freedom to choose your software, but systemd has made fundamental choices forcing fundamental changes to the structure of how software interacts with the Linux kernel.  For example, the GNOME desktop developers have chosen to integrate their software with systemd directly.  This means that you have no choice but to use systemd instead of SysVInit. if you want to use the GNOME desktop. You are basically locked into using GNOME as a Desktop environment in this case, which some would argue is progress and some would argue as captivity.  Note that BSD still uses SysVInit; systemd is a pure Linux-ism and not compatible with BSD.
 
-According to BSD developer Benno Rice at the BSDcan 2018 presentaiton on systemd, systemd gives Linux, a systems management layer that had always been missing, not unlike what exists in Windows today.  You need to give Lennart credit as well as by now all major Linux distros have adopted systemd as its init system. Lennart convinced his management at RedHat to take a chance on his technology, and now most of the industry followed suit 6 years after he first released systemd.  That is not an easy accomplishment if you think about it.
+According to BSD developer Benno Rice at BSDcan 2018, systemd gives Linux, a system management layer that had always been missing, not unlike what exists in Windows today.  You need to give Lennart credit for convincing all major Linux distros to adopt systemd as their init system. Lennart convinced his management at RedHat to take a chance on his technology, and now most of the industry followed suit 6+ years after he first released systemd.  That is not an easy accomplishment if you think about it.
 
-This leads to an interesting point because by 2016, all major Linux distros had adopted systemd.  The first company to adopt systemd was RedHat.  Debian was the last hold out and they had a sprited debate, which led to a number of resignations and the community split over this issue.  Debian developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focusing on removing all systemd and udev dependencies from a Debian based linux distro.  
+The first company to adopt systemd was RedHat.  Debian was the last hold out and they had a sprited debate, which led to a number of resignations and the community split over this issue.  Some Debian developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focused on removing all systemd and udev dependencies from a Debian based Linux distro.  
 
 In it's defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based sysetm compatability.  Systemd is entirely Linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros.
 
 ## 6th Phase of Linux Maturity, OpenSource isn't a business model
 
+As the story moves into early 2019, we begin to see Venture Funded backed companies who had relied on opensource software as their business model, now come into competition directly with large Cloud vendors. These cloud companies use these opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providors, vastly out number the original companies.  
 
+What can these companies do?  
+
+The major ones are:
+
+* MongoDB - link
+* Confluent - link
+* Redis - link
+* Elastic - link
+
+There solution was to add provisions to existing opensource licenses that forbid companies from offering a cloud hosted version of their software.  This is allowable via licensing, but the downside is that it violates the main tenants of Opensource, and hence cannot be considered Opensource anymore.  
 
 ## Chapter Conclusion and Summary
 
