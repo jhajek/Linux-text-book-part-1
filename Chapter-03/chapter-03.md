@@ -656,6 +656,14 @@ sudo pip install dronekit-sitl
 
 ![*Dronekit.io install*](images/Chapter-03/python-install/python-pip.png "Python PIP")
 
+### Using Rust
+
+install Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
+
+[https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils")
+
+[https://github.com/sharkdp/fd](https://github.com/sharkdp/fd "fd-find build using Rust")
+
 ### Installing Virtualbox Additions Package
 
 > "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html](https://www.virtualbox.org/manual/ch04.html "Source")
@@ -665,7 +673,7 @@ The Guest Additions offer the following features:
 * Mouse pointer integration
 * Shared folders
 * Better video support
-  + Finally, if the Guest Additions are installed, 3D graphics and 2D video for guest applications can be accelerated; see Section 4.5, “Hardware-accelerated graphics”.
+  * Finally, if the Guest Additions are installed, 3D graphics and 2D video for guest applications can be accelerated; see Section 4.5, “Hardware-accelerated graphics”.
 * Seamless windows
 * Time synchronization
 * Shared clipboard
@@ -692,7 +700,6 @@ sudo mkdir /media/VirtualBoxGuestAdditions
 sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
 sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers dkms make bzip2 perl
 cd /media/VirtualBoxGuestAdditions
-# 32-bit and 64-bit systems run following
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
@@ -706,7 +713,6 @@ sudo yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
 sudo mkdir /media/VirtualBoxGuestAdditions
 sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
 cd /media/VirtualBoxGuestAdditions
-# 32-bit and 64-bit systems run following
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
@@ -717,7 +723,7 @@ If successful you can reboot the Linux guest VM and you will notice the changes 
 
 ### VirtualBox Features
 
-If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 5.1.x (Septemeber 10th, 2017) is the [current version](https://www.virtualbox.org/wiki/Downloads "Latest VirtualBox").
+If you are using Windows, Mac, or Linux you need to download the appropriate version from the VirtualBox homepage. Version 6.x.x is the [current version](https://www.virtualbox.org/wiki/Downloads "Latest VirtualBox").
 
 [*Feature List for VirtualBox*](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
 
