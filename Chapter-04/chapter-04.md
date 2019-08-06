@@ -1,18 +1,18 @@
 # Desktop Linux and GUIs
 ![*GUIs??? NIH*](images/Chapter-Header/Chapter-04/supported_features2.png "GUIs NIH")
 
-### Objectives
+## Objectives
 
 In this chapter you will:
 
-  *  Learn about the different types of desktop Linux
-  *  Understand the nature and use of X, Mir, Wayland, and other GUI compositors
-  *  Understand the purpose of window managers and the nature of desktop environments
-  *  Know the major features of GNOME 3 desktop environments
-  *  Understand GUI package managers and application stores
-  *  Understand theming on the Linux Desktop
+* Learn about the different types of desktop Linux
+* Understand the nature and use of X, Mir, Wayland, and other GUI compositors
+* Understand the purpose of window managers and the nature of desktop environments
+* Know the major features of GNOME 3 desktop environments
+* Understand GUI package managers and application stores
+* Understand theming on the Linux Desktop
 
-### Outcomes
+## Outcomes
 
 At the conclusion of this chapter you will have a strong knowledge of the X Windows system and why it is the foundation of Desktop Linux.  You will be able to implement various window managers and desktop environments, selecting the proper environment to utilize and suit your hardware needs.  You will be comfortable using and recognizing the features of GNOME 3 and Unity desktop environments.
 
@@ -46,9 +46,9 @@ Beyond the simple green screen terminals by the mid 1980s we began to see propri
 
 X uses a client–server model: an X server communicates with various client programs. The server accepts requests for graphical output (windows) and sends back user input (from keyboard, mouse, or touchscreen). The server may function as:
 
-  * An application displaying to a window of another display system
-  * A system program controlling the video output of a PC
-  * A dedicated piece of hardware.
+* An application displaying to a window of another display system
+* A system program controlling the video output of a PC
+* A dedicated piece of hardware.
 
 ### X
 
@@ -82,10 +82,10 @@ In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began t
 
 ![*Wayland Rendering Model*](images/Chapter-04/wayland-architecture.png "Wayland Architecture")
 
-  * The kernel gets an event and sends it to the compositor. This is similar to the X case, which is great, since we get to reuse all the input drivers in the kernel.
-  * The compositor looks through its scenegraph to determine which window should receive the event. The scenegraph corresponds to what's on screen and the compositor understands the transformations that it may have applied to the elements in the scenegraph. Thus, the compositor can pick the right window and transform the screen coordinates to window local coordinates, by applying the inverse transformations. The types of transformation that can be applied to a window is only restricted to what the compositor can do, as long as it can compute the inverse transformation for the input events.
-  * As in the X case, when the client receives the event, it updates the UI in response. But in the wayland case, the rendering happens in the client, and the client just sends a request to the compositor to indicate the region that was updated.
-  * The compositor collects damage requests from its clients and then recomposites the screen. The compositor can then directly issue an ioctl to schedule a pageflip with KMS.
+* The kernel gets an event and sends it to the compositor. This is similar to the X case, which is great, since we get to reuse all the input drivers in the kernel.
+* The compositor looks through its scenegraph to determine which window should receive the event. The scenegraph corresponds to what's on screen and the compositor understands the transformations that it may have applied to the elements in the scenegraph. Thus, the compositor can pick the right window and transform the screen coordinates to window local coordinates, by applying the inverse transformations. The types of transformation that can be applied to a window is only restricted to what the compositor can do, as long as it can compute the inverse transformation for the input events.
+* As in the X case, when the client receives the event, it updates the UI in response. But in the wayland case, the rendering happens in the client, and the client just sends a request to the compositor to indicate the region that was updated.
+* The compositor collects damage requests from its clients and then recomposites the screen. The compositor can then directly issue an ioctl to schedule a pageflip with KMS.
 
 At one time it was thought that X is too deep into the bones of Linux and may never be ever fully replaced. But we are seeing massive amounts of work from industry to make Wayland a reality. With Intel, nVidea, the X.Org Foundation and Red Hat leading the way, Fedora 25 was one of the first distros to run Wayland natively.  
 
@@ -113,33 +113,33 @@ X will let you display a window and let you capture mouse and keyboard commands.
 
 ### Stacking
 
-*  [Blackbox](http://blackboxwm.sourceforge.net/ "Blackbox Wiki") - Similar to the NeXT interface and Window Maker
-*  [Fluxbox](http://fluxbox.org/ "Fluxbox") - Highly configurable and low resource
-*  [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop
-*  [Enlightenment](https://www.enlightenment.org/ "Enlightenment") - Focuses on pushing the limits of existing technologies
-*  [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager
-*  [Sawfish](http://sawfish.tuxfamily.org/ "Sawfish") - Extensible window manager using an Emacs Lisp-like scripting language
+* [Blackbox](http://blackboxwm.sourceforge.net/ "Blackbox Wiki") - Similar to the NeXT interface and Window Maker
+* [Fluxbox](http://fluxbox.org/ "Fluxbox") - Highly configurable and low resource
+* [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop
+* [Enlightenment](https://www.enlightenment.org/ "Enlightenment") - Focuses on pushing the limits of existing technologies
+* [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager
+* [Sawfish](http://sawfish.tuxfamily.org/ "Sawfish") - Extensible window manager using an Emacs Lisp-like scripting language
 
 ### Minimalistic
 
-*  [IceWM](http://www.icewm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager
-*  [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
-*  [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager
-*  [Pekwm](https://www.pekwm.org/projects/pekwm/ "Pekwm") - Originally based on the aewm++ window manager
+* [IceWM](http://www.icewm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager
+* [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
+* [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager
+* [Pekwm](https://www.pekwm.org/projects/pekwm/ "Pekwm") - Originally based on the aewm++ window manager
 
 ### Tiling
 
-*  [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
-*  [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support.
-*  [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Common Lisp window manager and Keyboard-only
-*  [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager
-*  [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support.
+* [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
+* [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support.
+* [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Common Lisp window manager and Keyboard-only
+* [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager
+* [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support.
 
 ### Other
 
-*  [evilwm](http://www.6809.org.uk/evilwm/ "evilwm") - Maximizes screen real estate and provides good keyboard control
-*  [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
-*  [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME Desktop Environment
+* [evilwm](http://www.6809.org.uk/evilwm/ "evilwm") - Maximizes screen real estate and provides good keyboard control
+* [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
+* [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME Desktop Environment
 
 ## Desktop Environments
 
@@ -153,9 +153,9 @@ In 1998 Qt was not available under a completely *"free software"* license. It ha
 
 KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro in the way that GNOME and Red Hat are intricately tied together now. Distros such as  [openSUSE](opensuse.org "opensuse"), [Mageia](mageia.org "Mageia"), [Chakra](www.chakralinux.org "Chakra Linux"), [Kubuntu](www.kubuntu.org "Kubuntu"), [PCLinuxOS](www.pclinuxos.com "PC Linux OS") and even Free-BSD are using KDE by default or have it available in software repositories. Qt recently split itself during the 5.0 release from one entire library into [three separate sub-components](https://en.wikipedia.org/wiki/KDE_Software_Compilation#Post-fourth_series "KDE 5 split"):
 
-  *  KDE Desktop - Desktop called [Plasma 5](https://www.kde.org/workspaces/plasmadesktop/ "Plasma") released every three months
-  *  KDE Applications - [KDE applications](https://en.wikipedia.org/wiki/KDE_Applications "KDE applications") updated and released every four months
-  *  KDE Frameworks - [Common file, os, and services](https://en.wikipedia.org/wiki/KDE_Frameworks_5 "KDE Frameworks")
+* KDE Desktop - Desktop called [Plasma 5](https://www.kde.org/workspaces/plasmadesktop/ "Plasma") released every three months
+* KDE Applications - [KDE applications](https://en.wikipedia.org/wiki/KDE_Applications "KDE applications") updated and released every four months
+* KDE Frameworks - [Common file, os, and services](https://en.wikipedia.org/wiki/KDE_Frameworks_5 "KDE Frameworks")
 
 ### GNOME [^33]
 
@@ -236,7 +236,7 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
-### GNOME 3 Lockin Question?
+### GNOME 3 Lockin Question
 
 By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red hat), and Ubuntu you see very little differentiation desktop-wise now.
 
@@ -248,17 +248,17 @@ As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom
 
 Each desktop environment has the ability to modify and display a theme on top of its shell.  GNOME 3 has been notoriously hard to modify. The GNOME Tweak Tool allows for the adjustment of several advanced GNOME options that can't be configured in gnome-control-center. This includes things like:
 
-*  fonts used in user interface elements and titlebar
-*  font hinting and aliasing
-*  alternative user interface themes
-*  changes in window management behavior
-*  behavior on laptop lid close
-*  file manager desktop icons
-*  icons in menus and buttons
+* fonts used in user interface elements and titlebar
+* font hinting and aliasing
+* alternative user interface themes
+* changes in window management behavior
+* behavior on laptop lid close
+* file manager desktop icons
+* icons in menus and buttons
 
 Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBUnut") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions, but recent development on the Ubuntu Touch project has sadly ended.
 
-### Gnome 3.2x Features 
+### Gnome 3.2x Features
 
 ![*GNOME 3*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
 
@@ -284,7 +284,7 @@ To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](h
 
 ### Installing Windows Managers and Desktop Environments
 
-Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android.   The issue with a software store became the ability to make money, charge money, and distribute money.  All though the distributions still support Software Stores, their heart is not in this mannor of software installation.  The original way to install software was via a package manager, which the stores were a front for anyway.  There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux.  These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").   
+Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android.   The issue with a software store became the ability to make money, charge money, and distribute money.  All though the distributions still support Software Stores, their heart is not in this mannor of software installation.  The original way to install software was via a package manager, which the stores were a front for anyway.  There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux.  These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").
 
 These methods we will talk about later in Chapter 10.  For now we will use the commandline terminal for installing window managers and desktop environments.  You can access this via Unity Dash button and type in ```Terminal``` or the Activities tab in Fedora 26 and type ```Terminal``` as well.  From the Terminal you can add packages listed above.   For Ubuntu you would use the apt-get command for updating and then installing packages. On Fedora 26+ you would use the dnf command.  
   
@@ -310,22 +310,14 @@ __Fedora__
 
 > "Unity has a vertical task management panel on the left-hand side and a menu panel at the top of the screen. Using a sidebar for task management conserves vertical screen space, which is much more valuable on today’s widescreen monitors. The task panel displays icons for commonly-used applications and programs that are currently running. Clicking on an icon will give the target application focus if it is already running or launch it if it is not already running. If you click the icon of an application that already has focus, Unity will activate an Expose-style view of all the open windows associated with that application." [^40]
 
-#### Dash Icon   
-
-![*In Unity everything begins by hitting the Dash Icon*](images/Chapter-04/ubuntu-icon.png "Dash Icon")  
-
-![*Unity Dash*](images/Chapter-04/unity-dash.png "Dash")  
-
-![*Each application has a traditional menu bar, but it is hidden by default.*](images/Chapter-04/application-menu-small.png "Menu")
-
 #### Unity Design Goals
 
 What is the goal of Unity?  "The ultimate goal of the next generation of Unity (UnityNext) is to fulfill the following three requirements: " [^41]
 
-  *  Seamlessly scale across and adapt to multiple form factors, taking into account device specific properties and constraints and optimizing for them.
-  *  Carry Unity’s visual design language and identity across the different form factors and present users with a friendly, well-known and consistent user experience no matter what Ubuntu-powered device they are using.
-  *  Support the idea of a converged device that enables a user to rely completely on a mobile device as his/her primary computing environment.
-      + By enabling the shell/system user experience to dynamically adapt to different usage scenarios, e.g., morphing the shell to a full-blown desktop shell when being connected to an external monitor and external input devices or to the Unity TV interface when being connected to a “big screen”.
+* Seamlessly scale across and adapt to multiple form factors, taking into account device specific properties and constraints and optimizing for them.
+* Carry Unity’s visual design language and identity across the different form factors and present users with a friendly, well-known and consistent user experience no matter what Ubuntu-powered device they are using.
+* Support the idea of a converged device that enables a user to rely completely on a mobile device as his/her primary computing environment.
+  * By enabling the shell/system user experience to dynamically adapt to different usage scenarios, e.g., morphing the shell to a full-blown desktop shell when being connected to an external monitor and external input devices or to the Unity TV interface when being connected to a “big screen”.
 
 #### Unity Components
 
