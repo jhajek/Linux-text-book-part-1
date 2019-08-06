@@ -719,7 +719,7 @@ In it's defense, systemd has many nice and actually new and needed features for 
 
 ## 6th Phase of Linux Maturity, OpenSource isn't a business model
 
-As the story moves into early 2019, we begin to see Venture Funded backed companies who had relied on opensource software as their business model, now come into competition directly with large Cloud vendors. These cloud companies use these opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providors, vastly out number the original companies.  
+As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used accross the industry and these companies happen to be Venture Capital funded. These companies, who had relied on opensource software as their business model, are now come into competition directly with large Cloud vendors, mostly Amazon Web services. These cloud companies offer cloud hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providors, vastly out number the original company's developer workforce.  
 
 What can these companies do?  
 
