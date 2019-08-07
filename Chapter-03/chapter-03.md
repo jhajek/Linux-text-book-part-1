@@ -884,7 +884,6 @@ You will need to do some research and find the download links for the Linux and 
 * Network Based Install
   * openSuse Tumbleweed
   * Arch Linux
-  * Linux Mint
   * Intel Clear Linux Desktop
 
 ![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
