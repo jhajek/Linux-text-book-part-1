@@ -485,11 +485,13 @@ What made Ubuntu so successful was that they forked the opensource work of rock-
 
 Ubuntu pioneered the idea of rolling releases - releasing every 6 months compared to Microsoft or Apple on a 3 to 5 year schedule.  Each distribution is released in late April and late October so there are two distributions per year.  Ubuntu also introduced the concept of an *LTS*, Long Term Support - this means that certain releases will have security patches, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and assured system stability.  The LTS releases happen every even year with the April distribution.  So Ubuntu 10.04, 12.04, 14.04, 16.04, 18.04 and so forth (the first number being the year).
 
-#### Linux Mint
+#### PureOS
 
-![*Linux Mint*](images/Chapter-02/Linux-logos/LinuxMint/256px-Linux_Mint_logo_and_wordmark.svg.png "Linux Mint")
+![*PureOS*](images/Chapter-02/Linux-logos/PureOS/brand-alt.svg "PureOS logo")
 
-Linux Mint started also in 2006 as a fork of the Ubuntu project but with a different desktop interface [^12].  Linux Mint focused even more on the user and desktop experience out of the box by adding missing multimedia codecs for playback of audio and video directly to the install (looking at you Flash).  Linux Mint is even more user experience focused than Ubuntu and is one of the most popular Ubuntu based distros.  Linux Mint can be considered a sub-family because although it is Ubuntu based, Mint makes usability choices that are the opposite of what Ubuntu chooses. There by leading to a different operating system.
+"*PureOS is a general purpose operating system that is based on the Linux kernel and is focused on being an entirely Free (as in freedom) OS. It is officially endorsed by the Free Software Foundation. We adhere to the Debian Social Contract and the GNU FSDG.*"
+
+This is a Devian derivative, that has been produced with an FSF based focus on Free Software.  In addition, the PureOS is being developed by Purism Company which develops Free and Hardware respecting privacy hardware as well as communication and cloud storage apps.
 
 #### Devuan
 
