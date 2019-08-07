@@ -879,6 +879,8 @@ You will need to do some research and find the download links for the Linux and 
 * Other Linux
   * Alpine Linux
   * MX Linux
+
+* Network Based Install
   * openSuse Tumbleweed
   * Arch Linux
   * Linux Mint
