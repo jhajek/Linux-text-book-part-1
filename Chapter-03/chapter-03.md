@@ -357,8 +357,8 @@ You can download a .deb or .rpm file from the Vivaldi browser website: [https://
 > __Example Usage:__  
 
 ```bash
-sudo dpkg -i ./vivaldi-stable_2.4.1488.40-1_amd64.deb
-sudo rpm -iv ./vivaldi-stable-2.4.1488.40-1.x86_64.rpm
+sudo dpkg -i ./vivaldi-stable_2.6.1566.49-1_amd64.deb
+sudo rpm -iv ./vivaldi-stable-2.6.1566.49-1.x86_64.rpm
 ```
 
 After executing this command you will receive an error message. What is it telling you and why?  You will notice that dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
