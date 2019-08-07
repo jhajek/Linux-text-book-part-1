@@ -598,6 +598,8 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 ![*Arch Linux*](images/Chapter-02/Linux-logos/Arch/200px-Arch_Linux_logo.svg.png "Arch Linux Logo")
 
+Arch Linux has a different philosophy, Arch Linux defines simplicity as without unnecessary additions or modifications. It ships software as released by the original developers (upstream) with minimal distribution-specific (downstream) changes.  They also have their own package manager called [Pacman](https://en.wikipedia.org/wiki/Arch_Linux#Pacman "Pacman package manager").
+
 ### Unix and the BSD Family Distros
 
 While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume on the BSD forks of Unix.  The BSD code splintered into 3 main families or distros that are all descended from the original BSD Unix project.  This leaves large pieces of BSD code compatible with each other. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.  The BSD world is not immune from forks and division.
