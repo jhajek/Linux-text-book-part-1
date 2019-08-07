@@ -487,7 +487,7 @@ Ubuntu pioneered the idea of rolling releases - releasing every 6 months compare
 
 #### PureOS
 
-![*PureOS*](images/Chapter-02/Linux-logos/PureOS/brand-alt.svg "PureOS logo")
+![*PureOS*](images/Chapter-02/Linux-logos/PureOS/brand_alt.svg "PureOS logo")
 
 "*PureOS is a general purpose operating system that is based on the Linux kernel and is focused on being an entirely Free (as in freedom) OS. It is officially endorsed by the Free Software Foundation. We adhere to the Debian Social Contract and the GNU FSDG.*"
 
