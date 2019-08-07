@@ -869,7 +869,7 @@ You will need to do some research and find the download links for the Linux and 
   * Trisquel Linux
   * Debian 10.x
   * PureOS
-  
+
 * Red Hat Based
   * Fedora 30 - Workstation edition
   * Centos 7.x - minimal install
@@ -885,6 +885,7 @@ You will need to do some research and find the download links for the Linux and 
   * openSuse Tumbleweed
   * Arch Linux
   * Linux Mint
+  * Intel Clear Linux Desktop
 
 ![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
 
