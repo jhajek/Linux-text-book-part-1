@@ -491,7 +491,7 @@ Ubuntu pioneered the idea of rolling releases - releasing every 6 months compare
 
 "*PureOS is a general purpose operating system that is based on the Linux kernel and is focused on being an entirely Free (as in freedom) OS. It is officially endorsed by the Free Software Foundation. We adhere to the Debian Social Contract and the GNU FSDG.*"
 
-This is a Devian derivative, that has been produced with an FSF based focus on Free Software.  In addition, the PureOS is being developed by Purism Company which develops Free and Hardware respecting privacy hardware as well as communication and cloud storage apps.
+This is a Devian derivative, that has been produced with an FSF based focus on Free Software.  In addition, the PureOS is being developed by [Purism Company](https://puri.sm "Puri.sm website link") which develops Free and Hardware respecting privacy hardware as well as communication and cloud storage apps.
 
 #### Devuan
 
