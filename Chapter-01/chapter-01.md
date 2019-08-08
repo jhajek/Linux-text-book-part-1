@@ -20,11 +20,17 @@ __Steve Ballmer:__ *"Linux is not in the public domain. Linux is a cancer that a
 
 __Scott Guthrie__ "*Today I’m excited to announce our plans to bring SQL Server to Linux as well. This will enable SQL Server to deliver a consistent data platform across Windows Server and Linux, as well as on-premises and cloud. We are bringing the core relational database capabilities to preview today, and are targeting availability in mid-2017.*" [March 7, 2016 Scott Guthrie, Executive Vice President, Cloud and Enterprise Group, Microsoft](https://blogs.microsoft.com/blog/2016/03/07/announcing-sql-server-on-linux/#sm.0000164n8bkaqfeawtecf32pv82bz "Microsoft Loves Linux")
 
+[Microsoft buys GitHub - June 4, 2018](https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/ "Microsoft buys GitHub")
+
+"*Microsoft Corp. on Monday announced it has reached an agreement to acquire [GitHub](https://github.com "GitHub"), the world’s leading software development platform where more than 28 million developers learn, share and collaborate to create the future. Together, the two companies will empower developers to achieve more at every stage of the development lifecycle, accelerate enterprise use of GitHub, and bring Microsoft’s developer tools and services to new audiences.*"
+
+__Android__  "*Android is a Linux distribution according to the Linux Foundation, Google's open-source chief Chris DiBona, and several journalists. Others, such as Google engineer Patrick Brady, say that Android is not Linux in the traditional Unix-like Linux distribution sense; Android does not include the GNU C Library (it uses Bionic as an alternative C library) and some of other components typically found in Linux distributions.*"
+
 When you hear the term *"free and opensource software"* what comes to mind? The quotes listed above state a range of opinions and outlooks. Do you agree with any of these quotes?  Do you disagree? These are the questions to keep in mind as you begin to understand *free and opensource software*.
 
 Most people are exposed to opensource through using Linux either in school or at work. In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within.
 
-This text strives to be different than other books in the market in two areas;
+This text strives to focus on two areas;
 
 1) We will describe the philosophy of free and opensource software and it's origin and impact upon our computing world.  
 1) This book will cover the basic technical structure and how to use free and opensource operating systems--primarily Linux but where noted Unix and BSD based systems.  
@@ -34,11 +40,11 @@ This text strives to be different than other books in the market in two areas;
 In addition to the text material this book includes:
 
 * Chapter review questions with answers in Appendix B
-  + Online quizzes with support for Blackboard importing
+  * Online quizzes with support for Blackboard importing
 * Weekly supplemental podcast questions
 * Chapter Labs for reinforcing chapter content
-  + Provided in text format
-  + For those who use it, provided in Blackboard quiz form -- ready for import
+  * Provided in text format
+  * For those who use it, provided in Blackboard quiz form -- ready for import
 * Example programs and source code for exercises
 
 The text of the book is opensource and build instructions are in our GitHub repository for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") Instructors can feel free to fork the repo or submit pull requests.  This is to ensure that we have a living document that can be changed and updated and republished quickly.  
