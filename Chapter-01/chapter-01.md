@@ -47,7 +47,7 @@ In addition to the text material this book includes:
   * For those who use it, provided in Blackboard quiz form -- ready for import
 * Example programs and source code for exercises
 
-The text of the book is opensource and build instructions are in our GitHub repository for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") Instructors can feel free to fork the repo or submit pull requests.  This is to ensure that we have a living document that can be changed and updated and republished quickly.  
+The text of the book is opensource and build instructions are in our GitHub repository for download at [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") Instructors can feel free to fork the repo or submit pull requests.  This is to ensure that we have a living document that can be changed, updated, and republished quickly.  
 
 ### For Students
 
