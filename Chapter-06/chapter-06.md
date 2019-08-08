@@ -1,20 +1,20 @@
 # Shell Meta-Characters, Pipes, Search and Tools
 ![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
 
-### Objectives
+## Objectives
 
 In this chapter we will be continuing our exploration of the commandline.  We will be expanding our experience of the original paradigm that Thompson and Ritchie envisioned when designing Unix.
 
-   * Understand the nature of shell meta-characters and how they enhance the shell capabilities
-   * Understand the concept of standard in, standard out, and standard error
-   * Understand the concept of input/output redirection and piping
-   * Understand how to search the file system for files and directories
-   * Understand how to use the grep command for detailed search and replace options using shell meta-characters
-   * Understand compression and archiving tools and their use on the command line
+* Understand the nature of shell meta-characters and how they enhance the shell capabilities
+* Understand the concept of standard in, standard out, and standard error
+* Understand the concept of input/output redirection and piping
+* Understand how to search the file system for files and directories
+* Understand how to use the grep command for detailed search and replace options using shell meta-characters
+* Understand compression and archiving tools and their use on the command line
 
-### Outcomes
+## Outcomes
 
-  At the conclusion of this chapter you will have a definite understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the ```find``` and ```locate``` commands that are used to find and filter files on the system.   We will use the ```grep``` tool for find and replace options and advanced parsing of file content beyond what ```find``` and ```locate``` can do.   Finally we will use compression tools and for creating archives and for extracting them.
+At the conclusion of this chapter you will have a definite understand of the Linux shell and its utilities.  You will know the nature of shell meta-characters and how they can enhance the capabilities of shell commands.  You will be able to use the concepts of standard input, standard output, and standard error to redirect output as you need it.  You will understand the meta-characters used for input redirection and the concept of "|" called piping - that enables single commands to send their standard output as standard input to another command.   We will explore the ```find``` and ```locate``` commands that are used to find and filter files on the system.   We will use the ```grep``` tool for find and replace options and advanced parsing of file content beyond what ```find``` and ```locate``` can do.   Finally we will use compression tools and for creating archives and for extracting them.
 
 ## Shell Meta-Characters
 
@@ -24,7 +24,7 @@ Or to use negation or ranges to look for particular filenames or directories.  O
 
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
 
-  In the above diagram, the box labeled *Expansion*, is where the shell *expands* any meta-characters into text that can be interpreted by the shell.  The following is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.
+In the above diagram, the box labeled *Expansion*, is where the shell *expands* any meta-characters into text that can be interpreted by the shell.  The following is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.
 
 \&\&
 
