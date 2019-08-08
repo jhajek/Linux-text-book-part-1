@@ -650,7 +650,7 @@ Kohsuke Kawaguchi
 
 * ~3:30 What is Jenkins and what does it do?
 * ~7:54 What problem are people solving when using Jenkins?
-* ~9:25 What are Jenkins plugins and why do they exist? 
+* ~9:25 What are Jenkins plugins and why do they exist?
 * ~10:33 How did Jenkins get started?
 * ~13:30 What was happening to Sun in 2004/2005?
 * ~14:37 Why did the project name change from Hudson to Jenkins?
