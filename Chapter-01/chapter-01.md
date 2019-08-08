@@ -20,7 +20,7 @@ __Steve Ballmer:__ *"Linux is not in the public domain. Linux is a cancer that a
 
 __Scott Guthrie__ "*Today I’m excited to announce our plans to bring SQL Server to Linux as well. This will enable SQL Server to deliver a consistent data platform across Windows Server and Linux, as well as on-premises and cloud. We are bringing the core relational database capabilities to preview today, and are targeting availability in mid-2017.*" [March 7, 2016 Scott Guthrie, Executive Vice President, Cloud and Enterprise Group, Microsoft](https://blogs.microsoft.com/blog/2016/03/07/announcing-sql-server-on-linux/#sm.0000164n8bkaqfeawtecf32pv82bz "Microsoft Loves Linux")
 
-[Microsoft buys GitHub - June 4, 2018](https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/ "Microsoft buys GitHub")
+__GitHub__ [Microsoft buys GitHub - June 4, 2018](https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/ "Microsoft buys GitHub")
 
 "*Microsoft Corp. on Monday announced it has reached an agreement to acquire [GitHub](https://github.com "GitHub"), the world’s leading software development platform where more than 28 million developers learn, share and collaborate to create the future. Together, the two companies will empower developers to achieve more at every stage of the development lifecycle, accelerate enterprise use of GitHub, and bring Microsoft’s developer tools and services to new audiences.*"
 
