@@ -527,7 +527,7 @@ A tape archive that is additionally compressed by another tool is called a __tar
 
 ![*Archive and Compress Diagram*](images/Chapter-06/tar/640px-Targzip-svg-xcf.png "Archive and Compress")
 
-##  Hidden files and single dot operator
+## Hidden files and single dot operator
 
 In the previous chapter we talked about the single-dot operator--which is a short cut for *right here* or your present working directory.  If the single-dot proceeds a file or directory name that file or directory becomes hidden.  Not completely invisible but by using the ``ls`` or ```ls -l``` commands you will not see these files.  You need to add the -a option to see all hidden directories.  Usually hidden directories are reserved for important user configuration files or system files.  It is a convention not a rule, but as you have seen so far, tradition is rule in Unix.
 
@@ -545,7 +545,7 @@ Shell Meta-Characters, Pipes, Search, and Tools
 
 Chapter 06 review questions
 
-1.  What is the name for characters that have special meanings in the Linux shell?
+1. What is the name for characters that have special meanings in the Linux shell?
 a. special chars
 b. marked characters
 c. shell characters
@@ -668,18 +668,18 @@ __FreeBSD__
 
 Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](https://twit.tv/shows/floss-weekly/episodes/104 "FreeBSD")
 
-  * What is FreeBSD? ~6:00
-  * Why did she switch from Linux to BSD? ~6:30
-  * Is FreeBSD Linux or Unix?  ~13:00
-  * Is FreeBSD a good option for most people as a desktop? ~14:14
-  * Using Mac OSX - what OS do you have under the hood? ~16:10
-  * What project did Randi take on that no one else wanted? ~19:10
-  * What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
-  * Are there any large companies that sponsor FreeBSD?  ~ 31:00
-  * How can you get involved in helping the FreeBSD community? ~38:15
-  * What is Randi's opinion about "getting more women in open-source?"  ~40:00
-  * What is Randi saying that is the wrong focus? ~49:00
-  * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
+* What is FreeBSD? ~6:00
+* Why did she switch from Linux to BSD? ~6:30
+* Is FreeBSD Linux or Unix?  ~13:00
+* Is FreeBSD a good option for most people as a desktop? ~14:14
+* Using Mac OSX - what OS do you have under the hood? ~16:10
+* What project did Randi take on that no one else wanted? ~19:10
+* What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
+* Are there any large companies that sponsor FreeBSD?  ~ 31:00
+* How can you get involved in helping the FreeBSD community? ~38:15
+* What is Randi's opinion about "getting more women in open-source?"  ~40:00
+* What is Randi saying that is the wrong focus? ~49:00
+* Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
 
 ### Lab
 
