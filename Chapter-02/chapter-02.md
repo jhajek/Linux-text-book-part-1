@@ -749,7 +749,7 @@ The [Continuous Delivery Foundation](https://cd.foundation/ "The Continuous Deli
 
 ## Chapter Conclusion and Summary
 
-In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the founding of the UNIX operating system and hwo it lead directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software.  You were introduced to the major Linux distribution families as well as the BSD derivative distros.  Finally you were introduced to the five phases of UNIX maturity and how they relate to business and commercial interests.  [Additional Reading on the history of UNIX and BSD can be found here](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix").
+In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the founding of the UNIX operating system and how it lead directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software.  You were introduced to the major Linux distribution families as well as the BSD derivative distros.  Finally you were introduced to the six phases of UNIX/Linux maturity and how they relate to business and commercial interests.  [Additional Reading on the history of UNIX and BSD can be found here](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix").
 
 ### Review Questions
 
@@ -772,7 +772,6 @@ Either individually, as a class, or get into groups and watch the documentary mo
 1. What was the first major commercial company to opensource a key product?  What did that product eventually become?
 
 1. How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?  
-
 1. What is the main difference between *"Free Software"* and *"Open Source Software"*?
 
 ### Podcast Questions

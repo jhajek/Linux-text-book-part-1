@@ -439,7 +439,7 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 
 Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.
 
-**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it. 
+**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it.
 
 #### Package based install
 
@@ -447,7 +447,7 @@ Clone the source code repository for the text book [https://github.com/jhajek/Li
 
 #### GNOME Software Store
 
-You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows: 
+You will install assorted softwares using the Gnome Software application in Fedora 30. The list of software is as follows:
 
 1) Inkscape
 1) Audacity
@@ -487,7 +487,7 @@ To install and configure flatpak and flathub, reference chapter 3.  To show thes
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  
 
-In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen. 
+In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen.
 
 ![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
 
@@ -496,10 +496,10 @@ In order to change the default window manager or desktop environment you need to
 1) Tiling window manager
 1) Minimalistic window manager
 1) Search the web for an additional window manager not listed
-1) Install Enlightenment (E17) on Ubuntu 18.04 
+1) Install Enlightenment (E17) on Ubuntu 18.04
 1) Install Lumina on Fedora 28 - [https://lumina-desktop.org/get-lumina/](https://lumina-desktop.org/get-lumina/ "Lumina install")
 
-**Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the 
+**Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the i3 package.
 
 * ```sudo apt-cache search i3```
 * ```sudo dnf search i3```
