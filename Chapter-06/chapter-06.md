@@ -399,7 +399,7 @@ The grep command [^69] has many options to modify the returned output. Some of t
 
 ### find and locate commands
 
-  The ```find``` command is used to search for files in a directory hierarchy.  This command has additional parameters that can be used to find files based on time or size criteria.  This is useful searching for files based on when it was created or for finding large files that might be cluttering up the system.   The ```find``` command can also receive shell meta-characters as part of the search pattern. All numeric values can be denoted in this fashion:
+The ```find``` command is used to search for files in a directory hierarchy.  This command has additional parameters that can be used to find files based on time or size criteria.  This is useful searching for files based on when it was created or for finding large files that might be cluttering up the system.   The ```find``` command can also receive shell meta-characters as part of the search pattern. All numeric values can be denoted in this fashion:
 
  Character          Value
 -----------  -----------------------
@@ -408,9 +408,9 @@ The grep command [^69] has many options to modify the returned output. Some of t
      n        for exactly n.
 -----------  -----------------------
 
-Some of the common categories you can use for find are: file time parameters, file size parameters, user ownership parameters, and permission parameters.   
+Some of the common categories you can use for find are: file time parameters, file size parameters, user ownership parameters, and permission parameters.
 
-__TIME__
+#### TIME
 
 -amin n
 
@@ -436,20 +436,20 @@ __TIME__
 
 : File's  status  was  last  changed n*24 hours ago.  See the comments for -atime to understand how rounding affects the interpretation of file status change times.
 
-__SIZE__
+#### SIZE
 
 -size n\[cwbkMG\]
 
 : File uses n units of space.  The following suffixes can be used:
 
- * b    for 512-byte blocks (this is the default if no suffix is used)
- * c    for bytes
- * w    for two-byte words
- * k    for Kilobytes (units of 1024 bytes)
- * M    for Megabytes (units of 1048576 bytes)
- * G    for Gigabytes (units of 1073741824 bytes)
+* b    for 512-byte blocks (this is the default if no suffix is used)
+* c    for bytes
+* w    for two-byte words
+* k    for Kilobytes (units of 1024 bytes)
+* M    for Megabytes (units of 1048576 bytes)
+* G    for Gigabytes (units of 1073741824 bytes)
 
-__USER__
+#### USER
 
 -user uname
 
@@ -505,7 +505,7 @@ As file sizes grew the need to compress redundant data became apparent.  In deal
 
 By 1991, Phil Katz had created an opensource implementation of LZW called [DEFLATE](https://en.wikipedia.org/wiki/DEFLATE "DEFLATE").  This was the basis of the popular PKZip program and the origin of the .zip compression extension.  The [GNU project](https://en.wikipedia.org/wiki/Gzip "GNU") began its own GPL based implementation using the DEFLATE algorithm and completed it by October of 1992.  It was named gzip [(GNU zip)](https://www.gnu.org/software/gzip/ "GNU zip").
 
-> gzip is based on the DEFLATE algorithm, which is a combination of LZ77 and Huffman coding. DEFLATE was intended as a replacement for LZW and other patent-encumbered data compression algorithms which, at the time, limited the usability of compress and other popular archivers [^73].     
+> gzip is based on the DEFLATE algorithm, which is a combination of LZ77 and Huffman coding. DEFLATE was intended as a replacement for LZW and other patent-encumbered data compression algorithms which, at the time, limited the usability of compress and other popular archivers [^73].
 
 ### bzip2
 
