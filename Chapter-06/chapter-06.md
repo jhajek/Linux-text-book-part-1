@@ -664,8 +664,6 @@ d. gzip
 
 ### Podcast Questions
 
-__FreeBSD__  
-
 Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](https://twit.tv/shows/floss-weekly/episodes/104 "FreeBSD")
 
 * What is FreeBSD? ~6:00
@@ -721,9 +719,9 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. Add bzip2 compression to your Space_java.tar and C_Space.tar
     i) Take a screenshot of the above command with output
-1. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz "kernel.org") or any other mainline stable kernel. Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the command to re-tar and re-compress it with xzip.     
+1. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz "kernel.org") or any other mainline stable kernel. Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the command to re-tar and re-compress it with xzip.
      i) Take a screenshot of the above command with output -- Note this may be best as a series of screenshots
-1.  1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
+1. 1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
      i) Take a screenshot of the above command with output
 
 #### Footnotes
