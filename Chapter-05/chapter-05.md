@@ -315,17 +315,19 @@ man wget
 
 Commands contain three parts in this order:
 
-*  command or binary name (required)
-*  options (may or may not be required)
-*  arguments (may or may not be required)
+* command or binary name (required)
+* options (may or may not be required)
+* arguments (may or may not be required)
 
 Let's take this command for instance:
+
 ```bash
 ls -la /etc
 ```
-  The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are proceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string proceeded by a dash.  So __```-la```__ can also be written as __```-l -a```__.  Additionally there are options that use full English language words instead of single letters proceeded by __two dashes__.  You can use the ```man``` command followed by the name of the command in question to see all of it's usage options.  
 
-  The final value of __```/etc```__ in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the __ls__ command to list the contents of the __/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location in the filesystem.
+The first two letters of the command listed above __```ls```__ make up the command for listing the contents of a directory.  The command must be followed by a space. The next  letters are proceeded by a __dash__ to tell the shell interpreter that these letters are __options__.  Options are usually single letter representations of functionality.  The __```-l```__ options tells the __ls__ command to give a long listing of a directory with details and the __"-a"__ option tells the shell to print all files in the directory, including hidden files.  Options can be combined in most cases into a single string proceeded by a dash.  So __```-la```__ can also be written as __```-l -a```__.  Additionally there are options that use full English language words instead of single letters proceeded by __two dashes__.  You can use the ```man``` command followed by the name of the command in question to see all of it's usage options.  
+
+The final value of __```/etc```__ in the command  ```ls -la /etc``` is an argument passed to the ```ls``` command telling the __ls__ command to list the contents of the __/etc__ directory.  If this value is left empty the shell assumes you mean the ```pwd``` or your current location in the filesystem.
 
 ![*Listing of the /home/controller directory*](images/Chapter-05/commands/ls-home.png "ls /home/controller")
 
@@ -333,25 +335,30 @@ ls -la /etc
 
 ### How to Read Shell Commands and "Speak Linux"
 
-  In working with many excellent people over the years I have also found that there is a common Linux spoken language.  When talking to others, you find that for the most part the standard Linux filesystem has been memorized.  As well as the most common Linux tools through repeated usage.  With this in mind you can "speak" a command without mentioning certain aspects--they are implied.  
+In working with many excellent people over the years I have also found that there is a common Linux spoken language.  When talking to others, you find that for the most part the standard Linux filesystem has been memorized.  As well as the most common Linux tools through repeated usage.  With this in mind you can "speak" a command without mentioning certain aspects--they are implied.  
 
-  Let's take a simple command to list the contents of the /etc directory with a long listing and showing all, including hidden filed for instance.  How would you verbalize the command to your co-worker?
-  ```bash
-  ls -la /etc
-  ```
-  You would say "*el-es el-aaa eee tee cee*".  *Note* I didn't mention any dashes or slashes.  Why? Because the context of the ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  The shell assumes that you are giving an absolute path because of the slash proceeding ```/etc```.  
+Let's take a simple command to list the contents of the /etc directory with a long listing and showing all, including hidden filed for instance.  How would you verbalize the command to your co-worker?
+
+```bash
+ls -la /etc
+```
+
+You would say "*el-es el-aaa eee tee cee*".  *Note* I didn't mention any dashes or slashes.  Why? Because the context of the ```ls``` command tells me that the next characters listed are options belonging to the ```ls``` command.  The shell assumes that you are giving an absolute path because of the slash proceeding ```/etc```.  
 
 > __Exercise:__  How would you read and say this command?
+
 ```bash
 rm -rf /tmp/topsecret
 ```
 
-> __Exercise:__ How would you read and say this command?   
+> __Exercise:__ How would you read and say this command?
+
 ```bash
 mkdir -p /mnt/datadrive
 ```
 
-> __Exercise:__ How would you read and say this command?   
+> __Exercise:__ How would you read and say this command?
+
 ```bash
 ls -la /etc/network/interfaces
 ```
@@ -360,7 +367,7 @@ ls -la /etc/network/interfaces
 
 On modern Linux there is one standard shell in place on pretty much all major Linux distros, the [GNU Bash Shell](http://www.gnu.org/software/bash/ "Bash Shell"). It was created in parallel with the rise of Linux--the two are practically tied together.  But to understand how we got to the modern Bash Shell we have to go back to the beginning. As always the history of anything on Unix/Linux goes back to Ken Thompson [^46].  By 1972 there was a single shell in Unix in use, referred to by others as the [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell "Thompson Shell").  This shell was written by Ken Thompson and was written for Ken Thompson solving the technical problems he had back in 1972.  By 1979 computer processing power and the nature of computing tasks were light years away from where they had been when Thompson started his shell. *"The shell's design was intentionally minimalistic; even the if and goto statements, essential for control of program flow, were implemented as separate commands [^55]."* A new shell was needed.
 
-Two almost simultaneous efforts on different sides of the country were happening to replace the Thompson shell.  Remember that Unix had split into BSD Unix out at Berkeley California and AT&T Unix which was the commercial Unix back east.  The BSD group was developing the C shell (csh) under Bill Joy.  AT&T researcher Steven Bourne was developing the Bourne Shell (sh).       
+Two almost simultaneous efforts on different sides of the country were happening to replace the Thompson shell.  Remember that Unix had split into BSD Unix out at Berkeley California and AT&T Unix which was the commercial Unix back east.  The BSD group was developing the C shell (csh) under Bill Joy.  AT&T researcher Steven Bourne was developing the Bourne Shell (sh).
 
 ![*Timeline history of Unix/Linux Shells*](images/Chapter-05/shells/figure1.png "Timeline history")
 
@@ -372,24 +379,24 @@ Criticism of C Shell: "*Although Stephen Bourne himself acknowledged that csh wa
 
 #### Bourne Shell
 
-  Steven Bourne was a researcher at AT&T Bell labs implemented his own shell to replace the Thompson Shell in 1977.  The Bourne Shell was distributed in standard Unix from Version 7, SystemIII, SVR2, SVR3, SVR4 [^57].
+Steven Bourne was a researcher at AT&T Bell labs implemented his own shell to replace the Thompson Shell in 1977.  The Bourne Shell was distributed in standard Unix from Version 7, SystemIII, SVR2, SVR3, SVR4 [^57].
 
-*  Built-in test command – System III shell (1981)
-*  ```#``` as comment character – System III shell (1981)
-*  Colon in parameter substitutions ```"${parameter:=word}"``` – System III shell (1981)
-*  Functions and the return builtin – SVR2 shell (1984)
-*  Built-ins unset, echo, type – SVR2 shell (1984)
-*  Source code de-ALGOL68-ized – SVR2 shell (1984)
-*  Modern "$@" – SVR3 shell (1986)
-*  Built-in getopts – SVR3 shell (1986)
-*  Cleaned up parameter handling allows recursively callable functions – SVR3 shell (1986)
-*  8-bit clean – SVR3 shell (1986)
-*  Job control – SVR4 shell (1989)
-*  Multi-byte support – SVR4 shell (1989)
+* Built-in test command – System III shell (1981)
+* ```#``` as comment character – System III shell (1981)
+* Colon in parameter substitutions ```"${parameter:=word}"``` – System III shell (1981)
+* Functions and the return builtin – SVR2 shell (1984)
+* Built-ins unset, echo, type – SVR2 shell (1984)
+* Source code de-ALGOL68-ized – SVR2 shell (1984)
+* Modern "$@" – SVR3 shell (1986)
+* Built-in getopts – SVR3 shell (1986)
+* Cleaned up parameter handling allows recursively callable functions – SVR3 shell (1986)
+* 8-bit clean – SVR3 shell (1986)
+* Job control – SVR4 shell (1989)
+* Multi-byte support – SVR4 shell (1989)
 
 #### Korn Shell
 
-  By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  There is an American expression, "The grass is always greener on the other side of the fence." The C shell users wanted features from the Bourne Shell and vis-a-versa.  Another researcher at Bell Labs, named David Korn, began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the newer features of the C Shell.  This was called the [Korn Shell](http://kornshell.com/ "ksh") (ksh) and released in 1983.  The Bourne Shell was standard on all AT&T Unix so any new shell had to guarantee backwards compatibility otherwise that shell was never going to receive adoption.  The improvements the Korn Shell made were apparent and it was soon included on AT&T Commercial Unix as the standard shell.  In 1991/1992 the POSIX standard adopted KSH as the standard shell that any Unix system claiming POSIX compliance was required to have.  By 2005 the Korn Shell was opensourced under a free license but it was too late.  
+By the start of the 1980s you had two shells, Bourne Shell and the C Shell.  Both had strengths and weaknesses as detailed above.  There is an American expression, "The grass is always greener on the other side of the fence." The C shell users wanted features from the Bourne Shell and vis-a-versa.  Another researcher at Bell Labs, named David Korn, began the process of starting a new shell that was backwards compatible with the Bourne Shell but added the newer features of the C Shell.  This was called the [Korn Shell](http://kornshell.com/ "ksh") (ksh) and released in 1983.  The Bourne Shell was standard on all AT&T Unix so any new shell had to guarantee backwards compatibility otherwise that shell was never going to receive adoption.  The improvements the Korn Shell made were apparent and it was soon included on AT&T Commercial Unix as the standard shell.  In 1991/1992 the POSIX standard adopted KSH as the standard shell that any Unix system claiming POSIX compliance was required to have.  By 2005 the Korn Shell was opensourced under a free license but it was too late.  
 
 #### GNU Bash Shell
 
@@ -397,20 +404,20 @@ The ksh was a suitable replacement for the Bourne Shell and C Shell, but from th
 
 The improvements offered by bash over sh, csh, and ksh include:
 
-  * Command line editing
-  * Unlimited size command history
-  * Job Control
-  * Shell Functions and Aliases
-  * Indexed arrays of unlimited size
-  * Integer arithmetic in any base from two to sixty-four
+* Command line editing
+* Unlimited size command history
+* Job Control
+* Shell Functions and Aliases
+* Indexed arrays of unlimited size
+* Integer arithmetic in any base from two to sixty-four
 
 #### Open Source sh Replacements
 
-  Just as Bash provided a *"free"* sh compatible shell for the GNU system that was also adopted by Linux distros as standard.  They had no choice there were no other shells to adopt because of licensing.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and opensourced version of the Bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional /bin/sh
+Just as Bash provided a *"free"* sh compatible shell for the GNU system that was also adopted by Linux distros as standard.  They had no choice there were no other shells to adopt because of licensing.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and opensourced version of the Bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional /bin/sh
 
 ## File Permissions and Ownership
 
-  Seeing that everything in Linux is file, there is a simple security model.  There are three types of permission per file: __read__, __write__, __execute__.  These files give a combination of permissions.  With __read permission__ you can display the content of a file or copy it, but cannot delete or rename it.  For that you need __write permission__.  If a file is a shell script or an executable binary you will need __execute permission__ for it to run.  How can you tell what permissions a file has?  Type ```ls -l``` see the output.  We have seen this output before and now we will explain it.
+Seeing that everything in Linux is file, there is a simple security model.  There are three types of permission per file: __read__, __write__, __execute__.  These files give a combination of permissions.  With __read permission__ you can display the content of a file or copy it, but cannot delete or rename it.  For that you need __write permission__.  If a file is a shell script or an executable binary you will need __execute permission__ for it to run.  How can you tell what permissions a file has?  Type ```ls -l``` see the output.  We have seen this output before and now we will explain it.
 
 ![*ls -l listing of the home directory in Ubuntu 15.04*](images/Chapter-05/permissions/ls-l-ubuntu.png "Ubuntu 15.04 ls -l listing")
 
@@ -428,119 +435,120 @@ __symbolic link__           l
 named pipe                  p
 devices                   b or c
 sockets                     s
+------------------       --------
 
 ![*4 most common file types*](images/Chapter-05/permissions/file-types.png "File types")
 
 ### Owner, Group, Other (World)
 
-  In addition to the rwx permissions, each file has three groupings of permissions associated with it.  The first triad of rwx is the file's __owner__ permission--meaning what the person who owns the file can do to it.  These permissions are usually more liberal because you trust yourself.
+In addition to the rwx permissions, each file has three groupings of permissions associated with it.  The first triad of rwx is the file's __owner__ permission--meaning what the person who owns the file can do to it.  These permissions are usually more liberal because you trust yourself.
 
-  The second triad of rwx permissions is __group__ permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
+The second triad of rwx permissions is __group__ permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
 
-  The final triad of rwx permissions is considered __other__ or sometimes called unofficially __world__.  This covers the permissions for a user who is not the owner nor in the group that owns the file. Usually this column is conservatively "read-ony."
+The final triad of rwx permissions is considered __other__ or sometimes called unofficially __world__.  This covers the permissions for a user who is not the owner nor in the group that owns the file. Usually this column is conservatively "read-ony."
 
 ## Chapter Conclusion and Review
 
-  In this chapter we covered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file creation and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative path and a number of the basic shell commands. Finally we covered file permissions.
+In this chapter we covered the basic nature of the Linux Shell and how it allows users to interact with the Kernel.  We learned basic navigational and file creation and delete commands.  We learned about the Linux filesystem and the difference between absolute and relative path and a number of the basic shell commands. Finally we covered file permissions.
 
 ### Review Questions
 
-1)	 What is the numeric value of a file with the permissions rwxr--r--?
-    a.	777
-    b.	700
-    c.	766
-    d.	744
-2)	What is the numeric value of a file with the permissions rw-----?
-    a.	700
-    b.	400
-    c.	600
-    d.	007
-3)	What is the numeric value of a file with the permission rwxr-xr-x?
-    a.	711
-    b.	755
-    c.	644
-    d.	227
-4)	What is the name of the command you use to list the contents of a directory?
-    a.	lst
-    b.	less
-    c.	cat
-    d.	ls
-5)	What is the name of the command you use to display the content of a file to the screen?
-    a.	dg
-    b.	tac
-    c.	ls
-    d.	cat
-6)	What is the name of the command you use to display the content of a file to the screen that allows you to page up and down?
-    a.	more
-    b.	less
-    c.	ls
-    d.	page
-7)	Every shell command has three components:
-    a.	Command, arguments, flags
-    b.	Command, options, arguments
-    c.	Commands, arguments, options
-    d.	Commands, flags, options
-8)	What does the user use to issue commands to the kernel?
-    a.	Terminal
-    b.	Commandline
-    c.	Magic
-    d.	Shell
-9)	What is the name of the GNU shell that is standard across all Linux Distros
-    a.	ksh
-    b.	sh
-    c.	csh
-    d.	bash
-10)	Based on the ls command, what is the option to do a long listing?
-    a.	ls --all
-    b.	ls -n
-    c.	list
-    d.	ls –l
-11)	What is the command you can use to find out additional usage information about a shell command?
-    a.	about
-    b.	man
-    c.	F1
-    d.	/?
-12)	Which of these directories is not part of the LSB LFH?
-    a.	bin
-    b.	media
-    c.	temp
-    d.	opt
-13)	The Linux Filesystem is an upside down what?
-    a.	root
-    b.	object
-    c.	tree
-    d.	mess
-14)	What is the name of the top of the Linux Filesystem?
-    a.	/
-    b.	./
-    c.	../
-    d.	slashdot
-15)	Everything (directories, files, devices) in Unix/Linux is a what?
+1) What is the numeric value of a file with the permissions rwxr--r--?
+    a. 777
+    b. 700
+    c. 766
+    d. 744
+2) What is the numeric value of a file with the permissions rw-----?
+    a. 700
+    b. 400
+    c. 600
+    d. 007
+3) What is the numeric value of a file with the permission rwxr-xr-x?
+    a. 711
+    b. 755
+    c. 644
+    d. 227
+4) What is the name of the command you use to list the contents of a directory?
+    a. ```lst```
+    b. ```less```
+    c. ```cat```
+    d. ```ls```
+5) What is the name of the command you use to display the content of a file to the screen?
+    a. ```dg```
+    b. ```tac```
+    c. ```ls```
+    d. ```cat```
+6) What is the name of the command you use to display the content of a file to the screen that allows you to page up and down?
+    a. ```more```
+    b. ```less```
+    c. ```ls```
+    d. ```page```
+7) Every shell command has three components:
+    a. Command, arguments, flags
+    b. Command, options, arguments
+    c. Commands, arguments, options
+    d. Commands, flags, options
+8) What does the user use to issue commands to the kernel?
+    a. Terminal
+    b. Commandline
+    c. Magic
+    d. Shell
+9) What is the name of the GNU shell that is standard across all Linux Distros
+    a. ksh
+    b. sh
+    c. csh
+    d. bash
+10) Based on the ls command, what is the option to do a long listing?
+    a. ```ls --all```
+    b. ```ls -n```
+    c. ```list```
+    d. ```ls –l```
+11) What is the command you can use to find out additional usage information about a shell command?
+    a. about
+    b. man
+    c. F1
+    d. /?
+12) Which of these directories is not part of the LSB LFH?
+    a. bin
+    b. media
+    c. temp
+    d. opt
+13) The Linux Filesystem is an upside down what?
+    a. root
+    b. object
+    c. tree
+    d. mess
+14) What is the name of the top of the Linux Filesystem?
+    a. ```/```
+    b. ```./```
+    c. ```../```
+    d. slashdot
+15) Everything (directories, files, devices) in Unix/Linux is a what?
 
-16)	What is the name of the Unix system standard developed in ~1985 that defines at a minimum what a certified Unix based system must support?
-    a.	Xenix
-    b.	LSB
-    c.	POSIX
-    d.	Linux
-17)	What is the directory where configuration files are stored in Linux?
-    a.	bin
-    b.	sbin
-    c.	etc
-    d.	conf
-18)	What is the directory where all the essential command binaries are stored?
-    a.	bin
-    b.	sbin
-    c.	usr/sbin
-    d.	usr/bin
-19)	What is the directory that holds all of the user’s home directories? (no slash, just the name)
+16) What is the name of the Unix system standard developed in ~1985 that defines at a minimum what a certified Unix based system must support?
+    a. Xenix
+    b. LSB
+    c. POSIX
+    d. Linux
+17) What is the directory where configuration files are stored in Linux?
+    a. bin
+    b. sbin
+    c. etc
+    d. conf
+18) What is the directory where all the essential command binaries are stored?
+    a. bin
+    b. sbin
+    c. usr/sbin
+    d. usr/bin
+19) What is the directory that holds all of the user’s home directories? (no slash, just the name)
 
-20)	True or False - Leonart Poettering supports POSIX
+20) True or False - Leonart Poettering supports POSIX
 
 ### Podcast Questions
 
 Centos - [http://twit.tv/floss/142](http://twit.tv/floss/142 "CentOS")
 
-Answer said questions:
+Answer the said questions:
 
 * ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
 * ~3:40 What is the short story about how Centos came about?
