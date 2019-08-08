@@ -857,7 +857,7 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 * ~39:30 What Type of hypervisor is VirtualBox?
 * ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
 
-**Deliverable:** Copy these questions  
+**Deliverable:** Copy these questions and answer them.
 
 ### Lab
 
