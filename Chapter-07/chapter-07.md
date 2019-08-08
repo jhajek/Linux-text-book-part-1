@@ -1,16 +1,16 @@
 # Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles  
 ![*Real programmers...*](images/Chapter-Header/Chapter-07/real_programmers-2.png "vi")
 
-### Objectives
+## Objectives
 
   In the chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining their use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
 
-*  Understand the difference between stream editors and text editors
-*  Understand and learn how to use the vi editor
-*  Understand how to use shell scripts to automate tasks
-*  Understand how to use the system PATH and modify a users profile
+* Understand the difference between stream editors and text editors
+* Understand and learn how to use the vi editor
+* Understand how to use shell scripts to automate tasks
+* Understand how to use the system PATH and modify a users profile
 
-### Outcomes
+## Outcomes
 
 At the outcome of this chapter a user will be able to use the vi editor for creating and manipulating text files and shell scripts.  This will give you mastery over the data on your system.  You will be comfortable creating a shell script to automate system administration tasks and you will understand how a user's system PATH and profile is modified and loaded.  This will open up the remaining chapters where we introduce additional complexity in writing shell scripts and enable greater system administration via shell scripts and using the vi editor.
 
@@ -24,7 +24,7 @@ The reason we call them __stream editors__ is that at their time of development 
 
 ### Emacs
 
-Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Stallman came from.  GNU Emacs was released in 1984 and developed entirely by Richard Stallman himself.  In 1980 James Gosling (father of the Java Language) had created his own Emacs in the spirit of opensource called gmacs, but sold his project to a company who re-licensed it with a proprietary license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of a deficiency, I recommend you to try it out at least once.   
+Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Stallman came from.  GNU Emacs was released in 1984 and developed entirely by Richard Stallman himself.  In 1980 James Gosling (father of the Java Language) had created his own Emacs in the spirit of opensource called gmacs, but sold his project to a company who re-licensed it with a proprietary license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of a deficiency, I recommend you to try it out at least once.
 
 > *In it normal editing mode, GNU Emacs behaves like other text editors and allows the user to insert characters with the corresponding keys and to move the editing point with the arrow keys. Escape key sequences or pressing the control key and/or the meta key, alt key or super keys in conjunction with a regular key produces modified keystrokes that invoke functions from the Emacs Lisp environment. Commands such as save-buffer and save-buffers-kill-emacs combine multiple modified keystrokes [^80]*.
 
@@ -32,15 +32,15 @@ Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Sta
 
 Emacs features include:
 
-*  Content-sensitive editing modes, including syntax coloring, for a variety of file types including plain text, source code, and HTML.
-*  Complete built-in documentation, including a tutorial for new users.
-*  Full Unicode support for nearly all human languages and their scripts.
-*  Highly customizable, using Emacs Lisp code or a graphical interface.
-*  A large number of extensions that add other functionality, including a project planner, mail and news reader, debugger interface, calendar, and more.
+* Content-sensitive editing modes, including syntax coloring, for a variety of file types including plain text, source code, and HTML.
+* Complete built-in documentation, including a tutorial for new users.
+* Full Unicode support for nearly all human languages and their scripts.
+* Highly customizable, using Emacs Lisp code or a graphical interface.
+* A large number of extensions that add other functionality, including a project planner, mail and news reader, debugger interface, calendar, and more.
 
 ### The vi Editor
 
-The other major family of stream editors is the __vi editor__ or just __vi__ (pronounced *vee-eye*).  The __vi editor__ took a different route than emacs as it had an different intended  purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programmatically unlike emacs which exposes its LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.   
+The other major family of stream editors is the __vi editor__ or just __vi__ (pronounced *vee-eye*).  The __vi editor__ took a different route than emacs as it had an different intended  purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programmatically unlike emacs which exposes its LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.
 
 The chart below shows the history of the __vi editor__.
 
@@ -60,19 +60,19 @@ Bill Joy came into the picture out at Berkely.  He helped make an improved __em_
 
 ### Relationship of vi and vim
 
- In January of 1983 AT&T's UNIX System V adopted __vi__ as their standard editor.  This put __vi__ in the hands of everyone using commercial Unix from AT&T as well as anyone using BSD Unix--which up to that point meant almost everyone in the commercial world.  But it was not until June of 1987 that [Stevie](https://en.wikipedia.org/wiki/Stevie_\(text_editor\) "STEVIE") (ST editor for VI enthusiasts), a limited vi clone appeared. In early January, 1990, Steve Kirkendall posted a new clone of vi, Elvis, to the Usenet newsgroup comp.os.minix, aiming for a more complete and more faithful clone of vi than Stevie. It quickly attracted considerable interest in a number of enthusiast communities[^83]. Andrew Tanenbaum quickly asked the community to decide one of these two editors to be the vi clone in Minix;[^84] Elvis was chosen, and remains the vi clone for Minix today.
+In January of 1983 AT&T's UNIX System V adopted __vi__ as their standard editor.  This put __vi__ in the hands of everyone using commercial Unix from AT&T as well as anyone using BSD Unix--which up to that point meant almost everyone in the commercial world.  But it was not until June of 1987 that [Stevie](https://en.wikipedia.org/wiki/Stevie_\(text_editor\) "STEVIE") (ST editor for VI enthusiasts), a limited vi clone appeared. In early January, 1990, Steve Kirkendall posted a new clone of vi, Elvis, to the Usenet newsgroup comp.os.minix, aiming for a more complete and more faithful clone of vi than Stevie. It quickly attracted considerable interest in a number of enthusiast communities[^83]. Andrew Tanenbaum quickly asked the community to decide one of these two editors to be the vi clone in Minix;[^84] Elvis was chosen, and remains the vi clone for Minix today.
 
- But at UC Berkeley, Keith Bostic wanted a "bug for bug compatible" replacement for Joy's vi for BSD 4.4 Lite. The original __vi__ code was encumbered by AT&T licensing because Bill Joy had extended Thompson's original code which technically belonged to AT&T. Using Kirkendall's Elvis (version 1.8) as a starting point, Bostic created [nvi](https://en.wikipedia.org/wiki/Nvi "nvi"), releasing it in Spring of 1994.[^85] FreeBSD and NetBSD continue to use nvi to this day.
+But at UC Berkeley, Keith Bostic wanted a "bug for bug compatible" replacement for Joy's vi for BSD 4.4 Lite. The original __vi__ code was encumbered by AT&T licensing because Bill Joy had extended Thompson's original code which technically belonged to AT&T. Using Kirkendall's Elvis (version 1.8) as a starting point, Bostic created [nvi](https://en.wikipedia.org/wiki/Nvi "nvi"), releasing it in Spring of 1994.[^85] FreeBSD and NetBSD continue to use nvi to this day.
 
- In 1991, Bram Moolenaar created a port of __vi__ called __vim__ *vi improved*. Vim was created under a GPL compatible free license and it is compatible with the large majority of __vi__ functionality and extends to add some modern features like unlimited undo/redo for example.  Because of this __vim__ is available for all Linux based systems, BSD, Windows, and others.  Some distros link __vi__ to __vim__ replacing it out right.  
+In 1991, Bram Moolenaar created a port of __vi__ called __vim__ *vi improved*. Vim was created under a GPL compatible free license and it is compatible with the large majority of __vi__ functionality and extends to add some modern features like unlimited undo/redo for example.  Because of this __vim__ is available for all Linux based systems, BSD, Windows, and others.  Some distros link __vi__ to __vim__ replacing it out right.  
 
 ### vi has a Sharp Learning Curve
 
-  Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  The __vi editor__ is not a text editor comparable notepad, but vi was a specfic tool developed to create complex interaction with text in as few key strokes as possible. Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beautiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
+Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  The __vi editor__ is not a text editor comparable notepad, but vi was a specfic tool developed to create complex interaction with text in as few key strokes as possible. Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beautiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
 
-#### vi or vim?
+#### vi and vim
 
- By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  The reason they are different sized is that there are different versions of vim that have different levels of features pre-compiled in.
+By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  The reason they are different sized is that there are different versions of vim that have different levels of features pre-compiled in.
 
   ![*vim Ubuntu 15.04*](images/Chapter-07/editors/vi/ubuntu-vi.png "vim Ubuntu")
 
@@ -86,9 +86,9 @@ Bill Joy came into the picture out at Berkely.  He helped make an improved __em_
 
    The __vi editor__ has 3 modes.
 
-  1)  COMMAND mode used to position the cursor
-  2)  INSERT mode used to insert/delete text
-  3)  EX mode used to issue commands that edit lines and change the display of the vi editor.
+1) COMMAND mode used to position the cursor
+2) INSERT mode used to insert/delete text
+3) EX mode used to issue commands that edit lines and change the display of the vi editor.
 
 To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modification commands will automatically take you to __INSERT__ mode.  You will know you are in INSERT mode because the bottom of the screen will say INSERT.
 
@@ -150,7 +150,7 @@ p                pastes the current line or lines that are in the clipboard
 
 ![*vi newline insert*](images/Chapter-07/editors/vi/vi-shift-o.png "vi newline insert")
 
-> __Example usage:__ What is the command sequence to delete a single character? You would switch to COMMAND mode by typing ```ESC then x```.   
+> __Example usage:__ What is the command sequence to delete a single character? You would switch to COMMAND mode by typing ```ESC then x```.
 
 > __Example usage:__ What is the command sequence to delete an entire line?  You would switch to COMMAND mode by typing ```ESC then dd```.
 
@@ -462,17 +462,17 @@ d. $PATH
 
 Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
 
-  *  ~6:32 Who is Linus Torvalds?
-  *  ~6:54 Where did he create Linux?
-  *  ~7:30 What did Unix have that other operating systems didn't at that time?
-  *  ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
-  *  ~10:30 About what month and what year did this happen?
-  *  ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project?
-  *  ~13:30-14:00 Why was it licensed under the GPL?
-  *  ~20:48 Why didn't Linus want to work for a Linux company?
-  *  ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
-  *  ~46:10 What is the way to become a great programmer?
-  *  ~51:17 What is Linus' farewell message to the audience?
+* ~6:32 Who is Linus Torvalds?
+* ~6:54 Where did he create Linux?
+* ~7:30 What did Unix have that other operating systems didn't at that time?
+* ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
+* ~10:30 About what month and what year did this happen?
+* ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project?
+* ~13:30-14:00 Why was it licensed under the GPL?
+* ~20:48 Why didn't Linus want to work for a Linux company?
+* ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
+* ~46:10 What is the way to become a great programmer?
+* ~51:17 What is Linus' farewell message to the audience?
 
 ### Lab Chapter 7
 
@@ -497,11 +497,11 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
     i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
     i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
-    i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the commmand to display the content of the ```$RESULT``` variable. 
+    i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the commmand to display the content of the ```$RESULT``` variable.
     i) Add these lines to the END of your shell script:
-    
+
 ```bash
-cat << EOT >> ~/.bashrc 
+cat << EOT >> ~/.bashrc
 
 ########## Inserted by User ##########
 export JAVA_HOME=/usr
@@ -509,10 +509,10 @@ export HADOOP_HOME=$HOME/hadoop-2.8.5
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar
 EOT
-```    
+```
 
-Source the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.  
-    
+Source the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
+
 __Deliverable:__  
 
 Submit your Github URL for your repo to Blackboard.
