@@ -377,23 +377,23 @@ Pipes can be used to chain as many commands together as necessary. This is one o
 
 ### grep
 
-  The ```grep``` command is a powerful pattern matching and searching tool for the shell.  Originally a feature of the ``ed`` line editor program - it stood for g/re/p--global regular expression print.  A grep command will search inside of a given text file or directory looking for lines of text that match the pattern you give it.  You can use shell meta-characters from above or literal text strings as the searching parameters.   There are even more advanced search patterns called *regular expression* which is almost a programming language in itself that allows for complex text queries.  We will not cover *regular expression* in depth in this book but talk about it as it relates to helping us complete our jobs.
+The ```grep``` command is a powerful pattern matching and searching tool for the shell.  Originally a feature of the ``ed`` line editor program - it stood for g/re/p--global regular expression print.  A grep command will search inside of a given text file or directory looking for lines of text that match the pattern you give it.  You can use shell meta-characters from above or literal text strings as the searching parameters.   There are even more advanced search patterns called *regular expression* which is almost a programming language in itself that allows for complex text queries.  We will not cover *regular expression* in depth in this book but talk about it as it relates to helping us complete our jobs.
 
-  The grep command [^69] has many options to modify the returned output. Some of the more common ones are listed here [^70]:
+The grep command [^69] has many options to modify the returned output. Some of the more common ones are listed here [^70]:
 
- * The -i option causes a case-insensitive search.
- * The -w option matches only whole words.
- * The -l option lists only the files in which matches were found, but not the matching lines.
- * The -r (recursive) option searches files in the current working directory and all subdirectories below it.
- * The -n option lists the matching lines, together with line numbers.
- * The -v (or --invert-match) option filters out matches.
- * The -c (--count) option gives a numerical count of matches, rather than actually listing the matches.
+* The -i option causes a case-insensitive search.
+* The -w option matches only whole words.
+* The -l option lists only the files in which matches were found, but not the matching lines.
+* The -r (recursive) option searches files in the current working directory and all subdirectories below it.
+* The -n option lists the matching lines, together with line numbers.
+* The -v (or --invert-match) option filters out matches.
+* The -c (--count) option gives a numerical count of matches, rather than actually listing the matches.
 
 > __Exercise:__ Commands in which large amounts of text are going to be displayed can be filtered and then piped to a ```less``` command for viewing.  If you view the hosts.deny file contents you will see it has two columns of text: first column is the service name, the second is the IP address that is banned.  With over 3000+ entries you can use pipes and filters to narrow down the output.  For example let us say that you are looking for every line that has an IP that starts with 216.* and then count those number of occurrences? ```cat hosts.deny | grep "sshd: 210" | wc```
 
 ![*Format of the hosts.deny file*](images/Chapter-06/pipes/hosts-deny.png "Structure of hosts.deny")
 
-> What would happen if you added a ``` | less``` command to the end like this?  ```cat hosts.deny | grep "sshd: 210" | less``` ?
+> What would happen if you added a ```| less``` command to the end like this?  ```cat hosts.deny | grep "sshd: 210" | less``` ?
 
 > Can we rewrite the above command to be more efficient?  What if we use the ```cut``` command?  ```cat hosts.deny | cut -d ' ' -f2 | grep ^210 | less```  This will cut out the first column, search for all lines starting with 210 (the ^  in this expression tells grep to look only at the beginning of the line), and then pass the results to the ```less``` command.  
 
