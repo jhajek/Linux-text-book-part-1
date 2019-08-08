@@ -686,9 +686,9 @@ The objectives of this lab will be to use the shell and understand meta-characte
 1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retreive a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
     i)  Take a screenshot of the above commands used to extract the zip file
 1. Now ```cd``` into the directoy you just decompressed. Type the command that will create folders named Chapter-16..31 in one command.
-    i) Take a screenshot of the above command with output 
+    i) Take a screenshot of the above command with output
 1. What command will list every file in the textbook directory that has any number of characters and a ```.sh``` two character file extension of any name?
-    i) Take a screenshot of the above command with output 
+    i) Take a screenshot of the above command with output
 1. What command inside the textbook directory will do a long listing of Chapters-02,04,06, and 08 only?
     i) Take a screenshot of the above command with output
 1. What command will copy the content of file Chapter-02/chapter-02.md to a directory named Chapter-00/chapter-02.md.  Use meta-characters to string together commands.
