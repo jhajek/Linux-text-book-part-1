@@ -728,15 +728,15 @@ If you are using Windows, Mac, or Linux you need to download the appropriate ver
 
 [*Feature List for VirtualBox*](https://www.virtualbox.org/manual/ch01.html#virtintro "Feature List")
 
-* Guest multiprocessing (SMP).
-* USB device support.
+* Guest multiprocessing (SMP)
+* USB device support
 * Seamless windowing
 * Shared folders
-* Hardware compatibility.
-* Full ACPI support.
-* Multiscreen resolutions.
-* Built-in iSCSI support.
-* PXE Network boot.
+* Hardware compatibility
+* Full ACPI support
+* Multiscreen resolutions
+* Built-in iSCSI support
+* PXE Network boot
 * Remote machine display
 * Video and screenshot capture within virtual machines
 
