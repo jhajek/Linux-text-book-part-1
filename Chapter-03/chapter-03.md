@@ -375,7 +375,7 @@ sudo dpkg -i ./links_2.8-2_amd64.deb
 
 Note that this command installs properly without any error message. [http://packages.ubuntu.com/](http://packages.ubuntu.com/ "links")
 
-__Example Usage:__   There are other flags but the most common are these: 
+__Example Usage:__   There are other flags but the most common are these:
 
 * ```sudo dpkg -r or --remove```
 * ```sudo dpkg -P or --purge```
