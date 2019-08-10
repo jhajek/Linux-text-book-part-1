@@ -96,13 +96,13 @@ Unix differences from existing commercial Operating Systems
 Thompson's Unix success was also a byproduct of its main design philosophy:
 
 * Everything is a file
-+ This means that everything can be read from or written to: all the way from devices to text files
+  * This means that everything can be read from or written to: all the way from devices to text files
 * Unix is portable
-+ Tools and OS code can be recompiled for different environments because everything is written in C.
+  * Tools and OS code can be recompiled for different environments because everything is written in C.
 * I/O is redirectable between small executables
-+ Small tools that do one and only one thing well
-+ Output of one command becomes the input of another command.
-+ Complex applications are built by chaining the output of small executables together with *pipes* -> "|"
+  * Small tools that do one and only one thing well
+  * Output of one command becomes the input of another command.
+  * Complex applications are built by chaining the output of small executables together with *pipes* -> "|"
 
 The best demonstration of these tenants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\\ "Jon Bently") in 1986 to:
 
