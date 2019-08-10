@@ -177,7 +177,7 @@ See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Ge
 
 Let us walk through the initial installation process.  The first step to begin is with the *NEW* button.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-17-04-Desktop" and "Fedora-26-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.  
 
-![*Create New Ubuntu Instance Dialog*](images/Chapter-03//VirtualBox-Install/virtualbox-name-and-operating-system-ubuntu.png "Create New Instance Dialog")
+![*Create New Ubuntu Instance Dialog*](images/Chapter-03/VirtualBox-Install/virtualbox-name-and-operating-system-ubuntu.png "Create New Instance Dialog")
 
 ![*Create New Fedora Instance Dialog*](images/Chapter-03/VirtualBox-Install/virtualbox-name-and-operating-system-fedora.png "Create New Instance Dialog")
 
