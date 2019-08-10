@@ -114,6 +114,6 @@ You can use any PDF reader.  Currently Microsft Edge browser has native ePub sup
 
 Or you can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
 
-ePub and PDF can alsop be read via the Barns and Noble Nook app.  It is available for all platforms, [iOS, Androis, and Windows](http://www.nook.com/nookapp/#appChoices "Nook app").  I use it and can recommend it on any platform.
+ePub and PDF can also be read via the Barns and Noble Nook app.  It is available for all platforms, [iOS, Androis, and Windows](http://www.nook.com/nookapp/#appChoices "Nook app").  I use it and can recommend it on any platform.
 
 The iBooks app on iOS works as well for viewing ePubs and PDFs.
