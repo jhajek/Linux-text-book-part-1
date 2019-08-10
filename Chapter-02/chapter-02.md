@@ -9,7 +9,7 @@
 * Understand the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and *Free/Libre Software*
 * Understand the contributions of Linus Torvalds to the creation of Linux
 * Understand and explain how the AT&T and BSD lawsuit enabled the proliferation of Linux
-* Be able to describe and differentiate the five phases of Unix maturity
+* Be able to describe and differentiate the six phases of Unix maturity
 * Understand the nature of modern commercial distributions of Linux and Unix operating systems
 * Understand the principles and key differences of *Free/Libre Software* and *Opensource Software*
 
