@@ -441,7 +441,6 @@ As of 2017, we have almost 25 years of Linux Kernel and Linux distribution work.
 * [Gentoo Linux](https://www.gentoo.org/get-started/about/ "Gentoo Linux")
 * [SUSE Linux](https://en.wikipedia.org/wiki/SUSE_Linux_distributions "SUSE Linux")
 * [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian distro
-* [antiX Linux](http://antix.mepis.org/index.php?title=Main_Page "antiX") - lightweight Debian derivative focused on old machines.
 * [Arch Linux](https://www.archlinux.org/ "Arch Linux")
 * [Tails Linux](https://tails.boum.org/ "Tails Linux") - Online security focused Debian based distro
 * and many more at [http://www.distrowatch.com](http://www.distrowatch.com "Distro Watch")
