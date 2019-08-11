@@ -334,16 +334,16 @@ You will install assorted softwares using the Gnome Software application in Fedo
 
 You will need to install two GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
 
-1)  Caffeine
-1)  Dash to Dock
-1)  SystemMonitor
-1)  Choose any other one plugin
+1) Caffeine
+1) Dash to Dock
+1) SystemMonitor
+1) Choose any other one plugin
 
 #### Ubuntu 18.04 Snaps Install
 
 To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap:
 
-1) Android Studio 
+1) Android Studio
 1) Spotify
 1) Slack
 1) Skype
@@ -352,11 +352,11 @@ To install and configure snaps, reference chapter 3.  To show these packages are
 
 To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via Snap:
 
-1)  Gimp
-1)  Visual Studio Code
-1)  LibreOffice
-1)  Atom
-1)  0 A.D.  
+1) Gimp
+1) Visual Studio Code
+1) LibreOffice
+1) Atom
+1) 0 A.D.  
 
 #### Ubuntu window mangers and desktop environment
 
