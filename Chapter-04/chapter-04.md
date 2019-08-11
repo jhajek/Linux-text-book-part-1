@@ -390,7 +390,7 @@ What is the name of the missing category?
   b. KDE, GNOME, E17, GNUSTEP
   c. KDE, GNOME, X, LXDE
   d. KDE, GNOME, Xfce, LXDE
-12) What is the name of the windowing toolkit that KDE uses? 
+12) What is the name of the windowing toolkit that KDE uses?
 
 13) What is the name of the windowing toolkit that GNOME uses?
 
@@ -415,7 +415,7 @@ apply)
   c. Desktop environments have a changeable but consistent look-and-feel
   d. Desktop environments have system configuration tools and user applications built in
   e. Desktop environments have lower memory requirements than window managers
-18) What is the default desktop environment for Fedora 28? (Name and versions)
+18) What is the default desktop environment for Fedora 30? (Name and versions)
 
 19) What is the name of the button on the upper left hand corner of the GNOME 3 desktop that you use to “launch applications?”
 

@@ -664,20 +664,17 @@ d. gzip
 
 ### Podcast Questions
 
-Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](https://twit.tv/shows/floss-weekly/episodes/104 "FreeBSD")
+Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
 
-* What is FreeBSD? ~6:00
-* Why did she switch from Linux to BSD? ~6:30
-* Is FreeBSD Linux or Unix?  ~13:00
-* Is FreeBSD a good option for most people as a desktop? ~14:14
-* Using Mac OSX - what OS do you have under the hood? ~16:10
-* What project did Randi take on that no one else wanted? ~19:10
-* What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
-* Are there any large companies that sponsor FreeBSD?  ~ 31:00
-* How can you get involved in helping the FreeBSD community? ~38:15
-* What is Randi's opinion about "getting more women in open-source?"  ~40:00
-* What is Randi saying that is the wrong focus? ~49:00
-* Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
+* Who is Tim Orielly? ~3:00-5:00
+* What is Oscon? ~6:45
+* Who coined the term web 2.0? ~13:34
+* What did we learn from the IBM PC? ~18:30
+* What is web 2.0? ~19:30
+* Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00
+* Where is the money made in open source - software or data? ~ 34:00
+* What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
+* [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
 
 ### Lab
 

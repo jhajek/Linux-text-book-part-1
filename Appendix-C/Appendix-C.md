@@ -31,17 +31,24 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 ### Podcast Questions
 
-Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
+Listen to the Podcast at [https://twit.tv/shows/floss-weekly/episodes/500](https://twit.tv/shows/floss-weekly/episodes/500 "Podcast Interview")
 
- *  Who is Tim Orielly? ~3:00-5:00
- *  What is Oscon? ~6:45
- *  Who coined the term web 2.0? ~13:34
- *  What did we learn from the IBM PC? ~18:30
- *  What is web 2.0? ~19:30
- *  Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00
- *  Where is the money made in open source - software or data? ~ 34:00
- *  What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
- *  [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
+* 7:21  Who is Vicky Brasseur and what does she do?
+* 8:45 What has changed the most in regards to the term OpenSource in the last 25+ years?
+* 10:00 What is assumed to now be the default development pattern for new software?
+* 13:00 According to Randall, when a company publishes its code as OpenSource, what do they gain?
+* 15:57 What do companies struggle with when they decide to opensource their codebase and core-products and how do they solve it?
+* 19:00 What are some of the OpenSource companies?
+* 19:35 What are the majority of OpenSource companies strategies to make money?
+* 22:40 What do companies need to figure out about Free and OpenSource?
+* 24:25 What is the term "Yak-Shaving" mean?
+* 27:25 Who is Vicky's new book targeting?
+* 28:03 What is the book about?
+* 33:25 What is the mistaken impression about contributing to OpenSource Software?
+* 37:40 What do you need to read before contributing to an OpenSource project?
+* 43:00 What does Vicky believe is important for a project to have and to enforce for a community?
+* 48:01 What is the myth about users of propriatery operating systems (Windows and MacOS)?
+* 49:00 Vicky used Linux for 10 years, what drove her away from it?
 
 ### Lab
 
@@ -659,22 +666,17 @@ d. gzip
 (Replace with Brian Kernighan GREP interview and a few others)
 TBA
 
-__FreeBSD__  
+Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
 
-Listen or watch this podcast: [https://twit.tv/shows/floss-weekly/episodes/104](https://twit.tv/shows/floss-weekly/episodes/104 "FreeBSD")
-
-  * What is FreeBSD? ~6:00
-  * Why did she switch from Linux to BSD? ~6:30
-  * Is FreeBSD Linux or Unix?  ~13:00
-  * Is FreeBSD a good option for most people as a desktop? ~14:14
-  * Using Mac OSX - what OS do you have under the hood? ~16:10
-  * What project did Randi take on that no one else wanted? ~19:10
-  * What filesystem does FreeBSD support that convinced Randel to move all his websites to FreeBSD? ~24:25
-  * Are there any large companies that sponsor FreeBSD?  ~ 31:00
-  * How can you get involved in helping the FreeBSD community? ~38:15
-  * What is Randi's opinion about "getting more women in open-source?"  ~40:00
-  * What is Randi saying that is the wrong focus? ~49:00
-  * Linux, Ubuntu and Fedora, have regular release cycles and then long term support, what kind of release cycles does FreeBSD have?  ~50:25
+* Who is Tim Orielly? ~3:00-5:00
+* What is Oscon? ~6:45
+* Who coined the term web 2.0? ~13:34
+* What did we learn from the IBM PC? ~18:30
+* What is web 2.0? ~19:30
+* Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00
+* Where is the money made in open source - software or data? ~ 34:00
+* What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
+* [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
 
 ### Lab
 

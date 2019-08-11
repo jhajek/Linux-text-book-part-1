@@ -775,17 +775,24 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 ### Podcast Questions
 
-Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
+Listen to the Podcast at [https://twit.tv/shows/floss-weekly/episodes/500](https://twit.tv/shows/floss-weekly/episodes/500 "Podcast Interview")
 
-* Who is Tim Orielly? ~3:00-5:00
-* What is Oscon? ~6:45
-* Who coined the term web 2.0? ~13:34
-* What did we learn from the IBM PC? ~18:30
-* What is web 2.0? ~19:30
-* Open Source vs Open Data - what does Tim Orielly think is the ultimate destination for computing? ~23:00
-* Where is the money made in open source - software or data? ~ 34:00
-* What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
-* [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
+* 7:21  Who is Vicky Brasseur and what does she do?
+* 8:45 What has changed the most in regards to the term OpenSource in the last 25+ years?
+* 10:00 What is assumed to now be the default development pattern for new software?
+* 13:00 According to Randall, when a company publishes its code as OpenSource, what do they gain?
+* 15:57 What do companies struggle with when they decide to opensource their codebase and core-products and how do they solve it?
+* 19:00 What are some of the OpenSource companies?
+* 19:35 What are the majority of OpenSource companies strategies to make money?
+* 22:40 What do companies need to figure out about Free and OpenSource?
+* 24:25 What is the term "Yak-Shaving" mean?
+* 27:25 Who is Vicky's new book targeting?
+* 28:03 What is the book about?
+* 33:25 What is the mistaken impression about contributing to OpenSource Software?
+* 37:40 What do you need to read before contributing to an OpenSource project?
+* 43:00 What does Vicky believe is important for a project to have and to enforce for a community?
+* 48:01 What is the myth about users of propriatery operating systems (Windows and MacOS)?
+* 49:00 Vicky used Linux for 10 years, what drove her away from it?
 
 ### Lab
 
