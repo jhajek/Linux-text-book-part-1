@@ -21,10 +21,11 @@ I would recommend installing Pandoc directly from the latest Debian package.  Lo
 * texlive-latex-extra
 * texlive-fonts-recommended
 * texlive-fonts-extra
+* texlive-font-utils
 * texlive-xetex
-* texlive-math-extra
+* librsvg2-bin
 * Install these via this command:
-  * ```sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils texlive-fonts-extra```
+  * ```sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin```
 
 Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16.04 can add the repo via these steps:
 
@@ -65,7 +66,7 @@ To check if the install went correctly type: ```pandoc -v``` on the command line
 
 ## Mac OSX
 
-  * [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
+* [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
 
 To Install the Charis SIL font:
 
@@ -77,7 +78,7 @@ To Install the Inconsolata font:
 * ```wget https://fonts.google.com/download?family=Inconsolata -O /tmp/Inconsolata.zip```
 * ```unzip /tmp/Inconsolata.zip -d ~/Library/Fonts/Inconsolata```
 
-## Windows 
+## Windows
 
 You need Pandoc > 1.19.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
 
