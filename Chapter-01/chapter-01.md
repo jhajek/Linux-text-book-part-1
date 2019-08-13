@@ -83,11 +83,12 @@ Part of this book was inspired by a quote from my friend in regards to Linux tex
 
 Special thanks to those who have submitted pull requests and bug reports
 
-* [njdwklopper](https://github.com/njdwklopper "Github Profile for njdwklopper")
-* [HackingGate](https://github.com/HackingGate "Github profile for HackingGate")
-* [ttruty](https://github.com/ttruty "Github profile for ttruty")
-* [kwillet7](https://github.com/kwillett7 "Github profile for kwillet7")
-* [paul-arg](https://github.com/paul-arg "Github profile for paul-arg")
+* [njdwklopper](https://github.com/njdwklopper "GitHub Profile for njdwklopper")
+* [HackingGate](https://github.com/HackingGate "GitHub profile for HackingGate")
+* [ttruty](https://github.com/ttruty "GitHub profile for ttruty")
+* [kwillet7](https://github.com/kwillett7 "GitHub profile for kwillet7")
+* [paul-arg](https://github.com/paul-arg "GitHub profile for paul-arg")
+* [calennert](https://github.com/calennert "GitHub profile for calennert")
 
 ## Special Thanks
 
