@@ -14,7 +14,7 @@ This Appendix lists the final project that applies all of the learned concepts a
 
 ## Outcomes
 
-At the conclusion of this project your will have succesfully demonstrated the basic installation and system administration concepts talked about in this book.  Congratualions.
+At the conclusion of this project, you will have successfully demonstrated the basic installation and system administration concepts talked about in this book.  Congratulations.
 
 ### Description
 
@@ -37,7 +37,7 @@ The database server will have:
 * Modify the default location of the MySQL database to be on the ```/mnt/datadisk``` location
 * Modify the default setting to allow MySQL to listen on external connections
 * Create a zpool snapshot 
-* enable mysql to start at boot and start mysql service
+* Enable mysql to start at boot and start mysql service
 * Clone sample code at https://github.com/jhajek/db-samples.git (note you will need to use sed on the files to replace the default IP values)
 * Run from the mysql prompt the create.sql, insert.sql, grants.sql
 * Enable firewall
@@ -53,7 +53,7 @@ The Webserver will have:
   + You can generate the cert manually or there is a process to automate the creation of a self-signed cert
   + [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04 "Self Signed Tutorial")
 * Modify the Webserver configuration to serve only on 443
-* Enable and start the firwall service allowing connections on port 22 and port 80 and 443
+* Enable and start the firewall service allowing connections on port 22 and port 80 and 443
   + Enable and start the Webserver Service
 * Format and create a mount point called ```/mnt/disk1``` and ```/mnt/disk2```
   + create and LVM volume PGs, VG, and a single LG with XFS on this volume.
@@ -64,7 +64,7 @@ The Webserver will have:
 
 * Consul and service discovery
 * Adding HTTP/2 to the webbrowser support
-* Using a NoSQl Database instead of MySQL/MariaDB
+* Using a NoSQL Database instead of MySQL/MariaDB
 
 #### Notes
 
@@ -88,7 +88,7 @@ Sample code is located [https://github.com/jhajek/packer-vagrant-build-scripts](
 * ```centos-7-vanilla-multi-disks.json```
 * ```ubuntu18041-vanilla-multi-drives.json```
 
-That have the code needed for attaching additional disks at boot time via packer.  The pressed and ks directories are needed to make the ```packer build``` commands to work.  In additional the ```post-processor``` shell scripts are in the directory ```scripts``` you can use the ```post_install_vagrant.sh``` and the script ```post_install_vagrat-centos-7.sh``` for post-install customization via shell script.
+These have the code needed for attaching additional disks at boot time via packer.  The pressed and ks directories are needed to make the ```packer build``` commands to work.  In addition, the ```post-processor``` shell scripts are in the directory ```scripts``` you can use the ```post_install_vagrant.sh``` and the script ```post_install_vagrat-centos-7.sh``` for post-install customization via shell script.
 
 ## Deliverable
 
