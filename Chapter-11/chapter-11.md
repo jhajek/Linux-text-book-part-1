@@ -645,12 +645,12 @@ d) vgmknodes
 
 Objectives
 
-  * Creating virtual disks in Virtual Box
-  * Creating new partitions in fdisk
-  * Creating new filesystems with mkfs
-  * Creating new filesystems in ZFS
-  * Mounting new filesystems
-  * Editing /etc/fstab to make our mounts permanent
+* Creating virtual disks in Virtual Box
+* Creating new partitions in fdisk
+* Creating new filesystems with mkfs
+* Creating new filesystems in ZFS
+* Mounting new filesystems
+* Editing /etc/fstab to make our mounts permanent
 
 Outcomes
 
