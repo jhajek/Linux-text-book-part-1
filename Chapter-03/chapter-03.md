@@ -861,8 +861,6 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 * ~39:30 What Type of hypervisor is VirtualBox?
 * ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
 
-**Deliverable:** Copy these questions and answer them.
-
 ### Lab
 
 You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
