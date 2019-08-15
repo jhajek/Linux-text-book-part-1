@@ -1,15 +1,15 @@
 #  Filesystems: Creating, Partitioning, and Mounting
 ![*Easy as cake...*](images/Chapter-Header/Chapter-11/server_problem-2.png "Server Problem")
 
-### Objectives
+## Objectives
 
-   * Compare and contrast different Linux filesystems
-   * Understand how to create and attach virtual disks
-   * Understand how the ```fdisk``` command is used to list, modify, and create filesystem partitions
-   * Understand Linux tools relating to filesystems, disk utilization, and mounting
-   * Understand how Logical Volume Management, extents, and disk based partitions differ
+* Compare and contrast different Linux filesystems
+* Understand how to create and attach virtual disks
+* Understand how the ```fdisk``` command is used to list, modify, and create filesystem partitions
+* Understand Linux tools relating to filesystems, disk utilization, and mounting
+* Understand how Logical Volume Management, extents, and disk based partitions differ
 
-### Outcomes
+## Outcomes
 
   At the conclusion of this chapter you will be able to add additional virtual disks to any Linux version installed in Virtual Box.  You will be able to format devices and create filesystems on newly formatted devices.  You will understand how to partition a device and install filesystems.  This chapter will give you experience with the tools needed to perform these actions.  We will study the LVM -- Linux Volume Manager and its new concept for dealing with disks.  Finally we will learn the concept of mounting and unmounting of disks.
 
