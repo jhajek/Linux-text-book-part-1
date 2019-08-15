@@ -4,11 +4,11 @@
 ## Objectives
 
 * IT Orchestration and Automation tools
-  + Vagrant
-  + Packer.io
-  + Consul
-  + Vault
-  + Additional automation tools
+  * Vagrant
+  * Packer.io
+  * Consul
+  * Vault
+  * Additional automation tools
 
 ## Outcomes
 
@@ -52,14 +52,16 @@ The second way to is add it manually
 
 When executing the vagrant box command from the command line (in Windows recommend using powershell) you will see this list of subcommands as the output:
 
-   * ```add```
-   * ```list```
-   * ```outdated```
-   * ```remove```
-   * ```repackage```
-   * ```update```
+* ```add```
+* ```list```
+* ```outdated```
+* ```remove```
+* ```repackage```
+* ```update```
 
-```vagrant box add```
+```bash
+vagrant box add
+```
 
 The first command **add** is the command we will use to add boxes (either of the two methods) from above.  These are all premade systems made with Packer.io and [distributed by Hashicorp](https://app.vagrantup.com/boxes/search "Vagrant Search").  
 
@@ -260,13 +262,13 @@ A few technologies for network based installs exist, but even these assume their
 As stated on the Packer.io webpage the advantages of using packer are as follows[^156]:
 
 * **Super fast infrastructure deployment**
-  + Packer images allow you to launch completely provisioned and configured machines in seconds rather than several minutes or hours. This benefits not only production, but development as well, since development virtual machines can also be launched in seconds, without waiting for a typically much longer provisioning time.
+  * Packer images allow you to launch completely provisioned and configured machines in seconds rather than several minutes or hours. This benefits not only production, but development as well, since development virtual machines can also be launched in seconds, without waiting for a typically much longer provisioning time.
 * **Multi-provider portability**
-  + Because Packer creates identical images for multiple platforms, you can run production in AWS, staging/QA in a private cloud like OpenStack, and development in desktop virtualization solutions such as VMware or VirtualBox. Each environment is running an identical machine image, giving ultimate portability.
+  * Because Packer creates identical images for multiple platforms, you can run production in AWS, staging/QA in a private cloud like OpenStack, and development in desktop virtualization solutions such as VMware or VirtualBox. Each environment is running an identical machine image, giving ultimate portability.
 * **Improved stability**
-  + Packer installs and configures all the software for a machine at the time the image is built. If there are bugs in these scripts, they'll be caught early, rather than several minutes after a machine is launched.
+  * Packer installs and configures all the software for a machine at the time the image is built. If there are bugs in these scripts, they'll be caught early, rather than several minutes after a machine is launched.
 * **Greater testability**
-  + After a machine image is built, that machine image can be quickly launched and smoke tested to verify that things appear to be working. If they are, you can be confident that any other machines launched from that image will function properly.
+  * After a machine image is built, that machine image can be quickly launched and smoke tested to verify that things appear to be working. If they are, you can be confident that any other machines launched from that image will function properly.
 
 Packer examples and example build code [https://github.com/jhajek/packer-vagrant-build-scripts.git](https://github.com/jhajek/packer-vagrant-build-scripts.git "sample packer code repo")
 
@@ -365,7 +367,7 @@ There are 4 section we are interested in:
 1. provisioners
 1. post-processors
 1. vboxmanage
-  + listed but is not required and is an artifact related to VirtualBox
+  i. listed but is not required and is an artifact related to VirtualBox
 
 #### Builders
 
@@ -387,7 +389,7 @@ The builders available are:
 1. VirtualBox (both iso and ovf)
 1. Vmware
 
-#### How does the Operating System get installed?
+#### How the Operating System gets installed
 
 In the builder, there is an iso_url and iso_checksum values that will retrieve installation media and run a checksum against it to make sure that the file is not damaged or corrupt.
 
@@ -560,18 +562,18 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to see a world of automation opening up to us.  In a sense these technologies are the culmination of the Unix concepts of small tools doing one things--or shell scripts on steroids, so to speak.  Each of these technologies is beyond the scope of this book, but here are some podcasts and links to learn more about them.
 
 * [SaltStack](https://www.saltstack.com/ "Saltstack")
-  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/262 "SaltStack Podcast")
+  * [Podcast](https://twit.tv/shows/floss-weekly/episodes/262 "SaltStack Podcast")
 * [Chef](https://www.chef.io/ "Chef.io")
-  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/219 "Chef Podcast")
+  * [Podcast](https://twit.tv/shows/floss-weekly/episodes/219 "Chef Podcast")
 * [Puppet](https://puppet.com/ "Puppet")
-  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/93 "Puppet")
+  * [Podcast](https://twit.tv/shows/floss-weekly/episodes/93 "Puppet")
 * [Ansible](https://www.ansible.com/ "Ansible")
-  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/257 "Ansible Podcast")
+  * [Podcast](https://twit.tv/shows/floss-weekly/episodes/257 "Ansible Podcast")
 * [CfEngine](https://cfengine.com/ "CFengine")
-  + [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFengine Podcast")
-  + [Dr. Mark Burgess](https://en.wikipedia.org/wiki/Mark_Burgess_(computer_scientist) "Dr Mark Burgess") wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
+  * [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFengine Podcast")
+  * [Dr. Mark Burgess](https://en.wikipedia.org/wiki/Mark_Burgess_(computer_scientist) "Dr Mark Burgess") wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
 * [Terraform](https://www.hashicorp.com/products/terraform "Terraform")
-  + [Hashicorp Terraform Presentation](https://www.youtube.com/watch?v=jdDKjWZ2qbk&index=39&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t "Terraform and Packer")
+  * [Hashicorp Terraform Presentation](https://www.youtube.com/watch?v=jdDKjWZ2qbk&index=39&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t "Terraform and Packer")
 
 ## Chapter Conclusions and Review
 
@@ -618,7 +620,7 @@ Complete Vagrant Tutorial located at [https://www.vagrantup.com/docs/getting-sta
 
 The second part would be to run the packer build templates for Centos 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```.  For each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command and ```vagrant up``` command.
 
-upon completion take a screenshot of the output of the ```vagrant box list``` command.
+Upon completion take a screenshot of the output of the ```vagrant box list``` command.
 
 #### Footnotes
 
