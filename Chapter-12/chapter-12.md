@@ -492,9 +492,9 @@ Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would
 
 * trusted or untrusted
 * drop
-  + incoming packets are dropped, outbound packets are allowed
+  * incoming packets are dropped, outbound packets are allowed
 * block
-  + incoming packets are rejected with an icmp-host-prohibited response
+  * incoming packets are rejected with an icmp-host-prohibited response
 * public
 * work
 * home
