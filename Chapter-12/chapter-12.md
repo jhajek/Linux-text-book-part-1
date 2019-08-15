@@ -16,11 +16,11 @@ At the conclusion of this chapter you will have explored the nature of the netwo
 
 ### Networking
 
-Former CEO of SUN, Scott McNealy once famously said, "The network is the computer."  This was in 1990.  He could not have been more correct.  With this in mind basic networking skills are mandatory.  We will briefly cover topics in this order:
+Former CEO of SUN, Scott McNealy once famously said, "*The network is the computer.*"  This was in 1990.  He could not have been more correct.  With this in mind basic networking skills are mandatory.  We will briefly cover topics in this order:
 
 * IP addresses
-    + Static and DHCP
-    + MAC Address
+  * Static and DHCP
+  * MAC Address
 * NETMASK and CIDR
 * Gateway
 * DNS
@@ -30,7 +30,7 @@ Former CEO of SUN, Scott McNealy once famously said, "The network is the compute
 Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: ```192.168.1.100```.  
 
 > Exercise
-Open a command prompt and type this command to find your IP address: ```ip address show```.  This command can be abbreviated ```ip a sh``` as well. 
+Open a command prompt and type this command to find your IP address: ```ip address show```.  This command can be abbreviated ```ip a sh``` as well.
 
 > Exercise
 Open a commmand prompt and type this command to find your MAC address or Ethernet Address ```ip l sh``` which is short for ```ip link show```.  You can find al lthe options to disply by typing ```man ip```.
@@ -235,7 +235,7 @@ network:
           addresses: [10.10.10.1, 1.1.1.1]
 ```
 
-#### NETMASK
+#### Netmask
 
 The netmask value or subnet of your network is actually a part of you Ip address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your Ip address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one fo the IP octets.  But this turned out to be highly inneficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fixed value from 1-254 in your first IP octect and the remaining three octets would be variable.  Apple famously has the 16.0.0.0 Class A giving them access to 255*255*255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE. 
 
@@ -249,7 +249,7 @@ The problem is those division of IP octets are very clean, unfortunately leads t
 
 #### Gateway
 
-The gateway value is your networks default router.  This value is literally the gateway in and out of your network. Usually this IP address ends in a .1 or a .254, but does not have to.   
+The gateway value is your networks default router.  This value is literally the gateway in and out of your network. Usually this IP address ends in a .1 or a .254, but does not have to.
 
 #### DNS
 
@@ -421,20 +421,23 @@ sudo dnf install mariadb-client
 MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli.
 
 * Log in
-  + ```sudo mysql -u root -p```
-  + enter your password at the prompt
+* Enter your password at the prompt
 * Enter commands at the CLI
-  + ```CREATE DATABASE records;```
-  + ```USE records;```
-  + ```create table tutorials_tbl(
+* Quit
+
+```bash
+sudo mysql -u root -p
+CREATE DATABASE records;
+USE records;
+create table tutorials_tbl(
    tutorial_id INT NOT NULL AUTO_INCREMENT,
    tutorial_title VARCHAR(100) NOT NULL,
    tutorial_author VARCHAR(40) NOT NULL,
    submission_date DATE,
    PRIMARY KEY ( tutorial_id )
-  );```
-* Quit
-  + ```quit;```
+  );
+quit;
+```
 
 ### PostgreSQL
 
