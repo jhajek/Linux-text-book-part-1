@@ -190,7 +190,7 @@ __EX__ mode also contains the ability to search for occurrences of text patterns
 
 ![*vi search*](images/Chapter-07/editors/vi/vi-search.png "vi search")
 
-```/[Mm]ozilla```
+`/[Mm]ozilla`
 
 : will search forwards for any lines containing either *Mozilla* or *mozilla* and highlight each occurrence in the file you are editing in __vi__.
 
