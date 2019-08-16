@@ -433,6 +433,8 @@ Something unique like this will start at 3 minutes after and then execute every 
 
 Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line.  This also allows for redirection of standard out and standard error as well.
 
+Some cron implementations support the following non-standard macros[^88]:
+
 Entry                                Description                          Equivalent to
 -------------------- ------------------------------------------------- -----------------------
 &#64;yearly            Run once a year at midnight of January 1st           ```0 0 1 1 *```

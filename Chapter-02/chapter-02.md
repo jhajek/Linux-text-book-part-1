@@ -243,7 +243,7 @@ In late 1985 the [FSF](http://www.fsf.org/ "FSF") -- *Free Software Foundation*,
 
 > *“Our mission is to preserve, protect and promote the freedom to use, study, copy, modify, and redistribute computer software, and to defend the rights of Free Software users.”*
 
-With this, they wrote the GPL - GNU Public Lisence, which is a legally enforceable copyleft license.  Copyleft is a play on the word copyright, which a copyright restricts the rights of a user.  Copyleft, on the other hand enshrines and enforces certain rights to the user of the software.  The **4 software freedoms** that the GPL licensed software enshrines are:
+With this, they wrote the GPL - GNU Public License, which is a legally enforceable copyleft license.  Copyleft is a play on the word copyright, which a copyright restricts the rights of a user.  Copyleft, on the other hand enshrines and enforces certain rights to the user of the software.  The **4 software freedoms** that the GPL licensed software enshrines are:
 
 1) the freedom to use the software for any purpose
 1) the freedom to change the software to suit your needs
@@ -480,7 +480,7 @@ In 2004 Red Hat, who had owned the desktop Linux market, decided to exit and foc
 
 ![*Mark Shuttleworth*](images/Chapter-02/People/Mark-Shuttleworth/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg "Mark Shuttleworth")
 
-What made Ubuntu so successful was that they forked the opensource work of rock-solid Debian and built on top of it by adding closed source code and user centered features that where necessary in order to make the best experience.  They had a business in mind and have indeed captured the desktop Linux market.  But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu has a 10 million dollar parachute in the form of the Ubuntu Foundation which was seeded by Mark Shuttleworth [^11]. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Cannonical") that was formed to handle commercial support and hires the developers who work on Ubuntu.  Ubuntu is commercially backed.  
+What made Ubuntu so successful was that they forked the opensource work of rock-solid Debian and built on top of it by adding closed source code and user centered features that where necessary in order to make the best experience.  They had a business in mind and have indeed captured the desktop Linux market.  But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu has a 10 million dollar parachute in the form of the Ubuntu Foundation which was seeded by Mark Shuttleworth [^11]. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Canonical") that was formed to handle commercial support and hires the developers who work on Ubuntu.  Ubuntu is commercially backed.  
 
 Ubuntu pioneered the idea of rolling releases - releasing every 6 months compared to Microsoft or Apple on a 3 to 5 year schedule.  Each distribution is released in late April and late October so there are two distributions per year.  Ubuntu also introduced the concept of an *LTS*, Long Term Support - this means that certain releases will have security patches, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and assured system stability.  The LTS releases happen every even year with the April distribution.  So Ubuntu 10.04, 12.04, 14.04, 16.04, 18.04 and so forth (the first number being the year).
 
@@ -490,7 +490,7 @@ Ubuntu pioneered the idea of rolling releases - releasing every 6 months compare
 
 "*PureOS is a general purpose operating system that is based on the Linux kernel and is focused on being an entirely Free (as in freedom) OS. It is officially endorsed by the Free Software Foundation. We adhere to the Debian Social Contract and the GNU FSDG.*"
 
-This is a Devian derivative, that has been produced with an FSF based focus on Free Software.  In addition, the PureOS is being developed by [Purism Company](https://puri.sm "Puri.sm website link") which develops Free and Hardware respecting privacy hardware as well as communication and cloud storage apps.
+This is a Debian derivative, that has been produced with an FSF based focus on Free Software.  In addition, the PureOS is being developed by [Purism Company](https://puri.sm "Puri.sm website link") which develops Free and Hardware respecting privacy hardware as well as communication and cloud storage apps.
 
 #### Devuan
 
@@ -534,7 +534,7 @@ The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Projec
 * Fedora 28 was released on 05/01/18
 * Fedora 27 was released on 11/14/17
 * Fedora 26 was released on 07/11/17
-* Feodra 25 was released on 11/22/16
+* Fedora 25 was released on 11/22/16
 * Fedora 24 was released on 06/21/16
 * Fedora 23 was released on 11/03/15
 * Fedora 22 was released on 05/26/15
