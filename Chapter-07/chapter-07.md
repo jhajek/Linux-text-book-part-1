@@ -196,15 +196,15 @@ __EX__ mode also contains the ability to search for occurrences of text patterns
 
 #### Search Backwards
 
-```?Mozilla```
+`?Mozilla`
 
 : will search the file backwards for the word *Mozilla*.
 
-```/Mozilla\/?\.0```
+`/Mozilla\/?\.0`
 
 :  This is where we can combine shell meta-characters inside of __vi__ for searching for Mozilla versions
 
-```?MSIE\\+[6-8]*```
+`?MSIE\\+[6-8]*`
 
 :  This allows for backwards shell meta-character search. In this case notice the introduction of the escape character __\\__. Normally the __+__ sign has meaning but in our pattern we want to find all the old versions of Internet Explorer 6-8 that are visiting our blog.  To do this we pass the line escaping the __+__ because we want it to match as a text character not as a shell meta-character.
 
@@ -212,19 +212,19 @@ __EX__ mode also contains the ability to search for occurrences of text patterns
 
 __vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC then :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.  See the sample file ```2016-05-31-using-s3cmd.md``` located in the chapter-07 directory of the files folder.
 
-```s/Hajek/Jhajek```
+`s/Hajek/Jhajek`
 
 :  The *s* tells us it is a single find and replace or substitute.  This is a single instance replacement.
 
-```s/jeremy/ClassWork/g```
+`s/jeremy/ClassWork/g`
 
 :  This command the *s* tells us to substitute the word *False* for the word *True* and the trailing *g* means every occurrence on that line.
 
-```1,$s/&#47;/\//g```
+`1,$s/&#47;/\//g`
 
 :  This command has a range prefix the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
 
-```47,86s/<br \/>//g```
+`47,86s/<br \/>//g`
 
 :  This command tells us to do the replacement of lines 47-86 and strip out all the extranuous ```<br />``` tags only.  Note the backslash to escape the forward slash.
 
