@@ -137,19 +137,17 @@ You can create partitions on a new disk for a fresh OS installation or just crea
 
 ![*sudo fdisk -l*](images/Chapter-11/fdisk/valid-partition.png "fdisk")  
 
-![*sudo fdisk -l*](images/Chapter-11/fdisk/not-valid-partition.png "fdisk")    
+![*sudo fdisk -l*](images/Chapter-11/fdisk/not-valid-partition.png "fdisk")
 
 The history of the Linux ```fdisk``` command goes way back.  Stemming from the early 1990's Hard drives at that time using the standard BIOS of the day were only allowed 4 __primary partitions__ on the operating system.  At those times, hard drives were small, and devices were expensive, and things we take for granted now, like optical drives, didn't really exist, so 4 primary partitions was thought to be more than anyone would ever need.  A primary partition could be broken up into an __extended partition__. Then each __extended partition__ could be further sub-divided into as many __logical partitions__ that fit on the drive.  At that time only one __primary partition__ could be active (or bootable and seeable) at a time, all other primary partitions would be hidden from the currently active operating system.  In this world ```fidsk``` was built, hence its concern with partitioning.  There has been an improvement since 2000 called LVM, which is covered and thankfully used almost exclusively now by default.
 
-To work/modify a device that has no existing partitions (say ```sdb``` in the image above). From the TLDP documentation regarding how to use ```fdisk```: [^ch11f122]  
+To work/modify a device that has no existing partitions (say ```sdb``` in the image above). From the TLDP documentation regarding how to use ```fdisk```: [^ch11f122].  `fdisk` is started by typing (as root) fdisk device at the command prompt. Device might be something like /dev/hda or /dev/sda (see Section 2.1.1). The basic fdisk commands you need are:
 
-*"fdisk is started by typing (as root) fdisk device at the command prompt. Device might be something like /dev/hda or /dev/sda (see Section 2.1.1). The basic fdisk commands you need are:"*
-
-  * p print the partition table
-  * n create a new partition
-  * d delete a partition
-  * q quit without saving changes
-  * w write the new partition table and exit
+* p print the partition table
+* n create a new partition
+* d delete a partition
+* q quit without saving changes
+* w write the new partition table and exit
 
 To successfully create a partition on a new drive, let's select ```sdb``` in the example above.  The command ```sudo fdisk /dev/sdb``` will enter into ```fdisk``` and operate on this device.  Remember all *devices* are accessed through file handles in the ```/dev``` directory. Upon executing this command you are greeted with a status message reporting that the partition type cannot be detected or is not valid.  The error message seems a bit dated because you notice that it mentions DOS, SUN, SGI, and OSF--all outdated or unused partition types.  Similar to different languages or dialects, a partition also has to speak to an Operating system, and each operating system does it a bit different because of how particular filesystems are architected.  Fortunately this is a simple choice for us as we only need a Linux and a Linux SWAP partition for our uses--the rest are just artifacts of the past.
 
@@ -250,11 +248,11 @@ LVM is a different way to look at partitions and file-systems.  Instead of the s
 
 This diagram creates three concepts to know when dealing with LVM:
 
-*  Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit [^131].
-*  Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device) [^132].
-*  Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home) [^133].
-    + Physical Extent (PE) - This is the unit of storage (blocks) that a PV is split into
-    + Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*.  The LVM counts how many extents are possible and makes this its *disk* so to speak.
+* Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit [^131].
+* Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device) [^132].
+* Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home) [^133].
+  * Physical Extent (PE) - This is the unit of storage (blocks) that a PV is split into
+  * Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*.  The LVM counts how many extents are possible and makes this its *disk* so to speak.
 
 ### Physical Volumes
 
@@ -317,9 +315,9 @@ Chris Mason, the principal Btrfs author, has stated that the goal was, *"to let 
 
 Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and checksuming and becomes a replacement for LVM + Ext4.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  Suse Linux is the only major Linux distribution that has adopted btrfs as the default filesystem on their [Enterprise Edition Linux](https://www.suse.com/documentation/sles-12/singlehtml/stor_admin/stor_admin.html#sec.filesystems.major.btrfs "Suse Linux adopts btrfs as default"). Though Facebook has made a signigficant investment and use of Btrfs and though they are not a Linux Distro company, they have [a large vested interest in Btrfs](https://facebookmicrosites.github.io/btrfs/ "Facebook uses btrfs"). [Oracle maintains the documentation for btrfs](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html "Oracle maintains the documentation for btrfs").
 
-  * ```sudo dnf install btrfs-progs```
-  * ```sudo yum install btrfs-progs```
-  * ```sudo apt-get install btrfs-tools```
+* ```sudo dnf install btrfs-progs```
+* ```sudo yum install btrfs-progs```
+* ```sudo apt-get install btrfs-tools```
 
 ### ZFS
 
@@ -354,24 +352,24 @@ ZFS doesn't have native support for Fedora OS, seeing as they put their weight b
 Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands such as:
 
 * ```zpool```
-  + create, list, destroy, status
-  + creates a datapool
+  * create, list, destroy, status
+  * creates a datapool
 * ```zfs```
-  + create, list, destroy
-  + used to create a ZFS filesystem on a zpool
+  * create, list, destroy
+  * used to create a ZFS filesystem on a zpool
 * ```zfs snapshot```
-  + volume@snapname
-  + ```zfs snapshot mydatapool@snap1```
-  + ```zfs list -t snapshot```
+  * volume@snapname
+  * ```zfs snapshot mydatapool@snap1```
+  * ```zfs list -t snapshot```
 * ```zfs rollback```
 
 ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments essentially creates a serialized synchronization feature.  This can be done on the same system as well as over a network conenction to a remote computer.  Try to do that on ext4.  To syncrhonize a ZFS filesystem:
 
 * first create a snapshot of a zpool 
 * Using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partiton
-    +  ```zfs send datapool@today | zfs recv backuppool/backup```.  
+  * ```zfs send datapool@today | zfs recv backuppool/backup```.  
 * You can pipe the command over ```ssh``` to restore to a remote system
-    + ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```.
+  * ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```.
 
 #### ZFS ZIL and SLOG
 
