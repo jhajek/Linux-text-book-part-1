@@ -590,7 +590,7 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 #### Alpine Linux
 
 * [Alpine Linux](https://www.alpinelinux.org/ "Alpine Linux")
-  * Alpine uses musl libc and busybox making it a smaller than GNU/Linux
+  * Alpine uses musl as its standard C library not GNU libc, making smaller distrps than standard GNU/Linux
   * Designed to be minimal by design
   * Uses OpenRC init systems
   * Uses [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management "Alpine Linux APK") Alpine Package Manager
