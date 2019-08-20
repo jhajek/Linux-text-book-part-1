@@ -32,10 +32,10 @@ Every network interface, or NIC, which is the physical or virtual place where yo
 > Exercise
 Open a command prompt and type this command to find your IP address: ```ip address show```.  This command can be abbreviated ```ip a sh``` as well.
 
+A static address is one that you assign and configure based on your network.  If you are the system administrator you can and should map each device on your network with its own IP address.  For instance any servers you have, webservers, database servers, load balancers, routing equipment should have statically set IP information.
+
 > Exercise
 Open a commmand prompt and type this command to find your MAC address or Ethernet Address ```ip l sh``` which is short for ```ip link show```.  You can find al lthe options to disply by typing ```man ip```.
-
-A static address is one that you assign and configure based on your network.  If you are the system administrator you can and should map each device on your network with its own IP address.  For instance any servers you have, webservers, database servers, load balancers, routing equipment should have statically set IP information.
 
 But what if you have transient or ephemeral nodes (computers) on your network?  Then you need to use the **Dynamic Host Control Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address.  This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.  
 
@@ -107,7 +107,7 @@ What you gain by using this standard:
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
-What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 28, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10.    The way to reset the values is listed below:
+What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 30, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10.    The way to reset the values is listed below:
 
 * Edit ```/etc/default/grub```
 * At the end of ```GRUB_CMDLINE_LINUX``` line append ```net.ifnames=0 biosdevname=0```
@@ -209,7 +209,7 @@ IPV6_PEERROUTES=yes
 
 Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By defualt in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allowes Network Manager to manage by default unless specifically altered below.
 
-```bash
+```yaml
 # To let the interface named ‘enp3s0’ get an address via DHCP, create a YAML file with the following:
 network:
   version: 2
@@ -221,7 +221,7 @@ network:
 
 To instead set a static IP address, use the addresses key, which takes a list of (IPv4 or IPv6), addresses along with the subnet prefix length (e.g. /24). Gateway and DNS information can be provided as well:
 
-```bash
+```yaml
 network:
   version: 2
   renderer: networkd
@@ -368,7 +368,7 @@ There is an [EFF](https://www.eff.org/ "EFF") led iniative called [Let's Encrypt
 * [TLS 1.3 Podcast on Security Now](https://twit.tv/shows/security-now/episodes/656 "TLS 1.3")
 * [Lets Encrypt Explanation Podcast](https://twit.tv/shows/security-now/episodes/483 "Lets encrypt explanation podcast")
 * [SSL Labs](https://www.ssllabs.com/ "SSL Labs") is a free service that will check your TLS cert and server settings.
- + You can use SSL labs to check the Let's Encrypt cert for [my own tech blog, forge.sat.iit.edu](https://forge.sat.iit.edu "Forge.sat.iit.edu").
+  * You can use SSL labs to check the Let's Encrypt cert for [my own tech blog, forge.sat.iit.edu](https://forge.sat.iit.edu "Forge.sat.iit.edu").
 
 Without having a public IP address you can't use Let's Encrypt, but you can generate a self-signed SSL/TLS certificate following these tutorials.  Note that your broweser will complain and send you dire warnings, you will have the option to accept the cert anyway and then the warnings will not persist.
 
@@ -463,8 +463,8 @@ MongoDB packages are maintained by MongoDB -- and are released outside of Linux 
 * [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/ "Install on RedHat Centos")
 * Make sure to start the mongod service
 * [https://docs.mongodb.com/manual/mongo/](https://docs.mongodb.com/manual/mongo/ "Mongo Shell")
- + [Run Mongo insert sample](https://docs.mongodb.com/manual/tutorial/insert-documents/ "Mongo Insert Sample")
- + [Run Mongo query sample](https://docs.mongodb.com/manual/tutorial/query-documents/ "Mongo query example")
+  * [Run Mongo insert sample](https://docs.mongodb.com/manual/tutorial/insert-documents/ "Mongo Insert Sample")
+  * [Run Mongo query sample](https://docs.mongodb.com/manual/tutorial/query-documents/ "Mongo query example")
 
 ## Firewall
 
@@ -474,7 +474,7 @@ Used to block exteral communication on you system ports.   Not unlike plugs in t
 * FTP - 21
 * SMTP - 25 (depricated not used as it is an unsecured transport method)
 * DNS - 53
-* HTTP - 80
+* HTTP - 80 (becoming depricated in browsers)
 * HTTPS - 443 (HTTP with TLS/SSL)
 * SMTP over SSL - 990
 * MongoDB - 27017
@@ -513,7 +513,6 @@ sudo yum install fail2ban fail2ban-firewalld
 
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
-
 ```
 
 ### Ubuntu UFW
