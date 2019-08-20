@@ -129,7 +129,7 @@ So what you gain in efficiency you lose in portability.  What good would it have
 
 While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system.  These new people contributed additional functionality to solve their work problems.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped by its use of PDP-7 assembler language.  Today we take for granted high level programming languages like C, C++, Python, and Java.  In the early 1970's none of these languages existed.
 
-Ritchie's initial work at Bell Labs was on a high level programming language that could would allow a user to write one piece of code and compile it on different computer architectures. In 1970 this was generally not possible and a radical idea. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Language") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming languages.   
+Ritchie's initial work at Bell Labs was on a high level programming language that could would allow a user to write one piece of code and compile it on different computer architectures. In 1970 this was generally not possible and a radical idea. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Language") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming languages.
 
 The next logical step was that Thompson and Ritchie went to work extending "B" with all the features they would need to make an operating system fully function and portable.  They called this language surprisingly, "C" -- the same "C" language you know today.  C was different from assembler in that is resembled assembler code syntax but a high enough level of abstraction that the "C" code was an independent language.  With the advent of C - Unix was rewritten in this language.  With the creation of C compilers for different hardware, Unix could now be built and be recompiled on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, SUN SPARC, eventually Intel and x86, etc, etc.  
 
@@ -139,24 +139,24 @@ The next logical step was that Thompson and Ritchie went to work extending "B" w
 
 ```nasm
 section .data
-msg	db	"Hello World!",0x0a
+msg db "Hello World!",0x0a
 
-len	equ	$-msg
+len equ $-msg
 
 section .text
-	global _start
+    global _start
 
 _start:
 
-  mov	ebx,0x01
-	mov	ecx,msg
-	mov	edx,len
-	mov	eax,0x04
-	int	0x80
+  mov ebx,0x01
+  mov ecx,msg
+  mov edx,len
+  mov eax,0x04
+  int 0x80
 
-	mov	ebx,0x00
-	mov	eax,0x01
-	int	0x80
+  mov ebx,0x00
+  mov eax,0x01
+  int 0x80
 ```
 
 [Hello World](https://gist.github.com/adrianratnapala/1321776 "Linux assembly") in x86_64 Intel Assembly for Linux
