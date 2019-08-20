@@ -1,15 +1,15 @@
 # Init Services, Daemons, and Processes
 ![*You never know what is enabled...*](images/Chapter-Header/Chapter-10/security_holes-2.png "Security Holes")
 
-### Objectives
+## Objectives
 
-  * Understand the traditional SysVinit system and its relationship to starting system processes
-  * Understand the systemd init system
-  * Understand the nature of starting, stopping, and service reporting
-  * Understand how to use system tools to examine processes
-  * Understand the nature of the /proc virtual-filesystem
+* Understand the traditional SysVinit system and its relationship to starting system processes
+* Understand the systemd init system
+* Understand the nature of starting, stopping, and service reporting
+* Understand how to use system tools to examine processes
+* Understand the nature of the /proc virtual-filesystem
 
-### Outcomes
+## Outcomes
 
 At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work.  You will understand how to examine, start, and stop services in both arenas.  You will learn about the ```/proc``` virtual-filesystem and how it represents running processes as files.  You will be able to use the systemd mechanisms for process reporting and termination.
 
