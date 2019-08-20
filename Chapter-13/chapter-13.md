@@ -3,7 +3,7 @@
 
 ## Objectives
 
-* IT Orchestration and Automation tools
+* Linux Orchestration and Automation tools
   * Vagrant
   * Packer.io
   * Automation tools

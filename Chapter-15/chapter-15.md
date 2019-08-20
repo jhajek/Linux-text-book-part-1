@@ -7,9 +7,30 @@
 * Certifications
 * Android compile from command line
 * Jenkins CI
+* Service Discovery and Service Mesh
+  * Consul
+* Secret Sharing
+  * Vault
 
 ## Outcomes
 
+At the conclusion of this chapter you will have a detailed overview of Service Discovery and the concept of Secret Sharing.  
+
+### Service Mesh and Service Discovery
+
+As applications move from single systems to distributed systems, then to multi-tiers, the issue of IP addresses comes into focus.  What happens when you have services being launch and virtual systems being destroyed?  How do you manage the IP addresses?  Well on the internet we have DNS for name resolution and lookup.  If you look up [https://youtube.com](https://youtube.com "YouTube.com") you do not need to know the IP address, as the DNS service will look it up for you.  Now, think about the internals of YouTube itself.  Extra servers need to come online all the time to handle surges in requests or QPS (queries per second).  How do they handle IP allocation internally?  They use some kind of **service discovery** or **service mesh**.  
+
+The concept of service discovery is essentially an internal or local DNS.  Each system hard codes its own localized DNS entry then via a protocol called *gossip*, agents talk to each other and "spread" the local DNS entries.  An application can simpley make a ```curl``` or http based request to the internal agent and resolve the IP internally.
+
+Hashicorp created a software package called [Consul](https://www.consul.io "Consul") to do just this.  With datacenters, Virtual Machines, even OS Containers able to be spun up and down with the touch of a button, manual configuration of servers is no longer an option.  
+
+> *Consul is a distributed service mesh to connect, secure, and configure services across any runtime platform and public or private cloud[^157].*
+
+### Secret Sharing
+
+One of the biggest problems in computers and cyber security is the sharing of *secrets*.  A secret is generally anything that gives privillege to a user, such as a username and password combo, or and authentication token, or a URL. Not only do you have the trouble of keeping this secure from hackers and being exploited, but you also have the problem of distributing them securely.  If you share a secret, then it is not a secret anymore.  But in launching multiple distributed servers, how do you give each instance access to these secrets?  A second question is how do you manage these secrets? Hashicorp created a product called [Vault](https://www.vaultproject.io "Hashicorp Vault") that begins to tackle this problem.
+
+> *Vault helps to secure, store and tightly control access to tokens, passwords, certificates, encryption keys for protecting secrets and other sensitive data using a UI, CLI, or HTTP API[^158]*.
 
 ## Where to go Now
 

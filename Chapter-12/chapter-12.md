@@ -521,20 +521,20 @@ sudo systemctl start fail2ban
 Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW "Ubuntu UFW"). It is installed but not enabled by default.  You can enable it:  ```sudo ufw enable``` and print out the status via ```sudo ufw status```.  Syntax examples include:
 
 * Allow or deny by port number
-  + ```sudo ufw allow 53```
-  + ```sudo ufw deny 53```
+  * ```sudo ufw allow 53```
+  * ```sudo ufw deny 53```
 * Allow or deny by service
-  + sudo ufw allow ssh
-  + sudo ufw deny ssh 
+  * sudo ufw allow ssh
+  * sudo ufw deny ssh
 * Allow from IP
- + ```sudo ufw allow from 207.46.232.182```
+  * ```sudo ufw allow from 207.46.232.182```
 * Allow from subnet/CIDR block
-  + ```sudo ufw allow from 192.168.1.0/24```
-  + ```sudo ufw allow from 192.168.0.4 to any port 22```
-  + ```sudo ufw allow from 192.168.0.4 to any port 22 proto tcp```
+  * ```sudo ufw allow from 192.168.1.0/24```
+  * ```sudo ufw allow from 192.168.0.4 to any port 22```
+  * ```sudo ufw allow from 192.168.0.4 to any port 22 proto tcp```
 * Enable/Disable ufw logging
-  + ```sudo ufw logging on```
-  + ```sudo ufw logging off```
+  * ```sudo ufw logging on```
+  * ```sudo ufw logging off```
 
 ```Firewalld``` can be installed on ubuntu via apt-get and then enabled and started as a service in place of UFW if you want to maintain that service and not use UFW.
 

@@ -4,16 +4,12 @@
 ## Objectives
 
 * OS Containers
-  + Docker
-* Service Discovery and Service Mesh
-  + Consul
-* Secret Sharing
-  + Vault
-* Application Deployment
-  + Jenkins
-  + VuePress
-  + GatsbyJS
-  + Jekyll
+  * Docker
+* Application Deployment in Containers
+  * Jenkins
+  * VuePress
+  * GatsbyJS
+  * Jekyll
 
 ## Outcomes
 
@@ -33,7 +29,7 @@ When you look at Linux binaries such as ```ls``` or ```grep``` they are precompi
 
 ![*OS Containers*](images/Chapter-14/docker/docker-containerized-appliction-blue-border_2.png "docker containerized appliction")
 
-### Where did Containers Come From?
+### Where did Containers Come From
 
 We know the birthday of containers.  it started in 4.1 BSD in 1984.  Bill Joy submited the code to create the ancestor of containers, the ```chroot``` command.  This command was used to *contain* a user or application into a certain directory structure, while allowing multiple users to still share the same system.  The ```chroot``` command gave wat to FreeBSD ```jails``` command which essentially was used to contain vulnerable or misbehaving software.  This would allow you to *jail* and application such as a webserver or FTP server so that there processes would not effect other users.
 
@@ -62,16 +58,16 @@ sudo systemctl enable docker
 What can you do with docker?  The [commandline reference](https://docs.docker.com/engine/reference/commandline "Docker CLI reference") is pretty complete.  Once installed you have a few commands that are needed to get up and running.  To get started with we will pull some pre-made docker containers and work with them. In the Lab portion we will work with Packer and create our own Docker containers.  
 
 * Get Docker container images
- + ```docker pull```
+  * ```docker pull```
 * List Docker container images
- + ```docker images```
- + ```docker ps```
+  * ```docker images```
+  * ```docker ps```
 * Start, stop and run container images
- + ```docker run```
- + ```docker start | stop```
- + ```docker rm```
+  * ```docker run```
+  * ```docker start | stop```
+  * ```docker rm```
 
-https://www.docker.com/resources/what-container
+[What is an OS Container?](https://www.docker.com/resources/what-container "What is an OS Container?")
 
 From the commandline I can issue the command: ```docker pull ubuntu```.  This will go the the Docker registry, not unlike the Vagrant Box registry, and pull an Ubuntu 18.04 container (~35mb) to your system.  Try it and see what happens.
 
@@ -81,37 +77,20 @@ Now we see these items listed by issuing the command: ```docker images```, but h
 
 Let's run the command: ```docker run --name my-apache-server -it ubuntu```.  What happens?  Type the command: ```docker ps``` and note that this screen shows us the running container instances.  The ```--name``` flag allows us to give us a reference name for this instance of the container.  The ```-i``` flag allows us to have an interactive shell and the ```-t``` gives us a psuedo-TTY; or a terminal.  Note that this is a root shell and you can pass commands remotely wihtout needing an interactive shell.  Simple remove the ```-i -t or -it``` flags.
 
-
 Now we need to install something for our applicaiton.  Let's start with something super simple. A hello-world PHP and Apache applicaiton.  In order to run these applications you will need to install all the dependencies via apt-get.  You will even need to install ```git``` to clone the sample code since this is a virtualized operating system, the installed packages are very few in number (by design).
 
 You can clone the simple PHP project from this URL, or you can find the code located in the ```Chapter-14 > PHP``` files directory. You can use the ```docker cp``` command to *insert* files directly to an OS Container, but it makes sense to use Git.  
 
-You will need to install git, apache2, and php, clone the code and copy its content to ```/var/www/html```.   
+You will need to install git, apache2, and php, clone the code and copy its content to ```/var/www/html```.
 
-Now how to we get the website to render?  You wlll notice that one of the advantages of a Virtual Machine is that each VM has its own networking stack and this makes the abstraction easy to grasp.  In the case of OS Containers, there is only one networking stack, so we need to ALLOW or open containers upon internal networking ports--similar to the concept of port forwarding.  You can do this by adding the ```-p``` flag and then a port mapping such as ```80:80``` which will tell Docker to send requests on port 80 to port 80 inside the container.  
+Now how to we get the website to render?  You wlll notice that one of the advantages of a Virtual Machine is that each VM has its own networking stack and this makes the abstraction easy to grasp.  In the case of OS Containers, there is only one networking stack, so we need to ALLOW or open containers upon internal networking ports--similar to the concept of port forwarding.  You can do this by adding the ```-p``` flag and then a port mapping such as ```80:80``` which will tell Docker to send requests on port 80 to port 80 inside the container.
 
-### Service Mesh and Service Discovery
+### Developing and Deploying Applications
 
-As applications move from single systems to distributed systems, then to multi-tiers, the issue of IP addresses comes into focus.  What happens when you have services being launch and virtual systems being destroyed?  How do you manage the IP addresses?  Well on the internet we have DNS for name resolution and lookup.  If you look up [https://youtube.com](https://youtube.com "YouTube.com") you do not need to know the IP address, as the DNS service will look it up for you.  Now, think about the internals of YouTube itself.  Extra servers need to come online all the time to handle surges in requests or QPS (queries per second).  How do they handle IP allocation internally?  They use some kind of **service discovery** or **service mesh**.  
-
-The concept of service discovery is essentially an internal or local DNS.  Each system hard codes its own localized DNS entry then via a protocol called *gossip*, agents talk to each other and "spread" the local DNS entries.  An application can simpley make a ```curl``` or http based request to the internal agent and resolve the IP internally.
-
-Hashicorp created a software package called [Consul](https://www.consul.io "Consul") to do just this.  With datacenters, Virtual Machines, even OS Containers able to be spun up and down with the touch of a button, manual configuration of servers is no longer an option.  
-
-> *Consul is a distributed service mesh to connect, secure, and configure services across any runtime platform and public or private cloud[^157].*
-
-### Secret Sharing
-
-One of the biggest problems in computers and cyber security is the sharing of *secrets*.  A secret is generally anything that gives privillege to a user, such as a username and password combo, or and authentication token, or a URL. Not only do you have the trouble of keeping this secure from hackers and being exploited, but you also have the problem of distributing them securely.  If you share a secret, then it is not a secret anymore.  But in launching multiple distributed servers, how do you give each instance access to these secrets?  A second question is how do you manage these secrets? Hashicorp created a product called [Vault](https://www.vaultproject.io "Hashicorp Vault") that begins to tackle this problem.
-
-> *Vault helps to secure, store and tightly control access to tokens, passwords, certificates, encryption keys for protecting secrets and other sensitive data using a UI, CLI, or HTTP API[^158]*.
-
-### Developing and Deploying Applications Using Containers
-
-+ Jenkins
-+ VuePress
-+ GatsbyJS
-+ Jekyll
+* Jenkins
+* VuePress
+* GatsbyJS
+* Jekyll
 
 ## Chapter Conclusions and Review
 
@@ -146,8 +125,8 @@ Docker - [https://twit.tv/shows/floss-weekly/episodes/330](https://twit.tv/shows
 
 ### Lab
 
-* Complete this tutorial https://learn.hashicorp.com/consul/
-* Complete this tutorial https://learn.hashicorp.com/vault/
+* Complete this tutorial [https://learn.hashicorp.com/consul/](https://learn.hashicorp.com/consul/ "Consul Tutorial")
+* Complete this tutorial [https://learn.hashicorp.com/vault/](https://learn.hashicorp.com/vault/ "Vault Tutorial")
 
 #### Footnotes
 
