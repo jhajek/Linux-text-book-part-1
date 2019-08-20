@@ -576,7 +576,7 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 [Gentoo Linux](https://www.gentoo.org/ "Gentoo Linux")
 
-* Unique Linux distro that builds itself upon install to become completely customized, small, and secure.
+* Unique Linux distro that you build from scratch based on your uniqure hardware, to become completely customized, small, and secure.
 * Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system.
 
 #### Intel Clear Linux
@@ -586,6 +586,7 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 * [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
   * Rolling release designed by Intel with auto-updating features built into the OS.
 * _"Clear Linux OS is an open source, rolling release Linux distribution optimized for performance and security, from the Cloud to the Edge, designed for customization, and manageability [https://clearlinux.org/](https://clearlinux.org/ "Clear Linux")."_
+* Designed to work on recent Intel processors, droppin legacy support for much hardware--in order to optimize for modern cloud based workloads.
 
 #### Alpine Linux
 
