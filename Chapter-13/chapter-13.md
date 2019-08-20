@@ -365,7 +365,7 @@ There are 4 section we are interested in:
 1. provisioners
 1. post-processors
 1. vboxmanage
-i. listed but is not required and is an artifact related to VirtualBox
+1. listed but is not required and is an artifact related to VirtualBox
 
 #### Builders
 
