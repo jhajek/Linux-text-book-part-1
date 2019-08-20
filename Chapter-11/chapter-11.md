@@ -36,7 +36,6 @@ In early 2012, a new medium called a Solid State Drive, or SSD was relased.  The
   SATA revision 2.0      3 Gbit/s  300 MB/s
   SATA revision 1.0      1.5 Gbit/s 150 MB/s
 
-
 ![*Standard SSD connector*](images/Chapter-11/ssd/256px-Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg "Standard SSD connector")[^134]
 
 The orginal SSD disks were put out by RAM manufactureres and had RAM controller write issues.  The good ones were built by Intel and Samsung.  The other manufactures have caught up and you can get drives in 256, 512, and 1 TB sizes.  Since there are no moving parts the battery or power usage is far reduced from an HDD.  SSDs do have potential issues with ware leveling and block failure, but in the chips controlling these devices the manufactureres have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data trasnfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitiation that HDDs suffered to be overcome.  
