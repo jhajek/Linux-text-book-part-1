@@ -6,9 +6,7 @@
 * IT Orchestration and Automation tools
   * Vagrant
   * Packer.io
-  * Consul
-  * Vault
-  * Additional automation tools
+  * Automation tools
 
 ## Outcomes
 
