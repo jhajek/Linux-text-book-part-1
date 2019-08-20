@@ -604,7 +604,7 @@ Arch Linux has a different philosophy, Arch Linux defines simplicity as without 
 
 ### Unix and the BSD Family Distros
 
-While Linux was exploding in the mid 1990s the AT&T lawsuit against BSD had been settled and work could resume on the BSD forks of Unix.  The BSD code splintered into 3 main families or distros that are all descended from the original BSD Unix project.  This leaves large pieces of BSD code compatible with each other. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.  The BSD world is not immune from forks and division.
+While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had been settled and work could resume on the BSD forks of Unix.  The BSD code splintered into 3 main families or distros that are all descended from the original BSD Unix project.  This leaves large pieces of BSD code compatible with each other. BSD is not Linux and technically not Unix but functions in a vary similar manner to Unix.  The BSD world is not immune from forks and division.
 
 #### FreeBSD
 
@@ -723,7 +723,7 @@ In it's defense, systemd has many nice and actually new and needed features for 
 
 ## 6th Phase of Linux Maturity, OpenSource isn't a business model
 
-As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used accross the industry and these companies happen to be Venture Capital funded. These companies, who had relied on opensource software as their business model, are now come into competition directly with large Cloud vendors, mostly Amazon Web services. These cloud companies offer cloud hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providors, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against cloud providors.  
+As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used accross the industry and these companies happen to be Venture Capital funded. These companies, who had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providors, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against the cloud providors.  
 
 * MongoDB - [Server Side Public License](https://www.mongodb.com/licensing/server-side-public-license "Server Side Public License")
 * Confluent - [Community License v1](https://www.confluent.io/confluent-community-license "Confluence Community License")
@@ -735,7 +735,7 @@ Some would argue that this is where the GPL with its strong copyleft would preve
 
 Others will site the fact that very few succesful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception.  Apple for instance has removed all GPLv3 based software from its MacOS due to concerns about GPLv3.  
 
-Industry solution has been the formation of foundations.   There is major foundataion, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation").  This is the foundation that employs Linus Torvalds to continue work on the Linux Kernel.  In addition the Linux Foundation runs multiple other significant technology foundations--all offsprings of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and sheperded by the Linux Foundation is pretty astounding.
+The industry solution has been the formation of foundations.   There is major foundataion, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation").  This is the foundation that employs Linus Torvalds to continue work on the Linux Kernel.  In addition the Linux Foundation runs multiple other significant technology foundations--all offsprings of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and sheperded by the Linux Foundation is pretty astounding.
 
 The CNCF--[Cloud Native Computing Foundation](https://cncf.io "Clound Native Compute Foundation").  In addi
 "*The Cloud Native Computing Foundation (CNCF) hosts critical components of the global technology infrastructure. CNCF brings together the world’s top developers, end users, and vendors and runs the largest open source developer conferences. CNCF is part of the nonprofit Linux Foundation.*"
