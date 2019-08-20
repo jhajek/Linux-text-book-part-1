@@ -163,8 +163,8 @@ _start:
 
 ```nasm
 hello:
-	.string	"Hello world!\n"
-	.globl	_start
+    .string "Hello world!\n"
+    .globl _start
 
 _start:
         # write(1, hello, 13)
