@@ -550,7 +550,7 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 
 ### Putting Vagrant and Packer together
 
-How then do we build our own artifacts with Packer to manage them?
+How then do we build our own artifacts with Packer to manage them?  Here is an end-to-end example using some sample code provided in the source code repo of the book.  This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server 1804-2.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then ssh into the box via Vagrant.
 
 ```bash
 
