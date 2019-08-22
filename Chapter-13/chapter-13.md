@@ -552,6 +552,23 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 
 How then do we build our own artifacts with Packer to manage them?
 
+```bash
+
+# clone the source code from the book to get the sample files
+# git clone https://github.com/jhajek/Linux-text-book-part-1.git
+cd Linux-text-book-part-1/Chapter-13/packer-build-templates
+packer build ubuntu18042-vanilla.json
+
+# Upon completion of the Packer build...
+vagrant box add ../build/ubuntu18042-vanilla*.json --name ubuntu-18042
+cd ../build
+mkdir ubuntu-18042
+vagrant init ubuntu-18042
+vagrant up
+vagrant ssh
+
+```
+
 ### Network Based Install Tools
 
 [Cobbler](http://cobbler.github.io/ "Cobber") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
