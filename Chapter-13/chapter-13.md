@@ -359,13 +359,12 @@ Let us look at an example JSON template file: This source can be retrieved from:
 
 ```
 
-There are 4 section we are interested in:
+There are 4 sections we are interested in:
 
 1. builders
 1. provisioners
 1. post-processors
-1. vboxmanage
-1. listed but is not required and is an artifact related to VirtualBox
+1. vboxmanage - listed but is not required and is an artifact related to VirtualBox
 
 #### Builders
 
@@ -554,6 +553,10 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 [Cobbler](http://cobbler.github.io/ "Cobber") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
 
 [MaaS - Metal as a Service](https://maas.io "Maas.io").  This was built by Canonical (Ubuntu) to manage and deploy systems, it includes and builds upon Cobbler.  
+
+### End to End Sample
+
+Here is an end to end sample with the sample code.
 
 ### IT Orchestration
 
