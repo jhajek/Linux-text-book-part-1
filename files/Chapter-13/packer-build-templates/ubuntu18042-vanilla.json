@@ -1,8 +1,8 @@
 {
   "builders": [
     {
-      "name": "ubuntu-vanilla-18041-server",
-      "vm_name": "ubuntu-vanilla-18041-server",
+      "name": "ubuntu-vanilla-18042-server",
+      "vm_name": "ubuntu-vanilla-18042-server",
       "type": "virtualbox-iso",
       "boot_command": [
         "<esc><wait>",
@@ -36,10 +36,10 @@
       "http_port_min" : 9001,
       "http_port_max" : 9001,
       "iso_urls": [
-        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04-server-amd64.iso"
+        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.2-server-amd64.iso"
       ],
       "iso_checksum_type": "sha256",
-      "iso_checksum": "a7f5c7b0cdd0e9560d78f1e47660e066353bb8a79eb78d1fc3f4ea62a07e6cbc",
+      "iso_checksum": "a2cb36dc010d98ad9253ea5ad5a07fd6b409e3412c48f1860536970b073c98f5",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,

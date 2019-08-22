@@ -518,7 +518,7 @@ This command will be what is used to execute and run the packer *.json template.
 
 ![*Packer Cache Directory on Windows*](images/Chapter-13/packer/cache.png "Packer Cache Directory on Windows")
 
-When running ```packer build``` Packer will cache the the install media--the iso.  You can set this location to a central directory as this will save time downloading the same media over and over. On Windows you can configure the ```PACKER_CACHE_DIR``` by setting a file location in your user account environment variables.  In Linux and Mac you can set an environment vaariable in your user profile. 
+When running ```packer build``` Packer will cache the the install media--the iso.  You can set this location to a central directory as this will save time downloading the same media over and over. On Windows you can configure the ```PACKER_CACHE_DIR``` by setting a file location in your user account environment variables.  In Linux and Mac you can set an environment vaariable in your user profile.
 
 #### When Packer Fails
 
@@ -547,6 +547,10 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 
 * [Sample Preseed Template](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt "Preseed Template")
 * [Preseed Ubuntu Guide](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed Guide")
+
+### Putting Vagrant and Packer together
+
+How then do we build our own artifacts with Packer to manage them?
 
 ### Network Based Install Tools
 
