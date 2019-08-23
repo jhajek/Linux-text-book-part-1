@@ -6,7 +6,7 @@
 
 * Linux Orchestration and Automation tools
   * Vagrant
-  * Packer.io
+  * Packer
   * Automation tools
 
 ## Outcomes
