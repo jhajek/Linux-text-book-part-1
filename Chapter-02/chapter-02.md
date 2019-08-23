@@ -619,7 +619,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 * No direct commercial backing, instead run by a non-profit foundation.
 * Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
 * Board of directors are elected and drives development decisions and policies
-* Used extesnively by WhatsApp and Netflix to run their infrastructure. 
+* Used extesnively by WhatsApp and Netflix to run their infrastructure.
 
 #### Project Triedent and TrueOS
 

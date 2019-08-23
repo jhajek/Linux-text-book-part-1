@@ -1,4 +1,5 @@
 # Infrastructure Installation and IT Orchestration ROUGH DRAFT
+
 ![*Good thing we avoided that one...*](images/Chapter-Header/Chapter-13/2038-2.png "2038")
 
 ## Objectives
