@@ -569,8 +569,11 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 #### Suse Linux
 
-* [openSuse Linux](https://www.opensuse.org "Open SuseLinux")
-* [Suse Enterprise Linux](https://www.suse.com/products/desktop/ "SLED")
+* Originally a German company Linux Distro [started in 1994](https://www.suse.com/company/history/ "History of Suse Linux")
+  * Suse is an acronym meaning: "*Software und System-Entwicklung*” (software and systems development)
+* [openSuse Linux](https://www.opensuse.org "Open SuseLinux") is an community driven version of Suse and released in 2004.
+* In 2006 Microsoft and SUSE announce interoperability agreement
+* Suse was responsible for working to port the Linux kernel to 64 bit architecture in 2000
 
 #### Gentoo Linux
 
