@@ -347,7 +347,7 @@ AT&T seeing this decided in the early 1992 to take the BSD project to court in o
 After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. Also they are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red hat.  All are maintained by volunteer organizations.
 
 * FreeBSD
-  * DragonFlyBSD
+* DragonFlyBSD
 * OpenBSD
 * NetBSD
 
