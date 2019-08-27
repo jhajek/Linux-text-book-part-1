@@ -621,8 +621,9 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 * Board of directors are elected and drives development decisions and policies
 * Used extesnively by WhatsApp and Netflix to run their infrastructure.
 
-#### Project Triedent and TrueOS
+#### Project Trident and TrueOS
 
+* Desktop Based OS using the FreeBSD based [TrueOS](https://www.trueos.org/ "TrueOS Website")
 * Project started by Kris Moore who has been a FreeBSD developer
 * Comes with a new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
 * Strives to make FreeBSD more user friendy (more Linux like)
