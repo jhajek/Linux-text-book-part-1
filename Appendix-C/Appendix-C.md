@@ -1,4 +1,5 @@
 # Appendix C - Markdown Code for Podcasts, Labs, and Review Questions
+
 ![*Security is a strange term...*](images/Chapter-Header/Appendix-C/authorization-2.png "No Drivers Here")
 
 This appendix includes all the review questions, labs, and podcast questions for each chapter in a single convenient place.
@@ -319,16 +320,16 @@ Clone the source code repository for the text book [https://github.com/jhajek/Li
 
 #### GNOME Software Store
 
-You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows: 
+You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows:
 
 1) Inkscape
-1) Audacity 
+1) Audacity
 1) GNOME Tweak Tool
 1) Chromium
 1) Geary
 1) Thunderbird
 1) gPodder
-1) Xed (text editor). 
+1) Xed (text editor)
 
 #### GNOME 3 Extensions
 

@@ -89,10 +89,10 @@ You can check to see if the vagrant box add command was successful by issuing th
 
 ```bash
 PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
-centos-vanilla-1611  (virtualbox, 0)
-ubuntu-vanilla-16041 (virtualbox, 0)
-ubuntu/trusty64      (virtualbox, 20161121.0.0)
-ubuntu/xenial64      (virtualbox, 20170119.1.0)
+centos-vanilla-1810  (virtualbox, 0)
+ubuntu-vanilla-18043 (virtualbox, 0)
+ubuntu/bionic64      (virtualbox, 20190810.0.0)
+ubuntu/xenial64      (virtualbox, 20190807.0.0)
 ```
 
 Here you notice that the last two boxes were added directly from the Hashicorp boxes repository (vagrant box add ubuntu/trusty64 and vagrant box add ubuntu/xenial64)
@@ -100,8 +100,8 @@ Here you notice that the last two boxes were added directly from the Hashicorp b
 The top two boxes were custom Vagrant boxes I created (we are getting to that part) that are treated as third party boxes.  To add them I issued a command like this:   (The vanilla term is my own convention, it just means this is a default OS install -- no extra packages)
 
 ```bash
-vagrant box add ./centos-vanilla-1611-server-virtualbox-1485312680.box --name centos-7-vanilla
-vagrant box add ./ubuntu-vanilla-16041-server-virtualbox-1485314496.box --name ubuntu-16041-vanilla
+vagrant box add ./centos-vanilla-1810-server-virtualbox-1485312680.box --name centos-7-vanilla
+vagrant box add ./ubuntu-vanilla-18043-server-virtualbox-1485314496.box --name ubuntu-16041-vanilla
 ```
 
 ```vagrant box remove```
@@ -109,7 +109,7 @@ vagrant box add ./ubuntu-vanilla-16041-server-virtualbox-1485314496.box --name u
 The same way that you add boxes you can remove them from your list.  You need to know the name of the box that was added, run a vagrant box list command and find the name that way.  The below commands would remove the boxes added in the previous section.
 
 * ```vagrant box remove centos-7-vanilla```
-* ```vagrant box remove ubuntu-16041-vanilla```
+* ```vagrant box remove ubuntu-18043-vanilla```
 
 **Command:** ```vagrant init```
 
@@ -149,7 +149,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://app.vagrantup.com/boxes/search.
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/bionic64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
