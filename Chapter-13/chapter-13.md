@@ -43,7 +43,7 @@ At that time, [Hashicorp](https://hashicorp.com "Hashicorp") was born.  This was
 
 Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Docker, or even Vmware desktop.  It is written in the Ruby Language and comes as a self-contained binary that runs accross all platforms. For the duration of this chapter I will use VirtualBox as my example.  Vagrant handles this abstraction by using a file concept called a **box** or ```*.box```.  The box file is nothing more than a compressed archive containing a virtual harddrive and a configuration file that tells the Vagrant providor which virtuaization software to launch this with. For example a *.box file that was made for the Virtualbox provider would contain the *.vmdk (hard drive) and the *.ovf file (meta-data and Virtual Machine settings file).  Each Vagrant box fil eneeds a config file called: **Vagrantfile**.  This is an abstraction file to modify settingings for the virtual machine at run time.  There is a sample Vagrantfile later in this chapter. These two components are what is needed to run and manage Vagrant boxes.
 
-There are two ways to obtain a Vagrant Box (*.box file).  The first way would be to obtain pre-made images from a site you trust (remember you are running other people's configuration and software in your place of work -- just be aware).   The first place to look is from Vagrantup.com itself - [https://atlas.hashicorp.com/boxes/search](https://atlas.hashicorp.com/boxes/search "Vagrant box search"). Here you can search for boxes of other operating systems and versions even some opensource companies release a pre-configured Vagrant Box all setup for you to test their software all in one place.    Using this facility you can simply run a command from the command line to add this box to your local system. such as: ```vagrant init ubuntu/xenial64``` would automatically construct a Vagrantfile, as well as retreive an Ubuntu Xenial64 box file.
+There are two ways to obtain a Vagrant Box (*.box file).  The first way would be to obtain pre-made images from a site you trust (remember you are running other people's configuration and software in your place of work -- just be aware).   The first place to look is from Vagrantup.com itself - [https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search "Vagrant box search"). Here you can search for boxes of other operating systems and versions even some opensource companies release a pre-configured Vagrant Box all setup for you to test their software all in one place.    Using this facility you can simply run a command from the command line to add this box to your local system. such as: ```vagrant init ubuntu/bionic64``` would automatically construct a Vagrantfile, as well as retreive an Ubuntu Bionic64 box file.
 
 The second way to is add it manually
 
@@ -67,13 +67,13 @@ The first command **add** is the command we will use to add boxes (either of the
 The tutorial on vagrantup.com will walk you through this but a small example (try any of these especially if you are not familiar with these platforms).
 
 * ```vagrant box add centos/7``` (Official Centos 7 Vagrant box release)
-* ```vagrant box add debian/jessie64``` (Debian provided release of Jessie Debian 8 x64)
+* ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
 * ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
-* ```vagrant box add concourse/lite```   (concourse software package provided and preconfigured)
-* ```Vagrant box add generic/Fedora29``` (Fedora 29 server edition)
-* ```vagrant box add freebsd/FreeBSD-11.0-CURRENT``` (official FreeBSD vagrant box)
+* ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
+* ```Vagrant box add generic/Fedora30``` (Fedora 30 server edition)
+* ```vagrant box add freebsd/FreeBSD-12.0-CURRENT``` (official FreeBSD vagrant box)
 * ```vagrant box add maier/alpine-3.4-x86_64```  (user provided alpine Linux distro)
-* ```vagrant box add ubuntu/xenial64``` (Canonical--Ubuntu parent company - provided)
+* ```vagrant box add ubuntu/bionic64``` (Canonical--Ubuntu parent company - provided)
 
 You may need to use a full URL in the case of downloading a Vagrant box that is not provided from Hashicorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a Devuan box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
 
@@ -148,7 +148,7 @@ Vagrant.configure("2") do |config|
   # https://docs.vagrantup.com.
 
   # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
+  # boxes at https://app.vagrantup.com/boxes/search.
   config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
