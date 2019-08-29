@@ -574,8 +574,6 @@ vagrant ssh
 
 [Cobbler](http://cobbler.github.io/ "Cobber") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
 
-[MaaS - Metal as a Service](https://maas.io "Maas.io").  This was built by Canonical (Ubuntu) to manage and deploy systems, it includes and builds upon Cobbler.  
-
 ### IT Orchestration
 
 In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to see a world of automation opening up to us.  In a sense these technologies are the culmination of the Unix concepts of small tools doing one things--or shell scripts on steroids, so to speak.  Each of these technologies is beyond the scope of this book, but here are some podcasts and links to learn more about them.
