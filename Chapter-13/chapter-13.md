@@ -629,9 +629,15 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 
 ### Lab
 
-Run the packer json build templates for Centos 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command to create a vagrant file and ```vagrant up``` command to instantiate the box.
+#### Part 1
+
+Run the packer json build templates for Centos 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command to create a vagrant file and ```vagrant up``` command to instantiate the box. Issue the command ```vagrant ssh``` and once logged in take a screenshot of the output of the command ```free --giga``` to list the amount of memory in the virtual machine.
 
 Upon completion take a screenshot of the output of the ```vagrant box list``` command to show that these steps completed succesfully.
+
+#### Part 2
+
+Edit the Vagrantfile for both Vagrant boxes to run at 2048 RAM (2 GB) each.  Issue a command to reload and re-provision the virtual machines.  Upon succesfully issuing this command issue the ```vagrant ssh``` command and again execute the ```free --giga``` command to show that the memory adjustment actually took place.
 
 #### Footnotes
 
