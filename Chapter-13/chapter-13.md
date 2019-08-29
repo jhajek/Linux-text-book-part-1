@@ -283,55 +283,55 @@ Let us look at an example JSON template file: This source can be retrieved from:
 ```json
 
 {
-  "builders": [{
-    "name": "ubuntu-vanilla-16045-server",
-    "type": "virtualbox-iso",
-    "guest_os_type": "Ubuntu_64",
-    "guest_additions_mode": "disable",
-    "iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
-    "iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
-    "iso_checksum_type": "sha256",
-    "http_directory" : ".",
-    "http_port_min" : 9001,
-    "http_port_max" : 9001,
-    "ssh_username": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_wait_timeout": "30m",
-    "communicator": "ssh",
-    "ssh_pty": "true",
-    "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-    "vm_name": "ubuntu-vanilla-16045-server",
-    "hard_drive_interface": "sata",
-    "disk_size": 20000,
-    "boot_wait": "5s",
-  "boot_command" : [
-    "<enter><f6><esc>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs><bs><bs>",
-    "<bs><bs><bs>",
-    "/install/vmlinuz noapic ",
-    "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed.cfg ",
-    "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
-    "hostname=pleasechangeme ",
-    "fb=false debconf/frontend=noninteractive ",
-    "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
-    "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
-    "initrd=/install/initrd.gz -- <enter>"
-  ],  
+  "builders": [
+    {
+      "name": "ubuntu-vanilla-18043-server",
+      "vm_name": "ubuntu-vanilla-18043-server",
+      "type": "virtualbox-iso",
+      "boot_command": [
+        "<esc><wait>",
+        "<esc><wait>",
+        "<enter><wait>",
+        "/install/vmlinuz<wait>",
+        " auto<wait>",
+        " console-setup/ask_detect=false<wait>",
+        " console-setup/layoutcode=us<wait>",
+        " console-setup/modelcode=pc105<wait>",
+        " debconf/frontend=noninteractive<wait>",
+        " debian-installer=en_US<wait>",
+        " fb=false<wait>",
+        " initrd=/install/initrd.gz<wait>",
+        " kbd-chooser/method=us<wait>",
+        " keyboard-configuration/layout=USA<wait>",
+        " keyboard-configuration/variant=USA<wait>",
+        " locale=en_US<wait>",
+        " netcfg/get_domain=vm<wait>",
+        " netcfg/get_hostname=vagrant<wait>",
+        " grub-installer/bootdev=/dev/sda<wait>",
+        " noapic<wait>",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed.cfg<wait>",
+        " -- <wait>",
+        "<enter><wait>"
+      ],
+      "boot_wait": "10s",
+      "disk_size": 20000,
+      "guest_os_type": "Ubuntu_64",
+      "http_directory" : ".",
+      "http_port_min" : 9001,
+      "http_port_max" : 9001,
+      "iso_urls": [
+        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
+      ],
+      "iso_checksum_type": "sha256",
+      "iso_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+      "guest_additions_mode": "disable",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "virtualbox_version_file": ".vbox_version", 
   "vboxmanage": [
     [
       "modifyvm",
@@ -558,13 +558,13 @@ How then do we build our own artifacts with Packer to manage them?  Here is an e
 # clone the source code from the book to get the sample files
 # git clone https://github.com/jhajek/Linux-text-book-part-1.git
 cd Linux-text-book-part-1/Chapter-13/packer-build-templates
-packer build ubuntu18042-vanilla.json
+packer build ubuntu18043-vanilla.json
 
 # Upon completion of the Packer build...
 vagrant box add ../build/ubuntu18042-vanilla*.json --name ubuntu-18042
 cd ../build
-mkdir ubuntu-18042
-vagrant init ubuntu-18042
+mkdir ubuntu-18043
+vagrant init ubuntu-18043
 vagrant up
 vagrant ssh
 
