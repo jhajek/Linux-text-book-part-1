@@ -890,7 +890,7 @@ You will need to do some research and find the download links for the Linux and 
 * Network Based Install
   * openSuse Tumbleweed
 
-![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
+![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox_ubuntu.png "Sample Deliverable")
 
 #### Footnotes
 
