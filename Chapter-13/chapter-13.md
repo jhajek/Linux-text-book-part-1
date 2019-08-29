@@ -605,7 +605,7 @@ Questions go here
 See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantril Hashiconf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
 
 1. ~0:30 Where does Bryan work, who recently bought that company, and what do they do?
-1. ~1:33 What is the date of the birth of containers?
+1. ~1:33 What is the birth date of containers?
 1. ~3:25 What was the next iteration of containers?
 1. ~3:49 What is the purpose of a Jail?
 1. ~5:10 What did SUN call their full application environment they created in 2002?
@@ -621,7 +621,7 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 1. ~24:07 Containers allow developers to do what?
 1. ~26:00 What is Triton and what does it do?
 1. ~31:42 What are the two approaches to the container ecosystem, and what is the difference?
-1. ~33:25 What is the Hashi ethos?
+1. ~33:25 What is the "Hashi" ethos?
 1. ~37:00 What was the mistake that happened with the pilot operator release valve at 3 Mile Island?
 1. ~39:05 With container based systems in what terms must we think in?
 1. ~40:00 Why is scheduling containers inside of Virtual Machines a bad idea?
@@ -629,15 +629,9 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 
 ### Lab
 
-Complete Vagrant Tutorial located at [https://www.vagrantup.com/docs/getting-started/](https://www.vagrantup.com/docs/getting-started/ "Vagrant getting started").  In the tutorial:
+Run the packer json build templates for Centos 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command to create a vagrant file and ```vagrant up``` command to instantiate the box.
 
-* replace the term ```hashicorp/percise64``` with ```ubuntu/bionic64```
-* skip the **SHARING** section
-* upon completion take a screenshot of the output of the ```vagrant box list``` command.
-
-The second part would be to run the packer build templates for Centos 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```.  For each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command and ```vagrant up``` command.
-
-Upon completion take a screenshot of the output of the ```vagrant box list``` command.
+Upon completion take a screenshot of the output of the ```vagrant box list``` command to show that these steps completed succesfully.
 
 #### Footnotes
 
