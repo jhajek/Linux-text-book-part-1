@@ -891,6 +891,7 @@ You will need to do some research and find the download links for the Linux and 
   * openSuse Tumbleweed
 
 #### Ubuntu 18.04 Desktop
+
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
 #### Footnotes
