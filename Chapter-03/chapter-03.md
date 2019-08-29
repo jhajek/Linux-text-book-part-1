@@ -872,7 +872,7 @@ You will need to do some research and find the download links for the Linux and 
   * Lubuntu 18.04 Desktop edition
   * Trisquel Linux
   * Debian 10.x
-  * PureOS
+  * PureOS 8.x
 
 * Red Hat Based
   * Fedora 30 - Workstation edition
