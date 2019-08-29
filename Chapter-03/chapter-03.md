@@ -890,7 +890,8 @@ You will need to do some research and find the download links for the Linux and 
 * Network Based Install
   * openSuse Tumbleweed
 
-![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox_ubuntu.png "Sample Deliverable")
+#### Ubuntu 18.04 Desktop
+![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
 #### Footnotes
 
