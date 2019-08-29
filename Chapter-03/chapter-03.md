@@ -663,7 +663,9 @@ sudo pip install dronekit-sitl
 
 ### Using Rust
 
-install Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
+The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is a new canidate to supliment or replace the C language.  Various people have undertaken to replace the GNU coretools with Rust based versions.   These tutorials will help you download and compile these tools with Rust.
+
+To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
 
 [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils")
 
@@ -882,11 +884,11 @@ You will need to do some research and find the download links for the Linux and 
 * Other Linux
   * Alpine Linux
   * MX Linux
+  * Arch Linux
+  * Intel Clear Linux Desktop
 
 * Network Based Install
   * openSuse Tumbleweed
-  * Arch Linux
-  * Intel Clear Linux Desktop
 
 ![*Sample Deliverable*](images/Chapter-03/lab-sample-512-by-250.png "Sample Deliverable")
 
