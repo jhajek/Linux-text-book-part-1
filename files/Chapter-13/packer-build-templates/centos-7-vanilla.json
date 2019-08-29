@@ -1,13 +1,13 @@
 {
   "builders": [{
-      "name": "centos-vanilla-1708-server",
+      "name": "centos-vanilla-1810-server",
         "type": "virtualbox-iso",
         "guest_os_type": "RedHat_64",
         "guest_additions_mode": "disable",
-    "iso_url": "http://mirrors.kernel.org/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso",
-    "iso_checksum": "bba314624956961a2ea31dd460cd860a77911c1e0a56e4820a12b9c5dad363f5",
+    "iso_url": "https://mirrors.edge.kernel.org/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso",
+    "iso_checksum": "38d5d51d9d100fd73df031ffd6bd8b1297ce24660dc8c13a3b8b4534a4bd291c",
     "iso_checksum_type": "sha256",
-    "vm_name": "centos-vanilla-1708-server",
+    "vm_name": "centos-vanilla-1810-server",
     "http_directory" : ".",
     "http_port_min" : 9001,
     "http_port_max" : 9001,
@@ -28,8 +28,7 @@
           "{{.Name}}",
           "--memory",
           "2048"
-        ]
-
+        ]  
     ]
   }],
 
