@@ -331,7 +331,7 @@ Let us look at an example JSON template file: This source can be retrieved from:
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_mode": "disable",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "virtualbox_version_file": ".vbox_version", 
+      "virtualbox_version_file": ".vbox_version",
   "vboxmanage": [
     [
       "modifyvm",
