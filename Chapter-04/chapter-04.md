@@ -189,13 +189,9 @@ Which is better GNOME or KDE?  With all major Linux systems that are using syste
 
 Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environments as the resources required were growing.  So a movement to create a lightweight desktop environment sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999.  At one point Debian was considering it as an alternative to GNOME 3, but dropped it because of adopting systemd--forcing Debian to take GNOME 3 as their default desktop.  Xubuntu is a common derivative distro made up of Ubuntu using Xfce instead of GNOME or Unity.  Xfce until recently was using the GTK2 toolkit but is in the process of being rewritten in GTK3 conversion started with version 4.12 in 2015.  As of 2018, most of the major components have been re-written in GTK3.  When version 4.14 is released all major components will be converted to GTK3.
 
-### LXDE/LXQT
+### LXQT
 
-The LXDE project was started in 2006 by Hong Jen Yee.  This is a quote from the LXDE website:
-
-> "LXDE is an energy saving and extremely fast and performing desktop solution. It works well with computers on the low end of the performance spectrum such as new generation netbooks and other small mobile computers...It can be built on top of various Linux distributions such as Ubuntu, Debian or Fedora" [^39]
-
-LXDE is the desktop environment of the Lubuntu distro which is a combination of LXDE and Ubuntu but is not limited to Ubuntu.  This desktop environment is even more spartan than Xfce but is still very usable. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux.  Recently the lead developer Hong Jen Yee also had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT.  LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.  LXQT and LXDE will remain in parallel development for the foreseeable future according to Hong Jen Yee but LXQT being where new developement--being QT based and actively developed.
+The LXQT project was started as the LXDE project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce but is one step above a window manager. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux.  Recently the lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT.  LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.
 
 ### Enlightenment
 
@@ -235,7 +231,7 @@ By 2012 the GNOME project was considered pretty mature opensource project. It wa
 
 Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  
 
-As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom Unity shell and returned to using GNOME3.  Announcement here:
+As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom Unity shell and returned to using GNOME3.
 
 ### Theming
 
@@ -428,11 +424,11 @@ You will need to install two GNOME 3 extensions from [https://extensions.gnome.o
 1) Caffeine
 1) Dash to Dock
 1) Freon (first requires you to install the package ```lm_sensors```)
-1) Choose any other one plugin
+1) Hide Dash
 
-#### Ubuntu 18.04 Snaps Install
+#### Snaps Install
 
-To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap:
+To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap on Ubuntu 18.04 desktop:
 
 1) Android Studio
 1) Blender
@@ -440,9 +436,9 @@ To install and configure snaps, reference chapter 3.  To show these packages are
 1) Skype
 1) Visual Studio Code
 
-#### Fedora 30 Flatpak Install
+#### Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via flatpak:
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via flatpak on the Fedora virtual machine:
 
 1) Kdenlive
 1) Visual Studio Code
@@ -461,13 +457,15 @@ To install and configure flatpak and flathub, reference chapter 3.  To show thes
 
 #### AppImage Install
 
-Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instrctions to install and run these AppImages on both Ubuntu 18.04 and Fedora 30.  
+Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instrctions to install and run these AppImages on both Ubuntu 18.04 and Fedora 30.  Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").  This can be on a system of your choice.
 
-#### Ubuntu window mangers and desktop environment
+1) Subsurface
+1) Archipelago
+1) LibrePCB
 
-You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  
+#### Window Mangers
 
-In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen.
+You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen.
 
 ![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
 
@@ -475,14 +473,19 @@ In order to change the default window manager or desktop environment you need to
 1) Stacking window manager
 1) Tiling window manager
 1) Install Enlightenment (E17) on Ubuntu 18.04
-1) Install the Xfce Dektop on Fedora 30
-1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
-1) Install the Xfce Desktop on Ubuntu 18.04
 
 **Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the i3 package.
 
 * ```sudo apt-cache search i3```
 * ```sudo dnf search i3```
+
+#### Desktop Environments
+
+Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
+
+1) Install the Xfce Dektop on Fedora 30
+1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
+1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-dekstop but just xfce4 package)
 
 #### Ubuntu Theme tweaking
 
@@ -493,7 +496,7 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
 ![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
-**Deliverable:** Take screenshots of all succesful install of software.  Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it.
+**Deliverable:** Take screenshots of all succesful install of software.  Create a file called ```Readme.md``` and create an H2 header for each item and place a screenshot of the result below it.
 
 #### Footnotes
 
