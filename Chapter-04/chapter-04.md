@@ -465,9 +465,9 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 
 #### Window Mangers
 
-You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen.
+You will chose 1 of the window managers from the categories listed earlier in the chapter and install them.  Once installed you need to log out and restart your session.  In order to change the default window manager on GNOME3 desktop environment you need to click on the user name and select the little gear below the password field.
 
-![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
+![*Change Window Mangers*](images/Chapter-04/GNOME3/window-manager.png "Change")
 
 1) Compositing window manager
 1) Stacking window manager
