@@ -372,19 +372,40 @@ The majority of this information is taken from [https://www.packer.io/docs/](htt
 
 The builders available are:
 
-1. Amazon EC2 (AMI)
+1. Builders
+1. Alicloud ECS
+1. Amazon EC2
 1. Azure
-1. Cloudstack
-1. Digital Ocean
+1. CloudStack
+1. DigitalOcean
 1. Docker
-1. Google Compute Engine
+1. File
+1. Google Cloud
+1. Hetzner Cloud
+1. HyperOne
 1. Hyper-V
+1. Linode
+1. LXC
+1. LXD
+1. NAVER Cloud
+1. Null
+1. 1&1
 1. OpenStack
+1. Oracle
+1. Outscale
 1. Parallels
+1. ProfitBricks
 1. QEMU
-1. Triton (Joyent/Samsung Public Cloud)
-1. VirtualBox (both iso and ovf)
-1. Vmware
+1. Scaleway
+1. Tencent Cloud
+1. JDCloud
+1. Triton
+1. UCloud
+1. Vagrant
+1. VirtualBox
+1. VMware
+1. Yandex.Cloud
+1. Custom
 
 #### How the Operating System gets installed
 
