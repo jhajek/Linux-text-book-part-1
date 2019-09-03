@@ -19,7 +19,7 @@ One of the main things that computers are good at is executing repetive tasks.  
 
 ![*Mitchell Hashimoto*](images/Chapter-13/people/mh.png "mitchell hashimoto")[^153]
 
-Micthcell realized that himself and a good majority of developers where using VirtualBox to run and build test systems on their local machines and laptops. He found that he could be productive by keeping copies of the production servers where his code would reside as a local vm on his system.  He realized their were some limitations to what VirtualBox would allow for in the way of access to the system.  VirtualBox just provided an interface to virtualize an operating system, and had no provisions for quickly deploying or automating an OS deployment--it was still a manual process. He and his company set out to solve this problem by developing opensource software.  They developed this stack of software:
+Mitchell realized that himself and a good majority of developers where using VirtualBox to run and build test systems on their local machines and laptops. He found that he could be productive by keeping copies of the production servers where his code would reside as a local vm on his system.  He realized their were some limitations to what VirtualBox would allow for in the way of access to the system.  VirtualBox just provided an interface to virtualize an operating system, and had no provisions for quickly deploying or automating an OS deployment--it was still a manual process. He and his company set out to solve this problem by developing opensource software.  They developed this stack of software:
 
 ![*Hashicorp Stack*](images/Chapter-13/hashi/hashistack.png "hashi-stack")
 
@@ -551,7 +551,7 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 
 ### Putting Vagrant and Packer together
 
-How then do we build our own artifacts with Packer to manage them?  Here is an end-to-end example using some sample code provided in the source code repo of the book.  This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server 1804-2.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then ssh into the box via Vagrant.
+How then do we build our own artifacts with Packer to manage them?  Here is an end-to-end example using some sample code provided in the source code repo of the book.  This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server 1804-3.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then ssh into the box via Vagrant.
 
 ```bash
 
