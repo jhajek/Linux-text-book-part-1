@@ -1,9 +1,8 @@
 # Desktop Linux and GUIs
+
 ![*GUIs??? NIH*](images/Chapter-Header/Chapter-04/supported_features2.png "GUIs NIH")
 
 ## Objectives
-
-In this chapter you will:
 
 * Learn about the different types of desktop Linux
 * Understand the nature and use of X, Mir, Wayland, and other GUI compositors
@@ -60,7 +59,7 @@ Even in the mid 1980s the dream of having your own desktop PC was a bit of a way
 
 > *"X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface — this is handled by individual programs."*  [https://en.wikipedia.org/wiki/X_Window_System](https://en.wikipedia.org/wiki/X_Window_System "X Windows")
 
-By 1987 version 11 had been released of the protocol, being commonly referred to as X11.  The industry wanted to prevent fragmentation and they asked MIT to form a steering consortium for the project.  MIT X Consortium became the X Consortium Inc. in 1993.  By 1996 the X Consortium, with vendor input, released one of the first standard Unix GUIs called the __CDE__ *Common Desktop Environment*. By 1997 the X Consortium transformed into the Open Group.  The Open Group angered many people by relicensing the project under stricter commercial terms in an effort to make some money to support the project--but this action backfired.  By 1999 the Open Group had ceased functioning and ceased really developing X. The Open Group created *X.Org* to maintain the X11 standard.
+By 1987 version 11 of the protocol had been released, being commonly referred to as X11.  The industry wanted to prevent fragmentation and they asked MIT to form a steering consortium for the project.  The MIT X Consortium became the X Consortium Inc. in 1993.  By 1996 the X Consortium, with vendor input, released one of the first standard Unix GUIs called the __CDE__ *Common Desktop Environment*. By 1997 the X Consortium transformed into the Open Group.  The Open Group angered many people by relicensing the project under stricter commercial terms in an effort to make some money to support the project--but this action backfired.  By 1999 the Open Group had ceased functioning and ceased really developing X. The Open Group created *X.Org* to maintain the X11 standard.
 
 At the same time a parallel implementation base on X11R5 was being developed by IBM for their PCs.  The project was started in 1992 as XFree86.  This code was donated to the X Consortium and the code has been part of the larger code base that the X Consortium managed.  So While the X Consortium--Open Group, [X.Org](http://www.x.org "X") was in charge of X development, they actually weren't innovating or developing anything.  It was the group at XFree86 that was doing all the innovation.
 
@@ -110,6 +109,9 @@ X will let you display a window and let you capture mouse and keyboard commands.
 * [Compiz](http://www.compiz.org/ "Compiz") - Fusion Adds more functionality to Compiz with more plugins, tools and libraries
 * Compiz - Allows for OpenGL use in windows and compositing
 * [Metacity](https://blogs.gnome.org/metacity/ "metacity") - Small window manager, using GTK+ 2 to do everything
+* [evilwm](http://www.6809.org.uk/evilwm/ "evilwm") - Maximizes screen real estate and provides good keyboard control
+* [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
+* [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME Desktop Environment
 
 ### Stacking
 
@@ -119,27 +121,21 @@ X will let you display a window and let you capture mouse and keyboard commands.
 * [Enlightenment](https://www.enlightenment.org/ "Enlightenment") - Focuses on pushing the limits of existing technologies
 * [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager
 * [Sawfish](http://sawfish.tuxfamily.org/ "Sawfish") - Extensible window manager using an Emacs Lisp-like scripting language
-
-### Minimalistic
-
+* [Motif - mwm](http://motif.ics.com/ "Motif") - Originally the libraries contained in the CDE -- now opensource
 * [IceWM](http://www.icewm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager
 * [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
 * [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager
-* [Pekwm](https://www.pekwm.org/projects/pekwm/ "Pekwm") - Originally based on the aewm++ window manager
+* [FLWM](https://en.wikipedia.org/wiki/FLWM "Fast and Light Window Manager") Fast and Light Window Manager
 
 ### Tiling
 
+* [Awsome](https://en.wikipedia.org/wiki/Awesome_(window_manager) "AwesomeWM") - mouse optional
 * [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
 * [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support.
 * [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Common Lisp window manager and Keyboard-only
 * [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager
+* [ion](https://en.wikipedia.org/wiki/Ion_(window_manager) "ion") - meant for many open windows and keyboard support
 * [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support.
-
-### Other
-
-* [evilwm](http://www.6809.org.uk/evilwm/ "evilwm") - Maximizes screen real estate and provides good keyboard control
-* [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
-* [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME Desktop Environment
 
 ## Desktop Environments
 
@@ -147,7 +143,7 @@ About the time that the OSI movement was launching in late 1990s a growing need 
 
 ### KDE [^33]
 
-The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window mangers and independent applications.  At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech. 
+The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window mangers and independent applications.  At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech.
 
 In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2009.
 
