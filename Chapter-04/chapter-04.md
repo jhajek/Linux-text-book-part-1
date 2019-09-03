@@ -293,7 +293,7 @@ These methods we will talk about later in Chapter 10.  For now we will use the c
 
 ![*GNOME Software Store*](images/Chapter-04/software-store.png "Software Store")
 
- This is a feature added by RedHat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
+This is a feature added by RedHat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
 
 ### Ubuntu Unity Desktop - Depricated
 
