@@ -102,7 +102,7 @@ As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ub
 
 ## Window Managers
 
-X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows on one machine and manage their state as well (open and close them?) How about arranging them?  Do you need them tiled or overlapping? Then you need a window manger to sit on top of X and handle that rendering.  Thankfully window managers are essentially common in Desktop Linux and almost inseparable from X in this case. Window Managers are not the full GUIs you might be used to. They are one step below a full blown desktop environment but window managers are very fast because they render simple windows and simple sets of icons.  Their job is to render content inside of particular windows and manage that window's state. Since Linux and X were developed independent of a central product, you will see a depth and breadth of different window managers serving different functions and features.  Some are very simple, some serve direct purposes, some are tied to full blown desktop environments.  Window Managers can be changed and swapped as needed because they are not a central part of the operating system.  As opposed to Windows and Mac where all you can do is change themes, you can't change window managers.  Some of the minimalistic window managers can be used to help older laptops and PCs remain useful and very usable with modern Linux, where modern commercial operating systems like the Mac for instance intentionally deprecates older hardware. You can break window managers into 5 categories based on their window behavior.
+X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows on one machine and manage their state as well (open and close them?) How about arranging them?  Do you need them tiled or overlapping? Then you need a window manger to sit on top of X and handle that rendering.  Thankfully window managers are essentially common in Desktop Linux and almost inseparable from X in this case. Window Managers are not the full GUIs you might be used to. They are one step below a full blown desktop environment but window managers are very fast because they render simple windows and simple sets of icons.  Their job is to render content inside of particular windows and manage that window's state. Since Linux and X were developed independent of a central product, you will see a depth and breadth of different window managers serving different functions and features.  Some are very simple, some serve direct purposes, some are tied to full blown desktop environments.  Window Managers can be changed and swapped as needed because they are not a central part of the operating system.  As opposed to Windows and Mac where all you can do is change themes, you can't change window managers.  Some of the minimalistic window managers can be used to help older laptops and PCs remain useful and very usable with modern Linux, where modern commercial operating systems like the Mac for instance intentionally deprecates older hardware. You can break window managers into 3 categories based on their window behavior.
 
 ### Compositing
 
@@ -213,17 +213,14 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 ![*https://source.android.com/devices/graphics/*](images/Chapter-04/Android/ape_fwk_graphics-400-by-367.png "Android Rendering Layers")
 
-### Who Uses What?
-
-[Who uses what?](https://en.wikipedia.org/wiki/Category:Desktop_environments_based_on_GTK%2B "Development Environments")
+### Who Uses What
 
 ----------------------------------------------------- ------------------------ -------------------------------
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
 [GNOME 3](https://www.GNome.org/ "GNOME")             GTK+ 3                   https://GNome.org/
-[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 2 -> GTK+ 3         http://www.xfce.org/
-[LXDE](http://lxde.org/ "LXDE")                       GTK+ 2                   http://lxde.org/
+[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3                   http://www.xfce.org/
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     http://lxqt.org/about/
-[MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 2 -> 3              http://mate-desktop.org/
+[MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   http://mate-desktop.org/
 [Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   http://cinnamon.linuxmint.com/
 [Unity](https://unity.ubuntu.com/ "unity")            UnityNext/Qt 5 -> GTK+ 3 https://unity.ubuntu.com/
 [Enlightenment](https://www.enlightenment.org/ "E17") EFL                      https://www.enlightenment.org/
@@ -252,7 +249,7 @@ Each desktop environment has the ability to modify and display a theme on top of
 * file manager desktop icons
 * icons in menus and buttons
 
-Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBUnut") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions, but recent development on the Ubuntu Touch project has sadly ended.
+Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBunutu") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions, but recent development on the Ubuntu Touch project has sadly ended.
 
 ### Gnome 3.2x Features
 
