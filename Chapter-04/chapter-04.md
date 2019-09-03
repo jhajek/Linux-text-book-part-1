@@ -281,15 +281,17 @@ Previously Linux distributions had made an effort to build in Software Stores, m
 
 These methods we will talk about later in Chapter 10.  For now we will use the commandline terminal for installing window managers and desktop environments.  You can access this via Unity Dash button and type in ```Terminal``` or the Activities tab in Fedora 26 and type ```Terminal``` as well.  From the Terminal you can add packages listed above.   For Ubuntu you would use the apt-get command for updating and then installing packages. On Fedora 26+ you would use the dnf command.  
   
-__Ubuntu__
+#### Ubuntu
+
 > ```sudo apt-get update```  then ```sudo apt-get install i3 icewm fvwm flwm evilwm fluxbox dwm xmonad mwm xfce4-```  
   
-__Fedora__
+#### Fedora
+
 > ```sudo dnf install i3 icewm xmonad mwm @xfce```
 
-#### Fedora GNOME Software Store
+#### GNOME Software Store
 
-![*Fedora Software Store*](images/Chapter-04/software-store.png "Software Store")
+![*GNOME Software Store*](images/Chapter-04/software-store.png "Software Store")
 
  This is a feature added by RedHat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
 
@@ -462,19 +464,33 @@ You will need to install two GNOME 3 extensions from [https://extensions.gnome.o
 To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap:
 
 1) Android Studio
-1) Spotify
+1) Blender
 1) Slack
 1) Skype
+1) Visual Studio Code
 
-#### Fedora 28 Flatpak Install
+#### Fedora 30 Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via Snap:
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via flatpak:
 
-1) Gimp
+1) Kdenlive
 1) Visual Studio Code
 1) LibreOffice
-1) Atom
-1) 0 A.D.  
+1) AbiWord
+1) VLC
+
+#### Ubuntu 18.04 Flatpak Install
+
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via flatpak:
+
+1) Remmina
+1) Shotcut
+1) Fondo
+1) VLC
+
+#### AppImage Install
+
+Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instrctions to install and run these AppImages on both Ubuntu 18.04 and Fedora 30.  
 
 #### Ubuntu window mangers and desktop environment
 
@@ -487,10 +503,10 @@ In order to change the default window manager or desktop environment you need to
 1) Compositing window manager
 1) Stacking window manager
 1) Tiling window manager
-1) Minimalistic window manager
-1) Search the web for an additional window manager not listed
 1) Install Enlightenment (E17) on Ubuntu 18.04
-1) Install Lumina on Fedora 28 - [https://lumina-desktop.org/get-lumina/](https://lumina-desktop.org/get-lumina/ "Lumina install")
+1) Install the Xfce Dektop on Fedora 30
+1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
+1) Install the Xfce Desktop on Ubuntu 18.04
 
 **Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the i3 package.
 
@@ -506,7 +522,7 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
 ![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
-**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it.
+**Deliverable:** Take screenshots of all succesful install of software.  Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it.
 
 #### Footnotes
 
