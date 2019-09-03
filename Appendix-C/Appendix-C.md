@@ -167,49 +167,52 @@ Answer these questions (not all of the Answers are in each case study!)
 
 Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
 
-  * ~2:35 Who is Andy Hall and Achim Hasenmuller?
-  * ~3:00 What is Simon Phipps relationship to the VirtualBox project?
-  * ~4:45 What does VirtualBox do in Andy Hall's words?
-  * ~6:30 What other company previously owned VirtualBox?
-  * ~11:20 According to Simon, what is the definition of open core?
-  * ~14:17 How does VirtualBox fit into Oracle's business model?
-  * ~16:15 As of the time of the podcast (2010) how many downloads did VirtualBox have?
-  * ~20:25 How does VirtualBox handle virtualized I/O?
-  * ~22:40 What did Intel and AMD introduce to help ease virtualization in VirtualBox?
-  * ~26:00 What two models of network card did VirtualBox choose to represent their virtual hardware and why?
-  * ~27:40 What does VirtualBox almost get native performance on?
-  * ~29:29 How does VirtualBox treat USB devices in Guest OSes?
-  * ~31:00 What are 4 virtual networking modes in VirtualBox?
-  * ~32:30 What is the difference between NAT and Bridged networking?
-  * ~39:30 What Type of hypervisor is VirtualBox?
-  * ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
+* ~2:35 Who is Andy Hall and Achim Hasenmuller?
+* ~3:00 What is Simon Phipps relationship to the VirtualBox project?
+* ~4:45 What does VirtualBox do in Andy Hall's words?
+* ~6:30 What other company previously owned VirtualBox?
+* ~11:20 According to Simon, what is the definition of open core?
+* ~14:17 How does VirtualBox fit into Oracle's business model?
+* ~16:15 As of the time of the podcast (2010) how many downloads did VirtualBox have?
+* ~20:25 How does VirtualBox handle virtualized I/O?
+* ~22:40 What did Intel and AMD introduce to help ease virtualization in VirtualBox?
+* ~26:00 What two models of network card did VirtualBox choose to represent their virtual hardware and why?
+* ~27:40 What does VirtualBox almost get native performance on?
+* ~29:29 How does VirtualBox treat USB devices in Guest OSes?
+* ~31:00 What are 4 virtual networking modes in VirtualBox?
+* ~32:30 What is the difference between NAT and Bridged networking?
+* ~39:30 What Type of hypervisor is VirtualBox?
+* ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
 
 ### Lab
 
 You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
 
-+ Debian Based
-    - Ubuntu 18.04 Desktop edition
-    - Ubuntu 16.04 Desktop Edition
-    - Ubuntu 18.04 Server Edition
-    - Ubuntu 16.04 Server Edition
-    - Linux Mint 18
-    - Lubuntu 18.04 Desktop edition
-    - Xubuntu 18.04 Desktop edition
-    - Trisquel Linux
-    - Debian 9.x
+* Debian Based
+  * Ubuntu 18.04 Desktop edition
+  * Lubuntu 18.04 Desktop edition
+  * Trisquel Linux
+  * Debian 10.x
+  * PureOS 8.x
 
-+ Red Hat Based
-    - Fedora 28 - Workstation edition
-    - Fedora Desktop XFCE Spin
-    - Centos 7.x - minimal install
-    - Oracle Linux 7 - (4GB download)
+* Red Hat Based
+  * Fedora 30 - Workstation edition
+  * Centos 7.x - minimal install
 
-+ BSD based
-    - TrueOS (latest)
-    - FreeBSD 11.x
+* BSD based
+  * OmniOS Community Edition
+
+* Other Linux
+  * Alpine Linux
+  * MX Linux
+  * Arch Linux
+  * Intel Clear Linux Desktop
+
+* Network Based Install
+  * openSuse Tumbleweed
 
 ## Chapter 04
+
 ### Review Questions
 
 Linux Desktop and GUI
@@ -298,21 +301,21 @@ apply)
 
 Please answer these questions from the Fedora Project podcast on [FLOSS - http://twit.tv/floss/71](http://twit.tv/floss/71 "Fedora Project")
 
-  * ~9:11 What is the Fedora Project?
-  * ~11:35 How does Redhat make money on Fedora if it is free?
-  * ~12:30 What is the Fedora release cycle and can businesses use this release cycle?
-  * ~13:30 What is the relationship between Fedora and Redhat Enterprise Linux (RHEL)?
-  * ~25:00 What percentage of the Fedora Project is open source?
-  * ~35:00 On further inspection is Fedora Project really opened source according to the Free Software Foundation?
-  * ~36:20 Does Fedora include proprietary NVidea drivers? Why or why not?
-  * ~44:30 Who is the most famous Fedora user?
-  * ~1:01:00. What is the difference between Centos and RHEL?
+* ~9:11 What is the Fedora Project?
+* ~11:35 How does Redhat make money on Fedora if it is free?
+* ~12:30 What is the Fedora release cycle and can businesses use this release cycle?
+* ~13:30 What is the relationship between Fedora and Redhat Enterprise Linux (RHEL)?
+* ~25:00 What percentage of the Fedora Project is open source?
+* ~35:00 On further inspection is Fedora Project really opened source according to the Free Software Foundation?
+* ~36:20 Does Fedora include proprietary NVidea drivers? Why or why not?
+* ~44:30 Who is the most famous Fedora user?
+* ~1:01:00. What is the difference between Centos and RHEL?
 
 ### Lab
 
 Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.
 
-**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H3 header for each item and place a screenshot of the result below it. 
+**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H2 header for each item and place a screenshot of the result below it.
 
 #### Package based install
 
@@ -320,15 +323,12 @@ Clone the source code repository for the text book [https://github.com/jhajek/Li
 
 #### GNOME Software Store
 
-You will install assorted softwares using the Gnome Software application in Fedora 28. The list of software is as follows:
+You will install assorted softwares using the Gnome Software application in Fedora 30. The list of software is as follows:
 
 1) Inkscape
 1) Audacity
 1) GNOME Tweak Tool
-1) Chromium
-1) Geary
-1) Thunderbird
-1) gPodder
+1) Chromium Web Browser
 1) Xed (text editor)
 
 #### GNOME 3 Extensions
@@ -337,48 +337,69 @@ You will need to install two GNOME 3 extensions from [https://extensions.gnome.o
 
 1) Caffeine
 1) Dash to Dock
-1) SystemMonitor
-1) Choose any other one plugin
+1) Freon (first requires you to install the package ```lm_sensors```)
+1) Hide Dash
 
-#### Ubuntu 18.04 Snaps Install
+#### Snaps Install
 
-To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap:
+To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap on Ubuntu 18.04 desktop:
 
 1) Android Studio
-1) Spotify
+1) Blender
 1) Slack
 1) Skype
+1) Visual Studio Code
 
-#### Fedora 28 Flatpak Install
+#### Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via Snap:
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via flatpak on the Fedora virtual machine:
 
-1) Gimp
+1) Kdenlive
 1) Visual Studio Code
 1) LibreOffice
-1) Atom
-1) 0 A.D.  
+1) AbiWord
+1) VLC
 
-#### Ubuntu window mangers and desktop environment
+#### Ubuntu 18.04 Flatpak Install
 
-You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via flatpak:
 
-In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen. 
+1) Remmina
+1) Shotcut
+1) Fondo
+1) VLC
+
+#### AppImage Install
+
+Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instrctions to install and run these AppImages on both Ubuntu 18.04 and Fedora 30.  Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").  This can be on a system of your choice.
+
+1) Subsurface
+1) Archipelago
+1) LibrePCB
+
+#### Window Mangers
+
+You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen.
 
 ![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
 
 1) Compositing window manager
 1) Stacking window manager
 1) Tiling window manager
-1) Minimalistic window manager
-1) Search the web for an additional window manager not listed
-1) Install Enlightenment (E17) on Ubuntu 18.04 
-1) Install Lumina on Fedora 28 - [https://lumina-desktop.org/get-lumina/](https://lumina-desktop.org/get-lumina/ "Lumina install")
+1) Install Enlightenment (E17) on Ubuntu 18.04
 
-**Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the 
+**Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the i3 package.
 
 * ```sudo apt-cache search i3```
 * ```sudo dnf search i3```
+
+#### Desktop Environments
+
+Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
+
+1) Install the Xfce Dektop on Fedora 30
+1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
+1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-dekstop but just xfce4 package)
 
 #### Ubuntu Theme tweaking
 
@@ -389,6 +410,7 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
 ![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
+**Deliverable:** Take screenshots of all succesful install of software.  Create a file called ```Readme.md``` and create an H2 header for each item and place a screenshot of the result below it.
 
 ## Chapter 5
 
