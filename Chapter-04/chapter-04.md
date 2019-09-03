@@ -201,13 +201,13 @@ LXDE is the desktop environment of the Lubuntu distro which is a combination of 
 
 This project started in 1997 and intended to be a virtual desktop window manager.  This would involve a grid of desktops a user could move windows around and onto.  The initial release was in 1999 called E16.  The second release E17 took 12 years.  But E17 had grown from just a window manager into a full-fledged desktop environment using its own libraries called Enlightenment Foundation Libraries.  Enlightenment can also be a shell that can sit on top of KDE and GNOME.
 
-#### Lumina
+### Lumina
 
-A distro of FreeBSD, called TrueOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE but the amount of work needed to remove the Linux specific parts prevented new research from being done. Now they have independant development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE and allows Lumina to run on BSD based systems and Linux.
+A distro of FreeBSD, called TrueOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE but the amount of work needed to remove the Linux specific parts prevented new research from being done. Now they have independent development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE and allows Lumina to run on BSD based systems and Linux.
 
 Lumina has been written from scratch in C++/Qt5 and is not based on any existing desktop’s code-base, and does not use any of the Linux-based desktop frameworks (ConsoleKit, PolicyKit, D-Bus, systemd, etc..) and is now available cross platform [BSD and Linux](https://lumina-desktop.org/get-lumina/ "Lumina").
 
-#### Android
+### Android
 
 Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.  It has a custom rendering layer that does not use X or Wayland.
 
