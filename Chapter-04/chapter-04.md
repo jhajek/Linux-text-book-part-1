@@ -129,7 +129,7 @@ X will let you display a window and let you capture mouse and keyboard commands.
 
 ### Tiling
 
-* [Awsome](https://en.wikipedia.org/wiki/Awesome_(window_manager) "AwesomeWM") - mouse optional
+* [Awesome](https://en.wikipedia.org/wiki/Awesome_(window_manager) "AwesomeWM") - mouse optional
 * [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
 * [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support.
 * [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Common Lisp window manager and Keyboard-only
@@ -282,10 +282,10 @@ Previously Linux distributions had made an effort to build in Software Stores, m
 These methods we will talk about later in Chapter 10.  For now we will use the commandline terminal for installing window managers and desktop environments.  You can access this via Unity Dash button and type in ```Terminal``` or the Activities tab in Fedora 26 and type ```Terminal``` as well.  From the Terminal you can add packages listed above.   For Ubuntu you would use the apt-get command for updating and then installing packages. On Fedora 26+ you would use the dnf command.  
   
 __Ubuntu__
-> ```sudo apt-get update```  then ```sudo apt-get install i3 icewm xmonad mutter xfce4 lxde```  
+> ```sudo apt-get update```  then ```sudo apt-get install i3 icewm fvwm flwm evilwm fluxbox dwm xmonad mwm xfce4-```  
   
 __Fedora__
-> ```sudo dnf install i3 icewm xmonad mutter @xfce```
+> ```sudo dnf install i3 icewm xmonad mwm @xfce```
 
 #### Fedora GNOME Software Store
 
