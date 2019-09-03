@@ -413,8 +413,8 @@ In the builder, there is an iso_url and iso_checksum values that will retrieve i
 
 ```json
 
-    "iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
-    "iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
+"iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
+"iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
 
 ```
 
