@@ -561,10 +561,10 @@ cd Linux-text-book-part-1/Chapter-13/packer-build-templates
 packer build ubuntu18043-vanilla.json
 
 # Upon completion of the Packer build...
-vagrant box add ../build/ubuntu18042-vanilla*.json --name ubuntu-18042
+vagrant box add ../build/ubuntu18043-vanilla*.json --name ubuntu-18043-vanilla
 cd ../build
-mkdir ubuntu-18043
-vagrant init ubuntu-18043
+mkdir ubuntu-18043-vanilla
+vagrant init ubuntu-18043-vanilla
 vagrant up
 vagrant ssh
 
