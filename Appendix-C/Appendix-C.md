@@ -381,8 +381,6 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen.
 
-![*Change Window Mangers*](images/Chapter-04/ubuntu-window-manager.png "Change")
-
 1) Compositing window manager
 1) Stacking window manager
 1) Tiling window manager
