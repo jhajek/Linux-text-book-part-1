@@ -295,28 +295,13 @@ These methods we will talk about later in Chapter 10.  For now we will use the c
 
  This is a feature added by RedHat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
 
-### Ubuntu Unity Features - Depricated
+### Ubuntu Unity Desktop - Depricated
 
 **As of April 2018 Ubuntu releasde Unity has been depricated in favor of GNOME3, this section is kept for historical reference.**
 
 [Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME 3 shell augmentation/replacement.  This means that Unity sits on top of GNOME 3 but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.
 
 ![*Unity Desktop*](images/Chapter-04/unity-small.png "Unity")
-
-> "Unity has a vertical task management panel on the left-hand side and a menu panel at the top of the screen. Using a sidebar for task management conserves vertical screen space, which is much more valuable on today’s widescreen monitors. The task panel displays icons for commonly-used applications and programs that are currently running. Clicking on an icon will give the target application focus if it is already running or launch it if it is not already running. If you click the icon of an application that already has focus, Unity will activate an Expose-style view of all the open windows associated with that application." [^40]
-
-#### Unity Design Goals
-
-What is the goal of Unity?  "The ultimate goal of the next generation of Unity (UnityNext) is to fulfill the following three requirements: " [^41]
-
-* Seamlessly scale across and adapt to multiple form factors, taking into account device specific properties and constraints and optimizing for them.
-* Carry Unity’s visual design language and identity across the different form factors and present users with a friendly, well-known and consistent user experience no matter what Ubuntu-powered device they are using.
-* Support the idea of a converged device that enables a user to rely completely on a mobile device as his/her primary computing environment.
-  * By enabling the shell/system user experience to dynamically adapt to different usage scenarios, e.g., morphing the shell to a full-blown desktop shell when being connected to an external monitor and external input devices or to the Unity TV interface when being connected to a “big screen”.
-
-## Chapter Conclusions and Review
-
-Through this chapter we learned about the details of what X is and how it relates to modern desktop Linux GUIs.  We learned how window managers and desktop environments extend X and give us modern Linux Desktops.  We learned about the two major desktop environments and how they were developed.  We learned about the major desktop environment toolkits and we learned about theming.  Finally we covered the basic terminologies of GNOME 3 on Fedora and Unity 7 on Ubuntu.
 
 ### Review Questions
 
