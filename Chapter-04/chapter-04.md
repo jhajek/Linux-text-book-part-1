@@ -314,20 +314,6 @@ What is the goal of Unity?  "The ultimate goal of the next generation of Unity (
 * Support the idea of a converged device that enables a user to rely completely on a mobile device as his/her primary computing environment.
   * By enabling the shell/system user experience to dynamically adapt to different usage scenarios, e.g., morphing the shell to a full-blown desktop shell when being connected to an external monitor and external input devices or to the Unity TV interface when being connected to a “big screen”.
 
-#### Unity Components
-
-![*Application Indicators*](images/Chapter-04/application-indicators.jpg "Application Indicators")
-
-> Application indicators provide a simple and effective API to provide an application icon in the notification area in the top-right part of the screen, and provide simple, accessible, and complete access to key parts of your application.  [^42]  
-
-![*System Indicators*](images/Chapter-04/system-indicators.png "System Indicators")
-
-> System indicators provide a common place for applications to interact with the user, providing an open API for adding deep integration into the desktop experience. This provides the user with a unified experience when using a variety of applications that provide messaging, multi-media playback, and calendaring. [^43]
-
-![*OSD Notifications*](images/Chapter-04/osd.jpg "OSD Notifications")
-
-> Notify OSD provides a notification system that provides simple and elegant bubbles that can convey different types of information, but are always dismissible by simply moving your mouse over the bubble, to fade it. [^44]
-
 ## Chapter Conclusions and Review
 
 Through this chapter we learned about the details of what X is and how it relates to modern desktop Linux GUIs.  We learned how window managers and desktop environments extend X and give us modern Linux Desktops.  We learned about the two major desktop environments and how they were developed.  We learned about the major desktop environment toolkits and we learned about theming.  Finally we covered the basic terminologies of GNOME 3 on Fedora and Unity 7 on Ubuntu.
