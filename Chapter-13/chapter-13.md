@@ -360,12 +360,11 @@ Let us look at an example JSON template file: This source can be retrieved from:
 
 ```
 
-There are 4 sections we are interested in:
+There are 3 sections we are interested in:
 
 1. builders
 1. provisioners
 1. post-processors
-1. vboxmanage - listed but is not required and is an artifact related to VirtualBox
 
 #### Builders
 
@@ -466,13 +465,25 @@ Here you see I am converting the VirtualBox *.ovf file into a Vagrant Box file *
 
 Types of Post-Processing include:
 
-1. Amazon AMI
-1. Atlas (Hashicorp artifact enterprise deployment tool)
-1. Compress (simply a compressed archive)
-1. Docker
-1. Google Compute Engine
-1. Vagrant and Vagrant Cloud (cloud based storage and management of Vagrant Boxes)
-1. VMWare vShpere
+1. Alicloud Import
+1. Amazon Import
+1. Artifice
+1. Compress
+1. Checksum
+1. DigitalOcean Import
+1. Docker Import
+1. Docker Push
+1. Docker Save
+1. Docker Tag
+1. Exoscale Import
+1. Google Compute Export
+1. Google Compute Import
+1. Manifest
+1. Shell (Local)
+1. Vagrant
+1. Vagrant Cloud
+1. vSphere
+1. vSphere Template
 
 You can use multiple post-processors if desired.
 
