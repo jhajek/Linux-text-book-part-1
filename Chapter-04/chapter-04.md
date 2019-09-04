@@ -297,6 +297,10 @@ This is a feature added by RedHat to improve upon Gnome Packages, which is the d
 
 [Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME 3 shell augmentation/replacement.  This means that Unity sits on top of GNOME 3 but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.  Unity survices this day as part of the abandoned [Ubuntu Touch](https://ubports.com/ "Ubuntu Touch") mobile phone operatiing system.
 
+## Conclusion
+
+In this chapter we learned about the creation and evolution of the desktop GUI.  From ttys to X to Wayland and a modern compositor.  We also learned about window managers and the four major desktop environments.  Finally we learned about the major GUI desktop environment development kits and how each major DE uses them.
+
 ### Review Questions
 
 Linux Desktop and GUI
