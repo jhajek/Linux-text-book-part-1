@@ -275,7 +275,7 @@ To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](h
 
 Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android.   The issue with a software store became the ability to make money, charge money, and distribute money.  All though the distributions still support Software Stores, their heart is not in this mannor of software installation.  The original way to install software was via a package manager, which the stores were a front for anyway.  There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux.  These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").
 
-These methods we will talk about later in Chapter 10.  For now we will use the commandline terminal for installing window managers and desktop environments.  You can access this via Unity Dash button and type in ```Terminal``` or the Activities tab in Fedora 26 and type ```Terminal``` as well.  From the Terminal you can add packages listed above.   For Ubuntu you would use the apt-get command for updating and then installing packages. On Fedora 26+ you would use the dnf command.  
+To access the terminal on a GNOME3 desktop, click the **Activities** button at the top and in the **find** box type: *Terminal*. 
   
 #### Ubuntu
 
@@ -480,9 +480,11 @@ From the command line, run the ```dronekit-sitl --version``` command and take a 
 
 Using the the ```pip``` command install the Amazon Web Services Command Line toolkit from [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/ "AWS CLI Install"). From the command line take a screenshot of the command ```aws --version```
 
-Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instructions to install a Rust based version of the GNU coretools. Follow the tutorial to help you download and compile these tools with Rust, [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils"); use the ```cargo build``` and ```cargo install``` commands.
+Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instructions to install a Rust based version of the GNU coretools. Follow the tutorial to help you download and compile these tools with Rust, [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils"); use the ```cargo build``` and ```cargo install``` commands. This will compile Rust based versions of all of the GNU C based coreutils.
 
 To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
+
+Run the command ```who --version``` and then ```uutils who --version``` and take a screenshot of the succesful output.
 
 #### Window Mangers
 
