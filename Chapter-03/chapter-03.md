@@ -628,9 +628,9 @@ These apps appear on your start menu after a logout and log back in.  They can a
 
 ## Compiling and Installing source code
 
-In addition to packages you may still want to compile software from source.  This way you can take advantage of the latest compiler optimizations and CPU support.  Or compile older versions that have a feature you need that is no longer supported as a package any more.  
+In addition to packages you may still want to compile software from source.  This way you can take advantage of the latest compiler optimizations and CPU support.  Or compile older versions that have a feature you need that is no longer supported as a package any more.
 
-Let's take a look at this link.  This is the Apache webserver version 2.4.x latest source code and instructions for compiling software. [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html "Apache").  Follow the link and download the source code, extract it and let's go about compiling the software.   The first step is to run the ```./configure``` command.  This script does what is called a sanity check, and checks to make sure your system has the correct tools to build the software--some configure scripts will also check for dependencies.  You may need to install APR and APR-Util via the package manager or via source as instructed.  
+Let's take a look at this link.  This is the Apache webserver version 2.4.x latest source code and instructions for compiling software. [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html "Apache").  Follow the link and download the source code, extract it and let's go about compiling the software.   The first step is to run the ```./configure``` command.  This script does what is called a sanity check, and checks to make sure your system has the correct tools to build the software--some configure scripts will also check for dependencies.  You may need to install APR and APR-Util via the package manager or via source as instructed.
 
 ### GNU GCC
 
@@ -641,7 +641,7 @@ The main tool needed is the GNU C compiler or GCC for short.  This was one of th
 As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled apache binaries, it defaults to ```/usr/local```.
 
 ```bash
-./configure --prefix=PREFIX  
+./configure  
 make  
 sudo make install  
 ```
@@ -650,7 +650,7 @@ sudo make install
 
 In addition to compiling software and using package managers the Python language has become common in its application usage and has its own installers for applications.  Looking at the Denyhosts project on their GitHub account, [https://github.com/denyhosts/denyhosts](https://github.com/denyhosts/denyhosts "Denyhosts") you will see the latest source code version 3.0 available but not in an RPM or DEB package but as a python install package.  We simply need to clone the repository down and enter the directory we just cloned.   We can then install the software, similar to the GCC build tools, by executing just this command: ```sudo python setup.py install```.  Note you may need a dependency depending on what system you are on - the installer will tell you what you need in addition to making this work.
 
-You can see an example of how to install Python language packages (eggs).  Take for example the packages required to install [dronekit.io](http://dronekit.io "drone kit").  Drtone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones.  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` - Python Package Installer.
+You can see an example of how to install Python language packages (eggs).  Take for example the packages required to install [dronekit.io](http://dronekit.io "drone kit").  Drtone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones.  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` the Python Package Installer.
 
 ```sudo apt-get install python-pip python-dev```
 
