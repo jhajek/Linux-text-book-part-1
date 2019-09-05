@@ -486,6 +486,7 @@ Install these desktops, restart your system and as you login switch your desktop
 1) Install the Xfce Dektop on Fedora 30
 1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
 1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-dekstop but just xfce4 package)
+1) Download the KDE Neon Desktop distro from [https://neon.kde.org/download](https://neon.kde.org/download "KDE desktop Neon")
 
 #### Ubuntu Theme tweaking
 
