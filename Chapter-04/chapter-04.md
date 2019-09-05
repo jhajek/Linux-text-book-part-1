@@ -279,7 +279,7 @@ These methods we will talk about later in Chapter 10.  For now we will use the c
   
 #### Ubuntu
 
-> ```sudo apt-get update```  then ```sudo apt-get install i3 icewm fvwm flwm evilwm fluxbox dwm xmonad mwm xfce4-```  
+> ```sudo apt-get update```  then ```sudo apt-get install i3 icewm fvwm flwm evilwm fluxbox dwm xmonad mwm xfce4```  
   
 #### Fedora
 
@@ -403,11 +403,9 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 
 Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.
 
-**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H2 header for each item and place a screenshot of the result below it.
-
 #### Package based install
 
-Clone the source code repository for the text book [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "Book source code") to your Ubuntu 18.04 desktop and Fedora 28 desktop.   Follow the install instructions in the repo to build a copy of the book.  Take a screen shot of the title page of the PDF
+**Deliverable:** Take screenshots of all succesful install of the software listed.  
 
 #### GNOME Software Store
 
@@ -417,7 +415,7 @@ You will install assorted softwares using the Gnome Software application in Fedo
 1) Audacity
 1) GNOME Tweak Tool
 1) Chromium Web Browser
-1) Xed (text editor)
+1) Handbrake
 
 #### GNOME 3 Extensions
 
@@ -467,7 +465,7 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 
 #### Window Mangers
 
-You will chose 1 of the window managers from the categories listed earlier in the chapter and install them.  Once installed you need to log out and restart your session.  In order to change the default window manager on GNOME3 desktop environment you need to click on the user name and select the little gear below the password field.
+You will chose 1 of the window managers from the categories listed earlier in the chapter and install them.  Once installed you need to log out and restart your session.  In order to change the default window manager on GNOME3 desktop environment you need to click on the user name and select the little gear below the password field.  In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
 
 ![*Change Window Mangers*](images/Chapter-04/GNOME3/window-manager.png "Change")
 
