@@ -463,6 +463,27 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 1) Archipelago
 1) LibrePCB
 
+#### Python and Rust Packages
+
+From Chapter 3, you need to install software packages using the Python pip installer and the Rust Language using their cargo package manager.
+
+You can see an example of how to install Python language packages (eggs). Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones located at [dronekit.io](http://dronekit.io "drone kit").  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` the Python Package Installer.
+
+```sudo apt-get install python-pip python-dev```
+
+```bash
+sudo pip install dronekit
+sudo pip install dronekit-sitl
+```
+
+From the command line dronekit --version and print the output.
+
+Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instructions to install a Rust based version of the GNU coretools. Follow the tutorial to help you download and compile these tools with Rust, [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils").
+
+To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
+
+
+
 #### Window Mangers
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and install them.  Once installed you need to log out and restart your session.  In order to change the default window manager on GNOME3 desktop environment you need to click on the user name and select the little gear below the password field.  In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
