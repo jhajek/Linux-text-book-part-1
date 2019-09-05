@@ -476,15 +476,13 @@ sudo pip install dronekit
 sudo pip install dronekit-sitl
 ```
 
-From the command line dronekit --version and print the output.
+From the command line, run the ```dronekit-sitl --version``` command and take a screenshot of the output.
 
 Using the the ```pip``` command install the Amazon Web Services Command Line toolkit from [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/ "AWS CLI Install"). From the command line take a screenshot of the command ```aws --version```
 
 Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instructions to install a Rust based version of the GNU coretools. Follow the tutorial to help you download and compile these tools with Rust, [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils"); use the ```cargo build``` and ```cargo install``` commands.
 
 To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
-
-
 
 #### Window Mangers
 
