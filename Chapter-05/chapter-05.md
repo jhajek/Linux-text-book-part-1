@@ -83,7 +83,7 @@ __var__         Variable data - used for storing databases, webserver files, and
 There are 3 additional directories that are non-standard but appear on pretty much all Linux distros [^62].  You can see a screenshot below.
 
 Directory       Function
-----------  --------------------------------------------------------------------------------------------
+----------  ---------------------------------------------------------------------------------------------
 __home__        Users' home directories, containing saved files, personal settings, place that you own.
 __root__        Home directory for the root user - not to be confused with /
 __lib64__       Alternate home for 64 bit libraries
@@ -101,8 +101,8 @@ There are a series of standard directory locations that are under /usr that you 
 
 : Secondary hierarchy for read-only user data; contains the majority of (multi-)user utilities and applications.
 
-sub-directory                                      Function
---------------  ----------------------------------------------------------------------------------
+sub-dir                                      Function
+---------  ----------------------------------------------------------------------------------------
 bin              Non-essential command binaries (not needed in single user mode); for all users.
 lib              Libraries for the binaries in /usr/bin/ and /usr/sbin/.
 local             Tertiary hierarchy for local data, specific to this host.
@@ -121,7 +121,7 @@ Leonart Poettering, the Red Hat engineer and leader of the systemd init system h
 
 >  "POSIX is really an encapsulation of some choices that various Unix systems made along the way, rather than a body of text that got standardized and then implemented. According to Poettering, Linux should use its position as "market leader" (in the market of free Unix-like operating systems) and try out some new things. If developers don't force themselves into the constraints of the POSIX API, they could develop some really innovative software, like systemd shows. When these new developments happen to turn out really interesting, other operating systems could eventually adopt them as well." [^53]
 
->  "Not having to care about portability has two big advantages: we can make maximum use of what the modern Linux kernel offers these days without headaches -- Linux is one of the most powerful kernels in existence, but many of its features have not been used by the previous solutions. And secondly, it greatly simplifies our code and makes it shorter: since we never need to abstract OS interfaces the amount of glue code is minimal, and hence what we gain is a smaller chance to create bugs, a smaller chance of confusing the reader of the code (hence better maintainability) and a smaller footprint." [^54]    
+>  "Not having to care about portability has two big advantages: we can make maximum use of what the modern Linux kernel offers these days without headaches -- Linux is one of the most powerful kernels in existence, but many of its features have not been used by the previous solutions. And secondly, it greatly simplifies our code and makes it shorter: since we never need to abstract OS interfaces the amount of glue code is minimal, and hence what we gain is a smaller chance to create bugs, a smaller chance of confusing the reader of the code (hence better maintainability) and a smaller footprint." [^54]
 
 > "In fact, the way I see things the Linux API has been taking the role of the POSIX API and Linux is the focal point of all Free Software development. Due to that I can only recommend developers to try to hack with only Linux in mind and experience the freedom and the opportunities this offers you. So, get yourself a copy of The Linux Programming Interface, ignore everything it says about POSIX compatibility and hack away your amazing Linux software. It's quite relieving!" [^54]
 
@@ -135,9 +135,9 @@ What is the difference? Think of your school or home address.  If I told you I l
 
 But what if you already lived in the US and in the city of Chicago?  What if you lived on the same street as the address listed above, there would be no need to repeat all the detailed information.  Perhaps I would just say I live at *"325 West"* and you would know where to go.  This concept is called __relative path__. Let us see this concept in action.  Later in this chapter we will cover shell commands in detail but for now we will introduce a few basic ones.
 
-  * cd - used to change directory and move up and down the filesystem tree.
-  * pwd - used to check what your present location is on the filesystem tree.
-  * ls - used to list the content of the directory where you are located on the filesystem tree.
+* `cd` - used to change directory and move up and down the filesystem tree.
+* `pwd` - used to check what your present location is on the filesystem tree.
+* `ls` - used to list the content of the directory where you are located on the filesystem tree.
 
 When the terminal window opens you are automatically deposited at a specific location on the filesystem tree.  You are placed in your __HOME__ directory.  In this case the absolute path to that location is ```/home/jeremy``` (my username being jeremy in this example.)  You can always come back to this directory by using the shortcut of ```~``` like this:  ```cd ~```. Let us open a terminal window and try this ourselves.
 
@@ -169,11 +169,11 @@ The first two options are absolute paths, the third option is a relative path wi
 
 You could do this:
 
-1)  ```cd ../``
-2)  and then ```cd Downloads``` which would get the job done.
-3)  In one single command: ```cd ../Downloads```
-4)  This command will be interpreted as: ```../``` means go up one directory
-5)  The next directory name ```Downloads``` means go down one directory.  
+1. ```cd ../``
+1. and then ```cd Downloads``` which would get the job done.
+1. In one single command: ```cd ../Downloads```
+1. This command will be interpreted as: ```../``` means go up one directory
+1. The next directory name ```Downloads``` means go down one directory.  
 
 ![*Path demonstration*](images/Chapter-05/path/path-commands.png "Path Commands")
 
@@ -197,20 +197,21 @@ Many may say, *"Hey I have a nice point and click GUI why do I need to use the c
 
 ### Basic Shell Commands
 
-The Shell is where we enter commands for navigation, manipulation, and creation of text files.  Some of the basic commands covered in chapter 5 and 6 are in the table below.  In the course of your career you need to memorize at least these commands by name and what they do.   
+The Shell is where we enter commands for navigation, manipulation, and creation of text files.  Some of the basic commands covered in chapter 5 and 6 are in the table below.  In the course of your career you need to memorize at least these commands by name and what they do.
 
 -------------------- ------- ------- ------ ------ -------- ------- -----
 meta-commands          cd      ls     pwd    file    date
 file-related           cp      mv     mkdir  touch   wget    rmdir   rm
 file-ownership        chmod   chown   chgrp
 display-related        cat     less   more    tac    head    tail
-display-augmentation   grep    awk    sed      
+display-augmentation   grep    awk    sed
 help commands          man    info    find   which  locate
 -------------------- ------- ------- ------ ------ -------- ------- -----
 
 cd
 
 : This command is used to help you change the directory location.  The shell can only be pointed at one file location at a time.  In a GUI you are used to *"clicking"* on folders to navigate up and down the filesystem hierarchy.  What you are actually doing when you click is issuing __cd__ commands to the kernel which is returning instructions of what the GUI should now render.  __Usage examples:__
+
 ```bash
 cd /tmp
 ```
@@ -218,6 +219,7 @@ cd /tmp
 ls
 
 : This command is used to list the content of the current directory you are in.  __Usage examples:__
+
 ```bash
 ls /etc
 ```
@@ -225,6 +227,7 @@ ls /etc
 cp
 
 : This command is used to cp the contents of a file, can also be used to copy and rename a file.  __Usage examples:__
+
 ```bash
 cp *.txt /home/user/Documents
 ```
@@ -232,6 +235,7 @@ cp *.txt /home/user/Documents
 mv
 
 : This command is used to rename or move a file in-place, though the actions are technically the same.  By renaming a file you are essentially moving its contents to a new file in-place. __Usage examples:__
+
 ```bash
 mv ./secret-passwords.txt ./new-secret-passwords.txt
 ```
@@ -239,6 +243,7 @@ mv ./secret-passwords.txt ./new-secret-passwords.txt
 mkdir
 
 : This command is used to create or make a new directory. Pronounced *"make-dur"* __Usage examples:__
+
 ```bash
 mkdir ~/legally-downloaded-music
 ```
@@ -246,6 +251,7 @@ mkdir ~/legally-downloaded-music
 touch
 
 : This command is used to create a new blank file or to update the timestamp of an existing file without opening it.   __Usage examples:__
+
 ```bash
 touch todolist.txt
 ```
@@ -253,6 +259,7 @@ touch todolist.txt
 cat
 
 : This command is used to display the content of a file to the screen.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a filename content and output it to the screen.  There are lengthy articles discussing if this is the [correct method or a superlative way](http://stackoverflow.com/questions/11710552/useless-use-of-cat "UUoC").  We will use it through out the textbook because of readability and common usage acceptance.  __Usage examples:__  
+
 ```bash
 cat /etc/apache2/sites-available/000-default
 ```
@@ -260,6 +267,7 @@ cat /etc/apache2/sites-available/000-default
 less
 
 : This command is a *hack* on the __more__ command which allows for scrolling the text of a file using the enter key or page down, and space bar or arrow down key for single line scroll.  The __more__ command only went down, niot up.  Hence the more powerful command __less__ which pages and line scrolls up and down a document.  Less is more. __Usage examples:__
+
 ```bash
 less /var/log/apache2/error.log
 ```
@@ -267,6 +275,7 @@ less /var/log/apache2/error.log
 date
 
 : This command displays the common date and time format. It has full formatting customization so you can display date and time exactly as you need to.  __Usage examples:__
+
 ```bash
 date '+%m%d%y'
 ```
@@ -274,6 +283,7 @@ date '+%m%d%y'
 file
 
 : This command has been in Unix since at least 1973 records show.  Its use is to help you identify what type of file something is.  It will out put the type of file if it is text, a directory, a binary, or something else.  __Usage examples:__
+
 ```bash
 file self-destruct
 ```
@@ -281,6 +291,7 @@ file self-destruct
 pwd
 
 : This command tells you your __present working directory__ on the Linux filesystem tree.  __Usage examples:__
+
 ```bash
 pwd
 ```
@@ -288,6 +299,7 @@ pwd
 wget
 
 : This command is used to retrieve files over the internet via an HTTP GET request.  If you are using the commandline you cannot "click" on a link but when you click on a link you are sending an HTTP GET request in reality.  This gives you control without having to leave the commandline.  The sample below will you download the markdown files used to build this textbook.  __Usage examples:__  
+
 ```bash
 wget https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip
 ```
@@ -295,6 +307,7 @@ wget https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip
 unzip
 
 : This command is used to extract a compressed file of type zip.  There is a GNU version of this named gzip that extracts gzip files.  __Usage examples:__
+
 ```bash
 unzip music.zip
 ```
@@ -302,6 +315,7 @@ unzip music.zip
 man
 
 : This is the command you use when you can't remember how to use other commands.  just type the word man and then any other command name and you will automatically drop into a __less__ session which will explain the use and history of that command.  This is a very helpful tool as no one can memorize every single command.  From here on out in the class when you ask a question, the instructor's first answer will be, *"Check the man page."* As you progress in your Linux journey the __man__ command will be your best friend--use it wisely young Jedi.  __Usage examples:__
+
 ```bash
 man wget
 ```
