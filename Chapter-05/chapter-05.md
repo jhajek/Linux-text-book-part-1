@@ -1,4 +1,5 @@
 # The Linux Filesystem, Path, Shell, and File Permissions
+
 ![*The Shells*](images/Chapter-Header/Chapter-05/seashell2.png "Linux Shells")
 
 ## Objectives
