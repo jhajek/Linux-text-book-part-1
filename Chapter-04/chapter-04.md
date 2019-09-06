@@ -415,7 +415,7 @@ You will install assorted softwares using the Gnome Software application in Fedo
 1) Audacity
 1) GNOME Tweak Tool
 1) Chromium Web Browser
-1) Handbrake
+1) gPodder
 
 #### GNOME 3 Extensions
 
@@ -424,7 +424,7 @@ You will need to install two GNOME 3 extensions from [https://extensions.gnome.o
 1) Caffeine
 1) Dash to Dock
 1) Freon (first requires you to install the package ```lm_sensors```)
-1) Hide Dash
+1) Hide Dash X
 
 #### Snaps Install
 
