@@ -1,4 +1,5 @@
-# System Administration and systemd
+# System Administration
+
 ![*This generation's 'Who's on First?'*](images/Chapter-Header/Chapter-09/sandwich-2.png  "Permissions")
 
 ## Objectives
@@ -45,21 +46,22 @@ The first line is where you set the system path a user receives when they become
 > __Example Usage:__  Using either Fedora or Ubuntu as your user account from the commandline type ```echo $PATH``` now type ```sudo sh``` and then ```echo $PATH``` notice what happens to the prompt?  Are the paths different?  Why?  Type ```exit``` to exit back to the normal user.
 
 The next line of interest is:
-```
+
+```bash
 # User privilege specification
 root    ALL=(ALL:ALL) ALL
 ```
 
 This line allows you to add specific users and then list specific commands that they have *superuser* access too.
 
-```
+```bash
 # Allow members of group sudo to execute any command
 %sudo   ALL=(ALL:ALL) ALL
 ```
 
 The next line allows you to add groupnames to receive sudo access.  Any useraccount that is a member of this group, in Ubuntu's case *sudo* can gain *superuser* permissions
 
-```
+```bash
 # Members of the admin group may gain root privileges
 %admin  ALL=(ALL:ALL) ALL
 ```
@@ -82,7 +84,8 @@ The first column is either a user account (no %) or preceded by a % sign meaning
 After the useraccount you can add an additional parameter to remove the password requirement.  This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users.  It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
 
 > __Example Usage:__   The two commands below give the user ```bkupuser``` the ability to become sudo without requiring a password and only the power to execute the copy command.  The second command gives any user who is a member of the admin group the ability to sudo with out any password.
-```
+
+```bash
 bkupuser ALL=(root) NOPASSWD: /usr/bin/mysqldump
 %vagrant  ALL=(ALL) NOPASSWD:ALL
 %admin  ALL=(ALL) NOPASSWD:ALL
@@ -155,7 +158,7 @@ Value    Severity        Keyword   		Description     			 	            Examples
 
 ### rsyslog
 
-By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].    
+By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].
 
 ### journald and systemd
 
@@ -167,92 +170,105 @@ In Lennart Poeterring's own words, *"If you are wondering what the journal is, h
 
   If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04, or Debian 7 and prior you will not find the journald or systemd commands and will find the traditional syslog service.   Syslog can be installed along side of journald and run in the tradditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does many things).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs.  The traditional ways of using syslog had been modified by journald.
 
-  * ```cat /var/log/messages``` will now become ```journalctl```
-  * ```tail -f /var/log/messages``` will now become ```journalctl -f```
-  * ```grep sshd /var/log/messages``` will now become ```journalctl _COMM=sshd```
+* ```cat /var/log/messages``` will now become ```journalctl```
+* ```tail -f /var/log/messages``` will now become ```journalctl -f```
+* ```grep sshd /var/log/messages``` will now become ```journalctl _COMM=sshd```
 
-  To use the journal daemon (journald) all its elements are accessed through the ```journalctl``` command.  All previously sparse logs are now contained in a single binary append only log format.  The advantage of that is that the output can be programmatically parsed (actually queried like a database) the downside is that some people see an "all your eggs in one basket" problem with a single central binary file.
+To use the journal daemon (journald) all its elements are accessed through the ```journalctl``` command.  All previously sparse logs are now contained in a single binary append only log format.  The advantage of that is that the output can be programmatically parsed (actually queried like a database) the downside is that some people see an "all your eggs in one basket" problem with a single central binary file.
 
 > __Example Usage:__ These examples have been taken from the [systemd website](http://www.freedesktop.org/software/systemd/man/journalctl.html "jounralctl examples"): [^99]
 
 > Without arguments, all collected logs are shown unfiltered:
+
 ```bash
 journalctl
 ```
 
 > With one match specified, all entries with a field matching the expression are shown:
+
 ```bash
 journalctl _SYSTEMD_UNIT=avahi-daemon.service
 ```
 
 > If two different fields are matched, only entries matching both expressions at the same time are shown:
+
 ```bash
 journalctl _SYSTEMD_UNIT=avahi-daemon.service _PID=28097
 ```
 
 > If two matches refer to the same field, all entries matching either expression are shown:
+
 ```bash
 journalctl _SYSTEMD_UNIT=avahi-daemon.service _SYSTEMD_UNIT=dbus.service
 ```
 
 > If the separator "+" is used, two expressions may be combined in a logical OR. The following will show all messages from the Avahi service process with the PID 28097 plus all messages from the D-Bus service (from any of its processes):
+
 ```bash
 journalctl _SYSTEMD_UNIT=avahi-daemon.service _PID=28097 + _SYSTEMD_UNIT=dbus.service
 ```
 
 > Show all logs generated by the D-Bus executable:
+
 ```bash
 journalctl /usr/bin/dbus-daemon
 ```
 
 > Show all kernel logs from previous boot:
+
 ```bash
 journalctl -k -b -1
 ```
 
 > Show a live log display from a system service apache.service:
+
 ```bash
 journalctl -f -u apache
 ```
 
 > This will show you only the logs of the current boot,
+
 ```bash
 journalctl -b
 ```
 
 > List all messages of priority levels ERROR and worse, from the current boot:
+
 ```bash
 journalctl -b -p err
 ```
 
 > Filtering based on time
+
 ```bash
 journalctl --since=yesterday
 ```
 
 > Filter based on time range - note how difficult this would be with using grep, sort, and awk because everything is text. But since journald can be thought of a similar to a SQL database, then these types of queries are possible.
+
 ```bash
 journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
 ```
 
 > See log entries created only by the SSH service
+
 ```bash
   journalctl -u sshd
 ```
 
 ### Log rotation
 
-  The concept of logrotation existed under syslog and rsyslog but no longer exist under journald.  Before you could use the ```/etc/logrotate.conf``` file but it is no longer needed.   Also each application may still write to a discrete syslog, but all those logs are then copied up by journald trying to be the single central repository for logs.
+The concept of logrotation existed under syslog and rsyslog but no longer exist under journald.  Before you could use the ```/etc/logrotate.conf``` file but it is no longer needed.   Also each application may still write to a discrete syslog, but all those logs are then copied up by journald trying to be the single central repository for logs.
 
-  When viewing a older syslog style text log you can use the ```tail -f``` command and it will auto-update if there is new content automatically.  This command can be very helpful if you are watching a log for some particular output - can you find the journald equivalent?  ```journalctl --follow --since=-1day```
+When viewing a older syslog style text log you can use the ```tail -f``` command and it will auto-update if there is new content automatically.  This command can be very helpful if you are watching a log for some particular output - can you find the journald equivalent?  ```journalctl --follow --since=-1day```
 
-  You can find the systemd journald log rotation and collection specifics [here](http://www.freedesktop.org/software/systemd/man/journald.conf.html "journald.conf"): [^101]
+You can find the systemd journald log rotation and collection specifics [here](http://www.freedesktop.org/software/systemd/man/journald.conf.html "journald.conf"): [^101]
 
-  `/etc/systemd/journald.conf`
+`/etc/systemd/journald.conf`
 
-  Below are the default settings - even though they are commented out they are set there to give a template for a system admin to modify.
+Below are the default settings - even though they are commented out they are set there to give a template for a system admin to modify.
 
-  Entries can be service specific and kept in subdirectories `/etc/systemd/journald.conf.d/*.conf` any configurations in these directories take precedence over the main journald.conf file.
+Entries can be service specific and kept in subdirectories `/etc/systemd/journald.conf.d/*.conf` any configurations in these directories take precedence over the main journald.conf file.
 
 Storage
 
@@ -270,7 +286,7 @@ SystemMaxFileSize and RuntimeMaxFileSize
 
 : Control how large individual journal files may grow at maximum. This influences the granularity in which disk space is made available through rotation, i.e. deletion of historic data. Defaults to one eighth of the values configured with SystemMaxUse= and RuntimeMaxUse=, so that usually seven rotated journal files are kept as history.
 
-  Specify values in bytes or use K, M, G, T, P, E as units for the specified sizes (equal to 1024, 1024²,... bytes). Note that size limits are enforced synchronously when journal files are extended, and no explicit rotation step triggered by time is needed.
+Specify values in bytes or use K, M, G, T, P, E as units for the specified sizes (equal to 1024, 1024²,... bytes). Note that size limits are enforced synchronously when journal files are extended, and no explicit rotation step triggered by time is needed.
 
 SystemMaxFiles and RuntimeMaxFiles
 
@@ -283,7 +299,6 @@ The first step in system administration is monitoring.  Just like viewing logs, 
 ### top
 
 ![*Fedora top screenshot*](images/Chapter-09/monitoring/top/top.png "top")
-\newpage
 
    The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.) The image below displays the system average loads over longer rolling periods.  1 minute, 5 minutes, and 15 minute rolling average.
 
@@ -301,7 +316,7 @@ The ```top``` command also has the ability to sort and modify its output while r
 
    Key                  Action in Top
 -----------  --------------------------------------------------------------------------------
-'d' or 's'     Plus a positive number you can change the reporting cycle.   
+'d' or 's'     Plus a positive number you can change the reporting cycle.
    'u'         Plus a user's name will filter only those processes they own
    'k'         Sorts by \%CPU usage.  
    'I'         Sorts by CPU time usage
@@ -312,24 +327,23 @@ The ```top``` command also has the ability to sort and modify its output while r
 
 ### htop
 
-   The htop command is an extension to the Linux top command.  It is written in C using the ncurses library for text-based GUIs so it has mouse support.  It also has metered output-and uses all the same interactive commands as ```top```.  The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop").  The ```htop``` command needs to be installed via apt-get or yum/dnf.
+The htop command is an extension to the Linux top command.  It is written in C using the ncurses library for text-based GUIs so it has mouse support.  It also has metered output-and uses all the same interactive commands as ```top```.  The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop").  The ```htop``` command needs to be installed via apt-get or yum/dnf.
 
 ![*htop*](images/Chapter-09/monitoring/top/htop.png "htop")
-\newpage
 
 ### systemd-cgtop
 
-  You were probably wondering if systemd had its own system monitoring tool.  And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd.  The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the ```/proc``` filesystem.  You run the command ```systemd-cgtop``` from the commandline with preset flags like top or you run it in interactive mode. In interactive mode you would type ```%``` percent to toggle between CPU time as time or percentage.  You would type p, t, c, m, i to sort by path, number of tasks, CPU load, memory usage, or IO load.  The letter *q* is to quit.  There are other configuration options displayed by typing ```man systemd-cgtop```.
+You were probably wondering if systemd had its own system monitoring tool.  And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd.  The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the ```/proc``` filesystem.  You run the command ```systemd-cgtop``` from the commandline with preset flags like top or you run it in interactive mode. In interactive mode you would type ```%``` percent to toggle between CPU time as time or percentage.  You would type p, t, c, m, i to sort by path, number of tasks, CPU load, memory usage, or IO load.  The letter *q* is to quit.  There are other configuration options displayed by typing ```man systemd-cgtop```.
 
 ### atop
 
-  There is one other monitoring tool named ```atop```.  The project is located at [http://www.atoptool.nl/](http://www.atoptool.nl/ "atop") The ```atop``` command can be installed via apt-get or yum/dnf.  The ```atop``` command has a series of features compared to other monitoring tools.
+There is one other monitoring tool named ```atop```.  The project is located at [http://www.atoptool.nl/](http://www.atoptool.nl/ "atop") The ```atop``` command can be installed via apt-get or yum/dnf.  The ```atop``` command has a series of features compared to other monitoring tools.
 
 ![*atop*](images/Chapter-09/monitoring/top/atop.png "atop")   
 
 ### Additional Monitoring Tools
 
-  There are many additional standard Linux tools as well as many GitHub projects being launched all the time to solve specific monitoring problems.  Below is a list of some of the utilities that comes with Linux ```top``` under the procps and procps-ng packages.  
+There are many additional standard Linux tools as well as many GitHub projects being launched all the time to solve specific monitoring problems.  Below is a list of some of the utilities that comes with Linux ```top``` under the procps and procps-ng packages.  
 
    Command                              Function
 --------------  -------------------------------------------------------------
