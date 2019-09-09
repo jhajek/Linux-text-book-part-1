@@ -29,7 +29,7 @@ The Linux filesystem was designed as an __upside down tree__ by Ken Thompson.  W
 
 ![*Ubuntu root directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu root directory listing")
 
-![*Fedora 22 root directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora 22 root directory listing")
+![*Fedora root directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora root directory listing")
 
 > __Exercise:__ Notice that both of the screenshots above are different even though these are both "stock installs" of two commonly used Linux distros.  Take a look at your own Linux operating system you are using and try running the same command.  Use the GNOME Activities button to search for the phrase __terminal__ and launch it by clicking on the terminal icon. Then type the command ```ls /``` in the terminal. What is the output you see compared to the two images above?  Try it on some other distros and compare the output.
 
