@@ -72,7 +72,7 @@ opt         Add-on application software packages
 run         Data relevant to running processes
 __sbin__        System binaries added by each operating system for management  
 srv         Data for services provided by this system
-__tmp__         Temporary files - some distros clear this directory upon reboot (pronounced *"temp"*
+__tmp__         Temporary files - some distros clear this directory upon reboot (pronounced *"temp"*)
 __usr__         Secondary hierarchy - contains X, KDE or GNOME, plus documentation
 __var__         Variable data - used for storing databases, webserver files, and application logs
 *proc*        Virtual filesystem created at runtime providing process and kernel information as files.
@@ -80,7 +80,7 @@ __var__         Variable data - used for storing databases, webserver files, and
 
 ![*Linux Filesystem Hierarchy Standard - items not bold from above will not be included*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
 
-There are 3 additional directories that are non-standard but appear on pretty much all Linux distros [^62].  You can see a screenshot below.
+There are 3 additional directories that are non-standard but appear on most Linux distros [^62].  You can see a screenshot below.
 
 Directory       Function
 ----------  ---------------------------------------------------------------------------------------------
@@ -89,9 +89,9 @@ __root__        Home directory for the root user - not to be confused with /
 __lib64__       Alternate home for 64 bit libraries
 ----------  ---------------------------------------------------------------------------------------------
 
-![*Ubuntu 15.04 root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu 15.04 root directory listing")
+![*Ubuntu root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu 15.04 root directory listing")
 
-![*Fedora 22 root full directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora 22 root directory listing")
+![*Fedora root full directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora 22 root directory listing")
 
 #### /usr standard subdirectories
 
