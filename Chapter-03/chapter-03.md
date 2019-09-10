@@ -593,9 +593,11 @@ Flatpak essentially connects the concepts of repositories and app packages, but 
 
 Let's install some flatpak applications:  The first thing is to install the flatpak package as it does not come standard in any Linux Distro. [That is done at the Flatpak repo page](https://www.flatpak.org/setup/ "flatpak"). Let's try it with an Ubuntu distribution:
 
-```sudo add-apt-repository ppa:alexlarsson/flatpak```
-```sudo apt update```
-```sudo apt install flatpak```
+```
+sudo add-apt-repository ppa:alexlarsson/flatpak
+sudo apt update
+sudo apt install flatpak
+```
 
 The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
 
