@@ -592,7 +592,7 @@ Preface all screenshots with an H3 header indicated the question number: for exa
     i) Take a screenshot of the output of the ```ls``` command.  
 1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```.git``` is.  Repeat the process for the file named ```./title/metadata.yaml```
     i) Take a screen shot of the output of the previous commands.
-1) Use the ```wget``` command to retreive a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip](https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip "Packer") 
+1) Use the ```wget``` command to retreive a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.4.3/](https://releases.hashicorp.com/packer/1.4.3/ "Packer Download URL")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
 1) Use the ```unzip``` command to unzip the binary and extract the file directly to the location ```/usr/local/bin```.  **Hint:** use the ```man unzip``` command to find out the usage option in order to accomplish this.
     i) To show this was succesful take a screenshot of the output of the command ```packer -v```.
