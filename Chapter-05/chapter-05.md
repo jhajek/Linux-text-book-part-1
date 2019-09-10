@@ -584,11 +584,9 @@ Answer the said questions:
 
 The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu 18.04 desktop or Fedora 30 desktop unless noted.
 
-Preface all screenshots with an H3 header indicated the question number: for example, Question 01, Question 02, and so forth.
-
 1) Login to your Linux System. Using a package manager install the ```git``` program.  
     i) issue the command ```git --version``` and take a screenshot of the output
-1) Navigate to your home directory and then to your Documents directory.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously no need to redo it).
+1) Navigate to your home directory and then to your ```Documents``` directory.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously, no need to redo it).
     i) Take a screenshot of the output of the ```ls``` command.  
 1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```.git``` is.  Repeat the process for the file named ```./title/metadata.yaml```
     i) Take a screen shot of the output of the previous commands.
@@ -596,7 +594,7 @@ Preface all screenshots with an H3 header indicated the question number: for exa
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
 1) Use the ```unzip``` command to unzip the binary and extract the file directly to the location ```/usr/local/bin```.  **Hint:** use the ```man unzip``` command to find out the usage option in order to accomplish this.
     i) To show this was succesful take a screenshot of the output of the command ```packer -v```.
-1) Use the ```wget``` command to retrieve an archived copy of the Hadoop binaries from the web.  You can use this address as an argument to your wget command: [http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz "Hadoop URL")
+1) Use the ```wget``` command to retrieve an archived copy of the Hadoop binaries from the web.  You can use this address as an argument to your wget command: [https://www-us.apache.org/dist/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz](https://www-us.apache.org/dist/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz "Hadoop URL")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
 1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in later chapter.  ```tar``` is the commmand ```-xvzf``` is the options and you need to provide the argument of the hadoop*.tar.gz
         i) Take a screenshot of the output of the ```ls``` command to show the extracted hadoop directory.  
