@@ -210,7 +210,7 @@ help commands          man    info    find   which  locate
 
 cd
 
-: This command is used to help you change the directory location.  The shell can only be pointed at one file location at a time.  In a GUI you are used to *"clicking"* on folders to navigate up and down the filesystem hierarchy.  What you are actually doing when you click is issuing __cd__ commands to the kernel which is returning instructions of what the GUI should now render.  __Usage examples:__
+: This command is used to help you change the directory location.  The shell can only be pointed at one file location at a time.  In a GUI you are used to *"clicking"* on folders to navigate up and down the filesystem hierarchy.  What you are actually doing when you click is issuing __cd__ commands to the kernel which is returning instructions of what the GUI should now render.
 
 ```bash
 cd /tmp
@@ -218,7 +218,7 @@ cd /tmp
 
 ls
 
-: This command is used to list the content of the current directory you are in.  __Usage examples:__
+: This command is used to list the content of the current directory you are in.
 
 ```bash
 ls /etc
@@ -226,7 +226,7 @@ ls /etc
 
 cp
 
-: This command is used to cp the contents of a file, can also be used to copy and rename a file.  __Usage examples:__
+: This command is used to cp the contents of a file, can also be used to copy and rename a file.
 
 ```bash
 cp *.txt /home/user/Documents
@@ -234,7 +234,7 @@ cp *.txt /home/user/Documents
 
 mv
 
-: This command is used to rename or move a file in-place, though the actions are technically the same.  By renaming a file you are essentially moving its contents to a new file in-place. __Usage examples:__
+: This command is used to rename or move a file in-place, though the actions are technically the same.  By renaming a file you are essentially moving its contents to a new file in-place.
 
 ```bash
 mv ./secret-passwords.txt ./new-secret-passwords.txt
@@ -242,7 +242,7 @@ mv ./secret-passwords.txt ./new-secret-passwords.txt
 
 mkdir
 
-: This command is used to create or make a new directory. Pronounced *"make-dur"* __Usage examples:__
+: This command is used to create or make a new directory. Pronounced *"make-dur"*
 
 ```bash
 mkdir ~/legally-downloaded-music
@@ -250,7 +250,7 @@ mkdir ~/legally-downloaded-music
 
 touch
 
-: This command is used to create a new blank file or to update the timestamp of an existing file without opening it.   __Usage examples:__
+: This command is used to create a new blank file or to update the timestamp of an existing file without opening it.
 
 ```bash
 touch todolist.txt
@@ -258,7 +258,7 @@ touch todolist.txt
 
 cat
 
-: This command is used to display the content of a file to the screen.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a filename content and output it to the screen.  There are lengthy articles discussing if this is the [correct method or a superlative way](http://stackoverflow.com/questions/11710552/useless-use-of-cat "UUoC").  We will use it through out the textbook because of readability and common usage acceptance.  __Usage examples:__  
+: This command is used to display the content of a file to the screen.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a filename content and output it to the screen.  There are lengthy articles discussing if this is the [correct method or a superlative way](http://stackoverflow.com/questions/11710552/useless-use-of-cat "UUoC").  We will use it through out the textbook because of readability and common usage acceptance.
 
 ```bash
 cat /etc/apache2/sites-available/000-default
@@ -266,7 +266,7 @@ cat /etc/apache2/sites-available/000-default
 
 less
 
-: This command is a *hack* on the __more__ command which allows for scrolling the text of a file using the enter key or page down, and space bar or arrow down key for single line scroll.  The __more__ command only went down, niot up.  Hence the more powerful command __less__ which pages and line scrolls up and down a document.  Less is more. __Usage examples:__
+: This command is a *hack* on the __more__ command which allows for scrolling the text of a file using the enter key or page down, and space bar or arrow down key for single line scroll.  The __more__ command only went down, niot up.  Hence the more powerful command __less__ which pages and line scrolls up and down a document.  Less is more.
 
 ```bash
 less /var/log/apache2/error.log
@@ -274,7 +274,7 @@ less /var/log/apache2/error.log
 
 date
 
-: This command displays the common date and time format. It has full formatting customization so you can display date and time exactly as you need to.  __Usage examples:__
+: This command displays the common date and time format. It has full formatting customization so you can display date and time exactly as you need to.
 
 ```bash
 date '+%m%d%y'
@@ -282,7 +282,7 @@ date '+%m%d%y'
 
 file
 
-: This command has been in Unix since at least 1973 records show.  Its use is to help you identify what type of file something is.  It will out put the type of file if it is text, a directory, a binary, or something else.  __Usage examples:__
+: This command has been in Unix since at least 1973 records show.  Its use is to help you identify what type of file something is.  It will out put the type of file if it is text, a directory, a binary, or something else.
 
 ```bash
 file self-destruct
@@ -290,7 +290,7 @@ file self-destruct
 
 pwd
 
-: This command tells you your __present working directory__ on the Linux filesystem tree.  __Usage examples:__
+: This command tells you your __present working directory__ on the Linux filesystem tree.
 
 ```bash
 pwd
@@ -298,7 +298,7 @@ pwd
 
 wget
 
-: This command is used to retrieve files over the internet via an HTTP GET request.  If you are using the commandline you cannot "click" on a link but when you click on a link you are sending an HTTP GET request in reality.  This gives you control without having to leave the commandline.  The sample below will you download the markdown files used to build this textbook.  __Usage examples:__  
+: This command is used to retrieve files over the internet via an HTTP GET request.  If you are using the commandline you cannot "click" on a link but when you click on a link you are sending an HTTP GET request in reality.  This gives you control without having to leave the commandline.  The sample below will you download the markdown files used to build this textbook.
 
 ```bash
 wget https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip
@@ -306,7 +306,7 @@ wget https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip
 
 unzip
 
-: This command is used to extract a compressed file of type zip.  There is a GNU version of this named gzip that extracts gzip files.  __Usage examples:__
+: This command is used to extract a compressed file of type zip.  There is a GNU version of this named gzip that extracts gzip files.
 
 ```bash
 unzip music.zip
@@ -314,13 +314,13 @@ unzip music.zip
 
 man
 
-: This is the command you use when you can't remember how to use other commands.  just type the word man and then any other command name and you will automatically drop into a __less__ session which will explain the use and history of that command.  This is a very helpful tool as no one can memorize every single command.  From here on out in the class when you ask a question, the instructor's first answer will be, *"Check the man page."* As you progress in your Linux journey the __man__ command will be your best friend--use it wisely young Jedi.  __Usage examples:__
+: This is the command you use when you can't remember how to use other commands.  just type the word man and then any other command name and you will automatically drop into a __less__ session which will explain the use and history of that command.  This is a very helpful tool as no one can memorize every single command.  From here on out in the class when you ask a question, the instructor's first answer will be, *"Check the man page."* As you progress in your Linux journey the __man__ command will be your best friend--use it wisely young Jedi.
 
 ```bash
 man wget
 ```
 
-> __Exercises:__ Let's create a text file that has the current date and time in it.  Type ```date > timestampfile```  (The ```> ``` is a shell meta character that redirects output from the screen to another file. We will learn more about this in chapter 6.)
+> __Exercises:__ Let's create a text file that has the current date and time in it.  Type ```date > timestampfile```  (The ```>``` is a shell meta character that redirects output from the screen to another file. We will learn more about this in chapter 6.)
 
 > __Exercise:__ Now copy that file to the ```/tmp``` directory--what would be the commands? Now let us make a new directory under our home directory called notes (remember the filesystem is an upside down tree)
 
