@@ -586,7 +586,7 @@ Answer the said questions:
 
 The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage and form. The outcome will your ability to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu desktop or Fedora desktop unless noted.
 
-1) Login to your Linux System. Using a package manager install the ```git``` program.  
+1) From the commandline and in your home directory use your systems package manager (yum or apt) and install the `git` client.  
     i) issue the command ```git --version``` and take a screenshot of the output
 1) Navigate to your home directory and then to your ```Documents``` directory.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously, no need to redo it).
     i) Take a screenshot of the output of the ```ls``` command.  
