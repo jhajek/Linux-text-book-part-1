@@ -588,13 +588,13 @@ The objectives of this lab is to use the shell commands we learned in this chapt
 
 1) From the commandline and in your home directory use your systems package manager (yum or apt) and install the `git` client.  
     i) issue the command ```git --version``` and take a screenshot of the output
-1) Navigate to your home directory and then to your ```Documents``` directory.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously, no need to redo it).
+1) Navigate to this location: `~/Documents`.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously, no need to redo it).
     i) Take a screenshot of the output of the ```ls``` command.  
 1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```./title/metadata.yaml``` is.  Issue that same command to display what type of file ```Appendix-A``` is.
     i) Take a screen shot of the output of the previous commands.
 1) Use the ```wget``` command to retreive a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.4.3/](https://releases.hashicorp.com/packer/1.4.3/ "Packer Download URL")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
-1) Use the ```unzip``` command to unzip the binary and extract the file directly to the location ```/usr/local/bin```.  **Hint:** use the ```man unzip``` command to find out the usage option in order to accomplish this.
+1) Use the ```unzip``` command to unzip the binary and extract the packer executable.  Issue the move command, `mv` to move the executable to this location: ```/usr/local/bin```.  **Hint:** you will need to use `sudo` to get the permission needed for this operation.
     i) To show this was succesful take a screenshot of the output of the command ```packer -v```.
 1) Use the ```wget``` command to retrieve an archived copy of the Hadoop binaries from the web.  You can use this address as an argument to your wget command: [https://www-us.apache.org/dist/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz](https://www-us.apache.org/dist/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz "Hadoop URL")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
@@ -610,6 +610,14 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     i) Take a screenshot of that single command and a screenshot of the output of the web browser showing both the **stallman.jpg** and the **ms-loves-linux.png** images properly rendering.
 1) Assume your PWD is your Home directory: In a series of commands, ```cd``` to Documents, then create a directory named ```packer-scripts```.  Under this directory create 5 sub-directories, ```ubuntu16-04```, ```ubuntu18-04```, ```fedora28```, ```centos7```, ```OmniOS```.  
     i) With your PWD as ```~/Documents/packer-scripts```, execute the command that will give a long listing of the contents of the directory.  Take a screenshot of this command as well as the output.
+1) the the `git` command and clone your own repository to your Linux system.  In the folder created for this class, issue the commands to create directories for each chapter of the book starting from 01 and upto 15.  For example: **chapter-01, chapter02**.  Then issue the command to create a file named `Readme.md` in each directory (**Note:** if you already have a folder for a particular chapter and a Readme.md created for previous assignments then you can skip created that entry).
+1) Using the `man ssh` command, find the command line option that will display verbose version information about ssh.  
+    i) take a screenshot of the `ssh` command and option displaying verbose version information.
+1) Use the man command for the `cp` command to find how to do a recursive, verbose, and interactive `cp` command.
+    i) Issue the stated command above to copy the directory `~/Documents/Linux-text-book-part-1/Appendix-D/` to `~/Documents/` and take a screenshot of the command and output.
+1) Use the command to rename the folder `~/Documents/Appendix-D` to `~/Documents/Appendix-E`.
+    i) Take a screenshot of the command and its output
+1) 
 
 #### Footnotes
 
