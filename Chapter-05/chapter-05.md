@@ -559,7 +559,7 @@ In this chapter we covered the basic nature of the Linux Shell and how it allows
     d. usr/bin
 19) What is the directory that holds all of the user’s home directories? (no slash, just the name)
 
-20) True or False - Leonart Poettering supports POSIX
+20) True or False - Leonart Poettering created POSIX
 
 ### Podcast Questions
 
