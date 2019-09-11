@@ -584,7 +584,7 @@ Answer the said questions:
 
 ### Lab
 
-The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu 18.04 desktop or Fedora 30 desktop unless noted.
+The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage and form. The outcome will your ability to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu desktop or Fedora desktop unless noted.
 
 1) Login to your Linux System. Using a package manager install the ```git``` program.  
     i) issue the command ```git --version``` and take a screenshot of the output
