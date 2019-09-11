@@ -436,7 +436,7 @@ Unlike Bash which provided a *"free"* ```sh``` compatible shell for the GNU syst
 
 Seeing that everything in Linux is file, there is a simple security model.  There are three types of permission per file: __read__, __write__, __execute__.  These files give a combination of permissions.  With __read permission__ you can display the content of a file or copy it, but cannot delete or rename it.  For that you need __write permission__.  If a file is a shell script or an executable binary you will need __execute permission__ for it to run.  How can you tell what permissions a file has?  Type ```ls -l``` see the output.  We have seen this output before and now we will explain it.
 
-![*ls -l listing of the home directory in Ubuntu 15.04*](images/Chapter-05/permissions/ls-l-ubuntu.png "Ubuntu 15.04 ls -l listing")
+![*ls -l listing of the home directory in Ubuntu*](images/Chapter-05/permissions/ls-l-ubuntu.png "Ubuntu ls -l listing")
 
 The first column is a listing of the permissions for a file. Notice that there are actually 3 groupings of the letters __rwx__ combined into one long string like this:  ```rw-r--r--```.  In addition to individual permissions there are three categories of permission.  These three categories are __owner__, __group__, __other__  Each of these groups has its own read, write, and execute permissions.  
 
