@@ -27,7 +27,7 @@ It is recommended to complete these steps manually first then taking note, write
 The database server will have:
 
 * Install needed packages
-  + zfsutils and mysql-server
+  * zfsutils and mysql-server
 * Preseed the root database password in the debconf set-selection section
 * Preseed the contents of the root password in a ```~/.my.cnf``` file to use later in running database CREATE and INSERT scripts
 * A second and third hard drive partition attached will be attached at creation time
@@ -72,7 +72,7 @@ Here is a sample of using a multiline ```cat``` to create a text file
 
 ```bash
 
-cat << EOT >> /home/vagrant/.bashrc 
+cat << EOT >> /home/vagrant/.bashrc
 
 ########## Inserted by Jeremy
 export JAVA_HOME=/usr
@@ -81,7 +81,8 @@ export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-oracle/lib/tools.jar
 EOT
 
 ```
-See the webserver and database tutorial for the manual install steps of this project.  It is a PDF located at: ```files/Appendix-D/webserver-database-tutorial.pdf``` directory included in the source code of the book. 
+
+See the webserver and database tutorial for the manual install steps of this project.  It is a PDF located at: ```files/Appendix-D/webserver-database-tutorial.pdf``` directory included in the source code of the book.
 
 Sample code is located [https://github.com/jhajek/packer-vagrant-build-scripts](https://github.com/jhajek/packer-vagrant-build-scripts "sample code").  In the directory ```packer``` > ```vanilla-install```.  There are two packer build templates:
 

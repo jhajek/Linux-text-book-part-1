@@ -617,7 +617,6 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     i) Issue the stated command above to copy the directory `~/Documents/Linux-text-book-part-1/Appendix-D/` to `~/Documents/` and take a screenshot of the command and output.
 1) Use the command to rename the folder `~/Documents/Appendix-D` to `~/Documents/Appendix-E`.
     i) Take a screenshot of the command and its output
-1) 
 
 #### Footnotes
 

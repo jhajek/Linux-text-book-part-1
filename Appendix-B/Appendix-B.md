@@ -94,16 +94,14 @@ b.	Alt + Ctrl + F1 - F7
 b.	X
 6.	True or False – X was originally not opensourced by MIT in 1984
 a.	False
-7.	What is the official name in the Ubuntu Unity desktop environment for the launcher icon? (The 
-Icon in the upper left hand corner that looks like circle with 3 dots?.
-a.	Dash Icon
+7. For Ubuntu 18.04 what is the default desktop environment being used?
+GNOME or GNOME3
 8.	What is the name of the successor GUI compositor to X being created by the X.org foundation?
 c.	Wayland Project
 9.	What is the name of Ubuntu’s own GUI compositor replacement for X? (Just the name.
 a.	Mir
-10.	There are 5 types of Linux window managers: Compositing, Minimalistic, Tiling, and Other.  
-What is the name of the missing category?
-a.	Stacking
+10.	What are the 3 types of Linux window managers?
+Compositing, Stacking, and Tiling
 11.	There are 4 major Linux desktop environments in use today: which grouping is correct?
 d.	KDE, GNOME, Xfce, LXDE
 12.	What is the name of the windowing toolkit that KDE uses? (Two letters.
