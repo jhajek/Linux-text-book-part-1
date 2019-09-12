@@ -108,7 +108,7 @@ d.	KDE, GNOME, Xfce, LXDE
 a.	Qt
 13.	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign.
 a.	GTK+
-14.	What is the name of the founder of the GNOME project? 
+14.	What is the name of the founder of the GNOME project?
 a.	Miguel de Icaza
 15.	When the GNOME 3 desktop environment was released in early 2012, many people were 
 unhappy that many changes were made.  There were 3 major projects started to either preserve 
