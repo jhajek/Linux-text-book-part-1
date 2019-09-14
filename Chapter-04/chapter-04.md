@@ -518,7 +518,7 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
 ![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
-**Deliverable:** Take screenshots of all succesful install of software.  Create a file called ```Readme.md``` and create an H2 header for each item and place a screenshot of the result below it.
+**Deliverable:** Take screenshots of all succesful install of software.  See Blackboard for submission details.
 
 #### Footnotes
 
@@ -549,7 +549,7 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
   [^30]: <a href="http://www.osnews.com/story/22225/RMS_De_Icaza_Traitor_to_Free_Software_Community/">http://www.osnews.com/story/22225/RMS_De_Icaza_Traitor_to_Free_Software_Community/</a>
 
-  [^31]: Qt 5 / KDE 5 split into three separate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5<a/>
+  [^31]: Qt 5 / KDE 5 split into three separate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5</a>
 
   [^32]: KDE Plasma 5 retired KDM as the default display manager in favor of SDDM.  
      <a href="http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU">http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU</a>
