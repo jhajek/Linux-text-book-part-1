@@ -65,7 +65,7 @@ At the same time a parallel implementation base on X11R5 was being developed by 
 
 The story gets more complicated.  As the userbase of Linux surges in the early 2000s as desktop Linux and GUIs grow, X use would naturally follow that growth curve as well.  You have two problems: [X.Org](http://www.x.org "X"), a vendor controlled stewardship organization, was not doing any development on X, and XFree86 was starting to narrow its *openness* just like the OpenGroup did in 1997, expelling some of the original X creators who had joined the XFree86 project and changing open licenses to be non-GPL compliant (non-Linux compatible license.)
 
-This led to the founding of the X.Org Foundation merging the two groups.  This was a breakthough event.  It basically reconciled the two groups under one new foundation, [X.Org Foundation](http://www.x.org "X.Org Foundation"), it also ensured that the creators of the X project were once again the stewards, and finally it insured that there was a GPL based and protected X project that developers and companies could contribute to as well. The X.Org Foundation continues to innovate and foster the project to this day.
+This led to the founding of the X.Org Foundation merging the two groups.  This was a breakthrough event.  It basically reconciled the two groups under one new foundation, [X.Org Foundation](http://www.x.org "X.Org Foundation"), it also ensured that the creators of the X project were once again the stewards, and finally it insured that there was a GPL based and protected X project that developers and companies could contribute to as well. The X.Org Foundation continues to innovate and foster the project to this day.
 
 A final GUI note that in parallel the most break through commercial GUI available in the early 80s was released by Apple in 1984[^23].  Here is a [link to an article](http://www.folklore.org/StoryView.py?story=Busy_Being_Born.txt "Mac") from the developers about how it came to be.
 
@@ -86,7 +86,7 @@ In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began t
 * As in the X case, when the client receives the event, it updates the UI in response. But in the wayland case, the rendering happens in the client, and the client just sends a request to the compositor to indicate the region that was updated.
 * The compositor collects damage requests from its clients and then recomposites the screen. The compositor can then directly issue an ioctl to schedule a pageflip with KMS.
 
-At one time it was thought that X is too deep into the bones of Linux and may never be ever fully replaced. But we are seeing massive amounts of work from industry to make Wayland a reality. With Intel, nVidea, the X.Org Foundation and Red Hat leading the way, Fedora 25 was one of the first distros to run Wayland natively.  
+At one time it was thought that X is too deep into the bones of Linux and may never be ever fully replaced. But we are seeing massive amounts of work from industry to make Wayland a reality. With Intel, Nvidia, the X.Org Foundation and Red Hat leading the way, Fedora 25 was one of the first distros to run Wayland natively.  
 
 ![*X on Wayland*](images/Chapter-04/x-on-wayland.png "X on Wayland")
 
@@ -98,11 +98,11 @@ Ubuntu is the only Linux operating system to support Mir and development has bee
 
 > *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
 
-As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be depricated in favor of GNOME 3 and Wayland.
+As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.
 
 ## Window Managers
 
-X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows on one machine and manage their state as well (open and close them?) How about arranging them?  Do you need them tiled or overlapping? Then you need a window manger to sit on top of X and handle that rendering.  Thankfully window managers are essentially common in Desktop Linux and almost inseparable from X in this case. Window Managers are not the full GUIs you might be used to. They are one step below a full blown desktop environment but window managers are very fast because they render simple windows and simple sets of icons.  Their job is to render content inside of particular windows and manage that window's state. Since Linux and X were developed independent of a central product, you will see a depth and breadth of different window managers serving different functions and features.  Some are very simple, some serve direct purposes, some are tied to full blown desktop environments.  Window Managers can be changed and swapped as needed because they are not a central part of the operating system.  As opposed to Windows and Mac where all you can do is change themes, you can't change window managers.  Some of the minimalistic window managers can be used to help older laptops and PCs remain useful and very usable with modern Linux, where modern commercial operating systems like the Mac for instance intentionally deprecates older hardware. You can break window managers into 3 categories based on their window behavior.
+X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows on one machine and manage their state as well (open and close them?) How about arranging them?  Do you need them tiled or overlapping? Then you need a window manager to sit on top of X and handle that rendering.  Thankfully window managers are essentially common in Desktop Linux and almost inseparable from X in this case. Window Managers are not the full GUIs you might be used to. They are one step below a full blown desktop environment but window managers are very fast because they render simple windows and simple sets of icons.  Their job is to render content inside of particular windows and manage that window's state. Since Linux and X were developed independent of a central product, you will see a depth and breadth of different window managers serving different functions and features.  Some are very simple, some serve direct purposes, some are tied to full blown desktop environments.  Window Managers can be changed and swapped as needed because they are not a central part of the operating system.  As opposed to Windows and Mac where all you can do is change themes, you can't change window managers.  Some of the minimalistic window managers can be used to help older laptops and PCs remain useful and very usable with modern Linux, where modern commercial operating systems like the Mac for instance intentionally deprecates older hardware. You can break window managers into 3 categories based on their window behavior.
 
 ### Compositing
 
@@ -143,7 +143,7 @@ About the time that the OSI movement was launching in late 1990s a growing need 
 
 ### KDE [^33]
 
-The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window mangers and independent applications.  At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech.
+The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window managers and independent applications.  At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech.
 
 In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2009.
 
@@ -253,7 +253,7 @@ Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") ex
 
 Everything in [GNOME 3](https://www.gnome.org/gnome-3/ "GNOME 3") starts with the __Activities__ button in the upper left hand corner.  There is no traditional "Start Button."  Just this sense of activities to be launched.  There is also a __Find__ box for searching everything in GNOME 3 from documents to applications to even suggested software. There is also a __favorites bar__ on the left hand side of the screen.  You will see preinstalled icons for FireFox Web Browser, Evolution E-mail client, Rhythm Box music player, Shotwell for picture management, the file manager is named Nautilus, the Software Store application, and finally a grid launcher for everything else.  Note there are no *"categories"* such as system tools or office software.  This is a design feature of GNOME 3.
 
-![firefox](images/Chapter-04/ff.png "FF") ![Evolution](images/Chapter-04/evolution.png "Evolution") ![Rhythm Box](images/Chapter-04/rythembox.png "Rhythem Box") ![Shotwell](images/Chapter-04/shotwell.png "Shotwell") ![Nautilus](images/Chapter-04/files.png "File Manger") ![Software](images/Chapter-04/software.png "Software") ![Application Launcher](images/Chapter-04/application.png "Application")
+![firefox](images/Chapter-04/ff.png "FF") ![Evolution](images/Chapter-04/evolution.png "Evolution") ![Rhythm Box](images/Chapter-04/rythembox.png "Rhythem Box") ![Shotwell](images/Chapter-04/shotwell.png "Shotwell") ![Nautilus](images/Chapter-04/files.png "File Manager") ![Software](images/Chapter-04/software.png "Software") ![Application Launcher](images/Chapter-04/application.png "Application")
 
 You will notice a few other system designs or features.  For instance there is no logout button.  The little white triangle in the upper right hand corner next to the battery and sound icon controls poweroff and restart, but by default there is no logout button.  Once again this is a GNOME 3 design.  
 
@@ -273,7 +273,7 @@ To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](h
 
 ### Installing Windows Managers and Desktop Environments
 
-Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android.   The issue with a software store became the ability to make money, charge money, and distribute money.  All though the distributions still support Software Stores, their heart is not in this mannor of software installation.  The original way to install software was via a package manager, which the stores were a front for anyway.  There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux.  These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").
+Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android.   The issue with a software store became the ability to make money, charge money, and distribute money.  All though the distributions still support Software Stores, their heart is not in this manner of software installation.  The original way to install software was via a package manager, which the stores were a front for anyway.  There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux.  These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").
 
 To access the terminal on a GNOME3 desktop, click the **Activities** button at the top and in the **find** box type: *Terminal*. 
   
@@ -289,13 +289,13 @@ To access the terminal on a GNOME3 desktop, click the **Activities** button at t
 
 ![*GNOME Software Store*](images/Chapter-04/software-store.png "Software Store")
 
-This is a feature added by RedHat to improve upon Gnome Packages, which is the default package manger in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
+This is a feature added by RedHat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
 
-### Ubuntu Unity Desktop - Depricated
+### Ubuntu Unity Desktop - Deprecated
 
-**As of April 2018 Ubuntu releasde Unity has been depricated in favor of GNOME3, this section is kept for historical reference.**
+**As of April 2018 Ubuntu released Unity has been deprecated in favor of GNOME3, this section is kept for historical reference.**
 
-[Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME 3 shell augmentation/replacement.  This means that Unity sits on top of GNOME 3 but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.  Unity survices this day as part of the abandoned [Ubuntu Touch](https://ubports.com/ "Ubuntu Touch") mobile phone operatiing system.
+[Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME 3 shell augmentation/replacement.  This means that Unity sits on top of GNOME 3 but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.  Unity survices this day as part of the abandoned [Ubuntu Touch](https://ubports.com/ "Ubuntu Touch") mobile phone operating system.
 
 ## Conclusion
 
@@ -343,7 +343,7 @@ VT-220 terminals they used prior.
   b. Y
   c. Wayland Project
   d. Jennings Project
-9) What is the name of Ubuntu’s, now depricated, GUI compositor replacement for X? (Just the name)
+9) What is the name of Ubuntu’s, now deprecated, GUI compositor replacement for X? (Just the name)
 
 10) What are the 3 types of Linux window managers?
 
@@ -393,7 +393,7 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 * ~13:30 What is the relationship between Fedora and Redhat Enterprise Linux (RHEL)?
 * ~25:00 What percentage of the Fedora Project is open source?
 * ~35:00 On further inspection is Fedora Project really opened source according to the Free Software Foundation?
-* ~36:20 Does Fedora include proprietary NVidea drivers? Why or why not?
+* ~36:20 Does Fedora include proprietary Nvidia drivers? Why or why not?
 * ~44:30 Who is the most famous Fedora user?
 * ~1:01:00 What is the difference between Centos and RHEL?
 
@@ -403,7 +403,7 @@ Using the virtual machines you installed in the previous chapter, you will now i
 
 #### Package based install
 
-**Deliverable:** Take screenshots of all succesful install of the software listed.  
+**Deliverable:** Take screenshots of all succesfull installs of the software listed.  
 
 #### GNOME Software Store
 
@@ -426,7 +426,7 @@ You will need to install two GNOME 3 extensions from [https://extensions.gnome.o
 
 #### Snaps Install
 
-To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo snap --list```. Install these packages via Snap on Ubuntu 18.04 desktop:
+To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on Ubuntu 18.04 desktop:
 
 1) Android Studio
 1) Blender
@@ -436,7 +436,7 @@ To install and configure snaps, reference chapter 3.  To show these packages are
 
 #### Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via flatpak on the Fedora virtual machine:
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on the Fedora virtual machine:
 
 1) Kdenlive
 1) Visual Studio Code
@@ -446,7 +446,7 @@ To install and configure flatpak and flathub, reference chapter 3.  To show thes
 
 #### Ubuntu 18.04 Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: ```sudo flatpak --list```. Install these packages via flatpak:
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak:
 
 1) Remmina
 1) Shotcut
@@ -455,7 +455,7 @@ To install and configure flatpak and flathub, reference chapter 3.  To show thes
 
 #### AppImage Install
 
-Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instrctions to install and run these AppImages on both Ubuntu 18.04 and Fedora 30.  Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").  This can be on a system of your choice.
+Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instructions to install and run these AppImages on both Ubuntu 18.04 and Fedora 30.  Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").  This can be on a system of your choice.
 
 1) Subsurface
 1) Archipelago
@@ -482,13 +482,13 @@ Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instruc
 
 To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
 
-Run the command ```who --version``` and then ```uutils who --version``` and take a screenshot of the succesful output.
+Run the command ```who --version``` and then ```uutils who --version``` and take a screenshot of the successful output.
 
-#### Window Mangers
+#### Window Managers
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and install them.  Once installed you need to log out and restart your session.  In order to change the default window manager on GNOME3 desktop environment you need to click on the user name and select the little gear below the password field.  In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
 
-![*Change Window Mangers*](images/Chapter-04/GNOME3/window-manager.png "Change")
+![*Change Window Managers*](images/Chapter-04/GNOME3/window-manager.png "Change")
 
 1) Compositing window manager
 1) Stacking window manager
@@ -518,7 +518,7 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
 ![*GNOME Tweak Tool*](images/Chapter-04/gnome-tweak-tool.png "Tweak Tool")
 
-**Deliverable:** Take screenshots of all succesful install of software.  See Blackboard for submission details.
+**Deliverable:** Take screenshots of all successful installs of software.  See Blackboard for submission details.
 
 #### Footnotes
 
@@ -537,7 +537,7 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
   [^25]: By Jason Scott (Flickr: IMG_9976) <a href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>,
     <a href="https://commons.wikimedia.org/wiki/File%3ADEC_VT100_terminal.jpg">via Wikimedia Commons</a>
 
-  [^26]: Diagram provdied by: <a href="http://wayland.freedesktop.org/architecture.html">http://wayland.freedesktop.org/architecture.html</a>
+  [^26]: Diagram provided by: <a href="http://wayland.freedesktop.org/architecture.html">http://wayland.freedesktop.org/architecture.html</a>
 
   [^27]: [http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016](http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016)
 
@@ -559,7 +559,7 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
   [^34]:  [http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/](http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/)
 
-  [^35]: Miguel's responce to Stallman's accusation <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
+  [^35]: Miguel's response to Stallman's accusation <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
 
    [^36]: <a href="http://www.zdnet.com/article/linus-torvalds-finds-gnome-3-4-to-be-a-total-user-experience-design-failure/#!">http://www.zdnet.com/article/linus-torvalds-finds-gnome-3-4-to-be-a-total-user-experience-design-failure/#!</a>
 
