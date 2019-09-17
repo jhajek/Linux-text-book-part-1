@@ -23,7 +23,7 @@ In this chapter the terms **Linux** and **Unix** are generally inter-changable f
 
 ## Where it Began and Why it Matters Now
 
-Marc Andreesen, founnder of the Netscape Communicator browser (precursor to FireFox) famously said, "Software is eating the world."  The majority of that is Free/Libre Opensource software and the majorioty of it is Linux or Unix based.  This trend of software and philosophy of software started over 40 years ago in Unix has come to predominate the technology scene today. There is a good chance you have one your pocket Google's Android OS, or a laptop with Apple's MacOS (formerly OSX) which is based off on BSD Unix.  [Even Microsoft Windows 10 has a Linux compatibility layer now](https://devblogs.microsoft.com/commandline/announcing-wsl-2/ "Windows Subsystem for Linux 2").
+Marc Andreesen, founnder of the Netscape Communicator browser (precursor to FireFox) famously said, "Software is eating the world."  The majority of that is Free/Libre Opensource software and the majority of it is Linux or Unix based.  This trend of software and philosophy of software started over 40 years ago in Unix has come to predominate the technology scene today. There is a good chance you have one your pocket Google's Android OS, or a laptop with Apple's MacOS (formerly OSX) which is based off on BSD Unix.  [Even Microsoft Windows 10 has a Linux compatibility layer now](https://devblogs.microsoft.com/commandline/announcing-wsl-2/ "Windows Subsystem for Linux 2").
 
 When we take a look all operating systems, at a foundational level all operating systems have three basic components. An operating system can be boiled down to three main parts:
 
@@ -37,7 +37,7 @@ Take the Windows operating system for instance in which you have just one versio
 
 ### Programming Language and Compiler Tools
 
-Once you have a kernel to interface with the hardware, you need a programming lanugage or standard library that will let you build tools and code libraries to put the system to use.  In Unix and Linux most system tools and commands are built using the C language.  These tools such as gcc (GNU C Compuler) help you to compile and build other tools and programs.
+Once you have a kernel to interface with the hardware, you need a programming language or standard library that will let you build tools and code libraries to put the system to use.  In Unix and Linux most system tools and commands are built using the C language.  These tools such as gcc (GNU C Compiler) help you to compile and build other tools and programs.
 
 ### User Interface and User Tools
 
@@ -74,11 +74,11 @@ Many people supported and worked on what would become known as the Unix operatin
 
 ![*Ken Thompson and Dennis Ritchie*](images/Chapter-02/People/Ken-Thompson/Ken_n_dennis.jpg "Ken and Dennis")
 
-Without Thompson and Ritchie[^2], there would be no Unix and most likely no Linux today.  Until recently both were employeed as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011 (same year as Steve Jobs). Ken Thompson is still working and recently helped produce the [Go programming language](http://golang.org/ "Golang") while at Google.
+Without Thompson and Ritchie[^2], there would be no Unix and most likely no Linux today.  Until recently both were employed as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011 (same year as Steve Jobs). Ken Thompson is still working and recently helped produce the [Go programming language](http://golang.org/ "Golang") while at Google.
 
 To begin this story we need to go back to 1968.  At the time, the combined might of all the brightest minds of General Electric, MIT, ARPA, and Bell Labs came together to try to build a multi-user operating system called *MULTICS*.  Now today those aren't names that come to mind when you think of computer companies.  Yet in 1968/1969 General Electric and the government (ARPA) were the large funders and suppliers of computing (The PC market we know of today doesn't come into existence until 1984!).
 
-[Bell Labs](https://en.wikipedia.org/wiki/Bell_Labs "Bell Labs") at the time was basically the idea shop of the United States--where the best and brightest went to invent everything we take for granted today. Bell Labs was spun off by AT&T and became Lucent Technologies, which became Alcatel-Lucent and now is owwned by Nokia. One could argue that Google, Netflix, and Facebook have taken its place where the brightest minds go to invent new things in America.  No wonder that Dennis Ritchie, Ken Thompson, Brian Kernighan and even James Gosling (creator of the Java programming language) are and were employees at Google.
+[Bell Labs](https://en.wikipedia.org/wiki/Bell_Labs "Bell Labs") at the time was basically the idea shop of the United States--where the best and brightest went to invent everything we take for granted today. Bell Labs was spun off by AT&T and became Lucent Technologies, which became Alcatel-Lucent and now is owned by Nokia. One could argue that Google, Netflix, and Facebook have taken its place where the brightest minds go to invent new things in America.  No wonder that Dennis Ritchie, Ken Thompson, Brian Kernighan and even James Gosling (creator of the Java programming language) are and were employees at Google.
 
 Like all projects that try to do too much, MULTICS stalled in gridlock between the different companies and the demands of the government.  This left one crafty engineer with free time and (for those days) a true rarity - unused computers; PDP-7s to be exact.  Ken Thompson had an insiders view of the innovative things MULTICS was trying to accomplish and why the inner workings of the MULTICS project went wrong. Thompson also had a job to do as a Bell Labs researcher.  On his own time, he began to use these PDP-7s and program his own multi-user operating system, but with a different twist.  It was designed by him, and solved daily work and coding problems he had.  
 
@@ -191,7 +191,7 @@ int main(void)
 }
 ```
 
-Since Ritchie created "C" to solve all the problems Unix had -- it became the defacto language of Unix and from that point on pretty much all operating systems are designed in "C" after Thompson and Ritchie showed that you could use a high level language to make Unix portable across many platforms.  Recently a project to restore the original UNIX assembly code from a tape and documents recovered from 1972 has begun and is [hosted on Google code](https://code.google.com/p/unix-jun72/source/browse/trunk/src/cmd/init.s "Initial Unix Code").
+Since Ritchie created "C" to solve all the problems Unix had -- it became the de facto language of Unix and from that point on pretty much all operating systems are designed in "C" after Thompson and Ritchie showed that you could use a high level language to make Unix portable across many platforms.  Recently a project to restore the original UNIX assembly code from a tape and documents recovered from 1972 has begun and is [hosted on Google code](https://code.google.com/p/unix-jun72/source/browse/trunk/src/cmd/init.s "Initial Unix Code").
 
 #### Brian Kernighan
 
@@ -207,7 +207,7 @@ By 1974/75 internal use of Unix at Bell Labs is high amongst engineers.  Word is
 
 In 1975 Ken Thompson took a sabbatical from Bell Labs and went back to his Alma Mater, Berkeley, in California.  Installing the Version 6 Unix Release.  The students at Berkeley started adding their own features to improve it to solve their own problems.  One student in 1978, Bill Joy, added vi and the C Shell (two things still in use today in modern Linux and Unix) and people started referring to the changes made to the Unix at Berkeley as BSD Unix (Berkeley System Distribution Unix).
 
-By 1980, with many copies of Thompson's Unix now in circulation and nearly a decade of work there started to be fragmentation of the original Unix and many universities adding on their own customizations. At this time the Berkeley System Distribution of Unix was beginning to vary widely in functionality and quality from commercial AT&T UNIX. Since the code was technically proprietary under AT&T's ownership there was no way to contribute code back to AT&T and this led to fragmentation.  Another interesting problem AT&T had was that by the end of the 70's all those students who had learned Unix in college went to work in corporations and began to request Unix to be used as their corporate hardware platforms at work. Unix was the only operating system of its kind that could do this.  Now AT&T had a financial motive to commercialize Unix.  By 1982 AT&T released Unix System III, followed by System V in 1983, as a commercial product for sale to commercial companies, while creating a multi-hundred dollar academic licensed fee for universities.  By the dawn of the 1980s the first phase of Unix maturity was complete. The operating system, its code, and it's design philosophy were well proven and in wide use across universities and commercial enterprises. Into the 1980s the focus of Unix takes a dramatic shift to users and application creation.
+By 1980, with many copies of Thompson's Unix now in circulation and nearly a decade of work there started to be fragmentation of the original Unix and many universities adding on their own customizations. At this time the Berkeley System Distribution of Unix was beginning to vary widely in functionality and quality from commercial AT&T UNIX. Since the code was technically proprietary under AT&T's ownership there was no way to contribute code back to AT&T and this led to fragmentation.  Another interesting problem AT&T had was that by the end of the 70's all those students who had learned Unix in college went to work in corporations and began to request Unix to be used as their corporate hardware platforms at work. Unix was the only operating system of its kind that could do this.  Now AT&T had a financial motive to commercialize Unix.  By 1982 AT&T released Unix System III, followed by System V in 1983, as a commercial product for sale to commercial companies, while creating a multi-hundred dollar academic licensed fee for universities.  By the dawn of the 1980s the first phase of Unix maturity was complete. The operating system, its code, and its design philosophy were well proven and in wide use across universities and commercial enterprises. Into the 1980s the focus of Unix takes a dramatic shift to users and application creation.
 
 ## Second Phase of Unix Maturity -- Unix Users, Application Development, and Licensing
 
@@ -276,7 +276,7 @@ The GNU project instead recommends using the Linux kernel instead and joining th
 
 #### Professor Andrew Tanenbaum and Minix
 
-Before we talk about the Linux kernel, we need to talk about the state of other free adn opensource operating systems at this time.  One main one comes to mind: the Minix operating system.  With the closing off of the AT&T Unix source code in 1984 to academics and researchers in the university - they were left without source code to show as examples in classes.  
+Before we talk about the Linux kernel, we need to talk about the state of other free and opensource operating systems at this time.  One main one comes to mind: the Minix operating system.  With the closing off of the AT&T Unix source code in 1984 to academics and researchers in the university - they were left without source code to show as examples in classes.  
 
 ![*Professor Andrew S. Tanenbaum*](images/Chapter-02/People/Andrew-Tanenbaum/AndrewTanenbaum2-2.png "Professor Andrew S. Tanenbaum")
 
@@ -302,7 +302,7 @@ The reason why Linux is so popular is because of this fledgling kernel that work
 
 People began downloading and compiling the Linux kernel, adding the GNU tools, and making fully capable Unix-like operating systems for personal use soon after commercial use.  Linus' brilliance comes not from ingenuity but comes from good engineering principals like knowing when not to go down dead-end development trails.  Torvalds' work was not perfect but was good enough that others could take it and start to use it and improve upon it.  From 1992 to 2001 the Linux kernel grew rapidly in size and features and spawned commercial companies to sell and support Linux Distributions. Stallman's dream of a complete free and opensource operating system was being realized.  
 
-This should have been cause for great celebration amongst the Linux and GNU communities.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux, assuming that without the GNU tools, the Linux kernel would be useless.  The FSF assumed credit in this case.  But Linus Torvalds didn't see it that way.  He just referred to the system as Linux.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linux, leaving the GNU part out even though all of their tooling is what made Linux possible.  In a sense that is Linus' unique personality. On the other hand, Richard Stallman will not conduct any interview unless their is an agreement to only use the term GNU/Linux not Linux. Some would argue that this is Stallman's ego, but he insists he only wants credit where credit is due. This issue is still a matter of contention for the FSF today.
+This should have been cause for great celebration amongst the Linux and GNU communities.  The FSF saw this as a victory for GNU and began calling the system GNU/Linux, assuming that without the GNU tools, the Linux kernel would be useless.  The FSF assumed credit in this case.  But Linus Torvalds didn't see it that way.  He just referred to the system as Linux.  He just ignored the FSF's requests and people referred to what should have been GNU/Linux as just Linux, leaving the GNU part out even though all of their tooling is what made Linux possible.  In a sense that is Linus' unique personality. On the other hand, Richard Stallman will not conduct any interview unless there is an agreement to only use the term GNU/Linux not Linux. Some would argue that this is Stallman's ego, but he insists he only wants credit where credit is due. This issue is still a matter of contention for the FSF today.
 
 #### Linux Kernel Attributes Compared to Unix OS Attributes
 
@@ -342,9 +342,9 @@ On September 16, 2018, Linus Torvalds issued a public apology for his past behav
 
 The nascent Linux project saw a rush of growth and developer contribution from August of 1991 to February of 1992. But where did all these developers come from?  At this time we need to go back to Berkeley University and check in on the BSD project, (Berkeley System Distribution).  In the late 80s and up to the early 1990s BSD Unix development had been flourishing at Berkeley.  Some would attribute this to great minds and an open environment, some would attribute it to lots of government funding.  Either way the product produced began to eclipse the commercial AT&T Unix in features and quality.  BSD began to significantly and irreconcilably differ from AT&T Unix.
 
-AT&T seeing this decided in the early 1992 to take the BSD project to court in order to stop BSD from cutting into their commercial business.  BSD technically came from AT&T Unix back in 1976, when Ken Thompson took his sabbatical at Berkeley and brought the then pet project AT&T Unix with him. AT&T found that some of the BSD code had not been changed as was claimed and was still original AT&T Unix code, which they claimed was a copyright infringement. In early 1992 AT&T was granted a court ordered development injunction against the BSD project, preventing development work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing or copyright issues to worry about. BSD developers in droves flocked to the Linux project. By the time the lawsuit was finished in late 1993/1994 it was too late.  All that had happened was that BSD no longer use the term Unix to describe itself an they had to rewrite a handful of programs to remove the AT&T code.  AT&T had succeeded in planting the seed for the growth of the entire Linux industry with this action. The Linux rocket had left the launch pad and was never coming back.
+AT&T seeing this decided in the early 1992 to take the BSD project to court in order to stop BSD from cutting into their commercial business.  BSD technically came from AT&T Unix back in 1976, when Ken Thompson took his sabbatical at Berkeley and brought the then pet project AT&T Unix with him. AT&T found that some of the BSD code had not been changed as was claimed and was still original AT&T Unix code, which they claimed was a copyright infringement. In early 1992 AT&T was granted a court ordered development injunction against the BSD project, preventing development work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing or copyright issues to worry about. BSD developers in droves flocked to the Linux project. By the time the lawsuit was finished in late 1993/1994 it was too late.  All that had happened was that BSD no longer use the term Unix to describe itself and they had to rewrite a handful of programs to remove the AT&T code.  AT&T had succeeded in planting the seed for the growth of the entire Linux industry with this action. The Linux rocket had left the launch pad and was never coming back.
 
-After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. Also they are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red hat.  All are maintained by volunteer organizations.
+After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. Also they are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red Hat.  All are maintained by volunteer organizations.
 
 * FreeBSD
 * DragonFlyBSD
@@ -375,7 +375,7 @@ In conclusion Raymond proposed that opensource code and opensource design method
 
 The "Cathedral and the Bazaar" was influential in helping the Netscape Corporation opensource their Netscape Web Browser code before the company was sold to AOL, under the name of the Mozilla project.  This code gave rise to what would eventually become the Firefox web browser in 2002--thanks to Raymond's writings.  
 
-Richard Stallman and thd FSF alleged the OSI was willing to make freedom compromises in order to make larger productivity gains with opensource software and fired back in his article ["Open Source Misses the Point"](http://www.gnu.org/philosophy/open-source-misses-the-point.html "Open Source Misses the Point") The terms do overlap, but Free Software and opensource ultimately have two divergent meanings and *free* software is *not* opensource software.
+Richard Stallman and the FSF alleged the OSI was willing to make freedom compromises in order to make larger productivity gains with opensource software and fired back in his article ["Open Source Misses the Point"](http://www.gnu.org/philosophy/open-source-misses-the-point.html "Open Source Misses the Point") The terms do overlap, but Free Software and opensource ultimately have two divergent meanings and *free* software is *not* opensource software.
 
 There has been some compromise between the two camps by using the term __FLOSS__, [Free, Libre, and Open Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software\#FLOSS "FLOSS"), but the FSF does not recommend any licensing that allows a user's freedom to be restricted.  One way to conceptualize the difference would be to look at the concept of [DRM software](https://en.wikipedia.org/wiki/Digital_rights_management "DRM"), which is basically the copy protection schemes on DVDs and digital music downloads.  The OSI group would not be opposed to build opensource DRM software.  But the FSF would be opposed to the entire concept of DRM--which is a tool they believe restricts a user's freedom to play their DVD anywhere and in any way.
 
@@ -386,7 +386,7 @@ You can read Raymond's two seminal books on Unix and opensource philosophy onlin
 
 ### Opensource Software Definition
 
-Open source doesn't just mean access to the source code. According to the [Opensource Initiative](https://opensource.org/ "Opensource Initiative") written by Bruce Perens, the now 10 rights enshrined in the OSD encompases the 4 software freedoms and extend them with a focus on applications in the business world. The distribution terms of open-source software must comply with the [following criteria:](https://opensource.org/osd-annotated "Annotated definition")
+Open source doesn't just mean access to the source code. According to the [Opensource Initiative](https://opensource.org/ "Opensource Initiative") written by Bruce Perens, the now 10 rights enshrined in the OSD encompasses the 4 software freedoms and extend them with a focus on applications in the business world. The distribution terms of open-source software must comply with the [following criteria:](https://opensource.org/osd-annotated "Annotated definition")
 
 1. Free Redistribution
     i) The license shall not restrict any party from selling or giving away the software as a component of an aggregate software distribution containing programs from several different sources. The license shall not require a royalty or other fee for such sale.
@@ -421,7 +421,7 @@ The creators of the Opensource initiative (OSI) took a different approach to mar
 * [MPLv2 - Mozilla Public License](https://opensource.org/licenses/MPL-2.0 "MPL")
 * [CDDL](https://opensource.org/licenses/CDDL-1.0 "CDDL")
 
-In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you cna include that allow for remixing and redistribution or no distribution.  There are options that allow for commerical redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "Commons."
+In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you cna include that allow for remixing and redistribution or no distribution.  There are options that allow for commercial redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "Commons."
 
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux
 
@@ -547,23 +547,23 @@ Fedora 20-29 are no longer supported anymore! Why is the Fedora Project so fast 
 
 ![*RHEL*](images/Chapter-02/Linux-logos/RHEL/320px-RedHat.svg.png "RHEL")
 
-Red hat's founder Mark Ewing had been an IBM employee prior to forming Red hat.  He knew something about enterprise software and more importantly enterprise profits.  Red hat began it's life as a desktop Linux company.  They quickly shifted their focus to compete not with Microsoft and Apple, but to take on the Unix enterprise giants of IBM, HP, Sun and AT&T.  These companies had one thing in common: they were all Unix vendors.  Red hat's vector was to dislodge the established Unix vendors with Red Hat Enterprise Linux (RHEL). They would succesfully attack this market with entirely opensource products and runnning on commodity Intel x86 based processors.  With Oracle also sensing a chance to capture market share along with RHEL, it announced it would port its database products to RHEL and this platform became to the go to choice for using Oracle as a database. By Oracle doing this they have all but abandoned Solaris and positioned themselves to take on Windows Server and MsSQL Server.
+Red Hat's founder Mark Ewing had been an IBM employee prior to forming Red Hat.  He knew something about enterprise software and more importantly enterprise profits.  Red Hat began its life as a desktop Linux company.  They quickly shifted their focus to compete not with Microsoft and Apple, but to take on the Unix enterprise giants of IBM, HP, Sun and AT&T.  These companies had one thing in common: they were all Unix vendors.  Red Hat's vector was to dislodge the established Unix vendors with Red Hat Enterprise Linux (RHEL). They would successfully attack this market with entirely opensource products and running on commodity Intel x86 based processors.  With Oracle also sensing a chance to capture market share along with RHEL, it announced it would port its database products to RHEL and this platform became to the go to choice for using Oracle as a database. By Oracle doing this they have all but abandoned Solaris and positioned themselves to take on Windows Server and MsSQL Server.
 
-The key to RHEL's success in the enterprise is its long term stability.  The RHEL application platform is expected to run for 5+ years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red hat instead takes "snapshots" from the Fedora project and freezes them to produce RHEL versions.  For example, as of fall 2015 the released version of RHEL was 7.1 which is a freeze of the technology from Fedora 19, which was released July of 2013.  
+The key to RHEL's success in the enterprise is its long term stability.  The RHEL application platform is expected to run for 5+ years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red Hat instead takes "snapshots" from the Fedora project and freezes them to produce RHEL versions.  For example, as of fall 2015 the released version of RHEL was 7.1 which is a freeze of the technology from Fedora 19, which was released July of 2013.  
 
-How successful is this strategy? By 2012 Red hat became the first Linux based company to make a billion dollars in a physical year.  But this success brought about an additional serious opensource question; RHEL is licensed under the GPLv2 Free Software license, which requires that all source code for your product to be freely and openly available. That means anyone can examine, modify, and redistribute your code for their own product as well. What if someone did that?  Wouldn't they be able to ride the coat tails of Red hat to success?  The CentOS project did just that.
+How successful is this strategy? By 2012 Red Hat had become the first Linux based company to make a billion dollars in a physical year.  But this success brought about an additional serious opensource question; RHEL is licensed under the GPLv2 Free Software license, which requires that all source code for your product to be freely and openly available. That means anyone can examine, modify, and redistribute your code for their own product as well. What if someone did that?  Wouldn't they be able to ride the coat tails of Red Hat to success?  The CentOS project did just that.
 
 #### CentOS
 
 ![*CentOS*](images/Chapter-02/Linux-logos/CentOS/CentOS_Logotype.png "CentOS logo")
 
-By 2010 RHEL was firmly entrenched as a viable enterprise based server platform. Many customers loved the reliability of RHEL, but the two year technology freeze was to long for some people.  They wanted to use RHEL but with the opportunity to update libraries and applications much quicker. The CentOS (*Community ENTerprise Operating System*) emerged[^14].  The goal of this project is to use the freely available GPLv2 code of RHEL and redistribute it with their own custom modifications.  Some would argue that CentOS is succeeding based on RHEL's hard work. Until about 2014, Red hat had a very frosty relationship with the CentOS developers--even taking them to court numerous times over trademarked Red hat logos that had not been properly removed by CentOS developers. Their developers, like Debian, are entirely volunteer based and not backed by a company (technically since they base their work off of RHEL--they are commercially backed via Red hat).
+By 2010 RHEL was firmly entrenched as a viable enterprise based server platform. Many customers loved the reliability of RHEL, but the two year technology freeze was to long for some people.  They wanted to use RHEL but with the opportunity to update libraries and applications much quicker. The CentOS (*Community ENTerprise Operating System*) emerged[^14].  The goal of this project is to use the freely available GPLv2 code of RHEL and redistribute it with their own custom modifications.  Some would argue that CentOS is succeeding based on RHEL's hard work. Until about 2014, Red Hat had a very frosty relationship with the CentOS developers--even taking them to court numerous times over trademarked Red Hat logos that had not been properly removed by CentOS developers. Their developers, like Debian, are entirely volunteer based and not backed by a company (technically since they base their work off of RHEL--they are commercially backed via Red Hat).
 
 Eventually all of Red Hat's copyrighted material was removed and CentOS then in full compliance with the GPLv2 license.  This made Red Hat angry because they felt that CentOS were pirates stealing their work and causing them to loose sales to enterprises that had been using RHEL but had switched to use CentOS.  By 2014, Red Hat and Centos came to terms to work together--with Red Hat offering to sell support contracts to CentOS users.  Is CentOS doing anything illegal?  Anything immoral?  Not according to the GPLv2 and the spirit of free and opensource software.
 
 #### Oracle Linux
 
-Not to be out done by CentOS, Oracle saw that many of their customers were paying Red hat for operating systems licenses, buying support contracts, and running an Oracle database on top of it.  Oracle wanted a piece of this pie.  Oracle made a fork of RHEL's opensource code as well, adding Oracle product code and services and redistributing it as Oracle Linux.
+Not to be out done by CentOS, Oracle saw that many of their customers were paying Red Hat for operating systems licenses, buying support contracts, and running an Oracle database on top of it.  Oracle wanted a piece of this pie.  Oracle made a fork of RHEL's opensource code as well, adding Oracle product code and services and redistributing it as Oracle Linux.
 
 [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can be installed and run unchanged. One may ask, isn't this illegal too? Is Oracle breaking the law? Are they stealing RHEL software and reselling it?  Is this piracy? Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.
 
@@ -571,7 +571,7 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 * Originally a German company Linux Distro [started in 1994](https://www.suse.com/company/history/ "History of Suse Linux")
   * Suse is an acronym meaning: "*Software und System-Entwicklung*” (software and systems development)
-* [openSuse Linux](https://www.opensuse.org "Open SuseLinux") is an community driven version of Suse and released in 2004.
+* [openSuse Linux](https://www.opensuse.org "Open SuseLinux") is a community driven version of Suse and released in 2004.
 * In 2006 Microsoft and SUSE announce interoperability agreement
 * Suse was responsible for working to port the Linux kernel to 64 bit architecture in 2000
 
@@ -579,7 +579,7 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 
 [Gentoo Linux](https://www.gentoo.org/ "Gentoo Linux")
 
-* Unique Linux distro that you build from scratch based on your uniqure hardware, to become completely customized, small, and secure.
+* Unique Linux distro that you build from scratch based on your unique hardware, to become completely customized, small, and secure.
 * Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system.
 
 #### Intel Clear Linux
@@ -594,7 +594,7 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 #### Alpine Linux
 
 * [Alpine Linux](https://www.alpinelinux.org/ "Alpine Linux")
-  * Alpine uses musl as its standard C library not GNU libc, making smaller distrps than standard GNU/Linux
+  * Alpine uses musl as its standard C library not GNU libc, making smaller distros than standard GNU/Linux
   * Designed to be minimal by design - focusing on OS Containers
   * Uses OpenRC init systems
   * Uses [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management "Alpine Linux APK") Alpine Package Manager
@@ -619,14 +619,14 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 * No direct commercial backing, instead run by a non-profit foundation.
 * Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
 * Board of directors are elected and drives development decisions and policies
-* Used extesnively by WhatsApp and Netflix to run their infrastructure.
+* Used extensively by WhatsApp and Netflix to run their infrastructure.
 
 #### Project Trident and TrueOS
 
 * Desktop Based OS using the FreeBSD based [TrueOS](https://www.trueos.org/ "TrueOS Website")
 * Project started by Kris Moore who has been a FreeBSD developer
 * Comes with a new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
-* Strives to make FreeBSD more user friendy (more Linux like)
+* Strives to make FreeBSD more user friendly (more Linux like)
 
 #### DragonFly BSD
 
@@ -650,7 +650,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 * [Theo de Raadt](https://en.wikipedia.org/wiki/Theo_de_Raadt "Theo de Raadt") was banned/left from the NetBSD project in 1994.
   * He complained that they were developing too slow and not focusing on security.
 * Started a fork of NetBSD at the end of 1995
-* OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [other projects](http://www.openbsd.org/innovations.html "BSD Innovaations") comes out of this project.
+* OpenSSH, OpenNTPD, OpenSMTPD, LibreSSL, OpenBGPD, and [other projects](http://www.openbsd.org/innovations.html "BSD Innovations") comes out of this project.
   * [Microsoft recently became the first "gold sponsor" of the project](http://undeadly.org/cgi?action=article&sid=20150708134520)
 * Project is focused on radical implementations of security and safe coding practices--leveraging itself as the most secure OS.
 
@@ -675,7 +675,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 * Oracle killed commercial Solaris in the middle of the night [September 3rd, 2017](http://dtrace.org/blogs/bmc/2017/09/04/the-sudden-death-and-eternal-life-of-solaris).
 * Commercial Unix distribution created by SUN in the 1980s and bought by Oracle in 2010.
 * Sought to merge the best of Sys V and BSD into one standard Unix.
-* Ran on propriatery SPARC hardware platform
+* Ran on proprietary SPARC hardware platform
 * Leader in operating system feature development.
   * ZFS
   * Dtrace
@@ -712,9 +712,9 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
-Not since Linux Torvalds has a single developer been pervasive in the Linux community. Lennart Poettering is currently a developer for Red Hat[^18], and had previously developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  Lennart is mostly known for *systemd*.  Systemd was designed as a modern replacement for SysVinit, the intial program responsible for starting all other system processes in Unix/Linux.  
+Not since Linux Torvalds has a single developer been pervasive in the Linux community. Lennart Poettering is currently a developer for Red Hat[^18], and had previously developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse") and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software) "Avahi")--network discovery demon.  Lennart is mostly known for *systemd*.  Systemd was designed as a modern replacement for SysVinit, the initial program responsible for starting all other system processes in Unix/Linux.  
 
-Why would this technology be so devisive?  Well, the init system is at the root of your entire operating system and defines how the OS operates and interacts with processees.  Change is difficult and the init system has been set and well known since 1983, it is even called sysVinit, after the System V AT&T Unix release. Poettering has irked many people by breaking with certain perceived Unix conventions.  For him, the Unix philosophy of having small programs do one thing well is a byproduct of bygone era where computers had small amounts of storage and low processing power.  He has sentimentality for the work of Thompson and Ritchie, but not if something more efficient can be created. Lennart argues, if Linux wants to be taken serious like MacOS and Windows, these changes are not only necessary but actually closer to the core Unix philosophy then what SysVInit provides.  
+Why would this technology be so devisive?  Well, the init system is at the root of your entire operating system and defines how the OS operates and interacts with processes.  Change is difficult and the init system has been set and well known since 1983, it is even called sysVinit, after the System V AT&T Unix release. Poettering has irked many people by breaking with certain perceived Unix conventions.  For him, the Unix philosophy of having small programs do one thing well is a byproduct of bygone era where computers had small amounts of storage and low processing power.  He has sentimentality for the work of Thompson and Ritchie, but not if something more efficient can be created. Lennart argues, if Linux wants to be taken serious like MacOS and Windows, these changes are not only necessary but actually closer to the core Unix philosophy then what SysVInit provides.  
 
 The other major point of contention is with all the change systemd makes to the init process, many other pieces of software need to change as well.  Linux has always been about the freedom to choose your software, but systemd has made fundamental choices forcing fundamental changes to the structure of how software interacts with the Linux kernel.  For example, the GNOME desktop developers have chosen to integrate their software with systemd directly.  This means that you have no choice but to use systemd instead of SysVInit. if you want to use the GNOME desktop. You are basically locked into using GNOME as a Desktop environment in this case, which some would argue is progress and some would argue as captivity.  Note that BSD still uses SysVInit; systemd is a pure Linux-ism and not compatible with BSD.
 
@@ -722,11 +722,11 @@ According to BSD developer Benno Rice at BSDcan 2018, systemd gives Linux, a sys
 
 The first company to adopt systemd was RedHat.  Debian was the last hold out and they had a sprited debate, which led to a number of resignations and the community split over this issue.  Some Debian developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focused on removing all systemd and udev dependencies from a Debian based Linux distro.  
 
-In it's defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based sysetm compatability.  Systemd is entirely Linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros.
+In its defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based system compatibility.  Systemd is entirely Linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros.
 
 ## 6th Phase of Linux Maturity, OpenSource isn't a business model
 
-As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used accross the industry and these companies happen to be Venture Capital funded. These companies, who had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providors, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against the cloud providors.  
+As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used across the industry and these companies happen to be Venture Capital funded. These companies, who had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providers, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against the cloud providors.  
 
 * MongoDB - [Server Side Public License](https://www.mongodb.com/licensing/server-side-public-license "Server Side Public License")
 * Confluent - [Community License v1](https://www.confluent.io/confluent-community-license "Confluence Community License")
@@ -734,11 +734,11 @@ As the story moves into the year of 2019, we begin to see the issue of opensourc
 * CockroachDB - [Community License Agreement](https://www.cockroachlabs.com/cockroachdb-community-license/ "Community License Agreement")
 * Elastic - In a bit of irony, after the Elastic company moved some of their products features to an Enterprise Edition and non-opensource offering, Amazon felt that the need to make a statement rebuking Elastic for not [keeping Opensource open](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/ "Keeping Opensource Open").  Amazon neglected to mention that they had forked Elastic's code, made a hosted version on the AWS Cloud and was not contributing any code or money back to Elastic.  Mind you this was all legal according to the Apache Public License v2.  
 
-Some would argue that this is where the GPL with its strong copyleft would prevent this from happening.  Others would argue that this is the fundamental market effect of opensource, and let the two fight it out and the market will determine the winner.  The other solution is to create 503c based foundations to stweart projects, which means governance and tight corporate control of a project.  When Amazon essentially forked MongoDB and created a product called DocumentDB, the GPL would have forced Amazon, by its license, to release the changes made to the MongoDB source code--leveling the playing field economically.  The FSF and GPL people will tell you, the license is not about money or commerce, but freedom.
+Some would argue that this is where the GPL with its strong copyleft would prevent this from happening.  Others would argue that this is the fundamental market effect of opensource, and let the two fight it out and the market will determine the winner.  The other solution is to create 503c based foundations to stewart projects, which means governance and tight corporate control of a project.  When Amazon essentially forked MongoDB and created a product called DocumentDB, the GPL would have forced Amazon, by its license, to release the changes made to the MongoDB source code--leveling the playing field economically.  The FSF and GPL people will tell you, the license is not about money or commerce, but freedom.
 
-Others will site the fact that very few succesful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception.  Apple for instance has removed all GPLv3 based software from its MacOS due to concerns about GPLv3.  
+Others will site the fact that very few successful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception.  Apple for instance has removed all GPLv3 based software from its MacOS due to concerns about GPLv3.  
 
-The industry solution has been the formation of foundations.   There is major foundataion, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation").  This is the foundation that employs Linus Torvalds to continue work on the Linux Kernel.  In addition the Linux Foundation runs multiple other significant technology foundations--all offsprings of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and sheperded by the Linux Foundation is pretty astounding.
+The industry solution has been the formation of foundations.   There is major foundation, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation").  This is the foundation that employs Linus Torvalds to continue work on the Linux Kernel.  In addition the Linux Foundation runs multiple other significant technology foundations--all offsprings of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and shepherded by the Linux Foundation is pretty astounding.
 
 The CNCF--[Cloud Native Computing Foundation](https://cncf.io "Clound Native Compute Foundation").  In addi
 "*The Cloud Native Computing Foundation (CNCF) hosts critical components of the global technology infrastructure. CNCF brings together the world’s top developers, end users, and vendors and runs the largest open source developer conferences. CNCF is part of the nonprofit Linux Foundation.*"
@@ -747,7 +747,7 @@ The CNCF--[Cloud Native Computing Foundation](https://cncf.io "Clound Native Com
 
 "*The OpenJS Foundation is made up of 32 open source JavaScript projects including Appium, Dojo, jQuery, Node.js, and webpack. Our mission is to support the healthy growth of JavaScript and web technologies by providing a neutral organization to host and sustain projects, as well as collaboratively fund activities that benefit the ecosystem as a whole.*"
 
-The [Continuous Delivery Foundation](https://cd.foundation/ "The Continuous Delivery Foundaation").  
+The [Continuous Delivery Foundation](https://cd.foundation/ "The Continuous Delivery Foundation").  
 "*The Continuous Delivery Foundation (CDF) serves as the vendor-neutral home of many of the fastest-growing projects for continuous delivery, including Jenkins, Jenkins X, Spinnaker, and Tekton. CDF supports DevOps practitioners with an open model, training, industry guidelines, and a portability focus.*"
 
 ## Chapter Conclusion and Summary
@@ -795,18 +795,18 @@ Listen to the Podcast at [https://twit.tv/shows/floss-weekly/episodes/500](https
 * 33:25 What is the mistaken impression about contributing to OpenSource Software?
 * 37:40 What do you need to read before contributing to an OpenSource project?
 * 43:00 What does Vicky believe is important for a project to have and to enforce for a community?
-* 48:01 What is the myth about users of propriatery operating systems (Windows and MacOS)?
+* 48:01 What is the myth about users of proprietary operating systems (Windows and MacOS)?
 * 49:00 Vicky used Linux for 10 years, what drove her away from it?
 
 ### Lab
 
 #### Activity 1
 
-Most of the popular and functional pieces of software you use everyday invovle Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
+Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
 
 Post your topics on the Blackboard Class Discussion board under the Chapter-02 Case Studies forum - both of your case study choices have to be unique from everyone else. Those who choose first will get the ones they want. There are over 200+ case studies there will be plenty of options.
 
-You can find them at [https://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services.   Its best to find a company that you use or support.
+You can find them at [https://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services.   It's best to find a company that you use or support.
 
 Answer these questions (not all of the Answers are in each case study!)
 
@@ -823,7 +823,7 @@ Each Student will give a 1-2 minute presentation of one of their papers the foll
 
 #### Activity 2
 
-Read this stream of three articles.  Its a commentary on the Opensource license changes, a response from one of the CEOs, and then a reply to the reponse.
+Read this stream of three articles.  It's a commentary on the Opensource license changes, a response from one of the CEOs, and then a reply to the response.
 
 1) [http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/](http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/ "OpenSource confronts its midlife crisis")
 1) [https://medium.com/@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6](https://medium.com/@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6 "Quick Comment on Licensing")
