@@ -1,4 +1,4 @@
-# Appendix C - Markdown Code for Podcasts, Labs, and Review Questions
+retrievesuccessful# Appendix C - Markdown Code for Podcasts, Labs, and Review Questions
 
 ![*Security is a strange term...*](images/Chapter-Header/Appendix-C/authorization-2.png "No Drivers Here")
 
@@ -48,12 +48,12 @@ Listen to the Podcast at [https://twit.tv/shows/floss-weekly/episodes/500](https
 * 33:25 What is the mistaken impression about contributing to OpenSource Software?
 * 37:40 What do you need to read before contributing to an OpenSource project?
 * 43:00 What does Vicky believe is important for a project to have and to enforce for a community?
-* 48:01 What is the myth about users of propriatery operating systems (Windows and MacOS)?
+* 48:01 What is the myth about users of proprietary operating systems (Windows and MacOS)?
 * 49:00 Vicky used Linux for 10 years, what drove her away from it?
 
 ### Lab
 
-Most of the popular and functional pieces of software you use everyday invovle Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
+Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
 
 Post your topics on the Blackboard Class Discussion board under the Chapter-02 Case Studies forum - both of your case study choices have to be unique from everyone else. Those who choose first will get the ones they want. There are over 200+ case studies there will be plenty of options.
 
@@ -149,7 +149,7 @@ Answer these questions (not all of the Answers are in each case study!)
   a. Run the ```make install``` command
   b. Run the ```sudo make install``` command
   c. Run the ```install``` command
-  d. Run the ```make``` commmand
+  d. Run the ```make``` command
 
 19) What is the name of the new package managers developed by Canonical and RedHat?
   a.  flatpak and apt
@@ -375,7 +375,7 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 1) Archipelago
 1) LibrePCB
 
-#### Window Mangers
+#### Window Managers
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and from the Ubuntu Software Center install them.  Once installed you need to log out and restart your session.  In order to change the default window manager or desktop environment you need to find the Ubuntu logo icon in the upper right hand corner of the login screen.
 
@@ -393,9 +393,9 @@ You will chose 1 of the window managers from the categories listed earlier in th
 
 Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
 
-1) Install the Xfce Dektop on Fedora 30
+1) Install the Xfce Desktop on Fedora 30
 1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
-1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-dekstop but just xfce4 package)
+1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-desktop but just xfce4 package)
 
 #### Ubuntu Theme tweaking
 
@@ -536,13 +536,13 @@ Preface all screenshots with an H3 header indicated the question number: for exa
     i) Take a screenshot of the output of the ```ls``` command.  
 1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```.git``` is.  Repeat the process for the file named ```./title/metadata.yaml```   
     i) Take a screen shot of the output of the previous commands.
-1) Use the ```wget``` command to retreive a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip](https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip "Packer") 
+1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip](https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip "Packer") 
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
 1) Use the ```unzip``` command to unzip the binary and extract the file directly to the location ```/usr/local/bin```.  **Hint:** use the ```man unzip``` command to find out the usage option in order to accomplish this.
     i) To show this was succesful take a screenshot of the output of the command ```packer -v```.
 1) Use the ```wget``` command to retrieve an archived copy of the Hadoop binaries from the web.  You can use this address as an argument to your wget command: [http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz "Hadoop URL")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
-1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in later chapter.  ```tar``` is the commmand ```-xvzf``` is the options and you need to provide the argument of the hadoop*.tar.gz 
+1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in later chapter.  ```tar``` is the command ```-xvzf``` is the options and you need to provide the argument of the hadoop*.tar.gz 
         i) Take a screenshot of the output of the ```ls``` command to show the extracted hadoop directory.  
 1) Find the command that is used to rename a file or directory and rename the Hadoop directory to be ust hadoop
     i) Take a screenshot of the output of the ```ls``` command.    
@@ -701,9 +701,9 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 
 The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell.
 
-1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retreive a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
+1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retrieve a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
     i)  Take a screenshot of the above commands used to extract the zip file
-1. Now ```cd``` into the directoy you just decompressed. Type the command that will create folders named Chapter-16..31 in one command.
+1. Now ```cd``` into the directory you just decompressed. Type the command that will create folders named Chapter-16..31 in one command.
     i) Take a screenshot of the above command with output 
 1. What command will list every file in the textbook directory that has any number of characters and a ```.sh``` two character file extension of any name?
     i) Take a screenshot of the above command with output 
@@ -713,7 +713,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. Create a shell variable named UT, assign the contents of the command ```uptime``` to UT and print a string to the screen with its value and a message describing what it is.
     i) Take a screenshot of the above command with output
-1. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with dnf and skip the first instruction. Display the contents of the \*.out files in one commmand and pipe its output to the ```less``` command. Display the contents of the \*.err files in one commmand and pipe its output to the ```less``` command.  
+1. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with dnf and skip the first instruction. Display the contents of the \*.out files in one command and pipe its output to the ```less``` command. Display the contents of the \*.err files in one command and pipe its output to the ```less``` command.  
     i) Take a screenshot of the above command with output
 1. You are typing the command ```ls -l /topsecret``` and you want to redirect both standard out and standard error to a file named /tmp/out-and-error.txt, how would you do it?
     i) Take a screenshot of the above command with output
@@ -853,7 +853,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i)  Use the ex command to find all occurances of ```;``` and replace them with ```&&```.
     i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```2.8.5```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
-    i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the commmand is doing.
+    i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the command is doing.
 1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
     i) Create a script with the proper shebang on the first line.
     i) Type the command to update package repositories.
@@ -861,7 +861,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
     i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
     i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
-    i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the commmand to display the content of the ```$RESULT``` variable.
+    i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the command to display the content of the ```$RESULT``` variable.
     i) Add these lines to the END of your shell script:
 
 ```bash
@@ -1456,7 +1456,7 @@ __Outcomes:__
 
 At the conclusion of this lab you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  
 
-__Instructions:__ Make a folder in your Github repo named Week-13, create a file called ReadMe.md.  In this file you will make a header H2 (## in markdown) for each question and will post a screenshot of the commmand and output that each question requires.
+__Instructions:__ Make a folder in your Github repo named Week-13, create a file called ReadMe.md.  In this file you will make a header H2 (## in markdown) for each question and will post a screenshot of the command and output that each question requires.
  
 1) Change the default grub settings in Ubuntu add a background image (preferably dark) and remove or disable the ```quiet splash``` option) make sure to execute  ```update-grub``` before rebooting or changes won't be written.
 1) Use the ```systemd-analyze``` tools to print out the most recent boot time for your system
@@ -1791,7 +1791,7 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 1. ~6:13 What is every application running on?
 1. ~8:43 What did Amazon announce in 2006?
 1. ~9:00 In 2006 what was Joyent using in 2006, and what was Amazon using?
-1. ~9:25 What became defacto for the cloud?
+1. ~9:25 What became de facto for the cloud?
 1. ~11:18 What happens to the RAM when you give it to an operating system?
 1. ~14:40 What does Joyent's Manta service allow you to do with containers and objects?
 1. ~18:58 What command hadn't been created in 1986?
@@ -1835,5 +1835,3 @@ Kubernetes
 1. ~52:02 What is the relationship between Google/Kubernetes and RedHat's OpenShift Paas?
 
 ### Lab
-
-

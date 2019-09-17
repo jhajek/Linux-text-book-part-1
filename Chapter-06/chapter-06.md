@@ -680,9 +680,9 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 
 The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell.
 
-1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retreive a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
+1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retrieve a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
     i)  Take a screenshot of the above commands used to extract the zip file
-1. Now ```cd``` into the directoy you just decompressed. Type the command that will create folders named Chapter-16..31 in one command.
+1. Now ```cd``` into the directory you just decompressed. Type the command that will create folders named Chapter-16..31 in one command.
     i) Take a screenshot of the above command with output
 1. What command will list every file in the textbook directory that has any number of characters and a ```.sh``` two character file extension of any name?
     i) Take a screenshot of the above command with output
@@ -692,7 +692,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. Create a shell variable named UT, assign the contents of the command ```uptime``` to UT and print a string to the screen with its value and a message describing what it is.
     i) Take a screenshot of the above command with output
-1. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with dnf and skip the first instruction. Display the contents of the \*.out files in one commmand and pipe its output to the ```less``` command. Display the contents of the \*.err files in one commmand and pipe its output to the ```less``` command.  
+1. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with dnf and skip the first instruction. Display the contents of the \*.out files in one command and pipe its output to the ```less``` command. Display the contents of the \*.err files in one command and pipe its output to the ```less``` command.  
     i) Take a screenshot of the above command with output
 1. You are typing the command ```ls -l /topsecret``` and you want to redirect both standard out and standard error to a file named /tmp/out-and-error.txt, how would you do it?
     i) Take a screenshot of the above command with output

@@ -28,11 +28,11 @@ __Android__  "*Android is a Linux distribution according to the Linux Foundation
 
 When you hear the term *"free and opensource software"* what comes to mind? The quotes listed above state a range of opinions and outlooks. Do you agree with any of these quotes?  Do you disagree? These are the questions to keep in mind as you begin to understand *free and opensource software*.
 
-Everyday people are exposed to free and opensource software without even knowing it. What does this mean?  And what are the advantages/disadvantages with propriatery or closed-source software?  What are the different development paradigms and what doe these things mean in relation to privacy, security, and impact on your daily life.  In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within and to impact society.
+Everyday people are exposed to free and opensource software without even knowing it. What does this mean?  And what are the advantages/disadvantages with proprietary or closed-source software?  What are the different development paradigms and what doe these things mean in relation to privacy, security, and impact on your daily life.  In reading the above quotes it is clear there is more then a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems are what powers our computers and smart phones, it is what allows us to interact with the hardware contained within and to impact society.
 
 This text strives to focus on two areas;
 
-1) We will describe the philosophy of free and opensource software and it's origin and impact upon our computing world.  
+1) We will describe the philosophy of free and opensource software and its origin and impact upon our computing world.  
 1) This book will cover the basic technical structure and how to use free and opensource operating systems--primarily Linux, but where noted Unix and BSD based systems.  
   
 ### For Instructors

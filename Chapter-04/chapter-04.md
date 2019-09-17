@@ -41,7 +41,7 @@ With the X system the idea of having discrete terminals went away.  Now you coul
 
 ## Along Comes an X
 
-Beyond the simple green screen terminals by the mid 1980s we began to see proprietary primitive UNIX GUIs from commercial vendors, especially from Sun. These GUI interfaces were placed on high-end workstations sold at premium prices for the day. One may wonder why you would even bother to great a GUI in the first place. Computing at that time was beginning to take less of an iterative/batch processing approach to computing and a more of an interactive approach. GUIs were in the hand of the privileged few vendors but not of anyone else.  By 1985 MIT opensourced a project called X.  This project was after Richard Stallman had left the school but continued in his spirit.  X was a continuation of a primitive GUI called "*W*". As Unix originally had no concept of a GUI, one had to be bolted on.  But the spirit of X was not to enforce any standards on the user.
+Beyond the simple green screen terminals by the mid 1980s we began to see proprietary primitive UNIX GUIs from commercial vendors, especially from Sun. These GUI interfaces were placed on high-end workstations sold at premium prices for the day. One may wonder why you would even bother to create a GUI in the first place. Computing at that time was beginning to take less of an iterative/batch processing approach to computing and a more of an interactive approach. GUIs were in the hand of the privileged few vendors but not of anyone else.  By 1985 MIT opensourced a project called X.  This project was after Richard Stallman had left the school but continued in his spirit.  X was a continuation of a primitive GUI called "*W*". As Unix originally had no concept of a GUI, one had to be bolted on.  But the spirit of X was not to enforce any standards on the user.
 
 X uses a client–server model: an X server communicates with various client programs. The server accepts requests for graphical output (windows) and sends back user input (from keyboard, mouse, or touchscreen). The server may function as:
 
@@ -227,7 +227,7 @@ Wikipedia has a sample gallery of all these desktop environments and more at [ht
 
 ### GNOME 3 Lockin Question
 
-By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red hat), and Ubuntu you see very little differentiation desktop-wise now.
+By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red Hat), and Ubuntu you see very little differentiation desktop-wise now.
 
 Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  
 
@@ -403,7 +403,7 @@ Using the virtual machines you installed in the previous chapter, you will now i
 
 #### Package based install
 
-**Deliverable:** Take screenshots of all succesfull installs of the software listed.  
+**Deliverable:** Take screenshots of all successful installs of the software listed.  
 
 #### GNOME Software Store
 
@@ -504,9 +504,9 @@ You will chose 1 of the window managers from the categories listed earlier in th
 
 Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
 
-1) Install the Xfce Dektop on Fedora 30
+1) Install the Xfce Desktop on Fedora 30
 1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
-1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-dekstop but just xfce4 package)
+1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-desktop but just xfce4 package)
 1) Download the KDE Neon Desktop distro (Ubuntu based) from [https://neon.kde.org/download](https://neon.kde.org/download "KDE desktop Neon")
 
 #### Ubuntu Theme Tweaking

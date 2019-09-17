@@ -464,7 +464,7 @@ All my troubleshooting experience in Linux boils down to three things.  I have j
 
 ## Secure Shell
 
-The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  The need for security or encryption of data sent over a network was not appearent.  But as the ability to access data grew and the need to remotely access systems accross untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1999, appearing first in OpenBSD 2.6, introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  In fact [Microsoft was the first ever gold-level sponsor of the OpenBSD project](https://undeadly.org/cgi?action=article&sid=20150708134520 "Microsoft was the first ever gold-level sponsor of the OpenBSD project").
+The internet and networks were developed in a day and age where trust was implied and limited to large institutions.  The need for security or encryption of data sent over a network was not apparent.  But as the ability to access data grew and the need to remotely access systems across untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1999, appearing first in OpenBSD 2.6, introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  In fact [Microsoft was the first ever gold-level sponsor of the OpenBSD project](https://undeadly.org/cgi?action=article&sid=20150708134520 "Microsoft was the first ever gold-level sponsor of the OpenBSD project").
 
 > You can access SSH from the command line via typing: ```ssh -V```
 
@@ -476,7 +476,7 @@ You can install the OpenSSH *server* that allows clients to make remote connecti
 
 ### RSA keys
 
-SSH works because of Public/Private Key Encryption and a standard created and widely adopted by the RSA company.  Without going to deep into RSA encryption, this set of public and private keys allows you to securely transmit information accross an untrusted network.  How does it work?
+SSH works because of Public/Private Key Encryption and a standard created and widely adopted by the RSA company.  Without going to deep into RSA encryption, this set of public and private keys allows you to securely transmit information across an untrusted network.  How does it work?
 
 Each person generates a **keypair**, a public key and a private key. Both halves of the key make up the single key used for authentication.  These keys are exactly what they sound like.  The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened.  Think of the **public key** as the lock on your front door.  Conceivably anyone can come up to that lock and try to insert a key.  Unless they have the particular key, the lock won't open.   The **private key** is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.
 

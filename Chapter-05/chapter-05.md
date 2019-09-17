@@ -41,7 +41,7 @@ Why are the two filesystem hierarchies different?  The answer goes back to the d
 
 > "This is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems.[^49]"  
 
-In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX ensures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by it's Open Group Base Specification Issue number, which is 7 or POSIX 7.   For more details on the specifics of POSIX and what is does see APPENDIX A at the back of the book.
+In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX ensures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by its Open Group Base Specification Issue number, which is 7 or POSIX 7.   For more details on the specifics of POSIX and what is does see APPENDIX A at the back of the book.
 
 It is great to have a standard but what exactly does POSIX do?  Even in that question the answer varies widely, since Unix was already in use at the time for over 15+ years before a standard was in place.  This required the standard to back-define some issues and cave on other issues. POSIX defines at a minimum what a certified Unix based system must support feature and API wise, no more, no less.  It does not restrict extra non-POSIX features from being included.  In reality there is no POSIX Unix version like there is GPL compliant GNU/Linux distros. Most Linux distros are very POSIX compliant by nature, but very few systems are certified POSIX compatible.  For exmaple, POSIX doesn't define a default filesystem other than requiring /, /tmp, and /dev be present.
 
@@ -195,7 +195,7 @@ If you remember from chapter 4 that the word *"terminal"* came from the actual D
 
 ### Linux Shell Commands
 
-Many may say, *"Hey I have a nice point and click GUI why do I need to use the crusty old commandline?"*  That is a valid question.  In reality the GUI is not separate from the shell.  It is a *"visual sugar"* built on top of the Shell. Anything you click on in a GUI in reality is in reality __executing a command through the shell__.  In most cases using the Shell has more features for your command then in the GUI.  The GUI by definition cannot have more capability than the shell.  
+Many may say, *"Hey I have a nice point and click GUI why do I need to use the crusty old commandline?"*  That is a valid question.  In reality the GUI is not separate from the shell.  It is a *"visual sugar"* built on top of the Shell. Anything you click on in a GUI in reality is in reality __executing a command through the shell__.  In most cases using the Shell has more features for your command than in the GUI.  The GUI by definition cannot have more capability than the shell.  
 
 ### Basic Shell Commands
 
@@ -268,7 +268,7 @@ cat /etc/apache2/sites-available/000-default
 
 less
 
-: This command is a *hack* on the __more__ command which allows for scrolling the text of a file using the enter key or page down, and space bar or arrow down key for single line scroll.  The __more__ command only went down, niot up.  Hence the more powerful command __less__ which pages and line scrolls up and down a document.  Less is more.
+: This command is a *hack* on the __more__ command which allows for scrolling the text of a file using the enter key or page down, and space bar or arrow down key for single line scroll.  The __more__ command only went down, not up.  Hence the more powerful command __less__ which pages and line scrolls up and down a document.  Less is more.
 
 ```bash
 less /var/log/apache2/error.log
@@ -326,7 +326,7 @@ man wget
 
 > __Exercise:__ Now copy that file to the ```/tmp``` directory--what would be the commands? Now let us make a new directory under our home directory called notes (remember the filesystem is an upside down tree)
 
-> __Exercise:__ What command would we use?  ```mkdir notes```.  Now let us copy the file ```timestampfile``` into the notes directory. What command would you use? What would the full command and arguments look like?  How would you change directory and list the content of the notes directory (hint cd and ls)? *Note* if you get lost in the Linux filesystem tree you can always tpye cd ~ (tilde) and you will be taken back to your user home directory.
+> __Exercise:__ What command would we use?  ```mkdir notes```.  Now let us copy the file ```timestampfile``` into the notes directory. What command would you use? What would the full command and arguments look like?  How would you change directory and list the content of the notes directory (hint cd and ls)? *Note* if you get lost in the Linux filesystem tree you can always type cd ~ (tilde) and you will be taken back to your user home directory.
 
 ### Command Nomenclature
 
@@ -462,7 +462,7 @@ In addition to the rwx permissions, each file has three groupings of permissions
 
 The second triad of rwx permissions is __group__ permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
 
-The final triad of rwx permissions is considered __other__ or sometimes called unofficially __world__.  This covers the permissions for a user who is not the owner nor in the group that owns the file. Usually this column is conservatively "read-ony."
+The final triad of rwx permissions is considered __other__ or sometimes called unofficially __world__.  This covers the permissions for a user who is not the owner nor in the group that owns the file. Usually this column is conservatively "read-only."
 
 ## Chapter Conclusion and Review
 
@@ -592,13 +592,13 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     i) Take a screenshot of the output of the ```ls``` command.  
 1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```./title/metadata.yaml``` is.  Issue that same command to display what type of file ```Appendix-A``` is.
     i) Take a screen shot of the output of the previous commands.
-1) Use the ```wget``` command to retreive a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.4.3/](https://releases.hashicorp.com/packer/1.4.3/ "Packer Download URL")
+1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.4.3/](https://releases.hashicorp.com/packer/1.4.3/ "Packer Download URL")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
 1) Use the ```unzip``` command to unzip the binary and extract the packer executable.  Issue the move command, `mv` to move the executable to this location: ```/usr/local/bin```.  **Hint:** you will need to use `sudo` to get the permission needed for this operation.
     i) To show this was succesful take a screenshot of the output of the command ```packer -v```.
 1) Use the ```wget``` command to retrieve an archived copy of the Hadoop binaries from the web.  You can use this address as an argument to your wget command: [https://www-us.apache.org/dist/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz](https://www-us.apache.org/dist/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz "Hadoop URL")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
-1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in a later chapter.  ```tar``` is the commmand ```-xvzf``` is the options and you need to provide the argument of the ```hadoop*.tar.gz```
+1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in a later chapter.  ```tar``` is the command ```-xvzf``` is the options and you need to provide the argument of the ```hadoop*.tar.gz```
         i) Take a screenshot of the output of the ```ls``` command to show the extracted hadoop directory.  
 1) Find the command that is used to rename a file or directory and rename the Hadoop directory to be just hadoop
     i) Take a screenshot of the output of the ```ls``` command.
