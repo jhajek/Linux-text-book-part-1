@@ -603,7 +603,7 @@ The objectives of this lab is to use the shell commands we learned in this chapt
 1) Find the command that is used to rename a file or directory and rename the Hadoop directory to be just hadoop
     i) Take a screenshot of the output of the ```ls``` command.
 1) What would be the command to delete the file hadoop*.zip?
-    i) Issue the command ```ls```, then type the command to remove the .tar.gz file, the type the ```ls``` command again to show it has been remove.  Take a screenshot of the combined output of all 3 directories.
+    i) Issue the command ```ls```, then type the command to remove the .tar.gz file, the type the ```ls``` command again to show it has been remove.  Take a screenshot of the combined output of all 3 previous commands.
 1) Using a Web Browser from your GUI, navigate to and open the file named ```chapter-05-file-path-exercise.html``` located under the directory ```./Linux-text-book-part-1-master/files/Chapter-05/images/```:  Note that the images on the web page are broken.   Take a look at the source code (view source) and move the **stallman.jpg**  to the proper directory to make the webpage render that image properly in a single command using the command line.  
     i) Take a screenshot of that single command and a screenshot of the web browser showing the **stallman.jpg** image properly rendering.
 1) Using the commandline again, move the **ms-loves-linux.png** image to the proper directory using the ```mv``` command in a single command:
