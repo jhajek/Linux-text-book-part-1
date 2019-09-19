@@ -678,7 +678,7 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 
 ### Lab
 
-The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell.
+The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell. You can use either Ubuntu or Fedora based os.
 
 1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retrieve a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
     i)  Take a screenshot of the above commands used to extract the zip file
@@ -706,20 +706,24 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. What command would let you count the number of lines that have the term "robots.txt" in the file error.log?
     i) Take a screenshot of the above command with output
+1. Using the hosts.deny file, what command would you type to display the last 10 lines of the file, cut out the field with the IP address and sort them in ascending order?
+    i) Take a screensot of the above command with output
+1. Use the `grep` tool to search the file error.log for the line "Invalid method in request" and print to the screen.
+    i) Take a screensot of the above command with output
+1. Using tools discussed in this chapter, create a commandline based reporting tool based the contents of **error.log**.  Inthe report type the commands to find the following:  How many unique IPs did the error messages come from?  Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
+    i) take a screenshot of each of the above commands and output.
 1. Using the ```find``` command and starting from the \~ directory what would be the command to find all files with the name .md?
     i) Take a screenshot of the above command with output
 1. Using the find command and starting from the \~ directory what would be the command to find all the files that have been modified in the last hour prior?
     i) Take a screenshot of the above command with output
-1. Using the command line install the git client, ```sudo apt-get install git``` or ```sudo dnf install git``` Then clone down these two repositories: ```git clone https://github.com/jhajek/C_Space.git``` and ```git clone https://github.com/jhajek/Space_java.git```  Use the tar command to create a tape archive of each of the directories.  Name them with their file name plus the .tar extension
+1. In the **files > chapter-06 > tar** directory, compress the entire directory structure as a single `tar` archive called `inputfiles.tar`.
     i) Take a screenshot of the above command with output
 1. Add gzip compression for tar archives you just created Space_java.tar and C_Space.tar.  Not required but see if you can chain the commands and do it in one line.
     i) Take a screenshot of the above command with output
 1. Add bzip2 compression to your Space_java.tar and C_Space.tar
     i) Take a screenshot of the above command with output
-1. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz "kernel.org") or any other mainline stable kernel. Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the command to re-tar and re-compress it with xzip.
+1. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz "kernel.org") or any other mainline stable kernel. Extract this `xzip` and `tar` in one command.  Then type the command to delete the xz tarball.  Now type the command to re-tar and re-compress it with xzip.
      i) Take a screenshot of the above command with output -- Note this may be best as a series of screenshots
-1. 1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
-     i) Take a screenshot of the above command with output
 
 #### Footnotes
 
