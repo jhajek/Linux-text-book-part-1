@@ -453,7 +453,7 @@ d. em -> ed -> vi -> vim
 a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
 b. ~/.bashrc -> ~/.bash_profile or ~/.bash_login or ~/.profile -> /etc/profile
 
-20.  What is the command to display the contents of the PATH system variable on the command line?
+20. What is the command to display the contents of the PATH system variable on the command line?
 a. echo PATH
 b. echo $PATH
 c. echo path
@@ -468,7 +468,7 @@ Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show
 * ~7:30 What did Unix have that other operating systems didn't at that time?
 * ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
 * ~10:30 About what month and what year did this happen?
-* ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project?
+* ~10:40-13:30 What was the initial inspiration to create the Linux Kernel as an open source project?
 * ~13:30-14:00 Why was it licensed under the GPL?
 * ~20:48 Why didn't Linus want to work for a Linux company?
 * ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
@@ -481,17 +481,17 @@ __Objectives:__ The objective of this lab is to master vi commands and shell scr
 
 __Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
-*Prereqs:*  You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```. 
+*Prerequisites:*  You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```.
 
 1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
 1) Inside of the ```files/Chapter-07/lab``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
-    i)  Use the ex command to find all occurances of ```;``` and replace them with ```&&```.
-    i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```2.8.5```.
+    i)  Use the ex command to find all occurrences of ```;``` and replace them with ```&&```.
+    i)  Using vim commands replace all occurrences of the numbers ```2.6.5``` with ```2.8.5```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the command is doing.
-1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
+1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)
     i) Create a script with the proper shebang on the first line.
     i) Type the command to update package repositories.
     i) type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto accept any question.
@@ -512,14 +512,14 @@ export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar
 EOT
 ```
 
-Source the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs succesfully then you have succeded.
+Source the ```.bashrc``` file with the command ```. ~/.bashrc```, execute the command ```hadoop version``` if version information outputs successfully then you have succeeded.
 
 __Deliverable:__  
 
 Submit your Github URL for your repo to Blackboard.
 
 1) Push the file ```install-java-8-openjdk.sh``` in your week-07 > itmo-556 Github repo.  
-1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Github repo.  
+1) Push the file ```vimtutor.txt``` to your week-07 > itmo-556 Gitub repo.  
 1) Push the file ```created-shell-script.sh``` to your week-07 > itmo-556 Github repo.  
 
 #### Footnotes
