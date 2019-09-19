@@ -708,7 +708,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. Using the hosts.deny file, what command would you type to display the last 10 lines of the file, cut out the field with the IP address and sort them in ascending order?
     i) Take a screensot of the above command with output
-1. Use the `grep` tool to search the file error.log for the line "Invalid method in request" and print to the screen.
+1. Use the `grep` tool to search the file error.log for the line "Invalid method in request" and print to the screen the lines found.
     i) Take a screensot of the above command with output
 1. Using tools discussed in this chapter, create a commandline based reporting tool based the contents of **error.log**.  Inthe report type the commands to find the following:  How many unique IPs did the error messages come from?  Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
     i) take a screenshot of each of the above commands and output.
@@ -716,7 +716,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. Using the find command and starting from the \~ directory what would be the command to find all the files that have been modified in the last hour prior?
     i) Take a screenshot of the above command with output
-1. In the **files > chapter-06 > tar** directory, compress the entire directory structure as a single `tar` archive called `inputfiles.tar`.
+1. In the **files > chapter-06 > weather-data** directory, compress the entire directory structure as a single `tar` archive called `inputfiles.tar`.
     i) Take a screenshot of the above command with output
 1. Add gzip compression for tar archives you just created Space_java.tar and C_Space.tar.  Not required but see if you can chain the commands and do it in one line.
     i) Take a screenshot of the above command with output
