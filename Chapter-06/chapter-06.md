@@ -716,7 +716,9 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. Using the find command and starting from the \~ directory what would be the command to find all the files that have been modified in the last hour prior?
     i) Take a screenshot of the above command with output
-1. In the **files > chapter-06 > weather-data** directory, compress the entire directory structure as a single `tar` archive called `inputfiles.tar`.
+1. Using the file **sotu > 2005-sotu.txt** and **sotu > 2013-sotu.txt** using pipes, disply the ﬁle of text, determine the 10 most frequently used words, and print out a sorted list of those words along with their frequencies.  Use the `tr` command to generate a list of tokenized all lowercased words -- `tr -cs A-Za-z '\n' | tr A-Z a-z`.
+    i) Take a screenshot of the above command with output
+1. In the **files > chapter-06 > weather-data** directory, compress the entire directory structure of weather-data  as a single `tar` archive called `inputfiles.tar`.
     i) Take a screenshot of the above command with output
 1. Add gzip compression for tar archives you just created Space_java.tar and C_Space.tar.  Not required but see if you can chain the commands and do it in one line.
     i) Take a screenshot of the above command with output
