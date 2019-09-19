@@ -1,9 +1,10 @@
-# Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles  
+# Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles
+
 ![*Real programmers...*](images/Chapter-Header/Chapter-07/real_programmers-2.png "vi")
 
 ## Objectives
 
-  In the chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining their use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
+In the chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining their use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
 
 * Understand the difference between stream editors and text editors
 * Understand and learn how to use the vi editor
@@ -56,7 +57,7 @@ Initially Ken Thompson's editor worked well for what he needed.  But the command
 
 After sometime in 1976 an AT&T co-worker, George Coulouris, while working on sabbatical at Queen Mary's college London, extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have dedicated ram (expensive at the time).  The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor").  Because of slow screens and the high price of memory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
 
-Bill Joy came into the picture out at Berkely.  He helped make an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not really the evolution of ex, vi is ex [^82].
+Bill Joy came into the picture out at Berkeley.  He helped make an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not really the evolution of ex, vi is ex [^82].
 
 ### Relationship of vi and vim
 
@@ -68,7 +69,7 @@ In 1991, Bram Moolenaar created a port of __vi__ called __vim__ *vi improved*. V
 
 ### vi has a Sharp Learning Curve
 
-Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  The __vi editor__ is not a text editor comparable notepad, but vi was a specfic tool developed to create complex interaction with text in as few key strokes as possible. Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beautiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
+Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  The __vi editor__ is not a text editor comparable notepad, but vi was a specific tool developed to create complex interaction with text in as few key strokes as possible. Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beautiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
 
 #### vi and vim
 
@@ -276,8 +277,8 @@ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1
 
 #### Leafpad and Mousepad
 
-*  [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for LXDE and was for Xfce until its replacement by mousepad. Leafpad is built using GTK+.
-*  [Mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") comes standard in Xfce as a notepad clone.  It is built using GTK3+.
+* [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for LXDE and was for Xfce until its replacement by mousepad. Leafpad is built using GTK+.
+* [Mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") comes standard in Xfce as a notepad clone.  It is built using GTK3+.
 
 #### Sublime
 
@@ -312,7 +313,7 @@ echo "********************************************************"
 
 Now we need to save the file (w) and quit out of vi (q).  You can move to __ex__ mode by hitting ```ESC :wq``` to save and quit.   Now let us run our shell script.  Type ```list-ip.sh``` on the command line.   What happens? Why?
 
-![*Command not found*](images/Chapter-07/editors/bash/command-not-found.png "Command Not Found")      
+![*Command not found*](images/Chapter-07/editors/bash/command-not-found.png "Command Not Found")
 
 ### System Path
 
