@@ -563,10 +563,10 @@ d. No characters - trick questions
 4) True or False - You can include shell meta-charecters inside of two backticks ```\`\```` - example: ```ANS=`ls -l test[1-5]````
 
 5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
-a.  ```DIR='ls -l ./test[1-4].txt'```
-b.  ```DIR = \`ls -l ./test[1-4].txt\````
-c.  ```$DIR=\`ls -l ./test[1-4].txt\````
-d.  ```DIR=\`ls -l ./test[1-4].txt\````
+a. ```DIR='ls -l ./test[1-4].txt'```
+b. ```DIR = \`ls -l ./test[1-4].txt\````
+c. ```$DIR=\`ls -l ./test[1-4].txt\````
+d. ```DIR=\`ls -l ./test[1-4].txt\````
 
 6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables)
 a. ```#!/bin/bash```
@@ -589,19 +589,19 @@ b. declare
 c. for loop
 d. mapfile
 
-10)  Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
+10) Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
 a. ```mapfile SEARCHARRAY = (find ~ -name mozilla*)```
 b. ```mapfile SEARCHARRAY < < (find ~ -name mozilla*)```
 c. ```mapfile -t SEARCHARRAY < <(find ~ -name mozilla*)```
 d. ```mapfile -t SEARCHARRY < (find ~ -name mozilla*)```
 
-11)  Which below is a valid command to find the LENGTH of an array?
+11) Which below is a valid command to find the LENGTH of an array?
 a. ```${#SEARCHARRAY[@]}```
 b. ```${SEARCHARRAY[@]}```
 c. ```${SEARACHARRAY[#]}```
 d. ```${@SEARCHARRAY[#]}```
 
-12)Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy```
+12) Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy```
 a.  ```echo $0```
 b.  ```echo $1```
 c.  ```echo args[1]```
