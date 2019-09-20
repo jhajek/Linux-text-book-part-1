@@ -248,6 +248,7 @@ fi
 #### IF, ELSE, ELIF
 
 If statements in BASH have support for nested IFs, IF ELSE constructs, and even [CASE](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html "Case Statements") statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book - see the previous link for a good tutorial.  Note at this level of complexity it might be better to try to engineer a CASE statement to re-architect what you are trying to do in to smaller steps to reduce complexity.  Complexity is the enemy of the programmer.  
+
 ```bash
 #!/bin/bash
 
@@ -258,6 +259,7 @@ if [ -a ~/Documents ]
      echo "Directory doesn't exist"
 fi
 ```
+
 ```bash
 #!/bin/bash
 
@@ -269,6 +271,7 @@ if [ -a ~/Documents ]
      echo "Directory doesn't exist" &> ~/Documents/script.log
 fi
 ```
+
 ```bash
 #!/bin/bash
 
@@ -289,7 +292,7 @@ if [ -a $1 && -x ]
 else
   echo "File does not exist and/or is not executable"
 fi
-```   
+```
 
 Here is a complex example of nested IF, ELIFs, and ELSE statements.
 
@@ -359,6 +362,7 @@ esac
 ### FOR Loops
 
   A FOR loop is used to loop incrementally through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimited list of items.  The syntax of a FOR loop is:
+
 ```bash
 for arg in [LIST];
 do
@@ -415,11 +419,13 @@ day of week      0 - 6 (0 is Sunday)
 -------------  -----------------------
 
 The cron service scans for your combination of jobs and if a pattern matches the current time then that job executes.  For example:
+
 ```bash
 * 20 * * * /home/jeremy/backup.sh
 ```
 
 In this case the script above would execute every night of the week at the 20th hour [^87]. The values of cron can be combined to get specific times and dates.  There is also syntax for executing on every 15 minutes.
+
 ```bash
 */15 * * * * ~/Documents/script.sh
 ```
@@ -427,6 +433,7 @@ In this case the script above would execute every night of the week at the 20th 
 ```bash
 0,15,30,45 * * * *  ~/Documents/script.sh
 ```
+
 Something unique like this will start at 3 minutes after and then execute every 10 minutes (13,23,33,43,53 minutes)
 
 ```bash
@@ -500,7 +507,7 @@ Lets take a look at this statement:[^90]
 *  \~ tells awk to do a RegularExpression match \/....\/ is a Regular expression. 
 * Within the RE is the string Linux and the special character \^.
 * \^ causes the RE to match from the start (as opposed to matching anywhere in the line).
-* Seen together: Awk will match a regular expression with "Linux" at the start of the first column.
+* Seen together: awk will match a regular expression with "Linux" at the start of the first column.
 
 You can find more information at this IBM tutorial: [Awk by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "Awk by example")
 
@@ -671,33 +678,31 @@ Kohsuke Kawaguchi
 
 ### Lab
 
-__Objectives__
+#### Lab Objectives
 
 This lab will allow you to create shell scripts.  Use positional parameters, control structures, and write cron jobs.
 
-__Outcomes__
+#### Lab Outcomes
 
 At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts.
 
-__Notes__ 
-
-In the Github repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your Github URL.
+In the GitHub repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your GitHub URL.
 
 1) What would be the command to create an array in Bash named itemARRAY?
 
-1) Write a shell script that declares an array in Bash named dirarr. Using the mapfile command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
+1) Write a shell script that declares an array in Bash named `dirarr`. Using the `mapfile` command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
   
 1) Write a for loop to iterate through that array and print every element of the line out on the screen.  (Make sure you detect the length of the array and use a $LENGTH variable as your sentinel condition.
   
 1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
   
-1)  From the clones textbook code,  locate the file install-java8.sh located in the **files/Chapter-08/lab** directory.  Modify the script to include IF statements to check for the existance of the path ```/datapool1``` and to print an error message if the path does not exist.
+1) From the clones textbook code,  locate the file install-java8.sh located in the **files/Chapter-08/lab** directory.  Modify the script to include IF statements to check for the existence of the path ```/datapool1``` and to print an error message if the path does not exist.
   
 1) Modify install-java8.sh again--this time take a positional parameter and put that in place of the directory name ```/datapoo1``` (this will allow you to customize the install location of the shell script).  
   
 1) Modify the install-java8.sh from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script.
   
-1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
+1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional parameter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
   
 1) Write a shell script to check in the ~/topsecret directory to see if a given file name exists.  If TRUE print a message else print an error message with the given file name being passed.
   
