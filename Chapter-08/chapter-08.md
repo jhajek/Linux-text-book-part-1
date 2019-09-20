@@ -1,17 +1,18 @@
 # Writing Basic Shell Scripts
+
 ![*Bash Escape*](images/Chapter-Header/Chapter-08/escape_artist-2.png "Bash Escape")
 
-### Objectives
+## Objectives
 
 This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenants of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus on using the opensource technology of Linux.  The Objectives of this chapter are as follows:
 
-   * Understand how to write and use basic shell scripts
-   * Understand how to use conditional statements in Bash scripts
-   * Understand how to declare system environment variables and their scope of existence
-   * Understand how to use positional parameters as variables into shell scripts
-   * Understand how to use the scheduling service ```cron``` for managing shell script automation
+* Understand how to write and use basic shell scripts
+* Understand how to use conditional statements in Bash scripts
+* Understand how to declare system environment variables and their scope of existence
+* Understand how to use positional parameters as variables into shell scripts
+* Understand how to use the scheduling service ```cron``` for managing shell script automation
 
-### Outcomes
+## Outcomes
 
   At the conclusion of this chapter you will have furthered your understanding of the vi editor and be able to demonstrate how to use control structures in shell scripts.  You will also learn about command line variables and how they extend the ability of a shell script to accept dynamic input.  You will be able to schedule a shell script to run at a scheduled time by using ```cron``` service increasing your ability to reduce work by automating repetitive tasks.
 
@@ -21,14 +22,14 @@ This portion of the book begins Part II. The first 7 chapters focused more on th
 
 ### The Bash Shell
 
-   Just like any programming language we cannot have complex logic if we don't have control structures.  The two basic ones we want to cover are if statements and for loops.  There are the other traditional control structures but are used less commonly because of the nature of a shell script is a single execution not as a repeated process or system service.
+Just like any programming language we cannot have complex logic if we don't have control structures.  The two basic ones we want to cover are if statements and for loops.  There are the other traditional control structures but are used less commonly because of the nature of a shell script is a single execution not as a repeated process or system service.
 
-
-   The BASH shell scripting language resembles a traditional programming language.  But it is key to remember that it was not designed to be a complete programming language.  As you push shell scripts to their limits you begin to see the end of what they are capable of.  That is where you see languages like Perl or Python coming in to extend and replace BASH.  (Note if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this.) BASH is a tool to help automate the repetition of commands.
+The BASH shell scripting language resembles a traditional programming language.  But it is key to remember that it was not designed to be a complete programming language.  As you push shell scripts to their limits you begin to see the end of what they are capable of.  That is where you see languages like Perl or Python coming in to extend and replace BASH.  (Note if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this.) BASH is a tool to help automate the repetition of commands.
 
 ### Shell Script Variables
 
 As we learned previously we can define variables in BASH.  These variables are prefixed with a ```$``` when referenced.   In the previous chapter in the ```.bashrc``` file used to modify the system path, we assigned a new value to the ```PATH``` variable like this:
+
 ```bash
 PATH=$PATH:/home/user/Documents/apps
 
@@ -50,6 +51,7 @@ Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` i
 ![*Output of printenv command on Fedora 22*](images/Chapter-08/bash-shell/printenv2.png "printenv")
 
 > __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.
+
 ```bash
 #!/bin/bash
 
@@ -69,7 +71,8 @@ In this example we see how the value of $MDY is interpreted first and then passe
 
 Any variables that are declared have a scope of this scripts execution.  This means that once the script has finished executing any variables are tossed from memory.  If I wanted a variables name and value to life after the completion of my shell script I can always add the __export__ command.  The __export__ command will take the content of this variable and move it from the memory space of the script's execution and move it into the memory space of the launching shell.  This way the variable will live only as long as that terminal session is open--once the window closes those variables disappear from memory because the process that was holding them in a piece of memory is gone too.
 
-> __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.  Upon completion of that execution, type ```echo $DT``` what value do you see and why?   
+> __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.  Upon completion of that execution, type ```echo $DT``` what value do you see and why?
+
 ```bash
 #!/bin/bash
 
@@ -107,11 +110,13 @@ echo "ARRAY LENGTH IS $LENGTH"
 #### Positional Parameters
 
 In the case of the command binary ```ls -l /etc``` the command takes options and arguments.  Shell scripts you create have the same ability to accept and parse input from the commandline.  Note that this is different from ```getopts``` which allows you to make a complicated option and argument passing scheme for shell scripts.  This is for simple variable parameters to be passed into a script: For example:
+
 ```bash
 ./delete-directory.sh ~/Documents/text-book Jeremy
 ```
 
 The content of the shell script is as follows:
+
 ```bash
 #!/bin/bash
 
@@ -124,6 +129,7 @@ echo $2 > ~/Documents/deletion-log.txt
 ```
 
 Note that each positional parameter that is passed in to the shell script is simply accessed by a number prefixed by a ```$```.  What do you think would be the value of ```$0```?  You can similarly access the number of variables that are passed into the command line by using the built-in variable: For example:
+
 ```bash
 #!/bin/bash
 # posparam.sh
@@ -148,6 +154,7 @@ There are other structures for creating full scale shell scripts that parse user
 ### IF Statements
 
 The structure of the Bash __IF__ command is as follows:
+
 ```bash
 if TEST-COMMANDS; then CONSEQUENT-COMMANDS; fi
 ```
@@ -178,13 +185,12 @@ else
 fi
 ```  
 
-
 : Primary expressions
 
-   Primary	            Meaning
+   Primary              Meaning
 ------------------ --------------------------------------------------------------
-```[ -a FILE ]```	  True if FILE exists.
-```[ -b FILE ]```	  True if FILE exists and is a block-special file.
+```[ -a FILE ]```   True if FILE exists.
+```[ -b FILE ]```   True if FILE exists and is a block-special file.
 ```[ -c FILE ]```   True if FILE exists and is a character-special file.
 ```[ -d FILE ]```   True if FILE exists and is a directory.
 ```[ -e FILE ]```   True if FILE exists.
@@ -192,15 +198,15 @@ fi
 ```[ -g FILE ]```   True if FILE exists and its SGID bit is set.
 ```[ -h FILE ]```   True if FILE exists and is a symbolic link.
 ```[ -k FILE ]```   True if FILE exists and its sticky bit is set.
-```[ -p FILE ]```	  True if FILE exists and is a named pipe (FIFO).
-```[ -r FILE ]```	  True if FILE exists and is readable.
-```[ -s FILE ]```	  True if FILE exists and has a size greater than zero.
-```[ -t FD ]```	    True if file descriptor FD is open and refers to a terminal.
+```[ -p FILE ]```   True if FILE exists and is a named pipe (FIFO).
+```[ -r FILE ]```   True if FILE exists and is readable.
+```[ -s FILE ]```   True if FILE exists and has a size greater than zero.
+```[ -t FD ]```     True if file descriptor FD is open and refers to a terminal.
 ------------------ --------------------------------------------------------------
 
 : Additional Primary expressions
 
-   Primary	         Meaning
+   Primary          Meaning
 ------------------ -----------------------------------------------------------------------
 ```[ -u FILE ]```	  True if FILE exists and its SUID (set user ID) bit is set.
 ```[ -w FILE ]```	  True if FILE exists and is writable.
@@ -214,19 +220,19 @@ fi
 
 : Primary expressions
 
-   Primary	                            Meaning
+   Primary                              Meaning
 ------------------------------ ---------------------------------------------------------------------
-```[ FILE1 -nt FILE2 ]```	      Newer than or if FILE1 exists and FILE2 does not.
-```[ FILE1 -ot FILE2 ]```	      Older than FILE2, or is FILE2 exists and FILE1 does not.
+```[ FILE1 -nt FILE2 ]```       Newer than or if FILE1 exists and FILE2 does not.
+```[ FILE1 -ot FILE2 ]```       Older than FILE2, or is FILE2 exists and FILE1 does not.
 ```[ FILE1 -ef FILE2 ]```       True if FILE1 and FILE2 refer to the same device and inode numbers.
-```[ -o OPTIONNAME ]```	        True if shell option "OPTIONNAME" is enabled.
-```[ -z STRING ]```	            True of the length if "STRING" is zero.
-```[ -n STRING ]```       	    True if the length of "STRING" is non-zero.
-```[ STRING1 == STRING2 ]```	  True if the strings are equal.
-```[ STRING1 != STRING2 ]``` 	  True if the strings are not equal.
-```[ STRING1 < STRING2 ]```	    True if "STRING1" sorts before "STRING2"
-```[ STRING1 > STRING2 ]```	    True if "STRING1" sorts after "STRING2"
-```[ ARG1 OP ARG2 ]```	        "OP" is one of ```-eq, -ne, -lt, -le, -gt or -ge```.
+```[ -o OPTIONNAME ]```         True if shell option "OPTIONNAME" is enabled.
+```[ -z STRING ]```             True of the length if "STRING" is zero.
+```[ -n STRING ]```             True if the length of "STRING" is non-zero.
+```[ STRING1 == STRING2 ]```    True if the strings are equal.
+```[ STRING1 != STRING2 ]```    True if the strings are not equal.
+```[ STRING1 < STRING2 ]```     True if "STRING1" sorts before "STRING2"
+```[ STRING1 > STRING2 ]```     True if "STRING1" sorts after "STRING2"
+```[ ARG1 OP ARG2 ]```          "OP" is one of ```-eq, -ne, -lt, -le, -gt or -ge```.
 ------------------------------ ---------------------------------------------------------------------
 
  : Boolean Operators
@@ -453,9 +459,9 @@ Entry                                Description                          Equiva
 * Bash Cookbook [http://shop.oreilly.com/product/0636920058304.do](http://shop.oreilly.com/product/0636920058304.do "Bash Cookbook")
 * vi and vim [http://shop.oreilly.com/product/9780596529833.do](http://shop.oreilly.com/product/9780596529833.do "vi and vim")
 
-## Awk & Sed
+## Awk and Sed
 
-### awk & gawk
+### awk and gawk
 
 AWK is a programming language designed for text processing and typically used as a data extraction and reporting tool. It is a standard feature of most Unix-like operating systems[^91]. This original program was released in 1977, and was a powerful and focused lanugage.  We take things like Perl, Python, and even databases such as MySQL and SQLite. The ```awk``` language was designed to do all these things because at the time text based files was the universal datatype.  The initial program was developed by [Alfred Aho](https://en.wikipedia.org/wiki/Alfred_Aho "Alfred Aho"), [Peter Weinberger](https://en.wikipedia.org/wiki/Peter_J._Weinberger "peter J. Weinberger"), and [Brian Kerhnighan](https://en.wikipedia.org/wiki/Brian_Kernighan "Brian Kernighan") at Bell Labs.  
 
@@ -474,13 +480,13 @@ Lets compare what ```awk``` can do:
 * How would you find which ip caused the most HTTP 404 errors? Take these two files in ```files/Chapter-08/logs``` u_ex150721.log u_ex151002.log.
 * How would we capture the top 5 offending IPs? What column number is sc-status?
 * How could we look for everything that isn't a 404?
-* How would you check for Wordpress filesystem hacks by searching for '/' or '..' or /etc or names like passwd .htacess my.cnf?
-  + ```awk '$11~/\.\.\//' u_ex150721.log```
+* How would you check for WordPress filesystem hacks by searching for '/' or '..' or /etc or names like passwd .htacess my.cnf?
+  * ```awk '$11~/\.\.\//' u_ex150721.log```
 * What is the difference between ```cat hosts.deny``` and ```awk '{print;}' hosts.deny```
 * How would you print out all lines of a file that contain a \# as the first character?
-  + ```awk '$0~/^#/' hosts.deny```
+  * ```awk '$0~/^#/' hosts.deny```
 * How would you print out all lines of a file that do not contain a \# as the first character?
-  + ```awk '$0!~/^#/' hosts.deny```
+  * ```awk '$0!~/^#/' hosts.deny```
 
 The ```awk``` program works very well, but as the standard text based logs migrate to the binary format of ```journalctl``` what happens? The ```journalctl``` command has a --no-pager option to effectively print out all of the journal.  You can use ```awk``` in conjunction.  How would you scan the journal looking for all log entries related to the sshd daemon? How would you do it in grep and cut?  How would you do it in awk?
 
@@ -644,8 +650,6 @@ d. FOR
 
 ### Podcast Questions
 
-__Jenkins__
-
 [https://twit.tv/shows/floss-weekly/episodes/443](https://twit.tv/shows/floss-weekly/episodes/443 "jenkins on floss weekly podcast")
 
 Kohsuke Kawaguchi
@@ -656,7 +660,7 @@ Kohsuke Kawaguchi
 * ~10:33 How did Jenkins get started?
 * ~13:30 What was happening to Sun in 2004/2005?
 * ~14:37 Why did the project name change from Hudson to Jenkins?
-* ~20:30 What licesnse does Jenkins use and why?
+* ~20:30 What license does Jenkins use and why?
 * ~21:09 What language is Jenkins built on?
 * ~22:00 What is Koshuke's company name and who does he compare his company too?
 * ~29:25 What is the approximate size of the developer community?
