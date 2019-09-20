@@ -672,7 +672,7 @@ Kohsuke Kawaguchi
 * ~22:00 What is Koshuke's company name and who does he compare his company too?
 * ~29:25 What is the approximate size of the developer community?
 * ~34:55 What has changed in Jenkins since 2011?
-* ~40:00 What are some of the benefits of using a opensource softare with alarge comminity of users?
+* ~40:00 What are some of the benefits of using a opensource software with a large community of users?
 * ~42:30 What does CloudBees provide for Jenkins customers?
 * ~45:20 Who has control over the Jenkins project - the Jenkins developer community or CloudBees?
 
