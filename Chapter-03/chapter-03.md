@@ -793,15 +793,15 @@ Through this chapter we gained an understanding of what x86-based virtualization
   c. Install Disk
   d. Trick question
 11) What feature doesn't dpkg handle/support?
-  a. Dependencies
-  b. Installing Dependencies
+  a. Removing software
+  b. Installing dependencies
   c. Versioning
   d. Author Information
-12) What is the APT command to add an additional software repository in Ubuntu/Debian, named: ppa:linux-libre/ppa, to your APT system?
-  a. sudo add-repository ppa:linux-libre/ppa
-  b. sudo add-apt-repository ppa:linux-libre/ppa
-  c. sudo apt-add-repository ppa:linux-libre/ppa
-  d. sudo apt-add ppa:linux-libre/ppa  
+12) What is the APT command to add an additional software repository in Ubuntu/Debian, named: `ppa:linux-libre/ppa`, to your APT system?
+  a. `sudo add-repository ppa:linux-libre/ppa`
+  b. `sudo add-apt-repository ppa:linux-libre/ppa`
+  c. `sudo apt-add-repository ppa:linux-libre/ppa`
+  d. `sudo apt-add ppa:linux-libre/ppa`  
 13) Which distro(s) supports the .deb package?
   a. Ubuntu only
   b. Debian Family

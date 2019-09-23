@@ -43,14 +43,14 @@ b. check sum
 9. What is the name of the driver package you can install in VirtualBox in order to enable features such as shared clipboard, larger screen resolution, and mouse pointer integration?
 d. VirtualBox Guest Additions
 
-10. What is the name for a Linux installation that runs in memory?
+10. What is the name for a Linux distribution that runs in memory?
 b. Live ISO
 
-11. What is **not** a type of checksum hashes offered for an Ubuntu distribution?
-a. MD5
+11. What feature doesn't dpkg handle/support?
+b. Installing dependencies
 
-12. What is the only type of hash used for checksums offered for Fedora ISOs?
-c. SHA256
+12. What is the APT command to add an additional software repository in Ubuntu/Debian, named: `ppa:linux-libre/ppa`, to your APT system?
+b. `sudo add-apt-repository ppa:linux-libre/ppa`
 
 13. Which distro(s) supports the .deb package?
 b. Debian Family
