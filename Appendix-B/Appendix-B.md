@@ -23,7 +23,7 @@ a. ISO
 c. USB
 
 3. What is the name of the most common tool used to create bootable Linux install media?
-c. UNetbootin
+c. etcher.io
 
 4. What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
 A: hypervisor
@@ -41,10 +41,10 @@ A: Type I
 b. check sum
 
 9. What is the name of the driver package you can install in VirtualBox in order to enable features such as shared clipboard, larger screen resolution, and mouse pointer integration?
-d. VirtualBox Guest Additions 
+d. VirtualBox Guest Additions
 
 10. What is the name for a Linux installation that runs in memory?
-b. Live ISO 
+b. Live ISO
 
 11. What is **not** a type of checksum hashes offered for an Ubuntu distribution?
 a. MD5
@@ -61,7 +61,7 @@ b. RedHat Family
 15. We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
 c. Python
 
-16.	Describe the purpose of Virtualbox Guest Additions?
+16. Describe the purpose of VirtualBox Guest Additions?
 The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability.
 
 17. In APT, where are the additional source list fragments stored (file location)?
@@ -76,10 +76,10 @@ d. Run the ```make``` command
  flatpak
 
 ## Chapter 04
-Linux Desktop and GUI 
+Linux Desktop and GUI
 Chapter 04 review questions
 
-1.	 What was the original and most popular Unix “Smart Terminal?” 
+1.	 What was the original and most popular Unix “Smart Terminal?”
 b.	VT-100
 2.	What is the three letter abbreviation still in use today in modern Linux to refer to “terminal 
 devices?”
