@@ -255,7 +255,7 @@ VT-220 terminals they used prior.
   b. Y
   c. Wayland Project
   d. Jennings Project
-9) What is the name of Ubuntu’s, now depricated, GUI compositor replacement for X? (Just the name)
+9) What is the name of Ubuntu’s, now deprecated, GUI compositor replacement for X? (Just the name)
 
 10) What are the 3 types of Linux window managers?
 
