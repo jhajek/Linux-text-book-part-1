@@ -4,7 +4,7 @@
 
 ## Objectives
 
-In the chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining their use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
+In this chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining their use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
 
 * Understand the difference between stream editors and text editors
 * Understand and learn how to use the vi editor
@@ -25,10 +25,9 @@ The reason we call them __stream editors__ is that at their time of development 
 
 ### Emacs
 
-Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Stallman came from.  GNU Emacs was released in 1984 and developed entirely by Richard Stallman himself.  In 1980 James Gosling (father of the Java Language) had created his own Emacs in the spirit of opensource called gmacs, but sold his project to a company who re-licensed it with a proprietary license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of a deficiency, I recommend you to try it out at least once.
+Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Stallman came from.  GNU Emacs was released in 1984 and developed entirely by Richard Stallman himself.  In 1980 James Gosling (father of the Java Language) had created his own Emacs in the spirit of opensource called gmacs, but sold his project to a company who re-licensed it with a proprietary license.  Emacs is basically a [Lisp language](https://en.wikipedia.org/wiki/Lisp_\(programming_language\) "Lisp")  interpreter focusing on macros (or key combinations) to make repeatable actions.  Emacs is a very powerful editor (see the cartoon at the beginning of the chapter) and has plugins for email and other functions to exist entirely inside of emacs.  In the course of this book we will not be focusing on emacs but that is not because of any deficiency, I recommend you to try it out at least once.
 
 > *In it normal editing mode, GNU Emacs behaves like other text editors and allows the user to insert characters with the corresponding keys and to move the editing point with the arrow keys. Escape key sequences or pressing the control key and/or the meta key, alt key or super keys in conjunction with a regular key produces modified keystrokes that invoke functions from the Emacs Lisp environment. Commands such as save-buffer and save-buffers-kill-emacs combine multiple modified keystrokes [^80]*.
-
 > *GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing [^78] [^79].*
 
 Emacs features include:
@@ -41,9 +40,7 @@ Emacs features include:
 
 ### The vi Editor
 
-The other major family of stream editors is the __vi editor__ or just __vi__ (pronounced *vee-eye*).  The __vi editor__ took a different route than emacs as it had an different intended  purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programmatically unlike emacs which exposes its LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano.
-
-The chart below shows the history of the __vi editor__.
+The other major family of stream editors is the __vi editor__ or just __vi__ (pronounced *vee-eye*).  The __vi editor__ took a different route than emacs as it had an different intended  purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programmatically unlike emacs which exposes it's LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano. The chart below shows the history of the __vi editor__.
 
   Editor           Year Released              Originator
 ------------     ------------------------   -------------------------------------
@@ -55,9 +52,9 @@ The chart below shows the history of the __vi editor__.
 
 Initially Ken Thompson's editor worked well for what he needed.  But the commands were very cryptic and made using the Thompson editor very difficult.  Ken Thompson's original shell *ed* is still available for [download on Ubuntu and Fedora](http://linuxclues.blogspot.com/2012/09/ed-tutorial-line-editor-unix.html "ed") if you are interested to see what it was like to use Unix back in the early 70's
 
-After sometime in 1976 an AT&T co-worker, George Coulouris, while working on sabbatical at Queen Mary's college London, extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have dedicated ram (expensive at the time).  The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor").  Because of slow screens and the high price of memory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
+Sometime in 1976 an AT&T co-worker, George Coulouris, while working on sabbatical at Queen Mary's College London, extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have dedicated ram (expensive at the time).  The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor").  Because of slow screens and the high price of memory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
 
-Bill Joy came into the picture out at Berkeley.  He helped make an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not really the evolution of ex, vi is ex [^82].
+In 1978/89, out at Berkeley, Bill Joy came into the picture.  He helped design an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not really the evolution of ex, vi is ex [^82].
 
 ### Relationship of vi and vim
 
@@ -69,19 +66,19 @@ In 1991, Bram Moolenaar created a port of __vi__ called __vim__ *vi improved*. V
 
 ### vi has a Sharp Learning Curve
 
-Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  The __vi editor__ is not a text editor comparable notepad, but vi was a specific tool developed to create complex interaction with text in as few key strokes as possible. Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beautiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". If you use a mouse you knwo what I mean. Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
+Many people will say that the __vi editor__ has a sharp learning curve and not to use it.  I believe that is a spurious argument.  The __vi editor__ is not a text editor comparable notepad, but vi was a specific tool developed to create complex interaction with text in as few key strokes as possible. Learning to play the guitar is difficult in the beginning but once your have the muscle memory to do it you can become an expert player that can make beautiful music that few others can.  The power of __vi editor__ is in the ability to do line editing and visual editing all from the __vi editor__, the ability to search and find, execute internal commands, even use grep and regex for complex pattern matching and replacement from within vi.  Keeping your fingers on the keyboard constantly moving keeps your fingers and mind occupied. Nothing takes more time then to change "contexts". Don't abandon it because it is hard!  You will eventually be working on systems that have no GUI at all: FreeBSD or Ubuntu Server or RHEL or CentOS you will have to use vi.
 
 #### vi and vim
 
-By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  The reason they are different sized is that there are different versions of vim that have different levels of features pre-compiled in.
+By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  The reason they are different sized is that there are different versions of vim that have different levels of features enabled.
 
-  ![*vim Ubuntu 15.04*](images/Chapter-07/editors/vi/ubuntu-vi.png "vim Ubuntu")
+![*vim Ubuntu*](images/Chapter-07/editors/vi/ubuntu-vi.png "vim Ubuntu")
 
-  ![*vim Fedora 22*](images/Chapter-07/editors/vi/fedora-vi.png "vim Fedora")
+![*vim Fedora*](images/Chapter-07/editors/vi/fedora-vi.png "vim Fedora")
 
 ### The 3 vi Modes
 
-> __Example Usage:__ Let's invoke vi from the shell.  Open up a terminal and type ```vim notes.txt```--what happens?  You see a screen like this.  All those tilde marks (\~) mean that those lines don't exist--they are visual place holders.
+> __Example Usage:__ Let's invoke vi from the shell.  Open up a terminal and type ```vim notes.txt```, what happens?  You see a screen like this.  All those tilde marks (\~) mean that those lines don't exist--they are visual place holders. If you receive an error that `vim` is not installed you will need to install it via your package manager.
 
 ![*vi initial screen*](images/Chapter-07/editors/vi/vi-blank.png "vi blank")
 

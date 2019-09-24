@@ -553,7 +553,7 @@ d. shell meta-characters
 
 2. Assume your pwd is ~. If you wanted to list every directory only that started with the letters "Do" what would be the command?
 a. ls -l
-b. ls -la
+b. ls -la [Dd]o
 c. ls -l Do
 d. ls -l Do*
 
