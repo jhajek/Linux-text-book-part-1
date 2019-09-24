@@ -240,7 +240,7 @@ In some ways Bill Joy could be seen as the west coast version of Ken Thompson.  
 
 In the year 2000 Bill Joy wrote a seminal paper called, "[The Future Doesn't Need Us](http://archive.wired.com/wired/archive/8.04/joy_pr.html "The Future Doesn't Need Us")".  In the paper he was shocked by the speed of the progress scientific futurist community lead by [Ray Kurzweil](https://en.wikipedia.org/wiki/Ray_Kurzweil "Kurzweil")  coupled with how little they were examining ethics in the face of technological challenges. Ironically Ray Kurzweil is currently employed by Google, whose corporate motto until recently was [*Don't be evil*](https://en.wikipedia.org/wiki/Don%27t_be_evil "Google Motto").  Bill Joy said in quote,
 
->  *"From the moment I became involved in the creation of new technologies, their ethical dimensions have concerned me, but it was only in the autumn of 1998 that I became anxiously aware of how great are the dangers facing us in the 21st century. I can date the onset of my unease to the day I met Ray Kurzweil, the deservedly famous inventor of the first reading machine for the blind and many other amazing things."*  
+> *"From the moment I became involved in the creation of new technologies, their ethical dimensions have concerned me, but it was only in the autumn of 1998 that I became anxiously aware of how great are the dangers facing us in the 21st century. I can date the onset of my unease to the day I met Ray Kurzweil, the deservedly famous inventor of the first reading machine for the blind and many other amazing things."*  
 
 ### Screen Editors
 
@@ -376,7 +376,7 @@ As you can see the file is very sparse.  There is a specific header allowing you
 
 ## Chapter Conclusions and Review
 
- In this chapter we learned about the vi editor and mastered its three modes.  We learned how to created a shell script with vi and how to navigate and change modes within vi.  We learned about the basic set of vi commands needed to be productive.  We learned how to create a shell script, the shortcuts to change the file permissions, and how user profiles are loaded and used.
+In this chapter we learned about the vi editor and mastered its three modes.  We learned how to created a shell script with vi and how to navigate and change modes within vi.  We learned about the basic set of vi commands needed to be productive.  We learned how to create a shell script, the shortcuts to change the file permissions, and how user profiles are loaded and used.
 
 ### Review Questions
 
@@ -474,11 +474,17 @@ Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show
 
 ### Lab Chapter 7
 
-__Objectives:__ The objective of this lab is to master vi commands and shell scripts
+s#### Lab Objectives
 
-__Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
+The objective of this lab is to master vi commands and shell scripts
 
-*Prerequisites:*  You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```.
+#### Lab Outcomes
+
+At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
+
+#### Prerequisites
+
+You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```.
 
 1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
