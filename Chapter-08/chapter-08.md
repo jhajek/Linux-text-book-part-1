@@ -101,6 +101,7 @@ mapfile -t instanceARR < <(ls -l /etc)
 ```
 
 How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by positional parameters.  ```echo Array[0]; echo Array [1]; echo Array[2]```.  Remember that arrays like in C and Java are __0 indexed__.
+
 ```bash
 echo ${instanceARR[@]}
 LENGTH=${#instanceARR[@]}
@@ -503,8 +504,8 @@ sudo journalctl --no-pager | awk '$5 ~ /^sshd/'
 
 Lets take a look at this statement:[^90]
 
-*  \$5 tells awk to look at the fifth "column". 
-*  \~ tells awk to do a RegularExpression match \/....\/ is a Regular expression. 
+* \$5 tells awk to look at the fifth "column". 
+* \~ tells awk to do a RegularExpression match \/....\/ is a Regular expression. 
 * Within the RE is the string Linux and the special character \^.
 * \^ causes the RE to match from the start (as opposed to matching anywhere in the line).
 * Seen together: awk will match a regular expression with "Linux" at the start of the first column.
