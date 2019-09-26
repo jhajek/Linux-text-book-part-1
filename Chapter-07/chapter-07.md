@@ -1,4 +1,4 @@
-# Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles
+# Introduction to Linux Editors, Shell Scripts, and User Profiles
 
 ![*Real programmers...*](images/Chapter-Header/Chapter-07/real_programmers-2.png "vi")
 
@@ -287,7 +287,7 @@ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1
 
 ## Creating Shell Scripts
 
-Let's open up a terminal and create a shell script.  To do this type: ```vi list-ip.sh``` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive or more commonly called, **shebang**.  Although we are using the *bash* shell you can create scripts that can be run with other shells.  The first line of a shell script overrides the default shell and runs the script with the shell you determine.
+Let's open up a terminal and create a shell script.  To do this type: ```vi list-ip.sh``` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive or more commonly called, **she-bang**.  Although we are using the *bash* shell you can create scripts that can be run with other shells.  The first line of a shell script overrides the default shell and runs the script with the shell you determine.
 
 The first line of any bash script should include:  ```#!/bin/bash``` to make sure that our script is executed with the bash shell.  Normally the ```#``` means a comment, but with the ```!``` after it followed by a path, the comment function is overruled.   ```#!``` can also be pronounced *crunch* *bang*.  
 
