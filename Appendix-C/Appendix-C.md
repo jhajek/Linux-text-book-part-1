@@ -264,7 +264,7 @@ VT-220 terminals they used prior.
   b.	KDE, GNOME, E17, GNUSTEP
   c.	KDE, GNOME, X, LXDE
   d.	KDE, GNOME, Xfce, LXDE
-12)	What is the name of the windowing toolkit that KDE uses? 
+12)	What is the name of the windowing toolkit that KDE uses?
 
 13)	What is the name of the windowing toolkit that GNOME uses?
 
@@ -526,7 +526,7 @@ Answer said questions:
 
 ### Lab
 
-The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu 18.04 desktop or Fedora 28 desktop unless noted. 
+The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage patterns. The outcome will be that you will be able to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu 18.04 desktop or Fedora 28 desktop unless noted.
 
 Preface all screenshots with an H3 header indicated the question number: for example, Question 01, Question 02, and so forth.
 
@@ -536,13 +536,13 @@ Preface all screenshots with an H3 header indicated the question number: for exa
     i) Take a screenshot of the output of the ```ls``` command.  
 1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```.git``` is.  Repeat the process for the file named ```./title/metadata.yaml```   
     i) Take a screen shot of the output of the previous commands.
-1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip](https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip "Packer") 
+1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip](https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip "Packer")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
 1) Use the ```unzip``` command to unzip the binary and extract the file directly to the location ```/usr/local/bin```.  **Hint:** use the ```man unzip``` command to find out the usage option in order to accomplish this.
     i) To show this was succesful take a screenshot of the output of the command ```packer -v```.
 1) Use the ```wget``` command to retrieve an archived copy of the Hadoop binaries from the web.  You can use this address as an argument to your wget command: [http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz "Hadoop URL")
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
-1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in later chapter.  ```tar``` is the command ```-xvzf``` is the options and you need to provide the argument of the hadoop*.tar.gz 
+1) Use the ```tar -xvzf``` command to extract the files, we will cover ```tar``` in later chapter.  ```tar``` is the command ```-xvzf``` is the options and you need to provide the argument of the hadoop*.tar.gz
         i) Take a screenshot of the output of the ```ls``` command to show the extracted hadoop directory.  
 1) Find the command that is used to rename a file or directory and rename the Hadoop directory to be ust hadoop
     i) Take a screenshot of the output of the ```ls``` command.    
@@ -551,7 +551,7 @@ Preface all screenshots with an H3 header indicated the question number: for exa
 1) Using a Web Browser from your GUI, navigate to and open the file named ```chapter-05-file-path-exercise.html``` located under the directory ```./Linux-text-book-part-1-master/files/Chapter-05/images/```:  Note that the images on the web page are broken.   Take a look at the source code (view source) and move the **stallman.jpg**  to the proper directory to make the webpage render that image properly in a single command using the command line.  
     i) Take a screenshot of that single command and a screenshot of the web browser showing the **stallman.jpg** image properly rendering.
 1) Using the commandline again, move the **ms-loves-linux.png** image to the proper directory using the ```mv``` command in a single command:
-    i) Take a screenshot of that single command and a screenshot of the output of the web browser showing both the **stallman.jpg** and the **ms-loves-linux.png** images properly rendering. 
+    i) Take a screenshot of that single command and a screenshot of the output of the web browser showing both the **stallman.jpg** and the **ms-loves-linux.png** images properly rendering.
 1) Assume your PWD is your Home directory: In a series of commands, ```cd``` to Documents, then create a directory named ```packer-scripts```.  Under this directory create 5 sub-directories, ```ubuntu16-04```, ```ubuntu18-04```, ```fedora28```, ```centos7```, ```OmniOS```.  
     i) With your PWD as ```~/Documents/packer-scripts```, execute the command that will give a long listing of the contents of the directory.  Take a screenshot of this command as well as the output.
 
@@ -575,7 +575,7 @@ b. ls -la
 c. ls -l Do
 d. ls -l Do*
 
-3. In figure 95 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
+3. In figure 6.2 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
 a. Lexical analysis and parse
 b. Execution
 c. Builtins
@@ -704,9 +704,9 @@ The objectives of this lab will be to use the shell and understand meta-characte
 1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retrieve a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
     i)  Take a screenshot of the above commands used to extract the zip file
 1. Now ```cd``` into the directory you just decompressed. Type the command that will create folders named Chapter-16..31 in one command.
-    i) Take a screenshot of the above command with output 
+    i) Take a screenshot of the above command with output
 1. What command will list every file in the textbook directory that has any number of characters and a ```.sh``` two character file extension of any name?
-    i) Take a screenshot of the above command with output 
+    i) Take a screenshot of the above command with output
 1. What command inside the textbook directory will do a long listing of Chapters-02,04,06, and 08 only?
     i) Take a screenshot of the above command with output
 1. What command will copy the content of file Chapter-02/chapter-02.md to a directory named Chapter-00/chapter-02.md.  Use meta-characters to string together commands.
@@ -788,7 +788,7 @@ d. em -> ed -> vi -> vim
 
 6.  What are the three modes in vi?  
 
-7.  What is the key you use in vi to transition between COMMAND MODE and INSERT mode? 
+7.  What is the key you use in vi to transition between COMMAND MODE and INSERT mode?
 
 8.  What command sequence (key) in vi will add text to the right of the current cursor position?  (just the letter)
 
@@ -844,7 +844,7 @@ __Objectives:__ The objective of this lab is to master vi commands and shell scr
 
 __Outcomes:__ At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
-*Prereqs:*  You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```. 
+*Prereqs:*  You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```.
 
 1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
@@ -859,14 +859,14 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i) Type the command to update package repositories.
     i) type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto accept any question.
     i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
-    i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban``` 
+    i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban```
     i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to /tmp/distupgrade.out
     i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the command to display the content of the ```$RESULT``` variable.
     i) Add these lines to the END of your shell script:
 
 ```bash
 
-cat << EOT >> ~/.bashrc 
+cat << EOT >> ~/.bashrc
 
 ########## Inserted by User ##########
 export JAVA_HOME=/usr
@@ -1009,7 +1009,7 @@ Kohsuke Kawaguchi
 
 * ~3:30 What is Jenkins and what does it do?
 * ~7:54 What problem are people solving when using Jenkins?
-* ~9:25 What are Jenkins plugins and why do they exist? 
+* ~9:25 What are Jenkins plugins and why do they exist?
 * ~10:33 How did Jenkins get started?
 * ~13:30 What was happening to Sun in 2004/2005?
 * ~14:37 Why did the project name change from Hudson to Jenkins?
@@ -1032,34 +1032,34 @@ __Outcomes__
 
 At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts.
 
-__Notes__ 
+__Notes__
 
 In the Github repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your Github URL.
 
 1) What would be the command to create an array in Bash named itemARRAY?
 
 1) Write a shell script that declares an array in Bash named dirarr. Using the mapfile command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
-  
+
 1) Write a for loop to iterate through that array and print every element of the line out on the screen.  (Make sure you detect the length of the array and use a $LENGTH variable as your sentinel condition.
-  
+
 1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
-  
+
 1)  From the clones textbook code,  locate the file install-java8.sh located in the **files/Chapter-08/lab** directory.  Modify the script to include IF statements to check for the existance of the path ```/datapool1``` and to print an error message if the path does not exist.
-  
+
 1) Modify install-java8.sh again--this time take a positional parameter and put that in place of the directory name ```/datapoo1``` (this will allow you to customize the install location of the shell script).  
-  
+
 1) Modify the install-java8.sh from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script.
-  
+
 1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named xfile.txt.  Write a shell script to check if that file has executable permission by passing the filename as a positional paramter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
-  
+
 1) Write a shell script to check in the ~/topsecret directory to see if a given file name exists.  If TRUE print a message else print an error message with the given file name being passed.
-  
+
 1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
-  
+
 1) Write a shell script that take 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
-  
+
 1) Repeat the previous cron command but this time redirect the standard out and standard error to a file named ~/Documents/my.log
-  
+
 1) Using awk and other tools, how would you find which ip caused the most HTTP 404 errors? Take a screenshot of the command and the output.  Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log.
 
 1) Using awk and other tools, how would you capture the top 5 offending IPs? Take a screenshot of the command and the output. Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log.
@@ -1457,13 +1457,13 @@ __Outcomes:__
 At the conclusion of this lab you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  
 
 __Instructions:__ Make a folder in your Github repo named Week-13, create a file called ReadMe.md.  In this file you will make a header H2 (## in markdown) for each question and will post a screenshot of the command and output that each question requires.
- 
+
 1) Change the default grub settings in Ubuntu add a background image (preferably dark) and remove or disable the ```quiet splash``` option) make sure to execute  ```update-grub``` before rebooting or changes won't be written.
 1) Use the ```systemd-analyze``` tools to print out the most recent boot time for your system
 1) Install MariaDB server, ```sudo dnf install mariadb```.
     a) Use the command ```systemctl status <servicename>``` after MaraiDB is installed to display its current status, then enable the service via ```systemctl```, and then start the service. Now reboot your system.
 1) With MariaDB enabled, use the ```systemd-analyze``` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.  
-1) Use ```systemd-analyze blame``` to collect start times of each element after installing and enabling the MariaDB service 
+1) Use ```systemd-analyze blame``` to collect start times of each element after installing and enabling the MariaDB service
 1) Use systemctl to enable and start the httpd.service (Fedora)
 1) Use systemctl to SIGHUP the httpd.service (Fedora)
 1) Change the ```systemd``` target to the systemd commandline only level, display the ```systemd``` default target level - then change back to the GUI target (or runlevel5).
@@ -1744,7 +1744,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 1. ~19:45 What is "proxying" in relation to websites?
 1. ~29:36 What was the founder's motive to opensource Nginx?
 1. ~34:00 What is the difference in the opensource Nginx and the commercial version? (Freemium?)
-1. ~40:19 Are there Linux Distro packages for Nginx? 
+1. ~40:19 Are there Linux Distro packages for Nginx?
 1. ~53:10 Can Apache and Nginx co-exist or is it a winner take all?
 
 ### Lab
@@ -1819,7 +1819,7 @@ Kubernetes
 1. ~8:37 What problem is Kubernetes solving and how does it solve it?
 1. ~9:16 What is a "PaaS" and what does it do?
 1. ~10:20 Was Kubernetes built from the ground up as an opensource project?
-1. ~12:35 How does Kubernetes handle IP addressing for containers? 
+1. ~12:35 How does Kubernetes handle IP addressing for containers?
 1. ~14:35 What is the unit of abstraction with Kubernetes?
 1. ~15:10 What does the word Kubernetes mean?
 1. ~16:25 How does Kubernetes and Docker relate/intertwine?

@@ -79,7 +79,7 @@ ls ???.txt
 See the next example below.
   __Usage example:__
 ```bash
-echo 'Today's date is $DT' 
+echo 'Today's date is $DT'
 ```
 
 \"
@@ -368,7 +368,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
 
 > __Exercise:__ You can also add input redirection to a pipe.  ```dmesg | tail > system-output.txt```  This command will take the tail (or last 10 lines) of the dmesg kernel output buffer and redirect them to a text file for later analysis.  We can also pipe data and redirect as well.  ```cat deny.hosts | uniq -c > deny-results.txt```  Multiple commands can be chained together.  Try this command, ```cat deny.hosts | uniq -c | sort -nr``` and then try it again omitting the ```| sort -nr``` what is the difference?
 
-> __Exercise:__ The chaining process can grow pretty extensive.  The ```ps``` command is used to list system processes that are running and will be covered in detail in a later chapter.  This command will look for every running process that has the system+wildcard name in it, sort it, pipe that output to a tee--which saves that formated output to a file.  Then that sorted text will be passed on as standard in for a cut command to filter out columns via spaces and cut the first column and display this text to standard out. 
+> __Exercise:__ The chaining process can grow pretty extensive.  The ```ps``` command is used to list system processes that are running and will be covered in detail in a later chapter.  This command will look for every running process that has the system+wildcard name in it, sort it, pipe that output to a tee--which saves that formated output to a file.  Then that sorted text will be passed on as standard in for a cut command to filter out columns via spaces and cut the first column and display this text to standard out.
 ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1```
 
 > __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurrences of the ```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1  | tee ~/columns.txt | wc```
@@ -557,7 +557,7 @@ b. ls -la [Dd]o
 c. ls -l Do
 d. ls -l Do*
 
-3. In figure 95 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
+3. In figure 6.2 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
 a. Lexical analysis and parse
 b. Execution
 c. Builtins

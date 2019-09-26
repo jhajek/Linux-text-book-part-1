@@ -81,12 +81,12 @@ Chapter 04 review questions
 
 1.	 What was the original and most popular Unix “Smart Terminal?”
 b.	VT-100
-2.	What is the three letter abbreviation still in use today in modern Linux to refer to “terminal 
+2.	What is the three letter abbreviation still in use today in modern Linux to refer to “terminal
 devices?”
 b.	TTY
-3.	Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by 
+3.	Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by
 default?
-c.	The developers of these technologies were seeking to emulate the popular VT-100 and 
+c.	The developers of these technologies were seeking to emulate the popular VT-100 and
 VT-0220 terminals they used prior.
 4.	What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
 b.	Alt + Ctrl + F1 - F7
@@ -110,13 +110,13 @@ a.	Qt
 a.	GTK+
 14.	What is the name of the founder of the GNOME project?
 a.	Miguel de Icaza
-15.	When the GNOME 3 desktop environment was released in early 2012, many people were 
-unhappy that many changes were made.  There were 3 major projects started to either preserve 
+15.	When the GNOME 3 desktop environment was released in early 2012, many people were
+unhappy that many changes were made.  There were 3 major projects started to either preserve
 GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
 c.	Unity, Mate, Cinnamon
 16.	When released in 2006, what was the main development goal of the LXDE desktop environment?
 c.	Energy saving and extremely fast
-17.	Which of these statements are true in regards to Linux desktop environments? (choose all that 
+17.	Which of these statements are true in regards to Linux desktop environments? (choose all that
 apply.
 a.	Desktop environments have a File Manager
 b.	Desktop Environments have start or action buttons and task and notification bars
@@ -124,7 +124,7 @@ c.	Desktop environments have a changeable but consistent look-and-feel
 d.	Desktop environments have system configuration tools and user applications built-in
 18.	What is the default desktop environment for Fedora 22? (Name and versions.
 a.	GNOME 3
-19.	What is the name of the button on the upper left hand corner of the GNOME 3 desktop in 
+19.	What is the name of the button on the upper left hand corner of the GNOME 3 desktop in
 Fedora 22 that you use to “launch applications?”
 a.	Activities
 20.	What is the name of the default Ubuntu desktop environment?
@@ -150,7 +150,7 @@ d.	ls
 5.	What is the name of the command you use to display the content of a file to the screen?
 d.	cat
 
-6.	What is the name of the command you use to display the content of a file to the screen that 
+6.	What is the name of the command you use to display the content of a file to the screen that
 allows you to page up and down?
 b.	less
 
@@ -166,7 +166,7 @@ d.	bash
 10.	Based on the ls command, what is the option to do a long listing?
 d.	ls –l
 
-11.	What is the command you can use to find out additional usage information about a shell 
+11.	What is the command you can use to find out additional usage information about a shell
 command?
 b.	man
 
@@ -180,9 +180,9 @@ c.	tree
 a.	/
 
 15.	Everything (directories, files, devices. in Unix/Linux is a what?
-a.	file 
+a.	file
 
-16.	What is the name of the Unix system standard developed in ~1985 that defines at a minimum 
+16.	What is the name of the Unix system standard developed in ~1985 that defines at a minimum
 what a certified Unix based system must support?
 c.	POSIX
 
@@ -197,7 +197,7 @@ a.	home
 
 20.	True or False - Lennart Poettering supports POSIX
 a.	False
-	
+
 ## Chapter 06
 
 Shell Meta-Characters, Pipes, Search, and Tools
@@ -209,7 +209,7 @@ d. shell meta-characters
 2. Assume your pwd is ~. If you wanted to list every directory only that started with the letters "Do" what would be the command?
 d. ls -l Do*
 
-3. In figure 95 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
+3. In figure 6.2 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
 d. Expansion
 
 4. Which meta-character allows you to string commands together regardless of the successful execution of the previous command?
@@ -250,7 +250,7 @@ a. \>
 b. \>\>
 
 16. What meta-character is used to redirect the standard output of one command as the standard input of another command?
-d. \| 
+d. \|
 
 17. Which command is a shortcut to display the kernel's output messages?
 d. dmesg
@@ -266,7 +266,7 @@ d. gzip
 
 ## Chapter 07
 
-Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles 
+Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles
 
 Chapter 07 review questions
 
@@ -282,7 +282,7 @@ c. An interpreter for Emacs Lisp
 4. Who created the vi editor?
 c. Bill Joy
 
-5. Which of the following sequences of the history of vi is correct? 
+5. Which of the following sequences of the history of vi is correct?
 b. ed -> em -> ex -> vi -> vim
 
 6.  What are the three modes in vi?  (separate each answer via a comma)
@@ -306,7 +306,7 @@ a. 10dd
 12. Which command in ex mode (vi) will save the current file you are working on and exit the vi editor? (include the :)
 a. :wq
 
-13.  In the log file u_ex150911_.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash) 
+13.  In the log file u_ex150911_.log what would be the ex command to search forward for occurrences of xmlrpc.php? (include the forward slash)
 a. /xmlrpc\\.php
 
 14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
@@ -347,7 +347,7 @@ True
 5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
 d.  ```DIR=\`ls -l ./test[1-4].txt\````
 
-6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables) 
+6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables)
 a. ```#!/bin/bash```
 c. ```#!/usr/local/bin/bash```
 e. ```#!/bin/ksh```
@@ -360,13 +360,13 @@ d.  ```echo $sys-hostname```
 9) What is the name of the command that allows you to take stdout of a command and insert the lines of output into an array?
 d. mapfile
 
-10)  Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one) 
+10)  Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
 c. ```mapfile -t SEARCHARRAY < <(find ~ -name mozilla*)```
 
 11)  Which below is a valid command to find the LENGTH of an array?
 a. ```${#SEARCHARRAY[@]}```
 
-12)Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy``` 
+12)Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy```
 b.  ```echo $1```
 
 13) Based on this shell script and positional parameters, what would the command be to print out the entire content of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```
@@ -391,7 +391,7 @@ b. ```*/15 * * * * ~/clean-directory.sh```
 19) Which of the crontab builtins would you use to execute a cron job 1 time a year on midnight of January 1st?  The name of the script is ~/give-free-cash-to-students.sh
 d. &#64;```yearly ~/give-free-cash-to-students.sh```
 
-20) What is the name of the control structure that allows you to incrementally through the contents of an array? 
+20) What is the name of the control structure that allows you to incrementally through the contents of an array?
 d. FOR
 
 ## Chapter 09
@@ -401,13 +401,13 @@ Review Questions Chapter 09
 1) What user account has superuser privilege in Linux?
 d. ```root```
 
-2) Which command do you use to temporarily elevate your user's privilege to the superuser (root)? 
+2) Which command do you use to temporarily elevate your user's privilege to the superuser (root)?
 b. ```sudo```
 
 3) How can I display the content of a file named topsecret.txt that has permissions 000?
 c.  ```sudo cat topsecret.txt```
 
-4) What license is the ```sudo``` application under? 
+4) What license is the ```sudo``` application under?
 d.  ISC
 
 5) Which operating system doesn't have an active root account by default?
@@ -417,9 +417,9 @@ b. Ubuntu
 d. /etc/sudoers
 
 7) What is the name of the command used to modify /etc/sudoers to grant a new user sudo privilege?
-c. visudo 
+c. visudo
 
-8) Based on this line in /etc/sudoers - ```%meninblack  ALL=(ALL:ALL) ALL``` - what does the first value by the % mean? 
+8) Based on this line in /etc/sudoers - ```%meninblack  ALL=(ALL:ALL) ALL``` - what does the first value by the % mean?
 a.  Name of a group
 
 9) In the /etc/sudoers file - what does this line mean: ```RMS ALL=(root) NOPASSWD: ALL```
@@ -536,7 +536,7 @@ a) a dialog-driven program for the creation and manipulation of partition tables
 2) What is the default Virtual Box disk type?
 a) VDI
 
-3) After attaching a new virtual disk what is the next step? 
+3) After attaching a new virtual disk what is the next step?
 a) partitioning
 
 4) Which command will print out currently all the block devices, their device name, and their partitions in a nice tree based format.
@@ -563,7 +563,7 @@ b) 16 TiB
 11) What is the name of the maintainer of the ext4 filesystem?
 b) Theodore Ts'o
 
-12) What is the name of the filesystem that the ext4 maintainer, Theodore Ts'o, is recommending to replace ext4? 
+12) What is the name of the filesystem that the ext4 maintainer, Theodore Ts'o, is recommending to replace ext4?
 b) Btrfs
 
 13) What is the name of the filesystem that RedHat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
