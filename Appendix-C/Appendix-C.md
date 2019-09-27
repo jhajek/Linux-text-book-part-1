@@ -157,7 +157,7 @@ Answer these questions (not all of the Answers are in each case study!)
   c.  snapcraft and flatter
   d.  dnf and apt
 
-20) What is the DNF command used to install addtional software repositories? Use this URL to an RPM: http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+20) What is the DNF command used to install additional software repositories? Use this URL to an RPM: http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
   a. sudo dnf install repo http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
   b. sudo dnf http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
   c. sudo dnf install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
@@ -305,7 +305,7 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 * ~13:30 What is the relationship between Fedora and Redhat Enterprise Linux (RHEL)?
 * ~25:00 What percentage of the Fedora Project is open source?
 * ~35:00 On further inspection is Fedora Project really opened source according to the Free Software Foundation?
-* ~36:20 Does Fedora include proprietary NVidea drivers? Why or why not?
+* ~36:20 Does Fedora include proprietary NVidia drivers? Why or why not?
 * ~44:30 Who is the most famous Fedora user?
 * ~1:01:00. What is the difference between Centos and RHEL?
 
@@ -313,7 +313,7 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 
 Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.
 
-**Deliverable:** Take screenshots of all succesful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private Github repo. Create a file called ```Readme.md``` and create an H2 header for each item and place a screenshot of the result below it.
+**Deliverable:** Take screenshots of all successful install of software.  Create a folder called Chapter-04 in your itmo-556 folder in your private GitHub repo. Create a file called ```Readme.md``` and create an H2 header for each item and place a screenshot of the result below it.
 
 #### Package based install
 
@@ -321,7 +321,7 @@ Clone the source code repository for the text book [https://github.com/jhajek/Li
 
 #### GNOME Software Store
 
-You will install assorted softwares using the Gnome Software application in Fedora 30. The list of software is as follows:
+You will install assorted software using the Gnome Software application in Fedora 30. The list of software is as follows:
 
 1) Inkscape
 1) Audacity
