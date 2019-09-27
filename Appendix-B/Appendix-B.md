@@ -104,15 +104,13 @@ a.	Mir
 Compositing, Stacking, and Tiling
 11.	There are 4 major Linux desktop environments in use today: which grouping is correct?
 d.	KDE, GNOME, Xfce, LXDE
-12.	What is the name of the windowing toolkit that KDE uses? (Two letters.
+12.	What is the name of the windowing toolkit that KDE uses? (Two letters)
 a.	Qt
 13.	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign.
 a.	GTK+
 14.	What is the name of the founder of the GNOME project?
 a.	Miguel de Icaza
-15.	When the GNOME 3 desktop environment was released in early 2012, many people were 
-unhappy that many changes were made.  There were 3 major projects started to either preserve 
-GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
+15.	When the GNOME 3 desktop environment was released in early 2012, many people were unhappy that many changes were made.  There were 3 major projects started to either preserve GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
 c.	Unity, Mate, Cinnamon
 16.	When released in 2006, what was the main development goal of the LXDE desktop environment?
 c.	Energy saving and extremely fast
@@ -563,7 +561,7 @@ b) 16 TiB
 11) What is the name of the maintainer of the ext4 filesystem?
 b) Theodore Ts'o
 
-12) What is the name of the filesystem that the ext4 maintainer, Theodore Ts'o, is recommending to replace ext4? 
+12) What is the name of the filesystem that the ext4 maintainer, Theodore Ts'o, is recommending to replace ext4?
 b) Btrfs
 
 13) What is the name of the filesystem that RedHat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
