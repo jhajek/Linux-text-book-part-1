@@ -97,4 +97,4 @@ Special thanks to those who have submitted pull requests and bug reports
 * Professor Ray Trygstad and Dean Robert Carlson, who gave me my first real IT job and showed me the wonders of Perl.
 * Illinois Institute of Technology who has entrusted me with much.
 * My wife and kids who supported me always.
-* Sean Hughes-Durkin who inspired me to write this book based on his quote above.
+* [Sean Hughes-Durkin](https://appliedtech.iit.edu/people/sean-hughes-durkin "Sean Hughes-Durkin Info") who inspired me to write this book based on his quote above.
