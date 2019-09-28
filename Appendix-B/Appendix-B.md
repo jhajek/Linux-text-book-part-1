@@ -308,13 +308,13 @@ a. :wq
 a. /xmlrpc\\.php
 
 14.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
-a. s/linux/Linux/g
+a. 1,$s/linux/Linux/g
 
 15.  Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
-a. s/Linux/GNU\\/Linux/g
+a. 1,$s/Linux/GNU\\/Linux/g
 
 16.  Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
-a. s/Windows//g
+a. 1,$s/Windows//g
 
 17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give the owner of the file permission to execute the script?
 a. chmod u+x topsecret.sh
