@@ -358,13 +358,13 @@ d.  ```echo $sys-hostname```
 9) What is the name of the command that allows you to take stdout of a command and insert the lines of output into an array?
 d. mapfile
 
-10)  Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one) 
+10)  Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
 c. ```mapfile -t SEARCHARRAY < <(find ~ -name mozilla*)```
 
 11)  Which below is a valid command to find the LENGTH of an array?
 a. ```${#SEARCHARRAY[@]}```
 
-12)Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy``` 
+12)Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy```
 b.  ```echo $1```
 
 13) Based on this shell script and positional parameters, what would the command be to print out the entire content of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```

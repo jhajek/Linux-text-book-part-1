@@ -35,7 +35,8 @@ PATH=$PATH:/home/user/Documents/apps
 
 echo $PATH; echo $path; $PATH=PATH
 
-ut=`uptime`
+UT=`uptime`
+UT2=$(uptime)
 ```
 
 ```bash
@@ -46,9 +47,9 @@ DIR="monthly-reports-winter-quarter-north-america"
 ls $DIR
 ```
 
-Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables. You can also define your own variables in a shell script--just as you could do on the command line.   Often this is a good idea when you want to assign the output of one command and reuse that value later.  
+Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables. You can also define your own variables in a shell script--just as you could do on the command line.   Often this is a good idea when you want to assign the output of one command and reuse that value later.  Note also that the command ```UT2=$(ls -l star[1-3])``` fails--why?
 
-![*Output of printenv command on Fedora 22*](images/Chapter-08/bash-shell/printenv2.png "printenv")
+![*Output of printenv command on Fedora*](images/Chapter-08/bash-shell/printenv2.png "printenv")
 
 > __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.
 
@@ -91,7 +92,7 @@ echo "Finished"
 
 #### Array Support in Bash
 
-  Arrays are a data-type that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for ArrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data. You can declare an array by simple using the ```declare -a NAMEOFYOURARRAY``` syntax.  The ```-a``` makes your variable an array.  As of Bash 4.x bash gained support for the ```mapfile``` variable. The new mapfile builtin makes it possible to load an array with the contents of a text file without using a loop or command substitution.  Note that Mac as of OSX 10.11 release with Bash 3.2 as the standard.
+Arrays are a data-type that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for ArrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data. You can declare an array by simple using the ```declare -a NAMEOFYOURARRAY``` syntax.  The ```-a``` makes your variable an array.  As of Bash 4.x bash gained support for the ```mapfile``` variable. The new mapfile builtin makes it possible to load an array with the contents of a text file without using a loop or command substitution.  Note that Mac as of OSX 10.11 release with Bash 3.2 as the standard.
 
 This example below creates a Bash array and stores the redirected output (note the ```< <```) of an ```ls -l /etc``` command storing every line of the listing as an element of an array.
 
@@ -100,7 +101,7 @@ declare -a instanceARR
 mapfile -t instanceARR < <(ls -l /etc)
 ```
 
-How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by positional parameters.  ```echo Array[0]; echo Array [1]; echo Array[2]```.  Remember that arrays like in C and Java are __0 indexed__.
+How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by positional parameters.  ```echo instanceARR[0]; echo instanceARR [1]; echo instanceARR[2]```.  Remember that arrays like in C and Java are __0 indexed__.
 
 ```bash
 echo ${instanceARR[@]}
@@ -209,14 +210,14 @@ fi
 
    Primary          Meaning
 ------------------ -----------------------------------------------------------------------
-```[ -u FILE ]```	  True if FILE exists and its SUID (set user ID) bit is set.
-```[ -w FILE ]```	  True if FILE exists and is writable.
-```[ -x FILE ]```	  True if FILE exists and is executable.
-```[ -O FILE ]```	  True if FILE exists and is owned by the effective user ID.
-```[ -G FILE ]```	  True if FILE exists and is owned by the effective group ID.
-```[ -L FILE ]```	  True if FILE exists and is a symbolic link.
-```[ -N FILE ]```	  True if FILE exists and has been modified since it was last read.
-```[ -S FILE ]```	  True if FILE exists and is a socket.
+```[ -u FILE ]```   True if FILE exists and its SUID (set user ID) bit is set.
+```[ -w FILE ]```   True if FILE exists and is writable.
+```[ -x FILE ]```   True if FILE exists and is executable.
+```[ -O FILE ]```   True if FILE exists and is owned by the effective user ID.
+```[ -G FILE ]```   True if FILE exists and is owned by the effective group ID.
+```[ -L FILE ]```   True if FILE exists and is a symbolic link.
+```[ -N FILE ]```   True if FILE exists and has been modified since it was last read.
+```[ -S FILE ]```   True if FILE exists and is a socket.
 ------------------ -----------------------------------------------------------------------
 
 : Primary expressions
@@ -360,7 +361,19 @@ case "$1" in
 esac  
 ```  
 
-### FOR Loops
+#### While Loops
+
+This while loop will read each line of a text file allow you to operate on each value read.  The file, roster.txt is located in the files > Chapter-08 > lab.
+
+```bash
+#!/bin/bash
+
+while read LINE
+do echo $LINE; mkdir -v /tmp/$LINE
+done < roster.txt
+```
+
+#### FOR Loops
 
   A FOR loop is used to loop incrementally through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimited list of items.  The syntax of a FOR loop is:
 
@@ -658,24 +671,25 @@ d. FOR
 
 ### Podcast Questions
 
-[https://twit.tv/shows/floss-weekly/episodes/443](https://twit.tv/shows/floss-weekly/episodes/443 "jenkins on floss weekly podcast")
+[Command Line Heroes: Bash](https://www.redhat.com/en/command-line-heroes/season-3/heroes-in-a-bash-shell "Command Line Heroes: bash")
 
-Kohsuke Kawaguchi
-
-* ~3:30 What is Jenkins and what does it do?
-* ~7:54 What problem are people solving when using Jenkins?
-* ~9:25 What are Jenkins plugins and why do they exist?
-* ~10:33 How did Jenkins get started?
-* ~13:30 What was happening to Sun in 2004/2005?
-* ~14:37 Why did the project name change from Hudson to Jenkins?
-* ~20:30 What license does Jenkins use and why?
-* ~21:09 What language is Jenkins built on?
-* ~22:00 What is Koshuke's company name and who does he compare his company too?
-* ~29:25 What is the approximate size of the developer community?
-* ~34:55 What has changed in Jenkins since 2011?
-* ~40:00 What are some of the benefits of using a opensource software with a large community of users?
-* ~42:30 What does CloudBees provide for Jenkins customers?
-* ~45:20 Who has control over the Jenkins project - the Jenkins developer community or CloudBees?
+* ~0:20 Who is the creator of the Bash Shell?
+* ~0:43 Which organization did the creator of the Bash Shell write the shell for?  
+* ~2:05 How does the podcast host define a shell script?
+* ~2:23 Shell scripts are the key to what?
+* ~3:28 When did Ken Thompson release his shell and what was it missing?
+* ~3:45 What year was shell scripting come into existence?
+* ~4:27 What was the shell that became the AT&T UNIX standard shell?
+* ~5:53 The Bourne Shell was licensed and owned by whom?
+* ~7:59 Why was Brian Fox the perfect person to develop the Bash Shell?
+* ~9:30 How long did it take to create the Bash shell and what was difficult about this?
+* ~12:02 What did Brian accidentally do to the Bash Shell?
+* ~14:48 What was the other shell released one month before Bash?
+* ~15:19 When was GNU Bash released?
+* ~18:40 What was the released/intended purpose of GNU Bash?
+* ~19:25 What words and terms are in now in use in everyday English?
+* ~20:46 Was Steven Bourne "cool" with the Bash Shell?
+* ~22:52 What prepares you to be more of a long-term thinker?
 
 ### Lab
 

@@ -826,17 +826,17 @@ d. $PATH
 
 Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
 
-  *  ~6:32 Who is Linus Torvalds?
-  *  ~6:54 Where did he create Linux?
-  *  ~7:30 What did Unix have that other operating systems didn't at that time?
-  *  ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
-  *  ~10:30 About what month and what year did this happen?
-  *  ~10:40-13:30 What was the initial inspiration to create the Linux Kernal as an open source project?
-  *  ~13:30-14:00 Why was it licensed under the GPL?
-  *  ~20:48 Why didn't Linus want to work for a Linux company?
-  *  ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
-  *  ~46:10 What is the way to become a great programmer?
-  *  ~51:17 What is Linus' farewell message to the audience?
+* ~6:32 Who is Linus Torvalds?
+* ~6:54 Where did he create Linux?
+* ~7:30 What did Unix have that other operating systems didn't at that time?
+* ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
+* ~10:30 About what month and what year did this happen?
+* ~10:40-13:30 What was the initial inspiration to create the Linux Kernel as an open source project?
+* ~13:30-14:00 Why was it licensed under the GPL?
+* ~20:48 Why didn't Linus want to work for a Linux company?
+* ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
+* ~46:10 What is the way to become a great programmer?
+* ~51:17 What is Linus' farewell message to the audience?
 
 ### Lab Chapter 7
 
@@ -854,7 +854,7 @@ __Outcomes:__ At the end you will have mastered the basics of vi and now be prof
     i)  Using vim commands replace all occurances of the numbers ```2.6.5``` with ```2.8.5```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using vim insert a comment above each line explaining what the command is doing.
-1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)   
+1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03=07 as well: (resist writing it in notepad)
     i) Create a script with the proper shebang on the first line.
     i) Type the command to update package repositories.
     i) type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto accept any question.
@@ -1001,40 +1001,39 @@ d. FOR
 
 ### Podcast Questions
 
-__Jenkins__
+[Command Line Heroes: Bash](https://www.redhat.com/en/command-line-heroes/season-3/heroes-in-a-bash-shell "Command Line Heroes: bash")
 
-[https://twit.tv/shows/floss-weekly/episodes/443](https://twit.tv/shows/floss-weekly/episodes/443 "jenkins on floss weekly podcast")
-
-Kohsuke Kawaguchi
-
-* ~3:30 What is Jenkins and what does it do?
-* ~7:54 What problem are people solving when using Jenkins?
-* ~9:25 What are Jenkins plugins and why do they exist? 
-* ~10:33 How did Jenkins get started?
-* ~13:30 What was happening to Sun in 2004/2005?
-* ~14:37 Why did the project name change from Hudson to Jenkins?
-* ~20:30 What licesnse does Jenkins use and why?
-* ~21:09 What language is Jenkins built on?
-* ~22:00 What is Koshuke's company name and who does he compare his company too?
-* ~29:25 What is the approximate size of the developer community?
-* ~34:55 What has changed in Jenkins since 2011?
-* ~40:00 What are some of the benefits of using a opensource softare with alarge comminity of users?
-* ~42:30 What does CloudBees provide for Jenkins customers?
-* ~45:20 Who has control over the Jenkins project - the Jenkins developer community or CloudBees?
+* ~0:20 Who is the creator of the Bash Shell?
+* ~0:43 Which organization did the creator of the Bash Shell write the shell for?  
+* ~2:05 How does the podcast host define a shell script?
+* ~2:23 Shell scripts are the key to what?
+* ~3:28 When did Ken Thompson release his shell and what was it missing?
+* ~3:45 What year was shell scripting come into existence?
+* ~4:27 What was the shell that became the AT&T UNIX standard shell?
+* ~5:53 The Bourne Shell was licensed and owned by whom?
+* ~7:59 Why was Brian Fox the perfect person to develop the Bash Shell?
+* ~9:30 How long did it take to create the Bash shell and what was difficult about this?
+* ~12:02 What did Brian accidentally do to the Bash Shell?
+* ~14:48 What was the other shell released one month before Bash?
+* ~15:19 When was GNU Bash released?
+* ~18:40 What was the released/intended purpose of GNU Bash?
+* ~19:25 What words and terms are in now in use in everyday English?
+* ~20:46 Was Steven Bourne "cool" with the Bash Shell?
+* ~22:52 What prepares you to be more of a long-term thinker?
 
 ### Lab
 
-__Objectives__
+#### Objectives
 
 This lab will allow you to create shell scripts.  Use positional parameters, control structures, and write cron jobs.
 
-__Outcomes__
+#### Outcomes
 
 At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts.
 
 __Notes__ 
 
-In the Github repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your Github URL.
+In the GitHub repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your GitHub URL.
 
 1) What would be the command to create an array in Bash named itemARRAY?
 
