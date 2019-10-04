@@ -11,6 +11,7 @@
   * Consul
 * Secret Sharing
   * Vault
+  * note to self -- add gatsby demo
 
 ## Outcomes
 
