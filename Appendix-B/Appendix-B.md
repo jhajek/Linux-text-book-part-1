@@ -266,15 +266,13 @@ d. gzip
 
 Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles 
 
-Chapter 07 review questions
-
 1.  What are the two main representatives of stream editors  
 d. vi and Emacs
 
 2. Which family of editors came first?
 d. Stream Editors
 
-3. Emacs at it's core is what?
+3. Emacs at its core is what?
 c. An interpreter for Emacs Lisp
 
 4. Who created the vi editor?
