@@ -384,23 +384,24 @@ Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles
 
 Chapter 07 review questions
 
-1.  What are the two main representatives of stream editors?  
-a. gedit and kate
-b. Nano and Joe
-c. vi and Nano
-d. vi and Emacs
+1. What are the two main representatives of stream editors?
+   a. gedit and kate
+   b. Nano and Joe
+   c. vi and Nano
+   d. vi and Emacs
 
 2. Which family of editors came first?
-a. Screen editors
-b. Butterfly editors
-c. GUI editors
-d. Stream Editors
+   a. Screen editors
+   b. Butterfly editors
+   c. GUI editors
+   d. Stream Editors
 
-3. Emacs at it's core is what?
-a. A fine operating system in need of a good editor
-b. The heart and soul of hackers
-c. An interpreter for Emacs Lisp
-d. A C program
+3. Emacs at its core is what?
+
+   a. A fine operating system in need of a good editor
+   b. The heart and soul of hackers
+   c. An interpreter for Emacs Lisp
+   d. A C program
 
 4. Who created the vi editor?
 a. Richard Stallman
@@ -408,7 +409,7 @@ b. Doug McIlroy
 c. Bill Joy
 d. Dave McKenzie
 
-4. What year was vi release in?
+4. What year was vi released in?
 a. 1972
 b. 1979
 c. 1999
