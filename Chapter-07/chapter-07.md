@@ -380,27 +380,23 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
 
 ### Review Questions
 
-Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles
-
-Chapter 07 review questions
-
-1. What are the two main representatives of stream editors?  
-a. gedit and kate
-b. Nano and Joe
-c. vi and Nano
-d. vi and Emacs
+1. What are the two main representatives of stream editors?
+   a. gedit and kate
+   b. Nano and Joe
+   c. vi and Nano
+   d. vi and Emacs
 
 2. Which family of editors came first?
-a. Screen editors
-b. Butterfly editors
-c. GUI editors
-d. Stream Editors
+   a. Screen editors
+   b. Butterfly editors
+   c. GUI editors
+   d. Stream Editors
 
-3. Emacs at it's core is what?
-a. A fine operating system in need of a good editor
-b. The heart and soul of hackers
-c. An interpreter for Emacs Lisp
-d. A C program
+3. Emacs at its core is what?
+   a. A fine operating system in need of a good editor
+   b. The heart and soul of hackers
+   c. An interpreter for Emacs Lisp
+   d. A C program
 
 4. Who created the vi editor?
 a. Richard Stallman, 1984
@@ -410,10 +406,10 @@ d. Bill Joy, 1983
 e. Brian Fox, 1979
 
 5. Which of the following sequences of the history of vi is correct?
-a. Emacs -> ed -> ex -> vi
-b. ed -> em -> ex -> vi -> vim
-c. em -> ex -> vi
-d. em -> ed -> vi -> vim
+   a. Emacs -> ed -> ex -> vi
+   b. ed -> em -> ex -> vi -> vim
+   c. em -> ex -> vi
+   d. em -> ed -> vi -> vim
 
 6. What are the three modes in vi?  
 
@@ -442,18 +438,18 @@ d. em -> ed -> vi -> vim
 18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the other group?
 
 19. What is the correct sequence of profile inheritance?
-a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
-b. ~/.bashrc -> ~/.bash_profile or ~/.bash_login or ~/.profile -> /etc/profile
+   a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
+   b. ~/.bashrc -> ~/.bash_profile or ~/.bash_login or ~/.profile -> /etc/profile
 
 20. What is the command to display the contents of the PATH system variable on the command line?
-a. echo PATH
-b. echo $PATH
-c. echo path
-d. $PATH
+    a. echo PATH
+    b. echo $PATH
+    c. echo path
+    d. $PATH
 
 ### Podcast Questions
 
-Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvald")
+Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvalds")
 
 * ~6:32 Who is Linus Torvalds?
 * ~6:54 Where did he create Linux?
