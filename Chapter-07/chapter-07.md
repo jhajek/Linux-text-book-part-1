@@ -399,11 +399,11 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
    d. A C program
 
 4. Who created the vi editor?
-a. Richard Stallman, 1984
-b. Brian Fox, 1989
-c. Bill Joy, 1979
-d. Bill Joy, 1983
-e. Brian Fox, 1979
+   a. Richard Stallman, 1984
+   b. Brian Fox, 1989
+   c. Bill Joy, 1979
+   d. Bill Joy, 1983
+   e. Brian Fox, 1979
 
 5. Which of the following sequences of the history of vi is correct?
    a. Emacs -> ed -> ex -> vi
