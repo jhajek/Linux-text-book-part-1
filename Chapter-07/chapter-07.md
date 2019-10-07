@@ -399,16 +399,11 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
    d. A C program
 
 4. Who created the vi editor?
-   a. Richard Stallman
-   b. Doug McIlroy
-   c. Bill Joy
-   d. Dave McKenzie
-
-4. What year was vi released in?
-   a. 1972
-   b. 1979
-   c. 1999
-   d. 1978
+a. Richard Stallman, 1984
+b. Brian Fox, 1989
+c. Bill Joy, 1979
+d. Bill Joy, 1983
+e. Brian Fox, 1979
 
 5. Which of the following sequences of the history of vi is correct?
    a. Emacs -> ed -> ex -> vi
@@ -432,11 +427,11 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
 
 13. In the log file u\_ex150911.log what would be the ex command to search forward for occurrences of YandexBot? (include the forward slash)
 
-14. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02/chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
+14. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
 
-15. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02/chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
+15. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
 
-16. Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02/chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
+16. Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
 
 17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give the owner of the file permission to execute the script?
 
