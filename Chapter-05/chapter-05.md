@@ -440,7 +440,16 @@ Seeing that everything in Linux is file, there is a simple security model.  Ther
 
 The first column is a listing of the permissions for a file. Notice that there are actually 3 groupings of the letters __rwx__ combined into one long string like this:  ```rw-r--r--```.  In addition to individual permissions there are three categories of permission.  These three categories are __owner__, __group__, __other__  Each of these groups has its own read, write, and execute permissions.  
 
-Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -l``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter 9. Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numeric value for this is ```rw-------``` is 600.
+Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -l``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter 9. Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numeric value for this is ```rw-------``` is 600. Permissions are calculated with binary.
+
+### chmod 763
+
+| Owner| Group | Everyone |
+|-----|-----|-----|
+| 7   | 6   | 5   |
+| 421 | 42- | 4-1 |
+| rwx | rw- | r-x |
+
 
 There is one character either a "-" or a "d" generally proceeding the file permissions, and this tells "d" for directory and "-" for a file.  There are additional file type characters that I will list here, only the first three we will be dealing with directly in this book [^60].  
 
