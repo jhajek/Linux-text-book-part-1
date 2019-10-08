@@ -207,7 +207,7 @@ d. shell meta-characters
 2. Assume your pwd is ~. If you wanted to list every directory only that started with the letters "Do" what would be the command?
 d. ls -l Do*
 
-3. In figure 95 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
+3. In figure 6.2 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
 d. Expansion
 
 4. Which meta-character allows you to string commands together regardless of the successful execution of the previous command?
