@@ -575,7 +575,7 @@ b. ls -la
 c. ls -l Do
 d. ls -l Do*
 
-3. In figure 95 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
+3. In figure 6.2 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
 a. Lexical analysis and parse
 b. Execution
 c. Builtins
