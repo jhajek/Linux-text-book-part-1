@@ -4,13 +4,13 @@
 ## Objectives
 
 * Understand and know how to complete the Linux and BSD Operating System Install Process for the major distributions
-* Be able to compare and contrast the two major Linux Distribution family's install process with the BSD install process
+* Be able to compare and contrast the two major Linux distribution families' install processes with the BSD install process
 * Understand the term *distribution* and *distro*
 * Understand the standard installation formats, full ISOs, minimal install ISOs, and net-installer ISOs and the different
 * Understand how to use industry standard virtualization platforms for installing distributions
 * Learn the features of dnf, yum, and apt to install packages and dependencies in Linux
 * Understand how to use GNU tools gcc and make for compiling source code
-* Understand how to use the Python language interpreter in order to run Python based install scripts
+* Understand how to use the Python language interpreter in order to run Python-based install scripts
 * Compiling code from source
 
 ## Outcomes
@@ -19,7 +19,7 @@ At the end of this chapter you will understand how to complete multiple installa
 
 ## Installation of a Linux Distribution
 
-The byproduct of opensource and free software is that the actual source code is freely available.  You can download almost all of the major Linux and BSD operating systems at no cost, because of the GPL.  This makes the barrier to entry using a Linux distro very small. As noted in the early days of Linux, installation was not very user friendly, but in those interceding 21 years the various distros have perfected packaging and installation has become very simple and extremely user friendly.  Later in this chapter we will install various distributions as part of the lab assignment.
+The byproduct of opensource and free software is that the actual source code is freely available.  You can download almost all of the major Linux and BSD operating systems at no cost, because of the GPL.  This makes the barrier to entry using a Linux distro very small. As noted previously, in the early days of Linux, installation was not very user friendly. Over the past two decades, however, the various distros have perfected software packaging and installation has since become very simple and extremely user friendly.  Later in this chapter, we will install various distributions as part of the lab assignment.
 
 How would one install a Linux distro on a computer?  The first thing you need is an *ISO*. An [ISO (*"eye-so"*)](https://en.wikipedia.org/wiki/ISO_9660 "ISO 9600 standard") file is actually a standard file type that represents the contents of a CD/DVD-ROM in a single archived file format, like a zip file.  Think of ISOs as carrying mechanisms for the content of a disk based installer.  The reason the ISO term and format are tied to the Linux Distro installation process is a historical one.  During the mid 90s Linux rose to prominence at the same time as CD-ROM technology began to become affordable and became the method of data distribution that replaced floppy and Zip disks amongst PCs.  It made sense to create distributions that were almost the exact size of a CD-ROM because it made distributing and copying very easy Linux very easy. In this way Linux spread rapidly.
 
@@ -41,7 +41,7 @@ Every operating system is made up of multiple components as we mentioned in chap
 
 ![*Operating System Rings*](images/Chapter-03/Hypervisor/500px-Priv_rings.svg.png "One Ring")
 
-Virtualization works because your x86 CPU (AMD and Intel) enables it at the CPU[^19].  "To do this AMD and Intel introduced extensions to assist virtualization, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica). Both instruction sets added nine new machine code instructions that only work at "Ring -1," intended to be used by the hypervisor" [Andy Dorman - Informationweek.](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")   When dealing with virtualization you are functionally running multiple operating systems at one time.  Technically this is not possible as only one operating system can have control of your hardware at a time - so how does a hypervisor and virtualization make this work?  
+Virtualization works because your x86 CPU (AMD and Intel) enables it at the CPU[^19].  To do this, AMD and Intel introduced extensions, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica), to assist virtualization. Both instruction sets added "nine new machine code instructions that only work at 'Ring -1,' intended to be used by the hypervisor" ([Andy Dorman - Informationweek](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")).  When using virtualization, you are functionally running multiple operating systems at one time.  Technically this is not possible as only one operating system can have control of your hardware at a time - so how does a hypervisor and virtualization make this work?  
 
 ### Virtualization Diagram
 
@@ -94,7 +94,7 @@ TYPE I is used in server environments on hardware utilizing multiple core CPUs, 
 
 Now that we covered a bit about what a hypervisor is, let us begin the install process using VirtualBox.  The next pages are going to show you in comparison how to install the latest version of [Fedora Workstation](https://getfedora.org/ "Fedora Workstation") and latest [Ubuntu (LTS)](https://wiki.ubuntu.com/LTS "Ubuntu Long Term Support Link").  This will require you to download two ISOs from their respective download sites. For this install process we will assume that you are using VirtualBox version 5.1.x or later branch.   It might be a good exercise if you have an old laptop or PC laying around to make some installable media (CR-ROM or Flash drive via Etcher) and install one of these distributions directly as the primary operating system.  Finding old laptops is easier than you might think. Try asking your relatives (especially around back-to-school and Christmas), a company you work for, or even a school you go to. Laptops/desktops can have a second life and can still be useful to experiment with Linux installations even if the hardware is not the latest or greatest.  Another option to consider is dual-booting or triple-booting your system, we will not cover that option here.  
 
-If you do try it, back up your data first, you never know what could go wrong. I created a [quad-boot system](https://forge.sat.iit.edu/2015/05/quad-boot-your-pc-ubuntu-15-04-centos-6-6-fedora-21-windows-10/ "Quad Boot") containing Ubuntu, Fedora, Centos, and Windows 10.  This processes is beyond the scope of this book but the link is provided for those interested.
+If you do try it, back up your data first, you never know what could go wrong. I created a [quad-boot system](https://forge.sat.iit.edu/2015/05/quad-boot-your-pc-ubuntu-15-04-centos-6-6-fedora-21-windows-10/ "Quad Boot") containing Ubuntu, Fedora, CentOS, and Windows 10.  This processes is beyond the scope of this book but the link is provided for those interested.
 
 You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was   32-bit or 64-bit?  In modern Linux distros, 32-bit distros are going away because of the lack of 32 bit chips being produced.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most specialized or low end chip these days is 64-bit you should be safe with that type of distro.  
 
@@ -352,7 +352,7 @@ Recently with Oracle changing the nature of how Java is supported with the trans
 # From the command line terminal after you have downloaded the file on a Debian based system:
 wget java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
 sudo dpkg -i ./java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
-# This method will retrieve the .rpm file directly from the internet and pass it to the rpm command on CentOS or RedHat systems.
+# This method will retrieve the .rpm file directly from the internet and pass it to the rpm command on CentOS or Red Hat systems.
 sudo rpm -iv https://d3pxv6yz143wms.cloudfront.net/8.222.10.1/java-1.8.0-amazon-corretto-devel-1.8.0_222.b10-1.x86_64.rpm
 ```
 
@@ -435,7 +435,7 @@ Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes 
 * Remove applications
 * Keep your applications up to date
 
-The APT installer was released in 1998, the same time that RedHat released its package manager (giving Debian a leg up and a few years head-start).  APT was the out growth of a research project called Diety run by the Debian developers.  It was planned to be a large GUI-like project, but it turns out that the APT CLI was implemented with such finesse and simplicity that all GUI plans were dropped.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock considers APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packaging Toolkit.  APT will interface with *dpkg* and has many similar commands but extends the functionality of dpkg in a critical way.  
+The APT installer was released in 1998, the same time that Red Hat released its package manager (giving Debian a leg up and a few years head-start).  APT was the out growth of a research project called Diety run by the Debian developers.  It was planned to be a large GUI-like project, but it turns out that the APT CLI was implemented with such finesse and simplicity that all GUI plans were dropped.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock considers APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packaging Toolkit.  APT will interface with *dpkg* and has many similar commands but extends the functionality of dpkg in a critical way.  
 
 APT, which basically resolves dependency problems and retrieves the requested packages, works with dpkg under the hood. The main commands of APT are as follows:
 
@@ -513,9 +513,9 @@ Here is a list of all the configuration and cache files related to APT and their
 
 ### yum & dnf
 
-Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution.  YUM is supported in Fedora 22 but now deprecated and DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice.  YUM is still available on RHEL and CentOS but as companies move to the version 7 platform, this will begin to change too. Yum will be eventually replaced by DNF.  Both YUM and DNF use repositories that are maintained by RedHat or CentOS or even their RHEL repos.
+Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution.  YUM is supported in Fedora 22 but now deprecated and DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice.  YUM is still available on RHEL and CentOS but as companies move to the version 7 platform, this will begin to change too. Yum will be eventually replaced by DNF.  Both YUM and DNF use repositories that are maintained by Red Hat or CentOS or even their RHEL repos.
 
-You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and RedHat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
+You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and Red Hat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
 
 ![*Installed Repositories Fedora 30*](images/Chapter-03/yum/etc-yum.png "YUM")
 
@@ -563,7 +563,7 @@ Once those RPMFusion repos have been added you can now retry the example above a
 
 ## New Package Managers
 
-The one thing that you can say the mobile revolution brought into computing is the concept of an "app store."  Apple obviously came first, Google Play Store, and even the Microsoft Store took root.  The concept of an app store is pretty ubiquitous at this point.  These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store.  On a fundamental level Linux is conceptually not compatible with the concept of an app store.  But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability.  To this end two standardized methods were developed: flatpak and snaps.  Snaps were created by Ubuntu and is account based across Linux distros that support the snapd library.  Flatpak is the competing standard championed by RedHat.  
+The one thing that you can say the mobile revolution brought into computing is the concept of an "app store."  Apple obviously came first, Google Play Store, and even the Microsoft Store took root.  The concept of an app store is pretty ubiquitous at this point.  These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store.  On a fundamental level Linux is conceptually not compatible with the concept of an app store.  But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability.  To this end two standardized methods were developed: flatpak and snaps.  Snaps were created by Ubuntu and is account based across Linux distros that support the snapd library.  Flatpak is the competing standard championed by Red Hat.  
 
 ### Snaps and snapd
 
@@ -713,7 +713,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-On Centos using yum
+On CentOS using yum
 
 ```bash
 sudo yum update kernel*
@@ -805,11 +805,11 @@ Through this chapter we gained an understanding of what x86-based virtualization
 13) Which distro(s) supports the .deb package?
   a. Ubuntu only
   b. Debian Family
-  c. Debian and RedHat
+  c. Debian and Red Hat
   d. None of the above
 14) Which distro(s) supports the RPM package?
   a. CentOS only
-  b. RedHat Family
+  b. Red Hat Family
   c. Debian and RedHat
   d. None of the above
 15) We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
@@ -832,7 +832,7 @@ Through this chapter we gained an understanding of what x86-based virtualization
   c. Run the ```install``` command
   d. Run the ```make``` command
 
-19) What is the name of the new package managers developed by Canonical and RedHat?
+19) What is the name of the new package managers developed by Canonical and Red Hat?
   a.  flatpak and apt
   b.  flatpak and snap
   c.  snapcraft and flatter
@@ -878,7 +878,7 @@ You will need to do some research and find the download links for the Linux and 
 
 * Red Hat Based
   * Fedora 30 - Workstation edition
-  * Centos 7.x - minimal install
+  * CentOS 7.x - minimal install
 
 * BSD based
   * OmniOS Community Edition
