@@ -17,7 +17,7 @@ At the conclusion of this chapter you will have a strong knowledge of the X Wind
 
 ## From Paper Tape to CLI to GUIs to 4K
 
-When you think about how we use computers today the one thing we take for granted is a *GUI*, __Graphical User Interface__.  The GUI is intricately tied to the way computers are used, why do think Microsoft calls its operating system Windows? Unix however, had its start in the late 1960s and 1970s--there was vastly different technology available at that time.  The PDP7s that Thompson and Ritchie used were called [*Teletypes*](https://en.wikipedia.org/wiki/Teleprinter "TTYs") or *TTYs* that had punch card readers for data entry and paper tape for output connected to a PDP7 via a modem. You will notice that even today in Unix screen outputs are still referred to as TTYs. By the mid 1970s we begin to see what are called *dumb terminals* appear which could be considered primitive monitors.
+When you think about how we use computers today the one thing we take for granted is a *GUI*, __Graphical User Interface__.  The GUI is intricately tied to the way computers are used, why do think Microsoft calls its operating system Windows? Unix however, had its start in the late 1960s and 1970s--there was vastly different technology available at that time.  The PDP-7s that Thompson and Ritchie used were called [*Teletypes*](https://en.wikipedia.org/wiki/Teleprinter "TTYs") or *TTYs* that had punch card readers for data entry and paper tape for output connected to a PDP-7 via a modem. You will notice that even today in Unix screen outputs are still referred to as TTYs. By the mid 1970s we begin to see what are called *dumb terminals* appear which could be considered primitive monitors.
 
 The [Datapoint 3300](https://en.wikipedia.org/wiki/Datapoint_3300 "Datapoint 3300") was one of the more common models representing the era.  It supported control codes to move the cursor up, down, left and right, to the top left of the screen, or to the start of the bottom line and displayed a whopping 72 by 25 rows of characters in the days before microprocessors and ram were part of terminals. By 1978 Digital Equipment Corporation (DEC) had released something akin to an upgrade for the dumb terminal called a *smart terminal*.
 
@@ -61,13 +61,13 @@ Even in the mid 1980s the dream of having your own desktop PC was a bit of a way
 
 By 1987 version 11 of the protocol had been released, being commonly referred to as X11.  The industry wanted to prevent fragmentation and they asked MIT to form a steering consortium for the project.  The MIT X Consortium became the X Consortium Inc. in 1993.  By 1996 the X Consortium, with vendor input, released one of the first standard Unix GUIs called the __CDE__ *Common Desktop Environment*. By 1997 the X Consortium transformed into the Open Group.  The Open Group angered many people by relicensing the project under stricter commercial terms in an effort to make some money to support the project--but this action backfired.  By 1999 the Open Group had ceased functioning and ceased really developing X. The Open Group created *X.Org* to maintain the X11 standard.
 
-At the same time a parallel implementation base on X11R5 was being developed by IBM for their PCs.  The project was started in 1992 as XFree86.  This code was donated to the X Consortium and the code has been part of the larger code base that the X Consortium managed.  So While the X Consortium--Open Group, [X.Org](http://www.x.org "X") was in charge of X development, they actually weren't innovating or developing anything.  It was the group at XFree86 that was doing all the innovation.
+At the same time a parallel implementation base on X11R5 was being developed by IBM for their PCs.  The project was started in 1992 as XFree86.  This code was donated to the X Consortium and the code has been part of the larger code base that the X Consortium managed.  So while the X Consortium/Open Group/[X.Org](http://www.x.org "X") was in charge of X development, they actually weren't innovating or developing anything.  It was the group at XFree86 that was doing all the innovation.
 
 The story gets more complicated.  As the userbase of Linux surges in the early 2000s as desktop Linux and GUIs grow, X use would naturally follow that growth curve as well.  You have two problems: [X.Org](http://www.x.org "X"), a vendor controlled stewardship organization, was not doing any development on X, and XFree86 was starting to narrow its *openness* just like the OpenGroup did in 1997, expelling some of the original X creators who had joined the XFree86 project and changing open licenses to be non-GPL compliant (non-Linux compatible license.)
 
 This led to the founding of the X.Org Foundation merging the two groups.  This was a breakthrough event.  It basically reconciled the two groups under one new foundation, [X.Org Foundation](http://www.x.org "X.Org Foundation"), it also ensured that the creators of the X project were once again the stewards, and finally it insured that there was a GPL based and protected X project that developers and companies could contribute to as well. The X.Org Foundation continues to innovate and foster the project to this day.
 
-A final GUI note that in parallel the most break through commercial GUI available in the early 80s was released by Apple in 1984[^23].  Here is a [link to an article](http://www.folklore.org/StoryView.py?story=Busy_Being_Born.txt "Mac") from the developers about how it came to be.
+A final GUI note that in parallel the most breakthrough commercial GUI available in the early 80s was released by Apple in 1984[^23].  Here is a [link to an article](http://www.folklore.org/StoryView.py?story=Busy_Being_Born.txt "Mac") from the developers about how it came to be.
 
 ![*Apple Macintosh 1984*](images/Chapter-04/Terminals/205px-Macintosh_128k_transparency.png "Apple Macintosh")
 
@@ -92,7 +92,7 @@ At one time it was thought that X is too deep into the bones of Linux and may ne
 
 ### Ubuntu Mir
 
-Not to be outdone Ubuntu saw an opportunity to come up with an X replacement and announced the Mir project in early 2013.  Unfortunately this has met with serious opposition from the X and Wayland communities seeing this as an outside effort to *"corner the market"*, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in it's Linux opensource graphic driver package.
+Not to be outdone Ubuntu saw an opportunity to come up with an X replacement and announced the Mir project in early 2013.  Unfortunately this has met with serious opposition from the X and Wayland communities seeing this as an outside effort to *"corner the market"*, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in its Linux opensource graphic driver package.
 
 Ubuntu is the only Linux operating system to support Mir and development has been delayed as the project has taken on the monumental task of replacing X.  Ubuntu was criticized for not joining the Wayland group's work but I think that may have been somewhat without warrant.  Ubuntu has a business use case--they are looking to make a compositor that could adapt based on form factor, something not unlike how Android works.  This would enable them to make Ubuntu for tablets, phones, TVs, even smaller devices electronic devices.  Mir would be customizable to Ubuntu's hardware dreams and they could sell hardware and perhaps make some money.  Will this strategy work? We will have to wait and see.
 
@@ -147,7 +147,7 @@ The KDE project (originally the K Desktop Environment) was the first opensource 
 
 In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2009.
 
-KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro in the way that GNOME and Red Hat are intricately tied together now. Distros such as  [openSUSE](opensuse.org "opensuse"), [Mageia](mageia.org "Mageia"), [Chakra](www.chakralinux.org "Chakra Linux"), [Kubuntu](www.kubuntu.org "Kubuntu"), [PCLinuxOS](www.pclinuxos.com "PC Linux OS") and even Free-BSD are using KDE by default or have it available in software repositories. Qt recently split itself during the 5.0 release from one entire library into [three separate sub-components](https://en.wikipedia.org/wiki/KDE_Software_Compilation#Post-fourth_series "KDE 5 split"):
+KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro in the way that GNOME and Red Hat are intricately tied together now. Distros such as  [openSUSE](opensuse.org "opensuse"), [Mageia](mageia.org "Mageia"), [Chakra](www.chakralinux.org "Chakra Linux"), [Kubuntu](www.kubuntu.org "Kubuntu"), [PCLinuxOS](www.pclinuxos.com "PC Linux OS") and even FreeBSD are using KDE by default or have it available in software repositories. Qt recently split itself during the 5.0 release from one entire library into [three separate sub-components](https://en.wikipedia.org/wiki/KDE_Software_Compilation#Post-fourth_series "KDE 5 split"):
 
 * KDE Desktop - Desktop called [Plasma 5](https://www.kde.org/workspaces/plasmadesktop/ "Plasma") released every three months
 * KDE Applications - [KDE applications](https://en.wikipedia.org/wiki/KDE_Applications "KDE applications") updated and released every four months
@@ -227,7 +227,7 @@ Wikipedia has a sample gallery of all these desktop environments and more at [ht
 
 ### GNOME 3 Lockin Question
 
-By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's sysetmd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red Hat), and Ubuntu you see very little differentiation desktop-wise now.
+By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's systemd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red Hat), and Ubuntu you see very little differentiation desktop-wise now.
 
 Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  
 
@@ -289,7 +289,7 @@ To access the terminal on a GNOME3 desktop, click the **Activities** button at t
 
 ![*GNOME Software Store*](images/Chapter-04/software-store.png "Software Store")
 
-This is a feature added by RedHat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
+This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
 
 ### Ubuntu Unity Desktop - Deprecated
 
@@ -388,14 +388,14 @@ apply)
 Please answer these questions from the Fedora Project podcast on [FLOSS - http://twit.tv/floss/71](http://twit.tv/floss/71 "Fedora Project")
 
 * ~9:11 What is the Fedora Project?
-* ~11:35 How does Redhat make money on Fedora if it is free?
+* ~11:35 How does Red Hat make money on Fedora if it is free?
 * ~12:30 What is the Fedora release cycle and can businesses use this release cycle?
-* ~13:30 What is the relationship between Fedora and Redhat Enterprise Linux (RHEL)?
+* ~13:30 What is the relationship between Fedora and Red Hat Enterprise Linux (RHEL)?
 * ~25:00 What percentage of the Fedora Project is open source?
 * ~35:00 On further inspection is Fedora Project really opened source according to the Free Software Foundation?
 * ~36:20 Does Fedora include proprietary Nvidia drivers? Why or why not?
 * ~44:30 Who is the most famous Fedora user?
-* ~1:01:00 What is the difference between Centos and RHEL?
+* ~1:01:00 What is the difference between CentOS and RHEL?
 
 ### Lab
 
