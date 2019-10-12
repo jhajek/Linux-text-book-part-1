@@ -287,7 +287,7 @@ fi
 ```bash
 #!/bin/bash
 
-if [ -a $1 && -x ]
+if [ -a $1 ] && [ -x $1 ]
     then
       echo "File exists and is executable"
 else
