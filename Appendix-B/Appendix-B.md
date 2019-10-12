@@ -355,7 +355,7 @@ e. ```#!/bin/ksh```
 7) If you stored the output of the command hostname into a variable named sys-hostname, what would be the command to print the content to the screen?
 d.  ```echo $sys-hostname```
 
-8) What is the name of the command to print out all the predefined system variables?
+8) What is the name of the command to print out all the predefined system variables? printenv
 
 9) What is the name of the command that allows you to take stdout of a command and insert the lines of output into an array?
 d. mapfile
@@ -376,7 +376,7 @@ d.  ```echo $@```
 a.  ```echo $#```
 
 15) In a Bash IF statement, what is the name for the pre-made test conditions?
-d. Primary expressions
+a. Primaries
 
 16) All values in a Bash IF statement are of what data type by default?
 b. STRING
