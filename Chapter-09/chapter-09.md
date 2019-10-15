@@ -557,7 +557,7 @@ By having this config file the command: ```ssh joseph@development.com -i id_ub2`
 
 The full range of options for the config file can be found in this Digital Ocean Turotial located at [https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client](https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client "Digital Ocean Tutorial for ssh config file")
 
-### SSH Service Daemons ans Security
+### SSH Service Daemons and Security
 
 SSH has two configuration files that control its abilites.  Located at ```/etc/ssh/ssh_config``` and ```/etc/ssh/sshd_config```.  The first file contains user information about what options your client will present and use when connecting to a remote SSH server.  
 
