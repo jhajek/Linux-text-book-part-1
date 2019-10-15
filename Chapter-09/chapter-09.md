@@ -810,8 +810,6 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
   i. Change the default port to be 5555
   i. Disable the value PermitRootLogin
 
-
-
 #### Footnotes
 
 [^ch9f90]: [http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html]( http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html "tldp root")
