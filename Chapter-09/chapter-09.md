@@ -465,13 +465,13 @@ All my troubleshooting experience in Linux boils down to three things.  I have j
 
 ## Secure Shell
 
-What happens when you need to remotely access a system and it needs to be secure?  The need for security or encryption of data sent over a network was not apparent.  But as the ability to access data grew and the need to remotely access systems across untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1999, appearing first in OpenBSD 2.6, introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, and now even Microsoft Windows.  In fact [Microsoft was the first ever gold-level sponsor of the OpenBSD project](https://undeadly.org/cgi?action=article&sid=20150708134520 "Microsoft was the first ever gold-level sponsor of the OpenBSD project").
+What happens when you need to remotely access a system and it needs to be secure?  The need for security or encryption of data sent over a network was not apparent.  But as the ability to access data grew and the need to remotely access systems across untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1999, appearing first in OpenBSD 2.6, introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, Mac, and now even Microsoft Windows.  In fact [Microsoft was the first ever gold-level sponsor of the OpenBSD project](https://undeadly.org/cgi?action=article&sid=20150708134520 "Microsoft was the first ever gold-level sponsor of the OpenBSD project").
 
 > You can access SSH from the command line via typing: ```ssh -V```
 
-By default the SSH *client* is installed on all Linux and Unix systems.  It can be installed on a Microsoft Windows system as a native package by adding it through the settings panel (find instructions) as it is being actively developed in step with OpenSSH from BSD I would recommend this above all other solutions available.
+By default the SSH *client* is installed on all Linux and Unix systems.  As of Windows 10 version 1803, there is a native SSH client installed as well.
 
-You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This is predicated via either username account and password or RSA key.
+You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This connection is authenticated via a username and password mathcing an account on the remote system or an RSA key.
 
 > ```sudo apt-get install openssh-server``` or ```sudo dnf install openssh-server```
 
