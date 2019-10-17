@@ -1,4 +1,5 @@
 # Init Services, Daemons, and Processes
+
 ![*You never know what is enabled...*](images/Chapter-Header/Chapter-10/security_holes-2.png "Security Holes")
 
 ## Objectives
@@ -57,7 +58,7 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
 
 To make these changes permanent you need to execute the ```sudo update-grub``` command after saving the file so the ```/boot/grub/grub.cfg``` will be regenerated and used on the next boot.
 
-### systemd-boot 
+### systemd-boot
 
 There is a replacement in the works for GRUB called systemd-boot or also known as gummi-boot, which is German for "Inflatible boat."   The systemd-boot tool is designed for hardware that is moving forward using the UEFI firmware instead of BIOS and is designed to handle Secure Boot as well.  These are technologies that are increasingly standard on laptops and server hardware.  Currently systemd-boot is available in systemd systems but is not on by default.  You can see a tutorial at [https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/](https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/ "systemd-boot") here on how to enable it.
 
@@ -81,7 +82,6 @@ Now that the kernel has complete control of the hardware, it begins to execute t
 -----------  ------------------------------------
 
 Once the run level is determined, there is a directory called ```/etc/rc.d``` which contains what are called __run level specific__ programs to be executed.  Files preceded by an *S* mean to start the service, and files preceded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first. The good thing is that each K or S file is nothing more than a bash script to start or kill a service and do a bit of environment preparation.  As you can see this system has some flaws.  There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs.  Also there is no way for services that start later that depend on a previous service to be started to understand its own state.  The service will happily start itself without its dependencies and go right off a cliff [^115].
-\newpage
 
 ![*Classic SysVinit RC files on Ubuntu 14.04*](images/Chapter-10/sysvinit/rc-d.png "rc.d")
 
@@ -140,7 +140,6 @@ OpenRC and runit do not use systemd at all and therefore any software that requi
 ```systemctl daemon-reload```   ```chkconfig daemon -add```      -
 
 Init Systems: Comparison of actions
-
 
 ### Systemd and Systemctl
 
@@ -350,6 +349,7 @@ By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of whi
 The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
 
 > __Example Usage:__  This example will increase favorability of this process to the scheduler by 10 on a scale of -20 to 19--default is 0.
+
 ```bash
 nice -n 10 my-loop
 ```
