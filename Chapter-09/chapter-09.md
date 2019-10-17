@@ -489,6 +489,12 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 
 ![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd112-ssl-v.png "FreeBSD 11.2 Native ssh -V")
 
+#### SSH Security
+
+While having SSH give us secure remote tunnels, it does lead to a potential problem.  It means exposing an open port to the external network.   This can and should be mitigated by things such as VPNs and mandating use of RSA keys only.  But there are many systems that are exposed.  This is a serious security vulnerability as hackers are actively scanning the entire IPv4 space looking for SSH systems and they will simply try to brute force the username and password.
+
+One of the tools to alliviate this is called [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban website").  This is a brute force login denial tool.  This tool will scan the connection (or auth) logs looking for failed connection. Fail2ban can use the defaul syslog location as well as journalctl logs. Fail2ban will count the number of occurances and the distinct IP and after a user defined threshold of failure will ban any network connection from the offending IP.  This can be a time based backoff or can be a permanent ban, configured by the user in the configuration file. Fail2ban can also ban failed MySQL database connections as well if you have an exposed database server.
+
 #### OpenSSL
 
 OpenSSL is an Opensource Library used for crytographic key generation by OpenSSH.  In 2016, it suffered an exploit due to the quality of the library maintaining older code from non-existant systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributred almost nothing to its development.   After the exploit a huge infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
@@ -806,6 +812,12 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
   i. Not accept any password based authentication attempts
   i. Change the default port to be 5555
   i. Disable the value PermitRootLogin
+
+1) Install fail2ban on both of the above systems.  
+   i. Configure fail2ban to start the service and enable it via systemctl command.
+   i. Configure the fail2ban to parse the systemd jounrnalctl logs
+   i. From the first system (Ubuntu) try to SSH into the second system (Fedora) with an incorrect username and password 5 times and get yourself banned.
+   i. Submit the fail2ban config file to blackboard as part of the deliverable.
 
 #### Footnotes
 
