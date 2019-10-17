@@ -483,9 +483,9 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 
 ![*Windows 10 Native ssh -V*](images/Chapter-09/ssh/windows10-ssl-v.png "Windows 10 Native ssh -V")
 
-![*Fedora 28 Native ssh -V*](images/Chapter-09/ssh/fedora30-ssl-v.png "Fedors 28 Native ssh -V")
+![*Fedora 28 Native ssh -V*](images/Chapter-09/ssh/fedora30-ssl-v.png "Fedors 30 Native ssh -V")
 
-![*Ubuntu 16.04.5 Native ssh -V*](images/Chapter-09/ssh/ubuntu16045-ssl-v.png "Ubuntu 16.04.5 Native ssh -V")
+![*Ubuntu 18.04.3 Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu 18.04.3 Native ssh -V")
 
 ![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd112-ssl-v.png "FreeBSD 11.2 Native ssh -V")
 
