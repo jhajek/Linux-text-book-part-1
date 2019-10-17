@@ -448,7 +448,6 @@ Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like 
 #### ACLs
 
 If you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced "*ack-els*") __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  The difficulties of ACL's in Linux is that they are exclusive to RHEL and not portable to other Linux or Unix systems.
-\newpage
 
 ### The 3 P's Describing 99% of all Linux Problems
 
