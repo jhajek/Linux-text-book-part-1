@@ -172,7 +172,7 @@ In Lennart Poeterring's own words, *"If you are wondering what the journal is, h
 
 * ```cat /var/log/messages``` will now become ```journalctl```
 * ```tail -f /var/log/messages``` will now become ```journalctl -f```
-* ```grep sshd /var/log/messages``` will now become ```journalctl _COMM=sshd```
+* ```grep sshd /var/log/messages``` will now become ```journalctl -u sshd```
 
 To use the journal daemon (journald) all its elements are accessed through the ```journalctl``` command.  All previously sparse logs are now contained in a single binary append only log format.  The advantage of that is that the output can be programmatically parsed (actually queried like a database) the downside is that some people see an "all your eggs in one basket" problem with a single central binary file.
 
@@ -253,12 +253,12 @@ journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
 > See log entries created only by the SSH service
 
 ```bash
-  journalctl -u sshd
+journalctl -u sshd
 ```
 
 ### Log rotation
 
-The concept of logrotation existed under syslog and rsyslog but no longer exist under journald.  Before you could use the ```/etc/logrotate.conf``` file but it is no longer needed.   Also each application may still write to a discrete syslog, but all those logs are then copied up by journald trying to be the single central repository for logs.
+The concept of log rotation existed under syslog and rsyslog but no longer exist under journald.  Before you could use the ```/etc/logrotate.conf``` file but it is no longer needed.   Also each application may still write to a discrete syslog, but all those logs are then copied up by journald trying to be the single central repository for logs.
 
 When viewing a older syslog style text log you can use the ```tail -f``` command and it will auto-update if there is new content automatically.  This command can be very helpful if you are watching a log for some particular output - can you find the journald equivalent?  ```journalctl --follow --since=-1day```
 
@@ -300,15 +300,15 @@ The first step in system administration is monitoring.  Just like viewing logs, 
 
 ![*Fedora top screenshot*](images/Chapter-09/monitoring/top/top.png "top")
 
-   The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.) The image below displays the system average loads over longer rolling periods.  1 minute, 5 minutes, and 15 minute rolling average.
+The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at.  The main key you need to know is *q* which will quit and exit the top command (just like the less command.) The image below displays the system average loads over longer rolling periods.  1 minute, 5 minutes, and 15 minute rolling average.
 
 ![*top avg*](images/Chapter-09/monitoring/top/top-avg.png "Top average")
 
-  This section tells you the number of processes, how much memory and swap is in use and how much is free.  It also tells you the breakdown between users and system on who is using the CPU percentage wise.
+This section tells you the number of processes, how much memory and swap is in use and how much is free.  It also tells you the breakdown between users and system on who is using the CPU percentage wise.
 
 ![*top usage*](images/Chapter-09/monitoring/top/top-usage.png "Top usage")
 
-   Finally this section shows the name and individual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
+Finally this section shows the name and individual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
 
 ![*top processes*](images/Chapter-09/monitoring/top/top-processes.png "Top process")   
 
@@ -372,11 +372,12 @@ In addition to memory, CPU, and process information.  You can other commands to 
 
 ## User Administration
 
-There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privilege.  The nature of the user commands allow you to do three operations.  The commands are: useradd, userdel, and usermod.   
+There are a series of commands that can be used to change or augment the owner, group, or permission of a file.  To execute these commands you will need to have administrator privilege.  The nature of the user commands allow you to do three operations.  The commands are: useradd, userdel, and usermod.
 
 ### useradd
 
-  The useradd command allows you to add a new user to the system.  You can set user defaults by typing the command below.  The -D option will show you what your system ```useradd``` command defaults are.  You can then add a user with these default values by typing:
+The useradd command allows you to add a new user to the system.  You can set user defaults by typing the command below.  The -D option will show you what your system ```useradd``` command defaults are.  You can then add a user with these default values by typing:
+
 ```bash
 useradd name-of-account-to-add
 ```
