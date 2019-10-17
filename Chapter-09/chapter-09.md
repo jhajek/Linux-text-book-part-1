@@ -469,9 +469,7 @@ What happens when you need to remotely access a system and it needs to be secure
 
 > You can access SSH from the command line via typing: ```ssh -V```
 
-By default the SSH *client* is installed on all Linux and Unix systems.  As of Windows 10 version 1803, there is a native SSH client installed as well.
-
-You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This connection is authenticated via a username and password mathcing an account on the remote system or an RSA key.
+By default the SSH *client* is installed on all Linux and Unix systems.  As of Windows 10 version 1803, there is a native SSH client installed as well. You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This connection is authenticated via a username and password mathcing an account on the remote system or an RSA key.
 
 > ```sudo apt-get install openssh-server``` or ```sudo dnf install openssh-server```
 
