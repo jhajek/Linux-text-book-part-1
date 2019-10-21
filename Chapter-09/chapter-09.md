@@ -146,16 +146,16 @@ Value    Severity        Keyword   		Description     			 	            Examples
 	3        Error         err       Error conditions              An application has exceeded its
 																                                 file storage limit and attempts
 																                                 to write are failing.
-  4       Warning        warning   May indicate that an error    A non-root file system has
+  4       Warning        warning   May indicate an error         A non-root file system has
 								                   will occur if action is       only 2GB remaining.
 								                   not taken.  
   5        Notice        notice    Events that are unusual,
 								                   but not error conditions.
-  6      Informational   info     Normal operational messages    An application has started,
-								                  that require no action.  	     paused or ended successfull.
-  7        Debug         debug    Information useful to
-                  								developers for debugging
-							                    the application.   
+  6      Informational   info      Normal operational messages   An application has started,
+								                   that require no action.       paused or ended successful.
+  7        Debug         debug     Information useful to
+                  								 developers for debugging
+							                     the application.
 ----- ---------------- ---------- ---------------------------  ----------------------------------
 
 ### rsyslog
@@ -164,13 +164,13 @@ By the year 2004 the clear need for a syslog compatible but feature rich replace
 
 ### journald and systemd
 
-Not to be outdone - systemd has preplaced syslog with journald.  And this has happened in every system that has adopted systemd - Debian 8, Fedora 22, Ubuntu 15.04/15.10, Centos 7.  You can read the initial journald announcement and [justification paper here](https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1 "Justification Paper") [^96].
+Not to be outdone - `systemd` has preplaced syslog with `journald`.  And this has happened in every system that has adopted `systemd` - Debian 8, Fedora 22, Ubuntu 15.04/15.10, Centos 7.  You can read the initial `journald` announcement and [justification paper here](https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1 "Justification Paper") [^96].
 
-In Lennart Poeterring's own words, *"If you are wondering what the journal is, here's an explanation in a few words to get you up to speed: the journal is a component of systemd, that captures Syslog messages, Kernel log messages, initial RAM disk and early boot messages as well as messages written to STDOUT/STDERR of all services, indexes them and makes this available to the user. It can be used in parallel, or in place of a tradditional syslog daemon, such as rsyslog or syslog-ng."* [^97]
+In Lennart Poeterring's own words, *"If you are wondering what the journal is, here's an explanation in a few words to get you up to speed: the journal is a component of systemd, that captures Syslog messages, Kernel log messages, initial RAM disk and early boot messages as well as messages written to STDOUT/STDERR of all services, indexes them and makes this available to the user. It can be used in parallel, or in place of a traditional syslog daemon, such as rsyslog or syslog-ng."* [^97]
 
   *"One of the impetuses behind the systemd journal is to centralize the management of logs regardless of where the messages are originating. Since much of the boot process and service management is handled by the systemd process, it makes sense to standardize the way that logs are collected and accessed. The journald daemon collects data from all available sources and stores them in a binary format for easy and dynamic manipulation. [^98]"*
 
-  If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04, or Debian 7 and prior you will not find the journald or systemd commands and will find the traditional syslog service.   Syslog can be installed along side of journald and run in the tradditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does many things).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs.  The traditional ways of using syslog had been modified by journald.
+  If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04, or Debian 7 and prior you will not find the journald or systemd commands and will find the traditional syslog service.   Syslog can be installed along side of journald and run in the traditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does many things).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs.  The traditional ways of using syslog had been modified by journald.
 
 * ```cat /var/log/messages``` will now become ```journalctl```
 * ```tail -f /var/log/messages``` will now become ```journalctl -f```
@@ -539,6 +539,8 @@ Secure cp (copy) Allows for using the ```cp``` command to a remote system via SS
 After generating an SSH keypair with the command ```ssh-keygen```, you now have the two keys located in you ```~/.ssh``` directory.  The file with the .pub extension is the public key, the other is the private key.  Guard the private key with your life.  
 
 ![*ssh-keygen command output*](images/Chapter-09/ssh/ssh-keygen.png "ssh-keygen command output")
+
+/newpage
 
 There is a command that will let you securely exchange RSA keys with a server.
 
