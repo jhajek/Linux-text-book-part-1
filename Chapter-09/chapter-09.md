@@ -490,7 +490,7 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 ![*Ubuntu 18.04.3 Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu 18.04.3 Native ssh -V")
 
 ![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd112-ssl-v.png "FreeBSD 11.2 Native ssh -V")
-/newpage
+\newpage
 
 #### SSH Security
 
@@ -541,7 +541,7 @@ After generating an SSH keypair with the command ```ssh-keygen```, you now have 
 
 ![*ssh-keygen command output*](images/Chapter-09/ssh/ssh-keygen.png "ssh-keygen command output")
 
-/newpage
+\newpage
 
 There is a command that will let you securely exchange RSA keys with a server.
 
