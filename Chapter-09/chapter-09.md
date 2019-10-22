@@ -814,9 +814,9 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
 1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomolies.
 
 1) On the SSH server make the following changes to the sshd_config file and paste them at the end of the ReadMe.md file
-  i. Not accept any password based authentication attempts
-  i. Change the default port to be 5555
-  i. Disable the value PermitRootLogin
+   i. Not accept any password based authentication attempts
+   i. Change the default port to be 5555
+   i. Disable the value PermitRootLogin
 
 1) Install fail2ban on both of the above systems:
    i. Configure fail2ban to start the service and enable it via systemctl command.
