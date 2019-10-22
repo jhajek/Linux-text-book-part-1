@@ -491,6 +491,10 @@ Each person generates a **keypair**, a public key and a private key. Both halves
 
 How do you then exchange data?  First you generate a keypair.   On the command line you can issue the command: ```ssh-keygen``` and take notice of the prompts:
 
+![*ssh-keygen command output*](images/Chapter-09/ssh/ssh-keygen.png "ssh-keygen output")
+
+\newpage 
+
 #### SSH Security
 
 While having SSH give us secure remote tunnels, it does lead to a potential problem.  It means exposing an open port to the external network.   This can and should be mitigated by things such as VPNs and mandating use of RSA keys only.  But there are many systems that are exposed.  This is a serious security vulnerability as hackers are actively scanning the entire IPv4 space looking for SSH systems and they will simply try to brute force the username and password.
