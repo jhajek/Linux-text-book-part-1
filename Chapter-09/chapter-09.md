@@ -541,7 +541,7 @@ After generating an SSH keypair with the command ```ssh-keygen```, you now have 
 
 ![*ssh-keygen command output*](images/Chapter-09/ssh/ssh-keygen.png "ssh-keygen command output")
 
-/newpage
+\newpage
 
 There is a command that will let you securely exchange RSA keys with a server.
 
