@@ -576,6 +576,7 @@ You would uncomment the line andthe entries with a more robust list.  You would 
 
 ```bash
 
+# This is one line with no line breaks--I made it into two lines so it would display properly.
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,
 aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 
