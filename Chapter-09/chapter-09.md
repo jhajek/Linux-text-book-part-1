@@ -527,13 +527,13 @@ Primary development occurs inside the OpenBSD source tree with the usual care th
 
 Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.  Some would argue the rise in using version control such as Git makes SFTP/FTP redundant.  
 
-```sftp \[-i identity_file\] username@hostname```
+```sftp [-i identity_file] username@hostname```
 
 ### SCP
 
 Secure cp (copy) Allows for using the ```cp``` command to a remote system via SSH, as SFTP should be used for moving multiple files, this command is good for moving a single file quickly via the command line.
 
-```scp \[-i identity_file\] username@hostname filename```
+```scp [-i identity_file] localfilename username@hostname:filename```
 
 ### ssh-copy-id
 
