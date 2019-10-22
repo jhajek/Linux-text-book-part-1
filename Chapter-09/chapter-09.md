@@ -489,10 +489,7 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 
 ![*Ubuntu 18.04.3 Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu 18.04.3 Native ssh -V")
 
-![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd112-ssl-v.png "FreeBSD 11.2 Native ssh -V")
-
 ![*MacOS 10.13.6 Native ssh -V*](images/Chapter-09/ssh/macos-10-13-6.png "MacOS 10.13.6 Native ssh -v")
-\newpage
 
 #### SSH Security
 
