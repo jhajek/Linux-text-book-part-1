@@ -471,6 +471,14 @@ What happens when you need to remotely access a system and it needs to be secure
 
 > You can access SSH from the command line via typing: ```ssh -V```
 
+![*Windows 10 Native ssh -V*](images/Chapter-09/ssh/windows10-ssl-v.png "Windows 10 Native ssh -V")
+
+![*Fedora 30 Native ssh -V*](images/Chapter-09/ssh/fedora30-ssl-v.png "Fedors 30 Native ssh -V")
+
+![*Ubuntu 18.04.3 Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu 18.04.3 Native ssh -V")
+
+![*MacOS 10.13.6 Native ssh -V*](images/Chapter-09/ssh/macos-10-13-6.png "MacOS 10.13.6 Native ssh -v")
+
 By default the SSH *client* is installed on all Linux and Unix systems.  As of Windows 10 version 1803, there is a native SSH client installed as well. You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This connection is authenticated via a username and password mathcing an account on the remote system or an RSA key.
 
 > ```sudo apt-get install openssh-server``` or ```sudo dnf install openssh-server```
@@ -482,14 +490,6 @@ SSH works because of Public/Private Key Encryption and a standard created and wi
 Each person generates a **keypair**, a public key and a private key. Both halves of the key make up the single key used for authentication.  These keys are exactly what they sound like.  The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened.  Think of the **public key** as the lock on your front door.  Conceivably anyone can come up to that lock and try to insert a key.  Unless they have the particular key, the lock won't open.   The **private key** is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.
 
 How do you then exchange data?  First you generate a keypair.   On the command line you can issue the command: ```ssh-keygen``` and take notice of the prompts:
-
-![*Windows 10 Native ssh -V*](images/Chapter-09/ssh/windows10-ssl-v.png "Windows 10 Native ssh -V")
-
-![*Fedora 30 Native ssh -V*](images/Chapter-09/ssh/fedora30-ssl-v.png "Fedors 30 Native ssh -V")
-
-![*Ubuntu 18.04.3 Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu 18.04.3 Native ssh -V")
-
-![*MacOS 10.13.6 Native ssh -V*](images/Chapter-09/ssh/macos-10-13-6.png "MacOS 10.13.6 Native ssh -v")
 
 #### SSH Security
 
@@ -536,15 +536,19 @@ Secure cp (copy) Allows for using the ```cp``` command to a remote system via SS
 
 ### ssh-copy-id
 
-After generating an SSH keypair with the command ```ssh-keygen```, you now have the two keys located in you ```~/.ssh``` directory.  The file with the .pub extension is the public key, the other is the private key.  Guard the private key with your life.  
+After generating an SSH keypair with the command ```ssh-keygen```, you now have the two keys located in you ```~/.ssh``` directory.  The file with the .pub extension is the public key, the other is the private key.  __Guard the private key with your life!__  
 
-![*ssh-keygen command output*](images/Chapter-09/ssh/ssh-keygen.png "ssh-keygen command output")
+There is a command that will let you securely exchange RSA keys with a server. This requires you first to have an account on the server (host) you are connecting to so that you can place your identity securely onto that remote server.
 
-\newpage
+```bash
+ssh-copy-id username@hostname
 
-There is a command that will let you securely exchange RSA keys with a server.
+# Optional command if you want to transfer the identity other than the default id_rsa
+ssh-copy-id -i identityname username@hostname
 
-```ssh-copy-id username@hostname```  which requires you first to have an account on the server (host) you are connecting to.  There is an optional command if you want to transfer the identity other than the default id_rsa, ```ssh-copy-id -i identityname username@hostname```
+```  
+
+  
 
 ### ssh config file
 
