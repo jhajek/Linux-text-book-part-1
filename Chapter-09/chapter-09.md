@@ -492,8 +492,6 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 ![*FreeBSD 11.2 Native ssh -V*](images/Chapter-09/ssh/freebsd112-ssl-v.png "FreeBSD 11.2 Native ssh -V")
 /newpage
 
-/newpage
-
 #### SSH Security
 
 While having SSH give us secure remote tunnels, it does lead to a potential problem.  It means exposing an open port to the external network.   This can and should be mitigated by things such as VPNs and mandating use of RSA keys only.  But there are many systems that are exposed.  This is a serious security vulnerability as hackers are actively scanning the entire IPv4 space looking for SSH systems and they will simply try to brute force the username and password.
@@ -820,7 +818,7 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
   i. Change the default port to be 5555
   i. Disable the value PermitRootLogin
 
-1) Install fail2ban on both of the above systems.  
+1) Install fail2ban on both of the above systems:
    i. Configure fail2ban to start the service and enable it via systemctl command.
    i. Configure the fail2ban to parse the systemd jounrnalctl logs
    i. From the first system (Ubuntu) try to SSH into the second system (Fedora) with an incorrect username and password 5 times and get yourself banned.
