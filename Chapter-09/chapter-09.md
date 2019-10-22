@@ -548,8 +548,6 @@ ssh-copy-id -i identityname username@hostname
 
 ```  
 
-  
-
 ### ssh config file
 
 The ssh command has a provision for a file named ```config``` located in the ```~/.ssh``` directory.  This is where you can hardcode short cut information per connection.  Items such as:
