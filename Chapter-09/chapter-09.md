@@ -565,7 +565,7 @@ In the ssh_config file you can modify these lines to increase the security of th
 
 ```Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc```
 
-You would uncomment the line andthe entries with a more robust list.  You would want to make sure that the coresponsiding SSH server in the ```sshd_config``` file had the same ciphers set other wise negotiation could fail and no connection would take place[^ch9f109].
+You would uncomment the line and the entries with a more robust list.  You would want to make sure that the coresponsiding SSH server in the ```sshd_config``` file had the same ciphers set other wise negotiation could fail and no connection would take place[^ch9f109].
 
 ```bash
 
@@ -574,7 +574,7 @@ aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 
 ```
 
-You could also disable password authentication to a remove server and only use RSA key authentication.  Uncomment the line ```#PasswordAuthentication yes``` and change it to ```PasswordAuthentication no```[^ch9f108].  By default Fedora and BSD based operating sysems allow the Root account to connect via SSH using a password.  This is inherantly dangerous, Ubuntu uses the value prohibit-password which would allow RSA but not password based auth. It is generally not a good idea to allow this and uncomment and change this setting from  ```PermitRootLogin yes``` to ```PermitRootLogin no```[^ch9f110].
+You could also disable password authentication to a remote server and only use RSA key authentication.  Uncomment the line ```#PasswordAuthentication yes``` and change it to ```PasswordAuthentication no```[^ch9f108].  By default Fedora and BSD based operating sysems allow the Root account to connect via SSH using a password.  This is inherantly dangerous, Ubuntu uses the value prohibit-password which would allow RSA but not password based auth. It is generally not a good idea to allow this and uncomment and change this setting from  ```PermitRootLogin yes``` to ```PermitRootLogin no```[^ch9f110].
 
 Upon changing any values you need to restart the ssh service via ```sudo systemctl sshd reload```.
 
