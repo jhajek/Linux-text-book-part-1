@@ -284,6 +284,37 @@ post-stop exec /lib/ufw/ufw-init stop
 
 FreeBSD still uses ```rc``` files which are shell scripts for starting services.  You can find them listed in ```/etc/rc.d/```.  Take a look at ```/etc/rc.d/syslogd``` and you will see it is a 74 line shell script, compared to the 12 line systemd unit file.
 
+#### Logging and service files
+
+You will need to install some pre-reqs for this example.
+
+```bash
+# Ubuntu - https://pypi.org/project/systemd/
+apt-get install build-essential \
+    libsystemd-journal-dev \
+    libsystemd-daemon-dev \
+    libsystemd-dev \
+    python-pip \
+    python-dev
+pip install systemd --user
+```
+
+```bash
+# Fedora/CentOS - https://pypi.org/project/systemd/
+sudo yum install gcc systemd-devel python-devel python-pip
+pip install systemd --user
+```
+
+Create a python script called `write-journal.py` and include this code after installing the pre-reqs.
+
+```python
+from systemd import journal
+
+journal.write("Hello Lennart")
+```
+
+Give the above script execute permission, execute it by typing `python write-journal.py`, and the execute the command: `sudo journalctl -xe`, what do you see?
+
 #### hostnamectl and timedatectl
  
 One of the 69+ components of systemd is hostnamectl which is designed to give you an easy interface into controlling the information relating to your systems hostname. Running the command ```man hostnamectl``` shows you what can be done here [hostnamectl](https://www.freedesktop.org/software/systemd/man/hostnamectl "hostnamectl")
