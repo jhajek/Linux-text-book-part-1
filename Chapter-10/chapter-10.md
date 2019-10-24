@@ -239,23 +239,26 @@ systemd-boot
 
 Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The units that systemd include are ```.service```, ```.mount```, ```.target``` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files").
 
+
+#### Systemd Service file
+
 ```bash
-#/lib/systemd/system/rsyslog.service
+#/lib/systemd/system/apache2.service
 [Unit]
-Description=System Logging Service
-Requires=syslog.socket
-Documentation=man:rsyslogd(8)
-Documentation=http://www.rsyslog.com/doc/
+Description=The Apache HTTP Server
+After=network.target remote-fs.target nss-lookup.target
 
 [Service]
-Type=notify
-ExecStart=/usr/sbin/rsyslogd -n
-StandardOutput=null
-Restart=on-failure
+Type=forking
+Environment=APACHE_STARTED_BY_SYSTEMD=true
+ExecStart=/usr/sbin/apachectl start
+ExecStop=/usr/sbin/apachectl stop
+ExecReload=/usr/sbin/apachectl graceful
+PrivateTmp=true
+Restart=on-abort
 
 [Install]
 WantedBy=multi-user.target
-Alias=syslog.service
 ```
 
 #### Ubuntu Upstart file for the UFW firewall service:
