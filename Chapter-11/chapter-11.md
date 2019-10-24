@@ -122,7 +122,7 @@ Adding a virtual disk is only the first step, there are three more steps before 
 
 1) partition the disk
 1) create a filesystem
-1) and then mount the disk so that it can be used by your operating system.
+1) then mount the disk so that it can be used by your operating system.
 
 ## Disk Partitioning and Formatting
 
@@ -185,7 +185,7 @@ Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes w
 
 ### Drawbacks of disk partitions
 
-Using the ```fdisk``` command does have its drawbacks.  The tool was designed in the day when systems had 1 or 2 hard drives.  Filesystems handled small files and the idea of large files partitions that spanned multiple disks was not possible due to software and processor limitations.  But we see with the cost of disk alone, systems having 24 or more hard drives is not unheard of.  Most filesystems were disgned around the limitations of ```fdisk``` and since then new solutions have been designed to overcome the limitations of partitions such as LVM and filesystem extents, which we will cover at the end of this chapter.
+Using the ```fdisk``` command does have its drawbacks.  The tool was designed in the day when systems had 1 or 2 hard drives.  Filesystems handled small files and the idea of large files partitions that spanned multiple disks was not possible due to software and processor limitations.  But we see with the cost of disk alone, systems having 24 or more hard drives is not unheard of.  Most filesystems were designed around the limitations of ```fdisk``` and since then new solutions have been designed to overcome the limitations of partitions such as LVM and filesystem extents, which we will cover at the end of this chapter.
 
 ## Filesystems
 
@@ -224,7 +224,7 @@ Block size   Max file size   Max file system size
   4 KiB         2 TiB             16 TiB
 ----------- --------------- ----------------------  
 
-By 2008 it became appearant that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __ext__ filesystem a bit longer, but the growth of __ext__ had hit the end, and a newer filesystem needed to be developed to handle the larger sets of data and the massively improved hardware that existed since 1992, when ext was developed.
+By 2008 it became apparent that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __ext__ filesystem a bit longer, but the growth of __ext__ had hit the end, and a newer filesystem needed to be developed to handle the larger sets of data and the massively improved hardware that existed since 1992, when ext was developed.
 
 Ext4 saw the capacity extension of __ext3__ and introduction to __extents__. The __ext4__ filesystem can support volumes with sizes up to 1 exibyte (EiB) and files with sizes up to 16 tebibytes (TiB).
 
@@ -232,9 +232,26 @@ In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 
 
 Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type ```mkfs.etx4```  and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems that fill the voids left by __ext4__.
 
+### Giga vs Gibi
+
+There are different units of measurement for hard disks.  These matter because humans and computers use different numbering systems.
+: [Multiples of bytes](https://en.wikipedia.org/wiki/Gibibyte "Mulitples of bytes")
+
+------------------- ----------------------- -----------------------
+    Metric                [IEC](https://en.wikipedia.org/wiki/IEC_80000-13 "IEC definition")                    [JEDEC](https://en.wikipedia.org/wiki/JEDEC_memory_standards#Unit_prefixes_for_semiconductor_storage_capacity "JEDEC definition")
+1000 kB kilobyte     1024 KiB kibibyte          KB kilobyte
+1000 MB megabyte     1024 MiB mebibyte          MB megabyte
+1000 GB gigabyte     1024 GiB gibibyte          GB gigabyte
+1000 TB terabyte     1024 TiB tebibyte
+1000 PB petabyte     1024 PiB pebibyte
+1000 EB exabyte      1024 EiB exbibyte
+1000 ZB zettabyte    1024 ZiB zebibyte
+1000 YB yottabyte    1024 YiB yobibyte
+------------------- ----------------------- -----------------------
+
 ## Logical Volume Manager
 
-In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored int he users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
+In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored in the users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
 
 The question is under standard partitioning you don't. You simply backup, reinstall, and reformat the entire drive.  This is very time consuming and a risky operation that is usually not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
 
