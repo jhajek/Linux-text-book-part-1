@@ -446,7 +446,7 @@ d. /etc/systemd/journald.conf
 a.  top
 
 18) Debian based distros have an additional command to abstract the process to add users to the system - what is it?
-a.  useradd
+c. adduser
 
 19) What command would be used to modify a user account settings and add them to the sudo users group (user is named controller)?
 b.  sudo usermod -aG sudo controller
