@@ -128,7 +128,7 @@ Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental rep
 
 Upstart wasn't the only replacement option, currently there are two major one, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*  Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
 
-OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatability of SysVinit but improve or adopt systemd style improvements and management where feasible.  Here is a comparison table between systemd, sysVinit, and OpenRC: 
+OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible.  Here is a comparison table between systemd, sysVinit, and OpenRC: 
  
            systemd                         SysVinit                         OpenRC
 ------------------------------  -------------------------------- -------------------------------- 
@@ -237,7 +237,7 @@ systemd-boot
 
 ### Systemd Service Types
 
-Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The units that systemd include are ```.service```, ```.mount```, ```.target``` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understadning systemd unit files").
+Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The units that systemd include are ```.service```, ```.mount```, ```.target``` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files").
 
 ```bash
 #/lib/systemd/system/rsyslog.service
@@ -258,7 +258,7 @@ WantedBy=multi-user.target
 Alias=syslog.service
 ```
 
-This is an Ubuntu Upstart file for the ufw firewall service:
+This is an Ubuntu Upstart file for the UFW firewall service:
 
 ```bash
 /etc/init$ cat ufw.conf
@@ -290,9 +290,9 @@ One of the 69+ components of systemd is hostnamectl which is designed to give yo
 
 > **Exercise:** Use the hostnamectl command to change your systems hostname to itmo-556 (or your class name).  Now close your shell and reopen it--what do you see?
 
-The ```timedatectl``` is used for setting timezone and to activate ntp (network time protocol) synchronization.  This part of systemd superceeds previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl").  
+The ```timedatectl``` is used for setting time zone and to activate ntp, [network time protocol](http://tldp.org/LDP/sag/html/ntp.html "Network Time Protocol"), synchronization.  This part of systemd supersedes previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl").  
 
-> **Exercise:** Using the man command for timedatectl can you enable ntp synchronization?  Can you change the timezone to ETC?
+> **Exercise:** Using the man command for `timedatectl` can you enable `ntp` synchronization?  Can you change the timezone to UTC?
 
 #### systemd-analyze
 
@@ -383,6 +383,8 @@ You can list, load, and remove kernel modules form a running kernel.  This is de
 You can also use the ```systemctl``` command with filter options to find modules that have loaded or failed to load.
 
 > __Example Usage:__ You will notice your can filter the systemctl command: ```sudo systemctl --failed```, the normal behavior is to show all running and failed.
+
+> __Example USage:__ On Ubuntu, if you install the package, `zfsutils-linux` this will add a kernel module for the ZFS file system.  Run the lsmod command before and after you install the ZFS package.  What is the difference?
 
 ![*sudo systemctl --failed*](images/Chapter-10/systemd/systemctl-failed.png "Image of failed services output for systemctl --failed")
 
