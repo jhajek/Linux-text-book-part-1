@@ -1,4 +1,5 @@
 #  Filesystems: Creating, Partitioning, and Mounting
+
 ![*Easy as cake...*](images/Chapter-Header/Chapter-11/server_problem-2.png "Server Problem")
 
 ## Objectives
@@ -11,15 +12,15 @@
 
 ## Outcomes
 
-  At the conclusion of this chapter you will be able to add additional virtual disks to any Linux version installed in Virtual Box.  You will be able to format devices and create filesystems on newly formatted devices.  You will understand how to partition a device and install filesystems.  This chapter will give you experience with the tools needed to perform these actions.  We will study the LVM -- Linux Volume Manager and its new concept for dealing with disks.  Finally we will learn the concept of mounting and unmounting of disks.
+At the conclusion of this chapter you will be able to add additional virtual disks to any Linux version installed in Virtual Box.  You will be able to format devices and create filesystems on newly formatted devices.  You will understand how to partition a device and install filesystems.  This chapter will give you experience with the tools needed to perform these actions.  We will study the LVM -- Linux Volume Manager and its new concept for dealing with disks.  Finally we will learn the concept of mounting and unmounting of disks.
 
 ## Storage Types
 
-In looking at the prices of disk based storage from the Fall of 2015, a single terabyte Western Digital Blue hard drive was selling for ~$50.  In the time since, the proce of storage has only decreased. Storage is cheap and with that in mind, adding *storage* or *capacity* to a system is trivial.  In fact the types of storage available since 2015 have changed drastically.  
+In looking at the prices of disk based storage from the Fall of 2015, a single terabyte Western Digital Blue hard drive was selling for ~$50.  In the time since, the price of storage has only decreased. Storage is cheap and with that in mind, adding *storage* or *capacity* to a system is trivial.  In fact the types of storage available since 2015 have changed drastically.  
 
 ### Mechanical Hard Drives HDDs
 
-The orginal, cheapest, and densest storage type in dollars per meagbits is still a mechanical harddrive.  Often refered to as an HDD[^135].  
+The original, cheapest, and densest storage type in dollars per megabit is still a mechanical hard drive.  Often referred to as an HDD[^135] or magnetic drive.  
 
 ![*Hard Drive*](images/Chapter-11/hdd/256px-Laptop-hard-drive-exposed.jpg "Hard Drive Internals")
 
