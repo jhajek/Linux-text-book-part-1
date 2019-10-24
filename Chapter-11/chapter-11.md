@@ -41,13 +41,13 @@ In early 2012, a new medium called a Solid State Drive, or SSD was released.  Th
 
 ![*Standard SSD connector*](images/Chapter-11/ssd/256px-Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg "Standard SSD connector")[^134]
 
-The orginal SSD disks were put out by RAM manufactureres and had RAM controller write issues.  The good ones were built by Intel and Samsung.  The other manufactures have caught up and you can get drives in 256, 512, and 1 TB sizes.  Since there are no moving parts the battery or power usage is far reduced from an HDD.  SSDs do have potential issues with ware leveling and block failure, but in the chips controlling these devices the manufactureres have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data trasnfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitiation that HDDs suffered to be overcome.  
+The original SSD disks were put out by RAM manufacturers and had RAM controller write issues.  The good ones were built by Intel and Samsung.  The other manufactures have caught up and you can get drives in 256, 512, and 1 TB sizes.  Since there are no moving parts the battery or power usage is far reduced from an HDD.  SSDs do have potential issues with ware leveling and block failure, but in the chips controlling these devices the manufacturers have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data transfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitation that HDDs suffered to be overcome.  
 
-As a price point marketing creation you might see SSHDs which are called Hybrid Drives.  They contain 4 to 16 GB of flash disk and the rest of the drive is a mechanical 3 to 5 platter disk.  This is supposed to give you the advantage of cahcing frequent data on the flash data, but the idea never caught on as the price of SSD and HDD both have dropped drastically, making this solution not neccesary.  
+As a price point marketing creation you might see SSHDs which are called Hybrid Drives.  They contain 4 to 16 GB of flash disk and the rest of the drive is a mechanical 3 to 5 platter disk.  This is supposed to give you the advantage of caching frequent data on the flash data, but the idea never caught on as the price of SSD and HDD both have dropped drastically, making this solution not necessary.  
 
 ### NVMe
 
-The latest incarnation of SSD disk based technology is [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") which stands for Non-Volatile Memory Express. These are solid state drives, but instad of sending data over the SATA interface, they conenct directly to the high-speed PCIe bus, just like your video card does.  The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 4x parallel transfer lanes as opposed to a serial fashion which SATA was designed for.  NVMe comes in expansion card factor and comes in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137]. The price is high as the technology is still reletively new, but the performance gain is worth the investment.
+The latest incarnation of SSD disk based technology is [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") which stands for Non-Volatile Memory Express. These are solid state drives, but instead of sending data over the SATA interface, they connect directly to the high-speed PCIe bus, just like your video card does.  The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 4x parallel transfer lanes as opposed to a serial fashion which SATA was designed for.  NVMe comes in expansion card factor and in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137]. The price is high as the technology is still relatively new, but the performance gain is worth the investment.
 
    PCIe Version     Per Lane Throughput        1x        4x          8x        16x
 -----------------  ----------------------  ---------- ---------- ---------- -----------
@@ -58,15 +58,15 @@ The latest incarnation of SSD disk based technology is [NVMe](https://en.wikiped
 
 ![*mini-Sata and M.2*](images/Chapter-11/ssd/M.2_and_mSATA_SSDs_comparison.jpg "mini-Sata and M.2")
 
-The future of disk is something of a hybrid between ram and solid state/flash memory.  Intel launched trademakred platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane").  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of hard disk to the point that is is close to or equal in speed to RAM (Non-volitile memory).  There by elimating potential system bottleneck and making the platform of memory a sinlge platform.  As of 2018 the cost and technology is still a bit prohibitive, but this is where the industry will move in the next 5 to 10 years.
+The future of disk is something of a hybrid between ram and solid state/flash memory.  Intel launched a trademarked platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane").  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of hard disk to the point that is is close to or equal in speed to RAM (Non-volitile memory).  There by eliminating potential system bottleneck and making the platform of memory a single platform.  As of 2018 the cost and technology is still a bit prohibitive, but this is where the industry will move in the next 5 to 10 years.
 
 ### Virtual Hard Drives
 
-When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VmWare, and Cloud based services, in place disk cna be reformated and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files.
+When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files.
 
 ### Disk Management in VirtualBox
 
-For this chapter we will assume that you are using Virtual Box 5.x, but these concepts apply to any virtual machine or Hypervisor.  This also assumes you have free space on your computer.  Since the point of this lab is to explore and not prouction usage, you may want to get an external USB drive and use that for this chapter so as not to fill up your hard drive.
+For this chapter we will assume that you are using Virtual Box 5.x, but these concepts apply to any virtual machine or Hypervisor.  This also assumes you have free space on your computer.  Since the point of this lab is to explore and not production usage, you may want to get an external USB drive and use that for this chapter so as not to fill up your hard drive.
 
 With your Ubuntu or Fedora virtual machine powered down, let's add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu.
 
@@ -78,12 +78,12 @@ The next menu to come up will show the *SETTINGS* options and the name of the vi
 
 \newpage
 
-Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in Virtual Box.  In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well.  That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached. 
+Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in Virtual Box.  In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well.  That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached.
 
 ![*Storage menu*](images/Chapter-11/virtual-box/storage.png "Storage")
 \newpage
 
-We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the name of the signalling protocol the operating system uses to retrieve data from a hard drive. Go ahead and highlight the SATA Controller entry.  
+We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the name of the signaling protocol the operating system uses to retrieve data from a hard drive. Go ahead and highlight the SATA Controller entry.  
 
 In order to add a new hard drive to your virtual machine, click the blue HDD icon with a __+__ sign at the bottom of the menu.
 
@@ -114,7 +114,7 @@ This next screen allows you to change the location of where the virtual hard dis
 
 Once you see the screen below - it means you have successfully created a new virtual hard drive and have attached it to your virtual machine.  You can reverse the above operations by highlighting the virtual disk drive of choice and selecting the HDD icon with the minus sign and that will delete the hard drive.  But I recommend against that as your operating system won't know what happened and that could cause system instability.  Always best to unmount a partition from inside the operating system first before deleting the virtual hard drive. By highlighting the new disk or existing one, you can see the meta-data about the disk.
 
-![*Succesfully Added New disk*](images/Chapter-11/virtual-box/new-disk.png "New")
+![*Successfully Added New disk*](images/Chapter-11/virtual-box/new-disk.png "New")
 
 ![*Disk Information*](images/Chapter-11/virtual-box/information.png "Information")
 
