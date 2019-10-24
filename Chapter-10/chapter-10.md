@@ -634,6 +634,8 @@ At the conclusion of this lab you will be able to manage, edit, and list system 
     a) use the ```ps``` and various filters to show only information related to this process.
     b) use the ```systemd-cgls``` command and filters to display the process information
     c) use the kill command from systemd to kill the cgroup related to the infinite loop process.
+1) Using the sample file located in: files > Chapter-10 > python > write-journal.py and copy it to your home directory. Create a systemd service file called write-journal.service.  Have the service file execute this python script (use absolute paths).  Use the commands to **enable** and **start** the service.  Use the ```sudo journalctl -xe``` command to show the output in the systemd logs
+at boot and after the system has loaded.
 
 #### Footnotes
 
