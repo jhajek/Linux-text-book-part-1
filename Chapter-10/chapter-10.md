@@ -267,7 +267,7 @@ You will note the 3 headers listed in the file:
 * Service
 * Install
 
-Each has its own specific values.  The name of the service file is important as well.  This file name become the service name. The file `/lib/systemd/system/apache2.service` is responsible for the apache2 service.  Under Unit, you have a description field which is a comment for the user.  The next value is: After, this is a powerful addition to sytsemd that SysVInit did not have.  This allows you to give the service a conditional start.  In this case, only start the webserver after the network.target service starts, which makes sense.
+Each has its own specific values.  The name of the service file is important as well.  This file name become the service name. The file `/lib/systemd/system/apache2.service` is responsible for the apache2 service.  Under Unit, you have a description field which is a comment for the user.  The next value is: After, this is a powerful addition to systemd that SysVInit did not have.  This allows you to give the service a conditional start.  In this case, only start the webserver after the network.target service starts, which makes sense.
 
 In the Service tag, these are the commands to start and stop various shell scripts.  When you use the start | stop | reload | status commands, these are the files or commands that are executed.  The Install tag, is the final tag and tells systemd on which run level to start this service.  Make note that the application uses absolute paths to all of the executables and binaries, this is do to the service run when parts of the operating system are still loading.
 
