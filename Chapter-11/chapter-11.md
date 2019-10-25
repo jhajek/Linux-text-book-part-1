@@ -377,14 +377,14 @@ Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands s
   * create, list, destroy
   * used to create a ZFS filesystem on a zpool
 * ```zfs snapshot```
-  * volume@snapname
+  * volume@snap-name
   * ```zfs snapshot mydatapool@snap1```
   * ```zfs list -t snapshot```
 * ```zfs rollback```
 
 ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments essentially creates a serialized synchronization feature.  This can be done on the same system as well as over a network connection to a remote computer.  Try to do that on ext4.  To synchronize a ZFS filesystem:
 
-* first create a snapshot of a zpool 
+* first create a snapshot of a zpool
 * Using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partition
   * ```zfs send datapool@today | zfs recv backuppool/backup```.  
 * You can pipe the command over ```ssh``` to restore to a remote system
@@ -402,7 +402,7 @@ In addition there is an L2ARC cache for caching most recent and most frequently 
 
 ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up andy silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  You can check the status of a disk with the command ```zpool status datapool``` and execute a scrub command ```zpool scrub datapool```.
 
-ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 tank/log```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  Essentially if enabled each file is hased with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables.  
+ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 tank/log```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables.  
 
 #### Finding a physical disk
 
@@ -482,7 +482,7 @@ An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4 
 
 The [iSCSI protocol](https://en.wikipedia.org/wiki/ISCSI "iSCSI") is a reimplemntation of the SCSI disk communication protocol.  SCSI was an alternative that could move data faster than the then ATA (pre-SATA) standard.  Once SATA became available the SCSI based hardware was more expensive and was replaced by cheaper SATA and more standardized USB (for external devices). The SCSI bus was faster than the standardized ATA bus, but required a specialized adapter card and specialized cable to connect devices and external peripherals.  Think of it pre-USB (circa 1998).  This made SCSI desirable but expensive.  Also the SCSI standard continued to improve throughput but at the cost of not being backwards compatabile with older and other versions of SCSI, each had its own cabes and connectors. By the year 2000 the SCSI protocol was well known and heavily invested in for server class hardware.  In that year IBM and Cisco standardized the iSCSI protocol.  iSCSI integrated SCSI commands to external targets over Ethernet/IP.  Allowing you to seperate your disks from storage and access them over a local network via the iSCSI protocol.  Disks were formatted as LVMs or directly as a ZFS, btrfs, or XFS based drives and then presented as __iSCSI targets__ over the network. iSCSI has two components, the __iSCSI target__ and the __iSCSi initiator__. The system that connects to a target in an __initiator__.   iSCSI devices can replace the need for SAN technology (Storage Area Networks) and work on commodity hardware over basic ethernet cables and switches.  
 
-This allows you top separate your storage and your compute.  You can even use iSCSI disks as your main harddrive and configure this during install time on most major Linux distros. All modern Oses come with support for being either a target or an innitiator.  A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD and TrueOS.
+This allows you top separate your storage and your compute.  You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an innitiator.  A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD and TrueOS.
 
 ### systemd mounting units
 
@@ -507,7 +507,7 @@ WantedBy=multi-user.target
 
 ### Disk related tools
 
-There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The ```df``` command will list the disk usage.   There is an optional ```-H``` and ```-h``` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use ```df``` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: ```/home/controller```.
+There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The ```df``` command will list the disk usage.   There is an optional ```-H``` and ```-h``` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use ```df``` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: ```/home/controller``` for example.
 
 ![*df -H /home/controller*](images/Chapter-11/du/df-h.png "df")  
 
@@ -515,11 +515,11 @@ The ```du``` command is disk usage.  This is a helpful command to show the exact
 
 \newpage
 
-![*du -H --exlude=".\*" /home/controller*](images/Chapter-11/du/du-h.png "du")  
+![*du -H --exclude=".\*" /home/controller*](images/Chapter-11/du/du-h.png "du")  
 
 ## Chapter Conclusions and Review
 
-In this chapter we learned and mastered the tools and concepts needed to manage, create, and format disks in Linux.  We learned how to inspect and how to mount and umount these drives from our system.  We learned about the standard Linux file-systems and new advanced file-systems.  Finally we learned about file-system tools and the use of Logical Volume Management.  Finally we learned about the concept of volume management snapshotting.  You have been prepared to with the basics of how to manage and understand the file-system on your Linux distro.
+In this chapter we learned and mastered the tools and concepts needed to manage, create, and format disks in Linux.  We learned how to inspect and how to `mount` and `umount` these drives from our system.  We learned about the standard Linux file-systems and new advanced file-systems.  Finally we learned about file-system tools and the use of Logical Volume Management.  Finally we learned about the concept of volume management snapshotting.  You have been prepared to with the basics of how to manage and understand the file-system on your Linux distro.
 
 ### Review Questions
 
@@ -692,7 +692,7 @@ c. Format it with XFS
 d. Mount it to /mnt/disk2
 e. Add the lv-group to your fstab
 3. Using the same LVM as before
-a. add an additional virtualbox disk and the create a LVM physical disk
+a. add an additional VirtualBox disk and the create a LVM physical disk
 b. Grow the volume group and logical volume
 c. Grow the XFS file system
 4. Using LVM of the previous exercise on the logical volume lv-group create a 25 mb text file named datadump.txt
@@ -754,7 +754,7 @@ c. Western Digital Blue 1 TB
 d. Western Digital Red 10 TB
 e. Samsung 970 EVO M.2 500 GB
 f. Corsair Force MP300 M.2 960 GB
-g. Intel Optane M.2 32 GB - Need to explain what 3D XPoint technology is
+g. Intel Optane M.2 32 GB and explain what 3D XPoint technology is
 
 #### Footnotes
 
