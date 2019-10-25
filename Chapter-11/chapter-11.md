@@ -342,7 +342,7 @@ Btrfs adds support for resource pooling and using extents to make logical drives
 
 A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an elegantly designed filesystem.   *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
 
-ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowed Sun and Oracle to include proprietary parts of the operating system with opensource code. This prevented ZFS from being adopted natively into the Linux kernel because of the GPL incompatibility.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
+ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowed Sun and Oracle to include proprietary parts of the operating system with opensource code. The CDDL was an opensource license, but not a copy-left license and thus GPL incompatible.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
 
 * [GPL Violations Related to Combining ZFS and Linux](https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/ "GPL Violations Related to Combining ZFS and Linux")
 * [Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS](https://www.fsf.org/licensing/zfs-and-linux "Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS")
@@ -366,7 +366,7 @@ sudo apt install zfs-initramfs
  df -h | grep mydatapool
 ```  
 
-ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even depricating btrfs from future RHEL releases.   A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows").
+ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even deprecating btrfs from future RHEL releases.  This may have something to do with Oracle and RedHat competition, as Oracle is one of the sponsors of btrfs.  A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), the port is mature enough to install on the latest Windows 10 systems.
 
 Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands such as:
 
@@ -411,12 +411,11 @@ ZFS can enable transparent compression using GZIP or LZ4 with a simple set comma
 ZFS, btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but how do you identify which physical disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial number of the disk via the ```hdparm``` tool.  This script would enumerate through all of the disks you have on a system and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive ```/dev/sda``` through ```/dev/sdg```[^143] run the command on your system and see what comes out.  Depending on what processor you have, older Intel CPUs (2nd Gen Core i), might not report the disk serial number correctly for a virtualized hard drive on Ubuntu 16.04 and 18.04, but reporting correctly on Virtualized Fedora 28 and 29.
 
 ```bash
-
-for i in a b c d e f g;
-do 
-echo -n "/dev/sd$i: " 
-hdparm -I /dev/sd$i | awk '/Serial Number/ {print $3}'
-done
+  for i in a b c d e f g;
+  do
+    echo -n "/dev/sd$i: " 
+    hdparm -I /dev/sd$i | awk '/Serial Number/ {print $3}'
+  done
 ```
 
 ```bash
@@ -434,15 +433,21 @@ lsblk --nodeps -o name,serial
 
 ### HFS+, UFS, and APFS
 
-The BSD systems has its own filesystem, UFS, [the Unix File System](http://www.ivoras.net/blog/tree/2013-10-24.why-ufs-in-freebsd-is-great.html "Unix Filesystem"). This filesystem was native to Unix going back to the System 7 Unix release.  Though UFS has been updated since and is officially UFS2, which was released around 1994 when BSD split from Unix due to the AT&T lawsuit.  UFS2 is considered similar to ext4 on Linux in capabilities at the current time.  FreeBSD and then other BSDs adopted ZFS to be able to extend the filesyste, capability of UFS.  All Illumos, or OpenSolaris based distros use ZFS natively as well.
+The BSD systems has its own filesystem, UFS, [the Unix File System](http://www.ivoras.net/blog/tree/2013-10-24.why-ufs-in-freebsd-is-great.html "Unix Filesystem"). This filesystem was native to Unix going back to the System 7 Unix release.  Though UFS has been updated since and is officially UFS2, which was released around 1994 when BSD split from Unix due to the AT&T lawsuit.  UFS2 is considered similar to ext4 on Linux in capabilities at the current time.  FreeBSD and then other BSDs adopted ZFS to be able to extend the filesystem, capability of UFS.  All Illumos, or OpenSolaris based distros use ZFS natively as well, but [BSD based systems have switched](https://www.phoronix.com/scan.php?page=news_item&px=FreeBSD-ZFS-On-Linux "BSD rebases to ZFS on Linux") their ZFS to be based on the [ZFS on Linux](https://zfsonlinux.org/ "ZFS on Linux") code base due to a larger developer and feature base.
 
-Apple had been using their own filesystem called HFS+ which was introduced in 1998 in MacOS 8.1 in 1998.  Features were added over time and in each release to keep the filesystem with feature parity for ext4.  This was used as the standard file system on all Mac and iOS devices until 2016/2017 when a new Apple designed filesystem was released across devices. Why a new filesystem?  Think about it, by 2016 what was the primary device that Apple was selling compared to 1998?  What type of storage media had HFS+ been designed for?   What type of storage media was running on the new Apple systems? Apple had another thing to taut in their new filesystem, that was encryption build in by default.
+Apple had been using their own filesystem called HFS+ which was introduced in 1998 in MacOS 8.1 in 1998.  Features were added over time and in each release to keep the filesystem with feature parity for ext4.  This was used as the standard file system on all Mac and iOS devices until 2016/2017 when a new Apple designed filesystem was released across devices. Why a new filesystem?  Think about it, by 2016 what was the primary device that Apple was selling compared to 1998?  What type of storage media had HFS+ been designed for?   What type of storage media was running on the new Apple systems, in laptops and mobile? 
 
 Though Apple Was one of the first companies to [port ZFS to MacOS](http://dtrace.org/blogs/ahl/2016/06/15/apple_and_zfs/ "Apple ports ZFS to MacOS"), which is BSD based, eventually they decided to deploy a new filesystem called APFS (apple filesystem) which has a mix of ZFS like features that were home grown by Apple and more importantly not under the control of another company or any particular free or opensource licenses.  The goal for Apple was to use this filesystem across their platform, from MacOS to iOS devices with a focus on Flash bashed (SSD and NVMe) devices that HFS+ wasn't designed for.  The system has a similar feature set to ZFs and btrfs such as encryption and snapshots, but [is missing data integrity](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1/ "Review of APFS").
 
+### F2FS and EROFS
+
+Due to the increased use of NAND or Flash based memory storage such as SSD, eMMC, and SD cards, a consortium of companies dealing with mobile devices came together in 2012 to create a filesystem which takes the nature of Flash into direct account in order to overcome some of the weaknesses of Flash based storage. F2FS stands for Flash-Friendly File System, and was developed by Samsung Electronics, Motorola Mobility, Huawei and Google.  The F2FS systems was adopted for some devices in 2012-1016, but the working group recently splintered.
+
+F2FS was effectively replaced by the [Enhanced Read-Only File System](https://en.wikipedia.org/wiki/EROFS "EROFS wiki page"), or EROFS.  It is designed and maintained by Huawei and is used on their own Android based devices introduced in 2018 and is part of the Linux Kernel.  
+
 ### DragonFly BSD and Hammer FS
 
-DragonFly BSD developer Matthew Dillion has been spearheading the development of his own distributed cluster based filesystem called [Hammer](https://www.dragonflybsd.org/hammer/ "Hammer Filesystem").  His goal is to have finer grained snapshoting--even per file on a constant basis and make snapshots almost a constant occurance across the filesystem for easy migration of a filesystem to a Hammer slave.   Work has recently finished on the Hammer 2 FS which is bringing this idea closer to reality, Hammer 2 is available as a stable filesystem, but not yet ready for production on a cluster.
+DragonFly BSD developer Matthew Dillion has been spearheading the development of his own distributed cluster based filesystem called [Hammer](https://www.dragonflybsd.org/hammer/ "Hammer Filesystem").  His goal is to have finer grained snapshoting--even per file on a constant basis and make snapshots almost a constant occurrence across the filesystem for easy migration of a filesystem to a different Hammer Cluster (migration over a network).   Work has recently finished on the Hammer 2 file system which is now an option for installation on DragonFly BSD 5.2+.  The Clustering feature is still a work in progress though, but Hammer has similar ZFS and Btrfs style features of file system and volume-management.  Hammer FS is DragonFly BSD code, though it could be ported to other BSDs, the DragonFly internals have diverged so far that this becomes essentially impossible.
 
 ## Mounting and Unmounting of disks
 
@@ -481,7 +486,7 @@ This allows you top separate your storage and your compute.  You can even use iS
 
 ### systemd mounting units
 
-Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*"   ZFS will takecare of automounting its own partitions.  Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the ```blkid``` command.
+Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*"   ZFS will take care of automounting its own partitions.  Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the ```blkid``` command.
 
 If you wanted to maintain mount points in systemd you can create a **.mount** file like this example[^138].  The file name is located in the comment below as the content of the ```What=``` directive is the output of the command ```blkid```, but could be a ```/dev/name``` as well.
 
