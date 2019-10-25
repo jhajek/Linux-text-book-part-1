@@ -678,29 +678,30 @@ Outcomes
 
 At the conclusion of this lab you will have successfully created a new virtual disk in Virtual Box, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the /etc/fstab.
 
-For each of the bullet points take a screenshot of the output of the commands to display the content to demostrate the concepts.  Note - make your screenshot efficient, and capture only relevant data along with numbering the output.  
+For each of the bullet points take a screenshot of the output of the commands to display the content to demonstrate the concepts.  Note - make your screenshot efficient, and capture only relevant data along with numbering the output.  All disks that are created can be 2 GB unless noted.
 
-1. Create 1 virtual drive
+1. Create 1 virtual drive in VirtualBox
 a. Use fdisk to create a primary partition
 b. Format it with ext4
 c. Mount it to /mnt/disk1
 d. Add it to your fstab
-2. Create 2 virtual drives
+2. Create 2 more virtual drives
 a. Create a single volume group named vg-group
-b. Create 1 logical volume named lv-group
+b. Create 1 logical volume named lv-group using the two drives
 c. Format it with XFS
 d. Mount it to /mnt/disk2
-e. Add the lv-group to your fstab
+e. Add the lv-group to your fstab, reboot the system and `cat` the  `/etc/fstab` and show that your entry is present.
 3. Using the same LVM as before
 a. add an additional VirtualBox disk and the create a LVM physical disk
 b. Grow the volume group and logical volume
 c. Grow the XFS file system
-4. Using LVM of the previous exercise on the logical volume lv-group create a 25 mb text file named datadump.txt
-a. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named lv-backup
-b. Mount the snapshot to /mnt/disk3 (create this location if not existing)
-c. ```ls -l``` the contents of /mnt/disk3  
-5. Install a copy of FreeBSD 11
-a. Attach two additional virtual disks
+4. Using LVM of the previous exercise on the logical volume lv-group
+a. Using either `fallocate` or `truncate` commands, create a file 25 megabytes in size and name it **datadump.txt**
+b. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named lv-backup
+c. Mount the snapshot to /mnt/disk3 (create this location if not existing)
+d. ```ls -l``` the contents of /mnt/disk3  
+5. Launch a copy of Fedora 30 and follow the all the instructions to install ZFS on Fedora 30: [https://github.com/zfsonlinux/zfs/wiki/Fedora](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux for Fedora 30")
+a. Attach two additional virtual disks to the Fedora 30 Virtual Machine
 b. Create a zpool stripe containing both disks
 c. Execute a ```zpool status``` command to display the contents of the zpool
 6. Using Ubuntu 18.04 set networking to bridged mode (take note of your public IP by typing: ```ip a sh```
