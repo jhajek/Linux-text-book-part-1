@@ -477,7 +477,7 @@ What happens when you need to remotely access a system and it needs to be secure
 
 ![*Ubuntu 18.04.3 Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu 18.04.3 Native ssh -V")
 
-![*MacOS 10.13.6 Native ssh -V*](images/Chapter-09/ssh/macos-10-13-6.png "MacOS 10.13.6 Native ssh -v")
+![*MacOS 10.15 Native ssh -V*](images/Chapter-09/ssh/macos-10-15-ssh-v.png "MacOS 10.15 Native ssh -v")
 
 By default the SSH *client* is installed on all Linux and Unix systems.  As of Windows 10 version 1803, there is a native SSH client installed as well. You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This connection is authenticated via a username and password mathcing an account on the remote system or an RSA key.
 
