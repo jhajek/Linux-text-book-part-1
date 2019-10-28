@@ -477,7 +477,7 @@ b) initrd
 b) /etc/default/grub
 
 6) In the /etc/default/grub file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
-b) GRUB_BACKGROUND
+a) GRUB_CMDLINE_LINUX_DEDFAULT
 
 7) What is the command to make changes to /etc/default/grub permanent?
 c) sudo update-grub
@@ -501,7 +501,7 @@ b)  systemd
 d) systemctl
 
 14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora using systemd?
-b)  sudo systemctl disable apache2.service
+d) sudo systemctl disable httpd.service
 
 15) What is the Linux command to inspect processes (not part of systemd)?
 b) ps
@@ -510,7 +510,7 @@ b) ps
 c) cgroups
 
 17) What is the signal name for a kill -2 command?
-a) SIGINT
+b) SIGINT
 
 18) The /proc filesystem provides you what?  (choose all that apply)
 a) Provides you a file based interface to the processes that are running on your system
