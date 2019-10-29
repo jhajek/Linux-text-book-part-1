@@ -213,7 +213,7 @@ As filesystems became larger and the amount of data being written increased, the
 
  *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted[^124][^125]."*
 
-Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as thwy were now over a decade old.  
+Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as they were now over a decade old.  
 
 : Limits of ext3
 
@@ -234,11 +234,12 @@ Theodore Ts'o is a respected developer in the open source community, who current
 
 ### Giga vs Gibi
 
-There are different units of measurement for hard disks.  These matter because humans and computers use different numbering systems.
+These matter because humans and computers (and marketing) use different numbering systems.
+
 : [Multiples of bytes](https://en.wikipedia.org/wiki/Gibibyte "Mulitples of bytes")
 
+    Metric                IEC                    JEDEC
 ------------------- ----------------------- -----------------------
-    Metric                [IEC](https://en.wikipedia.org/wiki/IEC_80000-13 "IEC definition")                    [JEDEC](https://en.wikipedia.org/wiki/JEDEC_memory_standards#Unit_prefixes_for_semiconductor_storage_capacity "JEDEC definition")
 1000 kB kilobyte     1024 KiB kibibyte          KB kilobyte
 1000 MB megabyte     1024 MiB mebibyte          MB megabyte
 1000 GB gigabyte     1024 GiB gibibyte          GB gigabyte
