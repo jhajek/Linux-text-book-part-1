@@ -323,7 +323,7 @@ Create a python script called `write-journal.py` and include this code after ins
 ```python
 from systemd import journal
 
-journal.write("Hello Lennart")
+journal.send("Hello Lennart")
 ```
 
 Give the above script execute permission, execute it by typing `python write-journal.py`, and the execute the command: `sudo journalctl -xe`, what do you see?
