@@ -412,7 +412,7 @@ ZFS, btrfs, and LVM have the ability to remove disks from pools and volumes.   T
 ```bash
   for i in a b c d e f g;
   do
-    echo -n "/dev/sd$i: " 
+    echo -n "/dev/sd$i: "
     hdparm -I /dev/sd$i | awk '/Serial Number/ {print $3}'
   done
 ```
