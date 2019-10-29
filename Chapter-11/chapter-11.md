@@ -262,8 +262,6 @@ LVM is a different way to look at partitions and file-systems.  Instead of the s
 * ```sudo dnf install lvm2```
 * ```sudo yum install lvm2```
 
-\newpage
-
 ![*LVM diagram*](images/Chapter-11/LVM/LVM.png "LVM")
 
 This diagram creates three concepts to know when dealing with LVM:
