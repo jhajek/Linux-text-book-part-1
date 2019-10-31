@@ -323,7 +323,7 @@ XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a hi
 
 XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  RedHat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.  
 
-XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partion of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.  
+XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partition of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.  
 
 ### Btrfs
 
@@ -331,7 +331,7 @@ Theodore Ts'o has recommended moving to Btrfs (pronounced *butter fs*) as a repl
 
 Chris Mason, the principal Btrfs author, has stated that the goal was, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
 
-Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and check-suming and becomes a replacement for LVM + Ext4.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  Suse Linux is the only major Linux distribution that has adopted btrfs as the default filesystem on their [Enterprise Edition Linux](https://www.suse.com/documentation/sles-12/singlehtml/stor_admin/stor_admin.html#sec.filesystems.major.btrfs "Suse Linux adopts btrfs as default"). Though Facebook has made a significant investment and use of Btrfs and though they are not a Linux Distro company, they have [a large vested interest in Btrfs](https://facebookmicrosites.github.io/btrfs/ "Facebook uses btrfs"). [Oracle maintains the documentation for btrfs](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html "Oracle maintains the documentation for btrfs").
+Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshoting of files--for point in time restore and in place cloning, and checksuming and becomes a replacement for LVM + Ext4.  In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  Suse Linux is the only major Linux distribution that has adopted btrfs as the default filesystem on their [Enterprise Edition Linux](https://www.suse.com/documentation/sles-12/singlehtml/stor_admin/stor_admin.html#sec.filesystems.major.btrfs "Suse Linux adopts btrfs as default"). Though Facebook has made a significant investment and use of Btrfs and though they are not a Linux Distro company, they have [a large vested interest in Btrfs](https://facebookmicrosites.github.io/btrfs/ "Facebook uses btrfs"). [Oracle maintains the documentation for btrfs](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html "Oracle maintains the documentation for btrfs").
 
 * ```sudo dnf install btrfs-progs```
 * ```sudo yum install btrfs-progs```
@@ -351,14 +351,13 @@ FreeBSD didn't have this restriction under the BSD license and they have had nat
 
 ```bash
 sudo apt install zfsutils-linux  
-# In addition to be able to have ZFS on root, install:
-sudo apt install zfs-initramfs
 
 # Now check to see if the zfs module is loaded
  modprobe zfs
  lsmod | grep zfs
-# change the value of sdX and sdZ to the actual device names (your entire unformated devices)
-# the name "tank" is used in the tutorial -- I replaced it with mydatapool.
+# change the value of sdX and sdZ to the actual device 
+# names (your entire unformated devices)
+# the name "tank" is used in the tutorial -- I replaced it with: mydatapool.
  sudo zpool create mydatapool mirror /dev/sdX /dev/sdZ
  lsblk
  zfs list
@@ -510,9 +509,7 @@ There are two useful commands to use in regards to understanding the disk resour
 
 ![*df -H /home/controller*](images/Chapter-11/du/df-h.png "df")  
 
-The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using ls -l Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.  
-
-\newpage
+The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using ls -l Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.
 
 ![*du -H --exclude=".\*" /home/controller*](images/Chapter-11/du/du-h.png "du")  
 
