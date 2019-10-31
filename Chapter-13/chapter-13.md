@@ -636,7 +636,7 @@ Questions go here
 
 See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantril Hashiconf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
 
-1. ~0:30 Where does Bryan work, who recently bought that company, and what do they do?
+1. ~0:30 Where does/did Bryan work, who recently bought that company, and what do they do?
 1. ~1:33 What is the birth date of containers?
 1. ~3:25 What was the next iteration of containers?
 1. ~3:49 What is the purpose of a Jail?
