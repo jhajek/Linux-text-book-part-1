@@ -462,7 +462,7 @@ The partition can be unmounted by typing the ```umount``` command--yes it is mis
 
 The ```/etc/fstab``` file controls the automatic mounting of your filesystems at boot.  Every time your system boots, technically each partition is remounted every time too.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
 
-An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid```.  That is the actual command not a place holder. This is where the long strings you see in the ```/etc/fstab``` file in place of the device name.  There are many options that can be set in the place of ```defaults``` as well, such as:
+An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid``` or `lsblk --fs /dev/sda`.  That is the actual command not a place holder. This is where the long strings you see in the ```/etc/fstab``` file in place of the device name.  There are many options that can be set in the place of ```defaults``` as well, such as:
 
 1. sync/async - All I/O to the file system should be done (a)synchronously.
 2. auto - The filesystem can be mounted automatically (at bootup, or when mount is passed the -a option). This is really unnecessary as this is the default action of mount -a anyway.
@@ -733,8 +733,7 @@ b. Reboot the system and make sure it works
 11. Using the 2 Ubuntu 18.04 systems you used in exercises 7 and 8 create a 25 megabyte file named databasedump.txt on the zpool datapool
 a. On the first system (the system without zpool datapool) create a datapool name backuppool (you might need to attach a virtual disk to do this)
 b. Take a snapshot of the zpool datapool and name it @now
-c. Execute the remote send and recv command over ssh to migrate the snapshot to the pool backuppool
-d. You may need to exchange SSH keys via ```ssh-keygen``` and ```ssh-copy-id``` first
+c. Execute the remote send and recv command over ssh to migrate the snapshot to the pool backuppool (You may need to exchange SSH keys via ```ssh-keygen``` and ```ssh-copy-id``` first to make this work)
 12. On the zpool named datapool on Ubuntu
 a. Execute a ```zpool status``` command
 b. Enable LZ4 compression on the zpool datapool
@@ -749,7 +748,12 @@ c. Execute a ```zfs status``` command for the zpool named datapool
 15. On your Fedora system execute any of the commands listed to print out the disk serial numbers
 16. Using an Ubuntu system of your choice, create two pair of four 2-GB virtual disks.  Create a ZFS stripe on one of the four disk arrays and create a ZFS equivalent of a RAID 10 (striped mirror) on the other 4 disk array.  Run the command `sudo zpool status` and capture the output.  Name the first zpool, **zstripe** and the second zpool, **zmirror**
 a. Install `mariadb-server` and modify the my.cnf file to remount the database storage from `/var/lib/mysql` to be `/zstripe/mysql`: restart the service and execute the ```sudo systemctl status mysql``` command to show the service successfully restart and is now mounted in a new location.  Note, you will need to `chown` the new zstripe mount to get write permissions.
-17. Research:
+17. Using an OS of your choice, install the `btrfs-tools` package.  Create a 2 GB Virtual Disk.  On this disk create a 1 GB Ext4 partition.  Using the `btrfs-convert` program [convert the partition](https://btrfs.wiki.kernel.org/index.php/Conversion_from_Ext3 "Btrfs wiki") from ext4 to btrfs: `sudo btrfs-convert /dev/xxx`.  Take a screenshot of the command output.
+18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 18.04 ISO files onto your btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). add a fifth virtualdisk and replace device /dev/sde with the new virtualdisk.
+a. Run the `btrfs filesystem show command` and capture the output
+b. Using the UID of the btrfs device created in the previous step, add the mount point to the `/etc/fstab` and add the `nocowdata` attribute. Mount point options are listed here: [btrfs mount-point options](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5) "btrfs mount-point options")
+19. Download a copy of Ubuntu 19.10 and when going through the installer, choose the [experimental Install ZFS as on Root](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
+20. This is a research question regarding current hardware:
 a. Using [Newegg.com](http://newegg.com "Newegg.com") find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
 b. Seagate Barracuda 4 TB
 c. Western Digital Blue 1 TB
