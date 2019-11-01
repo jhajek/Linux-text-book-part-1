@@ -622,9 +622,18 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 ### Lab
 
 1. Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
-1. Install mysql-server, PHP, and Nginx, and a self-signed cert.  
-  i. Create a sample webpage that displays ```phpinfo()``` at https://localhost/index.php
-  i. Locate the file index.php in ```/var/www/html```
+1. Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
+1. Enable the firewall to start at boot and show its status.
+1. Install and enable firewalld on Ubuntu
+1. Create a self-singed SSL certificate
+1. Create a sample PHP webpage that displays ```phpinfo()``` at https://localhost/index.php
+  i) Assume you have installed all the pre-reqs (Apache2 and PHP)
+1. Enable the Apache Webserver and the proper firewall port to serve you phpinfo page over https.
+1. Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working Wordpress blog.
+1. Repeat the install process above, this time using two servers, placing the Mysql database on a separate IP address -- configuring Wordpress properly.  
+  i) Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.  
+  i) The second database server requires the Mysql-server package.  Make one to be Ubuntu one to be Fedora/CentOS.
+1. Install nodejs pre-requisit.  Install Ghost.org  https://github.com/TryGhost/Ghost
 
 #### Footnotes
 
