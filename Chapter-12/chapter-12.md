@@ -4,7 +4,7 @@
 
 ## Objectives
 
-* Understand how to configure and display basic network settings for the two major Linux distribution families and in BSD
+* Understand how to configure and display basic network settings for the two major Linux distribution families
 * Understand how to use basic network troubleshooting tools
 * Understand how to configure and deploy major webserver platforms for Linux and BSD
 * Compare and contrast two major opensource webservers and be able to discuss their uses in industry
@@ -45,7 +45,7 @@ Settings these values statically in each operating system is different but the c
 
 ### MAC Address
 
-Each network interface card or NIC has a 64 bit hardware address assigned to it.  This is unique and split into two parts.  The first three octets are the OUI, Organizational Unit Identifier, which is given to a particular company to help identifyt their products.  The last three octets are random numbers that are chosend by the manufacturer after the OUI is assigned for each device they manufacture.    In some cases MAC addresses can be set via software.   MAC addresses are used by switches to convert the last leg of a TCP/IP connection to an actual physical port and are at the second layer of the TCP/IP model.
+Each network interface card or NIC has a 64 bit hardware address assigned to it.  This is unique and split into two parts.  The first three octets are the OUI, Organizational Unit Identifier, which is given to a particular company to help identify their products.  The last three octets are random numbers that are chosen by the manufacturer after the OUI is assigned for each device they manufacture.    In some cases MAC addresses can be set via software.   MAC addresses are used by switches to convert the last leg of a TCP/IP connection to an actual physical port and are at the second layer of the TCP/IP model.
 
 ![*Mac Addresses*](images/Chapter-12/mac/mac.png "Mac Addresses")
 
@@ -107,7 +107,7 @@ What you gain by using this standard:
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
-What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 30, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10.    The way to reset the values is listed below:
+What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 30, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10. The way to reset the values is listed below:
 
 * Edit ```/etc/default/grub```
 * At the end of ```GRUB_CMDLINE_LINUX``` line append ```net.ifnames=0 biosdevname=0```
@@ -123,7 +123,7 @@ What does this mean?  Well let us take a look at the output of the ```ip a sh```
 
 Here is where things get tricky.  In the future I would like to think this is will all be sorted out, but for now, buckle up.  So networking was always controlled by a service under sysVinit, that was usually ```sudo service networking restart```. This was common across all Linux.  This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc.  That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done.  In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations.  Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service.  Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
 
-As of Ubuntu 18.04 there is a Network Manager replacement.  It is called [netplan.io](https://netplan.io "netplan").  Netplan is an Ubuntu style version of Network manager which reads YAML stule files from a network configuration located in ```/etc/netplan/*.yaml```.  Netplan works on top of Network Manager as well as systemd-networkd.  
+As of Ubuntu 18.04 there is a Network Manager replacement.  It is called [netplan.io](https://netplan.io "netplan").  Netplan is an Ubuntu style version of Network manager which reads YAML style files from a network configuration located in ```/etc/netplan/*.yaml```.  Netplan works on top of Network Manager as well as systemd-networkd.  
 
 Systemd-networkd is the systemd utitlity to take over network service and IP address authority.  It is still a work in progress which has implemented many of the Network Manager features but not all of them.  You can disable Network Manager as a service and enable/start systemd-networkd.  Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```.  That directory is blank by default as systemd-networkd is not enabled by default.  Files in that directory need to end in a .network extension. The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation"). The systemd-networkd .network file has an INI style value structure[^147]:
 
@@ -137,8 +137,8 @@ DHCP=ipv4
 ```
 
 ```bash
-Wired adapter using a static IP
-/etc/systemd/network/20-wired.network
+# Wired adapter using a static IP
+# /etc/systemd/network/20-wired.network
 [Match]
 Name=enp1s0
 
@@ -237,7 +237,7 @@ network:
 
 #### Netmask
 
-The netmask value or subnet of your network is actually a part of you Ip address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your Ip address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one fo the IP octets.  But this turned out to be highly inneficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fixed value from 1-254 in your first IP octect and the remaining three octets would be variable.  Apple famously has the 16.0.0.0 Class A giving them access to 255*255*255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE. 
+The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable.  Apple famously has the 16.0.0.0 Class A giving them access to 255*255*255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE. 
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
 
@@ -264,7 +264,7 @@ DNS is set and configured as noted above in the various networking files.  Note 
 
 #### iputils
 
-Most of the time the network works fine, but when it doesn't you need to be able to use builtin system tools to troubleshoot the problem and identify where the problem is.  Those tools are seperate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might be installed by default.
+Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to troubleshoot the problem and identify where the problem is.  Those tools are separate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might be installed by default.
 
 * arping
 * clockdiff
@@ -303,13 +303,13 @@ August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the 
 
 The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson, with research coming out of the University of Illinois.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver came out of this code base and became the name and the first product of the Apache Opensource Foundation.  When we look to two technologies that were used by the dotcom compnaies that survived the first and second crashes, we find that both Tyhe Apache webserver along with the MySQL database made the web possible.  
 
-Applcations have grown enourmously beyond just serving simple html webpages.  System have even have begun bypassing webservers in echange for beconign application servers and serving traffic or aggregating traffic directly on a per request basis.  We will cover in deatil in the next chapters som eof those application servers.  For now let us start with webservers. They listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.  The webserver by default will serve pages out of the ```/var/www/html``` directory on Linux and ```/var/www``` on FreeBSD.
+Applications have grown enormously beyond just serving simple html webpages.  System have even have begun bypassing webservers in exchange for becoming application servers and serving traffic or aggregating traffic directly on a per request basis.  We will cover in detail in the next chapters some of those application servers.  For now let us start with webservers. They listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.  The webserver by default will serve pages out of the ```/var/www/html``` directory on Linux and ```/var/www``` on FreeBSD.
 
 ### Apache
 
 Without Apache, companies such as Google, Facebook, Twitter, and many others started upon opensource never would have been able to get started.
 
-Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticze Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
+Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticize Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
 
 The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```.
 
@@ -330,12 +330,12 @@ Webservers have various configurable components.  The basic configuration out of
 
 Apache has extendable modules so its base features can be enhanced without needing to recompile the entire program.  Using ```apt-get``` you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilities for instance.  
 
-> Let's try installing apache2 and php at the same time and look at the dependecy list:
+> Let's try installing apache2 and php at the same time and look at the dependency list:
 
 * ```sudo apt-get install apache2 php```
 * ```sudo systemctl reload apache2``` -- (as opposed to restart)  just re-reads the configurable
 
-See the sample code in the back of the book for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
+Sample code is shown here for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
 
 ```php
 // Two slashes is a comment
@@ -347,7 +347,7 @@ echo phpinfo();
 
 ```
 
-You should be able to load this page in the browser in your virtual machine by accessing: ```http://localhost/index.php```
+You should be able to load this page in the browser inside your virtual machine by accessing: ```http://localhost/index.php```
 
 #### HTTP/2
 
@@ -359,18 +359,18 @@ The best resource I found was a technical deep-dive on HTTP/2 by [Steve Gibson a
 
 #### Self-signed Certs
 
-One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been depricated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
+One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
 
-You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party.  In that they don't have a chain of trust about them.  Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site.  Now you have the option of overriding this and or accepting these self-signed browers into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
+You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party.  In that they don't have a chain of trust about them.  Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site.  Now you have the option of overriding this and or accepting these self-signed certs into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
 
-There is an [EFF](https://www.eff.org/ "EFF") led iniative called [Let's Encrypt](https://letsencrypt.org/ "Lets Encrypt") that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via ```apt```, ```yum```, and ```dnf``` to make this experience easy and remove all reasons to not encrypt web traffic.  [You can see the adoption curve](https://letsencrypt.org/stats/ "Lets encrypt stats") of TLS/SSL since Let's Encrypt became widely available.
+There is an [EFF](https://www.eff.org/ "EFF") led initiative called [Let's Encrypt](https://letsencrypt.org/ "Lets Encrypt") that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via ```apt```, ```yum```, and ```dnf``` to make this experience easy and remove all reasons to not encrypt web traffic.  [You can see the adoption curve](https://letsencrypt.org/stats/ "Lets encrypt stats") of TLS/SSL since Let's Encrypt became widely available.
 
 * [TLS 1.3 Podcast on Security Now](https://twit.tv/shows/security-now/episodes/656 "TLS 1.3")
 * [Lets Encrypt Explanation Podcast](https://twit.tv/shows/security-now/episodes/483 "Lets encrypt explanation podcast")
 * [SSL Labs](https://www.ssllabs.com/ "SSL Labs") is a free service that will check your TLS cert and server settings.
   * You can use SSL labs to check the Let's Encrypt cert for [my own tech blog, forge.sat.iit.edu](https://forge.sat.iit.edu "Forge.sat.iit.edu").
 
-Without having a public IP address you can't use Let's Encrypt, but you can generate a self-signed SSL/TLS certificate following these tutorials.  Note that your broweser will complain and send you dire warnings, you will have the option to accept the cert anyway and then the warnings will not persist.
+Without having a public IP address you can't use Let's Encrypt, but you can generate a self-signed SSL/TLS certificate following these tutorials.  Note that your browser will complain and send you dire warnings, you will have the option to accept the cert anyway and then the warnings will not persist.
 
 * [Digital Ocean Nginx Self-Signed SSL Cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04 "Nginx Self-signed CERT")
 * [Digital Ocean Apache Self-Signed SSL Cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04 "Apache Self-signed CERT")
@@ -383,9 +383,9 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/privat
 
 ```
 
-### Nginx
+### NGINX
 
-Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique webserving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitiations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
+Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique webserving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
 
 Centos and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
 
@@ -404,7 +404,7 @@ Databases come in two types: **Relational databases** and **Non-relational datab
 
 ### Mysql and MariaDB
 
-Installation of a databadse is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accesing a database remotely, you do not need to install the entire server just the client tools to use the applications.
+Installation of a database is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accessing a database remotely, you do not need to install the entire server just the client tools to use the applications.
 
 ```bash
 sudo apt-get install mariadb  
@@ -418,7 +418,7 @@ sudo dnf install mariadb-client
 # make sure to start and enable the maria or mysql service on Fedora/Centos
 ```
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become succesful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli.
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli.
 
 * Log in
 * Enter your password at the prompt
@@ -441,13 +441,13 @@ quit;
 
 ### PostgreSQL
 
-As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The succesor to that project was PostgreSQL (see the pun?).  PostgreSQL has the added advantage of being opensouce, backed by a commercial company, as well as not being MySQL which is owned by Oracle.  Installation is provided in custom repos that need to added to a system before using a package manager.
+As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The successor to that project was PostgreSQL (see the pun?).  PostgreSQL has the added advantage of being opensouce, backed by a commercial company, as well as not being MySQL which is owned by Oracle.  Installation is provided in custom repos that need to added to a system before using a package manager.
 
 * [PostgreSQL Downloads for Ubuntu and Fedora/Centos](https://www.postgresql.org/download/ "PostgreSQL downloads")
 
 ### SQLite
 
-Is an intersting small database.  It aschews some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQlite3 via the normal package mechanism and it is usually close to being up to date.  Note that SQlite3 doesn't listen on external ports by default it is included as an external library in your application.
+Is an interesting small database.  It skips some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQlite3 via the normal package mechanism and it is usually close to being up to date.  Note that SQlite3 doesn't listen on external ports by default it is included as an external library in your application.
 
 * ```sudo apt-get install sqlite3```
 * ```sudo yum install sqlite```
@@ -455,7 +455,7 @@ Is an intersting small database.  It aschews some of the bigger features to be m
 
 ### MongoDB
 
-Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records--the NoSQL really refers to no relations or relational structure[^151].  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" lanugage directly into your application code.  REST is the outgrowth of the succesful spread of HTTP as a protocol.
+Though there are many in this category, I have selected one NoSQL database.  The difference here is that data is not stored in tables or typed fields but as simple untyped records--the NoSQL really refers to no relations or relational structure[^151].  This means that records can be of any type or length.  You access the data not through a Structured Query Language but using HTTP requests via REST; GET, PUT, PATCH and DELETE which mirror the functionality of CRUD--Create, Retrieve, Update, and Delete. This allows you to integrate your "query" language directly into your application code.  REST is the outgrowth of the successful spread of HTTP as a protocol.
 
 MongoDB packages are maintained by MongoDB -- and are released outside of Linux distro release cycles.  The installation process is different for Ubuntu and CentOS.  The instructions to add a custom repository are located here:
 
@@ -468,13 +468,13 @@ MongoDB packages are maintained by MongoDB -- and are released outside of Linux 
 
 ## Firewall
 
-Used to block exteral communication on you system ports.   Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.  These numbers are useful to know, but applications have changed.  For instance SMTP is no longer unencrypted and used over port 25,but port 567 or 995.  Also the use of Git over http has replaced the need for FTP/SFTP/SSH and other protocols to send and retrieve data.
+Used to block external communication on you system ports.   Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.  These numbers are useful to know, but applications have changed.  For instance SMTP is no longer unencrypted and used over port 25,but port 567 or 995.  Also the use of Git over http has replaced the need for FTP/SFTP/SSH and other protocols to send and retrieve data.
 
 * SSH - 22
 * FTP - 21
-* SMTP - 25 (depricated not used as it is an unsecured transport method)
+* SMTP - 25 (deprecated not used as it is an unsecured transport method)
 * DNS - 53
-* HTTP - 80 (becoming depricated in browsers)
+* HTTP - 80 (becoming deprecated in browsers)
 * HTTPS - 443 (HTTP with TLS/SSL)
 * SMTP over SSL - 990
 * MongoDB - 27017
@@ -488,7 +488,7 @@ You can use rules to deny or allows traffic based on source IP, source Port, Des
 
 Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, Centos 7 does not.  
 
-Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When declaring a new rule you need to declare if the rule is permananet or will be reset when the firewalld service is reloaded.  The firewalld system contains zones:
+Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When declaring a new rule you need to declare if the rule is permanent or will be reset when the firewalld service is reloaded.  The firewalld system contains zones:
 
 * trusted or untrusted
 * drop
@@ -502,7 +502,7 @@ Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would
 
 ```sudo firewall-cmd --zone=public --add-port=22/tcp --permanent```
 
-Firewalld includes a standard interface so third party tools and build integration into your firewall.  Fail2ban is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP{ addresses that are trying to brute force hack your system. You can do permananet banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
+Firewalld includes a standard interface so third party tools and build integration into your firewall.  Fail2ban is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP{ addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
 
 ```bash
 
@@ -621,7 +621,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 ### Lab
 
-1. Using firewalld open port 22 permanantly to allow SSH connections to your Fedora or Centos system.
+1. Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
 1. Install mysql-server, PHP, and Nginx, and a self-signed cert.  
   i. Create a sample webpage that displays ```phpinfo()``` at https://localhost/index.php
   i. Locate the file index.php in ```/var/www/html```
