@@ -626,14 +626,21 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 1. Enable the firewall to start at boot and show its status.
 1. Install and enable firewalld on Ubuntu
 1. Create a self-singed SSL certificate
-1. Create a sample PHP webpage that displays ```phpinfo()``` at https://localhost/index.php
+1. Create a sample PHP webpage that displays ```phpinfo()``` at `https://localhost/index.php`. Name the file info.php and push it to your GitHub repo
   i) Assume you have installed all the pre-reqs (Apache2 and PHP)
 1. Enable the Apache Webserver and the proper firewall port to serve you phpinfo page over https.
 1. Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working Wordpress blog.
 1. Repeat the install process above, this time using two servers, placing the Mysql database on a separate IP address -- configuring Wordpress properly.  
   i) Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.  
   i) The second database server requires the Mysql-server package.  Make one to be Ubuntu one to be Fedora/CentOS.
-1. Install nodejs pre-requisit.  Install Ghost.org  https://github.com/TryGhost/Ghost
+1. Install the Ghost Blogging Platform on a single OS of your choice. 
+  i) Install nodejs, nginx, and mysql prerequisites
+  i) Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
+  i) Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
+ 1. Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
+  i) Install and Active Firewalld, open ports 22, 80, 443
+  i) Download and install Wordpress 
+
 
 #### Footnotes
 
