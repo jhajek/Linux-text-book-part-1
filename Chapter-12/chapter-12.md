@@ -439,6 +439,17 @@ create table tutorials_tbl(
 quit;
 ```
 
+You can automate connections to mysql by creating a file called `~/.my.cnf`.  In this file you can create user options that will override default connections, including username and password.  This increases security by not having to manually type a password on the commandline.
+
+```bash
+
+# basic contents of ~/.my/cnf
+[client]
+password = secret99
+
+```
+
+
 ### PostgreSQL
 
 As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The successor to that project was PostgreSQL (see the pun?).  PostgreSQL has the added advantage of being opensouce, backed by a commercial company, as well as not being MySQL which is owned by Oracle.  Installation is provided in custom repos that need to added to a system before using a package manager.
