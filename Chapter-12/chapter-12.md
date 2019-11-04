@@ -207,7 +207,7 @@ IPV6_PEERROUTES=yes
 
 #### Netplan.io
 
-Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By defualt in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allowes Network Manager to manage by default unless specifically altered below.
+Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By default in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allows Network Manager to manage by default unless specifically altered below.
 
 ```yaml
 # To let the interface named ‘enp3s0’ get an address via DHCP, create a YAML file with the following:
