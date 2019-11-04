@@ -649,7 +649,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
   i) Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
  1. Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
   i) Install and Active Firewalld, open ports 22, 80, 443
-  i) Download and install Wordpress 
+  i) Download and install Wordpress
 1. NodeJS  express project
 
 #### Footnotes
