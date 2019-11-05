@@ -384,9 +384,9 @@ ZFS also has a mechanism to send and receive snapshots, which done in a small en
 
 * first create a snapshot of a zpool
 * Using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partition
-  * ```zfs send datapool@today | zfs recv backuppool/backup```.  
+  * ```zfs send datapool@today | zfs recv backuppool/backup```  
 * You can pipe the command over ```ssh``` to restore to a remote system
-  * ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```.
+  * ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```
 
 #### ZFS ZIL and SLOG
 
