@@ -262,6 +262,32 @@ DNS--Domain Name services  allow you to resolve written domain names.  The sites
 
 DNS is set and configured as noted above in the various networking files.  Note that DNS was not an initial part of TCP/IP networking so it was not natively contained in the network service configuration, DNS came later to the internet.
 
+### /etc/hosts
+
+Linux--inheriting from UNIX from a time before DNS existed, has a file for local DNS lookups: ```/etc/hosts```.  This file is owned by root.  You can edit this and place three items: an IP address, a fully qualified domain name, a short name (just the hostname).  This is enabled by default and is the first lookup for your system.  This helps save network based DNS roundtrips and can be accessed by any application or script without needing modification or additional libraries.
+
+```bash
+
+# sample /etc/hosts file from a system setting up a sample network
+
+192.168.33.110 riemanna.example.com riemanna
+192.168.33.120 riemannb.example.com riemannb
+192.168.33.100 riemannmc.example.com riemannmc
+
+192.168.33.210 graphitea.example.com graphitea
+192.168.33.220 graphiteb.example.com graphiteb
+192.168.33.200 graphitemc.example.com graphitemc
+
+192.168.33.10  hosta.example.com hosta
+192.168.33.20  hostb.exampe.com hostb
+
+192.168.33.50 logstash.example.com logstash
+192.168.33.51 ela1.example.com ela1
+192.168.33.52 ela2.example.com ela2
+192.168.33.53 ela3.example.com ela3
+
+```
+
 #### iputils
 
 Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to troubleshoot the problem and identify where the problem is.  Those tools are separate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might be installed by default.
@@ -498,7 +524,7 @@ You can use rules to allow or deny traffic based on source IP, source Port, Dest
 
 Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, Centos 7 does not.  
 
-Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When declaring a new rule you need to declare if the rule is permanent or will be reset when the firewalld service is reloaded.  The firewalld system contains zones:
+Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When declaring a new rule you need to declare if the rule is permanent or will be reset when the firewalld service is reloaded.  The firewalld system contains zones such as:
 
 * trusted or untrusted
 * drop
@@ -510,9 +536,37 @@ Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would
 * home
 * internal
 
-```sudo firewall-cmd --zone=public --add-port=22/tcp --permanent```
+```bash
 
-Firewalld includes a standard interface so third party tools and build integration into your firewall.  Fail2ban is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP{ addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
+# Excellent firewalld tutorial
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7
+
+sudo yum install firewalld
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
+sudo firewall-cmd --state
+firewall-cmd --get-active-zones
+sudo firewall-cmd --list-all
+
+# add services or ports
+sudo firewall-cmd --zone=public --add-service=http
+sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
+sudo firewall-cmd --zone=public --list-ports
+
+# specific IPs -- changes the semantics
+# https://serverfault.com/questions/680780/block-all-but-a-few-ips-with-firewalld
+
+firewall-cmd --zone=internal --add-service=ssh
+firewall-cmd --zone=internal --add-source=192.168.56.105/32
+firewall-cmd --zone=internal --add-source=192.168.56.120/32
+firewall-cmd --zone=public --remove-service=ssh
+```
+
+The main reason to have a firewall is to restrict traffic.  Note the command above does not dictate in anyway who can connect to a system.  The firewall can be used for a granular allowance.  If a database will be receiving connections from one front end webserver, why allow any other IPs to connect?
+
+#### fail2ban 
+
+Firewalld includes a standard interface so third party tools and build integration into your firewall.  [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
 
 ```bash
 
@@ -524,6 +578,9 @@ sudo yum install fail2ban fail2ban-firewalld
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
+
+https://fedoraproject.org/wiki/Fail2ban_with_FirewallD
+https://unix.stackexchange.com/questions/268357/how-to-configure-fail2ban-with-systemd-journal
 
 ### Ubuntu UFW
 
@@ -545,11 +602,11 @@ Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW
   * ```sudo ufw logging on```
   * ```sudo ufw logging off```
 
-```Firewalld``` can be installed on ubuntu via apt-get and then enabled and started as a service in place of UFW if you want to maintain that service and not use UFW.
+```Firewalld``` can be installed on Ubuntu via apt-get and then enabled and started as a service in place of UFW if you want to maintain that service and not use UFW.
 
 ## Chapter Conclusions and Review
 
-In this chapter we learned about the basic components of networking. We learned how to configure these settings and general network troubleshooting.
+In this chapter we learned about the basic components of networking. We learned how to configure these settings and general network troubleshooting which will allow you to fully administer any system you come in contact with.
 
 ### Review Questions
 
@@ -647,10 +704,12 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
   i) Install nodejs, nginx, and mysql prerequisites
   i) Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
   i) Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
- 1. Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
+1. Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
   i) Install and Active Firewalld, open ports 22, 80, 443
   i) Download and install Wordpress
 1. NodeJS  express project
+1. Firewall to only allow single IP connection for SSH
+1. Modify /etc/hosts and SSH config file to connect only by hostname
 
 #### Footnotes
 
