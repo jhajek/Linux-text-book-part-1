@@ -682,11 +682,19 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 1. ~19:45 What is "proxying" in relation to websites?
 1. ~29:36 What was the founder's motive to opensource Nginx?
 1. ~34:00 What is the difference in the opensource Nginx and the commercial version? (Freemium?)
-1. ~40:19 Are there Linux Distro packages for Nginx? 
+1. ~40:19 Are there Linux Distro packages for Nginx?
 1. ~53:10 Can Apache and Nginx co-exist or is it a winner take all?
 
 ### Lab
 
+1. Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to host-only (details are in last chapter and the VirtualBox networking details are in chapter 03).
+    i. You will be modifying the IP address of both of these systems: 192.168.33.10 and 192.168.33.11, netmask is 255.255.255.0 and gateway should be 10.0.2.2 (this is due to VirtualBox). 
+    i. Configure these settings in Network Manager for the respective Virtual Machines.
+    i. Capture a screen shot of each system using the `ping` tool to ping the other IP and its results.
+    i. Modify the `/etc/hosts` file and add an entry for both system in both systems
+    i. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
+1. Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd 
+    i. In addition, on Ubuntu modify the Netplan conf to use networkd and place your configuration there.  
 1. Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
 1. Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
 1. Enable the firewall to start at boot and show its status.
