@@ -714,8 +714,8 @@ b. Create a zpool stripe with two disks name it datapool
 c. Execute a ```zpool status``` and a ```zpool list``` command
 d. Expand the capacity of the zpool by adding the third disk in
 e. Execute the ```zpool status``` command
-f. Now take the first disk out of the zpool
-g. Execute the ```zpool status``` command
+f. Execute the command to take the first disk out of the zpool, this command fails, why? Capture the error message in a screenshot
+g. ~~Execute the ```zpool status``` command~~
 9. From the previous exercise using your ZFS pool named datapool create a 25 megabyte file named datadump.txt
 a. Attach a third virtual disk to the system and create a zpool named backup
 b. Execute the ```ls -l``` command to display the file and its size
