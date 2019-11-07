@@ -619,7 +619,7 @@ In this chapter we learned about the basic components of networking. We learned 
   b.  ipconfig
   c.  ip address show
   d.  ip -4 a
-1. What tool would you use to establish if a server is reponding to requests
+1. What tool would you use to establish if a server is responding to requests
   a.  pong
   b.  ping
   c.  google
