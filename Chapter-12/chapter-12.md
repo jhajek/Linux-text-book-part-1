@@ -611,77 +611,96 @@ In this chapter we learned about the basic components of networking. We learned 
 ### Review Questions
 
 1) Using the ip2 suite of tools, which command would show your IP address?
-  a) `ifconfig`
-  b) `ipconfig`
-  c) `ip address show`
-  d) `ip a sh`
+a. `ifconfig`
+b. `ipconfig`
+c. `ip address show`
+d. `ip a sh`
+
 1) Using the ip2 suite of tools, which command would show your routing table?
-  a) `ss`
-  b) `route`
-  c) `ip route show`
-  d) `ip -r`
+a. `ss`
+b. `route`
+c. `ip route show`
+d. `ip -r`
+
 1) What tool could you use to establish if a server is responding to requests?
-  a) `pong`
-  b) `ping`
-  c) `google`
-  d) `traceroute`
+a. `pong`
+b. `ping`
+c. `google`
+d. `traceroute`
+
 1) What is the purpose of a NETMASK?
+
 1) What is the purpose of DNS?
+
 1) What is a valid class C address?
-  a) 10.0.0.0
-  b) 172.24.0.0
-  c) 192.168.1.0
-  d) 221.0.0.0
+a. 10.0.0.0
+b. 172.24.0.0
+c. 192.168.1.0
+d. 221.0.0.0
+
 1) If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
-  a) 23
-  b) 254
-  c) 512
-  d) 256
+a. 23
+b. 254
+c. 512
+d. 256
+
 1) If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
-  a)  10
-  b)  0
-  c)  24
-  d)  256
+a.  10
+b.  0
+c.  24
+d.  256
+
 1) How does CIDR block addressing differ from Class based networking (A-D)?
+
 1) What tool is used to release a dhcp address from the command line?
-  a)  `rhclient`
-  b)  `ipconfig /release`
-  c)  `dhclient -r`
-  d)  `xclient -r`
+a.  `rhclient`
+b.  `ipconfig /release`
+c.  `dhclient -r`
+d.  `xclient -r`
+
 1) using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
-  a)  `ss`
-  b)  `net`
-  c)  `wireshark`
-  d)  `netstat`
+a.  `ss`
+b.  `net`
+c.  `wireshark`
+d.  `netstat`
+
 1) Where are your network card settings located on Ubuntu while using network manager?
+
 1) Where are your network card settings located on CentOS/Fedora using network manager?
+
 1) Where are your network card settings located on Ubuntu 18.04 using netplan?
+
 1) What are the two major opensource webservers?
-  a) Apache, Nginx
-  b) openhttpd, Nginx
-  c) Apache, IIS
-  d) Apache, Tomcat
+a. Apache, Nginx
+b. openhttpd, Nginx
+c. Apache, IIS
+d. Apache, Tomcat
+
 1) What are two related and major opensource relational databases?
-  a) SQL and MySQL
-  b) MariaDB and MySQL
-  c) MySQL and Oracle DB
-  d) Nginx and MySQL
+a. SQL and MySQL
+b. MariaDB and MySQL
+c. MySQL and Oracle DB
+d. Nginx and MySQL
+
 1) Name one major No-SQL database mentioned in this chapter?
+
 1) What is the file location that the system uses as a *local DNS* for resolving IPs?
-  a) `etc/systemd/hostd`
-  b) `/etc/hosts`
-  c) `/etc/allow`
-  d) `/etc/etc/etc`
+a. `etc/systemd/hostd`
+b. `/etc/hosts`
+c. `/etc/allow`
+d. `/etc/etc/etc`
+
 1) What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
-  a) `~/my.cnf`
-  b) `/etc/mysql/settings.conf`
-  c) `~/allow`
-  d) `~/.my.cnf`
+a. `~/my.cnf`
+b. `/etc/mysql/settings.conf`
+c. `~/allow`
+d. `~/.my.cnf`
+
 1) Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
-  a) driver loading order
-  b) interface names depend on physical location of hardware (bus enumeration)
-  c) kernel version
-  d) What ever Lennart Poeterring feels like naming them
+a. driver loading order
+b. interface names depend on physical location of hardware (bus enumeration)
+c. kernel version
+d. What ever Lennart Poetering feels like naming them
 
 ### Podcast Questions
 
@@ -704,34 +723,46 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 ### Lab
 
 1) Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to host-only (details are in last chapter and the VirtualBox networking details are in chapter 03).
-  i) You will be modifying the IP address of both of these systems: 192.168.33.10 and 192.168.33.11, netmask is 255.255.255.0 and gateway should be 10.0.2.2 (this is due to VirtualBox). 
-  i) Configure these settings in Network Manager for the respective Virtual Machines.
-  i) Capture a screen shot of each system using the `ping` tool to ping the other IP and its results.
-  i) Modify the `/etc/hosts` file and add an entry for both system in both systems
-  i) Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
+a. You will be modifying the IP address of both of these systems: 192.168.33.10 and 192.168.33.11, netmask is 255.255.255.0 and gateway should be 10.0.2.2 (this is due to VirtualBox). 
+b. Configure these settings in Network Manager for the respective Virtual Machines.
+c. Capture a screen shot of each system using the `ping` tool to ping the other IP and its results.
+d. Modify the `/etc/hosts` file and add an entry for both system in both systems
+e. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
+
 1) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS) 
-  i) In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.  
+a. In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.  
+
 1) Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
+
 1) Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
+
 1) Enable the firewall to start at boot and show its status after a successful boot.
+
 1) Install and enable firewalld on Ubuntu, deactivate UFW if it is running.
+
 1) Create a self-singed SSL certificate
+
 1) Create a sample PHP webpage that displays ```phpinfo()``` at `https://localhost/index.php`. Name the file info.php and push it to your GitHub repo
-  i) Make sure you have installed all the pre-reqs (Apache2 and PHP)
+a. Make sure you have installed all the pre-reqs (Apache2 and PHP)
+
 1) Enable the Apache Webserver and the proper firewall port to serve you phpinfo page over https.
+
 1) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working Wordpress blog.
+
 1) Repeat the install process above, this time using two servers, with static IP addresses configured, placing the MySQL database on a separate IP address -- configuring Wordpress properly and installing all needed pre-reqs.  
-  i) Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.  
-  i) The second database server requires the Mysql-server package.  Make one to be Ubuntu one to be Fedora/CentOS.
+a. Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.  
+b. The second database server requires the Mysql-server package.  Make one to be Ubuntu one to be Fedora/CentOS.
+
 1) Install the Ghost Blogging Platform on a single OS of your choice. 
-  i) Install nodejs, nginx, and mysql prerequisites
-  i) Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
-  i) Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
+a. Install nodejs, nginx, and mysql prerequisites
+b. Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
+c. Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
+
 1) Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
-  i) Install and Active Firewalld, open ports 22, 80, 443
-  i) Download and install latest Wordpress tarball (look at using `sed -i` to do an inplace substitution of the default values in the wordpress config file)
-  i) Firewall to only allow single IP connection for SSH and port 80 and 443 (that IP being a second virtual machine with a static IP assigned)
-  i) Modify `/etc/hosts` to include these entries and take a screenshot of the output of your firewall status as well as you accessing the Wordpress blog via the browser using the hostname configured in `/etc/hosts` on the remote machine.
+a. Install and Active Firewalld, open ports 22, 80, 443
+b. Download and install latest Wordpress tarball (look at using `sed -i` to do an inplace substitution of the default values in the wordpress config file)
+c. Firewall to only allow single IP connection for SSH and port 80 and 443 (that IP being a second virtual machine with a static IP assigned)
+d. Modify `/etc/hosts` to include these entries and take a screenshot of the output of your firewall status as well as you accessing the Wordpress blog via the browser using the hostname configured in `/etc/hosts` on the remote machine.
 
 #### Footnotes
 

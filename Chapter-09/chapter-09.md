@@ -493,7 +493,7 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 
 ![*ssh-keygen command output*](images/Chapter-09/ssh/ssh-keygen.png "ssh-keygen output")
 
-\newpage 
+\newpage
 
 #### SSH Security
 
