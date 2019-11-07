@@ -27,7 +27,7 @@ Former CEO of SUN, Scott McNealy once famously said, "*The network is the comput
 
 ### IP Addresses
 
-Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: ```192.168.1)100```.  
+Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: ```192.168.1.100```.  
 
 > Exercise: Open a command prompt and type this command to find your IP address: ```ip address show```.  This command can be abbreviated ```ip a sh``` as well.
 
@@ -141,9 +141,9 @@ DHCP=ipv4
 Name=enp1s0
 
 [Network]
-Address=10.1)10.9/24
-Gateway=10.1)10.1
-DNS=10.1)10.1
+Address=10.1.10.9/24
+Gateway=10.1.10.1
+DNS=10.1.10.1
 #DNS=8.8.8.8
 ```
 
@@ -231,7 +231,7 @@ network:
       gateway4: 10.10.10.1
       nameservers:
           search: [mydomain, otherdomain]
-          addresses: [10.10.10.1, 1)1)1)1]
+          addresses: [10.10.10.1, 1.1.1.1]
 ```
 
 #### Netmask
@@ -240,11 +240,11 @@ The netmask value or subnet of your network is actually a part of you IP address
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
 
-Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1)x which gives you 254 addresses.  
+Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses.  
 
 For our purposes we won't worry about class D and E in this book.
 
-The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  The school where I work uses a subnet or CIDR block of 64.131)111)0/23  This looks like a class B subnet but it is a bit bigger.  Class B in CIDR would be /24.  /23 gives us control of 64.131)110.0 and 64.131)111)0 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
+The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  The school where I work uses a subnet or CIDR block of 64.131.111.0/23  This looks like a class B subnet but it is a bit bigger.  Class B in CIDR would be /24.  /23 gives us control of 64.131.110.0 and 64.131.111.0 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
 
 #### Gateway
 
@@ -281,7 +281,7 @@ Linux--inheriting from UNIX from a time before DNS existed, has a file for local
 192.168.33.20  hostb.exampe.com hostb
 
 192.168.33.50 logstash.example.com logstash
-192.168.33.51 ela1)example.com ela1
+192.168.33.51 ela1.example.com ela1
 192.168.33.52 ela2.example.com ela2
 192.168.33.53 ela3.example.com ela3
 
@@ -378,19 +378,19 @@ You should be able to load this page in the browser inside your virtual machine 
 
 "*Websites that are efficient minimize the number of requests required to render an entire page by minifying (reducing the amount of code and packing smaller pieces of code into bundles, without reducing its ability to function) resources such as images and scripts. However, minification is not necessarily convenient nor efficient and may still require separate HTTP connections to get the page and the minified resources. HTTP/2 allows the server to "push" content, that is, to respond with data for more queries than the client requested. This allows the server to supply data it knows a web browser will need to render a web page, without waiting for the browser to examine the first response, and without the overhead of an additional request cycle.*" 
 
-"*Additional performance improvements in the first draft of HTTP/2 (which was a copy of SPDY) come from multiplexing of requests and responses to avoid the head-of-line blocking problem in HTTP 1 (even when HTTP pipelining is used), header compression, and prioritization of requests. HTTP/2 no longer supports HTTP 1)1's chunked transfer encoding mechanism, as it provides its own, more efficient, mechanisms for data streaming[^152].*"
+"*Additional performance improvements in the first draft of HTTP/2 (which was a copy of SPDY) come from multiplexing of requests and responses to avoid the head-of-line blocking problem in HTTP 1 (even when HTTP pipelining is used), header compression, and prioritization of requests. HTTP/2 no longer supports HTTP 1.1's chunked transfer encoding mechanism, as it provides its own, more efficient, mechanisms for data streaming[^152].*"
 
 The best resource I found was a technical deep-dive on HTTP/2 by [Steve Gibson at Security Now Podcast episode 495](https://twit.tv/shows/security-now/episodes/495 "SN 495")
 
 #### Self-signed Certs
 
-One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1)2 and 1)3, but many people still use the phrase *SSL* when they really mean *TLS*.
+One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
 
 You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party.  In that they don't have a chain of trust about them.  Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site.  Now you have the option of overriding this and or accepting these self-signed certs into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
 
 There is an [EFF](https://www.eff.org/ "EFF") led initiative called [Let's Encrypt](https://letsencrypt.org/ "Lets Encrypt") that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via ```apt```, ```yum```, and ```dnf``` to make this experience easy and remove all reasons to not encrypt web traffic.  [You can see the adoption curve](https://letsencrypt.org/stats/ "Lets encrypt stats") of TLS/SSL since Let's Encrypt became widely available.
 
-* [TLS 1)3 Podcast on Security Now](https://twit.tv/shows/security-now/episodes/656 "TLS 1)3")
+* [TLS 1.3 Podcast on Security Now](https://twit.tv/shows/security-now/episodes/656 "TLS 1.3")
 * [Lets Encrypt Explanation Podcast](https://twit.tv/shows/security-now/episodes/483 "Lets encrypt explanation podcast")
 * [SSL Labs](https://www.ssllabs.com/ "SSL Labs") is a free service that will check your TLS cert and server settings.
   * You can use SSL labs to check the Let's Encrypt cert for [my own tech blog, forge.sat.iit.edu](https://forge.sat.iit.edu "Forge.sat.iit.edu").
@@ -404,7 +404,7 @@ Just like anything you can, can automate the creation of a self-signed cert:
 
 ```bash
 
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key \ -out /etc/ssl/certs/apache-selfsigned.crt -subj "/C=US/ST=Illinois/L=Chicago/O=IIT-Company/OU=Org/CN=www.school.com"
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private/apache-selfsigned.key \ -out /etc/ssl/certs/apache-selfsigned.crt -subj "/C=US/ST=Illinois/L=Chicago/O=IIT-Company/OU=Org/CN=www.school.com"
 
 ```
 
@@ -563,13 +563,16 @@ firewall-cmd --zone=public --remove-service=ssh
 
 The main reason to have a firewall is to restrict traffic.  Note the command above does not dictate in anyway who can connect to a system.  The firewall can be used for a granular allowance.  If a database will be receiving connections from one front end webserver, why allow any other IPs to connect?
 
-#### fail2ban 
+#### fail2ban
 
 Firewalld includes a standard interface so third party tools and build integration into your firewall.  [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
 
 ```bash
 
 # you may need the epel-release package on Fedora/Centos
+# https://fedoraproject.org/wiki/Fail2ban_with_FirewallD
+# https://unix.stackexchange.com/questions/268357/how-to-configure-fail2ban-with-systemd-journal
+
 sudo dnf install fail2ban fail2ban-firewalld
 sudo apt-get install fail2ban fail2ban-firewalld
 sudo yum install fail2ban fail2ban-firewalld
@@ -577,9 +580,6 @@ sudo yum install fail2ban fail2ban-firewalld
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
-
-https://fedoraproject.org/wiki/Fail2ban_with_FirewallD
-https://unix.stackexchange.com/questions/268357/how-to-configure-fail2ban-with-systemd-journal
 
 ### Ubuntu UFW
 
@@ -594,7 +594,7 @@ Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW
 * Allow from IP
   * ```sudo ufw allow from 207.46.232.182```
 * Allow from subnet/CIDR block
-  * ```sudo ufw allow from 192.168.1)0/24```
+  * ```sudo ufw allow from 192.168.1.0/24```
   * ```sudo ufw allow from 192.168.0.4 to any port 22```
   * ```sudo ufw allow from 192.168.0.4 to any port 22 proto tcp```
 * Enable/Disable ufw logging
@@ -629,14 +629,14 @@ In this chapter we learned about the basic components of networking. We learned 
 1) What is a valid class C address?
   a) 10.0.0.0
   b) 172.24.0.0
-  c) 192.168.1)0
-  d) 221)0.0.0
+  c) 192.168.1.0
+  d) 221.0.0.0
 1) If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
   a) 23
   b) 254
   c) 512
   d) 256
-1) If you had a CIDR block of /24 and a network address of 192.168.1)0, how many IP addresses would you have?
+1) If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
   a)  10
   b)  0
   c)  24
@@ -658,7 +658,7 @@ In this chapter we learned about the basic components of networking. We learned 
 1) What are the two major opensource webservers?
   a) Apache, Nginx
   b) openhttpd, Nginx
-  c) Apache, IIS 
+  c) Apache, IIS
   d) Apache, Tomcat
 1) What are two related and major opensource relational databases?
   a) SQL and MySQL
