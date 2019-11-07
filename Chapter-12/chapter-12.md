@@ -616,87 +616,87 @@ b. `ipconfig`
 c. `ip address show`
 d. `ip a sh`
 
-1) Using the ip2 suite of tools, which command would show your routing table?
+2) Using the ip2 suite of tools, which command would show your routing table?
 a. `ss`
 b. `route`
 c. `ip route show`
 d. `ip -r`
 
-1) What tool could you use to establish if a server is responding to requests?
+3) What tool could you use to establish if a server is responding to requests?
 a. `pong`
 b. `ping`
 c. `google`
 d. `traceroute`
 
-1) What is the purpose of a NETMASK?
+4) What is the purpose of a NETMASK?
 
-1) What is the purpose of DNS?
+5) What is the purpose of DNS?
 
-1) What is a valid class C address?
+6) What is a valid class C address?
 a. 10.0.0.0
 b. 172.24.0.0
 c. 192.168.1.0
 d. 221.0.0.0
 
-1) If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
+7) If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
 a. 23
 b. 254
 c. 512
 d. 256
 
-1) If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
+8) If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
 a.  10
 b.  0
 c.  24
 d.  256
 
-1) How does CIDR block addressing differ from Class based networking (A-D)?
+9) How does CIDR block addressing differ from Class based networking (A-D)?
 
-1) What tool is used to release a dhcp address from the command line?
+10) What tool is used to release a dhcp address from the command line?
 a.  `rhclient`
 b.  `ipconfig /release`
 c.  `dhclient -r`
 d.  `xclient -r`
 
-1) using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
+11) using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
 a.  `ss`
 b.  `net`
 c.  `wireshark`
 d.  `netstat`
 
-1) Where are your network card settings located on Ubuntu while using network manager?
+12) Where are your network card settings located on Ubuntu while using network manager?
 
-1) Where are your network card settings located on CentOS/Fedora using network manager?
+13) Where are your network card settings located on CentOS/Fedora using network manager?
 
-1) Where are your network card settings located on Ubuntu 18.04 using netplan?
+14) Where are your network card settings located on Ubuntu 18.04 using netplan?
 
-1) What are the two major opensource webservers?
+15) What are the two major opensource webservers?
 a. Apache, Nginx
 b. openhttpd, Nginx
 c. Apache, IIS
 d. Apache, Tomcat
 
-1) What are two related and major opensource relational databases?
+16) What are two related and major opensource relational databases?
 a. SQL and MySQL
 b. MariaDB and MySQL
 c. MySQL and Oracle DB
 d. Nginx and MySQL
 
-1) Name one major No-SQL database mentioned in this chapter?
+17) Name one major No-SQL database mentioned in this chapter?
 
-1) What is the file location that the system uses as a *local DNS* for resolving IPs?
+18) What is the file location that the system uses as a *local DNS* for resolving IPs?
 a. `etc/systemd/hostd`
 b. `/etc/hosts`
 c. `/etc/allow`
 d. `/etc/etc/etc`
 
-1) What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
+19) What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
 a. `~/my.cnf`
 b. `/etc/mysql/settings.conf`
 c. `~/allow`
 d. `~/.my.cnf`
 
-1) Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
+20) Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
 a. driver loading order
 b. interface names depend on physical location of hardware (bus enumeration)
 c. kernel version
@@ -729,36 +729,36 @@ c. Capture a screen shot of each system using the `ping` tool to ping the other 
 d. Modify the `/etc/hosts` file and add an entry for both system in both systems
 e. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
 
-1) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS) 
+2) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS) 
 a. In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.  
 
-1) Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
+3) Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
 
-1) Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
+4) Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
 
-1) Enable the firewall to start at boot and show its status after a successful boot.
+5) Enable the firewall to start at boot and show its status after a successful boot.
 
-1) Install and enable firewalld on Ubuntu, deactivate UFW if it is running.
+6) Install and enable firewalld on Ubuntu, deactivate UFW if it is running.
 
-1) Create a self-singed SSL certificate
+7) Create a self-singed SSL certificate
 
-1) Create a sample PHP webpage that displays ```phpinfo()``` at `https://localhost/index.php`. Name the file info.php and push it to your GitHub repo
+8) Create a sample PHP webpage that displays ```phpinfo()``` at `https://localhost/index.php`. Name the file info.php and push it to your GitHub repo
 a. Make sure you have installed all the pre-reqs (Apache2 and PHP)
 
-1) Enable the Apache Webserver and the proper firewall port to serve you phpinfo page over https.
+9) Enable the Apache Webserver and the proper firewall port to serve you phpinfo page over https.
 
-1) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working Wordpress blog.
+10) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working Wordpress blog.
 
-1) Repeat the install process above, this time using two servers, with static IP addresses configured, placing the MySQL database on a separate IP address -- configuring Wordpress properly and installing all needed pre-reqs.  
+11) Repeat the install process above, this time using two servers, with static IP addresses configured, placing the MySQL database on a separate IP address -- configuring Wordpress properly and installing all needed pre-reqs.  
 a. Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.  
 b. The second database server requires the Mysql-server package.  Make one to be Ubuntu one to be Fedora/CentOS.
 
-1) Install the Ghost Blogging Platform on a single OS of your choice. 
+12) Install the Ghost Blogging Platform on a single OS of your choice. 
 a. Install nodejs, nginx, and mysql prerequisites
 b. Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
 c. Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
 
-1) Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
+13) Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
 a. Install and Active Firewalld, open ports 22, 80, 443
 b. Download and install latest Wordpress tarball (look at using `sed -i` to do an inplace substitution of the default values in the wordpress config file)
 c. Firewall to only allow single IP connection for SSH and port 80 and 443 (that IP being a second virtual machine with a static IP assigned)
