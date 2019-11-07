@@ -117,7 +117,7 @@ Over the years and by tradition inherited from Unix, this is the generally accep
 
 Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They want to update the filesystem hierarchy but need to maintain backwards compatibility.  They may have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr``` [^52].  Red Hat also says this makes Linux more applications compatible with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros.  By using the command ```ls -l /``` you can see the light blue colored soft links to the actual directories.
 
-![*Fedora root*](images/chapter-05/filesystems/fedora-30.png "Fedora root filesystem")
+![*Fedora root*](images/Chapter-05/filesystems/fedora-30.png "Fedora root filesystem")
 
 Leonart Poettering, the Red Hat engineer and leader of the systemd init system has some things to say about POSIX and LSB:  
 
