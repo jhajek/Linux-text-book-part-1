@@ -255,7 +255,7 @@ The gateway value is your networks default router.  This value is literally the 
 DNS--Domain Name services  allow you to resolve written domain names.  The sites google.com, web.iit.edu, twit.tv, etc, etc, turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
 
 * Google has two public DNS services, [8.8.8.8 and 8.8.4.4](https://developers.google.com/speed/public-dns/ "Google Public DNS")
-* [Cloud Flare 1)1)1)1](https://1)1)1)1 "CloudFlare DNS")
+* [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS")
 * [IBM Quad9 9.9.9.9](https://www.quad9.net/ "IBM Quad9")
 * [OpenDNS servers](https://www.opendns.com/ "Opendns")
 
