@@ -464,7 +464,7 @@ create table tutorials_tbl(
 quit;
 ```
 
-You can automate connections to mysql by creating a file called `~/.my.cnf`.  In this file you can create user options that will override default connections, including username and password.  This increases security by not having to manually type a password on the commandline.
+You can automate connections to MySQL by creating a file called `~/.my.cnf`.  In this file you can create user options that will override default connections, including username and password.  This increases security by not having to manually type a password on the commandline.
 
 ```bash
 
@@ -609,21 +609,21 @@ In this chapter we learned about the basic components of networking. We learned 
 
 ### Review Questions
 
-1. What tool would you use in order to display your IP address if you were using RHEL 7?
+1. Using the ip2 suite of tools, which command would show your IP address?
   a.  ifconfig
   b.  ipconfig
   c.  ip address show
   d.  show address
-1. What tool would you use in order to display your IP address if you were using a version of Ubuntu Linux before 16.04?
-  a.  ifconfig
-  b.  ipconfig
-  c.  ip address show
-  d.  ip -4 a
-1. What tool would you use to establish if a server is responding to requests
-  a.  pong
-  b.  ping
-  c.  google
-  d.  traceroute
+1. Using the ip2 suite of tools, which command would show your routing table?
+  a.  `ss`
+  b.  `route`
+  c.  `ip route show`
+  d.  `ip -r`
+1. What tool could you use to establish if a server is responding to requests?
+  a.  `pong`
+  b.  `ping`
+  c.  `google`
+  d.  `traceroute`
 1. What is the purpose of a NETMASK?
 1. What is the purpose of DNS?
 1. What is a valid class C address?
@@ -643,29 +643,44 @@ In this chapter we learned about the basic components of networking. We learned 
   d.  256
 1. How does CIDR block addressing differ from Class based networking (A-D)?
 1. What tool is used to release a dhcp address from the command line?
-  a.  rhclient
-  b.  ipconfig /release
-  c.  dhclient -r
-  d.  xclient -r
-1. What tool is used to monitor and examine all current local ports and TCP/IP connections?
-  a.  stat
-  b.  net
-  c.  wireshark
-  d.  netstat
-1. Where are your network card settings located on Ubuntu 16.04 by default?
-1. Where are you network card settings located by default in CentOS 7.1?
-1. Where are your network settings located by default in FreeBSD 11.0?
+  a.  `rhclient`
+  b.  `ipconfig /release`
+  c.  `dhclient -r`
+  d.  `xclient -r`
+1. using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
+  a.  `ss`
+  b.  `net`
+  c.  `wireshark`
+  d.  `netstat`
+1. Where are your network card settings located on Ubuntu while using network manager?
+1. Where are your network card settings located on CentOS/Fedora using network manager?
+1. Where are your network card settings located on Ubuntu 18.04 using netplan?
 1. What are the three major opensource webservers?
   a. Apache, Nginx, and openhttpd
   b. httpd, Nginx, openhttpd
   c. Apache, IIS, Nginx
   d. Apache, Lighttd, Nginx
-1. What are two related and major opensource databases?
+1. What are two related and major opensource relational databases?
   a. SQL and MySQL
   b. MariaDB and MySQL
   c. MySQL and Oracle DB
   d. Nginx and MySQL
 1. Name one major No-SQL database mentioned in this chapter?
+1. What is the file location that the system uses as a *local DNS* for resolving IPs?
+  a. `etc/systemd/hostd`
+  b. `/etc/hosts`
+  c. `/etc/allow`
+  d. `/etc/etc/etc`
+1. What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
+  a. `~/my.cnf`
+  b. `/etc/mysql/settings.conf`
+  c. `~/allow`
+  d. `~/.my.cnf`
+1. Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
+  a. driver loading order
+  b. interface names depend on physical location of hardware (bus enumeration)
+  c. kernel version
+  d. What ever Lennart Poeterring feels like naming them
 
 ### Podcast Questions
 
