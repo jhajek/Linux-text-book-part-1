@@ -79,53 +79,53 @@ d. Run the ```make``` command
 Linux Desktop and GUI
 Chapter 04 review questions
 
-1.	 What was the original and most popular Unix “Smart Terminal?”
-b.	VT-100
-2.	What is the three letter abbreviation still in use today in modern Linux to refer to “terminal 
+1. What was the original and most popular Unix “Smart Terminal?”
+b. VT-100
+2. What is the three letter abbreviation still in use today in modern Linux to refer to “terminal 
 devices?”
-b.	TTY
-3.	Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by 
+b. TTY
+3. Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by 
 default?
-c.	The developers of these technologies were seeking to emulate the popular VT-100 and 
+c. The developers of these technologies were seeking to emulate the popular VT-100 and 
 VT-0220 terminals they used prior.
-4.	What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
-b.	Alt + Ctrl + F1 - F7
-5.	What is the name of the original Unix based GUI that came out of MIT in ~1984?
-b.	X
-6.	True or False – X was originally not opensourced by MIT in 1984
-a.	False
+4. What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
+b. Alt + Ctrl + F1 - F7
+5. What is the name of the original Unix based GUI that came out of MIT in ~1984?
+b. X
+6. True or False – X was originally not opensourced by MIT in 1984
+a. False
 7. For Ubuntu 18.04 what is the default desktop environment being used?
 GNOME or GNOME3
-8.	What is the name of the successor GUI compositor to X being created by the X.org foundation?
-c.	Wayland Project
-9.	What is the name of Ubuntu’s own GUI compositor replacement for X? (Just the name.
-a.	Mir
+8. What is the name of the successor GUI compositor to X being created by the X.org foundation?
+c. Wayland Project
+9. What is the name of Ubuntu’s own GUI compositor replacement for X? (Just the name.
+a. Mir
 10.	What are the 3 types of Linux window managers?
 Compositing, Stacking, and Tiling
-11.	There are 4 major Linux desktop environments in use today: which grouping is correct?
-d.	KDE, GNOME, Xfce, LXDE
-12.	What is the name of the windowing toolkit that KDE uses? (Two letters)
-a.	Qt
-13.	What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign.
-a.	GTK+
-14.	What is the name of the founder of the GNOME project?
-a.	Miguel de Icaza
-15.	When the GNOME 3 desktop environment was released in early 2012, many people were unhappy that many changes were made.  There were 3 major projects started to either preserve GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
-c.	Unity, Mate, Cinnamon
-16.	When released in 2006, what was the main development goal of the LXDE desktop environment?
-c.	Energy saving and extremely fast
+11. There are 4 major Linux desktop environments in use today: which grouping is correct?
+d. KDE, GNOME, Xfce, LXDE
+12. What is the name of the windowing toolkit that KDE uses? (Two letters)
+a. Qt
+13. What is the name of the windowing toolkit that GNOME uses? (just 3 letters, no plus sign.
+a. GTK+
+14. What is the name of the founder of the GNOME project?
+a. Miguel de Icaza
+15. When the GNOME 3 desktop environment was released in early 2012, many people were unhappy that many changes were made.  There were 3 major projects started to either preserve GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
+c. Unity, Mate, Cinnamon
+16. When released in 2006, what was the main development goal of the LXDE desktop environment?
+c. Energy saving and extremely fast
 17.	Which of these statements are true in regards to Linux desktop environments? (choose all that 
 apply.
-a.	Desktop environments have a File Manager
-b.	Desktop Environments have start or action buttons and task and notification bars
-c.	Desktop environments have a changeable but consistent look-and-feel
-d.	Desktop environments have system configuration tools and user applications built-in
+a. Desktop environments have a File Manager
+b. Desktop Environments have start or action buttons and task and notification bars
+c. Desktop environments have a changeable but consistent look-and-feel
+d. Desktop environments have system configuration tools and user applications built-in
 18.	What is the default desktop environment for Fedora 22? (Name and versions.
-a.	GNOME 3
-19.	What is the name of the button on the upper left hand corner of the GNOME 3 desktop in 
+a. GNOME 3
+19. What is the name of the button on the upper left hand corner of the GNOME 3 desktop in 
 Fedora 22 that you use to “launch applications?”
-a.	Activities
-20.	What is the name of the default Ubuntu desktop environment?
+a. Activities
+20. What is the name of the default Ubuntu desktop environment?
 GNOME3
 
 ## Chapter 05
@@ -588,7 +588,49 @@ a) vgcreate
 
 ## Chapter 12
 
-TBA
+### Review Questions
+
+1. Using the ip2 suite of tools, which command would show your IP address?
+  c.  ip address show
+  d.  ip a sh
+1. Using the ip2 suite of tools, which command would show your routing table?
+  b.  `route`
+1. What tool could you use to establish if a server is responding to requests?
+  b.  `ping`
+1. What is the purpose of a NETMASK?
+1. What is the purpose of DNS?
+1. What is a valid class C address?
+  c.  192.168.1.0
+1. If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
+  c. 512
+1. If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
+  d.  256
+1. How does CIDR block addressing differ from Class based networking (A-D)?
+1. What tool is used to release a dhcp address from the command line?
+  c.  `dhclient -r`
+1. using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
+  a.  `ss`
+1. Where are your network card settings located on Ubuntu while using network manager?
+`/etc/network/interfaces`
+
+1. Where are your network card settings located on CentOS/Fedora using network manager?
+`/etc/sysconfig/network-scripts/`
+
+1. Where are your network card settings located on Ubuntu 18.04 using netplan?
+`/etc/netplan/config.yaml`
+
+1. What are the two major opensource webservers?
+  a. Apache, Nginx
+1. What are two related and major opensource relational databases?
+  b. MariaDB and MySQL
+1. Name one major No-SQL database mentioned in this chapter?
+Mongodb
+1. What is the file location that the system uses as a *local DNS* for resolving IPs?
+  b. `/etc/hosts`
+1. What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
+  d. `~/.my.cnf`
+1. Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
+  b. interface names depend on physical location of hardware (bus enumeration)
 
 ## Chapter 13
 

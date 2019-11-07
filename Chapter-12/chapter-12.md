@@ -613,7 +613,7 @@ In this chapter we learned about the basic components of networking. We learned 
   a.  ifconfig
   b.  ipconfig
   c.  ip address show
-  d.  show address
+  d.  ip a sh
 1. Using the ip2 suite of tools, which command would show your routing table?
   a.  `ss`
   b.  `route`
@@ -655,11 +655,11 @@ In this chapter we learned about the basic components of networking. We learned 
 1. Where are your network card settings located on Ubuntu while using network manager?
 1. Where are your network card settings located on CentOS/Fedora using network manager?
 1. Where are your network card settings located on Ubuntu 18.04 using netplan?
-1. What are the three major opensource webservers?
-  a. Apache, Nginx, and openhttpd
-  b. httpd, Nginx, openhttpd
-  c. Apache, IIS, Nginx
-  d. Apache, Lighttd, Nginx
+1. What are the two major opensource webservers?
+  a. Apache, Nginx
+  b. openhttpd, Nginx
+  c. Apache, IIS 
+  d. Apache, Tomcat
 1. What are two related and major opensource relational databases?
   a. SQL and MySQL
   b. MariaDB and MySQL
