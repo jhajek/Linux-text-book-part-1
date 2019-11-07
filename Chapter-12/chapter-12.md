@@ -289,7 +289,7 @@ Linux--inheriting from UNIX from a time before DNS existed, has a file for local
 
 #### iputils
 
-Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to troubleshoot the problem and identify where the problem is.  Those tools are separate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might be installed by default.
+Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to troubleshoot the problem and identify where the problem is.  Those tools are separate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might not be installed by default.
 
 * arping
 * clockdiff
