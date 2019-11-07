@@ -1726,7 +1726,82 @@ g. Intel Optane M.2 32 GB - Need to explain what 3D XPoint technology is
 
 ## Chapter 12
 
-### Podcast Questions
+### Review Questions 12
+
+1. Using the ip2 suite of tools, which command would show your IP address?
+  a.  ifconfig
+  b.  ipconfig
+  c.  ip address show
+  d.  show address
+1. Using the ip2 suite of tools, which command would show your routing table?
+  a.  `ss`
+  b.  `route`
+  c.  `ip route show`
+  d.  `ip -r`
+1. What tool could you use to establish if a server is responding to requests?
+  a.  `pong`
+  b.  `ping`
+  c.  `google`
+  d.  `traceroute`
+1. What is the purpose of a NETMASK?
+1. What is the purpose of DNS?
+1. What is a valid class C address?
+  a.  10.0.0.0
+  b.  172.24.0.0
+  c.  192.168.1.0
+  d.  221.0.0.0
+1. If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
+  a. 23
+  b. 254
+  c. 512
+  d. 256
+1. If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
+  a.  10
+  b.  0
+  c.  24
+  d.  256
+1. How does CIDR block addressing differ from Class based networking (A-D)?
+1. What tool is used to release a dhcp address from the command line?
+  a.  `rhclient`
+  b.  `ipconfig /release`
+  c.  `dhclient -r`
+  d.  `xclient -r`
+1. using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
+  a.  `ss`
+  b.  `net`
+  c.  `wireshark`
+  d.  `netstat`
+1. Where are your network card settings located on Ubuntu while using network manager?
+1. Where are your network card settings located on CentOS/Fedora using network manager?
+1. Where are your network card settings located on Ubuntu 18.04 using netplan?
+1. What are the three major opensource webservers?
+  a. Apache, Nginx, and openhttpd
+  b. httpd, Nginx, openhttpd
+  c. Apache, IIS, Nginx
+  d. Apache, Lighttd, Nginx
+1. What are two related and major opensource relational databases?
+  a. SQL and MySQL
+  b. MariaDB and MySQL
+  c. MySQL and Oracle DB
+  d. Nginx and MySQL
+1. Name one major No-SQL database mentioned in this chapter?
+1. What is the file location that the system uses as a *local DNS* for resolving IPs?
+  a. `etc/systemd/hostd`
+  b. `/etc/hosts`
+  c. `/etc/allow`
+  d. `/etc/etc/etc`
+1. What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
+  a. `~/my.cnf`
+  b. `/etc/mysql/settings.conf`
+  c. `~/allow`
+  d. `~/.my.cnf`
+1. Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
+  a. driver loading order
+  b. interface names depend on physical location of hardware (bus enumeration)
+  c. kernel version
+  d. What ever Lennart Poeterring feels like naming them
+
+### Podcast Questions 12
 
 View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/283](http://twit.tv/show/floss-weekly/283 "Nginx on Twit.tv")
 
@@ -1741,15 +1816,16 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 1. ~19:45 What is "proxying" in relation to websites?
 1. ~29:36 What was the founder's motive to opensource Nginx?
 1. ~34:00 What is the difference in the opensource Nginx and the commercial version? (Freemium?)
-1. ~40:19 Are there Linux Distro packages for Nginx? 
+1. ~40:19 Are there Linux Distro packages for Nginx?
 1. ~53:10 Can Apache and Nginx co-exist or is it a winner take all?
 
-### Lab
+### Lab 12
 
+Lab goes here
 
 ## Chapter 13
 
-### Podcast Questions
+### Podcast Questions 13
 
 Docker - [https://twit.tv/shows/floss-weekly/episodes/330](https://twit.tv/shows/floss-weekly/episodes/330 "FLOSS Docker interview")
 
@@ -1772,11 +1848,11 @@ Docker - [https://twit.tv/shows/floss-weekly/episodes/330](https://twit.tv/shows
 1. ~48:23 What language is Docker written in?
 1. ~51:00 How is Docker developed, what is the project's example?
 
-### Lab
+### Lab 13
 
 ## Chapter 14
 
-### Podcast
+### Podcast 14
 
 See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantril Hashiconf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
 
@@ -1803,7 +1879,7 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 1. ~40:00 Why is scheduling containers inside of Virtual Machines a bad idea?
 1. ~What are Joyent's thoughts regarding Virtual Machines in the application stack?
 
-### Lab
+### Lab 14
 
 ## Chapter 15
 
