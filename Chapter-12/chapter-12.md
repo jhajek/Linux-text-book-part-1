@@ -27,7 +27,7 @@ Former CEO of SUN, Scott McNealy once famously said, "*The network is the comput
 
 ### IP Addresses
 
-Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: ```192.168.1.100```.  
+Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: ```192.168.1)100```.  
 
 > Exercise: Open a command prompt and type this command to find your IP address: ```ip address show```.  This command can be abbreviated ```ip a sh``` as well.
 
@@ -99,7 +99,7 @@ The following different naming schemes for network interfaces are now supported 
 What you gain by using this standard:
 
 1) Stable interface names across reboots 
-1) Stable interface names even when hardware is added or removed, i.e. no re-enumeration takes place (to the level the firmware permits this)
+1) Stable interface names even when hardware is added or removed, i)e. no re-enumeration takes place (to the level the firmware permits this)
 1) Stable interface names when kernels or drivers are updated/changed
 1) Stable interface names even if you have to replace broken ethernet cards by new ones
 
@@ -141,9 +141,9 @@ DHCP=ipv4
 Name=enp1s0
 
 [Network]
-Address=10.1.10.9/24
-Gateway=10.1.10.1
-DNS=10.1.10.1
+Address=10.1)10.9/24
+Gateway=10.1)10.1
+DNS=10.1)10.1
 #DNS=8.8.8.8
 ```
 
@@ -231,7 +231,7 @@ network:
       gateway4: 10.10.10.1
       nameservers:
           search: [mydomain, otherdomain]
-          addresses: [10.10.10.1, 1.1.1.1]
+          addresses: [10.10.10.1, 1)1)1)1]
 ```
 
 #### Netmask
@@ -240,11 +240,11 @@ The netmask value or subnet of your network is actually a part of you IP address
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
 
-Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses.  
+Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1)x which gives you 254 addresses.  
 
 For our purposes we won't worry about class D and E in this book.
 
-The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  The school where I work uses a subnet or CIDR block of 64.131.111.0/23  This looks like a class B subnet but it is a bit bigger.  Class B in CIDR would be /24.  /23 gives us control of 64.131.110.0 and 64.131.111.0 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
+The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  The school where I work uses a subnet or CIDR block of 64.131)111)0/23  This looks like a class B subnet but it is a bit bigger.  Class B in CIDR would be /24.  /23 gives us control of 64.131)110.0 and 64.131)111)0 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
 
 #### Gateway
 
@@ -255,7 +255,7 @@ The gateway value is your networks default router.  This value is literally the 
 DNS--Domain Name services  allow you to resolve written domain names.  The sites google.com, web.iit.edu, twit.tv, etc, etc, turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
 
 * Google has two public DNS services, [8.8.8.8 and 8.8.4.4](https://developers.google.com/speed/public-dns/ "Google Public DNS")
-* [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS")
+* [Cloud Flare 1)1)1)1](https://1)1)1)1 "CloudFlare DNS")
 * [IBM Quad9 9.9.9.9](https://www.quad9.net/ "IBM Quad9")
 * [OpenDNS servers](https://www.opendns.com/ "Opendns")
 
@@ -281,7 +281,7 @@ Linux--inheriting from UNIX from a time before DNS existed, has a file for local
 192.168.33.20  hostb.exampe.com hostb
 
 192.168.33.50 logstash.example.com logstash
-192.168.33.51 ela1.example.com ela1
+192.168.33.51 ela1)example.com ela1
 192.168.33.52 ela2.example.com ela2
 192.168.33.53 ela3.example.com ela3
 
@@ -378,19 +378,19 @@ You should be able to load this page in the browser inside your virtual machine 
 
 "*Websites that are efficient minimize the number of requests required to render an entire page by minifying (reducing the amount of code and packing smaller pieces of code into bundles, without reducing its ability to function) resources such as images and scripts. However, minification is not necessarily convenient nor efficient and may still require separate HTTP connections to get the page and the minified resources. HTTP/2 allows the server to "push" content, that is, to respond with data for more queries than the client requested. This allows the server to supply data it knows a web browser will need to render a web page, without waiting for the browser to examine the first response, and without the overhead of an additional request cycle.*" 
 
-"*Additional performance improvements in the first draft of HTTP/2 (which was a copy of SPDY) come from multiplexing of requests and responses to avoid the head-of-line blocking problem in HTTP 1 (even when HTTP pipelining is used), header compression, and prioritization of requests. HTTP/2 no longer supports HTTP 1.1's chunked transfer encoding mechanism, as it provides its own, more efficient, mechanisms for data streaming[^152].*"
+"*Additional performance improvements in the first draft of HTTP/2 (which was a copy of SPDY) come from multiplexing of requests and responses to avoid the head-of-line blocking problem in HTTP 1 (even when HTTP pipelining is used), header compression, and prioritization of requests. HTTP/2 no longer supports HTTP 1)1's chunked transfer encoding mechanism, as it provides its own, more efficient, mechanisms for data streaming[^152].*"
 
 The best resource I found was a technical deep-dive on HTTP/2 by [Steve Gibson at Security Now Podcast episode 495](https://twit.tv/shows/security-now/episodes/495 "SN 495")
 
 #### Self-signed Certs
 
-One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
+One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1)2 and 1)3, but many people still use the phrase *SSL* when they really mean *TLS*.
 
 You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party.  In that they don't have a chain of trust about them.  Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site.  Now you have the option of overriding this and or accepting these self-signed certs into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
 
 There is an [EFF](https://www.eff.org/ "EFF") led initiative called [Let's Encrypt](https://letsencrypt.org/ "Lets Encrypt") that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via ```apt```, ```yum```, and ```dnf``` to make this experience easy and remove all reasons to not encrypt web traffic.  [You can see the adoption curve](https://letsencrypt.org/stats/ "Lets encrypt stats") of TLS/SSL since Let's Encrypt became widely available.
 
-* [TLS 1.3 Podcast on Security Now](https://twit.tv/shows/security-now/episodes/656 "TLS 1.3")
+* [TLS 1)3 Podcast on Security Now](https://twit.tv/shows/security-now/episodes/656 "TLS 1)3")
 * [Lets Encrypt Explanation Podcast](https://twit.tv/shows/security-now/episodes/483 "Lets encrypt explanation podcast")
 * [SSL Labs](https://www.ssllabs.com/ "SSL Labs") is a free service that will check your TLS cert and server settings.
   * You can use SSL labs to check the Let's Encrypt cert for [my own tech blog, forge.sat.iit.edu](https://forge.sat.iit.edu "Forge.sat.iit.edu").
@@ -443,7 +443,7 @@ sudo dnf install mariadb-client
 # make sure to start and enable the maria or mysql service on Fedora/Centos
 ```
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli.
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was sold to SUN in 2009 [link here], which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
 
 * Log in
 * Enter your password at the prompt
@@ -594,7 +594,7 @@ Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW
 * Allow from IP
   * ```sudo ufw allow from 207.46.232.182```
 * Allow from subnet/CIDR block
-  * ```sudo ufw allow from 192.168.1.0/24```
+  * ```sudo ufw allow from 192.168.1)0/24```
   * ```sudo ufw allow from 192.168.0.4 to any port 22```
   * ```sudo ufw allow from 192.168.0.4 to any port 22 proto tcp```
 * Enable/Disable ufw logging
@@ -609,74 +609,74 @@ In this chapter we learned about the basic components of networking. We learned 
 
 ### Review Questions
 
-1. Using the ip2 suite of tools, which command would show your IP address?
+1) Using the ip2 suite of tools, which command would show your IP address?
   a) `ifconfig`
   b) `ipconfig`
   c) `ip address show`
   d) `ip a sh`
-1. Using the ip2 suite of tools, which command would show your routing table?
+1) Using the ip2 suite of tools, which command would show your routing table?
   a) `ss`
   b) `route`
   c) `ip route show`
   d) `ip -r`
-1. What tool could you use to establish if a server is responding to requests?
+1) What tool could you use to establish if a server is responding to requests?
   a) `pong`
   b) `ping`
   c) `google`
   d) `traceroute`
-1. What is the purpose of a NETMASK?
-1. What is the purpose of DNS?
-1. What is a valid class C address?
+1) What is the purpose of a NETMASK?
+1) What is the purpose of DNS?
+1) What is a valid class C address?
   a) 10.0.0.0
   b) 172.24.0.0
-  c) 192.168.1.0
-  d) 221.0.0.0
-1. If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
+  c) 192.168.1)0
+  d) 221)0.0.0
+1) If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
   a) 23
   b) 254
   c) 512
   d) 256
-1. If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
+1) If you had a CIDR block of /24 and a network address of 192.168.1)0, how many IP addresses would you have?
   a)  10
   b)  0
   c)  24
   d)  256
-1. How does CIDR block addressing differ from Class based networking (A-D)?
-1. What tool is used to release a dhcp address from the command line?
+1) How does CIDR block addressing differ from Class based networking (A-D)?
+1) What tool is used to release a dhcp address from the command line?
   a)  `rhclient`
   b)  `ipconfig /release`
   c)  `dhclient -r`
   d)  `xclient -r`
-1. using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
+1) using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
   a)  `ss`
   b)  `net`
   c)  `wireshark`
   d)  `netstat`
-1. Where are your network card settings located on Ubuntu while using network manager?
-1. Where are your network card settings located on CentOS/Fedora using network manager?
-1. Where are your network card settings located on Ubuntu 18.04 using netplan?
-1. What are the two major opensource webservers?
+1) Where are your network card settings located on Ubuntu while using network manager?
+1) Where are your network card settings located on CentOS/Fedora using network manager?
+1) Where are your network card settings located on Ubuntu 18.04 using netplan?
+1) What are the two major opensource webservers?
   a) Apache, Nginx
   b) openhttpd, Nginx
   c) Apache, IIS 
   d) Apache, Tomcat
-1. What are two related and major opensource relational databases?
+1) What are two related and major opensource relational databases?
   a) SQL and MySQL
   b) MariaDB and MySQL
   c) MySQL and Oracle DB
   d) Nginx and MySQL
-1. Name one major No-SQL database mentioned in this chapter?
-1. What is the file location that the system uses as a *local DNS* for resolving IPs?
+1) Name one major No-SQL database mentioned in this chapter?
+1) What is the file location that the system uses as a *local DNS* for resolving IPs?
   a) `etc/systemd/hostd`
   b) `/etc/hosts`
   c) `/etc/allow`
   d) `/etc/etc/etc`
-1. What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
+1) What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
   a) `~/my.cnf`
   b) `/etc/mysql/settings.conf`
   c) `~/allow`
   d) `~/.my.cnf`
-1. Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
+1) Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
   a) driver loading order
   b) interface names depend on physical location of hardware (bus enumeration)
   c) kernel version
@@ -686,51 +686,51 @@ In this chapter we learned about the basic components of networking. We learned 
 
 View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/283](http://twit.tv/show/floss-weekly/283 "Nginx on Twit.tv")
 
-1. ~2:02 What is Nginx?
-1. ~3:22 What percentage of the world's websites are served with Nginx?
-1. ~4:57 What was the challenge that lead to the creation of Nginx?
-1. ~5:33 What is the main architectural difference between Nginx and Apache webservers?
-1. ~8:32 What are some of the main use cases for Nginx?
-1. ~11:00 When did Sarah get involved in Nginx?
-1. ~12:56 Where did Nginx come from?
-1. ~17:41 What is "caching" in relation to websites?
-1. ~19:45 What is "proxying" in relation to websites?
-1. ~29:36 What was the founder's motive to opensource Nginx?
-1. ~34:00 What is the difference in the opensource Nginx and the commercial version? (Freemium?)
-1. ~40:19 Are there Linux Distro packages for Nginx?
-1. ~53:10 Can Apache and Nginx co-exist or is it a winner take all?
+1) ~2:02 What is Nginx?
+1) ~3:22 What percentage of the world's websites are served with Nginx?
+1) ~4:57 What was the challenge that lead to the creation of Nginx?
+1) ~5:33 What is the main architectural difference between Nginx and Apache webservers?
+1) ~8:32 What are some of the main use cases for Nginx?
+1) ~11:00 When did Sarah get involved in Nginx?
+1) ~12:56 Where did Nginx come from?
+1) ~17:41 What is "caching" in relation to websites?
+1) ~19:45 What is "proxying" in relation to websites?
+1) ~29:36 What was the founder's motive to opensource Nginx?
+1) ~34:00 What is the difference in the opensource Nginx and the commercial version? (Freemium?)
+1) ~40:19 Are there Linux Distro packages for Nginx?
+1) ~53:10 Can Apache and Nginx co-exist or is it a winner take all?
 
 ### Lab
 
-1. Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to host-only (details are in last chapter and the VirtualBox networking details are in chapter 03).
-  i. You will be modifying the IP address of both of these systems: 192.168.33.10 and 192.168.33.11, netmask is 255.255.255.0 and gateway should be 10.0.2.2 (this is due to VirtualBox). 
-  i. Configure these settings in Network Manager for the respective Virtual Machines.
-  i. Capture a screen shot of each system using the `ping` tool to ping the other IP and its results.
-  i. Modify the `/etc/hosts` file and add an entry for both system in both systems
-  i. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
-1. Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS) 
-  i. In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.  
-1. Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
-1. Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
-1. Enable the firewall to start at boot and show its status after a successful boot.
-1. Install and enable firewalld on Ubuntu, deactivate UFW if it is running.
-1. Create a self-singed SSL certificate
-1. Create a sample PHP webpage that displays ```phpinfo()``` at `https://localhost/index.php`. Name the file info.php and push it to your GitHub repo
-  i. Make sure you have installed all the pre-reqs (Apache2 and PHP)
-1. Enable the Apache Webserver and the proper firewall port to serve you phpinfo page over https.
-1. Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working Wordpress blog.
-1. Repeat the install process above, this time using two servers, with static IP addresses configured, placing the MySQL database on a separate IP address -- configuring Wordpress properly and installing all needed pre-reqs.  
-  i. Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.  
-  i. The second database server requires the Mysql-server package.  Make one to be Ubuntu one to be Fedora/CentOS.
-1. Install the Ghost Blogging Platform on a single OS of your choice. 
-  i. Install nodejs, nginx, and mysql prerequisites
-  i. Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
-  i. Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
-1. Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
-  i. Install and Active Firewalld, open ports 22, 80, 443
-  i. Download and install latest Wordpress tarball (look at using `sed -i` to do an inplace substitution of the default values in the wordpress config file)
-  i. Firewall to only allow single IP connection for SSH and port 80 and 443 (that IP being a second virtual machine with a static IP assigned)
-  i. Modify `/etc/hosts` to include these entries and take a screenshot of the output of your firewall status as well as you accessing the Wordpress blog via the browser using the hostname configured in `/etc/hosts` on the remote machine.
+1) Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to host-only (details are in last chapter and the VirtualBox networking details are in chapter 03).
+  i) You will be modifying the IP address of both of these systems: 192.168.33.10 and 192.168.33.11, netmask is 255.255.255.0 and gateway should be 10.0.2.2 (this is due to VirtualBox). 
+  i) Configure these settings in Network Manager for the respective Virtual Machines.
+  i) Capture a screen shot of each system using the `ping` tool to ping the other IP and its results.
+  i) Modify the `/etc/hosts` file and add an entry for both system in both systems
+  i) Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
+1) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS) 
+  i) In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.  
+1) Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
+1) Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
+1) Enable the firewall to start at boot and show its status after a successful boot.
+1) Install and enable firewalld on Ubuntu, deactivate UFW if it is running.
+1) Create a self-singed SSL certificate
+1) Create a sample PHP webpage that displays ```phpinfo()``` at `https://localhost/index.php`. Name the file info.php and push it to your GitHub repo
+  i) Make sure you have installed all the pre-reqs (Apache2 and PHP)
+1) Enable the Apache Webserver and the proper firewall port to serve you phpinfo page over https.
+1) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working Wordpress blog.
+1) Repeat the install process above, this time using two servers, with static IP addresses configured, placing the MySQL database on a separate IP address -- configuring Wordpress properly and installing all needed pre-reqs.  
+  i) Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.  
+  i) The second database server requires the Mysql-server package.  Make one to be Ubuntu one to be Fedora/CentOS.
+1) Install the Ghost Blogging Platform on a single OS of your choice. 
+  i) Install nodejs, nginx, and mysql prerequisites
+  i) Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
+  i) Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
+1) Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
+  i) Install and Active Firewalld, open ports 22, 80, 443
+  i) Download and install latest Wordpress tarball (look at using `sed -i` to do an inplace substitution of the default values in the wordpress config file)
+  i) Firewall to only allow single IP connection for SSH and port 80 and 443 (that IP being a second virtual machine with a static IP assigned)
+  i) Modify `/etc/hosts` to include these entries and take a screenshot of the output of your firewall status as well as you accessing the Wordpress blog via the browser using the hostname configured in `/etc/hosts` on the remote machine.
 
 #### Footnotes
 
@@ -738,7 +738,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 [^146]: [https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0](https://unix.stackexchange.com/questions/134483/why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0 "why-is-my-ethernet-interface-called-enp0s10-instead-of-eth0")
 
-[^147]: [https://wiki.archlinux.org/index.php/Systemd-networkd](https://wiki.archlinux.org/index.php/Systemd-networkd "systesmd-networkd")
+[^147]: [https://wiki)archlinux.org/index.php/Systemd-networkd](https://wiki)archlinux.org/index.php/Systemd-networkd "systesmd-networkd")
 
 [^148]: [https://superuser.com/questions/645487/static-ip-address-with-networkmanager](https://superuser.com/questions/645487/static-ip-address-with-networkmanager "Static NetMan IP")
 
