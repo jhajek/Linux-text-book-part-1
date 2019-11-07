@@ -1821,7 +1821,37 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 ### Lab 12
 
-Lab goes here
+### Lab
+
+1. Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to host-only (details are in last chapter and the VirtualBox networking details are in chapter 03).
+  i. You will be modifying the IP address of both of these systems: 192.168.33.10 and 192.168.33.11, netmask is 255.255.255.0 and gateway should be 10.0.2.2 (this is due to VirtualBox). 
+  i. Configure these settings in Network Manager for the respective Virtual Machines.
+  i. Capture a screen shot of each system using the `ping` tool to ping the other IP and its results.
+  i. Modify the `/etc/hosts` file and add an entry for both system in both systems
+  i. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
+1. Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS) 
+  i. In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.  
+1. Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
+1. Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
+1. Enable the firewall to start at boot and show its status after a successful boot.
+1. Install and enable firewalld on Ubuntu, deactivate UFW if it is running.
+1. Create a self-singed SSL certificate
+1. Create a sample PHP webpage that displays ```phpinfo()``` at `https://localhost/index.php`. Name the file info.php and push it to your GitHub repo
+  i. Make sure you have installed all the pre-reqs (Apache2 and PHP)
+1. Enable the Apache Webserver and the proper firewall port to serve you phpinfo page over https.
+1. Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working Wordpress blog.
+1. Repeat the install process above, this time using two servers, with static IP addresses configured, placing the MySQL database on a separate IP address -- configuring Wordpress properly and installing all needed pre-reqs.  
+  i. Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.  
+  i. The second database server requires the Mysql-server package.  Make one to be Ubuntu one to be Fedora/CentOS.
+1. Install the Ghost Blogging Platform on a single OS of your choice. 
+  i. Install nodejs, nginx, and mysql prerequisites
+  i. Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
+  i. Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
+1. Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
+  i. Install and Active Firewalld, open ports 22, 80, 443
+  i. Download and install latest Wordpress tarball (look at using `sed -i` to do an inplace substitution of the default values in the wordpress config file)
+  i. Firewall to only allow single IP connection for SSH and port 80 and 443 (that IP being a second virtual machine with a static IP assigned)
+  i. Modify `/etc/hosts` to include these entries and take a screenshot of the output of your firewall status as well as you accessing the Wordpress blog via the browser using the hostname configured in `/etc/hosts` on the remote machine.
 
 ## Chapter 13
 

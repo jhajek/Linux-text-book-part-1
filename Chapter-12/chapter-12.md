@@ -728,10 +728,9 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
   i. Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
 1. Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
   i. Install and Active Firewalld, open ports 22, 80, 443
-  i. Download and install latest Wordpress tarball.
-1. NodeJS  express project
-1. Firewall to only allow single IP connection for SSH
-1. Modify /etc/hosts and SSH config file to connect only by hostname
+  i. Download and install latest Wordpress tarball (look at using `sed -i` to do an inplace substitution of the default values in the wordpress config file)
+  i. Firewall to only allow single IP connection for SSH and port 80 and 443 (that IP being a second virtual machine with a static IP assigned)
+  i. Modify `/etc/hosts` to include these entries and take a screenshot of the output of your firewall status as well as you accessing the Wordpress blog via the browser using the hostname configured in `/etc/hosts` on the remote machine.
 
 #### Footnotes
 
