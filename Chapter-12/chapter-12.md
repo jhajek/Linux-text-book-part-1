@@ -319,8 +319,8 @@ traceroute www.yahoo.co.jp
 
 There are additional tools that extend basic troubleshooting features such as:
 
-* iptraf-ng - Network traffic visualization
-* tcpdump – Detailed Network Traffic Analysis
+* [iptraf-ng](https://wiki.ipfire.org/addons/iptraf-ng "iptraf-ng website") - Network traffic visualization
+* [tcpdump](http://www.tcpdump.org/ "tcpdump website") – Detailed Network Traffic Analysis
 
 ## Webservers
 
