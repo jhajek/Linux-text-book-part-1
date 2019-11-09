@@ -619,7 +619,7 @@ __Lab Activities:__
 
 1) Using systemctl and the `--show` option, display the "After" and "Wants" properties of the sshd.service.
 
-1) Use `nice` to "re-nice" a process - create/compile a C infinite loop program and `nice` it to lowest priority and then highest priority.  Open a second terminal tab/window and use `htop` (install it if needed) to display that process' system usage.
+1) Use the `nice` command to set the priority of a process - create/compile a C infinite loop program and `nice` it to lowest priority and then highest priority.  Open a second terminal tab/window and use `htop` (install it if needed) to display that process' system usage.
 
 1) Launch multiple tabs in Firefox using this command: `firefox -new-tab -url krebsonsecurity.com -new-tab -url twit.tv/floss/`
    a) Find the process IDs via `ps -ef` and kill those tabs/processes with a `kill -2` command.
