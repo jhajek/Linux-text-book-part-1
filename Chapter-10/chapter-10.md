@@ -621,8 +621,8 @@ __Lab Activities:__
 
 1) Use `nice` to "re-nice" a process - create/compile a C infinite loop program and `nice` it to lowest priority and then highest priority.  Open a second terminal tab/window and use `htop` (install it if needed) to display that process' system usage.
 
-1) Launch multiple tabs in Firefox using this command:
-   a) `firefox -new-tab -url krebsonsecurity.com -new-tab -url twit.tv/floss/`. Find the process IDs via `ps -ef` and kill those tabs/processes with a `kill -2` command.
+1) Launch multiple tabs in Firefox using this command: `firefox -new-tab -url krebsonsecurity.com -new-tab -url twit.tv/floss/`
+   a) Find the process IDs via `ps -ef` and kill those tabs/processes with a `kill -2` command.
    b) Repeat the above launch command and this time use systemd and the proper cgroups to kill the FireFox processes.
 
 1) Using `lsmod` and `grep`, list all of the kernel modules loaded on your system that contain VirtualBox (search for `vb*`).
