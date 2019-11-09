@@ -633,7 +633,7 @@ __Lab Activities:__
 
 1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware.
 
-1) Using `systemctl` find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
+1) Using `systemctl`, find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
 
 1) Using `systemd-cgls`, list and filter (grep) the output to show the sub-process IDs for the httpd.service.
 
