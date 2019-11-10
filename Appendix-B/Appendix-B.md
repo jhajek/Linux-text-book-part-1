@@ -594,7 +594,7 @@ a) vgcreate
   c.  ip address show
   d.  ip a sh
 1. Using the ip2 suite of tools, which command would show your routing table?
-  b.  `route`
+  b.  `ip route`
 1. What tool could you use to establish if a server is responding to requests?
   b.  `ping`
 1. What is the purpose of a NETMASK?
