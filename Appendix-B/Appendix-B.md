@@ -526,22 +526,22 @@ d) runlevel1.target
 
 Chapter 11 Review Questions
 
-1) What is the fdisk
+1) What is the `fdisk` program?
 a) a dialog-driven program for the creation and manipulation of partition tables.
 
-2) What is the default Virtual Box disk type?
+2) What is the default VirtualBox disk type?
 a) VDI
 
-3) After attaching a new virtual disk what is the next step? 
+3) After attaching a new virtual disk, what is the next step?
 a) partitioning
 
 4) Which command will print out currently all the block devices, their device name, and their partitions in a nice tree based format.
 b) lsblk
 
-5) fdisk is part of what package?
+5) `fdisk` is part of what package?
 c) utils-linux
 
-6) What would be the name of the second sata disk attached to your system?
+6) What would be the name of the second SATA disk attached to your system?
 b) sdb
 
 7) What is the name of the first native Linux filesystem released in 1992?
@@ -565,19 +565,19 @@ b) Btrfs
 13) What is the name of the filesystem that RedHat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
 b) XFS
 
-14) What is the name of the package needed to install on Ubuntu to be able to create XFS filesystems?
-a) sudo apt-get install xfsprogrs
+14) Which is the correct command needed to install on Ubuntu to be able to create XFS filesystems?
+a) `sudo apt-get install xfsprogs`
 
 15) What is the name of the combined filesystem and logical volume manager designed by Sun Microsystems?
 c) ZFS
 
-16) Which command is valid for making an ext4 filesystem on a partition /dev/sdb1
-b) sudo mkfs.ext4 /dev/sdb1
+16) Which is the correct command for making an ext4 filesystem on a partition /dev/sdb1?
+b) `sudo mkfs.ext4 /dev/sdb1`
 
-17) What is the command to mount an ext4 filesystem, /dev/sdb1 on a mount point /mnt/data-drive-2?
-c) sudo mount -t ext4 /dev/sdb1 /mnt/data-drive-2
+17) Which is the correct command to mount an ext4 filesystem, /dev/sdb1 on a mount point /mnt/data-drive-2?
+c) `sudo mount -t ext4 /dev/sdb1 /mnt/data-drive-2`
 
-18) What is the command used to list the current mountpoints, that will be mounted automatically at boot?
+18) Which file contains the mountpoints that will be mounted automatically at boot?
 c) /etc/fstab
 
 19) What is the command used to create a LVM physical volume?
