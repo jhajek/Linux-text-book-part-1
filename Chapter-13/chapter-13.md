@@ -11,7 +11,7 @@
 
 ## Outcomes
 
-At the conclusion of this chapter you will have a basic understanding of how to use infrastructure automation and orchestration tools.  You will be familiar and able to explain the concept of immutable infrastructure and will be able to explain cloud native development technologies as well as OS container technology.
+At the conclusion of this chapter you will have a basic understanding of how to use infrastructure automation and orchestration tools.  You will be familiar and able to explain the concept of immutable infrastructure and will be able to use Linux commands for enabling cloud native development technologies.
 
 ### Automation and HashiCorp
 
@@ -38,23 +38,33 @@ At that time, [HashiCorp](https://hashicorp.com "HashiCorp") was born.  This was
 ### How Vagrant Benefits You[^154]
 
 > *If you are a developer, Vagrant will isolate dependencies and their configuration within a single disposable, consistent environment, without sacrificing any of the tools you are used to working with (editors, browsers, debuggers, etc.). Once you or someone else creates a single Vagrantfile, you just need to vagrant up and everything is installed and configured for you to work. Other members of your team create their development environments from the same configuration, so whether you are working on Linux, Mac OS X, or Windows, all your team members are running code in the same environment, against the same dependencies, all configured the same way. Say goodbye to "works on my machine" bugs.*
+
 > *If you are an operations engineer, Vagrant gives you a disposable environment and consistent workflow for developing and testing infrastructure management scripts. You can quickly test things like shell scripts, Chef cookbooks, Puppet modules, and more using local virtualization such as VirtualBox or VMware. Then, with the same configuration, you can test these scripts on remote clouds such as AWS or RackSpace with the same workflow. Ditch your custom scripts to recycle EC2 instances, stop juggling SSH prompts to various machines, and start using Vagrant to bring sanity to your life.*
+
 > *If you are a designer, Vagrant will automatically set everything up that is required for that web app in order for you to focus on doing what you do best: design. Once a developer configures Vagrant, you do not need to worry about how to get that app running ever again. No more bothering other developers to help you fix your environment so you can test designs. Just check out the code, vagrant up, and start designing.*
 
-Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Docker, or even VMware desktop.  It is written in the Ruby Language and comes as a self-contained binary that runs across all platforms. For the duration of this chapter I will use VirtualBox as my example.  Vagrant handles this abstraction by using a file concept called a **box** or ```*.box```.  The box file is nothing more than a compressed archive containing a virtual hard drive and a configuration file that tells the Vagrant provider which virtualization software to launch this with. For example a *.box file that was made for the VirtualBox provider would contain the `*.vmdk` (hard drive) and the `*.ovf` file (meta-data and Virtual Machine settings file).  Each Vagrant *.box file needs a config file called: **Vagrantfile**.  This is an abstraction file to modify settings for the virtual machine at run time.  There is a sample Vagrantfile later in this chapter. These two components are what is needed to run and manage Vagrant boxes.
+Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Docker, or even VMware desktop.  It is written in the Ruby Language and comes as a self-contained binary that runs across all platforms. For the duration of this chapter I will use VirtualBox as my example.  Vagrant handles this abstraction by using a file concept called a **box** or ```*.box```.  The box file is nothing more than a compressed archive containing a virtual hard drive and a configuration file that tells the Vagrant provider which virtualization software to launch this with. For example a `*.box` file that was made for the VirtualBox provider would contain a `*.vmdk` (hard drive) and an `*.ovf` file (meta-data and Virtual Machine settings file).  Each Vagrant `*.box` file needs a config file called: **Vagrantfile**.  This is an abstraction file to modify settings for the virtual machine at run time.  There is a sample Vagrantfile later in this chapter. These two components are what is needed to run and manage Vagrant boxes.
 
-There are two ways to obtain a Vagrant Box (*.box file).  The first way would be to obtain pre-made images from a site you trust (remember you are running other people's configuration and software in your place of work -- just be aware).   The first place to look is from Vagrantup.com itself - [https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search "Vagrant box search"). Here you can search for boxes of other operating systems and versions even some opensource companies release a pre-configured Vagrant Box all setup for you to test their software all in one place.    Using this facility you can simply run a command from the command line to add this box to your local system. such as: ```vagrant init ubuntu/bionic64``` would automatically construct a `Vagrantfile`, as well as retrieve an Ubuntu Bionic64 box file.
+#### Obtaining a Vagrant Box
 
-#### Adding Vagrant Boxes
+There are two ways to obtain a Vagrant Box (*.box file).  The first way would be to obtain pre-made images from a site you trust (remember you are running other people's configuration and software in your place of work -- just be aware).   The first place to look is from Vagrantup.com itself - [https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search "Vagrant box search"). Here you can search for boxes of other operating systems and versions even some opensource companies release a pre-configured Vagrant Box all setup for you to test their software all in one place.    Using this facility you can simply run a command from the command line to add this box to your local system. such as: ```vagrant init ubuntu/bionic64``` would automatically construct a `Vagrantfile`, as well as retrieve an Ubuntu Bionic64 box file.  The second way is described later in the chapter; that is to build and add your own box.
 
-When executing the vagrant box command from the command line (in Windows recommend using PowerShell) you will see this list of subcommands as the output:
+#### Vagrant Box Commands
 
-* ```add```
-* ```list```
-* ```remove```
-* ```outdated```
-* ```repackage```
-* ```update```
+When executing the `vagrant box` command from the command line (in Windows recommend using PowerShell Core) you will see this list of subcommands below, but we will primarily use just the first three
+
+: `vagrant box` commands
+
+-----------------
+  ```add```
+  ```list```
+  ```remove```  
+  ```outdated```
+  ```repackage```
+   ```update```
+-----------------
+
+#### vagrant box add
 
 ```bash
 vagrant box add
@@ -82,12 +92,14 @@ You may need to use a full URL in the case of downloading a Vagrant box that is 
 
 Adding a box via URL both ways, requires an additional parameter, ```--name``` (as seen above). The ```--name``` option is something you declare for your use, just don't put any spaces and its best to name the box something related to the actual box;  *"box1"* or *"thebox"* are terrible names.
 
+#### vagrant box list
+
 ```vagrant box list```
 
-You can check to see if the vagrant box add command was successful by issuing the command: ```vagrant box list```; looking something like this:  (note this is my system yours will vary but the structure will be the same).
+You can check to see if the vagrant box add command was successful by issuing the command: ```vagrant box list```; looking something like this:  (Note this is my system, yours will vary but the structure will be the same).
 
 ```bash
-PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
+PS C:\\Users\\Jeremy\\Documents\\vagrant> vagrant box list
 centos-vanilla-1810  (virtualbox, 0)
 ubuntu-vanilla-18043 (virtualbox, 0)
 ubuntu/bionic64      (virtualbox, 20190810.0.0)
@@ -99,9 +111,11 @@ Here you notice that the last two boxes were added directly from the HashiCorp b
 The top two boxes were custom Vagrant boxes I created (we are getting to that part) that are treated as third party boxes.  To add them I issued a command like this:   (The vanilla term is my own convention, it just means this is a default OS install -- no extra packages)
 
 ```bash
-vagrant box add ./centos-vanilla-1810-server-virtualbox-1485312680.box --name centos-7-vanilla
-vagrant box add ./ubuntu-vanilla-18043-server-virtualbox-1485314496.box --name ubuntu-16041-vanilla
+vagrant box add ./centos-1810-virtualbox-1485312680.box --name centos-7-vanilla
+vagrant box add ./ubuntu-18043-virtualbox-1485314496.box --name ubuntu-16041-vanilla
 ```
+
+#### vagrant box remove
 
 ```vagrant box remove```
 
@@ -110,25 +124,15 @@ The same way that you add boxes you can remove them from your list.  You need to
 * ```vagrant box remove centos-7-vanilla```
 * ```vagrant box remove ubuntu-18043-vanilla```
 
-**Command:** ```vagrant init```
+#### vagrant init
 
-Once your Vagrant boxes have been added to your system and Vagrant has them in a list, you can now create a Vagrantfile.  You have one Vagrantfile per-Vagrant box.  It would make the most sense to create a sub-directory with the same box name to house the Vagrantfile.
+```vagrant init```
 
-For instance if the output of the command ```vagrant box list```:
-
-```bash
-PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
-centos-vanilla-1611  (virtualbox, 0)
-ubuntu-vanilla-16041 (virtualbox, 0)
-ubuntu/trusty64      (virtualbox, 20161121.0.0)
-ubuntu/xenial64      (virtualbox, 20170119.1.0)
-```
-
-Then it would make sense to create a folder named after each of these boxes under the directory vagrant.  NOTE - I arbitrarily created the directory vagrant under Documents.  Why? It seems to make logical sense.  See screenshot:
+Once your Vagrant boxes have been added to your system and Vagrant has them in a list, you can now create a Vagrantfile.  You have one Vagrantfile per-Vagrant box.  It would make the most sense to create a sub-directory with the same box name to house the Vagrantfile.   Then it would make sense to create a folder named after each of these boxes under the directory vagrant.  In this example I created the directory vagrant under Documents.  Why? It seems to make logical sense.
 
 ![*Suggested Folder Hierarchy*](images/Chapter-13/vagrant/directory.png "Suggested Directory Structure")
 
-**Note**--for good measure I added a directory called data which will be used for mounting shared drives--I will explain in a bit. Once you have created these folders, cd into one.  For instance take the trusty64 and xenial64.  You would cd into trusty64 directory and type: `vagrant init ubuntu/trusty64`.  This will create a file called Vagrantfile that points and works with the trusty64 vagrant box.  The idea behind the Vagrantfile  is that it has a shorthand syntax that is universally translated by Vagrant into specific virtualization platforms.  The Vagrantfile  handles all the properties that could be set (such as RAM, CPU, shared drives, port forwarding, networking, and so forth).   Make sure you issue the `vagrant init` command from inside of the proper folder you just created.
+**Note**--for good measure I added a directory called data which will be used for mounting shared drives. Once you have created these folders, cd into one.  For instance take the trusty64 and xenial64.  You would cd into trusty64 directory and type: `vagrant init ubuntu/trusty64`.  This will create a file called Vagrantfile that points and works with the trusty64 vagrant box.  The idea behind the Vagrantfile  is that it has a shorthand syntax that is universally translated by Vagrant into specific virtualization platforms.  The Vagrantfile  handles all the properties that could be set (such as RAM, CPU, shared drives, port forwarding, networking, and so forth).   Make sure you issue the `vagrant init` command from inside of the proper folder you just created.
 
 Here is a sample Vagrantfile, which is available in the book source code [files > Chapter-13 > vagrant-init-files](https://github.com/jhajek/Linux-text-book-part-1/tree/master/files/Chapter-13/vagrant-init-files "Vagrantfile"):
 
@@ -208,6 +212,8 @@ end
 
 ```
 
+#### vagrant up
+
 **Command:** ```vagrant up```
 
 Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located.  A vagrant up command looks in the local directory for a Vagrantfile to begin parsing.  This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (Virtual Box in our case) will be changed.  On subsequent runs the Vagrantfile will be ignored. **Note** - This command is issues not from inside the virtual machine but from the commandline of the host system.
@@ -220,6 +226,8 @@ The ```--provision``` flag tells Vagrant to re-provision and re-read and parse t
 
 When using a Vagrant box from HashiCorp or any other it is a good idea to use the --provider flag to tell Vagrant which platform it will be virtualizing.  This is optional but if you experience problems this is a good troubleshooting tip.
 
+#### vagrant reload
+
 **Command:** ```vagrant reload```
 
 This is akin to a reboot or restart of a virtual machine. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.  Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
@@ -228,34 +236,56 @@ This is akin to a reboot or restart of a virtual machine. Note - This command is
 
 Will restart the system as well as re-read and parse the Vagrantfile. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
 
+#### vagrant suspend
+
 **Command:** ```vagrant suspend```
 
 This will put the virtual machine in suspend or pause move (standby) as opposed to running vagrant halt, which will power the virtual machine off.  Very handy to quickly resume work.  Don't expect the system to automatically put your virtual machine into standby if you are used to just closing the lid of your laptop. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
 
+#### vagrant halt
+
 **Command:**  ```vagrant halt```
 Full shutdown of the virtual machine (power off). Note - This command is issues not from inside the virtual machine but from the commandline of the host system. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+
+#### vagrant destroy
 
 **Command:** ```vagrant destroy```
 
 This command is used to destroy the current instance of a virtual machine -- but not remove the source files.  This allows you to issue a vagrant up command and "start from scratch" without rebuilding or reinstalling the Vagrant Box. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
 
+#### vagrant ssh
+
 **Command:** ```vagrant ssh```
 
 This command is issues after the vagrant up command and allows you to establish an SSH session directly into the vagrant box, with a pre-setup username and password, with NO ASK set in the sudoers file, making for seamless entry.  You should never need to access and username or password in Vagrant as that defeats the purpose of Vagrant.  But for completeness's sake it is vagrant:vagrant. NOTE - the vagrant ssh command works perfectly by default on all Linux, MacOS, and Windows 10 hosts.  
+
+#### vagrant plugin install
 
 **Command:** ```vagrant plugin install vagrant-vbguest```
 
 This command specifically enables the automatic installation of the VirtualBox Additions to enable VirtualBox specific features such as shared folders.
 
+### Vagrant Quick Command Tutorial
+
+Here is a small walk through to install 3 different Vagrant boxes:
+
+1. Create a directory called vagrant on your host system (not in a virtual machine)
+2. In that directory create 2 sub-directories; `bionic64` and `centos7`
+3. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/bionic64`
+4. Issue the command `vagrant up`
+5. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine
+6. Repeat the above steps in the centos7 directory and replace the init command with: `vagrant init centos/7`
+7. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
+
 ## Packer
 
 ### The Problem Packer Solves
 
-While by 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs.  This problem was solved by HashiCorp and is called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installation of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  This makes sense if you think about it, unlike installing software, there is no existing operating sytsem when you are installing an operating system, making automatic installation difficult--especially since having a constant network connection is a relatively recent occurrence.
+By 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs.  This problem was solved by HashiCorp and called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installation of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  This makes sense if you think about it, unlike installing software, there is no existing operating system when you are installing an operating system, making automatic installation difficult--especially since having a constant network connection is a relatively recent occurrence.
 
 Packer solved this problem by allowing you to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]."
 
-A few technologies for network based installs exist, but even these assume their is a physical computer to correlate to.  Packer went one step further by allowing you to specify all the answers to the installation questions, you could now have a repeatable installation.  You could now audit this install as well as take this same install (with minor modifications) and make artifacts that can exist on different platforms.  You could build a VirtualBox VM and at the same time have an Amazon Web Services artifact so that all of your developers, operations, testers, and QA can have access to the same machine. As stated on the Packer.io webpage the advantages of using packer are as follows[^156]:
+A few technologies for network based installs exist, but even these assume their is a physical computer to correlate to.  Packer went one step further by allowing you to specify all the answers to the installation questions, you could now have a repeatable installation.  You could now audit this install as well as take this same install (with minor modifications) and make artifacts that can exist on different platforms.  You could build a VirtualBox VM and at the same time have an Amazon Web Services artifact so that all of your developers, operations, testers, and QA can have access to the same machine. As stated on the [Packer.io](https://packer.io "packer wrebpage") webpage the advantages of using packer are as follows[^156]:
 
 * **Super fast infrastructure deployment**
   * Packer images allow you to launch completely provisioned and configured machines in seconds rather than several minutes or hours. This benefits not only production, but development as well, since development virtual machines can also be launched in seconds, without waiting for a typically much longer provisioning time.
@@ -569,7 +599,7 @@ The next phase came in Linux with Fedora creating the [Kickstart](https://docs.f
 
 #### Debian, Ubuntu, and Preseed
 
-[Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")  Debian created their own answer file system called [preeseed].  You can interrupt a manual install and point to a kickstart file, but it needs to be done over the network.  When you are installing an operating system you don't yet have a filesystem to read files from!  
+[Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")  Debian created their own answer file system called [preseed].  You can interrupt a manual install and point to a kickstart file, but it needs to be done over the network.  When you are installing an operating system you don't yet have a filesystem to read files from!  
 
 Working example of a preseed and a kickstart file can be found in the source code of the book: ```files > Chapter-13 > packer-build-templates > preseed``` and ```files > Chapter-13 > packer-build-templates > ks```
 
@@ -598,10 +628,6 @@ vagrant up
 vagrant ssh
 
 ```
-
-### Network Based Install Tools
-
-[Cobbler](http://cobbler.github.io/ "Cobbler") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
 
 ### IT Orchestration
 
