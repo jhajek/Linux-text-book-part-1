@@ -99,7 +99,7 @@ Adding a box via URL both ways, requires an additional parameter, ```--name``` (
 You can check to see if the vagrant box add command was successful by issuing the command: ```vagrant box list```; looking something like this:  (Note this is my system, yours will vary but the structure will be the same).
 
 ```bash
-PS C:\\Users\\Jeremy\\Documents\\vagrant> vagrant box list
+PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
 centos-vanilla-1810  (virtualbox, 0)
 ubuntu-vanilla-18043 (virtualbox, 0)
 ubuntu/bionic64      (virtualbox, 20190810.0.0)
@@ -347,7 +347,7 @@ Let us look at an example JSON template file: This source can be retrieved from 
       "http_port_min" : 9001,
       "http_port_max" : 9001,
       "iso_urls": [
-        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
+      "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
       ],
       "iso_checksum_type": "sha256",
       "iso_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
@@ -537,7 +537,7 @@ You can use multiple post-processors if desired.
 
 #### vboxmanage
 
-This command is related to using Virtual Box and will change the amount of memory allocated to the Virtual Machine image during the build process.  The amounts listed below have no bearing on the machine image that is produced.
+This command allows you to issue custom VirtualBox commands from within Packer. This is helpful for modifying hardware, such as number of CPUs and memory allocated during the install.  Also you can modify the number of attached disks progrmatically. 
 
 ```json
 
@@ -548,6 +548,23 @@ This command is related to using Virtual Box and will change the amount of memor
           "--memory",
           "2048"
         ]
+    ]
+
+```
+
+```json
+
+"vboxmanage": [
+  [
+    "modifyvm",
+    "{{.Name}}",
+    "--memory",
+    "2048"
+  ],
+    ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk3.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
+    ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk3.vdi"],
+    ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk4.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
+    ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk4.vdi"]
     ]
 
 ```
