@@ -369,7 +369,7 @@ There are 3 sections we are interested in:
 
 The majority of this information is taken from [https://www.packer.io/docs/](https://www.packer.io/docs/ "Packer docs"). Builders are the initial syntax needed to build for a single platform.  This forms the bulk of the JSON Key-Value pairs you see above in the sample template I provided.  The Builder of choice above is for VirtualBox initially, but if my target platform had been something else then I could have switched.  Note the syntax will be different for each builder as some require things others do not (Amazon and Azure require account keys for instance).  The builder in the template above is a VirtualBox ISO builder.  That is defined on line 2: ```"type": "virtualbox-iso"```. Many of these values will change or be different depending on the builder you use. Consult the documentation.
 
-The builders available are:
+[The builders available are:](https://www.packer.io/docs/builders/index.html "Packer builders available")
 
 1. Builders
 1. Alicloud ECS
