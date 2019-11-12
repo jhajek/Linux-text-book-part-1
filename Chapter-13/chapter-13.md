@@ -481,9 +481,9 @@ Once the Build step and Provision step are complete the last step (which is opti
 
 ```
 
-Here you see I am converting the VirtualBox *.ovf file into a Vagrant Box file *.box.   If you leave off the keep_input_artifact option, the initial artifact will be deleted and only the post-processor result will remain.  If you are concerned about harddrive space - set this value to false.
+Here you see I am converting the VirtualBox *.ovf file into a Vagrant Box file *.box.   If you leave off the keep_input_artifact option, the initial artifact will be deleted and only the post-processor result will remain.  If you are concerned about hard drive space - set this value to false.
 
-Types of Post-Processing include:
+[Post-Processing includes:](https://www.packer.io/docs/post-processors/index.html "Packer.io post-processing options")
 
 1. Alicloud Import
 1. Amazon Import
@@ -536,7 +536,7 @@ Execute this command to see if you get a version output.  If this command throws
 
 **Command:**  ```packer validate```
 
-This command will check the syntax of your *.json packer template for syntax errors or missing brackets.  It will not check logic but just syntax.  Good idea to run it to make sure everything is in order.  Using the samples provided in the Github repo you can validate the *.JSON template with this command:
+This command will check the syntax of your `*.json` packer template for syntax errors or missing brackets.  It will not check logic but just syntax.  Good idea to run it to make sure everything is in order.  Using the samples provided in the Github repo you can validate the *.JSON template with this command:
 
 ![*Output of packer validate*](images/Chapter-13/packer/validate.png "Output of packer validate")
 
@@ -603,7 +603,7 @@ vagrant ssh
 
 ### Network Based Install Tools
 
-[Cobbler](http://cobbler.github.io/ "Cobber") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
+[Cobbler](http://cobbler.github.io/ "Cobbler") is a modern version of Jumpstart, which is good for network based install and configuration of static hardware.  It makes use of kickstart and preseed and can be used to install Linux based operating systems over the network via PXE.
 
 ### IT Orchestration
 
