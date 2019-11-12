@@ -13,7 +13,7 @@
 
 At the conclusion of this chapter you will have a basic understanding of how to use infrastructure automation and orchestration tools.  You will be familiar and able to explain the concept of immutable infrastructure and will be able to explain cloud native development technologies as well as OS container technology.
 
-### Automation and Hashicorp
+### Automation and HashiCorp
 
 One of the main things that computers are good at is executing repetitive tasks.  One of the things humans seem to dislike is repeating the same task.  Let's give a practical example; there is a divide between the developers (devs) and the operations (ops) people when it comes to software and infrastructure.  Developers need hardware to test their code on and then more hardware to run their code in production.  Operations people have to maintain those systems and the code and the lifecycle of the application.  Developers started to think, could we deploy our infrastructure in the same way we deploy code?  Could we automate the way out of this problem?  A young developer named Mitchell Hashimoto had the same thoughts.  
 
@@ -21,9 +21,9 @@ One of the main things that computers are good at is executing repetitive tasks.
 
 Mitchell realized that himself and a good majority of developers where using VirtualBox to run and build test systems on their local machines and laptops. He found that he could be productive by keeping copies of the production servers where his code would reside as a local vm on his system.  He realized their were some limitations to what VirtualBox would allow for in the way of access to the system.  VirtualBox just provided an interface to virtualize an operating system, and had no provisions for quickly deploying or automating an OS deployment--it was still a manual process. He and his company set out to solve this problem by developing opensource software.  They developed this stack of software:
 
-![*Hashicorp Stack*](images/Chapter-13/hashi/hashistack.png "hashi-stack")
+![*HashiCorp Stack*](images/Chapter-13/hashi/hashistack.png "hashi-stack")
 
-You can learn more about Hashicorp at this [Hashiconf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
+You can learn more about HashiCorp at this [Hashiconf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
 
 ## Vagrant
 
@@ -31,9 +31,9 @@ You can learn more about Hashicorp at this [Hashiconf 2017 keynote presentation]
 
 The problem is that we have high levels of computing available to us yet we are not really using any of it.  Our own laptops are fully powered and used as primary workstations.  Yet when it comes to developers writing code, QA testers, Operations and Security people, these resources are not being used--we have ad-hoc efforts to gain some hardware, any hardware, for testing.  This leads to a fractured development and inconsistent experiences, which often lead to short cuts and compromises that your are forced to pay later.
 
-Enter Mitchell Hashimoto and Hashicorp.  They started in 2010 with a radical mission to automate everything they could into repeatable steps using single tools that handle abstractions.   Hashicorp was platform agnostic and focused on the process of automation.   They succeeded and are now considered the industry leaders in the arena.  Quite frankly there are no other tools that even compete in this space.  [https://www.hashicorp.com/files/DevOps-Defined.pdf](https://www.hashicorp.com/files/DevOps-Defined.pdf "Problem Hashi is solving").
+Enter Mitchell Hashimoto and HashiCorp.  They started in 2010 with a radical mission to automate everything they could into repeatable steps using single tools that handle abstractions.   HashiCorp was platform agnostic and focused on the process of automation.   They succeeded and are now considered the industry leaders in the arena.  Quite frankly there are no other tools that even compete in this space.  [https://www.hashicorp.com/files/DevOps-Defined.pdf](https://www.hashicorp.com/files/DevOps-Defined.pdf "Problem Hashi is solving").
 
-At that time, [Hashicorp](https://hashicorp.com "Hashicorp") was born.  This was in 2010 and Mitchell's first task was easing the deployment, connection, and most importantly abstracting the network address translation bewtween host and guest operating systems.  He created [Vagrant](https://vagrantup.com "Vagrant") to do just this.  Vagrant initally was a VritualBox only porduct but has moved to be an abstraction layer now for multiple virtualization and container platforms
+At that time, [HashiCorp](https://hashicorp.com "HashiCorp") was born.  This was in 2010 and Mitchell's first task was easing the deployment, connection, and most importantly abstracting the network address translation between host and guest operating systems.  He created [Vagrant](https://vagrantup.com "Vagrant") to do just this.  Vagrant initially was a VirtualBox only product but has moved to be an abstraction layer now for multiple virtualization and container platforms
 
 ### How Vagrant Benefits You[^154]
 
@@ -41,15 +41,15 @@ At that time, [Hashicorp](https://hashicorp.com "Hashicorp") was born.  This was
 * *If you are an operations engineer, Vagrant gives you a disposable environment and consistent workflow for developing and testing infrastructure management scripts. You can quickly test things like shell scripts, Chef cookbooks, Puppet modules, and more using local virtualization such as VirtualBox or VMware. Then, with the same configuration, you can test these scripts on remote clouds such as AWS or RackSpace with the same workflow. Ditch your custom scripts to recycle EC2 instances, stop juggling SSH prompts to various machines, and start using Vagrant to bring sanity to your life.*
 * *If you are a designer, Vagrant will automatically set everything up that is required for that web app in order for you to focus on doing what you do best: design. Once a developer configures Vagrant, you do not need to worry about how to get that app running ever again. No more bothering other developers to help you fix your environment so you can test designs. Just check out the code, vagrant up, and start designing.*
 
-Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Docker, or even Vmware desktop.  It is written in the Ruby Language and comes as a self-contained binary that runs across all platforms. For the duration of this chapter I will use VirtualBox as my example.  Vagrant handles this abstraction by using a file concept called a **box** or ```*.box```.  The box file is nothing more than a compressed archive containing a virtual hard drive and a configuration file that tells the Vagrant provider which virtualization software to launch this with. For example a *.box file that was made for the VirtualBox provider would contain the *.vmdk (hard drive) and the *.ovf file (meta-data and Virtual Machine settings file).  Each Vagrant *.box file needs a config file called: **Vagrantfile**.  This is an abstraction file to modify settings for the virtual machine at run time.  There is a sample Vagrantfile later in this chapter. These two components are what is needed to run and manage Vagrant boxes.
+Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Docker, or even VMware desktop.  It is written in the Ruby Language and comes as a self-contained binary that runs across all platforms. For the duration of this chapter I will use VirtualBox as my example.  Vagrant handles this abstraction by using a file concept called a **box** or ```*.box```.  The box file is nothing more than a compressed archive containing a virtual hard drive and a configuration file that tells the Vagrant provider which virtualization software to launch this with. For example a *.box file that was made for the VirtualBox provider would contain the `*.vmdk` (hard drive) and the `*.ovf` file (meta-data and Virtual Machine settings file).  Each Vagrant *.box file needs a config file called: **Vagrantfile**.  This is an abstraction file to modify settings for the virtual machine at run time.  There is a sample Vagrantfile later in this chapter. These two components are what is needed to run and manage Vagrant boxes.
 
-There are two ways to obtain a Vagrant Box (*.box file).  The first way would be to obtain pre-made images from a site you trust (remember you are running other people's configuration and software in your place of work -- just be aware).   The first place to look is from Vagrantup.com itself - [https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search "Vagrant box search"). Here you can search for boxes of other operating systems and versions even some opensource companies release a pre-configured Vagrant Box all setup for you to test their software all in one place.    Using this facility you can simply run a command from the command line to add this box to your local system. such as: ```vagrant init ubuntu/bionic64``` would automatically construct a Vagrantfile, as well as retrieve an Ubuntu Bionic64 box file.
+There are two ways to obtain a Vagrant Box (*.box file).  The first way would be to obtain pre-made images from a site you trust (remember you are running other people's configuration and software in your place of work -- just be aware).   The first place to look is from Vagrantup.com itself - [https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search "Vagrant box search"). Here you can search for boxes of other operating systems and versions even some opensource companies release a pre-configured Vagrant Box all setup for you to test their software all in one place.    Using this facility you can simply run a command from the command line to add this box to your local system. such as: ```vagrant init ubuntu/bionic64``` would automatically construct a `Vagrantfile`, as well as retrieve an Ubuntu Bionic64 box file.
 
 The second way to is add it manually
 
 #### Adding Vagrant Boxes
 
-When executing the vagrant box command from the command line (in Windows recommend using powershell) you will see this list of subcommands as the output:
+When executing the vagrant box command from the command line (in Windows recommend using PowerShell) you will see this list of subcommands as the output:
 
 * ```add```
 * ```list```
@@ -62,7 +62,7 @@ When executing the vagrant box command from the command line (in Windows recomme
 vagrant box add
 ```
 
-The first command **add** is the command we will use to add boxes (either of the two methods) from above.  These are all premade systems made with Packer.io and [distributed by Hashicorp](https://app.vagrantup.com/boxes/search "Vagrant Search").  
+The first command **add** is the command we will use to add boxes (either of the two methods) from above.  These are all premade systems made with Packer.io and [distributed by HashiCorp](https://app.vagrantup.com/boxes/search "Vagrant Search").  
 
 The tutorial on vagrantup.com will walk you through this but a small example (try any of these especially if you are not familiar with these platforms).
 
@@ -73,15 +73,16 @@ The tutorial on vagrantup.com will walk you through this but a small example (tr
 * ```Vagrant box add generic/Fedora30``` (Fedora 30 server edition)
 * ```vagrant box add freebsd/FreeBSD-12.0-CURRENT``` (official FreeBSD vagrant box)
 * ```vagrant box add maier/alpine-3.4-x86_64```  (user provided alpine Linux distro)
-* ```vagrant box add ubuntu/bionic64``` (Canonical--Ubuntu parent company - provided)
+* ```vagrant box add ubuntu/bionic64``` (Canonical--Ubuntu 18.04 parent company - provided)
+* ```vagrant box add ubuntu/xenial64``` (Canonical--Ubuntu 16.04 parent company - provided)
 
-You may need to use a full URL in the case of downloading a Vagrant box that is not provided from Hashicorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a Devuan box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
+You may need to use a full URL in the case of downloading a Vagrant box that is not provided from HashiCorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a [Devuan](https://devuan.org/ "Devuan Home Page") box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
 
-```vagrant box add http://devuan.ksx4system.net/devuan_jessie_beta/devuan_jessie_1.0.0-beta_amd64_vagrant.box --name devuan-jessie```
+```vagrant box add http://devuan.ksx4system.net/devuan_ascii/virtual/devuan_ascii_2.0.0_amd64_vagrant.box --name devuan-ascii```
 
 ```vagrant box add ./itmd521-virtualbox-1503930054.box --name itmd-521```
 
-Adding a box via URL both ways, requires an additional parameter, ```--name``` (as seen above). The ```--name``` option is something you declare for your use, just don't put any spaces and its best to name the box something related to the actual box;  box1 or thebox are terrible names.
+Adding a box via URL both ways, requires an additional parameter, ```--name``` (as seen above). The ```--name``` option is something you declare for your use, just don't put any spaces and its best to name the box something related to the actual box;  *"box1"* or *"thebox"* are terrible names.
 
 ```vagrant box list```
 
@@ -95,7 +96,7 @@ ubuntu/bionic64      (virtualbox, 20190810.0.0)
 ubuntu/xenial64      (virtualbox, 20190807.0.0)
 ```
 
-Here you notice that the last two boxes were added directly from the Hashicorp boxes repository (vagrant box add ubuntu/trusty64 and vagrant box add ubuntu/xenial64)
+Here you notice that the last two boxes were added directly from the HashiCorp boxes repository (vagrant box add ubuntu/trusty64 and vagrant box add ubuntu/xenial64)
 
 The top two boxes were custom Vagrant boxes I created (we are getting to that part) that are treated as third party boxes.  To add them I issued a command like this:   (The vanilla term is my own convention, it just means this is a default OS install -- no extra packages)
 
@@ -174,7 +175,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-   config.vm.synced_folder "../data", "/vagrant_data"
+   config.vm.synced_folder "./data", "/vagrant_data"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -219,7 +220,7 @@ The ```--provision``` flag tells Vagrant to re-provision and re-read and parse t
 
 **Command:** ```vagrant up --provider virtualbox | hyperv | docker | vmware```
 
-When using a Vagrant box from Hashicorp or any other it is a good idea to use the --provider flag to tell Vagrant which platform it will be virtualizing.  This is optional but if you experience problems this is a good troubleshooting tip.
+When using a Vagrant box from HashiCorp or any other it is a good idea to use the --provider flag to tell Vagrant which platform it will be virtualizing.  This is optional but if you experience problems this is a good troubleshooting tip.
 
 **Command:** ```vagrant reload```
 
@@ -252,7 +253,7 @@ This command specifically enables the automatic installation of the VirtualBox A
 
 ### The Problem Packer Solves
 
-While by 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs.  This problem was solved by Hashicorp and is called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installation of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  This makes sense if you think about it, unlike installing software, there is no existing operating sytsem when you are installing an operating system, making automatic installation difficult--especially since having a constant network connection is a relatively recent occurrence.
+While by 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs.  This problem was solved by HashiCorp and is called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installation of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  This makes sense if you think about it, unlike installing software, there is no existing operating sytsem when you are installing an operating system, making automatic installation difficult--especially since having a constant network connection is a relatively recent occurrence.
 
 Packer solved this problem by allowing you to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]."
 
@@ -273,7 +274,7 @@ Packer examples and example build code [https://github.com/jhajek/packer-vagrant
 
 #### Packer - Conventions
 
-Hashicorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using [JSON](https://en.wikipedia.org/wiki/JSON "JSON").   In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation.  On Linux this "answer file" is split between the major Linux distribution families:
+HashiCorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using [JSON](https://en.wikipedia.org/wiki/JSON "JSON").   In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation.  On Linux this "answer file" is split between the major Linux distribution families:
 
 #### Packer JSON Build Template
 
@@ -622,7 +623,7 @@ In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to 
   * [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFengine Podcast")
   * [Dr. Mark Burgess](https://en.wikipedia.org/wiki/Mark_Burgess_(computer_scientist) "Dr Mark Burgess") wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
 * [Terraform](https://www.hashicorp.com/products/terraform "Terraform")
-  * [Hashicorp Terraform Presentation](https://www.youtube.com/watch?v=jdDKjWZ2qbk&index=39&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t "Terraform and Packer")
+  * [HashiCorp Terraform Presentation](https://www.youtube.com/watch?v=jdDKjWZ2qbk&index=39&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t "Terraform and Packer")
 
 ## Chapter Conclusions and Review
 
