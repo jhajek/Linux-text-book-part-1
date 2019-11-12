@@ -257,9 +257,7 @@ While by 2010 Vagrant was being used to manage VMs, there was no tool that could
 
 Packer solved this problem by allowing you to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]."
 
-A few technologies for network based installs exist, but even these assume their is a physical computer to correlate to.  Packer went one step further by allowing you to specify all the answers to the installation questions, you could now have a repeatable installation.  You could now audit this install as well as take this same install (with minor modifications) and make artifacts that can exist on different platforms.  You could build a VirtualBox VM and at the same time have an Amazon Web Services artifact so that all of your developers, operations, testers, and QA can have access to the same machine.
-
-As stated on the Packer.io webpage the advantages of using packer are as follows[^156]:
+A few technologies for network based installs exist, but even these assume their is a physical computer to correlate to.  Packer went one step further by allowing you to specify all the answers to the installation questions, you could now have a repeatable installation.  You could now audit this install as well as take this same install (with minor modifications) and make artifacts that can exist on different platforms.  You could build a VirtualBox VM and at the same time have an Amazon Web Services artifact so that all of your developers, operations, testers, and QA can have access to the same machine. As stated on the Packer.io webpage the advantages of using packer are as follows[^156]:
 
 * **Super fast infrastructure deployment**
   * Packer images allow you to launch completely provisioned and configured machines in seconds rather than several minutes or hours. This benefits not only production, but development as well, since development virtual machines can also be launched in seconds, without waiting for a typically much longer provisioning time.
@@ -278,8 +276,8 @@ HashiCorp essentially built a tool that captures each install step.  These steps
 
 #### Packer JSON Build Template
 
-Let us look at an example JSON template file: This source can be retrieved from:
-[https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanilla-install/ubuntu16043-vanilla.json](https://github.com/jhajek/packer-vagrant-build-scripts/blob/master/packer/vanilla-install/ubuntu16043-vanilla.json "Packer Template")
+Let us look at an example JSON template file: This source can be retrieved from the source code of the book:
+[files > Chapter-13 > packer-build-templates > ubuntu18043-vanilla.json ](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18043-vanilla.json "Packer Template")
 
 ```json
 
@@ -369,7 +367,7 @@ There are 3 sections we are interested in:
 
 #### Builders
 
-The majority of this information is taken from [https://www.packer.io/docs/](https://www.packer.io/docs/ "Packer docs"). Builders are the initial syntax needed to build for a single platform.  This forms the bulk of the JSON Key-Value pairs you see above in the sample template I provided.  The Builder of choice above is for VirtualBox initially, but if my target platform had been something else then I could have switched.  Note the syntax will be different for each builder as some require things others do not (Amazon and Azure require account keys for instance).  The builder in the template above is a Virtualbox ISO builder.  That is defined on line 2: ```"type": "virtualbox-iso"```. Many of these values will change or be different depending on the builder you use. Consult the documentation.
+The majority of this information is taken from [https://www.packer.io/docs/](https://www.packer.io/docs/ "Packer docs"). Builders are the initial syntax needed to build for a single platform.  This forms the bulk of the JSON Key-Value pairs you see above in the sample template I provided.  The Builder of choice above is for VirtualBox initially, but if my target platform had been something else then I could have switched.  Note the syntax will be different for each builder as some require things others do not (Amazon and Azure require account keys for instance).  The builder in the template above is a VirtualBox ISO builder.  That is defined on line 2: ```"type": "virtualbox-iso"```. Many of these values will change or be different depending on the builder you use. Consult the documentation.
 
 The builders available are:
 
