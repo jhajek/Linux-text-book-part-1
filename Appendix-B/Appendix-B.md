@@ -588,7 +588,7 @@ a) vgcreate
 
 ## Chapter 12
 
-### Review Questions
+### Review Questions 12
 
 1. Using the ip2 suite of tools, which command would show your IP address?
   c.  ip address show
@@ -634,7 +634,66 @@ Mongodb
 
 ## Chapter 13
 
-TBA
+### Review Questions 13
+
+1. What is a common title given to IT workers who are responsible for the ongoing operations of applications and their environments?
+d) ops
+
+2. What would describe Mitchell Hashimoto's design goals in created Vagrant?
+a) Automation
+
+3. What is the name of the tool originally built as an abstraction layer on top of VirtualBox to deploy virtual machines?
+d) Vagrant
+
+4. What is the name of the tool originally built as a way to automate the installation of any operating system into an artifact?
+a) Packer
+
+5. What year approximately was Vagrant introduced?
+c) 2010
+
+6. Fill in the blank.  Think of Vagrant as _______________ between you and VirtualBox, Hyper-V, Docker, or even VMware desktop
+an abstraction layer
+
+7. What is the name of the file type Vagrant uses that contains an `vmdk` and and `ovf`?
+c) `*.box`
+
+8. Name the file that contains the configuration file for each Vagrant box file.
+ 
+9. What is the correct command to add the Vagrant Box `centos/7`?
+b) `vagrant box add centos/7`
+
+10. What is the command used to list all Vagrant Boxes being managed by Vagrant?
+c) `vagrant box list`
+
+11. What is the correct command to initialize a Vagrant file for Vagrant Box named `centos/7` that has already been added to the system?
+b) `vagrant init centos/7`
+
+12. What is the Vagrant command to start or turn on a Vagrant Box?
+vagrant up
+
+13. What is the Vagrant command to restart a Vagrant Box?
+vagrant reload
+
+14. What is the Vagrant command to shutdown or poweroff a Vagrant Box?
+vagrant halt
+
+15. For Packer.io, what is the descriptive name of the json file used for building artifacts?
+c) build template
+
+16. What is the name of the stage that runs after the builder portion of a build template?
+b) provisioner
+
+17. What is the name of the stage that runs after building and provisioning of Packer artifacts is complete?
+d) post-processor
+
+18. If there is an error in any part of the Packer build command what will happen?
+c) the command will terminate and any artifacts will be deleted
+
+19. What is the generic name of the file that is provided to Packer to help it complete the manual question part of the install?
+b) answer file
+
+20. What are the respective names of the RedHat and Debian based answer files?
+c) kickstart and preseed
 
 ## Chapter 14
 
