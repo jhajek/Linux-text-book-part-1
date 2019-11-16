@@ -7,18 +7,17 @@
 * OS Containers
   * Docker
 * Application Deployment in Containers
-  * Jenkins
-  * VuePress
-  * GatsbyJS
-  * Jekyll
+  * [VuePress](https://vuepress.vuejs.org/ "Vuepress website")
+  * [Gatsby](https://www.gatsbyjs.org/ "GatsbyJS website")
+  * [Jekyll](https://jekyllrb.com/ "jekyllrb website")
 
 ## Outcomes
 
-At the conclusion of this chapter you will have gained an understanding of how non-trivial applications are creeated, maintained, and securely deployed using Operating System Containers.  You will have learned the basic differences and advantages of OS Containers and Virtual Machines and will be able to use industry standard tools that demonstrate these concepts.
+At the conclusion of this chapter you will have gained an understanding of how non-trivial applications are created, maintained, and securely deployed using Operating System Containers.  You will have learned the basic differences and advantages of OS Containers and Virtual Machines and will be able to use industry standard tools that demonstrate these concepts.
 
 ## Operating System Containers and Virtual Machines
 
-In the class so far, we have made extensive use of virtual machines.  This technology greatly reduced our needs for physical lab space and extra computers.  And the technology is excellent and mature from a hardware point of view.  If we want to test installing an Apache Webserver or Nginx or even FreeBSD, we can do so in using a virtual machine.  We can use Packer and Vagrant to automate the creation of these virtual machines.  This is is a huge advantage when we look at things operationally.  But IT operations doesn't just run servers, they run applications which are the lifeblood of any business.  When we look at virtual machines from an application point of view we begin to see some redundancies.  For instance I can launch multiple Ubuntu and Debian and other Linux virtual machines and have isolated applications.  But each operating system has virtualized hardware, drivers, BIOS, even a virtual floppy disk driver (which can be exploited, see VENOM).  
+In the class so far, we have made extensive use of virtual machines.  This technology greatly reduced our needs for physical lab space and extra computers.  And the technology is excellent and mature from a hardware point of view.  If we want to test installing an Apache Webserver or Nginx or even FreeBSD, we can do so in using a virtual machine.  We can use Packer and Vagrant to automate the creation of these virtual machines.  This is is a huge advantage when we look at things operationally.  But IT operations doesn't just run servers, they run applications which are the lifeblood of any business.  When we look at virtual machines from an application point of view we begin to see some redundancies.  For instance, I can launch multiple Ubuntu and Debian and other Linux virtual machines and have isolated applications.  But each operating system has virtualized hardware, drivers, BIOS, even a virtual floppy disk driver (which can be exploited, see VENOM).  
 
 ![*Virtual Machine*](images/Chapter-14/docker/container-vm-whatcontainer_2.png "Virtual Machine Diagram")
 
@@ -32,7 +31,7 @@ When you look at Linux binaries such as ```ls``` or ```grep``` they are precompi
 
 ### Where did Containers Come From
 
-We know the birthday of containers.  it started in 4.1 BSD in 1984.  Bill Joy submitted the code to create the ancestor of containers, the ```chroot``` command.  This command was used to *contain* a user or application into a certain directory structure, while allowing multiple users to still share the same system.  The ```chroot``` command gave wat to FreeBSD ```jails``` command which essentially was used to contain vulnerable or misbehaving software.  This would allow you to *jail* and application such as a webserver or FTP server so that there processes would not effect other users.
+We know the birthday of containers.  It started in 4.1 BSD in 1984.  Bill Joy submitted the code to create the ancestor of containers, the ```chroot``` command.  This command was used to *contain* a user or application into a certain directory structure, while allowing multiple users to still share the same system.  The ```chroot``` command gave wat to FreeBSD ```jails``` command which essentially was used to contain vulnerable or misbehaving software.  This would allow you to *jail* and application such as a webserver or FTP server so that there processes would not effect other users.
 
 Taking the idea of a BSD Jail, SUN developed a further extension for [Solaris called Zones](https://docs.oracle.com/cd/E36784_01/html/E36848/zones.intro-2.html#scrolltoc "Oracle Solaris Zones Docs") in 2004. The purpose of Zones is stated as "*...partitioning technology (is) used to virtualize operating system services and provide an isolated and secure environment for running applications[^159].*" This technology lives on in IllumOS based distributions today. Zones were an improvement over FreeBSD Jails.  But were still positioned as an IT tool for consolidating servers and reducing costs.  
 
@@ -88,7 +87,6 @@ Now how to we get the website to render?  You will notice that one of the advant
 
 ### Developing and Deploying Applications
 
-* Jenkins
 * VuePress
 * GatsbyJS
 * Jekyll
