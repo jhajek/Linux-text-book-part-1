@@ -187,69 +187,6 @@ Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes w
 
 Using the ```fdisk``` command does have its drawbacks.  The tool was designed in the day when systems had 1 or 2 hard drives.  Filesystems handled small files and the idea of large files partitions that spanned multiple disks was not possible due to software and processor limitations.  But we see with the cost of disk alone, systems having 24 or more hard drives is not unheard of.  Most filesystems were designed around the limitations of ```fdisk``` and since then new solutions have been designed to overcome the limitations of partitions such as LVM and filesystem extents, which we will cover at the end of this chapter.
 
-## Filesystems
-
-To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory.  A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.
-
-If you have used Windows before you are familiar with Fat32 and NTFS filesystems. Since Windows is created and curated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the other-hand supports multiple different filesystems that serve many different purposes.
-
-### ext/ext2
-
-The MINIX filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created. It had severe limitations since MINIX filesystem was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesytem.   By January of 1993, __ext2__ had been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written [^ch11f123].
-
-: Limits of ext2
-
-----------------------  ------- ------- ------- -------
-Block size:              1 KiB   2 KiB   4 KiB   8 KiB
-max. file size:          16 GiB 256 GiB  2 TiB   2 TiB
-max. filesystem size:    4 TiB  8 TiB    16 TiB  32 TiB
-----------------------  ------- ------- ------- -------
-
-Traditionally your ```/boot``` partition is formatted as __ext2__ because it is only used for a short time to load your *initrd* and *kernel image* into memory, so the overhead of __ext4__ is not needed.  You can use the built in ```sudo mkfs``` command to format a partition with __ext2__.
-
-### ext3/ext4
-
-As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evident and critical.  The CPU could now handle to overhead of managing data writes to disk to ensure that those operations actually happened.
-
- *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted[^124][^125]."*
-
-Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as they were now over a decade old.
-
-: Limits of ext3
-
-Block size   Max file size   Max file system size
------------ --------------- ----------------------
-  1 KiB         16 GiB             4 TiB
-  2 KiB         256 GiB            8 TiB
-  4 KiB         2 TiB             16 TiB
------------ --------------- ----------------------
-
-By 2008 it became apparent that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __ext__ filesystem a bit longer, but the growth of __ext__ had hit the end, and a newer filesystem needed to be developed to handle the larger sets of data and the massively improved hardware that existed since 1992, when ext was developed.
-
-Ext4 saw the capacity extension of __ext3__ and introduction to __extents__. The __ext4__ filesystem can support volumes with sizes up to 1 exibyte (EiB) and files with sizes up to 16 tebibytes (TiB).
-
-In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in __ext4__ can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].
-
-Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type `mkfs.ext4` and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems that fill the voids left by __ext4__.
-
-### Giga vs Gibi
-
-These matter because humans and computers (and marketing) use different numbering systems.
-
-: [Multiples of bytes](https://en.wikipedia.org/wiki/Gibibyte "Mulitples of bytes")
-
-    Metric                IEC                    JEDEC
-------------------- ----------------------- -----------------------
-1000 kB kilobyte     1024 KiB kibibyte          KB kilobyte
-1000 MB megabyte     1024 MiB mebibyte          MB megabyte
-1000 GB gigabyte     1024 GiB gibibyte          GB gigabyte
-1000 TB terabyte     1024 TiB tebibyte
-1000 PB petabyte     1024 PiB pebibyte
-1000 EB exabyte      1024 EiB exbibyte
-1000 ZB zettabyte    1024 ZiB zebibyte
-1000 YB yottabyte    1024 YiB yobibyte
-------------------- ----------------------- -----------------------
-
 ## Logical Volume Manager
 
 In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored in the users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
@@ -314,6 +251,69 @@ ls -l /mnt/disk1
 ```
 
 You can remove the snapshots by unmounting the partition ```umount``` and the using the ```lvremove``` command.  How would you do this same process using ext4 without LVM?
+
+## Filesystems
+
+To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory.  A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.
+
+If you have used Windows before you are familiar with Fat32 and NTFS filesystems. Since Windows is created and curated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the other-hand supports multiple different filesystems that serve many different purposes.
+
+### ext/ext2
+
+The MINIX filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created. It had severe limitations since MINIX filesystem was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesytem.   By January of 1993, __ext2__ had been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written [^ch11f123].
+
+: Limits of ext2
+
+----------------------  ------- ------- ------- -------
+Block size:              1 KiB   2 KiB   4 KiB   8 KiB
+max. file size:          16 GiB 256 GiB  2 TiB   2 TiB
+max. filesystem size:    4 TiB  8 TiB    16 TiB  32 TiB
+----------------------  ------- ------- ------- -------
+
+Traditionally your ```/boot``` partition is formatted as __ext2__ because it is only used for a short time to load your *initrd* and *kernel image* into memory, so the overhead of __ext4__ is not needed.  You can use the built in ```sudo mkfs``` command to format a partition with __ext2__.
+
+### ext3/ext4
+
+As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evident and critical.  The CPU could now handle to overhead of managing data writes to disk to ensure that those operations actually happened.
+
+ *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted[^124][^125]."*
+
+Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as they were now over a decade old.
+
+: Limits of ext3
+
+Block size   Max file size   Max file system size
+----------- --------------- ----------------------
+  1 KiB         16 GiB             4 TiB
+  2 KiB         256 GiB            8 TiB
+  4 KiB         2 TiB             16 TiB
+----------- --------------- ----------------------
+
+By 2008 it became apparent that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __ext__ filesystem a bit longer, but the growth of __ext__ had hit the end, and a newer filesystem needed to be developed to handle the larger sets of data and the massively improved hardware that existed since 1992, when ext was developed.
+
+Ext4 saw the capacity extension of __ext3__ and introduction to __extents__. The __ext4__ filesystem can support volumes with sizes up to 1 exibyte (EiB) and files with sizes up to 16 tebibytes (TiB).
+
+In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in __ext4__ can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].
+
+Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type `mkfs.ext4` and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems that fill the voids left by __ext4__.
+
+### Giga vs Gibi
+
+These matter because humans and computers (and marketing) use different numbering systems.
+
+: [Multiples of bytes](https://en.wikipedia.org/wiki/Gibibyte "Mulitples of bytes")
+
+    Metric                IEC                    JEDEC
+------------------- ----------------------- -----------------------
+1000 kB kilobyte     1024 KiB kibibyte          KB kilobyte
+1000 MB megabyte     1024 MiB mebibyte          MB megabyte
+1000 GB gigabyte     1024 GiB gibibyte          GB gigabyte
+1000 TB terabyte     1024 TiB tebibyte
+1000 PB petabyte     1024 PiB pebibyte
+1000 EB exabyte      1024 EiB exbibyte
+1000 ZB zettabyte    1024 ZiB zebibyte
+1000 YB yottabyte    1024 YiB yobibyte
+------------------- ----------------------- -----------------------
 
 ### XFS
 
