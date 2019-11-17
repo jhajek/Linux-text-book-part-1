@@ -216,11 +216,11 @@ end
 
 **Command:** ```vagrant up```
 
-Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located.  A vagrant up command looks in the local directory for a Vagrantfile to begin parsing.  This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (Virtual Box in our case) will be changed.  On subsequent runs the Vagrantfile will be ignored. **Note** - This command is issues not from inside the virtual machine but from the commandline of the host system.
+Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located.  A vagrant up command looks in the local directory for a Vagrantfile to begin parsing.  This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (Virtual Box in our case) will be changed.  On subsequent runs the Vagrantfile will be ignored. **Note** - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 **Command:**  ```vagrant up --provision```
 
-The ```--provision``` flag tells Vagrant to re-provision and re-read and parse the Vagrantfile and make any additional changes while launching the virtual machine. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+The ```--provision``` flag tells Vagrant to re-provision and re-read and parse the Vagrantfile and make any additional changes while launching the virtual machine. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 **Command:** ```vagrant up --provider virtualbox | hyperv | docker | vmware```
 
@@ -230,28 +230,28 @@ When using a Vagrant box from HashiCorp or any other it is a good idea to use th
 
 **Command:** ```vagrant reload```
 
-This is akin to a reboot or restart of a virtual machine. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.  Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+This is akin to a reboot or restart of a virtual machine. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 **Command:** ```vagrant reload --provision```
 
-Will restart the system as well as re-read and parse the Vagrantfile. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+Will restart the system as well as re-read and parse the Vagrantfile. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant suspend
 
 **Command:** ```vagrant suspend```
 
-This will put the virtual machine in suspend or pause move (standby) as opposed to running vagrant halt, which will power the virtual machine off.  Very handy to quickly resume work.  Don't expect the system to automatically put your virtual machine into standby if you are used to just closing the lid of your laptop. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+This will put the virtual machine in suspend or pause move (standby) as opposed to running vagrant halt, which will power the virtual machine off.  Very handy to quickly resume work.  Don't expect the system to automatically put your virtual machine into standby if you are used to just closing the lid of your laptop. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant halt
 
 **Command:**  ```vagrant halt```
-Full shutdown of the virtual machine (power off). Note - This command is issues not from inside the virtual machine but from the commandline of the host system. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+Full shutdown of the virtual machine (power off). Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant destroy
 
 **Command:** ```vagrant destroy```
 
-This command is used to destroy the current instance of a virtual machine -- but not remove the source files.  This allows you to issue a vagrant up command and "start from scratch" without rebuilding or reinstalling the Vagrant Box. Note - This command is issues not from inside the virtual machine but from the commandline of the host system.
+This command is used to destroy the current instance of a virtual machine -- but not remove the source files.  This allows you to issue a vagrant up command and "start from scratch" without rebuilding or reinstalling the Vagrant Box. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant ssh
 
@@ -271,11 +271,12 @@ Here is a small walk through to install 3 different Vagrant boxes:
 
 1. Create a directory called vagrant on your host system (not in a virtual machine)
 2. In that directory create 2 sub-directories; `bionic64` and `centos7`
-3. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/bionic64`
-4. Issue the command `vagrant up`
-5. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine
-6. Repeat the above steps in the centos7 directory and replace the init command with: `vagrant init centos/7`
-7. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
+3. Add the box to vagrant with `vagrant box add ubuntu/bionic64` 
+4. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/bionic64`
+5. Issue the command `vagrant up`
+6. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine
+7. Repeat the above steps in the centos7 directory and replace the init command with: `vagrant init centos/7`
+8. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
 
 ## Packer
 
