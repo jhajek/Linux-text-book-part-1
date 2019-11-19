@@ -125,8 +125,11 @@ Now how to we get the website to render?  You will notice that one of the advant
 There are two commands to run:  `docker build .` to build the custom image and `docker run` to run an instance from the custom image. These commands should be executed in the directory where the `Dockerfile` resides:
 
 `sudo docker images`
+`sudo docker ps`
 `sudo docker build .`
-`sudo docker run -d --name apache-webserver`
+`sudo docker images`
+`sudo docker ps`
+`sudo docker run -d --name apache-webserver ubuntu`
 
 ### Developing and Deploying Applications
 
