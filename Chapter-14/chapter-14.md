@@ -1,15 +1,16 @@
-# OS Containers, Service Discovery, Secrets, and Applications - Rough Draft
+# OS Containers, Secret Management, and Applications
 
 ![*Creating technology to support technology.*](images/Chapter-Header/Chapter-14/tech_loops-2.png "Tech Loops")
 
 ## Objectives
 
 * OS Containers
-  * Docker
+  * [Docker](https://docker.com "Docker website")
 * Application Deployment in Containers
   * [VuePress](https://vuepress.vuejs.org/ "Vuepress website")
   * [Gatsby](https://www.gatsbyjs.org/ "GatsbyJS website")
   * [Jekyll](https://jekyllrb.com/ "jekyllrb website")
+  * [Vault](https://www.vaultproject.io/ "Vault Website")
 
 ## Outcomes
 
@@ -17,25 +18,25 @@ At the conclusion of this chapter you will have gained an understanding of how n
 
 ## Operating System Containers and Virtual Machines
 
-In the class so far, we have made extensive use of virtual machines.  This technology greatly reduced our needs for physical lab space and extra computers.  And the technology is excellent and mature from a hardware point of view.  If we want to test installing an Apache Webserver or Nginx or even FreeBSD, we can do so in using a virtual machine.  We can use Packer and Vagrant to automate the creation of these virtual machines.  This is is a huge advantage when we look at things operationally.  But IT operations doesn't just run servers, they run applications which are the lifeblood of any business.  When we look at virtual machines from an application point of view we begin to see some redundancies.  For instance, I can launch multiple Ubuntu and Debian and other Linux virtual machines and have isolated applications.  But each operating system has virtualized hardware, drivers, BIOS, even a virtual floppy disk driver (which can be exploited, see VENOM).  
+In the class so far, we have made extensive use of virtual machines.  This technology greatly reduced our need for physical lab space or extra computers.  If we want to test installing an Apache Webserver or Nginx or even FreeBSD, we can do so using a virtual machine.  We can use Packer and Vagrant to automate the creation of our virtual machines.  This is is a huge advantage when we look at things operationally.  But IT operations doesn't just run servers alone, they run **applications** which are the lifeblood of any business.  When we look at virtual machines from an application point of view we begin to see some redundancies.  For instance, I can launch multiple Linux virtual machines with the push of a button.  But consider this, each operating system has virtualized hardware drivers, kernel, BIOS, even a virtual floppy disk driver.  
 
 ![*Virtual Machine*](images/Chapter-14/docker/container-vm-whatcontainer_2.png "Virtual Machine Diagram")
 
 \newpage
 
-All of these virtual devices create overhead, and while you have created separation, you haven't increased the speed of your application.  The reason is the abstraction is wrong.  Essentially virtualization is about hardware consolidation, even the name, *virtual machine* tells you what you are getting.  When you look at an application, due to the operating system, it is abstracted away from the hardware by design.
+All of these virtual devices create overhead and a translation layer. While you have created separation, you haven't increased the speed of your application.  The reason is the **abstraction** is wrong.  Essentially, virtualization is about hardware consolidation, even the name, *virtual machine* tells you what you are getting.  When you look at an application, due to the operating system, it is abstracted away from the hardware by design.
 
-When you look at Linux binaries such as ```ls``` or ```grep``` they are precompiled executables.  They contain all the needed code to execute on a Linux system.  You could copy the binary to another location or machine and expect it to work, thereby making a new abstraction.  Instead of the machine being virtual, why not make the operating system virtual?  If you compare the bulk of the size of an operating system, the majority of the size is in the kernel and in the drivers.  But an operating system can be stripped down to 100 megabytes at the most of needed binaries.  This lead to the concept of **Operating System Containers.**
+When you look at Linux binaries such as ```ls``` or ```grep``` they are precompiled executables.  They contain all the code needed to execute.  You could copy the binary to another location or machine and expect it to work, why not with the entire application? Instead of the machine being virtual, why not make the operating system virtual?  If you analyze the bulk of the size of an operating system, the majority is in the kernel and in the drivers.  What if you didn't virtualize the entire hardware stack and kernel, but just the operating system binaries? This is what lead to the concept of **Operating System Containers.**
 
 ![*OS Containers*](images/Chapter-14/docker/docker-containerized-appliction-blue-border_2.png "docker containerized appliction")
 
 ### Where did Containers Come From
 
-We know the birthday of containers.  It started in 4.1 BSD in 1984.  Bill Joy submitted the code to create the ancestor of containers, the ```chroot``` command.  This command was used to *contain* a user or application into a certain directory structure, while allowing multiple users to still share the same system.  The ```chroot``` command gave wat to FreeBSD ```jails``` command which essentially was used to contain vulnerable or misbehaving software.  This would allow you to *jail* and application such as a webserver or FTP server so that there processes would not effect other users.
+We know the birthday of containers.  It started in 4.1 BSD in 1984.  Bill Joy submitted the code to create the ancestor of containers, the ```chroot``` command.  This command was used to *contain* a user or application into a certain directory structure, while allowing multiple users to still share the same system.  The ```chroot``` command gave way to FreeBSD ```jails``` command, which essentially was used to contain vulnerable or misbehaving software.  This would allow you to *jail* an application such as a webserver or FTP server so that the processes would not effect other users.
 
 Taking the idea of a BSD Jail, SUN developed a further extension for [Solaris called Zones](https://docs.oracle.com/cd/E36784_01/html/E36848/zones.intro-2.html#scrolltoc "Oracle Solaris Zones Docs") in 2004. The purpose of Zones is stated as "*...partitioning technology (is) used to virtualize operating system services and provide an isolated and secure environment for running applications[^159].*" This technology lives on in IllumOS based distributions today. Zones were an improvement over FreeBSD Jails.  But were still positioned as an IT tool for consolidating servers and reducing costs.  
 
-This all changed in 2013.  A failing Platform as a Service company called DotCloud make a last minute attempt to save itself by opensourcing and presenting their OS Container management tool, called **Docker**.  It was at this presentation that OS Containers were no longer seen as an operations tool, but was presented in a format that allowed developers to see OS Containers as a way to package up software dependencies and application code and deploy it almost as a single binary.  The analogy of a shipping container is not lost.  Once shipping was standardized into container weights and heights, world wide shipping on boats, trains, and trucks became vastly streamlined.  In Figure 7.3 you see that applications are using the same kernel.  This is possible because of the way Linux is constructed.  Linux is a kernel, and therefore you can place any operating system on top of it.  In addition to this natural structure, Linux uses a technology called **cgroups** to create **namespaces** which further allow for isolation of applications.   Containers then lead t the concept of immutable infrastructure.  Since they are so small you simply build them and if there is a problem, you re-build and redeploy.  No need for individual management.
+This all changed in 2013.  A failing Platform as a Service company called DotCloud made a last ditch attempt to save itself by opensourcing and presenting their OS Container management tool, called **Docker**.  [Docker was introduced as a Five minute lightning talk](https://www.youtube.com/watch?v=wW9CAH9nSLs "solomon Hykes 5-miunute lightning talk at PyCon") at a [PyCon](https://us.pycon.org/ "PyCon python convention website") Python Convention.  It was at this presentation where Docker showed that OS Containers should no longer be seen as an operations tool, but as a developer tool.  Preesnted in a format that allowed developers to see OS Containers as a way to package up software dependencies and application code and deploy it almost as a single binary.  The analogy of a shipping container is not lost.  Once shipping was standardized into container weights and heights, world wide shipping on boats, trains, and trucks became vastly streamlined.  In Figure 7.3 you see that applications are using the same kernel.  This is possible because of the way Linux is constructed.  Linux is a kernel, and therefore you can place any operating system on top of it.  In addition to this natural structure, Linux uses a technology called **cgroups** to create **namespaces** which further allow for isolation of applications.   Containers then lead t the concept of immutable infrastructure.  Since they are so small you simply build them and if there is a problem, you re-build and redeploy.  No need for individual management.
 
 ## Docker Containers
 
