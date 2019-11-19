@@ -90,13 +90,22 @@ You can now list the container images by issuing the ```docker images``` command
 
 We issue the command: ```docker run```.  The entire ```docker run``` documentation is explained [https://docs.docker.com/engine/reference/commandline/run/#examples](https://docs.docker.com/engine/reference/commandline/run/#examples "Docker run documentation"). There are two ways to run containers.  They can be run as a background process accessible over the network or the can be run with an interactive remote shell.  This leads to a concept of [immutable infrastructure](https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure "Digital Ocean article explaining immutable infrastructure"). Generally a Docker container will be created and run without manual intervention, but we will show you how you can login and modify a container to learn about how containers work.  
 
-Let's run the command: ```docker run --name my-apache-server -it ubuntu```.  What happens?  Type the command: ```docker ps``` and note that this screen shows us the running container instances.  The ```--name``` flag allows us to give us a reference name for this instance of the container.  The ```-i``` flag allows us to have an interactive shell and the ```-t``` gives us a psuedo-TTY; or a terminal.  Note that this is a root shell and you can pass commands remotely wihtout needing an interactive shell.  Simple remove the ```-i -t or -it``` flags.
+Let's run the command: ```docker run --name my-apache-server -it ubuntu```.  What happens? The ```--name``` flag allows us to give us a reference name for this instance of the container.  The ```-i``` flag allows us to have an interactive shell and the ```-t``` gives us a psuedo-TTY; or a terminal.  Note that this is a root shell and you can pass commands remotely wihtout needing an interactive shell.  Simple remove the ```-i -t or -it``` flags to do so. In another terminal window run the command: ```docker ps``` and note that this screen shows us the running container instances.
 
-Now we need to install something for our application.  Let's start with something super simple. A hello-world PHP and Apache application.  In order to run these applications you will need to install all the dependencies via apt-get.  You will even need to install ```git``` to clone the sample code since this is a virtualized operating system, the installed packages are very few in number (by design).
+If this were a virtual machine, we would begin to install our application infrastructure such as Apache2 or MySql via apt or yum.  We will login an do this, but there is another way, we can create a dockerfile and when we run the container, it will take all the values listed as well as install any pre-reqs we require.
 
-You can clone the simple PHP project from this URL, or you can find the code located in the ```Chapter-14 > PHP``` files directory. You can use the ```docker cp``` command to *insert* files directly to an OS Container, but it makes sense to use Git.  
+The question about containers becomes, since it is an OS abstraction, how to we deal with disk and permanent storage.  This is one of the key points of this abstraction.  Docker is not meant to deal with *state*.  Meaning you can mount external disk into the container.  This is one way to get code or data preconfigured into the container.  You would not clone your code into the container, but clone it to the local system and then mount that folder into the Docker Container.  This way you can pull new code anytime without having to rebuild your container.  This has advantages of not having to have extra package dependencies for Git inside of your container, thereby reducing the size of the container and the speed in which it can be deployed.
 
-You will need to install git, apache2, and php, clone the code and copy its content to ```/var/www/html```.
+Here is a sample dockerfile and the [reference page](https://docs.docker.com/engine/reference/builder/ "dockerfile reference page"), which can be found in: files > Week-14 > dockerfile:
+
+```yaml
+FROM node:12.2.0-stretch
+MAINTAINER Jarron Bailey <baileyjarron@gmail.com>
+WORKDIR /app
+COPY ./src/package* /app/
+RUN npm install
+COPY ./src/ /app
+```
 
 Now how to we get the website to render?  You will notice that one of the advantages of a Virtual Machine is that each VM has its own networking stack and this makes the abstraction easy to grasp.  In the case of OS Containers, there is only one networking stack, so we need to ALLOW or open containers upon internal networking ports--similar to the concept of port forwarding.  You can do this by adding the ```-p``` flag and then a port mapping such as ```80:80``` which will tell Docker to send requests on port 80 to port 80 inside the container.
 
