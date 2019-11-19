@@ -16,6 +16,10 @@
 
 At the conclusion of this chapter you will have gained an understanding of how non-trivial applications are created, maintained, and securely deployed using Operating System Containers.  You will have learned the basic differences and advantages of OS Containers and Virtual Machines and will be able to use industry standard tools that demonstrate these concepts.
 
+## Changing the Way We Think About Abstractions
+
+Through this book we have studied about computing philosophy, technology, and computing paradigms.  In the last chapters we are going to look at a new way, a new abstraction in computing that began in 2013.  This is a paradigm with accompanying and as anything new, it changes rapidly.  The reason we put this in an introduction text book is to expose you to these tools and add them to your own toolbox. You may go to work at companies where they don't use certain technologies.  You may work at places that are cutting edge; the important thing to remember is: whatever you use, it is essentially a tool to help you complete your job.  Some tools work better than others to get jobs done.  
+
 ## Operating System Containers and Virtual Machines
 
 In the class so far, we have made extensive use of virtual machines.  This technology greatly reduced our need for physical lab space or extra computers.  If we want to test installing an Apache Webserver or Nginx or even FreeBSD, we can do so using a virtual machine.  We can use Packer and Vagrant to automate the creation of our virtual machines.  This is is a huge advantage when we look at things operationally.  But IT operations doesn't just run servers alone, they run **applications** which are the lifeblood of any business.  When we look at virtual machines from an application point of view we begin to see some redundancies.  For instance, I can launch multiple Linux virtual machines with the push of a button.  But consider this, each operating system has virtualized hardware drivers, kernel, BIOS, even a virtual floppy disk driver.  
