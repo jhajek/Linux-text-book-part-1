@@ -49,6 +49,7 @@ This point of view, in which OS Containers were posited as a cost reduction meth
 [Docker](https://docker.io "Docker") showed that OS Containers were essentially a developer deployment tool and a way to make a portable "binary" of your application.  We can install Docker on any Linux based operating system.  Let's try this on an Ubuntu 18.04 system.  This shell script can be found in the source code directory for the textbook under: files > Chapter-14 > install-docker.sh.
 
 ```bash
+#!/bin/bash
 # Bash Script to install docker-ce from URL
 
 sudo apt-get update
