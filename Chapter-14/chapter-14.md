@@ -78,9 +78,17 @@ What can you do with docker?  The [commandline reference](https://docs.docker.co
 
 From the commandline I can issue the command: ```docker pull ubuntu```.  This will go the the Docker registry, not unlike the Vagrant Box registry, and pull an Ubuntu 18.04 container (~35mb) to your system.  Try it and see what happens.
 
-You can now list the Ubuntu container image by issuing the ```docker images``` command.  When you do, what do you see?  Try to pull someother containers.  Try ```docker pull mysql```, or ```docker pull alpine```, or ```docker pull jenkins```.  What happens?  There is an entire public container registry with commonly installed applications.  These are good for exploration and experimenting but not wise to use in a production system.  URL HERE.
+Let us try to pull some other containers, this time containing an application:
 
-Now we see these items listed by issuing the command: ```docker images```, but how to interact with them?  We issue the command: ```docker run```.  The entire ```docker run``` documentation is explained [https://docs.docker.com/engine/reference/commandline/run/#examples](https://docs.docker.com/engine/reference/commandline/run/#examples "Docker run documentation"). There are two ways to run containers.  They can be run as a background process accessible over the network or the can be run with an interactive remote shell.  For those downloading basic Ubuntu containers this will be the best option as you can then experiment to get your application exactly the way you want it to look.  
+* `sudo docker pull nginx`
+* `sudo docker pull node`
+* `sudo docker pull jekyll/jekyll`
+* `sudo docker pull gatsbyjs/gatsby`
+* `sudo docker pull wordpress`
+
+You can now list the container images by issuing the ```docker images``` command.  When you do, what do you see?  Try to pull someother containers.  Try ```docker pull mysql```, or ```docker pull alpine```, or ```docker pull jenkins```.  What happens?  How to interact with them?  
+
+We issue the command: ```docker run```.  The entire ```docker run``` documentation is explained [https://docs.docker.com/engine/reference/commandline/run/#examples](https://docs.docker.com/engine/reference/commandline/run/#examples "Docker run documentation"). There are two ways to run containers.  They can be run as a background process accessible over the network or the can be run with an interactive remote shell.  This leads to a concept of [immutable infrastructure](https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure "Digital Ocean article explaining immutable infrastructure"). Generally a Docker container will be created and run without manual intervention, but we will show you how you can login and modify a container to learn about how containers work.  
 
 Let's run the command: ```docker run --name my-apache-server -it ubuntu```.  What happens?  Type the command: ```docker ps``` and note that this screen shows us the running container instances.  The ```--name``` flag allows us to give us a reference name for this instance of the container.  The ```-i``` flag allows us to have an interactive shell and the ```-t``` gives us a psuedo-TTY; or a terminal.  Note that this is a root shell and you can pass commands remotely wihtout needing an interactive shell.  Simple remove the ```-i -t or -it``` flags.
 
