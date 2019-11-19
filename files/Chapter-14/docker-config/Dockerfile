@@ -1,3 +1,5 @@
+# TZ and DEBIAN_FRONTEND ENV vars set due to Ubuntu needing this
+# https://serverfault.com/questions/949991/how-to-install-tzdata-on-a-ubuntu-docker-image
 FROM ubuntu:latest
 LABEL Jeremy Hajek <hajek@iit.edu>
 VOLUME ./code/helloworld:/var/www/html
