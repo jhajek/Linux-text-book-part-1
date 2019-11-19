@@ -102,14 +102,14 @@ These are the supported commands in a Dockerfile, which is always capital by def
 
 Header                         Description of header  
 -------------     --------------------------------------------------------------------------------------------------------
-CMD                There is only one CMD. Used to execute or start a service.  Containers do not have systemd.
-COPY               Copies code from a local file system into a container 
-ENV                Used for setting ENV variables or passing in credentials
-EXPOSE             Expose ports via port forwarding to other containers internally only
-FROM               Which base Docker Hub container to pull and work from
-LABEL              This is a way to label your containers
-VOLUME             Creates a mount point with the specified name and holds externally mounted volumes from native hosts
-WORKDIR            Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions.
+CMD               There is only one CMD. Used to execute or start a service.  Containers do not have systemd.
+COPY              Copies code from a local file system into a container 
+ENV               Used for setting ENV variables or passing in credentials
+EXPOSE            Expose ports via port forwarding to other containers internally only
+FROM              Which base Docker Hub container to pull and work from
+LABEL             This is a way to label your containers
+VOLUME            Creates a mount point and holds externally mounted volumes from native hosts
+WORKDIR           Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions.
 
 ```yaml
 FROM node:12.2.0-stretch
@@ -122,9 +122,10 @@ COPY ./src/ /app
 
 Now how to we get the website to render?  You will notice that one of the advantages of a Virtual Machine is that each VM has its own networking stack and this makes the abstraction easy to grasp.  In the case of OS Containers, there is only one networking stack, so we need to ALLOW or open containers upon internal networking ports--similar to the concept of port forwarding.  You can do this by adding the ```-p``` flag and then a port mapping such as ```80:80``` which will tell Docker to send requests on port 80 to port 80 inside the container or that can be defined in the Dockerfile.
 
-The final command would be to execute this command in the directory where the Dockerfile resides:
+There are two commands to run:  `docker build .` to build the custom image and `docker run` to run an instance from the custom image. These commands should be executed in the directory where the `Dockerfile` resides:
 
-`sudo docker run`
+`sudo docker build .`
+`sudo docker run -d --name apache-webserver`
 
 ### Developing and Deploying Applications
 
