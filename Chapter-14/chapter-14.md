@@ -131,6 +131,7 @@ The final command would be to execute this command in the directory where the Do
 * VuePress
 * GatsbyJS
 * Jekyll
+* Vault
 
 ## Chapter Conclusions and Review
 
