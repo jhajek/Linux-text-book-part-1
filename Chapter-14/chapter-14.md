@@ -96,7 +96,20 @@ If this were a virtual machine, we would begin to install our application infras
 
 The question about containers becomes, since it is an OS abstraction, how to we deal with disk and permanent storage.  This is one of the key points of this abstraction.  Docker is not meant to deal with *state*.  Meaning you can mount external disk into the container.  This is one way to get code or data preconfigured into the container.  You would not clone your code into the container, but clone it to the local system and then mount that folder into the Docker Container.  This way you can pull new code anytime without having to rebuild your container.  This has advantages of not having to have extra package dependencies for Git inside of your container, thereby reducing the size of the container and the speed in which it can be deployed.
 
-Here is a sample dockerfile and the [reference page](https://docs.docker.com/engine/reference/builder/ "dockerfile reference page"), which can be found in: files > Week-14 > dockerfile:
+Here is a sample Dockerfile and the [reference page](https://docs.docker.com/engine/reference/builder/ "Dockerfile reference page"), which can be found in: files > Week-14 > Dockerfile:
+
+These are the supported commands in a Dockerfile, which is always capital by default.
+
+Header                         Description of header  
+-------------     --------------------------------------------------------------------------------------------------------
+CMD                There is only one CMD. Used to execute or start a service.  Containers do not have systemd.
+COPY               Copies code from a local file system into a container 
+ENV                Used for setting ENV variables or passing in credentials
+EXPOSE             Expose ports via port forwarding to other containers internally only
+FROM               Which base Docker Hub container to pull and work from
+LABEL              This is a way to label your containers
+VOLUME             Creates a mount point with the specified name and holds externally mounted volumes from native hosts
+WORKDIR            Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions.
 
 ```yaml
 FROM node:12.2.0-stretch
