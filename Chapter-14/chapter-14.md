@@ -120,7 +120,11 @@ RUN npm install
 COPY ./src/ /app
 ```
 
-Now how to we get the website to render?  You will notice that one of the advantages of a Virtual Machine is that each VM has its own networking stack and this makes the abstraction easy to grasp.  In the case of OS Containers, there is only one networking stack, so we need to ALLOW or open containers upon internal networking ports--similar to the concept of port forwarding.  You can do this by adding the ```-p``` flag and then a port mapping such as ```80:80``` which will tell Docker to send requests on port 80 to port 80 inside the container.
+Now how to we get the website to render?  You will notice that one of the advantages of a Virtual Machine is that each VM has its own networking stack and this makes the abstraction easy to grasp.  In the case of OS Containers, there is only one networking stack, so we need to ALLOW or open containers upon internal networking ports--similar to the concept of port forwarding.  You can do this by adding the ```-p``` flag and then a port mapping such as ```80:80``` which will tell Docker to send requests on port 80 to port 80 inside the container or that can be defined in the Dockerfile.
+
+The final command would be to execute this command in the directory where the Dockerfile resides:
+
+`sudo docker run`
 
 ### Developing and Deploying Applications
 
