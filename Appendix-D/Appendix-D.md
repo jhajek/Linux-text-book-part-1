@@ -90,20 +90,24 @@ export JAVA_HOME=/usr
 export HADOOP_HOME=/home/vagrant/hadoop-2.6.5
 export HADOOP_CLASSPATH=/usr/lib/jvm/java-8-oracle/lib/tools.jar
 EOT
-
 ```
 
-See the webserver and database tutorial for the manual install steps of this project.  It is a PDF located at: ```files/Appendix-D/webserver-database-tutorial.pdf``` directory included in the source code of the book.
+```bash
+# This is sample code to add to a provisioner script that will pre-seed the password for a database.
+export DEBIAN_FRONTEND=noninteractive
+echo "mariadb-server mysql-server/root_password password $DBPASS" | sudo  debconf-set-selections
+echo "mariadb-server mysql-server/root_password_again password $DBPASS" | sudo debconf-set-selections
+```
 
-Sample code is located [https://github.com/jhajek/packer-vagrant-build-scripts](https://github.com/jhajek/packer-vagrant-build-scripts "sample code").  In the directory ```packer``` > ```vanilla-install```.  There are two packer build templates:
+Sample code is located in files > Appendix-D > packer-scripts. There are two packer build templates:
 
 * ```centos-7-vanilla-multi-disks.json```
 * ```ubuntu18041-vanilla-multi-drives.json```
 
-These have the code needed for attaching additional disks at boot time via packer.  The pressed and ks directories are needed to make the ```packer build``` commands to work.  In addition, the ```post-processor``` shell scripts are in the directory ```scripts``` you can use the ```post_install_vagrant.sh``` and the script ```post_install_vagrat-centos-7.sh``` for post-install customization via shell script.
+These have the code needed for attaching additional disks at boot time via packer.  The pressed and ks directories are needed to make the ```packer build``` commands to work.  In addition, the ```post-processor``` shell scripts are in the directory ```../scripts``` you can use the ```post_install_vagrant.sh``` and the script ```post_install_vagrat-centos-7.sh``` for post-install customization via shell script.
 
 ## Deliverable
 
-Create a folder in your private Github repo named **final-project** submit all Packer build scripts, preseed/kickstarts, and shell scripts needed to run and build this application.  Include a Readme.md with a screenshot that matches this screenshot and list any additional instructions or notes.
+Create a folder in your private GitHub repo named **final-project** submit all Packer build scripts, preseed/kickstarts, and shell scripts needed to run and build this application.  Include a Readme.md with a screenshot that matches this screenshot and list any additional instructions or notes.
 
 ![*Final Project Output*](images/Appendix-D/output/final-results.png "Final Project Result")
