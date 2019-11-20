@@ -1,16 +1,11 @@
-CREATE DATABASE IF NOT EXISTS store; 
+CREATE DATABASE IF NOT EXISTS comments; 
 
-USE store;
+USE comments;
 
-CREATE TABLE IF NOT EXISTS items  
+CREATE TABLE comment 
 (
-    id INT NOT NULL AUTO_INCREMENT,
-    email VARCHAR(200) NOT NULL,
-    phone VARCHAR(20) NOT NULL,
-    filename VARCHAR(255) NOT NULL,
-    s3rawurl VARCHAR(255) NOT NULL,
-    s3finishedurl VARCHAR(255) NOT NULL,
-    status INT NOT NULL,
-    issubscribed INT NOT NULL,
-    PRIMARY KEY(id)
+ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+PosterName VARCHAR(32),
+Title VARCHAR(32),
+Content VARCHAR(500)
 );

@@ -1,7 +1,3 @@
-USE store; 
+Use comments;
 
-INSERT INTO items (id, email, phone, filename, s3rawurl, s3finishedurl, status, issubscribed) 
-VALUES 
-(0,"you@hawk.iit.edu","312-555-5678","bestfile.ever","http://raw.example.com","http://finished.example.com",0,0),
-(0,"me@hawk.iit.edu","312-555-5677","bestestfile.ever","http://raw.company.com","http://finished.company.com",0,0),
-(0,"bobbymcgee@hawk.iit.edu","312-555-5679","okfile.ever","http://raw.freedom.com","http://finished.freedom.com",0,0);
+INSERT INTO comment (id, Title, PosterName, Content) Values (0,"New Idea","Abraham Lincoln","Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal."),(0,"Someone is wrong on the internet","Annie Mouse","https://www.xkcd.com/386/"),(0,"Presidential Quote","President James Madison","If men were angels, no government would be necessary");
