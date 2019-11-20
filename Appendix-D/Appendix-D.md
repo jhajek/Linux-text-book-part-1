@@ -64,14 +64,17 @@ The Webserver will have:
   * Enable and start the Webserver Service
 * Attach two additional virtual disks
 * Format and create a mount point called ```/mnt/disk2``` and ```/mnt/disk3``` using LVM and XFS
-  * create an LVM volume PVs, VG, and LGs and a single LG with XFS on this volume.
+  * Create an LVM volume PVs, VG, and LGs and a single LG with XFS on this volume.
   * Using the sample in chapter 11, create a systemd .mount file to mount this partition at boot time
   * You will need to install the proper package to use XFS
 
+#### Final Demonstration
+
+Upon successful automated completion, open the webpage in a browser on your host system, display the 3 entries, now add one more quote from yourself and successfully post it to demonstrate mastery of the technology and concepts.
+
 #### Optional Extra Project Components
 
-* Consul and service discovery
-* Adding HTTP/2 to the webbrowser support
+* Adding HTTP/2 to the web browser support
 * Using a NoSQL Database instead of MySQL/MariaDB
 
 #### Notes
