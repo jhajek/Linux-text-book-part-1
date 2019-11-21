@@ -775,6 +775,8 @@ For our convenience, Packer has direct integration with Vault.  Once Vault is in
   }
   ```
 
+Packer provides the ability to execute inline Linux commands.  
+
 ### IT Orchestration
 
 In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to see a world of automation opening up to us.  In a sense these technologies are the culmination of the Unix concepts of small tools doing one things--or shell scripts on steroids, so to speak.  Each of these technologies is beyond the scope of this book, but here are some podcasts and links to learn more about them.

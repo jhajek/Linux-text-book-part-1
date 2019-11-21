@@ -36,13 +36,12 @@ The database server will have:
 * Preseed the contents of the root password in a ```~/.my.cnf``` file to use later in running database CREATE and INSERT scripts
 * A second and third hard drive partition attached will be attached at creation time
 * Create a zpool called **datapool** across /dev/sdb and /dev/sdc
-  * Mount this zpool to ```/mnt/datadisk``` and change permissions and ownership so that user **vagrant** owns it
-  * Add an entry for this disk to ```/etc/fstab``` to be mounted at boot time
-* Modify the default location of the MySQL database to be on the ```/mnt/datadisk``` location
+  * Change permissions and ownership of `/datapool` so that user **vagrant** owns it
+* Modify the default location of the MySQL database to be on ```/datapool```
 * Modify the default setting to allow MySQL to listen on external connections
 * Create a zpool snapshot
 * Enable mysql to start at boot and start the mysql service
-* Find the 3 sample SQL files in the source code for the text.  In files > Appendix-D.  Copy these files into your Git repo and make the changes needed in the code relating to the FQDNs for database connections. (The database connection rules have the wrong IPs).
+* Find the 3 sample SQL files in the source code for the text.  In files > Appendix-D > sql.  Copy these files into your Git repo and make the changes needed in the code relating to the FQDNs for database connections. (The database connection rules have the wrong IPs).
 * Run from the mysql prompt the create.sql, insert.sql, grants.sql
 * Enable firewall (firewalld or ufw)
   * Open Firewall port connection to 3306 for only the webserver's IP
