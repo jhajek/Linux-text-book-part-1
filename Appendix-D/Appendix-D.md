@@ -10,7 +10,7 @@ This Appendix lists the final project that applies all of the learned concepts a
 * Understand how to install software via shell script
 * Understand how to preseed values for using MySQL database
 * Understand and display knowledge of configuring the firewall service
-* Understand how to create and disk partitions, create filesystems, and mount those partitions
+* Understand how to create disk partitions, create filesystems, and mount those partitions at boot
 
 ## Outcomes
 
@@ -42,7 +42,7 @@ The database server will have:
 * Create a zpool snapshot
 * Enable mysql to start at boot and start the mysql service
 * Find the 3 sample SQL files in the source code for the text.  In files > Appendix-D > sql.  Copy these files into your Git repo and make the changes needed in the code relating to the FQDNs for database connections. (The database connection rules have the wrong IPs).
-* Run from the mysql prompt the create.sql, insert.sql, grants.sql
+* Run from the MySQL prompt the create.sql, insert.sql, create-user-with-grants.sql
 * Enable firewall (firewalld or ufw)
   * Open Firewall port connection to 3306 for only the webserver's IP
   * Open Firewall port to allow connections for SSH on port 22 from any IP
