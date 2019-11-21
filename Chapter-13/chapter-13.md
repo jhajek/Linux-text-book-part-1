@@ -677,7 +677,7 @@ All Debian based distros have a configuration database called `DEBCONF`.  This c
 # This is sample code to add to a provisioner
 # script that will pre-seed the password for a database.
 export DEBIAN_FRONTEND=noninteractive
-FRISTPASS="mariadb-server mysql-server/root_password password ilovebunnies"
+FIRSTPASS="mariadb-server mysql-server/root_password password ilovebunnies"
 SECONDPASS="mariadb-server mysql-server/root_password_again password ilovebunnies"
 echo $FIRSTPASS | sudo debconf-set-selections
 echo $SECONDPASS | sudo debconf-set-selections
@@ -690,7 +690,7 @@ This example will set the answer to the root password prompt for MariaDB and or 
 export $DBPASS="ilovebunnies"
 # run this in a shell script
 export DEBIAN_FRONTEND=noninteractive
-FRISTPASS="mariadb-server mysql-server/root_password password $DBPASS"
+FIRSTPASS="mariadb-server mysql-server/root_password password $DBPASS"
 SECONDPASS="mariadb-server mysql-server/root_password_again password $DBPASS"
 
 echo $FIRSTPASS | sudo debconf-set-selections
@@ -735,11 +735,11 @@ packer build --var-file=./variables.json ubuntu18043-vanilla-multi-drives.json
 }
 ```
 
-There is a consideration here, if you add values to `variables.json` they will still be pushed to your Git repo and you will have the same problem.  When you need to do is create a template.  Essentially the file, `variables-sample.json` is just that a template to show you what values you can enter.  You can copy the file, change the name to `variables.json` for instance.  Then in your Git repo, add an entry to the `.gitignore`.  This file in the root of your Git repo will ignore all files you tell it to.  This way you can distribute your template for secrets and passwords, but now you can retain a local copy that will be exposed via Git. Sample files are provided in the files > Appendix-D > packer-config folder.
+There is a consideration here, if you add values to `variables.json` they will still be pushed to your Git repo and you will have the same problem.  When you need to do is create a template.  Essentially the file, `variables-sample.json` is just that a template to show you what values you can enter.  You can copy the file, change the name to `variables.json` for instance.  Then in your Git repo, add an entry to the `.gitignore`.  This file in the root of your Git repo will ignore all files you tell it to.  This way you can distribute your template for secrets and passwords, but now you can retain a local copy that will be exposed via Git. Sample files are provided in the files > Appendix-D > packer-scripts folder.
 
-### Secrets Management
+### How to Manage Secrets
 
-But what happens when your secrets need to be managed by multiple people across a large enterprise, or even a large cloud enterprise?  There is an opensource and enterprise grade product from [HashiCorp called Vault](https://www.vaultproject.io/ "Hashi Corp Vault webpage").  It does what is says, essentially cryptographically storing all the secrets you enter into a *vault*, then delegating access to these secrets via API (over HTTP) allowing for the implementation of policy and identity relating to accessing these secrets.  The *vault* can then be attached or mounted into any system and each developer can access their secrets. Vaults use cases are as follows"
+But what happens when your secrets need to be managed by multiple people across a large enterprise, or even a large cloud enterprise?  There is an opensource and enterprise grade product from [HashiCorp called Vault](https://www.vaultproject.io/ "HashiCorp Vault webpage").  It does what is says, essentially cryptographically storing all the secrets you enter into a *vault*, then delegating access to these secrets via API (over HTTP) allowing for the implementation of policy and identity relating to accessing these secrets.  The *vault* can then be attached or mounted into any system and each developer can access their secrets. Vaults use cases are as follows"
 
 Vault tightly controls access to secrets and encryption keys by authenticating against trusted sources of identity such as Active Directory, LDAP, Kubernetes, CloudFoundry, and cloud platforms. Vault enables fine grained authorization of which users and applications are permitted access to secrets and keys.  Vault can be integrated with other platforms as well, Active Directory, AWS IAM profile management, and other platforms.
 
