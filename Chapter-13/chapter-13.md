@@ -8,6 +8,7 @@
   * Vagrant
   * Packer
   * Automation tools
+  * Secret Management
 
 ## Outcomes
 
@@ -56,12 +57,12 @@ When executing the `vagrant box` command from the command line (in Windows recom
 : `vagrant box` commands
 
 -----------------
-  ```add```
-  ```list```
+   ```add```
+   ```list```
   ```remove```  
   ```outdated```
   ```repackage```
-   ```update```
+  ```update```
 -----------------
 
 #### vagrant box add
@@ -646,6 +647,52 @@ vagrant up
 vagrant ssh
 
 ```
+
+## Secret Management
+
+One of the hardest parts of building software applications is managing **secrets**.  Secrets can be anything from a username and a password, a token, or even keys from cloud services.  The important part is that they are important.  If you loose these secrets it could mean the end to a company.  You also have to worry about invalidating them.  If a person leaves, or rotates job, you don't want credentials to walk out the door with you.  Also managing these secrets not just for security but for automation is also a critical part of the infrastructure.
+
+In Linux Distros as well as Packer there are methods for dealing with secrets.  The first obvious example how to we *seed* a root password for a MySQL server?  If you install it, there is always a password prompt?  This precludes you from automating the install.
+
+All Debian based distros have a configuration database called `DEBCONF`.  This can be used to preseed and answers you may have to installation questions that come via `apt-get`.  Here is an example:
+
+```bash
+
+export DEBIAN_FRONTEND=noninteractive
+echo "mariadb-server mysql-server/root_password password ilovebunnies" | sudo  debconf-set-selections
+echo "mariadb-server mysql-server/root_password_again password ilovebunnies" | sudo debconf-set-selections
+```
+
+This example will set the answer to the root password prompt for MariaDB and or MySQL.  In the above code the password is *ilovebunnies*.  This is an automation improvement, but a security nightmare, as now our **root** password is hardcoded into our code and will then be placed in our GitHub repo for all to see.  We can mitigate this by using ENV variables like this:
+
+```bash
+# run this on the command line and the value will be exported to all shells (or set this in your .bashrc)
+export $DBPASS="ilovebunnies"
+# run this in a shell script
+export DEBIAN_FRONTEND=noninteractive
+echo "mariadb-server mysql-server/root_password password $DBPASS" | sudo  debconf-set-selections
+echo "mariadb-server mysql-server/root_password_again password $DBPASS" | sudo debconf-set-selections
+```
+
+This is better but not the best as others on the system or any code that can read ENV variables can now read the password.  Packer has a way to pass ENV variables from a config file.  This is similar to how WordPress is configured.   Adding these lines of code to your Provisioner in your Packer build template allows this:
+
+```json
+    {
+    "type": "shell",
+  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+    "script": "../scripts/post_install_itmt430-github-db.sh",
+    "environment_vars": [ 
+      "DBPASS={{user `database-root-password`}}",
+      "USERPASS={{user `database-user-password`}}",
+      "ACCESSFROMIP={{user `database-access-from-ip`}}",
+      "DATABASEIP={{user `database-ip`}}",
+      "DATABASENAME={{user `database-name`}}",
+      "DATABASEUSERNAME={{user `database-user-name`}}"
+    ]
+  }
+```
+
+
 
 ### IT Orchestration
 
