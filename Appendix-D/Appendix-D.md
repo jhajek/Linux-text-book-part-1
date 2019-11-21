@@ -47,6 +47,7 @@ The database server will have:
 * Enable firewall (firewalld or ufw)
   * Open Firewall port connection to 3306 for only the webserver's IP
   * Open Firewall port to allow connections for SSH on port 22 from any IP
+* Choose one of the Secrets Management methods discussed in Chapter 13.
 
 ### Part 2 Using CentOS 7
 
@@ -67,6 +68,7 @@ The Webserver will have:
   * Create an LVM volume PVs, VG, and LGs and a single LG with XFS on this volume.
   * Using the sample in chapter 11, create a systemd .mount file to mount this partition at boot time
   * You will need to install the proper package to use XFS
+* Choose one of the Secrets Management methods discussed in Chapter 13.
 
 #### Final Demonstration
 

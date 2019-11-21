@@ -8,8 +8,8 @@
   * Vagrant
   * Packer
   * Automation tools
-  * Secret Management
-
+  * Secrets Management
+  
 ## Outcomes
 
 At the conclusion of this chapter you will have a basic understanding of how to use infrastructure automation and orchestration tools.  You will be familiar and able to explain the concept of immutable infrastructure and will be able to use Linux commands for enabling cloud native development technologies.
@@ -493,6 +493,23 @@ echo "All Done!"
 
 ```
 
+Provisioners allow you to have multiple provision scripts.  Some people like to split functionality over multiple shell scripts or use multiple methods.  The `shell` provisioner also has the capability to execute inline Linux commands, incase you need to setup some internal structure.  Also you can use this method to copy code into the Virtual Machine you are created.  If you clone a Git repo to your local system, you can copy that application code directly into your virtual machine as Packer is building it.
+
+```json
+    {
+      "type": "shell",
+      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+      "inline": [
+        "mkdir -p /home/vagrant/.ssh",
+        "mkdir -p /root/.ssh",
+        "chmod 600 /home/vagrant/id_rsa_github_deploy_key",
+        "cp -v /home/vagrant/id_rsa_github_deploy_key /home/vagrant/.ssh/",
+        "cp -v ./applicaiton-code/html /var/www/html/",
+        "cp -v ./mysql/.my.cnf /home/vagrant",
+      ]
+    }
+```
+
 #### Post-Processors
 
 Packer has the ability to build a virtual machine or OS Container once and export it to many different types of platforms in a single execution stretch.  The initial artifact can be exported and converted across all of the formats listed below.  Therein lies the power of Packer as you can deploy your production environment to any platform for any person: Dev, QA, Test, Ops, Sec, and so forth.
@@ -722,7 +739,7 @@ Vault tightly controls access to secrets and encryption keys by authenticating a
 
 #### Vault Integration With Packer
 
-For our convenience, Packer has direct integration with Vault.  Once Vault is installed an setup on your [local system](https://www.vaultproject.io/docs/install/index.html "Install Vault") for instance
+For our convenience, Packer has direct integration with Vault.  Once Vault is installed an setup on your [local system](https://www.vaultproject.io/docs/install/index.html "Install Vault") for instance by running the Vault agent you can simply read your secrets in the Packer Build Template, without the secret ever being seen by a person.  There is more to say on this, but the reason we introduce it here is so that you can be exposed to safe practices from the beginning as well as deal with one of the major problems in IT, which is Secrets Management.
 
 ```json
 {

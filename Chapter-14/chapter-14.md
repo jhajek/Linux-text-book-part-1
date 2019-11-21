@@ -1,16 +1,16 @@
-# OS Containers, Secret Management, and Applications
+# OS Containers and Applications
 
 ![*Creating technology to support technology.*](images/Chapter-Header/Chapter-14/tech_loops-2.png "Tech Loops")
 
 ## Objectives
 
-* OS Containers
+* Learn about the history of OS Containers
   * [Docker](https://docker.com "Docker website")
-* Application Deployment in Containers
+* Learn how to install and deploy OS containers
+* Learn how to deploy applications in containers
   * [VuePress](https://vuepress.vuejs.org/ "Vuepress website")
   * [Gatsby](https://www.gatsbyjs.org/ "GatsbyJS website")
   * [Jekyll](https://jekyllrb.com/ "jekyllrb website")
-  * [Vault](https://www.vaultproject.io/ "Vault Website")
 
 ## Outcomes
 
