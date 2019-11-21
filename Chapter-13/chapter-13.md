@@ -556,7 +556,7 @@ You can use multiple post-processors if desired.
 
 #### vboxmanage
 
-This command allows you to issue custom VirtualBox commands from within Packer. This is helpful for modifying hardware, such as number of CPUs and memory allocated during the install.  Also you can modify the number of attached disks progrmatically. 
+This command allows you to issue custom VirtualBox commands from within Packer. This is helpful for modifying hardware, such as number of CPUs and memory allocated during the install.  Also you can modify the number of attached disks programaticly.
 
 ```json
 
@@ -600,7 +600,7 @@ Execute this command to see if you get a version output.  If this command throws
 
 **Command:**  ```packer validate```
 
-This command will check the syntax of your `*.json` packer template for syntax errors or missing brackets.  It will not check logic but just syntax.  Good idea to run it to make sure everything is in order.  Using the samples provided in the Github repo you can validate the *.JSON template with this command:
+This command will check the syntax of your `*.json` packer template for syntax errors or missing brackets.  It will not check logic but just syntax.  Good idea to run it to make sure everything is in order.  Using the samples provided in the GitHub repo you can validate the *.JSON template with this command:
 
 ![*Output of packer validate*](images/Chapter-13/packer/validate.png "Output of packer validate")
 
@@ -665,7 +665,7 @@ vagrant ssh
 
 ```
 
-## Secret Management
+## Secrets Management
 
 One of the hardest parts of building software applications is managing **secrets**.  Secrets can be anything from a username and a password, a token, or even keys from cloud services.  The important part is that they are important.  If you loose these secrets it could mean the end to a company.  You also have to worry about invalidating them.  If a person leaves, or rotates job, you don't want credentials to walk out the door with you.  Also managing these secrets not just for security but for automation is also a critical part of the infrastructure.
 
@@ -674,10 +674,13 @@ In Linux Distros as well as Packer there are methods for dealing with secrets.  
 All Debian based distros have a configuration database called `DEBCONF`.  This can be used to preseed and answers you may have to installation questions that come via `apt-get`.  Here is an example:
 
 ```bash
-
+# This is sample code to add to a provisioner
+# script that will pre-seed the password for a database.
 export DEBIAN_FRONTEND=noninteractive
-echo "mariadb-server mysql-server/root_password password ilovebunnies" | sudo  debconf-set-selections
-echo "mariadb-server mysql-server/root_password_again password ilovebunnies" | sudo debconf-set-selections
+FRISTPASS="mariadb-server mysql-server/root_password password ilovebunnies"
+SECONDPASS="mariadb-server mysql-server/root_password_again password ilovebunnies"
+echo $FIRSTPASS | sudo debconf-set-selections
+echo $SECONDPASS | sudo debconf-set-selections
 ```
 
 This example will set the answer to the root password prompt for MariaDB and or MySQL.  In the above code the password is *ilovebunnies*.  This is an automation improvement, but a security nightmare, as now our **root** password is hardcoded into our code and will then be placed in our GitHub repo for all to see.  We can mitigate this by using ENV variables like this:
@@ -687,8 +690,11 @@ This example will set the answer to the root password prompt for MariaDB and or 
 export $DBPASS="ilovebunnies"
 # run this in a shell script
 export DEBIAN_FRONTEND=noninteractive
-echo "mariadb-server mysql-server/root_password password $DBPASS" | sudo  debconf-set-selections
-echo "mariadb-server mysql-server/root_password_again password $DBPASS" | sudo debconf-set-selections
+FRISTPASS="mariadb-server mysql-server/root_password password $DBPASS"
+SECONDPASS="mariadb-server mysql-server/root_password_again password $DBPASS"
+
+echo $FIRSTPASS | sudo debconf-set-selections
+echo $SECONDPASS | sudo debconf-set-selections
 ```
 
 This is better but not the best as others on the system or any code that can read ENV variables can now read the password.  Packer has a way to pass ENV variables from a config file.  This is similar to how WordPress is configured.   Adding these lines of code to your Provisioner in your Packer build template allows this:

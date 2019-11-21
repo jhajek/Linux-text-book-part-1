@@ -100,7 +100,7 @@ EOT
 export DEBIAN_FRONTEND=noninteractive
 FRISTPASS="mariadb-server mysql-server/root_password password $DBPASS"
 SECONDPASS="mariadb-server mysql-server/root_password_again password $DBPASS"
-echo $FIRSTPASS | sudo  debconf-set-selections
+echo $FIRSTPASS | sudo debconf-set-selections
 echo $SECONDPASS | sudo debconf-set-selections
 ```
 
