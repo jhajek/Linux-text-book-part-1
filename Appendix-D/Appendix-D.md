@@ -95,10 +95,13 @@ EOT
 ```
 
 ```bash
-# This is sample code to add to a provisioner script that will pre-seed the password for a database.
+# This is sample code to add to a provisioner
+# script that will pre-seed the password for a database.
 export DEBIAN_FRONTEND=noninteractive
-echo "mariadb-server mysql-server/root_password password $DBPASS" | sudo  debconf-set-selections
-echo "mariadb-server mysql-server/root_password_again password $DBPASS" | sudo debconf-set-selections
+FRISTPASS="mariadb-server mysql-server/root_password password $DBPASS"
+SECONDPASS="mariadb-server mysql-server/root_password_again password $DBPASS"
+echo $FIRSTPASS | sudo  debconf-set-selections
+echo $SECONDPASS | sudo debconf-set-selections
 ```
 
 Sample code is located in files > Appendix-D > packer-scripts. There are two packer build templates:
