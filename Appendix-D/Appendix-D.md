@@ -41,7 +41,7 @@ The database server will have:
 * Modify the default setting to allow MySQL to listen on external connections
 * Create a zpool snapshot
 * Enable mysql to start at boot and start the mysql service
-* Find the 3 sample SQL files in the source code for the text.  In files > Appendix-D > sql.  Copy these files into your Git repo and make the changes needed in the code relating to the FQDNs for database connections. (The database connection rules have the wrong IPs).
+* Find the 3 sample SQL files in the source code for the text.  In files > Appendix-D > sql.  Copy these files into your Git repo and make the changes needed in the code relating to the FQDNs for database connections. (The database connection rules have the wrong IPs you need to adjust these).
 * Run from the MySQL prompt the create.sql, insert.sql, create-user-with-grants.sql
 * Enable firewall (firewalld or ufw)
   * Open Firewall port connection to 3306 for only the webserver's IP
@@ -64,7 +64,7 @@ The Webserver will have:
   * Enable and start the Webserver Service
 * Attach two additional virtual disks
 * Format and create a mount point called ```/mnt/disk2``` and ```/mnt/disk3``` using LVM and XFS
-  * Create an LVM volume PVs, VG, and LGs and a single LG with XFS on this volume.
+  * Create an LVM volume: PVs, VG, and LGs and a single LG and format with XFS on this logical volume.
   * Using the sample in chapter 11, create a systemd .mount file to mount this partition at boot time
   * You will need to install the proper package to use XFS
 * Choose one of the Secrets Management methods discussed in Chapter 13.

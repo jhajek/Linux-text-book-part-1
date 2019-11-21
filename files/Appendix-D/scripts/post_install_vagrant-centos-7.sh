@@ -29,15 +29,4 @@ sudo chown -R vagrant:vagrant /home/vagrant/.ssh/authorized_keys
 # Add customization here
 #########################
 
-# Install Elrepo - The Community Enterprise Linux Repository (ELRepo)
-# https://wiki.centos.org/AdditionalResources/Repositories
-sudo yum install -y epel-release 
 
-# Install base dependencies -  Centos 7 mininal needs the EPEL repo in the line above and the package daemonize
-sudo yum update -y
-sudo yum install -y wget unzip vim git python-setuptools curl
-# Due to needing a tty to run sudo, this install command adds all the pre-reqs to build the virtualbox additions
-sudo yum install -y kernel-devel-`uname -r` gcc binutils make perl bzip2
-
-
-echo "All Done!"
