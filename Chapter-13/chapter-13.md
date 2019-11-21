@@ -775,7 +775,19 @@ For our convenience, Packer has direct integration with Vault.  Once Vault is in
   }
   ```
 
-Packer provides the ability to execute inline Linux commands.  
+Packer provides the ability to execute inline Linux commands.  This would be useful for instance in copying code from a Git repo into a Virtual Machine via making an SCP (Secure Copy) connection.
+
+```json
+    {
+      "type": "shell",
+      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "inline": [
+        "mkdir -p /var/www/html",
+        "cp -v ../github-repo/php /var/www/html",
+        "cp -v ../github-repo/sql /home/vagrant/",
+      ]
+    }
+```
 
 ### IT Orchestration
 
