@@ -681,7 +681,7 @@ This is better but not the best as others on the system or any code that can rea
     "type": "shell",
   "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
     "script": "../scripts/post_install_itmt430-github-db.sh",
-    "environment_vars": [ 
+    "environment_vars": [
       "DBPASS={{user `database-root-password`}}",
       "USERPASS={{user `database-user-password`}}",
       "ACCESSFROMIP={{user `database-access-from-ip`}}",
@@ -692,7 +692,65 @@ This is better but not the best as others on the system or any code that can rea
   }
 ```
 
+Packer has the ability to set ENV variables upon install.  From the command line you pass an additional `--var-file=` command and Packer will load values from that file.
 
+```bash
+
+packer build --var-file=./variables.json ubuntu18043-vanilla-multi-drives.json
+
+```
+
+```json
+{
+    "database-root-password": "foo",
+    "database-user-password": "bar",
+    "database-access-from-ip": "127.0.0.1",
+    "database-ip": "127.0.0.1",
+    "webserver-ip": "127.0.0.1",
+    "database-name": "namegoeshere",
+    "database-user-name": "database-username-goes-here"
+}
+```
+
+There is a consideration here, if you add values to `variables.json` they will still be pushed to your Git repo and you will have the same problem.  When you need to do is create a template.  Essentially the file, `variables-sample.json` is just that a template to show you what values you can enter.  You can copy the file, change the name to `variables.json` for instance.  Then in your Git repo, add an entry to the `.gitignore`.  This file in the root of your Git repo will ignore all files you tell it to.  This way you can distribute your template for secrets and passwords, but now you can retain a local copy that will be exposed via Git. Sample files are provided in the files > Appendix-D > packer-config folder.
+
+### Secrets Management
+
+But what happens when your secrets need to be managed by multiple people across a large enterprise, or even a large cloud enterprise?  There is an opensource and enterprise grade product from [HashiCorp called Vault](https://www.vaultproject.io/ "Hashi Corp Vault webpage").  It does what is says, essentially cryptographically storing all the secrets you enter into a *vault*, then delegating access to these secrets via API (over HTTP) allowing for the implementation of policy and identity relating to accessing these secrets.  The *vault* can then be attached or mounted into any system and each developer can access their secrets. Vaults use cases are as follows"
+
+Vault tightly controls access to secrets and encryption keys by authenticating against trusted sources of identity such as Active Directory, LDAP, Kubernetes, CloudFoundry, and cloud platforms. Vault enables fine grained authorization of which users and applications are permitted access to secrets and keys.  Vault can be integrated with other platforms as well, Active Directory, AWS IAM profile management, and other platforms.
+
+#### Vault Integration With Packer
+
+For our convenience, Packer has direct integration with Vault.  Once Vault is installed an setup on your [local system](https://www.vaultproject.io/docs/install/index.html "Install Vault") for instance
+
+```json
+{
+  "variables": {
+    "database-root-password": "{{ vault `secrets/database-root-password` `database-root-password`}}",
+    "database-user-password": "{{ vault `secrets/database-user-password` `database-user-password`}}",
+    "database-access-from-ip": "{{ vault `secrets/database-access-from-ip` `database-access-from-ip`}}",
+    "database-ip": "{{ vault `secrets/database-ip` `database-ip`}}",
+    "webserver-ip": "{{ vault `secrets/webserver-ip` `webserver-ip`}}",
+    "databaseslave-ip": "{{ vault `secrets/databaseslave-ip` `databaseslave-ip`}}",
+    "cache-ip": "{{ vault `secrets/cache-ip` `cache-ip`}}",
+    "salt": "{{ vault `secrets/salt` `salt`}}"
+  }
+  
+    {
+    "type": "shell",
+  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+    "script": "../scripts/post_install_itmt430-github-db.sh",
+    "environment_vars": [
+      "DBPASS={{user `database-root-password`}}",
+      "USERPASS={{user `database-user-password`}}",
+      "ACCESSFROMIP={{user `database-access-from-ip`}}",
+      "DATABASEIP={{user `database-ip`}}",
+      "DATABASENAME={{user `database-name`}}",
+      "DATABASEUSERNAME={{user `database-user-name`}}"
+    ]
+  }
+  ```
 
 ### IT Orchestration
 
