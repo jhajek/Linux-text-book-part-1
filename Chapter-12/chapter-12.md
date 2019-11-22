@@ -611,58 +611,66 @@ In this chapter we learned about the basic components of networking. We learned 
 ### Review Questions
 
 1) Using the ip2 suite of tools, which command would show your IP address?
-a. `ifconfig`
-b. `ipconfig`
-c. `ip address show`
-d. `ip a sh`
+
+   a. `ifconfig`
+   b. `ipconfig`
+   c. `ip address show`
+   d. `ip a sh`
 
 2) Using the ip2 suite of tools, which command would show your routing table?
-a. `ss`
-b. `route`
-c. `ip route show`
-d. `ip -r`
+
+   a. `ss`
+   b. `route`
+   c. `ip route show`
+   d. `ip -r`
 
 3) What tool could you use to establish if a server is responding to requests?
-a. `pong`
-b. `ping`
-c. `google`
-d. `traceroute`
 
-4) What is the purpose of a NETMASK?
+   a. `pong`
+   b. `ping`
+   c. `google`
+   d. `traceroute`
+
+4) What is the purpose of a netmask?
 
 5) What is the purpose of DNS?
 
-6) What is a valid class C address?
-a. 10.0.0.0
-b. 172.24.0.0
-c. 192.168.1.0
-d. 221.0.0.0
+6) Which of the following is a valid class C network address?
 
-7) If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
-a. 23
-b. 254
-c. 512
-d. 256
+   a. 10.0.0.0
+   b. 172.24.0.0
+   c. 192.168.1.0
+   d. 221.0.0.0
+
+7) If you had a network with a CIDR block of /23, how many IP addresses would you have control of?
+
+   a. 23
+   b. 254
+   c. 512
+   d. 256
 
 8) If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
-a.  10
-b.  0
-c.  24
-d.  256
 
-9) How does CIDR block addressing differ from Class based networking (A-D)?
+   a. 10
+   b. 0
+   c. 24
+   d. 256
 
-10) What tool is used to release a dhcp address from the command line?
-a.  `rhclient`
-b.  `ipconfig /release`
-c.  `dhclient -r`
-d.  `xclient -r`
+9) How does CIDR block addressing differ from class-based networking (A-D)?
 
-11) using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
-a.  `ss`
-b.  `net`
-c.  `wireshark`
-d.  `netstat`
+10) What tool is used to release a DHCP address from the command line?
+
+    a. `rhclient`
+    b. `ipconfig /release`
+    c. `dhclient -r`
+    d. `xclient -r`
+
+11) Using the ip2 suite, what command can be used to monitor and examine all current local ports and TCP/IP connections?
+
+    a.  `ss`
+    b.  `net`
+    c.  `wireshark`
+    d.  `netstat`
 
 12) Where are your network card settings located on Ubuntu while using network manager?
 
@@ -671,36 +679,41 @@ d.  `netstat`
 14) Where are your network card settings located on Ubuntu 18.04 using netplan?
 
 15) What are the two major opensource webservers?
-a. Apache, Nginx
-b. openhttpd, Nginx
-c. Apache, IIS
-d. Apache, Tomcat
+
+    a. Apache, Nginx
+    b. openhttpd, Nginx
+    c. Apache, IIS
+    d. Apache, Tomcat
 
 16) What are two related and major opensource relational databases?
-a. SQL and MySQL
-b. MariaDB and MySQL
-c. MySQL and Oracle DB
-d. Nginx and MySQL
 
-17) Name one major No-SQL database mentioned in this chapter?
+    a. SQL and MySQL
+    b. MariaDB and MySQL
+    c. MySQL and Oracle DB
+    d. Nginx and MySQL
 
-18) What is the file location that the system uses as a *local DNS* for resolving IPs?
-a. `etc/systemd/hostd`
-b. `/etc/hosts`
-c. `/etc/allow`
-d. `/etc/etc/etc`
+17) Name one major NoSQL database mentioned in this chapter?
 
-19) What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
-a. `~/my.cnf`
-b. `/etc/mysql/settings.conf`
-c. `~/allow`
-d. `~/.my.cnf`
+18) What is the file location that the system uses as a *local DNS* for resolving IP?
 
-20) Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
-a. driver loading order
-b. interface names depend on physical location of hardware (bus enumeration)
-c. kernel version
-d. What ever Lennart Poetering feels like naming them
+    a. `etc/systemd/hostd`
+    b. `/etc/hosts`
+    c. `/etc/allow`
+    d. `/etc/etc/etc`
+
+19) What is the name of the file that you would place in your home directory that allows you not to have to type your login password for a MySQL database?
+
+    a. `~/my.cnf`
+    b. `/etc/mysql/settings.conf`
+    c. `~/allow`
+    d. `~/.my.cnf`
+
+20) Before systemd, NIC interface naming schemes depended on a driver based enumeration process. They switched to a predictable network interface naming process that depends on what for the interface names?
+
+    a. driver loading order
+    b. interface names depend on physical location of hardware (bus enumeration)
+    c. kernel version
+    d. What ever Lennart Poettering feels like naming them
 
 ### Podcast Questions
 
@@ -712,12 +725,12 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 1) ~5:33 What is the main architectural difference between Nginx and Apache webservers?
 1) ~8:32 What are some of the main use cases for Nginx?
 1) ~11:00 When did Sarah get involved in Nginx?
-1) ~12:56 Where did Nginx come from?
+1) ~12:56 Where did the name "Nginx" come from?
 1) ~17:41 What is "caching" in relation to websites?
 1) ~19:45 What is "proxying" in relation to websites?
 1) ~29:36 What was the founder's motive to opensource Nginx?
 1) ~34:00 What is the difference in the opensource Nginx and the commercial version? (Freemium?)
-1) ~40:19 Are there Linux Distro packages for Nginx?
+1) ~40:19 Are there Linux distro packages for Nginx?
 1) ~53:10 Can Apache and Nginx co-exist or is it a winner take all?
 
 ### Lab
