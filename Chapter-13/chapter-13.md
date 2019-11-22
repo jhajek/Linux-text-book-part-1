@@ -310,7 +310,6 @@ Let us look at an example JSON template file: This source can be retrieved from 
 [files > Chapter-13 > packer-build-templates > ubuntu18043-vanilla.json ](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18043-vanilla.json "Packer Template")
 
 ```json
-
 {
   "builders": [
     {
@@ -345,11 +344,11 @@ Let us look at an example JSON template file: This source can be retrieved from 
       "boot_wait": "10s",
       "disk_size": 20000,
       "guest_os_type": "Ubuntu_64",
-      "http_directory" : ".",
-      "http_port_min" : 9001,
-      "http_port_max" : 9001,
+      "http_directory": ".",
+      "http_port_min": 9001,
+      "http_port_max": 9001,
       "iso_urls": [
-      "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
+        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
       ],
       "iso_checksum_type": "sha256",
       "iso_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
@@ -361,20 +360,20 @@ Let us look at an example JSON template file: This source can be retrieved from 
       "guest_additions_mode": "disable",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-  "vboxmanage": [
-    [
-      "modifyvm",
-      "{{.Name}}",
-      "--memory",
-      "2048"
-    ]
-  ]
-  }
-],
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "2048"
+        ]
+      ]
+    }
+  ],
   "provisioners": [
     {
       "type": "shell",
-      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "script": "../scripts/post_install_vagrant.sh"
     }
   ],
@@ -382,11 +381,10 @@ Let us look at an example JSON template file: This source can be retrieved from 
     {
       "type": "vagrant",
       "keep_input_artifact": false,
-      "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
+      "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"
     }
   ]
 }
-
 ```
 
 There are 3 sections we are interested in:
@@ -454,7 +452,6 @@ This URL is the actual remote location of the install media which will be retrie
 Provisioner are tools that you can use to customize your machine image after the base install is finished.  Though tempting to just use the Kickstart or Pressed files to do the custom install--this is not a good idea.  You should leave the "answer files" as clean or basic as possible so that you may reuse them and do your customization here via a provisioner.
 
 ```json
-
 "provisioners": [
   {
     "type": "shell",
@@ -462,7 +459,6 @@ Provisioner are tools that you can use to customize your machine image after the
     "script": "../scripts/post_install_vagrant.sh"
   }
 ]
-
 ```
 
 In the sample above I chose to implement an inline shell command, "execute command" and then via a shell script.  Shell scripts are very easy to use and flexible.  Provisioners can also be connected to use Provisioning 3rd party tools such as Puppet, Chef, Salt, Ansible, as well as PowerShell.  These tools are called Orchestration tools and I would recommend checking them out if your interest or job lies in this domain.
@@ -496,18 +492,18 @@ echo "All Done!"
 Provisioners allow you to have multiple provision scripts.  Some people like to split functionality over multiple shell scripts or use multiple methods.  The `shell` provisioner also has the capability to execute inline Linux commands, incase you need to setup some internal structure.  Also you can use this method to copy code into the Virtual Machine you are created.  If you clone a Git repo to your local system, you can copy that application code directly into your virtual machine as Packer is building it.
 
 ```json
-    {
-      "type": "shell",
-      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
-      "inline": [
-        "mkdir -p /home/vagrant/.ssh",
-        "mkdir -p /root/.ssh",
-        "chmod 600 /home/vagrant/id_rsa_github_deploy_key",
-        "cp -v /home/vagrant/id_rsa_github_deploy_key /home/vagrant/.ssh/",
-        "cp -v ./applicaiton-code/html /var/www/html/",
-        "cp -v ./mysql/.my.cnf /home/vagrant",
-      ]
-    }
+{
+  "type": "shell",
+  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+  "inline": [
+    "mkdir -p /home/vagrant/.ssh",
+    "mkdir -p /root/.ssh",
+    "chmod 600 /home/vagrant/id_rsa_github_deploy_key",
+    "cp -v /home/vagrant/id_rsa_github_deploy_key /home/vagrant/.ssh/",
+    "cp -v ./applicaiton-code/html /var/www/html/",
+    "cp -v ./mysql/.my.cnf /home/vagrant",
+  ]
+}
 ```
 
 #### Post-Processors
@@ -517,7 +513,6 @@ Packer has the ability to build a virtual machine or OS Container once and expor
 Once the Build step and Provision step are complete the last step (which is optional) is the post-processor step.  This is where you can convert your base image you built into various other formats.  Note that the directory named "build"  is completely arbitrary and was created by me as it made sense.
 
 ```json
-
 "post-processors": [
   {
     "type": "vagrant",
@@ -525,10 +520,9 @@ Once the Build step and Provision step are complete the last step (which is opti
     "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
   }
 ]
-
 ```
 
-Here you see I am converting the VirtualBox *.ovf file into a Vagrant Box file *.box.   If you leave off the keep_input_artifact option, the initial artifact will be deleted and only the post-processor result will remain.  If you are concerned about hard drive space - set this value to false.
+Here you see I am converting the VirtualBox `.ovf` file into a Vagrant Box file `.box`.   If you leave off the keep_input_artifact option, the initial artifact will be deleted and only the post-processor result will remain.  If you are concerned about hard drive space - set this value to false.
 
 [Post-Processing includes:](https://www.packer.io/docs/post-processors/index.html "Packer.io post-processing options")
 
@@ -556,23 +550,20 @@ You can use multiple post-processors if desired.
 
 #### vboxmanage
 
-This command allows you to issue custom VirtualBox commands from within Packer. This is helpful for modifying hardware, such as number of CPUs and memory allocated during the install.  Also you can modify the number of attached disks programaticly.
+This command allows you to issue custom VirtualBox commands from within Packer. This is helpful for modifying hardware, such as number of CPUs and memory allocated during the install.  Also you can modify the number of attached disks programmatically.
 
 ```json
-
 "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "2048"
-        ]
-    ]
-
+  [
+    "modifyvm",
+    "{{.Name}}",
+    "--memory",
+    "2048"
+  ]
+]
 ```
 
 ```json
-
 "vboxmanage": [
   [
     "modifyvm",
@@ -580,12 +571,11 @@ This command allows you to issue custom VirtualBox commands from within Packer. 
     "--memory",
     "2048"
   ],
-    ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk3.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
-    ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk3.vdi"],
-    ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk4.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
-    ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk4.vdi"]
-    ]
-
+  ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk3.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
+  ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk3.vdi"],
+  ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk4.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
+  ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk4.vdi"]
+]
 ```
 
 #### Packer, Putting it Together
@@ -669,7 +659,7 @@ vagrant ssh
 
 One of the hardest parts of building software applications is managing **secrets**.  Secrets can be anything from a username and a password, a token, or even keys from cloud services.  The important part is that they are important.  If you loose these secrets it could mean the end to a company.  You also have to worry about invalidating them.  If a person leaves, or rotates job, you don't want credentials to walk out the door with you.  Also managing these secrets not just for security but for automation is also a critical part of the infrastructure.
 
-In Linux Distros as well as Packer there are methods for dealing with secrets.  The first obvious example how to we *seed* a root password for a MySQL server?  If you install it, there is always a password prompt?  This precludes you from automating the install.
+In Linux distros as well as Packer, there are methods for dealing with secrets.  The first obvious example how to we *seed* a root password for a MySQL server?  If you install it, there is always a password prompt?  This precludes you from automating the install.
 
 All Debian based distros have a configuration database called `DEBCONF`.  This can be used to preseed and answers you may have to installation questions that come via `apt-get`.  Here is an example:
 
@@ -700,19 +690,19 @@ echo $SECONDPASS | sudo debconf-set-selections
 This is better but not the best as others on the system or any code that can read ENV variables can now read the password.  Packer has a way to pass ENV variables from a config file.  This is similar to how WordPress is configured.   Adding these lines of code to your Provisioner in your Packer build template allows this:
 
 ```json
-    {
-    "type": "shell",
-  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
-    "script": "../scripts/post_install_itmt430-github-db.sh",
-    "environment_vars": [
-      "DBPASS={{user `database-root-password`}}",
-      "USERPASS={{user `database-user-password`}}",
-      "ACCESSFROMIP={{user `database-access-from-ip`}}",
-      "DATABASEIP={{user `database-ip`}}",
-      "DATABASENAME={{user `database-name`}}",
-      "DATABASEUSERNAME={{user `database-user-name`}}"
-    ]
-  }
+{
+  "type": "shell",
+  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+  "script": "../scripts/post_install_itmt430-github-db.sh",
+  "environment_vars": [
+    "DBPASS={{user `database-root-password`}}",
+    "USERPASS={{user `database-user-password`}}",
+    "ACCESSFROMIP={{user `database-access-from-ip`}}",
+    "DATABASEIP={{user `database-ip`}}",
+    "DATABASENAME={{user `database-name`}}",
+    "DATABASEUSERNAME={{user `database-user-name`}}"
+  ]
+}
 ```
 
 Packer has the ability to set ENV variables upon install.  From the command line you pass an additional `--var-file=` command and Packer will load values from that file.
@@ -725,13 +715,13 @@ packer build --var-file=./variables.json ubuntu18043-vanilla-multi-drives.json
 
 ```json
 {
-    "database-root-password": "foo",
-    "database-user-password": "bar",
-    "database-access-from-ip": "127.0.0.1",
-    "database-ip": "127.0.0.1",
-    "webserver-ip": "127.0.0.1",
-    "database-name": "namegoeshere",
-    "database-user-name": "database-username-goes-here"
+  "database-root-password": "foo",
+  "database-user-password": "bar",
+  "database-access-from-ip": "127.0.0.1",
+  "database-ip": "127.0.0.1",
+  "webserver-ip": "127.0.0.1",
+  "database-name": "namegoeshere",
+  "database-user-name": "database-username-goes-here"
 }
 ```
 
@@ -760,9 +750,9 @@ For our convenience, Packer has direct integration with Vault.  Once Vault is in
     "salt": "{{ vault `secrets/salt` `salt`}}"
   }
   
-    {
+  {
     "type": "shell",
-  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+    "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
     "script": "../scripts/post_install_itmt430-github-db.sh",
     "environment_vars": [
       "DBPASS={{user `database-root-password`}}",
@@ -773,20 +763,21 @@ For our convenience, Packer has direct integration with Vault.  Once Vault is in
       "DATABASEUSERNAME={{user `database-user-name`}}"
     ]
   }
-  ```
+}
+```
 
 Packer provides the ability to execute inline Linux commands.  This would be useful for instance in copying code from a Git repo into a Virtual Machine via making an SCP (Secure Copy) connection.
 
 ```json
-    {
-      "type": "shell",
-      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-      "inline": [
-        "mkdir -p /var/www/html",
-        "cp -v ../github-repo/php /var/www/html",
-        "cp -v ../github-repo/sql /home/vagrant/",
-      ]
-    }
+{
+  "type": "shell",
+  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+  "inline": [
+    "mkdir -p /var/www/html",
+    "cp -v ../github-repo/php /var/www/html",
+    "cp -v ../github-repo/sql /home/vagrant/",
+  ]
+}
 ```
 
 ### IT Orchestration
