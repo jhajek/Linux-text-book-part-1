@@ -24,7 +24,7 @@ Mitchell realized that himself and a good majority of developers where using Vir
 
 ![*HashiCorp Stack*](images/Chapter-13/hashi/hashistack.png "hashi-stack")
 
-You can learn more about HashiCorp at this [Hashiconf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
+You can learn more about HashiCorp at this [HashiConf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
 
 ## Vagrant
 
@@ -915,7 +915,7 @@ d) Chef and Puppet
 
 ### Podcast Questions
 
-See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantril Hashiconf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
+See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantril HashiConf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
 
 1. ~0:30 Where does/did Bryan work, who recently bought that company, and what do they do?
 1. ~1:33 What is the birth date of containers?
