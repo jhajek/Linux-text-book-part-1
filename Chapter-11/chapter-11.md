@@ -807,15 +807,14 @@ For each of the bullet points, take a screenshot of the output of the commands t
    
 19. Download a copy of Ubuntu 19.10 and when going through the installer, choose the [EXPERIMENTAL erase disk and use zfs](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
 
-20. This is a research question regarding current hardware:
+20. This is a research question regarding current hardware. Using [Newegg.com](http://newegg.com "Newegg.com"), find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
 
-    a. Using [Newegg.com](http://newegg.com "Newegg.com") find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
-    b. Seagate Barracuda 4 TB
-    c. Western Digital Blue 1 TB
-    d. Western Digital Red 10 TB
-    e. Samsung 970 EVO M.2 500 GB
-    f. Corsair Force MP300 M.2 960 GB
-    g. Intel Optane M.2 32 GB and explain what 3D XPoint technology is
+    a. Seagate Barracuda 4 TB
+    b. Western Digital Blue 1 TB
+    c. Western Digital Red 10 TB
+    d. Samsung 970 EVO M.2 500 GB
+    e. Corsair Force MP300 M.2 960 GB
+    f. Intel Optane M.2 32 GB and explain what 3D XPoint technology is
 
 #### Footnotes
 
