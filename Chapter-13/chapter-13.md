@@ -907,7 +907,7 @@ b) answer file
 c) question file
 d) pxe file
 
-20. What are the respective names of the RedHat and Debian based answer files?
+20. What are the respective names of the Red Hat and Debian based answer files?
 a) jumpstart and preseed
 b) kickstart and jumpstart
 c) kickstart and preseed

@@ -810,7 +810,7 @@ Through this chapter we gained an understanding of what x86-based virtualization
 14) Which distro(s) supports the RPM package?
   a. CentOS only
   b. Red Hat Family
-  c. Debian and RedHat
+  c. Debian and Red Hat
   d. None of the above
 15) We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
   a. G++

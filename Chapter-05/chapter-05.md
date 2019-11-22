@@ -579,10 +579,10 @@ Answer the said questions:
 * ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
 * ~3:40 What is the short story about how Centos came about?
 * ~4:58 Who is the largest commercial Enterprise Linux?
-* ~7:17 How do the two projects relate to each other?  How do they relate to each other from the RedHat point of view?
-* ~8:10 Who from RedHat is not happy with Centos?
-* ~10:25 How do Centos users differ from RedHat's paying customers?
-* ~19:00. How does the RHEL environment work vs Fedora environment? (RedHat Enterprise Linux)
+* ~7:17 How do the two projects relate to each other?  How do they relate to each other from the Red Hat point of view?
+* ~8:10 Who from Red Hat is not happy with Centos?
+* ~10:25 How do Centos users differ from Red Hat's paying customers?
+* ~19:00. How does the RHEL environment work vs Fedora environment? (Red Hat Enterprise Linux)
 * ~22:55 Since Centos is using the RHEL code base how long does Centos lag behind the RHEL codebase when a new release is issued?
 * ~24:24 How does Centos make money?
 * ~29:00 How does Centos pay for everything?

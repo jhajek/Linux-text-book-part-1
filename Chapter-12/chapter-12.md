@@ -336,7 +336,7 @@ Without Apache, companies such as Google, Facebook, Twitter, and many others sta
 
 Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticize Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
 
-The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```.
+The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and Red Hat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```.
 
 > ```sudo apt-get install apache2```
 
@@ -495,8 +495,8 @@ Though there are many in this category, I have selected one NoSQL database.  The
 
 MongoDB packages are maintained by MongoDB -- and are released outside of Linux distro release cycles.  The installation process is different for Ubuntu and CentOS.  The instructions to add a custom repository are located here:
 
-* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/ "Install on Ubuntu")
-* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/ "Install on RedHat Centos")
+* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/ "Install MongoDB Community Edition on Ubuntu")
+* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/ "Install MongoDB Community Edition on Red Hat or CentOS")
 * Make sure to start the mongod service
 * [https://docs.mongodb.com/manual/mongo/](https://docs.mongodb.com/manual/mongo/ "Mongo Shell")
   * [Run Mongo insert sample](https://docs.mongodb.com/manual/tutorial/insert-documents/ "Mongo Insert Sample")

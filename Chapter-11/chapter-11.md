@@ -321,7 +321,7 @@ XFS is a robust and highly-scalable single host 64-bit journaling file system. I
 
 XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used-also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices[^127].
 
-XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  RedHat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.
+XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  Red Hat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  Red Hat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  Red Hat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.
 
 XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partition of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.
 
@@ -364,7 +364,7 @@ sudo apt install zfsutils-linux
  df -h | grep mydatapool
 ```
 
-ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even deprecating Btrfs from future RHEL releases.  This may have something to do with Oracle and RedHat competition, as Oracle is one of the sponsors of Btrfs.  A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), the port is mature enough to install on the latest Windows 10 systems.
+ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even deprecating Btrfs from future RHEL releases.  This may have something to do with Oracle and Red Hat competition, as Oracle is one of the sponsors of Btrfs.  A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), the port is mature enough to install on the latest Windows 10 systems.
 
 Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands such as:
 
@@ -603,7 +603,7 @@ In this chapter we learned and mastered the tools and concepts needed to manage,
     c) ZFS
     d) HAMMER
 
-13) What is the name of the filesystem that RedHat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
+13) What is the name of the filesystem that Red Hat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
 
     a) ZFS
     b) XFS
