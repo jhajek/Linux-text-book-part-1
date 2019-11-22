@@ -573,7 +573,7 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 1) ~8:35 What does the traditional rc system not do?
 1) ~9:27 What OS had a strong initial concept of services from the beginning?
 1) ~10:00 On MacOS what did launchd replace?
-1) ~11:53 In 2010 What was Lennart Poeterring looking at?
+1) ~11:53 In 2010 What was Lennart Poettering looking at?
 1) ~13:48 What other service did Lennart say he was heavily borrowing from?
 1) ~14:01 What does Lennart say that systemd is about?
 1) ~14:43 What is the layer in-between the kernel and the userspace created by systemd?
