@@ -75,7 +75,7 @@ The first command **add** is the command we will use to add boxes (either of the
 
 The tutorial on vagrantup.com will walk you through this but a small example (try any of these especially if you are not familiar with these platforms).
 
-* ```vagrant box add centos/7``` (Official Centos 7 Vagrant box release)
+* ```vagrant box add centos/7``` (Official CentOS 7 Vagrant box release)
 * ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
 * ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
 * ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
@@ -631,7 +631,7 @@ The first solution came from Sun in 1994 and was called [Jumpstart](https://en.w
 The next phase came in Linux with Fedora creating the [Kickstart](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Kickstart Reference") answer file system.  Kickstart does not handle the part of OS install, but the OS configuration and software retrieval/installation.  Kickstart files can be generated from a template or scratch or upon a successful install a default kickstart is located in the location ```/root/anaconda-ks.cfg```. Examples and explanation resources can be found here:
 
 * [Fedora Kickstart Reference](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Fedora Kickstart Reference")
-* [Centos Kickstart Reference](https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html "CentOS Kickstart Reference")
+* [CentOS Kickstart Reference](https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html "CentOS Kickstart Reference")
 
 #### Debian, Ubuntu, and Preseed
 
@@ -944,11 +944,11 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 
 #### Part 1
 
-Create a folder structure for 1 Ubuntu Bionic64 vagrant box and 1 Centos 7 vagrant box.  In each of these folders use the ```vagrant init``` command to create a ```Vagrantfile```.  Upon succesfully executing the `vagrant up` command in both directories, take a screenshot of the output of the ```vagrant box list``` command.
+Create a folder structure for 1 Ubuntu Bionic64 vagrant box and 1 CentOS 7 vagrant box.  In each of these folders use the ```vagrant init``` command to create a ```Vagrantfile```.  Upon succesfully executing the `vagrant up` command in both directories, take a screenshot of the output of the ```vagrant box list``` command.
 
 #### Part 2
 
-Run the packer json build templates for Centos 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command with the proper options to create a Vagrantfile and then run the ```vagrant up``` command to instantiate the box. Issue the command ```vagrant ssh``` and once logged in take a screenshot of the output of the command ```free --giga``` to list the amount of memory in the virtual machine.
+Run the packer json build templates for CentOS 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command with the proper options to create a Vagrantfile and then run the ```vagrant up``` command to instantiate the box. Issue the command ```vagrant ssh``` and once logged in take a screenshot of the output of the command ```free --giga``` to list the amount of memory in the virtual machine.
 
 Upon completion take a screenshot of the output of the ```vagrant box list``` command to show that these steps completed successfully.
 

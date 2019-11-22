@@ -105,7 +105,7 @@ What you gain by using this standard:
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
-What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 30, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10. The way to reset the values is listed below:
+What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 30, CentOS 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10. The way to reset the values is listed below:
 
 * Edit ```/etc/default/grub```
 * At the end of ```GRUB_CMDLINE_LINUX``` line append ```net.ifnames=0 biosdevname=0```
@@ -413,7 +413,7 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/privat
 
 Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique webserving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
 
-Centos and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
+CentOS and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
 
 For instructions on configuring and installing the php library for nginx, [https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04 "Digitla Ocean 18.04 nginx php").
 
@@ -441,7 +441,7 @@ sudo apt-get install mariadb-server
 
 sudo dnf install mariadb mariadb-server
 sudo dnf install mariadb-client
-# make sure to start and enable the maria or mysql service on Fedora/Centos
+# make sure to start and enable the maria or mysql service on Fedora/CentOS
 ```
 
 MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to SUN in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "mysql sold to SUN"), which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
@@ -479,7 +479,7 @@ password = secret99
 
 As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The successor to that project was PostgreSQL (see the pun?).  PostgreSQL has the added advantage of being opensource, backed by a commercial company, as well as not being MySQL which is owned by Oracle.  Installation is provided in custom repos that need to added to a system before using a package manager.
 
-* [PostgreSQL Downloads for Ubuntu and Fedora/Centos](https://www.postgresql.org/download/ "PostgreSQL downloads")
+* [PostgreSQL Downloads for Ubuntu and Fedora/CentOS](https://www.postgresql.org/download/ "PostgreSQL downloads")
 
 ### SQLite
 
@@ -522,7 +522,7 @@ You can use rules to allow or deny traffic based on source IP, source Port, Dest
 
 ### Firewalld
 
-Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, Centos 7 does not.  
+Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, CentOS 7 does not.  
 
 Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When declaring a new rule you need to declare if the rule is permanent or will be reset when the firewalld service is reloaded.  The firewalld system contains zones such as:
 
@@ -570,7 +570,7 @@ Firewalld includes a standard interface so third party tools and build integrati
 
 ```bash
 
-# you may need the epel-release package on Fedora/Centos
+# you may need the epel-release package on Fedora/CentOS
 # https://fedoraproject.org/wiki/Fail2ban_with_FirewallD
 # https://unix.stackexchange.com/questions/268357/how-to-configure-fail2ban-with-systemd-journal
 
@@ -745,9 +745,9 @@ e. Execute the `ping` command again this time using the hostname declared in the
 2) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS) 
 a. In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.  
 
-3) Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
+3) Using firewalld open port 22 permanently to allow SSH connections to your Fedora or CentOS system.
 
-4) Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
+4) Using firewalld open port 80 permanently to allow SSH connections to your Fedora or CentOS system.
 
 5) Enable the firewall to start at boot and show its status after a successful boot.
 
