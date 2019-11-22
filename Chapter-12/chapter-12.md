@@ -14,9 +14,9 @@
 
 At the conclusion of this chapter you will have explored the nature of the network settings for the two major Linux distribution families and for BSD.  You will be comfortable using various commandline troubleshooting tools to help solve network issues and problems.  You will deploy two major webserver platforms and understand the differences between Apache and Nginx in their memory models and request handling models.  Finally you will have gained experience deploying, installing, and configuring MySQL and MariaDB SQL databases and a popular NoSQL database MongoDB.
 
-### Networking
+## Networking
 
-Former CEO of SUN, Scott McNealy once famously said, "*The network is the computer.*"  This was in 1990.  He could not have been more correct.  With this in mind basic networking skills are mandatory.  We will briefly cover topics in this order:
+Former CEO of SUN, Scott McNealy once famously said, "*The network is the computer.*"  This was in 1990.  He could not have been more correct.  With this in mind, basic networking skills are mandatory.  We will briefly cover topics in this order:
 
 * IP addresses
   * Static and DHCP
