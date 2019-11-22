@@ -376,7 +376,7 @@ All programs can choose to *trap* these kill commands and ignore them or take di
 
 ### Killing Processes with systemd
 
-Systemd on the other hand has a mechanism for dealing with services directly, ```systemctl kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to individual services but also to control groups of processes as well.
+Systemd on the other hand has a mechanism for dealing with services directly, ```systemctl kill -s SIGTERM kill httpd.service``` will kill the Apache2 webserver service.  You can also issue the same kill commands above within systemd not only to individual services but also to control groups of processes as well.
 
 The systemd service using ```systemd-cgls``` command and the ```systemctl kill``` command have effectively replaced the traditional use of ```ps``` by instead grouping processes into **cgroups**.  Cgroups or Control Groups, allow for child processes to be grouped together, and concpets such as resource quotas or isolation can now be introduced.  This is a more effective manner in killing all the child processes of a parent process.   Cgroups are a Linux specific concept, which ultimately lead to the idea of OS containers and Docker--these are things that BSD and Unix don't have and can't run at the moment--which if OS containers might be the way of the future computing--doesn't bode well for BSD/Unix.
 

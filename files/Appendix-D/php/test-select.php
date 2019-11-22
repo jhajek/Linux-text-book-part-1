@@ -3,11 +3,10 @@
 <body>
 
 <?php
-// This is an include file that will pull the information of endpoint, username, password, and default database
-include("connection-info.php");
 
-echo "begin database<br />";
-$link = mysqli_connect($endpoint,$user,$password,$dbname) or die("Error " . mysqli_error($link));
+# Get FQDN, User, dbname (comments) and Password from ENV 
+echo "Begin database<br />";
+$link = mysqli_connect("dbhost.example.com",$_ENV["DBUSER"],$_ENV["WORKERPASS"],"comments") or die("Error " . mysqli_error($link));
 
 /* check connection */
 if (mysqli_connect_errno()) {
