@@ -14,11 +14,11 @@
 
 At the completion of this chapter you will have the ability to administer a Linux system.  You will have an understanding of Linux system logs, their standard locations, and their use.  You will have a knowledge of system monitoring tools and how to understand their output.  You will be able to administer user accounts on a Linux system. Finally you will be able to perform trouble shooting procedures on a Linux system.
 
-### Sudo and the Root User Paradigm
+## Sudo and the Root User Paradigm
 
 On every Unix system dating back to Thompson's Unix, there has always been a single *superuser* account on every system.  This account is usually called the __root user__ or __root__.   The __root user__ must be used with the utmost care, as that account has all the system privilege and authority to carry out any operation, even the ```rm -rf /*``` command.  Root is good for getting things done or overriding users, but is *dangerous.* You should log into that account only sparingly.  Every single admin worth their salt will tell you not to use __root__ in almost any case [^ch9f90].
 
-This concept is *vital* enough that on the Ubuntu distribution there is no __root__ account available. On the BSD distros, Debian, and the RedHat/Fedora family - there is still a __root__ account, partially because of tradition and partially because of the way system administration always worked.  Remember that Unix was developed in the environment of multiple users accessing a large central Unix server.  So you always had to have a __root__ account to override any activities of the users and to enforce system policies, such as disk quotas, changing network configurations, or even system wide profiles. As a reminder when you are signed in as, or acting as "root", the shell prompt displays __#__ as the last character in bash and as seen in the image below.  You can use the ```whoami``` command to find out what user account you are logged in as well.
+This concept is *vital* enough that on the Ubuntu distribution there is no __root__ account available. On the BSD distros, Debian, and the Red Hat/Fedora family - there is still a __root__ account, partially because of tradition and partially because of the way system administration always worked.  Remember that Unix was developed in the environment of multiple users accessing a large central Unix server.  So you always had to have a __root__ account to override any activities of the users and to enforce system policies, such as disk quotas, changing network configurations, or even system wide profiles. As a reminder when you are signed in as, or acting as "root", the shell prompt displays __#__ as the last character in bash and as seen in the image below.  You can use the ```whoami``` command to find out what user account you are logged in as well.
 
 ![*Root User has the # sign as its shell*](images/Chapter-09/root/root.png "Root User Shell")
 
@@ -164,13 +164,13 @@ By the year 2004 the clear need for a syslog compatible but feature rich replace
 
 ### journald and systemd
 
-Not to be outdone - `systemd` has preplaced syslog with `journald`.  And this has happened in every system that has adopted `systemd` - Debian 8, Fedora 22, Ubuntu 15.04/15.10, Centos 7.  You can read the initial `journald` announcement and [justification paper here](https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1 "Justification Paper") [^96].
+Not to be outdone - `systemd` has preplaced syslog with `journald`.  And this has happened in every system that has adopted `systemd` - Debian 8, Fedora 22, Ubuntu 15.04/15.10, CentOS 7.  You can read the initial `journald` announcement and [justification paper here](https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1 "Justification Paper") [^96].
 
 In Lennart Poeterring's own words, *"If you are wondering what the journal is, here's an explanation in a few words to get you up to speed: the journal is a component of systemd, that captures Syslog messages, Kernel log messages, initial RAM disk and early boot messages as well as messages written to STDOUT/STDERR of all services, indexes them and makes this available to the user. It can be used in parallel, or in place of a traditional syslog daemon, such as rsyslog or syslog-ng."* [^97]
 
   *"One of the impetuses behind the systemd journal is to centralize the management of logs regardless of where the messages are originating. Since much of the boot process and service management is handled by the systemd process, it makes sense to standardize the way that logs are collected and accessed. The journald daemon collects data from all available sources and stores them in a binary format for easy and dynamic manipulation. [^98]"*
 
-  If you are using a version of RHEL 6, Centos 6, Ubuntu 14.04, or Debian 7 and prior you will not find the journald or systemd commands and will find the traditional syslog service.   Syslog can be installed along side of journald and run in the traditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does many things).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs.  The traditional ways of using syslog had been modified by journald.
+  If you are using a version of RHEL 6, CentOS 6, Ubuntu 14.04, or Debian 7 and prior you will not find the journald or systemd commands and will find the traditional syslog service.   Syslog can be installed along side of journald and run in the traditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does many things).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs.  The traditional ways of using syslog had been modified by journald.
 
 * ```cat /var/log/messages``` will now become ```journalctl```
 * ```tail -f /var/log/messages``` will now become ```journalctl -f```
@@ -812,7 +812,7 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
 
 1) The next questions require some setup:
    i. You need two virtual mahcines for this part: One Ubuntu based and one Fedora based (or two comparablely different OSes, FreeBSD, Trisquel, etc etc).  
-   i. You will need to modify the Network settings to **Bridged** in Virtualbox to get a public IP (if you are at home your router should suffice, if you are on campus you can come to the lab).  
+   i. You will need to modify the Network settings to **Bridged** in VirtualBox to get a public IP (if you are at home your router should suffice, if you are on campus you can come to the lab).  
    i. Install **openssh-server** on Fedora.
    i. Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system
    i. Run the ssh audit on the client and server, list the weak ciphers installed by default

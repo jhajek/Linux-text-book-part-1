@@ -193,7 +193,7 @@ In order to enhance processing you may in your partitioning decisions want to pl
 
 The question is under standard partitioning you don't. You simply backup, reinstall, and reformat the entire drive.  This is very time consuming and a risky operation that is usually not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
 
-LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*  In order to install LVM2 on Fedora/Centos and Ubuntu you can type:
+LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*  In order to install LVM2 on Fedora/CentOS and Ubuntu you can type:
 
 * ```sudo apt-get install lvm2```
 * ```sudo dnf install lvm2```
@@ -321,7 +321,7 @@ XFS is a robust and highly-scalable single host 64-bit journaling file system. I
 
 XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used-also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices[^127].
 
-XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  RedHat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  RedHat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  RedHat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.
+XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  Red Hat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  Red Hat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  Red Hat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.
 
 XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partition of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.
 
@@ -364,7 +364,7 @@ sudo apt install zfsutils-linux
  df -h | grep mydatapool
 ```
 
-ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even deprecating Btrfs from future RHEL releases.  This may have something to do with Oracle and RedHat competition, as Oracle is one of the sponsors of Btrfs.  A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), the port is mature enough to install on the latest Windows 10 systems.
+ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even deprecating Btrfs from future RHEL releases.  This may have something to do with Oracle and Red Hat competition, as Oracle is one of the sponsors of Btrfs.  A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), the port is mature enough to install on the latest Windows 10 systems.
 
 Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands such as:
 
@@ -603,7 +603,7 @@ In this chapter we learned and mastered the tools and concepts needed to manage,
     c) ZFS
     d) HAMMER
 
-13) What is the name of the filesystem that RedHat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
+13) What is the name of the filesystem that Red Hat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
 
     a) ZFS
     b) XFS
@@ -802,20 +802,19 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
 18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 18.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
 
-    a. Run the `btrfs filesystem show command` and capture the output
-    b. Using the UID of the btrfs device created in the previous step, add the mount point to the `/etc/fstab` and add the `nocowdata` attribute. Mount point options are listed here: [btrfs mount-point options](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5) "btrfs mount-point options")
+    a. Run the `btrfs filesystem show` command and capture the output.
+    b. Using the UID of the btrfs device created in the previous step, add the mount point to the `/etc/fstab` and add the `nodatacow` attribute. Mount point options are listed here: [btrfs mount-point options](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5) "btrfs mount-point options")
    
 19. Download a copy of Ubuntu 19.10 and when going through the installer, choose the [EXPERIMENTAL erase disk and use zfs](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
 
-20. This is a research question regarding current hardware:
+20. This is a research question regarding current hardware. Using [Newegg.com](http://newegg.com "Newegg.com"), find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
 
-    a. Using [Newegg.com](http://newegg.com "Newegg.com") find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
-    b. Seagate Barracuda 4 TB
-    c. Western Digital Blue 1 TB
-    d. Western Digital Red 10 TB
-    e. Samsung 970 EVO M.2 500 GB
-    f. Corsair Force MP300 M.2 960 GB
-    g. Intel Optane M.2 32 GB and explain what 3D XPoint technology is
+    a. Seagate Barracuda 4 TB
+    b. Western Digital Blue 1 TB
+    c. Western Digital Red 10 TB
+    d. Samsung 970 EVO M.2 500 GB
+    e. Corsair Force MP300 M.2 960 GB
+    f. Intel Optane M.2 32 GB and explain what 3D XPoint technology is
 
 #### Footnotes
 

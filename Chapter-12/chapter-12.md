@@ -14,9 +14,9 @@
 
 At the conclusion of this chapter you will have explored the nature of the network settings for the two major Linux distribution families and for BSD.  You will be comfortable using various commandline troubleshooting tools to help solve network issues and problems.  You will deploy two major webserver platforms and understand the differences between Apache and Nginx in their memory models and request handling models.  Finally you will have gained experience deploying, installing, and configuring MySQL and MariaDB SQL databases and a popular NoSQL database MongoDB.
 
-### Networking
+## Networking
 
-Former CEO of SUN, Scott McNealy once famously said, "*The network is the computer.*"  This was in 1990.  He could not have been more correct.  With this in mind basic networking skills are mandatory.  We will briefly cover topics in this order:
+Former CEO of Sun Microsystems, Scott McNealy once famously said, "*The network is the computer.*"  This was in 1990.  He could not have been more correct.  With this in mind, basic networking skills are mandatory.  We will briefly cover topics in this order:
 
 * IP addresses
   * Static and DHCP
@@ -35,7 +35,7 @@ A static address is one that you assign and configure based on your network.  If
 
 > Exercise: Open a command prompt and type this command to find your MAC address or Ethernet Address ```ip l sh``` which is short for ```ip link show```.  You can find all the options to display by typing ```man ip```.
 
-But what if you have transient or ephemeral nodes (computers) on your network?  Then you need to use the **Dynamic Host Control Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address.  This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.  
+But what if you have transient or ephemeral nodes (computers) on your network?  Then you need to use the **Dynamic Host Configuration Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address.  This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.  
 
 There is a DHCP server (configuring one is beyond the scope of this chapter), that will listen for DHCP broadcasts from your client and answer with an offer of an IP.  Once your system (network card) accepts the offer it gains access to that IP address and all other necessary IP configuration--which is relinquishes upon your physically leaving the network for the most part.  DHCP allows you to pool IPs when you might not have enough and share or allow for the auto-registration to make managing large scale IP deployments easy.  
 
@@ -105,7 +105,7 @@ What you gain by using this standard:
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
-What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 30, Centos 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10. The way to reset the values is listed below:
+What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 30, CentOS 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10. The way to reset the values is listed below:
 
 * Edit ```/etc/default/grub```
 * At the end of ```GRUB_CMDLINE_LINUX``` line append ```net.ifnames=0 biosdevname=0```
@@ -336,7 +336,7 @@ Without Apache, companies such as Google, Facebook, Twitter, and many others sta
 
 Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticize Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
 
-The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and RedHat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```.
+The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and Red Hat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```.
 
 > ```sudo apt-get install apache2```
 
@@ -413,7 +413,7 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/privat
 
 Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique webserving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
 
-Centos and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
+CentOS and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
 
 For instructions on configuring and installing the php library for nginx, [https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04 "Digitla Ocean 18.04 nginx php").
 
@@ -441,10 +441,10 @@ sudo apt-get install mariadb-server
 
 sudo dnf install mariadb mariadb-server
 sudo dnf install mariadb-client
-# make sure to start and enable the maria or mysql service on Fedora/Centos
+# make sure to start and enable the maria or mysql service on Fedora/CentOS
 ```
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to SUN in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "mysql sold to SUN"), which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
 
 * Log in
 * Enter your password at the prompt
@@ -479,7 +479,7 @@ password = secret99
 
 As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different.  One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The successor to that project was PostgreSQL (see the pun?).  PostgreSQL has the added advantage of being opensource, backed by a commercial company, as well as not being MySQL which is owned by Oracle.  Installation is provided in custom repos that need to added to a system before using a package manager.
 
-* [PostgreSQL Downloads for Ubuntu and Fedora/Centos](https://www.postgresql.org/download/ "PostgreSQL downloads")
+* [PostgreSQL Downloads for Ubuntu and Fedora/CentOS](https://www.postgresql.org/download/ "PostgreSQL downloads")
 
 ### SQLite
 
@@ -495,8 +495,8 @@ Though there are many in this category, I have selected one NoSQL database.  The
 
 MongoDB packages are maintained by MongoDB -- and are released outside of Linux distro release cycles.  The installation process is different for Ubuntu and CentOS.  The instructions to add a custom repository are located here:
 
-* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/ "Install on Ubuntu")
-* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/ "Install on RedHat Centos")
+* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/ "Install MongoDB Community Edition on Ubuntu")
+* [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/ "Install MongoDB Community Edition on Red Hat or CentOS")
 * Make sure to start the mongod service
 * [https://docs.mongodb.com/manual/mongo/](https://docs.mongodb.com/manual/mongo/ "Mongo Shell")
   * [Run Mongo insert sample](https://docs.mongodb.com/manual/tutorial/insert-documents/ "Mongo Insert Sample")
@@ -522,7 +522,7 @@ You can use rules to allow or deny traffic based on source IP, source Port, Dest
 
 ### Firewalld
 
-Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, Centos 7 does not.  
+Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, CentOS 7 does not.  
 
 Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When declaring a new rule you need to declare if the rule is permanent or will be reset when the firewalld service is reloaded.  The firewalld system contains zones such as:
 
@@ -570,7 +570,7 @@ Firewalld includes a standard interface so third party tools and build integrati
 
 ```bash
 
-# you may need the epel-release package on Fedora/Centos
+# you may need the epel-release package on Fedora/CentOS
 # https://fedoraproject.org/wiki/Fail2ban_with_FirewallD
 # https://unix.stackexchange.com/questions/268357/how-to-configure-fail2ban-with-systemd-journal
 
@@ -611,58 +611,66 @@ In this chapter we learned about the basic components of networking. We learned 
 ### Review Questions
 
 1) Using the ip2 suite of tools, which command would show your IP address?
-a. `ifconfig`
-b. `ipconfig`
-c. `ip address show`
-d. `ip a sh`
+
+   a. `ifconfig`
+   b. `ipconfig`
+   c. `ip address show`
+   d. `ip a sh`
 
 2) Using the ip2 suite of tools, which command would show your routing table?
-a. `ss`
-b. `route`
-c. `ip route show`
-d. `ip -r`
+
+   a. `ss`
+   b. `route`
+   c. `ip route show`
+   d. `ip -r`
 
 3) What tool could you use to establish if a server is responding to requests?
-a. `pong`
-b. `ping`
-c. `google`
-d. `traceroute`
 
-4) What is the purpose of a NETMASK?
+   a. `pong`
+   b. `ping`
+   c. `google`
+   d. `traceroute`
+
+4) What is the purpose of a netmask?
 
 5) What is the purpose of DNS?
 
-6) What is a valid class C address?
-a. 10.0.0.0
-b. 172.24.0.0
-c. 192.168.1.0
-d. 221.0.0.0
+6) Which of the following is a valid class C network address?
 
-7) If you had a network with a CIDR block of /23 how many IP addresses would you have control of?
-a. 23
-b. 254
-c. 512
-d. 256
+   a. 10.0.0.0
+   b. 172.24.0.0
+   c. 192.168.1.0
+   d. 221.0.0.0
+
+7) If you had a network with a CIDR block of /23, how many IP addresses would you have control of?
+
+   a. 23
+   b. 254
+   c. 512
+   d. 256
 
 8) If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
-a.  10
-b.  0
-c.  24
-d.  256
 
-9) How does CIDR block addressing differ from Class based networking (A-D)?
+   a. 10
+   b. 0
+   c. 24
+   d. 256
 
-10) What tool is used to release a dhcp address from the command line?
-a.  `rhclient`
-b.  `ipconfig /release`
-c.  `dhclient -r`
-d.  `xclient -r`
+9) How does CIDR block addressing differ from class-based networking (A-D)?
 
-11) using the ip2 suite, What tool can be used to monitor and examine all current local ports and TCP/IP connections?
-a.  `ss`
-b.  `net`
-c.  `wireshark`
-d.  `netstat`
+10) What tool is used to release a DHCP address from the command line?
+
+    a. `rhclient`
+    b. `ipconfig /release`
+    c. `dhclient -r`
+    d. `xclient -r`
+
+11) Using the ip2 suite, what command can be used to monitor and examine all current local ports and TCP/IP connections?
+
+    a.  `ss`
+    b.  `net`
+    c.  `wireshark`
+    d.  `netstat`
 
 12) Where are your network card settings located on Ubuntu while using network manager?
 
@@ -671,36 +679,41 @@ d.  `netstat`
 14) Where are your network card settings located on Ubuntu 18.04 using netplan?
 
 15) What are the two major opensource webservers?
-a. Apache, Nginx
-b. openhttpd, Nginx
-c. Apache, IIS
-d. Apache, Tomcat
+
+    a. Apache, Nginx
+    b. openhttpd, Nginx
+    c. Apache, IIS
+    d. Apache, Tomcat
 
 16) What are two related and major opensource relational databases?
-a. SQL and MySQL
-b. MariaDB and MySQL
-c. MySQL and Oracle DB
-d. Nginx and MySQL
 
-17) Name one major No-SQL database mentioned in this chapter?
+    a. SQL and MySQL
+    b. MariaDB and MySQL
+    c. MySQL and Oracle DB
+    d. Nginx and MySQL
 
-18) What is the file location that the system uses as a *local DNS* for resolving IPs?
-a. `etc/systemd/hostd`
-b. `/etc/hosts`
-c. `/etc/allow`
-d. `/etc/etc/etc`
+17) Name one major NoSQL database mentioned in this chapter?
 
-19) What is the name of the file that you would place in your home directory, that allows you not to have to type your login password for a MySQL database?
-a. `~/my.cnf`
-b. `/etc/mysql/settings.conf`
-c. `~/allow`
-d. `~/.my.cnf`
+18) What is the file location that the system uses as a *local DNS* for resolving IP?
 
-20) Before systemd, NIC interface naming schemes depended on a driver based enumeration process: they switched to a predictable network interface names process that depends on what for the interface names?
-a. driver loading order
-b. interface names depend on physical location of hardware (bus enumeration)
-c. kernel version
-d. What ever Lennart Poetering feels like naming them
+    a. `etc/systemd/hostd`
+    b. `/etc/hosts`
+    c. `/etc/allow`
+    d. `/etc/etc/etc`
+
+19) What is the name of the file that you would place in your home directory that allows you not to have to type your login password for a MySQL database?
+
+    a. `~/my.cnf`
+    b. `/etc/mysql/settings.conf`
+    c. `~/allow`
+    d. `~/.my.cnf`
+
+20) Before systemd, NIC interface naming schemes depended on a driver based enumeration process. They switched to a predictable network interface naming process that depends on what for the interface names?
+
+    a. driver loading order
+    b. interface names depend on physical location of hardware (bus enumeration)
+    c. kernel version
+    d. What ever Lennart Poettering feels like naming them
 
 ### Podcast Questions
 
@@ -712,12 +725,12 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 1) ~5:33 What is the main architectural difference between Nginx and Apache webservers?
 1) ~8:32 What are some of the main use cases for Nginx?
 1) ~11:00 When did Sarah get involved in Nginx?
-1) ~12:56 Where did Nginx come from?
+1) ~12:56 Where did the name "Nginx" come from?
 1) ~17:41 What is "caching" in relation to websites?
 1) ~19:45 What is "proxying" in relation to websites?
 1) ~29:36 What was the founder's motive to opensource Nginx?
 1) ~34:00 What is the difference in the opensource Nginx and the commercial version? (Freemium?)
-1) ~40:19 Are there Linux Distro packages for Nginx?
+1) ~40:19 Are there Linux distro packages for Nginx?
 1) ~53:10 Can Apache and Nginx co-exist or is it a winner take all?
 
 ### Lab
@@ -732,9 +745,9 @@ e. Execute the `ping` command again this time using the hostname declared in the
 2) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS) 
 a. In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.  
 
-3) Using firewalld open port 22 permanently to allow SSH connections to your Fedora or Centos system.
+3) Using firewalld open port 22 permanently to allow SSH connections to your Fedora or CentOS system.
 
-4) Using firewalld open port 80 permanently to allow SSH connections to your Fedora or Centos system.
+4) Using firewalld open port 80 permanently to allow SSH connections to your Fedora or CentOS system.
 
 5) Enable the firewall to start at boot and show its status after a successful boot.
 

@@ -673,7 +673,7 @@ To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
 
 [https://github.com/sharkdp/fd](https://github.com/sharkdp/fd "fd-find build using Rust")
 
-### Installing Virtualbox Additions Package
+### Installing VirtualBox Additions Package
 
 > "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html](https://www.virtualbox.org/manual/ch04.html "Source")
 
@@ -810,7 +810,7 @@ Through this chapter we gained an understanding of what x86-based virtualization
 14) Which distro(s) supports the RPM package?
   a. CentOS only
   b. Red Hat Family
-  c. Debian and RedHat
+  c. Debian and Red Hat
   d. None of the above
 15) We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
   a. G++
@@ -818,7 +818,7 @@ Through this chapter we gained an understanding of what x86-based virtualization
   c. Python
   d. None of the above
 
-16) Describe the purpose of Virtualbox Guest Additions?
+16) Describe the purpose of VirtualBox Guest Additions?
 
 17) What is the RPM command to install a package from the command line?
   a. rpm -qa *.rpm

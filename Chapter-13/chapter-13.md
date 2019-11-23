@@ -14,7 +14,7 @@
 
 At the conclusion of this chapter you will have a basic understanding of how to use infrastructure automation and orchestration tools.  You will be familiar and able to explain the concept of immutable infrastructure and will be able to use Linux commands for enabling cloud native development technologies.
 
-### Automation and HashiCorp
+## Automation and HashiCorp
 
 One of the main things that computers are good at is executing repetitive tasks.  One of the things humans seem to dislike is repeating the same task.  Let's give a practical example; there is a divide between the developers (devs) and the operations (ops) people when it comes to software and infrastructure (dev + ops = devops).  Developers need hardware to test their code on and then more hardware to run their code in production.  Operations people have to maintain those systems and the code and the lifecycle of the application.  Developers started to think, could we deploy our infrastructure in the same way we deploy code?  Could we automate the way out of this problem?  A young developer named Mitchell Hashimoto had the same thoughts.  
 
@@ -24,7 +24,7 @@ Mitchell realized that himself and a good majority of developers where using Vir
 
 ![*HashiCorp Stack*](images/Chapter-13/hashi/hashistack.png "hashi-stack")
 
-You can learn more about HashiCorp at this [Hashiconf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
+You can learn more about HashiCorp at this [HashiConf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
 
 ## Vagrant
 
@@ -75,7 +75,7 @@ The first command **add** is the command we will use to add boxes (either of the
 
 The tutorial on vagrantup.com will walk you through this but a small example (try any of these especially if you are not familiar with these platforms).
 
-* ```vagrant box add centos/7``` (Official Centos 7 Vagrant box release)
+* ```vagrant box add centos/7``` (Official CentOS 7 Vagrant box release)
 * ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
 * ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
 * ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
@@ -217,7 +217,7 @@ end
 
 **Command:** ```vagrant up```
 
-Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located.  A vagrant up command looks in the local directory for a Vagrantfile to begin parsing.  This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (Virtual Box in our case) will be changed.  On subsequent runs the Vagrantfile will be ignored. **Note** - This command is issued not from inside the virtual machine but from the commandline of the host system.
+Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located.  A vagrant up command looks in the local directory for a Vagrantfile to begin parsing.  This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (VirtualBox in our case) will be changed.  On subsequent runs the Vagrantfile will be ignored. **Note** - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 **Command:**  ```vagrant up --provision```
 
@@ -310,7 +310,6 @@ Let us look at an example JSON template file: This source can be retrieved from 
 [files > Chapter-13 > packer-build-templates > ubuntu18043-vanilla.json ](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18043-vanilla.json "Packer Template")
 
 ```json
-
 {
   "builders": [
     {
@@ -345,11 +344,11 @@ Let us look at an example JSON template file: This source can be retrieved from 
       "boot_wait": "10s",
       "disk_size": 20000,
       "guest_os_type": "Ubuntu_64",
-      "http_directory" : ".",
-      "http_port_min" : 9001,
-      "http_port_max" : 9001,
+      "http_directory": ".",
+      "http_port_min": 9001,
+      "http_port_max": 9001,
       "iso_urls": [
-      "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
+        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
       ],
       "iso_checksum_type": "sha256",
       "iso_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
@@ -361,20 +360,20 @@ Let us look at an example JSON template file: This source can be retrieved from 
       "guest_additions_mode": "disable",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-  "vboxmanage": [
-    [
-      "modifyvm",
-      "{{.Name}}",
-      "--memory",
-      "2048"
-    ]
-  ]
-  }
-],
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "2048"
+        ]
+      ]
+    }
+  ],
   "provisioners": [
     {
       "type": "shell",
-      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "script": "../scripts/post_install_vagrant.sh"
     }
   ],
@@ -382,11 +381,10 @@ Let us look at an example JSON template file: This source can be retrieved from 
     {
       "type": "vagrant",
       "keep_input_artifact": false,
-      "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
+      "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"
     }
   ]
 }
-
 ```
 
 There are 3 sections we are interested in:
@@ -454,7 +452,6 @@ This URL is the actual remote location of the install media which will be retrie
 Provisioner are tools that you can use to customize your machine image after the base install is finished.  Though tempting to just use the Kickstart or Pressed files to do the custom install--this is not a good idea.  You should leave the "answer files" as clean or basic as possible so that you may reuse them and do your customization here via a provisioner.
 
 ```json
-
 "provisioners": [
   {
     "type": "shell",
@@ -462,7 +459,6 @@ Provisioner are tools that you can use to customize your machine image after the
     "script": "../scripts/post_install_vagrant.sh"
   }
 ]
-
 ```
 
 In the sample above I chose to implement an inline shell command, "execute command" and then via a shell script.  Shell scripts are very easy to use and flexible.  Provisioners can also be connected to use Provisioning 3rd party tools such as Puppet, Chef, Salt, Ansible, as well as PowerShell.  These tools are called Orchestration tools and I would recommend checking them out if your interest or job lies in this domain.
@@ -496,18 +492,18 @@ echo "All Done!"
 Provisioners allow you to have multiple provision scripts.  Some people like to split functionality over multiple shell scripts or use multiple methods.  The `shell` provisioner also has the capability to execute inline Linux commands, incase you need to setup some internal structure.  Also you can use this method to copy code into the Virtual Machine you are created.  If you clone a Git repo to your local system, you can copy that application code directly into your virtual machine as Packer is building it.
 
 ```json
-    {
-      "type": "shell",
-      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
-      "inline": [
-        "mkdir -p /home/vagrant/.ssh",
-        "mkdir -p /root/.ssh",
-        "chmod 600 /home/vagrant/id_rsa_github_deploy_key",
-        "cp -v /home/vagrant/id_rsa_github_deploy_key /home/vagrant/.ssh/",
-        "cp -v ./applicaiton-code/html /var/www/html/",
-        "cp -v ./mysql/.my.cnf /home/vagrant",
-      ]
-    }
+{
+  "type": "shell",
+  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+  "inline": [
+    "mkdir -p /home/vagrant/.ssh",
+    "mkdir -p /root/.ssh",
+    "chmod 600 /home/vagrant/id_rsa_github_deploy_key",
+    "cp -v /home/vagrant/id_rsa_github_deploy_key /home/vagrant/.ssh/",
+    "cp -v ./applicaiton-code/html /var/www/html/",
+    "cp -v ./mysql/.my.cnf /home/vagrant",
+  ]
+}
 ```
 
 #### Post-Processors
@@ -517,7 +513,6 @@ Packer has the ability to build a virtual machine or OS Container once and expor
 Once the Build step and Provision step are complete the last step (which is optional) is the post-processor step.  This is where you can convert your base image you built into various other formats.  Note that the directory named "build"  is completely arbitrary and was created by me as it made sense.
 
 ```json
-
 "post-processors": [
   {
     "type": "vagrant",
@@ -525,10 +520,9 @@ Once the Build step and Provision step are complete the last step (which is opti
     "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
   }
 ]
-
 ```
 
-Here you see I am converting the VirtualBox *.ovf file into a Vagrant Box file *.box.   If you leave off the keep_input_artifact option, the initial artifact will be deleted and only the post-processor result will remain.  If you are concerned about hard drive space - set this value to false.
+Here you see I am converting the VirtualBox `.ovf` file into a Vagrant Box file `.box`.   If you leave off the keep_input_artifact option, the initial artifact will be deleted and only the post-processor result will remain.  If you are concerned about hard drive space - set this value to false.
 
 [Post-Processing includes:](https://www.packer.io/docs/post-processors/index.html "Packer.io post-processing options")
 
@@ -556,23 +550,20 @@ You can use multiple post-processors if desired.
 
 #### vboxmanage
 
-This command allows you to issue custom VirtualBox commands from within Packer. This is helpful for modifying hardware, such as number of CPUs and memory allocated during the install.  Also you can modify the number of attached disks programaticly.
+This command allows you to issue custom VirtualBox commands from within Packer. This is helpful for modifying hardware, such as number of CPUs and memory allocated during the install.  Also you can modify the number of attached disks programmatically.
 
 ```json
-
 "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "2048"
-        ]
-    ]
-
+  [
+    "modifyvm",
+    "{{.Name}}",
+    "--memory",
+    "2048"
+  ]
+]
 ```
 
 ```json
-
 "vboxmanage": [
   [
     "modifyvm",
@@ -580,12 +571,11 @@ This command allows you to issue custom VirtualBox commands from within Packer. 
     "--memory",
     "2048"
   ],
-    ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk3.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
-    ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk3.vdi"],
-    ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk4.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
-    ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk4.vdi"]
-    ]
-
+  ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk3.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
+  ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk3.vdi"],
+  ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk4.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
+  ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk4.vdi"]
+]
 ```
 
 #### Packer, Putting it Together
@@ -631,7 +621,7 @@ The first solution came from Sun in 1994 and was called [Jumpstart](https://en.w
 The next phase came in Linux with Fedora creating the [Kickstart](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Kickstart Reference") answer file system.  Kickstart does not handle the part of OS install, but the OS configuration and software retrieval/installation.  Kickstart files can be generated from a template or scratch or upon a successful install a default kickstart is located in the location ```/root/anaconda-ks.cfg```. Examples and explanation resources can be found here:
 
 * [Fedora Kickstart Reference](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Fedora Kickstart Reference")
-* [Centos Kickstart Reference](https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html "CentOS Kickstart Reference")
+* [CentOS Kickstart Reference](https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html "CentOS Kickstart Reference")
 
 #### Debian, Ubuntu, and Preseed
 
@@ -669,7 +659,7 @@ vagrant ssh
 
 One of the hardest parts of building software applications is managing **secrets**.  Secrets can be anything from a username and a password, a token, or even keys from cloud services.  The important part is that they are important.  If you loose these secrets it could mean the end to a company.  You also have to worry about invalidating them.  If a person leaves, or rotates job, you don't want credentials to walk out the door with you.  Also managing these secrets not just for security but for automation is also a critical part of the infrastructure.
 
-In Linux Distros as well as Packer there are methods for dealing with secrets.  The first obvious example how to we *seed* a root password for a MySQL server?  If you install it, there is always a password prompt?  This precludes you from automating the install.
+In Linux distros as well as Packer, there are methods for dealing with secrets.  The first obvious example how to we *seed* a root password for a MySQL server?  If you install it, there is always a password prompt?  This precludes you from automating the install.
 
 All Debian based distros have a configuration database called `DEBCONF`.  This can be used to preseed and answers you may have to installation questions that come via `apt-get`.  Here is an example:
 
@@ -700,19 +690,19 @@ echo $SECONDPASS | sudo debconf-set-selections
 This is better but not the best as others on the system or any code that can read ENV variables can now read the password.  Packer has a way to pass ENV variables from a config file.  This is similar to how WordPress is configured.   Adding these lines of code to your Provisioner in your Packer build template allows this:
 
 ```json
-    {
-    "type": "shell",
-  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
-    "script": "../scripts/post_install_itmt430-github-db.sh",
-    "environment_vars": [
-      "DBPASS={{user `database-root-password`}}",
-      "USERPASS={{user `database-user-password`}}",
-      "ACCESSFROMIP={{user `database-access-from-ip`}}",
-      "DATABASEIP={{user `database-ip`}}",
-      "DATABASENAME={{user `database-name`}}",
-      "DATABASEUSERNAME={{user `database-user-name`}}"
-    ]
-  }
+{
+  "type": "shell",
+  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+  "script": "../scripts/post_install_itmt430-github-db.sh",
+  "environment_vars": [
+    "DBPASS={{user `database-root-password`}}",
+    "USERPASS={{user `database-user-password`}}",
+    "ACCESSFROMIP={{user `database-access-from-ip`}}",
+    "DATABASEIP={{user `database-ip`}}",
+    "DATABASENAME={{user `database-name`}}",
+    "DATABASEUSERNAME={{user `database-user-name`}}"
+  ]
+}
 ```
 
 Packer has the ability to set ENV variables upon install.  From the command line you pass an additional `--var-file=` command and Packer will load values from that file.
@@ -725,13 +715,13 @@ packer build --var-file=./variables.json ubuntu18043-vanilla-multi-drives.json
 
 ```json
 {
-    "database-root-password": "foo",
-    "database-user-password": "bar",
-    "database-access-from-ip": "127.0.0.1",
-    "database-ip": "127.0.0.1",
-    "webserver-ip": "127.0.0.1",
-    "database-name": "namegoeshere",
-    "database-user-name": "database-username-goes-here"
+  "database-root-password": "foo",
+  "database-user-password": "bar",
+  "database-access-from-ip": "127.0.0.1",
+  "database-ip": "127.0.0.1",
+  "webserver-ip": "127.0.0.1",
+  "database-name": "namegoeshere",
+  "database-user-name": "database-username-goes-here"
 }
 ```
 
@@ -760,9 +750,9 @@ For our convenience, Packer has direct integration with Vault.  Once Vault is in
     "salt": "{{ vault `secrets/salt` `salt`}}"
   }
   
-    {
+  {
     "type": "shell",
-  "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+    "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
     "script": "../scripts/post_install_itmt430-github-db.sh",
     "environment_vars": [
       "DBPASS={{user `database-root-password`}}",
@@ -773,20 +763,21 @@ For our convenience, Packer has direct integration with Vault.  Once Vault is in
       "DATABASEUSERNAME={{user `database-user-name`}}"
     ]
   }
-  ```
+}
+```
 
 Packer provides the ability to execute inline Linux commands.  This would be useful for instance in copying code from a Git repo into a Virtual Machine via making an SCP (Secure Copy) connection.
 
 ```json
-    {
-      "type": "shell",
-      "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-      "inline": [
-        "mkdir -p /var/www/html",
-        "cp -v ../github-repo/php /var/www/html",
-        "cp -v ../github-repo/sql /home/vagrant/",
-      ]
-    }
+{
+  "type": "shell",
+  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+  "inline": [
+    "mkdir -p /var/www/html",
+    "cp -v ../github-repo/php /var/www/html",
+    "cp -v ../github-repo/sql /home/vagrant/",
+  ]
+}
 ```
 
 ### IT Orchestration
@@ -814,62 +805,71 @@ In this chapter we learned how a spread in technology led to a desire to automat
 ### Review Questions
 
 1. What is a common title given to IT workers who are responsible for the ongoing operations of applications and their environments?
-a) saints
-b) devs
-c) devops
-d) ops
+
+   a) saints
+   b) devs
+   c) devops
+   d) ops
 
 2. What would describe Mitchell Hashimoto's design goals in created Vagrant?
-a) Automation
-b) Separation of Duties
-c) Profit
-d) Inspection
+
+   a) Automation
+   b) Separation of Duties
+   c) Profit
+   d) Inspection
 
 3. What is the name of the tool originally built as an abstraction layer on top of VirtualBox to deploy virtual machines?
-a) Packer
-b) VirtualBox
-c) Terraform
-d) Vagrant
+
+   a) Packer
+   b) VirtualBox
+   c) Terraform
+   d) Vagrant
 
 4. What is the name of the tool originally built as a way to automate the installation of any operating system into an artifact?
-a) Packer
-b) VirtualBox
-c) Terraform
-d) Vagrant 
+
+   a) Packer
+   b) VirtualBox
+   c) Terraform
+   d) Vagrant
 
 5. What year approximately was Vagrant introduced?
-a) 2019
-b) 2001
-c) 2010
-d) 2015
 
-6. Fill in the blank.  Think of Vagrant as _______________ between you and VirtualBox, Hyper-V, Docker, or even VMware desktop
+   a) 2019
+   b) 2001
+   c) 2010
+   d) 2015
+
+6. Fill in the blank. Think of Vagrant as _______________ between you and VirtualBox, Hyper-V, Docker, or even VMware desktop.
 
 7. What is the name of the file type Vagrant uses that contains an `vmdk` and and `ovf`?
-a) `*.vdi`
-b) `*.vhd`
-c) `*.box`
-d) `*.zip`
+
+   a) `*.vdi`
+   b) `*.vhd`
+   c) `*.box`
+   d) `*.zip`
 
 8. Name the file that contains the configuration file for each Vagrant box file.
  
 9. What is the correct command to add the Vagrant Box `centos/7`?
-a) `vagrant add box centos/7`
-b) `vagrant box add centos/7`
-c) `vagrant init centos/7`
-d) `vagrant add centos/7`
+
+   a) `vagrant add box centos/7`
+   b) `vagrant box add centos/7`
+   c) `vagrant init centos/7`
+   d) `vagrant add centos/7`
 
 10. What is the command used to list all Vagrant Boxes being managed by Vagrant?
-a) `vagrant list box`
-b) `vagrant boxes list`
-c) `vagrant box list`
-d) `vagrant list`
+
+    a) `vagrant list box`
+    b) `vagrant boxes list`
+    c) `vagrant box list`
+    d) `vagrant list`
 
 11. What is the correct command to initialize a Vagrant file for Vagrant Box named `centos/7` that has already been added to the system?
-a) `vagrant init`
-b) `vagrant init centos/7`
-c) `vagrant box add centos/7`
-d) `vagrant init 7`
+
+    a) `vagrant init`
+    b) `vagrant init centos/7`
+    c) `vagrant box add centos/7`
+    d) `vagrant init 7`
 
 12. What is the Vagrant command to start or turn on a Vagrant Box?
 
@@ -878,50 +878,56 @@ d) `vagrant init 7`
 14. What is the Vagrant command to shutdown or poweroff a Vagrant Box?
 
 15. For Packer.io, what is the descriptive name of the json file used for building artifacts?
-a) image template
-b) machine.json
-c) build template
-d) provisioner
+
+    a) image template
+    b) machine.json
+    c) build template
+    d) provisioner
 
 16. What is the name of the stage that runs after the builder portion of a build template?
-a) imager
-b) provisioner
-c) vboxmanage
-d) post-processor
+
+    a) imager
+    b) provisioner
+    c) vboxmanage
+    d) post-processor
 
 17. What is the name of the stage that runs after building and provisioning of Packer artifacts is complete?
-a) imager
-b) provisioner
-c) vboxmanage
-d) post-processor
+
+    a) imager
+    b) provisioner
+    c) vboxmanage
+    d) post-processor
 
 18. If there is an error in any part of the Packer build command what will happen?
-a) nothing
-b) an error will be logged but the process will continue
-c) the command will terminate and any artifacts will be deleted
-d) the user will be prompted
+
+    a) nothing
+    b) an error will be logged but the process will continue
+    c) the command will terminate and any artifacts will be deleted
+    d) the user will be prompted
 
 19. What is the generic name of the file that is provided to Packer to help it complete the manual question part of the install?
-a) secret file
-b) answer file
-c) question file
-d) pxe file
 
-20. What are the respective names of the RedHat and Debian based answer files?
-a) jumpstart and preseed
-b) kickstart and jumpstart
-c) kickstart and preseed
-d) Chef and Puppet
+    a) secret file
+    b) answer file
+    c) question file
+    d) pxe file
+
+20. What are the respective names of the Red Hat and Debian based answer files?
+
+    a) jumpstart and preseed
+    b) kickstart and jumpstart
+    c) kickstart and preseed
+    d) Chef and Puppet
 
 ### Podcast Questions
 
-See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantril Hashiconf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
+See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantrill HashiConf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
 
 1. ~0:30 Where does/did Bryan work, who recently bought that company, and what do they do?
 1. ~1:33 What is the birth date of containers?
 1. ~3:25 What was the next iteration of containers?
 1. ~3:49 What is the purpose of a Jail?
-1. ~5:10 What did SUN call their full application environment they created in 2002?
+1. ~5:10 What did Sun call their full application environment they created in 2002?
 1. ~6:13 What is every application running on?
 1. ~8:43 What did Amazon announce in 2006?
 1. ~9:00 In 2006 what technology was Joyent using to run its Public Cloud? In 2006 what technology was Amazon using to run its Public Cloud?
@@ -944,11 +950,11 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 
 #### Part 1
 
-Create a folder structure for 1 Ubuntu Bionic64 vagrant box and 1 Centos 7 vagrant box.  In each of these folders use the ```vagrant init``` command to create a ```Vagrantfile```.  Upon succesfully executing the `vagrant up` command in both directories, take a screenshot of the output of the ```vagrant box list``` command.
+Create a folder structure for 1 Ubuntu Bionic64 vagrant box and 1 CentOS 7 vagrant box.  In each of these folders use the ```vagrant init``` command to create a ```Vagrantfile```.  Upon succesfully executing the `vagrant up` command in both directories, take a screenshot of the output of the ```vagrant box list``` command.
 
 #### Part 2
 
-Run the packer json build templates for Centos 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command with the proper options to create a Vagrantfile and then run the ```vagrant up``` command to instantiate the box. Issue the command ```vagrant ssh``` and once logged in take a screenshot of the output of the command ```free --giga``` to list the amount of memory in the virtual machine.
+Run the packer json build templates for CentOS 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command with the proper options to create a Vagrantfile and then run the ```vagrant up``` command to instantiate the box. Issue the command ```vagrant ssh``` and once logged in take a screenshot of the output of the command ```free --giga``` to list the amount of memory in the virtual machine.
 
 Upon completion take a screenshot of the output of the ```vagrant box list``` command to show that these steps completed successfully.
 
