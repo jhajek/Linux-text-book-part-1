@@ -70,7 +70,7 @@ Kubernetes
 1. ~27:10 Does Kubernetes take care of all features needed to run an application or are additional software pieces needed?
 1. ~28:55 What is the difference between an OS Container and a Virtual Machine?
 1. ~31:01 How does Kubernetes deal with quality of service in relation to applications?
-1. ~33:31 How does Kubernetes differ from SUN Solaris containers (zones)?
+1. ~33:31 How does Kubernetes differ from Sun Solaris containers (zones)?
 1. ~36:45 Does Kubernetes run on other cloud providers (Azure or AWS)?
 1. ~37:42 How are customers using Kubernetes in production?
 1. ~44:23 In what service does Kubernetes keep its system state in?

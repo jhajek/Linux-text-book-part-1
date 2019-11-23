@@ -131,7 +131,7 @@ While Thompson was building Unix to solve his own workloads, his fellow engineer
 
 Ritchie's initial work at Bell Labs was on a high level programming language that could would allow a user to write one piece of code and compile it on different computer architectures. In 1970 this was generally not possible and a radical idea. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Language") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming language.
 
-The next logical step was that Thompson and Ritchie went to work extending "B" with all the features they would need to make an operating system fully function and portable.  They called this language surprisingly, "C" -- the same "C" language you know today.  C was different from assembler in that it resembled assembler code syntax but a high enough level of abstraction that the "C" code was an independent language.  With the advent of C - Unix was rewritten in this language.  With the creation of C compilers for different hardware, Unix could now be built and be recompiled on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, SUN SPARC, eventually Intel and x86, etc, etc.  
+The next logical step was that Thompson and Ritchie went to work extending "B" with all the features they would need to make an operating system fully function and portable.  They called this language surprisingly, "C" -- the same "C" language you know today.  C was different from assembler in that it resembled assembler code syntax but a high enough level of abstraction that the "C" code was an independent language.  With the advent of C - Unix was rewritten in this language.  With the creation of C compilers for different hardware, Unix could now be built and be recompiled on different architectures, PDP-7, PDP-11, DEC VAX, DEC Alpha, IBM 360, Sun SPARC, eventually Intel and x86, etc, etc.
 
 ### Assembler and C Language Comparison
 
@@ -673,7 +673,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 #### Solaris
 
 * Oracle killed commercial Solaris in the middle of the night [September 3rd, 2017](http://dtrace.org/blogs/bmc/2017/09/04/the-sudden-death-and-eternal-life-of-solaris).
-* Commercial Unix distribution created by SUN in the 1980s and bought by Oracle in 2010.
+* Commercial Unix distribution created by Sun in the 1980s and bought by Oracle in 2010.
 * Sought to merge the best of Sys V and BSD into one standard Unix.
 * Ran on proprietary SPARC hardware platform
 * Leader in operating system feature development.

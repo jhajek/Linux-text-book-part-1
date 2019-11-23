@@ -16,7 +16,7 @@ At the conclusion of this chapter you will have explored the nature of the netwo
 
 ## Networking
 
-Former CEO of SUN, Scott McNealy once famously said, "*The network is the computer.*"  This was in 1990.  He could not have been more correct.  With this in mind, basic networking skills are mandatory.  We will briefly cover topics in this order:
+Former CEO of Sun Microsystems, Scott McNealy once famously said, "*The network is the computer.*"  This was in 1990.  He could not have been more correct.  With this in mind, basic networking skills are mandatory.  We will briefly cover topics in this order:
 
 * IP addresses
   * Static and DHCP
@@ -35,7 +35,7 @@ A static address is one that you assign and configure based on your network.  If
 
 > Exercise: Open a command prompt and type this command to find your MAC address or Ethernet Address ```ip l sh``` which is short for ```ip link show```.  You can find all the options to display by typing ```man ip```.
 
-But what if you have transient or ephemeral nodes (computers) on your network?  Then you need to use the **Dynamic Host Control Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address.  This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.  
+But what if you have transient or ephemeral nodes (computers) on your network?  Then you need to use the **Dynamic Host Configuration Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address.  This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.  
 
 There is a DHCP server (configuring one is beyond the scope of this chapter), that will listen for DHCP broadcasts from your client and answer with an offer of an IP.  Once your system (network card) accepts the offer it gains access to that IP address and all other necessary IP configuration--which is relinquishes upon your physically leaving the network for the most part.  DHCP allows you to pool IPs when you might not have enough and share or allow for the auto-registration to make managing large scale IP deployments easy.  
 
@@ -444,7 +444,7 @@ sudo dnf install mariadb-client
 # make sure to start and enable the maria or mysql service on Fedora/CentOS
 ```
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to SUN in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "mysql sold to SUN"), which then was inherited by Oracle in their purchase of SUN in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
 
 * Log in
 * Enter your password at the prompt
