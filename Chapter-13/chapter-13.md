@@ -647,7 +647,7 @@ packer build ubuntu18043-vanilla.json
 
 # Upon completion of the Packer build...
 # Each build has a string representation of the day, month, year to make each
-# filename unique
+# filename unique, called epoch
 vagrant box add ../build/ubuntu18043-vanilla-1574788560.box --name ubuntu-18043-vanilla
 cd ../build
 mkdir ubuntu-18043-vanilla
