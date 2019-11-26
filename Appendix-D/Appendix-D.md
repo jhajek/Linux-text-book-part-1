@@ -63,8 +63,8 @@ The Webserver will have:
 * Enable and start the firewall service allowing connections on port 22 and port 80 and 443
   * Enable and start the Webserver Service
 * Attach two additional virtual disks
-* Format and create a mount point called ```/mnt/disk2``` and ```/mnt/disk3``` using LVM and XFS
-  * Create an LVM volume: PVs, VG, and LGs and a single LG and format with XFS on this logical volume.
+* You will create an XFS formatted LVM logical volume using /dev/sdb and /dev/sdc.
+  * Create an LVM volume: PVs, VG, and LGs and a single LG and format with XFS on this logical volume (Chapter 11).
   * Using the sample in chapter 11, create a systemd .mount file to mount this partition at boot time
   * You will need to install the proper package to use XFS
 * Choose one of the Secrets Management methods discussed in Chapter 13.
