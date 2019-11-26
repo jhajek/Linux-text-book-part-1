@@ -646,7 +646,9 @@ cd Linux-text-book-part-1/Chapter-13/packer-build-templates
 packer build ubuntu18043-vanilla.json
 
 # Upon completion of the Packer build...
-vagrant box add ../build/ubuntu18043-vanilla*.json --name ubuntu-18043-vanilla
+# Each build has a string representation of the day, month, year to make each
+# filename unique
+vagrant box add ../build/ubuntu18043-vanilla-1574788560.box --name ubuntu-18043-vanilla
 cd ../build
 mkdir ubuntu-18043-vanilla
 vagrant init ubuntu-18043-vanilla
