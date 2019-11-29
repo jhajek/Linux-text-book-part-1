@@ -681,7 +681,7 @@ In this chapter we learned and mastered the tools and concepts needed to manage,
 
 ### Lab
 
-__Objectives:__
+#### Objectives:
 
 * Creating virtual disks in VirtualBox
 * Creating new partitions in fdisk
@@ -690,11 +690,11 @@ __Objectives:__
 * Mounting new filesystems
 * Editing /etc/fstab to make our mounts permanent
 
-__Outcomes:__
+#### Outcomes:
 
 At the conclusion of this lab you will have successfully created a new virtual disk in VirtualBox, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the `/etc/fstab`.
 
-__Lab Activities:__
+#### Lab Activities:
 
 For each of the bullet points, take a screenshot of the output of the commands to display the content to demonstrate the concepts.  Note - make your screenshot efficient, and capture only relevant data along with numbering the output.  All disks that are created can be 2 GB unless noted.
 
@@ -752,7 +752,6 @@ For each of the bullet points, take a screenshot of the output of the commands t
    d. Expand the capacity of the zpool by adding the third disk in
    e. Execute the `zpool status command
    f. Execute the command to take the first disk out of the zpool, this command fails, why? Capture the error message in a screenshot
-   g. ~~Execute the ```zpool status``` command~~
 
 9. From the previous exercise using your ZFS pool named datapool, create a 25 megabyte file named datadump.txt:
 
