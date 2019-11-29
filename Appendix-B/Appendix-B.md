@@ -14,7 +14,6 @@ TBA
 ## Chapter 03
 
 Hardware and Linux Installation
-Chapter 03
 
 1. What is the term for the industry standard file format that is used to install a Linux distro?
 a. ISO
@@ -76,6 +75,7 @@ d. Run the ```make``` command
  flatpak
 
 ## Chapter 04 review questions
+
 Linux Desktop and GUI
 
 1. What was the original and most popular Unix “Smart Terminal?”
