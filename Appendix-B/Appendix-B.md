@@ -75,9 +75,8 @@ d. Run the ```make``` command
 20. What is the name of the new package manager RedHat has developed?
  flatpak
 
-## Chapter 04
+## Chapter 04 review questions
 Linux Desktop and GUI
-Chapter 04 review questions
 
 1. What was the original and most popular Unix “Smart Terminal?”
 b. VT-100
@@ -93,7 +92,7 @@ b. Alt + Ctrl + F1 - F7
 5. What is the name of the original Unix based GUI that came out of MIT in ~1984?
 b. X
 6. True or False – X was originally not opensourced by MIT in 1984
-a. False
+a. True
 7. For Ubuntu 18.04 what is the default desktop environment being used?
 GNOME or GNOME3
 8. What is the name of the successor GUI compositor to X being created by the X.org foundation?
