@@ -726,13 +726,13 @@ For each of the bullet points, take a screenshot of the output of the commands t
    c. Mount the snapshot to /mnt/disk3 (create this location if not existing)
    d. `ls -l` the contents of /mnt/disk3
 
-5. Launch a copy of Fedora 30 and follow the all the instructions to install ZFS on Fedora 30: [https://github.com/zfsonlinux/zfs/wiki/Fedora](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux for Fedora 30")
+5. Launch a copy of Fedora and follow the all the instructions to install ZFS on Fedora: [https://github.com/zfsonlinux/zfs/wiki/Fedora](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux for Fedora")
 
    a. Attach two additional virtual disks to the Fedora 30 Virtual Machine
    b. Create a zpool stripe containing both disks
    c. Execute a `zpool status` command to display the contents of the zpool
 
-6. Using Ubuntu 18.04, set networking to bridged mode (take note of your public IP by typing: `ip a sh`
+6. Using Ubuntu 18.04 or higher, set networking to bridged mode (take note of your public IP by typing: `ip a sh`
 
    a. Attach a virtual disk
    b. Using this tutorial: [https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/](https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/ "Configure iSCSI target") configure the system using as an iSCSI target
