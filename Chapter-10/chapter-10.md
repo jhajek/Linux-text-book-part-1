@@ -647,8 +647,9 @@ __Lab Activities:__
 
 1) Install a copy of Devuan Linux from [devuan.org](https://devuan.org "Devuan Linux"). Take a screenshot of the `ps -ef` command focusing on PID 1.
 a) Install the OpenRC init system via `sudo apt-get install openrc`
-b) The install process asks you to run a command after successful install: ```for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done``` Explain what this command is doing.
-c) Reboot the system and take a screenshot of the output of the `ps -ef` command focusing on PID 1.
+b) The install process asks you to run a command after successful install: ```for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done``` 
+c) Explain what this command is doing.
+d) Reboot the system and take a screenshot of the output of the `ps -ef` command focusing on PID 1.
 
 1) What would be the command to change the systemd target runlevel to recovery mode?  Execute this command and take a screenshot of the result.
 
