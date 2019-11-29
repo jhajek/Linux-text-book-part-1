@@ -747,7 +747,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
 8. Create 3 Virtual disks and install the ZFS package:
 
    a. Attach it to an existing Ubuntu 18.04 system
-   b. Create a zpool stripe with two disks name it datapool
+   b. Create a zpool stripe with two disks name it **datapool**
    c. Execute a `zpool status` and a `zpool list` command
    d. Expand the capacity of the zpool by adding the third disk in
    e. Execute the `zpool status command
