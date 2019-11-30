@@ -635,7 +635,7 @@ __Lab Activities:__
 
 1) Using `systemctl`, find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
 
-1) Using `systemd-cgls`, list and filter (grep) the output to show the sub-process IDs for the httpd.service.
+1) Using `systemd-cgls`, list and filter the output to show the sub-process IDs for the httpd.service or apache2.service.
 
 1) Use the `timedatectl` command to change the clock of your system to UTC.
 
