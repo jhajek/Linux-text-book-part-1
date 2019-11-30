@@ -132,7 +132,7 @@ OpenRC and runit do not use systemd at all and therefore any software that requi
  
            systemd                         SysVinit                         OpenRC
 ------------------------------  -------------------------------- -------------------------------- 
-```systemctl --list-units```    ```service --list-all```         ```rc-status```
+```systemctl list-units```      ```service --list-all```         ```rc-status```
 ```systemctl --failed```        -                                ```rc-status --crashed```
 ```systemctl --all```           -                                ```rc-update -v show```
 ```systemctl start/stop```      ```service start/stop daemon```  ```rc-service daemon start/stop```

@@ -789,7 +789,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
     a. Create two partitions on each of these devices
     b. Then using the sample code add these two devices as a log and a cache to the zpool datapool
-    c. Execute a `zfs status` command for the zpool named datapool
+    c. Execute a `zpool status` command for the zpool named datapool
 
 15. On your Fedora system execute, any of the commands listed to print out the disk serial numbers.
 
