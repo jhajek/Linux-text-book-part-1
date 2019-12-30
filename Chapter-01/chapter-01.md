@@ -93,6 +93,7 @@ Special thanks to those who have submitted pull requests and bug reports:
 * [calennert](https://github.com/calennert "GitHub profile for calennert")
 * [liamvu2501](https://github.com/liamvu2501 "GitHub profile for liamvu2501")
 * [trevhead0](https://github.com/trevhead0 "GitHub profile for trevhead0")
+* [psfales](https://github.com/psfales "GitHub profile for psfales")
 
 ## Special Thanks
 
