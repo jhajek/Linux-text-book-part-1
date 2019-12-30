@@ -724,7 +724,7 @@ The first company to adopt systemd was Red Hat.  Debian was the last holdout and
 
 In its defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based system compatibility.  Systemd is entirely Linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros.
 
-## 6th Phase of Linux Maturity, OpenSource isn't a business model
+## 6th Phase of Linux Maturity - OpenSource is not a business model
 
 As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used across the industry and these companies happen to be Venture Capital funded. These companies, which had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providers, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against the cloud providors.  
 
@@ -742,15 +742,15 @@ The industry solution has been the formation of foundations.  For example, the [
 
 Other foundations include:
 
-  * [Cloud Native Computing Foundation](https://cncf.io "Cloud Native Computing Foundation") (CNCF)
+* [Cloud Native Computing Foundation](https://cncf.io "Cloud Native Computing Foundation") (CNCF)
 
     "*The Cloud Native Computing Foundation (CNCF) hosts critical components of the global technology infrastructure. CNCF brings together the world’s top developers, end users, and vendors and runs the largest open source developer conferences. CNCF is part of the nonprofit Linux Foundation.*"
 
-  * [OpenJS Foundation](https://openjfs.org "Open JS Foundation"): An amalgamation of two other Javascript Foundations: the Javascript Foundation [JS Foundation](https://js.foundation/ "Javascript Foundation") and the [NodeJS Foundation](https://foundation.nodejs.org/ "The NodeJS Foundation").  
+* [OpenJS Foundation](https://openjfs.org "Open JS Foundation"): An amalgamation of two other Javascript Foundations: the Javascript Foundation [JS Foundation](https://js.foundation/ "Javascript Foundation") and the [NodeJS Foundation](https://foundation.nodejs.org/ "The NodeJS Foundation").  
 
     "*The OpenJS Foundation is made up of 32 open source JavaScript projects including Appium, Dojo, jQuery, Node.js, and webpack. Our mission is to support the healthy growth of JavaScript and web technologies by providing a neutral organization to host and sustain projects, as well as collaboratively fund activities that benefit the ecosystem as a whole.*"
 
-  * The [Continuous Delivery Foundation](https://cd.foundation/ "The Continuous Delivery Foundation") (CDF)
+* The [Continuous Delivery Foundation](https://cd.foundation/ "The Continuous Delivery Foundation") (CDF)
 
     "*The Continuous Delivery Foundation (CDF) serves as the vendor-neutral home of many of the fastest-growing projects for continuous delivery, including Jenkins, Jenkins X, Spinnaker, and Tekton. CDF supports DevOps practitioners with an open model, training, industry guidelines, and a portability focus.*"
 
