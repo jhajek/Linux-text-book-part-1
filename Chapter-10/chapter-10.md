@@ -60,7 +60,7 @@ To make these changes permanent you need to execute the ```sudo update-grub``` c
 
 ### systemd-boot
 
-There is a replacement in the works for GRUB called systemd-boot or also known as gummi-boot, which is German for "Inflatible boat."   The systemd-boot tool is designed for hardware that is moving forward using the UEFI firmware instead of BIOS and is designed to handle Secure Boot as well.  These are technologies that are increasingly standard on laptops and server hardware.  Currently systemd-boot is available in systemd systems but is not on by default.  You can see a tutorial at [https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/](https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/ "systemd-boot") here on how to enable it.
+There is a replacement in the works for GRUB called systemd-boot or also known as gummi-boot, which is German for "inflatable boat."   The systemd-boot tool is designed for hardware that is moving forward using the UEFI firmware instead of BIOS and is designed to handle Secure Boot as well.  These are technologies that are increasingly standard on laptops and server hardware.  Currently systemd-boot is available in systemd systems but is not on by default.  You can see a tutorial at [https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/](https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/ "systemd-boot") here on how to enable it.
 
 ### SysVinit
 

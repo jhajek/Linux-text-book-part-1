@@ -104,11 +104,11 @@ Thompson's Unix success was also a byproduct of its main design philosophy:
   * Output of one command becomes the input of another command.
   * Complex applications are built by chaining the output of small executables together with *pipes* -> "|"
 
-The best demonstration of these tenants was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\\ "Jon Bently") in 1986 to:
+The best demonstration of these tenets was during a coding challenge issued by [Jon Bently](https://en.wikipedia.org/wiki/Jon_Bentley_\(computer_scientist\\ "Jon Bently") in 1986 to:
 
 > *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.*
 
-There were two answers to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preeminent computer scientist, called the "father of analysis algorithms" tackled the problem by originating an ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Rithcie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his contributions to Unix in chapter 6. Here is his answer:
+There were two answers to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preeminent computer scientist, called the "father of analysis algorithms" tackled the problem by originating an ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Ritchie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his contributions to Unix in chapter 6. Here is his answer:
 
 ```bash
 tr -cs A-Za-z '\n' |
@@ -330,13 +330,15 @@ Tooling
 
 #### Linus' Personality
 
-Some people think Linus' personality is a shtick or a comedy act he puts on.  But whatever it is he is very straight forward in dealing with people, and will not spare anyone a harsh public rebuking if he thinks they made a sloppy mistake.  He justifies this as kernel work is hard and you need to be prepared to take difficult criticism if you are going to survive here. Some consider Linus really mean and even aggressively mean spirited to those with whom he has disagreements.  When approached about this, Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
+Some people think Linus' personality is a shtick or a comedy act he puts on.  But whatever it is he is very straight forward in dealing with people, and will not spare anyone a harsh public rebuking if he thinks they made a sloppy mistake.  He justifies this as kernel work is hard and you need to be prepared to take difficult criticism if you are going to survive here. Some consider Linus really mean and even aggressively mean spirited to those with whom he has disagreements.  When approached about this, originally Linus states that he only cares about the kernel and no one else matters to him.  These links below provide some points and counter points about Linus.  
 
 * [Torvalds' right to offend](http://www.wired.com/2013/07/linus-torvalds-right-to-offend/ "rights")
 * [Torvalds doesn't care](http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/ "Doesn't care")
 * [Linus' response to previous article](http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/ "Response")
 
 On September 16, 2018, Linus Torvalds issued a public apology for his past behavior and temporarily stepped down as Linux Kernel maintainer.  You can read the apology letter on the [Kernel mailing list](https://lkml.org/lkml/2018/9/16/167 "Linus Apology").   Some say the apology wasn't needed, some say it is too little too late.  Others wonder if a man of Linus' age (48) can be reformed.  Some see this as a step in the right direction and offer a chance for redemption, some would prefer him never to return.  This opens a bigger question of what happens to the Linux Kernel if Linus never returns, who becomes the maintainer?  Time will tell.
+
+In October 2018, [Linus Torvalds returned from his one month of reflection](https://www.theverge.com/2018/10/22/18011854/linus-torvalds-linux-kernel-development-return-code-of-conduct "Linus returns from a month of reflection").  He realized that his original focus had made the Linux Kernel development area difficult for new people. Torvalds said, *"I need to change some of my behavior, and I want to apologize to the people that my personal behavior hurt and possibly drove away from kernel development.”*  In addition a [Contributor Covenant](https://www.contributor-covenant.org/ "Controbitor Covenant added to Linux project") was added to the Linux Project to govern these kinds of interactions in the future.
 
 ### AT&T and BSD Lawsuit
 
@@ -726,7 +728,7 @@ In its defense, systemd has many nice and actually new and needed features for L
 
 ## 6th Phase of Linux Maturity - OpenSource is not a business model
 
-As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used across the industry and these companies happen to be Venture Capital funded. These companies, which had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providers, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against the cloud providors.  
+As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used across the industry and these companies happen to be Venture Capital funded. These companies, which had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providers, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against the cloud providers.  
 
 * MongoDB - [Server Side Public License](https://www.mongodb.com/licensing/server-side-public-license "Server Side Public License")
 * Confluent - [Community License v1](https://www.confluent.io/confluent-community-license "Confluence Community License")

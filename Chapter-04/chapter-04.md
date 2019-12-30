@@ -323,7 +323,7 @@ default?
   b. The technology doesn’t need to have any larger screen size
   c. The developers of these technologies were seeking to emulate the popular VT-100 and
 VT-220 terminals they used prior.
-  d. Hey its Windows, do they need a reason?
+  d. Hey it's Windows, do they need a reason?
 4) What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
   a. Alt + Ctrl + Del
   b. Alt + Ctrl + F1 - F7

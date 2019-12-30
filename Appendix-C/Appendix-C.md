@@ -229,24 +229,24 @@ devices?”
   b.	TTY
   c.	VT-100
   d.	Virtual Terminal
-3)	Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by
+3) Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by
 default?
-  a.	The technology cannot process any larger size
-  b.	The technology doesn’t need to have any larger screen size
-  c.	The developers of these technologies were seeking to emulate the popular VT-100 and
+  a. The technology cannot process any larger size
+  b. The technology doesn’t need to have any larger screen size
+  c. The developers of these technologies were seeking to emulate the popular VT-100 and
 VT-220 terminals they used prior.
-  d.	Hey its Windows, do they need a reason?
-4)	What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
-  a.	Alt + Ctrl + Del
-  b.	Alt + Ctrl + F1 - F7
-  c.	Right Ctrl
-  d.	Shift 5 times
-5)	What is the name of the original Unix based GUI that came out of MIT in ~1984?
-  a.	W
-  b.	X
-  c.	Y
-  d.	Z
-6)	True or False – X was originally not opensourced by MIT in 1984
+  d. Hey it's Windows, do they need a reason?
+4) What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
+  a. Alt + Ctrl + Del
+  b. Alt + Ctrl + F1 - F7
+  c. Right Ctrl
+  d. Shift 5 times
+5) What is the name of the original Unix based GUI that came out of MIT in ~1984?
+  a. W
+  b. X
+  c. Y
+  d. Z
+6) True or False – X was originally not opensourced by MIT in 1984
 
 7) For Ubuntu 18.04 what is the default desktop environment being used?
 

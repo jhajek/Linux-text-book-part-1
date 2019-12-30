@@ -61,7 +61,7 @@ This line allows you to add specific users and then list specific commands that 
 %sudo   ALL=(ALL:ALL) ALL
 ```
 
-The next line allows you to add groupnames to receive sudo access.  Any useraccount that is a member of this group, in Ubuntu's case *sudo* can gain *superuser* permissions
+The next line allows you to add groupnames to receive sudo access.  Any user account that is a member of this group, in Ubuntu's case *sudo* can gain *superuser* permissions
 
 ```bash
 # Members of the admin group may gain root privileges
@@ -164,7 +164,7 @@ By the year 2004 the clear need for a syslog compatible but feature rich replace
 
 ### journald and systemd
 
-Not to be outdone - `systemd` has preplaced syslog with `journald`.  And this has happened in every system that has adopted `systemd` - Debian 8, Fedora 22, Ubuntu 15.04/15.10, CentOS 7.  You can read the initial `journald` announcement and [justification paper here](https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1 "Justification Paper") [^96].
+Not to be outdone - `systemd` has replaced syslog with `journald`.  And this has happened in every system that has adopted `systemd` - Debian 8, Fedora 22, Ubuntu 15.04/15.10, CentOS 7.  You can read the initial `journald` announcement and [justification paper here](https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs&pli=1 "Justification Paper") [^96].
 
 In Lennart Poeterring's own words, *"If you are wondering what the journal is, here's an explanation in a few words to get you up to speed: the journal is a component of systemd, that captures Syslog messages, Kernel log messages, initial RAM disk and early boot messages as well as messages written to STDOUT/STDERR of all services, indexes them and makes this available to the user. It can be used in parallel, or in place of a traditional syslog daemon, such as rsyslog or syslog-ng."* [^97]
 
