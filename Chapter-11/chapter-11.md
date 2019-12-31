@@ -681,7 +681,7 @@ In this chapter we learned and mastered the tools and concepts needed to manage,
 
 ### Lab
 
-#### Objectives:
+#### Objectives
 
 * Creating virtual disks in VirtualBox
 * Creating new partitions in fdisk
@@ -690,11 +690,11 @@ In this chapter we learned and mastered the tools and concepts needed to manage,
 * Mounting new filesystems
 * Editing /etc/fstab to make our mounts permanent
 
-#### Outcomes:
+#### Outcomes
 
 At the conclusion of this lab you will have successfully created a new virtual disk in VirtualBox, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the `/etc/fstab`.
 
-#### Lab Activities:
+#### Lab Activities
 
 For each of the bullet points, take a screenshot of the output of the commands to display the content to demonstrate the concepts.  Note - make your screenshot efficient, and capture only relevant data along with numbering the output.  All disks that are created can be 2 GB unless noted.
 
