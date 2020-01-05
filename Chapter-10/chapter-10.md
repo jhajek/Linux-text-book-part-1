@@ -239,7 +239,6 @@ systemd-boot
 
 Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The units that systemd include are ```.service```, ```.mount```, ```.target``` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files").
 
-
 #### Systemd Service file
 
 ```bash
@@ -350,15 +349,15 @@ The ```ps``` command displays information about a selection of the active proces
 
 These additional commands will share more information:
 
-  * ```ps -e```  <-- select all processes (similar to -A)
-  * ```ps -ef```  <-- this is one of the more helpful and verbose sets of options with full-formatting
-  * ```ps -eF``` <-- Extra full-formatting
-  * ```ps -ely```  <-- Long formatting
-  * ```ps -eo pif,tid,class,ni,pri,psr...```  <-- the ```o``` option allows you to customize the column arraingment and output.
-  * ```ps -C syslogd -o pid=```  <-- this is the same as doing ```ps -ef | grep firefox``` or ```pidof firefox```
-  * ```ps xawf -eo pid,user,cgroup,args``` [^119]  Shows cgroup ownership details.
-  *  systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership.
-    + cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
+* ```ps -e```  <-- select all processes (similar to -A)
+* ```ps -ef```  <-- this is one of the more helpful and verbose sets of options with full-formatting
+* ```ps -eF``` <-- Extra full-formatting
+* ```ps -ely```  <-- Long formatting
+* ```ps -eo pif,tid,class,ni,pri,psr...```  <-- the ```o``` option allows you to customize the column arraingment and output.
+* ```ps -C syslogd -o pid=```  <-- this is the same as doing ```ps -ef | grep firefox``` or ```pidof firefox```
+* ```ps xawf -eo pid,user,cgroup,args``` [^119]  Shows cgroup ownership details.
+* systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership.
+  * cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
 
 ### kill
 
