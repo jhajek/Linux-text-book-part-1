@@ -457,7 +457,7 @@ Seeing as you may want to access a more recent build of an application that may 
 
 You can manually edit the file ```/etc/apt/sources.list``` as well and enter PPAs manually.  Once a new PPA has been added you need to run ```sudo apt-get update``` so APT can see the new repositories and add them to it's cache.
 
-> __Example Usage:__  Ubuntu 18.04.2 installs php 7.2 by default, but if you wanted to use or test php 7.3 you would need to add an additional repositiory or PPA to enable the php7.3 package to be installed. Try the below sequence:
+> __Example Usage:__  Ubuntu 18.04.2 installs php 7.2 by default, but if you wanted to use or test php 7.3 you would need to add an additional repository or PPA to enable the php7.3 package to be installed. Try the below sequence:
 
 ```bash
 sudo apt-get update
