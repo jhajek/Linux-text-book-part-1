@@ -465,7 +465,12 @@ create table tutorials_tbl(
 quit;
 ```
 
-You can automate connections to MySQL by creating a file called `~/.my.cnf`.  In this file you can create user options that will override default connections, including username and password.  This increases security by not having to manually type a password on the commandline.
+You can automate connections to MySQL by creating a file called `my.cnf`.  In this file you can create user options that will override default connections, including username and password.  This increases security by not having to manually type a password on the commandline.  MySQL and MariaDB will look for a `my.cnf` file in four default locations in cascading order.  Some of these locations are owned by root and require permission.  We will use the last location, `~/.my.cnf` which stored in your home directory and requires no root access.
+
+* `/etc/my.cnf`
+* `/etc/mysql/my.cnf`
+* `/usr/etc/my.cnf`
+* `~/.my.cnf`
 
 ```bash
 

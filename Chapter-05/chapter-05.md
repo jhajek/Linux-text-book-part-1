@@ -430,7 +430,7 @@ The improvements offered by bash over sh, csh, and ksh include:
 
 #### Open Source sh Replacements
 
-Unlike Bash which provided a *"free"* ```sh``` compatible shell for the GNU system, there was mcuh code written in ```sh``` but no opensource version available.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and opensourc version of the Bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional ```/bin/sh```.
+Unlike Bash which provided a *"free"* ```sh``` compatible shell for the GNU system, there was much code written in ```sh``` but no opensource version available.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and opensourc version of the Bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional ```/bin/sh```.
 
 ## File Permissions and Ownership
 

@@ -117,7 +117,7 @@ One of the most central functions of an operating system is logging.  Without lo
 
 ### /var/log/\*
 
-The default logging directory on all Linux systems is located in ```/var/log```.  This is the place where the kernel, the operating system, and any default installed services will place its logs. For 30+ years this was the convention and all common knowledge.  But with the recent adoption of systemd on all major Linux platforms, the logging facility that was once simple text, has now been moved into the ```journald``` and into a binary format. Note with the systemd, the logging convention has been changed to a binary format and placed under the ```journalctl``` command which we will cover in chapter 11.  But for Fedora 28+ and any Ubuntu or Debian distro.
+The default logging directory on all Linux systems is located in ```/var/log```.  This is the place where the kernel, the operating system, and any default installed services will place its logs. For 30+ years this was the convention and all common knowledge.  But with the recent adoption of systemd on all major Linux platforms, the logging facility that was once simple text, has now been moved into the ```journald``` and into a binary format. Note with the systemd, the logging convention has been changed to a binary format and placed under the ```journalctl``` command which we will cover in chapter 11.
 
 When you install additional packages, those packages too will add a directory for its own logs.  Note in the picture below there is a log called ```httpd``` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files.  You will notice in these screenshots that there is a log entry for VBoxGuestAdditions--telling you that you are using VirtualBox.
 
@@ -503,9 +503,9 @@ One of the tools to alliviate this is called [fail2ban](https://www.fail2ban.org
 
 #### OpenSSL
 
-OpenSSL is an Opensource Library used for crytographic key generation by OpenSSH.  In 2016, it suffered an exploit due to the quality of the library maintaining older code from non-existant systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributred almost nothing to its development.   After the exploit a huge infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
+OpenSSL is an Opensource Library used for crytographic key generation by OpenSSH.  In 2016, it suffered an exploit due to the quality of the library maintaining older code from non-existent systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributred almost nothing to its development.   After the exploit a huge infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
 
-The heartbleed OpenSSL bug even has its own website to explain the deatils of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
+The heartbleed OpenSSL bug even has its own website to explain the details of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
 
 > "The Heartbleed Bug is a serious vulnerability in the popular OpenSSL cryptographic software library. This weakness allows stealing the information protected, under normal conditions, by the SSL/TLS encryption used to secure the Internet. SSL/TLS provides communication security and privacy over the Internet for applications such as web, email, instant messaging (IM) and some virtual private networks (VPNs)[^ch9f106]."
 

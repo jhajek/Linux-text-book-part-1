@@ -4,7 +4,7 @@
 
 ## Objectives
 
-This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenants of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus on using the opensource technology of Linux.  The Objectives of this chapter are as follows:
+This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenets of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus on using the opensource technology of Linux.  The Objectives of this chapter are as follows:
 
 * Understand how to write and use basic shell scripts
 * Understand how to use conditional statements in Bash scripts
@@ -480,11 +480,11 @@ Entry                                Description                          Equiva
 * Bash Cookbook [http://shop.oreilly.com/product/0636920058304.do](http://shop.oreilly.com/product/0636920058304.do "Bash Cookbook")
 * vi and vim [http://shop.oreilly.com/product/9780596529833.do](http://shop.oreilly.com/product/9780596529833.do "vi and vim")
 
-## Awk and Sed
+## Text Processing with Awk and Sed
 
-### awk and gawk
+### AWK
 
-AWK is a programming language designed for text processing and typically used as a data extraction and reporting tool. It is a standard feature of most Unix-like operating systems[^91]. This original program was released in 1977, and was a powerful and focused lanugage.  We take things like Perl, Python, and even databases such as MySQL and SQLite. The ```awk``` language was designed to do all these things because at the time text based files was the universal datatype.  The initial program was developed by [Alfred Aho](https://en.wikipedia.org/wiki/Alfred_Aho "Alfred Aho"), [Peter Weinberger](https://en.wikipedia.org/wiki/Peter_J._Weinberger "peter J. Weinberger"), and [Brian Kerhnighan](https://en.wikipedia.org/wiki/Brian_Kernighan "Brian Kernighan") at Bell Labs.  
+AWK is a programming language designed for text processing and typically used as a data extraction and reporting tool. It is a standard feature of most Unix-like operating systems[^91]. This original program was released in 1977, and was a powerful and focused language.  We take things like Perl, Python, and even databases such as MySQL and SQLite. The ```awk``` language was designed to do all these things because at the time text based files was the universal datatype.  The initial program was developed by [Alfred Aho](https://en.wikipedia.org/wiki/Alfred_Aho "Alfred Aho"), [Peter Weinberger](https://en.wikipedia.org/wiki/Peter_J._Weinberger "Peter J. Weinberger"), and [Brian Kerhnighan](https://en.wikipedia.org/wiki/Brian_Kernighan "Brian Kernighan") at Bell Labs.  
 
 An AWK program consists of a sequence of optional directives, pattern-action statements, and optional function definitions.
 
@@ -517,13 +517,13 @@ sudo journalctl --no-pager | awk '$5 ~ /^sshd/'
 
 Lets take a look at this statement:[^90]
 
-* \$5 tells awk to look at the fifth "column". 
-* \~ tells awk to do a RegularExpression match \/....\/ is a Regular expression. 
+* \$5 tells AWK to look at the fifth "column".
+* \~ tells AWK to do a RegularExpression match \/....\/ is a Regular expression.
 * Within the RE is the string Linux and the special character \^.
 * \^ causes the RE to match from the start (as opposed to matching anywhere in the line).
-* Seen together: awk will match a regular expression with "Linux" at the start of the first column.
+* Seen together: AWK will match a regular expression with "Linux" at the start of the first column.
 
-You can find more information at this IBM tutorial: [Awk by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "Awk by example")
+You can find more information at this IBM tutorial: [AWK by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "AWK by example"). The GNU version of AWK is called [gawk](http://www.gnu.org/software/gawk/ "GNU webpage for gawk") and it performs the same commands and options but is licensed under GPLv3+ as AWK was part of the proprietary UNIX tools and license. Linux systems symlink `awk` command to `gawk`.  
 
 ### sed
 
