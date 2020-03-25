@@ -361,13 +361,19 @@ By the end of the 90s a curious thing was happening; Microsoft had a near total 
 
 The term opensource software is pervasive today but in 1998, it didn't exist.  The term *free software* had existed since 1985, but because of the ambiguity of the English word *free* it became associated with zero-cost free and not freedom free.  The term *free* can also give the potential idea of cheap or shoddy work--compared to professional proprietary work and the enterprise would not touch it.  
 
-The term *opensource* was not a movement away from the principles of *free software* but a chance to show the enterprise that the opensource development model was sustainable and could produce superior products.  To better understand the difference, we need to meet some of the key players. Enter Eric S. Raymond.
+The term *opensource* was not a movement away from the principles of *free software* but a chance to show the enterprise that the opensource development model was sustainable and could produce superior products.  To better understand the difference, we need to meet some of the key players.
+
+#### Christine Peterson
+
+![*Christine Peterson*](images/Chapter-02/People/Christine-Peterson/Christine_Peterson_2009.jpg "Christine Peterson")
+
+Christine Peterson[^115] was a technologist who was part of the group that would become the OpenSource Initiative.  She is generally credited with coming up with the term, *"Opensource"* as a differentiator from *"Free Software"*.
 
 #### Eric S. Raymond
 
 ![*Eric S. Raymond*](images/Chapter-02/People/Eric-Raymond/256px-Eric_S_Raymond_portrait.jpg "Eric S. Raymond")
 
-Eric S. Raymond[^8] had long been a free software developer and part of the hacker community. Raymond's most famous contribution to opensource is writing a seminal paper that was later reprinted in book form called, [__"The Cathedral and the Bazaar"__](http://www.catb.org/~esr/writings/cathedral-bazaar/introduction/ "The Cathedral and the Bazaar")  
+Eric S. Raymond[^8] had long been a free software developer and part of the hacker community. Raymond's most famous contribution to opensource is writing a seminal paper that was later reprinted in book form called, ["The Cathedral and the Bazaar"](http://www.catb.org/~esr/writings/cathedral-bazaar/introduction/ "The Cathedral and the Bazaar")  
 
 His main point was that by business-as-usual practices Linux should have been a massive failure and a poorly implemented experiment.  But instead it was an unprecedented success because of the opensource development method.  His article examined why this is the case comparing the cathedral like design of Emacs and GCC--open but not publicly available during development versus Linux bazaar style development of everything publicly open and available at all time via the internet.
 
@@ -907,3 +913,5 @@ or <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>, <a
 <a href="https://commons.wikimedia.org/wiki/File%3ALennart_poettering.jpg">via Wikimedia Commons</a>
 
 [^114]: <a href="https://www.gnu.org/philosophy/free-sw.en.html">https://www.gnu.org/philosophy/free-sw.en.html</a>
+
+[^115]: By Randy Stewart - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/stewtopia/3843277009/">https://www.flickr.com/photos/stewtopia/3843277009/</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=74490182">Link</a>
