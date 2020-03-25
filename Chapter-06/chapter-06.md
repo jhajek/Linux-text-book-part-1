@@ -529,6 +529,8 @@ A tape archive that is additionally compressed by another tool is called a __tar
 
 > __Example usage:__  Previously you had to pass a flag to the ```tar``` command to tell it what type of compression algorithm to decompress with but now ```tar``` is smart and will autodetect for you.  The flags you need to simply pass are -x for extract, -v for verbose (optional), and -f for file (optional) ```wget https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz; tar -xvf linux-4.3-rc3.tar.xz```  
 
+As of version > 1.31 of `tar` there is also support for zstd.  Which can be filter and archive via the ```--zstd`` flag
+
 ![*Archive and Compress Diagram*](images/Chapter-06/tar/640px-Targzip-svg-xcf.png "Archive and Compress")
 
 ## Hidden files and single dot operator
