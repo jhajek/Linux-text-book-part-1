@@ -403,9 +403,9 @@ The ```find``` command is used to search for files in a directory hierarchy.  Th
 
  Character          Value
 -----------  -----------------------
-    +n        for greater than n,
-    -n        for less than n,
-     n        for exactly n.
+    +n        for greater than n
+    -n        for less than n
+     n        for exactly n
 -----------  -----------------------
 
 Some of the common categories you can use for find are: file time parameters, file size parameters, user ownership parameters, and permission parameters.
@@ -514,6 +514,10 @@ This is a similar algorithm to gzip in that they do compression only.  It differ
 ### xz
 
 The [xz](http://tukaani.org/xz/format.html "xz") compression tool is using the [LZMA2](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm "LZMA2") compression algorithm which is superior in decreasing size at the expense of compute time.  The xz algorithm uses LZMA2 which has support for multithreading in compressing and decompressing in parallel. Back in 1985 when the first Compress program was created processing power was slow compared to the speed of the networks.  Now the speed of the processor is much faster relative to the speed of our networks. On today's networks we are moving multiple gigabytes around at a time.  The xz compression tool is the tool for the future.  In December 2013, [kernel.org](http://kernel.org "kernel.org") announced the addition of xz compressed files and ending bzip2 compressed files for distributing the Linux kernel archive files. The xz tool works only on single files and cannot be used for archiving.  In this case you would compress an archive file (like a tar file) to maximize usage.
+
+### zstd
+
+[Zstandard](https://facebook.github.io/zstd/ "Zstandard compression website") is a real-time compression algorithm, providing high compression ratios. It offers a very wide range of compression / speed trade-off, while being backed by a very fast decoder (see benchmarks below). It also offers a special mode for small data, called dictionary compression, and can create dictionaries from any sample set. Zstandard library is provided as open source software using a BSD license.  It can be installed via the commmand: ```sudo apt-get install zstd```.
 
 ### tarballs
 
