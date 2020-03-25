@@ -423,9 +423,9 @@ The creators of the Opensource initiative (OSI) took a different approach to mar
 
 * [MIT](https://opensource.org/licenses/MIT "MIT License")
 * [APACHE Public License 2.0](https://opensource.org/licenses/Apache-2.0 "Apache Public License")
-* [BSD 3 Cluase](https://opensource.org/licenses/BSD-3-Clause "BSD 3 Clause")
+* [BSD 3 Clause](https://opensource.org/licenses/BSD-3-Clause "BSD 3 Clause")
 * [BSD 2 Clause or FreeBSD license](https://opensource.org/licenses/BSD-2-Clause "BSD 2 Clause")
-* [ISC Liscense](https://opensource.org/licenses/ISC "ISC")
+* [ISC License](https://opensource.org/licenses/ISC "ISC")
 * [MPLv2 - Mozilla Public License](https://opensource.org/licenses/MPL-2.0 "MPL")
 * [CDDL](https://opensource.org/licenses/CDDL-1.0 "CDDL")
 
@@ -433,15 +433,15 @@ In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Cr
 
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux
 
-As the 1990s came to a close we began to see established companies adopting and using opensource projects in enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the GNU coretools and a GUI interface.  Of all the Linux companies that started at that time, Red Hat Linux is one of the few remaining and by far the most successful. How successful?  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
+As the 1990s came to a close we began to see established companies adopting and using opensource projects in enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils") and a GUI interface.  Of all the Linux companies that started at that time, Red Hat Linux is one of the few remaining and by far the most successful. How successful?  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
 
 ### Modern Linux Distributions
 
-As the new century dawned, Stallman's dream for the GNU operating system had become a reality.  Companies were combining the opensource Linux kernel with the free GNU coretools, and by integrating GUIs such as X11, KDE, and the GNU GNOME project, they were creating what could easily be described as a GNU/Linux based operating system. Each company made their own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well.
+As the new century dawned, Stallman's dream for the GNU operating system had become a reality.  Companies were combining the opensource Linux kernel with the free [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils", and by integrating GUIs such as X11, KDE, and the GNU GNOME project, they were creating what could easily be described as a GNU/Linux based operating system. Each company made their own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well.
 
 It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might wonder if, without the financial backing of a commercial entity, could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.
 
-As of 2017, we have almost 25 years of Linux Kernel and Linux distribution work. Current Linux distributions hail from two primary and distinct families: __Debian__ and __Red Hat__.  There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch")
+As of 2017, we have almost 25 years of Linux Kernel and Linux distribution work. Current major commercial Linux distributions hail from two primary and distinct families: __Debian__ and __Red Hat__.  There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on these two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch").
 
 #### Additional Popular Linux Distros
 
@@ -465,7 +465,7 @@ Unfortunately on December 31st, 2015, Ian Murdock succumbed to mental illness an
 
 ![*Debian*](images/Chapter-02/Linux-logos/Debian/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
-The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercially backed Linux distro still in existence.  The current release is Debian 10. The Debian project has unique characteristics that were designed into the project from the very beginning. Many believe these features are the key to their long term success and usage across the Linux landscape as there are [currently 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") in existance according to distrowatch.com.
+The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*) was founded in 1993 By Ian Murdock and is unique for being one of the only non-commercially backed Linux distro still in existence.  The current release is Debian 10. The Debian project has unique characteristics that were designed into the project from the very beginning. Many believe these features are the key to their long term success and usage across the Linux landscape as there are [currently 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") in existence according to distrowatch.com.
 
 * Initial release schedule was yearly but as Debian project has grown now is two year release schedule
 * It is the only major Linux distribution not backed by a corporation.
@@ -504,7 +504,7 @@ This is a Debian derivative, that has been produced with an FSF based focus on F
 
 ![*Devuan Linux*](images/Chapter-02/Linux-logos/Devuan/Devuan-logo.png "Devuan")
 
-[Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of the "Debian Civil War" of early 2015 where in half of the Debian Project developers left the project to begin work on this distribution.  It is a direct fork of the Debian 8.0 Jessie Code base with one major incompatible change to the core operating system; that cannot be merged back into Debian.  The disagreement stemmed from Debian's decision to implement Red Hat's systemd init system over the old but reliable sysVInit.  To change the core operating system is a monumental task and these volunteers undertook it and succeeded.  The state of the OS is in late beta as of August 2016 with isos and VM images available for download.  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter.
+[Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of the "Debian Civil War" of early 2015 where in half of the Debian Project developers left the project to begin work on this distribution.  It is a direct fork of the Debian 8.0 Jessie Code base with one major incompatible change to the core operating system; that cannot be merged back into Debian.  The disagreement stemmed from Debian's decision to implement Red Hat's systemd init system over the old but reliable sysVInit.  To change the core operating system is a monumental task and these volunteers undertook it and succeeded.  The project started in August of 2016 and has now progressed to a stable systemd free [Debian based release, Devuan 2.1](https://devuan.org/os/debian-fork/ascii-point-release-announce-112119 "Devuan website") (codename ASCII).  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter.
 
 #### Other Debian Based Distros
 
@@ -516,7 +516,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 * [Linux Mint](https://linuxmint.com/ "Linux Mint")
 * [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam online gaming company's official Linux distro
 * [Ubuntu Kylin](http://www.ubuntukylin.com/ "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
-* [Raspian](http://www.raspbian.org/ "Raspian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
+* [Raspbian](http://www.raspbian.org/ "Raspbian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
 * [Tails](https://tails.boum.org/ "tails") The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user.
 * [elementaryOS](http://elementary.io/) elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.
 * [Kali Linux](https://www.kali.org/ "Kali Linux") Security based Debian distro
@@ -537,6 +537,7 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, as well as a container based edition based on a company Red Hat purchased called Red Hat CoreOS Edition for use on Kubernetes.
 
+* Fedora 31 was released on 10/21/19
 * Fedora 30 was released on 04/30/19
 * Fedora 29 was released on 10/30/18
 * Fedora 28 was released on 05/01/18
