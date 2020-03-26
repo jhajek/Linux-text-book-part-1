@@ -62,7 +62,7 @@ The future of disk is something of a hybrid between ram and solid state/flash me
 
 ### Virtual Hard Drives
 
-When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files.
+When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files.  This [interface was standardized](https://lwn.net/Articles/239238/ "virtuio announcement webpage")] and opensourced as part of the `virtio`package.  
 
 ### Disk Management in VirtualBox
 
