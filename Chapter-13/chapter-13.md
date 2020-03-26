@@ -101,10 +101,10 @@ You can check to see if the vagrant box add command was successful by issuing th
 
 ```bash
 PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
-centos-vanilla-1810  (virtualbox, 0)
-ubuntu-vanilla-18043 (virtualbox, 0)
-ubuntu/bionic64      (virtualbox, 20190810.0.0)
-ubuntu/xenial64      (virtualbox, 20190807.0.0)
+centos-vanilla-1908  (virtualbox, 0)
+ubuntu-vanilla-18044 (virtualbox, 0)
+ubuntu/bionic64      (virtualbox, 20200324.0.0)
+ubuntu/xenial64      (virtualbox, 20200326.0.0)
 ```
 
 Here you notice that the last two boxes were added directly from the HashiCorp boxes repository (vagrant box add ubuntu/trusty64 and vagrant box add ubuntu/xenial64)
@@ -112,8 +112,8 @@ Here you notice that the last two boxes were added directly from the HashiCorp b
 The top two boxes were custom Vagrant boxes I created (we are getting to that part) that are treated as third party boxes.  To add them I issued a command like this:   (The vanilla term is my own convention, it just means this is a default OS install -- no extra packages)
 
 ```bash
-vagrant box add ./centos-1810-virtualbox-1485312680.box --name centos-7-vanilla
-vagrant box add ./ubuntu-18043-virtualbox-1485314496.box --name ubuntu-16041-vanilla
+vagrant box add ./centos-1908-virtualbox-1485312680.box --name centos-7-vanilla
+vagrant box add ./ubuntu-18044-virtualbox-1485314496.box --name ubuntu-16041-vanilla
 ```
 
 #### vagrant box remove
@@ -123,7 +123,7 @@ vagrant box add ./ubuntu-18043-virtualbox-1485314496.box --name ubuntu-16041-van
 The same way that you add boxes you can remove them from your list.  You need to know the name of the box that was added, run a vagrant box list command and find the name that way.  The below commands would remove the boxes added in the previous section.
 
 * ```vagrant box remove centos-7-vanilla```
-* ```vagrant box remove ubuntu-18043-vanilla```
+* ```vagrant box remove ubuntu-18044-vanilla```
 
 #### vagrant init
 
@@ -307,14 +307,14 @@ HashiCorp essentially built a tool that captures each install step.  These steps
 #### Packer JSON Build Template
 
 Let us look at an example JSON template file: This source can be retrieved from the source code of the book:
-[files > Chapter-13 > packer-build-templates > ubuntu18043-vanilla.json ](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18043-vanilla.json "Packer Template")
+[files > Chapter-13 > packer-build-templates > ubuntu18044-vanilla.json ](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18044-vanilla.json "Packer Template")
 
 ```json
 {
   "builders": [
     {
-      "name": "ubuntu-vanilla-18043-server",
-      "vm_name": "ubuntu-vanilla-18043-server",
+      "name": "ubuntu-vanilla-18044-server",
+      "vm_name": "ubuntu-vanilla-18044-server",
       "type": "virtualbox-iso",
       "boot_command": [
         "<esc><wait>",
@@ -348,10 +348,10 @@ Let us look at an example JSON template file: This source can be retrieved from 
       "http_port_min": 9001,
       "http_port_max": 9001,
       "iso_urls": [
-        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
+        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.4-server-amd64.iso"
       ],
       "iso_checksum_type": "sha256",
-      "iso_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
+      "iso_checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -440,8 +440,8 @@ In the builder, there is an iso_url and iso_checksum values that will retrieve i
 
 ```json
 
-"iso_url": "http://mirrors.kernel.org/ubuntu-releases/16.04.5/ubuntu-16.04.5-server-amd64.iso",
-"iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
+"iso_urls": ["http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.4-server-amd64.iso"],
+"iso_checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
 
 ```
 
@@ -643,15 +643,15 @@ How then do we build our own artifacts with Packer to manage them?  Here is an e
 # clone the source code from the book to get the sample files
 # git clone https://github.com/jhajek/Linux-text-book-part-1.git
 cd Linux-text-book-part-1/Chapter-13/packer-build-templates
-packer build ubuntu18043-vanilla.json
+packer build ubuntu18044-vanilla.json
 
 # Upon completion of the Packer build...
 # Each build has a string representation of the day, month, year to make each
 # filename unique, called epoch
-vagrant box add ../build/ubuntu18043-vanilla-1574788560.box --name ubuntu-18043-vanilla
+vagrant box add ../build/ubuntu18044-vanilla-1574788560.box --name ubuntu-18044-vanilla
 cd ../build
-mkdir ubuntu-18043-vanilla
-vagrant init ubuntu-18043-vanilla
+mkdir ubuntu-18044-vanilla
+vagrant init ubuntu-18044-vanilla
 vagrant up
 vagrant ssh
 
@@ -711,7 +711,7 @@ Packer has the ability to set ENV variables upon install.  From the command line
 
 ```bash
 
-packer build --var-file=./variables.json ubuntu18043-vanilla-multi-drives.json
+packer build --var-file=./variables.json ubuntu18044-vanilla-multi-drives.json
 
 ```
 
