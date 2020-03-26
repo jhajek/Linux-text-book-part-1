@@ -7,7 +7,7 @@
 * Understand how to configure and display basic network settings for the two major Linux distribution families
 * Understand how to use basic network troubleshooting tools
 * Understand how to configure and deploy major webserver platforms for Linux and BSD
-* Compare and contrast two major opensource webservers and be able to discuss their uses in industry
+* Compare and contrast major opensource webservers and be able to discuss their uses in industry
 * Understand how to install, manage, and configure basic major SQL and NOSQL databases
 
 ## Outcomes
@@ -98,10 +98,11 @@ The following different naming schemes for network interfaces are now supported 
 
 What you gain by using this standard:
 
-1) Stable interface names across reboots 
-1) Stable interface names even when hardware is added or removed, i)e. no re-enumeration takes place (to the level the firmware permits this)
-1) Stable interface names when kernels or drivers are updated/changed
-1) Stable interface names even if you have to replace broken ethernet cards by new ones
+* Stable interface names across reboots
+* Stable interface names even when hardware is added or removed
+  * no re-enumeration takes place (to the level the firmware permits this)
+* Stable interface names when kernels or drivers are updated/changed
+* Stable interface names even if you have to replace broken ethernet cards by new ones
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
@@ -240,11 +241,9 @@ The netmask value or subnet of your network is actually a part of you IP address
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
 
-Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses.  
+Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses. For our purposes we won't worry about class D and E in this book.
 
-For our purposes we won't worry about class D and E in this book.
-
-The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  The school where I work uses a subnet or CIDR block of 64.131.111.0/23  This looks like a class B subnet but it is a bit bigger.  Class B in CIDR would be /24.  /23 gives us control of 64.131.110.0 and 64.131.111.0 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
+The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  A business might have a subnet or CIDR block of /23.  This looks like a class B subnet.  Class B in CIDR would be /24.  The /23 gives us control of 192.168.1.110 and 192.168.1.111 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
 
 #### Gateway
 
@@ -263,7 +262,7 @@ DNS is set and configured as noted above in the various networking files.  Note 
 
 ### /etc/hosts
 
-Linux--inheriting from UNIX from a time before DNS existed, has a file for local DNS lookups: ```/etc/hosts```.  This file is owned by root.  You can edit this and place three items: an IP address, a fully qualified domain name, a short name (just the hostname).  This is enabled by default and is the first lookup for your system.  This helps save network based DNS roundtrips and can be accessed by any application or script without needing modification or additional libraries.
+Linux, inheriting from UNIX from a time before DNS existed, has a file for local DNS lookups: ```/etc/hosts```.  This file is owned by root.  You can edit this and place three items: an IP address, a fully qualified domain name, a short name (just the hostname).  This is enabled by default and is the first lookup for your system.  This helps save network based DNS roundtrips and can be accessed by any application or script without needing modification or additional libraries.
 
 ```bash
 
@@ -324,7 +323,7 @@ There are additional tools that extend basic troubleshooting features such as:
 
 ## Webservers
 
-August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first websaerver.  For history's sake, an early copy of it was found on an old system and [restored](http://info.cern.ch/hypertext/WWW/TheProject.html "First webpage").  He was working at the [CERN](https://en.wikipedia.org/wiki/CERN "CERN") research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the Hypertext Transfer Protocol -- [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "HTTP Protocol") protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
+August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first webserver.  For history's sake, an early copy of it was found on an old system and [restored](http://info.cern.ch/hypertext/WWW/TheProject.html "First webpage").  He was working at the [CERN](https://en.wikipedia.org/wiki/CERN "CERN") research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the Hypertext Transfer Protocol -- [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "HTTP Protocol") protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
 
 The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson, with research coming out of the University of Illinois.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver came out of this code base and became the name and the first product of the Apache Opensource Foundation.  When we look to two technologies that were used by the dotcom companies that survived the first and second crashes, we find that both the Apache webserver along with the MySQL database made the web possible.  
 
@@ -343,7 +342,7 @@ The Apache webserver can be installed via package managers.  There is even a ver
 > ```sudo yum install httpd```
 
 ```bash
-#FreeBSD 11 using Ports
+#FreeBSD 12 using Ports
 sudo portsnap fetch
 sudo portsnap extract
 sudo portsnap update
@@ -382,7 +381,7 @@ You should be able to load this page in the browser inside your virtual machine 
 
 The best resource I found was a technical deep-dive on HTTP/2 by [Steve Gibson at Security Now Podcast episode 495](https://twit.tv/shows/security-now/episodes/495 "SN 495")
 
-#### Self-signed Certs
+#### TLS Certs
 
 One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
 
@@ -415,7 +414,7 @@ Started in 2004 by Igor Sysoev, this product came out of a Russian company who f
 
 CentOS and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
 
-For instructions on configuring and installing the php library for nginx, [https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04 "Digitla Ocean 18.04 nginx php").
+For instructions on configuring and installing the php library for Nginx, [https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04 "Digitla Ocean 18.04 nginx php").
 
 ### OpenBSD httpd Process
 
