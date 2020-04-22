@@ -246,6 +246,10 @@ In the year 2000 Bill Joy wrote a seminal paper called, "[The Future Doesn't Nee
 
 The second family of editors differs from the first in that they were created after X was fully implemented and are fully screen oriented, menu driven and have no concepts of what vi and emacs do in the way of line editor functions.  There is a second sub-category of screen editors called GUI editors.
 
+#### GNU Nano
+
+[GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  The design in simpler than vim and has become a popular alternative.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file--these commands are listed at the bottom of the screen. Unlike vim, there are no modes, so you are always in *insert* mode and can use the arrow keys and type as if you were in a regular GUI based text editor.
+
 #### JOE
 
 [JOE - Joe's own editor](https://en.wikipedia.org/wiki/Joe%27s_Own_Editor "JOE") was released back in 1991 as a simplified editor based on the [WordStar](https://en.wikipedia.org/wiki/WordStar "WordStar") key bindings.  WordStar was one of the first word-processors released initially back in 1978.  JOE is a very basic editor and very small in size.  It is often used in Linux distros as the shell in the recovery or read-only mode because of its small size.
@@ -253,10 +257,6 @@ The second family of editors differs from the first in that they were created af
 #### JED
 
 [JED](https://en.wikipedia.org/wiki/JED_\(text_editor\) "JED") is a text editor that has its roots in early MS-DOS style editors.  It supports menus and even has mouse support.  It is available on all Linux/Unix/Windows/Mac platforms.
-
-#### GNU Nano
-
-[GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file--these commands are listed at the bottom of the screen. Unlike vim, there are no modes, so you are always in *insert* mode and can use the arrow keys and type as if you were in a regular GUI based text editor.
 
 ### GUI Text Editors
 
