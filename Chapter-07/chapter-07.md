@@ -7,7 +7,7 @@
 In this chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining their use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
 
 * Understand the difference between stream editors and text editors
-* Understand and learn how to use the vi editor
+* Understand and learn how to use the vi(m) editor
 * Understand how to use shell scripts to automate tasks
 * Understand how to use the system PATH and modify a users profile
 
