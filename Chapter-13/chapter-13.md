@@ -311,7 +311,7 @@ HashiCorp essentially built a tool that captures each install step.  These steps
 #### Packer JSON Build Template
 
 Let us look at an example JSON template file: This source can be retrieved from the source code of the book:
-[files > Chapter-13 > packer-build-templates > ubuntu18044-vanilla.json ](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18044-vanilla.json "Packer Template")
+[files > Chapter-13 > packer-build-templates > ubuntu18044-vanilla.json](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18044-vanilla.json "Packer Template")
 
 ```json
 {
