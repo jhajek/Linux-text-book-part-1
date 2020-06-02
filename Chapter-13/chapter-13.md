@@ -87,9 +87,13 @@ The tutorial on vagrantup.com will walk you through this but a small example (tr
 
 You may need to use a full URL in the case of downloading a Vagrant box that is not provided from HashiCorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a [Devuan](https://devuan.org/ "Devuan Home Page") box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
 
-```vagrant box add http://devuan.ksx4system.net/devuan_ascii/virtual/devuan_ascii_2.0.0_amd64_vagrant.box --name devuan-ascii```
+```bash
+vagrant box add \
+http://devuan.ksx4system.net/devuan_beowulf/minimal-live/devuan_beowulf_3.0.0_amd64_minimal-live.iso \
+--name devuan-beowulf
 
-```vagrant box add ./itmd521-virtualbox-1503930054.box --name itmd-521```
+vagrant box add ./itmd521-virtualbox-1503930054.box --name itmd-521
+```
 
 Adding a box via URL both ways, requires an additional parameter, ```--name``` (as seen above). The ```--name``` option is something you declare for your use, just don't put any spaces and its best to name the box something related to the actual box;  *"box1"* or *"thebox"* are terrible names.
 
