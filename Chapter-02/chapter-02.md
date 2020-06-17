@@ -551,7 +551,7 @@ The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Projec
 * Fedora 21 was released on 12/09/14
 * Fedora 20 was released on 12/17/13
 
-Fedora 20-29 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  In reality the Fedora Project is really just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
+Fedora 20-30 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  In reality the Fedora Project is really just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
 
 #### Red Hat Enterprise Linux--RHEL
 
