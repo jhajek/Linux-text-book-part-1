@@ -537,6 +537,7 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, as well as a container based edition based on a company Red Hat purchased called Red Hat CoreOS Edition for use on Kubernetes.
 
+* Fedora 32 was released on 04/21/20
 * Fedora 31 was released on 10/21/19
 * Fedora 30 was released on 04/30/19
 * Fedora 29 was released on 10/30/18
