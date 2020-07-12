@@ -1,6 +1,6 @@
 # Infrastructure Installation and IT Orchestration
 
-![*Good thing we avoided that one...*](images/Chapter-Header/Chapter-13/2038-2.png "2038")
+![*Good thing we avoided that one...*](images/Chapter-Header/Chapter-13/automation.png "https://xkcd.com/1319/ automation")
 
 ## Objectives
 

@@ -71,7 +71,7 @@ Part of this book was inspired by a quote from my friend in regards to Linux tex
 * Chapter 10 image - [http://imgs.xkcd.com/comics/debian_main.png](http://imgs.xkcd.com/comics/debian_main.png "Debian Locusts")
 * Chapter 11 image - [http://imgs.xkcd.com/comics/authorization.png](http://imgs.xkcd.com/comics/authorization.png "Authorization")
 * Chapter 12 image - [http://imgs.xkcd.com/comics/server_problem.png](http://imgs.xkcd.com/comics/server_problem.png "Server problems")
-* Chapter 13 image - [http://imgs.xkcd.com/comics/network.png](http://imgs.xkcd.com/comics/network.png  "Aquarium")
+* Chapter 13 image - [https://xkcd.com/1319/comics/automation.png](https://xkcd.com/1319/comics/automation.png  "Automation")
 * Chapter 14 image - [http://imgs.xkcd.com/comics/2038.png](http://imgs.xkcd.com/comics/2038.png "2038")
 * Chapter 15 image - [http://imgs.xkcd.com/comics/tech_loops.png](http://imgs.xkcd.com/comics/tech_loops.png "Tech Loops")
 * Appendix A image - [http://imgs.xkcd.com/comics/iso_8601.png](http://imgs.xkcd.com/comics/iso_8601.png  "Dates")
