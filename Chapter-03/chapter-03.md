@@ -421,11 +421,11 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 
 Similar to the previous example let us download the Vivaldi RPM and install it locally.  [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com").  After selecting the Vivaldi 64 bit rpm and using the ```-i``` flag to install it, what error message is printed?  
 
-Let's try another rpm.  This one is a software called *denyhosts* this is a brute force banning tool that will lock out IP addresses that attempt to brute force connect to your server.  The rpm is located at [http://pkgs.repoforge.com/denyhosts](http://pkgs.repoforge.com/denyhosts "Denyhosts").  You can download the denyhosts-2.6.5-el6.rf.noarch.rpm.  When you run the rpm based installer what happens?  Why?
+Let's try another rpm.  This one is a software called *denyhosts* this is a brute force banning tool that will lock out IP addresses that attempt to brute force connect to your server.  The rpm is located at [http://pkgs.repoforge.com/denyhosts](http://pkgs.repoforge.com/denyhosts "Denyhosts").  You can download the `denyhosts-2.6.5-el6.rf.noarch.rpm`.  When you run the rpm based installer what happens?  Why?
 
 #### Installers
 
-As you can see from above package managers were a great step forward in making Linux usable beyond the ranks of Thompson, Ritchie, and Stallman.  But they still don't handle the dependency issue--they don't understand the context of auto-dependecy retrieval.  Various solutions were created but every Linux distro has pretty much settled on two families of Installers--those that match the major families.  Fedora based distros use Yum and now use DNF (as of Fedora 23) and Debian based distros use APT.  
+As you can see from above package managers were a great step forward in making Linux usable beyond the ranks of Thompson, Ritchie, and Stallman.  But they still don't handle the dependency issue--they don't understand the context of auto-dependency retrieval.  Various solutions were created but every Linux distro has pretty much settled on two families of Installers--those that match the major families.  Fedora based distros use Yum and now use DNF (as of Fedora 23) and Debian based distros use APT.  
 
 ### APT
 
@@ -435,7 +435,7 @@ Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes 
 * Remove applications
 * Keep your applications up to date
 
-The APT installer was released in 1998, the same time that Red Hat released its package manager (giving Debian a leg up and a few years head-start).  APT was the out growth of a research project called Diety run by the Debian developers.  It was planned to be a large GUI-like project, but it turns out that the APT CLI was implemented with such finesse and simplicity that all GUI plans were dropped.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock considers APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packaging Toolkit.  APT will interface with *dpkg* and has many similar commands but extends the functionality of dpkg in a critical way.  
+The APT installer was released in 1998, the same time that Red Hat released its package manager (giving Debian a leg up and a few years head-start).  APT was the out growth of a research project called *Deity* run by the Debian developers.  It was planned to be a large GUI-like project, but it turns out that the APT CLI was implemented with such finesse and simplicity that all GUI plans were dropped.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock considers APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packaging Toolkit.  APT will interface with *dpkg* and has many similar commands but extends the functionality of dpkg in a critical way.  
 
 APT, which basically resolves dependency problems and retrieves the requested packages, works with dpkg under the hood. The main commands of APT are as follows:
 
@@ -571,7 +571,7 @@ This is from Ubuntu and is geared towards their ecosystem.  The technology is ho
 
 Snaps have the advantage of since it is account based (like the App Store or Microsoft Store) you can register your snaps and then instantly download them on another machine that supports snaps.
 
-Snaps--similar to the appstore concept--allows you to:
+Snaps, similar to the appstore concept, allows you to:
 
 * Simple to package leveraging your existing tools
 * Automatic updates for everyone
@@ -583,7 +583,7 @@ Snaps--similar to the appstore concept--allows you to:
 > Let's sign up for an Ubuntu One account [so we can use snaps](https://docs.snapcraft.io/core/install-ubuntu "Ubuntu snaps").  
 
 * Let's install Android Studio via snaps
-  + ```sudo snap install android-studio```
+  * ```sudo snap install android-studio```
 
 ### flatpak
 
@@ -593,7 +593,7 @@ Flatpak essentially connects the concepts of repositories and app packages, but 
 
 Let's install some flatpak applications:  The first thing is to install the flatpak package as it does not come standard in any Linux Distro. [That is done at the Flatpak repo page](https://www.flatpak.org/setup/ "flatpak"). Let's try it with an Ubuntu distribution:
 
-```
+```bash
 sudo add-apt-repository ppa:alexlarsson/flatpak
 sudo apt update
 sudo apt install flatpak
