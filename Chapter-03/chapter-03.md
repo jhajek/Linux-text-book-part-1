@@ -897,22 +897,28 @@ You will need to do some research and find the download links for the Linux and 
 * Debian Based
   * Ubuntu 18.04 Desktop edition
   * Lubuntu 18.04 Desktop edition
+  * Ubuntu 20.04 Desktop edition
   * Trisquel Linux
   * Debian 10.x
   * PureOS 8.x
 
 * Red Hat Based
-  * Fedora 30 - Workstation edition
-  * CentOS 7.x - minimal install
+  * Fedora 32 - Workstation edition
+  * CentOS 8.x - Minimal install
+
+* Illumos Based based
+  * OmniOS Community Edition
 
 * BSD based
-  * OmniOS Community Edition
+  * FreeBSD
+  * GhostBSD
 
 * Other Linux
   * Alpine Linux
   * MX Linux
   * Arch Linux
   * Intel Clear Linux Desktop
+  * Void Linux
 
 * Network Based Install
   * openSuse Tumbleweed
