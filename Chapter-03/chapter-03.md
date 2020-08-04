@@ -921,11 +921,20 @@ You will need to do some research and find the download links for the Linux and 
 
 #### FireFox Compiling
 
-[Follow these instructions to compile and install a custom version of FireFox](https://firefox-source-docs.mozilla.org/setup/linux_build.html "Compile Firefox")
+[Follow these instructions to compile and install a custom version of FireFox](https://firefox-source-docs.mozilla.org/setup/linux_build.html "Compile Firefox").  You will notice that Firefox is built using the Rust-language, and a small amount of C/C++ code.  Python then is used as the glue to hold it all together.  Watching the install dependencies being retrieved you will see just how complicated it is to compile code from source.  You will need a Virtual Machine with 50 GB total of Hard drive space.
 
-https://firefox-source-docs.mozilla.org/setup/linux_build.html
-
-Choose Option 2
+* So far you should have these dependencies already installed:
+  * `python3-pip`
+  * `python3-setuptools`
+  * `python3-dev`
+* When asked, "Which FireFox do you want to build?" choose Option 2
+* When prompted to install a missing dependency, Mercurial, choose the recommended Option 1 (let pip install it)
+* When prompted to "Run a configuration wizard to make sure the Mercurial is optimally configured," answer 'n'
+  * As the bootstrap script runs, you will be asked to allow for additional dependencies to be installed -- do so
+* Answer 'N' to if you would like to opt out of build system telemetry.
+* Upon receiving a completion message, issue the command `cd ./mozilla-unified`
+* Run the command: `./mach build` to begin the Rust compile process (this takes a while)
+* Run the command: `./mach run` to launch your newly compiled Firefox
 
 #### Python pyttsx3
 
