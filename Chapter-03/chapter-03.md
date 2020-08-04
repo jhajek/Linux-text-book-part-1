@@ -248,13 +248,13 @@ At the completion of this dialog box you will be asked to confirm the automatica
 
 ![*Confirm Partitions*](images/Chapter-03/ubuntu-install/write-changes-to-the-disk-450.png "Confirm Partitions")
 
-The next parts of the installation contain pretty straight-forward parts: time zone selection, keyboard layout, and account creation and password setup.  Note that Ubuntu doesn't create any root user by default, which ever user you create first is automatically placed into the ```sudo group``` -- which is similar to a super user.  For a discussion of password strength and strategies [see this cartoon](http://imgs.xkcd.com/comics/password_strength.png "Password Strength Argument"). You can also see the install details by clicking the small white triangle to reveal the verbose output of the process.  
+The next parts of the installation contain pretty straight-forward parts: time zone selection, keyboard layout, and account creation and password setup.  Note that Ubuntu doesn't create any root user by default, which ever user you create first is automatically placed into the **sudo** group, which is a super user.  For a discussion of password strength and strategies [see this cartoon](http://imgs.xkcd.com/comics/password_strength.png "Password Strength Argument"). You can also see the install details by clicking the small white triangle to reveal the verbose output of the process.  
 
 ![*Install Details*](images/Chapter-03/ubuntu-install/installing-system-tab.png "Install Details")
 
 ### Installing Fedora
 
-Similarly on Fedora 26 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 26 will initially present you with a language screen option.  After choosing your default language the next step is the *installation summary*.
+Similarly on Fedora 32 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 26 will initially present you with a language screen option.  After choosing your default language the next step is the *installation summary*.
 
 ![*Installation Summary*](images/Chapter-03/fedora-install/installation-summary-800-by-200.png "Installation Summary")
 
@@ -551,7 +551,7 @@ sudo yum install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-relea
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
 
 Once those RPMFusion repos have been added you can now retry the example above and install, FFMpeg, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.
-\newpage
+
 
 > __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
 
@@ -631,21 +631,33 @@ These apps appear on your start menu after a logout and log back in.  They can a
 
 In addition to packages you may still want to compile software from source.  This way you can take advantage of the latest compiler optimizations and CPU support.  Or compile older versions that have a feature you need that is no longer supported as a package any more.
 
-Let's take a look at this link.  This is the Apache webserver version 2.4.x latest source code and instructions for compiling software. [http://httpd.apache.org/docs/current/install.html](http://httpd.apache.org/docs/current/install.html "Apache").  Follow the link and download the source code, extract it and let's go about compiling the software.   The first step is to run the ```./configure``` command.  This script does what is called a sanity check, and checks to make sure your system has the correct tools to build the software--some configure scripts will also check for dependencies.  You may need to install APR and APR-Util via the package manager or via source as instructed.
-
 ### GNU GCC
 
 The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands; ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.
 
 ### GNU Make
 
-As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled apache binaries, it defaults to ```/usr/local```.
+As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled Apache2 binaries, it defaults to ```/usr/local/apache2```.
+
+Let's compile something to see how this works.  This link is to the Apache webserver version 2.4.x latest source code: [http://httpd.apache.org/docs/2.4/install.html](http://httpd.apache.org/docs/2.4/install.html "Apache Webserver Instructions").  Let's install some pre-requisites:
 
 ```bash
-./configure  
-make  
-sudo make install  
+# Pre-reqs needed first -- assumuing Ubuntu 18.04 or 20.04
+sudo apt-get install build-essential libapr1 libapr1-dev libaprutil1 libaprutil1-dev libpcre3 libpcre3-dev
+# Command to retrieve the source code
+wget http://www.gtlib.gatech.edu/pub/apache//httpd/httpd-2.4.43.tar.gz
+# Command to unzip the source code
+tar -xvzf httpd-2.4.43.tar.gz
+# command to change directory to extracted source code
+cd httpd-2.4.43
+# commands to build
+./configure
+make
+sudo make install
+sudo /usr/local/apache2/bin/apachectl -k start
 ```
+
+Now open a web browser and navigate to http://127.0.0.1 and you should see the message: "It Works!"
 
 ### Using Python to Install Python Based Programs
 
@@ -656,13 +668,14 @@ You can see an example of how to install Python language packages (eggs).  Take 
 ```sudo apt-get install python-pip python-dev```
 
 ```bash
-sudo pip install dronekit
-sudo pip install dronekit-sitl
+sudo python3 -m pip install dronekit
+sudo python3 -m pip install dronekit-sitl
+sudo python3 -m pip install pyttsx3
 ```
 
 ![*Dronekit.io install*](images/Chapter-03/python-install/python-pip.png "Python PIP")
 
-### Using Rust
+### Using Rust Packages
 
 The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is a new candidate to supplement or replace the C language.  Various people have undertaken to replace the GNU coretools with Rust based versions.   These tutorials will help you download and compile these tools with Rust.
 
@@ -672,7 +685,7 @@ To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
 
 [https://github.com/sharkdp/fd](https://github.com/sharkdp/fd "fd-find build using Rust")
 
-### Installing VirtualBox Additions Package
+### Installing VirtualBox Guest Additions Package
 
 > "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html](https://www.virtualbox.org/manual/ch04.html "Source")
 
@@ -903,6 +916,13 @@ You will need to do some research and find the download links for the Linux and 
 
 * Network Based Install
   * openSuse Tumbleweed
+
+#### FireFox Compiling
+
+[Follow these instructions to compile and install a custom version of FireFox](https://firefox-source-docs.mozilla.org/setup/linux_build.html "Compile Firefox")
+
+#### Python pyttsx3
+
 
 #### Ubuntu 18.04 Desktop
 
