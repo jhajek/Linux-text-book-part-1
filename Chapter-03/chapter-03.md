@@ -155,10 +155,10 @@ Before beginning there are a series of questions you should ask yourself, "What 
 * What software will you be needing?
   * Serving web pages?
   * Building Android applications?
-  * Hacking your neighbor's wi-fi?
+  * Hacking your neighbor's Wi-Fi?
   * Developer platform?
   * Server edition (no gui)
-  * Cloud edition
+  * Building Clusters, Cloud Computing, Serverless Computing, Virtual Machine farms
 * What processor do I have, 32-bit, 64-bit, ARM?  How much RAM do I have or need?
 * Is this an old PC or laptop I am using--does it lack processor extensions that can aid in rendering media efficiently?
   * [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions "SSE")
