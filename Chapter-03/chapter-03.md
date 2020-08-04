@@ -925,6 +925,8 @@ You will need to do some research and find the download links for the Linux and 
 
 https://firefox-source-docs.mozilla.org/setup/linux_build.html
 
+Choose Option 2
+
 #### Python pyttsx3
 
 Install these pre-requisites needed for the speech-to-text library. You will also need to install Python3 dependencies to use pip
