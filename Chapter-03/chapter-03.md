@@ -688,12 +688,13 @@ The Guest Additions offer the following features:
 * Shared clipboard
 * Automated logons (credentials passing)
 
-#### Ubuntu
+#### Ubuntu 18.04 and 20.04
 
 ```bash
+# Assuming using VirtualBox 6.1.x
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
-cd /media/$USER/VBOXGUESTADDITIONS_5.0.2_102096/
+cd /media/$USER/VBox_GAs_6.1.12
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
