@@ -699,30 +699,29 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Red Hat
-
- On Fedora using dnf
+#### Red Hat Fedora 32
 
 ```bash
+# Assuming using VirtualBox 6.1.x
 sudo dnf update kernel*
 sudo reboot
-sudo mkdir /media/VirtualBoxGuestAdditions
-sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+sudo mkdir -p /media/virtualboxga
+sudo mount -r /dev/cdrom /media/virtualboxga
 sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers dkms make bzip2 perl
-cd /media/VirtualBoxGuestAdditions
+cd /media/virtualboxga
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-On CentOS using yum
+#### CentOS 7 & 8 using yum
 
 ```bash
 sudo yum update kernel*
 sudo reboot
 sudo yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
-sudo mkdir /media/VirtualBoxGuestAdditions
-sudo mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
-cd /media/VirtualBoxGuestAdditions
+sudo mkdir -p /media/virtualboxga
+sudo mount -r /dev/cdrom /media/virtualboxga
+cd /media/virtualboxga
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
