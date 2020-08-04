@@ -166,7 +166,7 @@ Before beginning there are a series of questions you should ask yourself, "What 
   * Does it need to be GPL compliant?
   * Can proprietary programs and codecs be included?
 
-### Create Your First Guest Virtual Machine
+### Creating Your First Guest Virtual Machine
 
 Upon completion of a fresh install and launching of VirtualBox you should see this image:
 
@@ -174,7 +174,7 @@ Upon completion of a fresh install and launching of VirtualBox you should see th
 
 See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this documentation is actually very thorough and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
-Let us walk through the initial installation process.  The first step to begin is with the *NEW* button.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-18-04-Desktop" and "Fedora-30-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.  
+Let us walk through the initial installation process.  The first step to begin is with the *NEW* button.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-18-04-Desktop" and "Fedora-32-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.  
 
 ![*Create New Ubuntu Instance Dialog*](images/Chapter-03/VirtualBox-Install/virtualbox-name-and-operating-system-ubuntu.png "Create New Instance Dialog")
 
@@ -238,7 +238,7 @@ Under the *INSTALL* option Ubuntu will present you with multiple option tests th
 
 ![*Preparing to Install*](images/Chapter-03/ubuntu-install/preparing-to-install-450.png "Preparing to Install")
 
-This would include things such as Adobe Flash, codecs to playback MP3, and potentially proprietary AMD or NVIDEA graphics drivers.  Your choice and these can always be added later on demand.  The final option is to install updates while downloading - this will add time to the install but also save you from having to launch the update script upon first login.
+This would include things such as Adobe Flash, codecs to playback MP3, and potentially proprietary AMD or Nvidia graphics drivers.  Your choice and these can always be added later on demand.  The final option is to install updates while downloading - this will add time to the install but also save you from having to launch the update script upon first login.
 
 For installation type you will be presented with default options such as *ERASE DISK AND INSTALL UBUNTU*.  In addition there are options for enabling full disk encryption for securing your install data.  The third option listed is to install using the LVM method of partitioning, which will be covered in chapter 12.  The fourth option is for a custom partitioning, which is helpful in cases when you are installing multiple operating systems and create a multi-boot system.  
 
