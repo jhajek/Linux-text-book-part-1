@@ -899,7 +899,6 @@ You will need to do some research and find the download links for the Linux and 
   * Lubuntu 18.04 Desktop edition
   * Ubuntu 20.04 Desktop edition
   * Trisquel Linux
-  * Debian 10.x
   * PureOS 8.x
 
 * Red Hat Based
@@ -922,6 +921,7 @@ You will need to do some research and find the download links for the Linux and 
 
 * Network Based Install
   * openSuse Tumbleweed
+  * Debian 10.x
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
