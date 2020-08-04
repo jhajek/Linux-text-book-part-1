@@ -98,51 +98,50 @@ If you do try it, back up your data first, you never know what could go wrong. I
 
 You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was   32-bit or 64-bit?  In modern Linux distros, 32-bit distros are going away because of the lack of 32 bit chips being produced.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most specialized or low end chip these days is 64-bit you should be safe with that type of distro.  
 
-The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the credit.  There is one other type of architecture called ARM or AARCH, AARCH64.  This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi.  It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.  
+The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name.  There is one other type of architecture called ARM or ARMh7, AARCH, AARCH64.  This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi.  It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.  
 
 Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be.  That way if you download an ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents or perhaps just a corrupted download.  Most distros use the SHA-256 hash, but for legacy purposes you still see md5 hashes.
 
-### Links to get you started
-
 * [Get Fedora](https://getfedora.org "Get Fedora")
-  * [Fedora checksum page for Linux and Mac](https://getfedora.org/en/verify "Verify")
 * [Get Ubuntu](https://ubuntu.com "ubuntu")
   * [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
-  * [Microsoft Powershell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
+  * [Microsoft PowerShell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
 * [Linux Distro Mirrors](https://mirrors.kernel.org "Linux Distro Mirrors")
 * [Get VirtualBox](http://virtualbox.org "VirtualBox")
 
-Here are the commands to execute in Windows in Powershell:
+### Checksums
+
+Here are the commands to execute in Windows in PowerShell:
 
 ```powershell
-Get-FileHash .\ubuntu-18.04.2-desktop-amd64.iso -Algorithm MD5 | format-list
+Get-FileHash .\ubuntu-18.04.4-desktop-amd64.iso -Algorithm MD5 | format-list
 ```
 
-Output: ```69809DC7E058B81BC781FE3E24D3204F```
+Output: ```764056499131C8FE22B27F6DBF52AB7D```
 
 ```powershell
-Get-FileHash .\ubuntu-18.04.2-desktop-amd64.iso -Algorithm SHA256 | format-list
+Get-FileHash .\ubuntu-18.04.4-desktop-amd64.iso -Algorithm SHA256 | format-list
 ```
 
-Output: ```22580B9F3B186CC66818E60F44C46F795D708A1AD86B9225C458413B638459C4```
+Output: ```C0D025E560D54434A925B3707F8686A7F588C42A5FBC609B8EA2447F88847041```
 
 ---
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
 ```bash
-md5sum ./Fedora-Workstation-Live-x86_64-30-1.2.iso
+md5sum ./Fedora-Workstation-Live-x86_64-32-1.6.iso
 ```
 
-Output: ```94c63f564a81d3450d1c606bfe5d0327```
+Output: ```C4413BDA70A4F41EBCCBA447786542F1```
 
 ```bash
-sha256sum ./Fedora-Workstation-Live-x86_64-30-1.2.iso
+sha256sum ./Fedora-Workstation-Live-x86_64-32-1.6.iso
 ```
 
-Output: ```a4e2c49368860887f1cc1166b0613232d4d5de6b46f29c9756bc7cfd5e13f39f```
+Output: ```4D0F6653E2E0860C99FFE0EF274A46D875FB85BD2A40CB896DCE1ED013566924```
 
-Can you find the MD5 and SHA-256 of the sample PDF lolcated in the book source code, in the folder ```files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?
+Can you find the MD5 and SHA-256 of the sample PDF located in the book source code, in the folder ```files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?
 
 ### Planning Your Install
 
