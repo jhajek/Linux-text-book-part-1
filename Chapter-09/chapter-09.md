@@ -260,9 +260,9 @@ journalctl -u sshd
 
 ### Log rotation
 
-The concept of log rotation existed under syslog and rsyslog but no longer exist under journald.  Before you could use the ```/etc/logrotate.conf``` file but it is no longer needed.   Also each application may still write to a discrete syslog, but all those logs are then copied up by journald trying to be the single central repository for logs.
+The concept of log rotation existed under syslog and rsyslog when logs were simple text files, but no longer exists under journald.  This was accomplished by the ```/etc/logrotate.conf```.   Applications may still write to a discrete syslog (or may not), but all logs are then copied by journald, which systemd made the central repository for logs.
 
-When viewing a older syslog style text log you can use the ```tail -f``` command and it will auto-update if there is new content automatically.  This command can be very helpful if you are watching a log for some particular output - can you find the journald equivalent?  ```journalctl --follow --since=-1day```
+When viewing an older syslog style text log you can use the ```tail -f``` command and it will auto-update if there is new content automatically.  This command can be very helpful if you are watching a log for some particular output - can you find the journald equivalent?  ```journalctl --follow --since=-1day```
 
 You can find the systemd journald log rotation and collection specifics [here](http://www.freedesktop.org/software/systemd/man/journald.conf.html "journald.conf"): [^101]
 
