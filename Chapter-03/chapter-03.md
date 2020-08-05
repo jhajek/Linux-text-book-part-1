@@ -606,9 +606,7 @@ sudo snap list
 
 Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command - [Flatpak](https://www.flatpak.org/ "Flatpak").  You can see software available at [Flathub](https://flathub.org/home "Flathub").
 
-Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that flatpak manages its own applications and list of installed applications.
-
-Let's install some flatpak applications:  The first thing is to install the flatpak package as it does not come standard in any Linux Distro. [That is done at the Flatpak repo page](https://www.flatpak.org/setup/ "flatpak"). Let's try it with an Ubuntu distribution:
+Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that flatpak manages its own applications and list of installed applications.  It is installed as standard on Fedora 32, but not other distributions.  Let's install some flatpak and some applications:  The first thing is to install the flatpak package. [That is done at the Flatpak repo page](https://www.flatpak.org/setup/ "flatpak"). Let's try it with an Ubuntu distribution:
 
 ```bash
 sudo add-apt-repository ppa:alexlarsson/flatpak
