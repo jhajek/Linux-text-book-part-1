@@ -141,7 +141,7 @@ sha256sum ./Fedora-Workstation-Live-x86_64-32-1.6.iso
 
 Output: ```4D0F6653E2E0860C99FFE0EF274A46D875FB85BD2A40CB896DCE1ED013566924```
 
-Can you find the MD5 and SHA-256 of the sample PDF located in the book source code, in the folder ```files -> Chapter-03 -> Understanding-Free-and-Opensource-Operating-Systems-Part-I-sample.pdf```?
+Can you find the MD5 and SHA-256 of the sample PDF located in the book source code, in the folder ```files -> Chapter-03 -> text-08052020.pdf```?
 
 ### Planning Your Install
 
@@ -632,17 +632,19 @@ Add the Flathub repository
 
 Once that is done here is an example of installing Flatpaks with Ubuntu based distro:
 
-* sudo flatpak install flathub com.spotify.Client
-* sudo flatpak install flathub org.gimp.GIMP
-* sudo flatpak install flathub com.visualstudio.code
-* sudo flatpak install flathub com.google.AndroidStudio
+* ```sudo flatpak install flathub org.videolan.VLC```
+* ```sudo flatpak install flathub com.discordapp.Discord```
+* ```sudo flatpak install flathub io.atom.Atom```
+* ```sudo flatpak install flathub org.blender.Blender```
+* ```sudo flatpak install flathub com.obsproject.Studio```
 
 These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```.  You can find the official flatpak name by issuing the command: ```flatpak list```.
 
-* flatpak run com.google.AndroidStudio
-* flatpak run com.visualstudio.code
-* flatpak run org.gimp.GIMP
-* flatpak run com.spotify.Client
+* ```flatpak run flathub org.videolan.VLC```
+* ```flatpak run flathub com.discordapp.Discord```
+* ```flatpak run flathub io.atom.Atom```
+* ```flatpak run flathub org.blender.Blender```
+* ```flatpak run flathub com.obsproject.Studio```
 
 ## Compiling and Installing source code
 
@@ -650,11 +652,11 @@ In addition to packages you may still want to compile software from source.  Thi
 
 ### GNU GCC
 
-The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands; ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.
+The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands via `yum` or `dnf`: ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.
 
 ### GNU Make
 
-As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled Apache2 binaries, it defaults to ```/usr/local/apache2```.
+As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled Apache2 binaries, it defaults to ```/usr/local/apache2/```.
 
 Let's compile something to see how this works.  This link is to the Apache webserver version 2.4.x latest source code: [http://httpd.apache.org/docs/2.4/install.html](http://httpd.apache.org/docs/2.4/install.html "Apache Webserver Instructions").  Let's install some pre-requisites:
 
