@@ -905,14 +905,14 @@ You will need to do some research and find the download links for the Linux and 
   * Fedora 32 - Workstation edition
   * CentOS 8.x - Minimal install
 
-* Illumos Based based
+* Illumos Based
   * OmniOS Community Edition
 
 * BSD based
   * FreeBSD
   * GhostBSD
 
-* Other Linux
+* Linux
   * Alpine Linux
   * MX Linux
   * Arch Linux
