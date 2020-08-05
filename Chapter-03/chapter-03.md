@@ -661,13 +661,13 @@ Now open a web browser and navigate to http://127.0.0.1 and you should see the m
 
 ### Using Python to Install Python Based Programs
 
-In addition to compiling software and using package managers the Python language has become common in its application usage and has its own installers for applications.  Looking at the Denyhosts project on their GitHub account, [https://github.com/denyhosts/denyhosts](https://github.com/denyhosts/denyhosts "Denyhosts") you will see the latest source code version 3.0 available but not in an RPM or DEB package but as a python install package.  We simply need to clone the repository down and enter the directory we just cloned.   We can then install the software, similar to the GCC build tools, by executing just this command: ```sudo python setup.py install```.  Note you may need a dependency depending on what system you are on - the installer will tell you what you need in addition to making this work.
+Python has its own package installer called [**pip**](https://pypi.org/project/pip/ "Python Packager") which allows for software that is written in Python and independent of any Linux package manager.  The value of this is that you can install newer versions of a Python package without having to wait for package managers to package and host them.
 
-You can see an example of how to install Python language packages (eggs).  Take for example the packages required to install [dronekit.io](http://dronekit.io "drone kit").  Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones.  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` the Python Package Installer.
-
-```sudo apt-get install python-pip python-dev```
+You can see an example of how to install Python language packages (eggs).  Take for example the packages required to install [dronekit.io](http://dronekit.io "drone kit").  Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones.  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` the Python Package Installer.  All of the Python packages can be searched at [https://pypi.org](https://pypi.org "Python Packaging")
 
 ```bash
+# command to install python3 pip
+sudo apt-get install python3-setuptools python3-pip python3-dev
 sudo python3 -m pip install dronekit
 sudo python3 -m pip install dronekit-sitl
 sudo python3 -m pip install pyttsx3
@@ -936,6 +936,7 @@ You will need to do some research and find the download links for the Linux and 
 * When asked, "Which FireFox do you want to build?" choose Option 2
 * When prompted to install a missing dependency, Mercurial, choose the recommended Option 1 (let pip install it)
 * When prompted to "Run a configuration wizard to make sure the Mercurial is optimally configured," answer 'n'
+  * When prompted to enter an installation directory destination path enter: `./mozilla-unified`
   * As the bootstrap script runs, you will be asked to allow for additional dependencies to be installed -- do so
 * Answer 'N' to if you would like to opt out of build system telemetry.
 * Upon receiving a completion message, issue the command `cd ./mozilla-unified`
