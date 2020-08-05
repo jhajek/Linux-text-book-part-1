@@ -700,6 +700,15 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
     * Recently purchased by Samsung for their OS container technology stack called [Triton](https://www.joyent.com/triton/compute "Joyent Triton") and Manta.
     * Releases all software, even their production cloud as open source.
 
+### Mobile Based Linux
+
+While Android is a Linux based mobile operating system, it is different from a true Linux operating system.  With Android being available and common to develop true Linux based mobile operating systems took a while to get off the ground.  Starting in 2018, a movement being lead by [Purism](https://puri.sm/products/librem-5/ "Librem 5 home page"), [PinePhone](https://www.pine64.org/pinephone/ "Pine Phone home page"), and the previous work done by Ubuntu Touch, there are now Mobile Linux-based distros.  These phones are the steps to move a desktop operating system to a mobile arena and all the considerations a phone and tablet have in regards to wireless, battery, and touch input.
+
+* [Ubuntu Touch](https://ubports.com/ "Community maintained fork of the abandoned Ubuntu Touch Project")
+* [Mobian - mobile Debian](https://mobian-project.org/ "mobile debian project")
+* [postmarketOS](https://postmarketos.org/ "pure longterm linux os for phones")
+* [PureOS from Purism](https://puri.sm/products/librem-5/ "Pure OS mobile")
+
 ## 5th Phase of Unix Maturity - Hard Changes to the Nature of Linux
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")

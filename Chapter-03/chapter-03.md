@@ -581,8 +581,26 @@ Snaps, similar to the appstore concept, allows you to:
 
 In Ubuntu 20.04, some packages when installed via apt, have been redirected to use the appropriate Snap package, which has bothered some, and one distro Linux Mint has removed Snaps all together. Snaps can be installed from the commandline or via the Store Icon in the Ubuntu Desktop.
 
-* Let's install Android Studio via snaps
-  * ```sudo snap install android-studio```
+Let's install Android Studio via snaps.  You can open the Ubuntu Software Icon on the Favorites Bar and select some software.  Lets install Notepad++.  You can also install Snaps from the command line.  Open a terminal and issue the below commands to find software package names (since there is no GUI to browse):
+
+```bash
+# This command will show your installed Notepad++ snap from the store
+sudo snap list
+sudo snap find vscode
+# You will see a list of output and a column with the term "classic" or not.
+# This means that the first version of snap that packages were built for
+# did not have the sandboxing technology of a traditional app.  
+# They are conventional application packages.
+```
+
+```bash
+# This will install Visual Studio Code
+sudo snap install vscode --classic
+# To install a note taking app that is not a classic snap
+sudo snap install simplenote
+# To see all snaps installed
+sudo snap list
+```
 
 ### flatpak
 
@@ -596,13 +614,14 @@ Let's install some flatpak applications:  The first thing is to install the flat
 sudo add-apt-repository ppa:alexlarsson/flatpak
 sudo apt update
 sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
 
 ```sudo apt install gnome-software-plugin-flatpak```
 
-Add the Flathub repository:
+Add the Flathub repository if you don't already have it:
 ```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
 
 Now let's look at how its done in RHEL/CentOS Linux:
