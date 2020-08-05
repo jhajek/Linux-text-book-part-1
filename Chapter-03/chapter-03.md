@@ -920,7 +920,7 @@ You will need to do some research and find the download links for the Linux and 
   * Void Linux
 
 * Network Based Install
-  * openSuse Tumbleweed
+  * openSUSE Leap 15.x
   * Debian 10.x
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
