@@ -513,14 +513,14 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 * [Xubuntu](http://xubuntu.org "Xubuntu")
 * [Lubuntu](http://lubuntu.net "Lubuntu")
 * [Kubuntu](http://www.kubuntu.org/ "Kubuntu") Ubuntu remixed with the KDE desktop Environment
-* [Linux Mint](https://linuxmint.com/ "Linux Mint")
+* [MX Linux](https://mxlinux.org/ "MX Linux Homepage") A midweight distro that is a cooperative venture between the antiX and former MEPIS communities
 * [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam online gaming company's official Linux distro
 * [Ubuntu Kylin](http://www.ubuntukylin.com/ "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
-* [Raspbian](http://www.raspbian.org/ "Raspbian") This is a Debian based distro that is standard recommended for the Raspberry Pi.
+* [Raspbian/Raspberry Pi OS](https://www.raspberrypi.org/downloads/ "Raspberry Pi OS") This is a Debian based distro that is standard recommended for the Raspberry Pi.
 * [Tails](https://tails.boum.org/ "tails") The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user.
-* [elementaryOS](http://elementary.io/) elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.
+* [Linux Mint](https://linuxmint.com/ "Linux Mint home page") Full multimedia support out of the box.
+* [elementaryOS](http://elementary.io/ "elementary Linux") elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.
 * [Kali Linux](https://www.kali.org/ "Kali Linux") Security based Debian distro
-* [gNewSense](http://gnewsense.org "gNewSense") GNU/Linux-Libre FSF distro, entirely GPL compliant software.
 * [Trisquel](https://trisquel.info "Tri-skel") GNU/Linux-Libre FSF recommended and Richard Stallman uses this one.
 * [PureOS](https://www.pureos.net/ "PureOS") GNU/Linux FSF distro, entirely GPL compliant software.
 
@@ -585,13 +585,6 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 * In 2006 Microsoft and SUSE announce interoperability agreement
 * SUSE was responsible for working to port the Linux kernel to 64 bit architecture in 2000
 
-#### Gentoo Linux
-
-[Gentoo Linux](https://www.gentoo.org/ "Gentoo Linux")
-
-* Unique Linux distro that you build from scratch based on your unique hardware, to become completely customized, fast, small, and secure.
-* Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system.
-
 #### Intel Clear Linux
 
 * [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
@@ -599,6 +592,13 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 * _"Clear Linux OS is an open source, rolling release Linux distribution optimized for performance and security, from the Cloud to the Edge, designed for customization, and manageability [https://clearlinux.org/](https://clearlinux.org/ "Clear Linux")."_
 * Designed to work on recent Intel processors, dropping legacy support for older hardware--in order to optimize for modern cloud and OS Container based workloads like Kubernetes.
 * Not focused on desktop Linux but for Cloud-based virtual machines and OS Container images
+
+#### Gentoo Linux
+
+[Gentoo Linux](https://www.gentoo.org/ "Gentoo Linux")
+
+* Unique Linux distro that you build from scratch based on your unique hardware, to become completely customized, fast, small, and secure.
+* Uses the [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage") package system.
 
 #### Alpine Linux
 
@@ -623,19 +623,11 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 ![*FreeBSD*](images/Chapter-02/Linux-logos/FreeBSD/128px-Freebsd_logo.svg.png "FreeBSD")
 
 * Released in November 1994
-* Essentially the inheritor of the BSD code base
-* Largest BSD implementation used by WhatsApp and Netflix.
-* No direct commercial backing, instead run by a non-profit foundation.
-* Legally prohibited from using the term *"Unix"* as outcome of AT&T lawsuit.
-* Board of directors are elected and drives development decisions and policies
-* Used extensively by WhatsApp and Netflix to run their infrastructure.
-
-#### Project Trident and TrueOS
-
-* Desktop Based OS using the FreeBSD based [TrueOS](https://www.trueos.org/ "TrueOS Website")
-* Project started by Kris Moore who has been a FreeBSD developer
-* Comes with a new Lightweight desktop environment called [Lumina](http://lumina-desktop.org/)
-* Strives to make FreeBSD more user friendly (more Linux like)
+* Essentially the inheritor of the BSD Unix code base
+* Largest BSD implementation used by WhatsApp and Netflix
+* No direct commercial backing, instead run by a non-profit foundation
+* Legally prohibited from using the term *"Unix"* as the outcome of AT&T lawsuit
+* Board of directors are elected and drives development, decisions, and policies
 
 #### DragonFly BSD
 
@@ -685,37 +677,28 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 * Commercial Unix distribution created by Sun in the 1980s and bought by Oracle in 2010.
 * Sought to merge the best of Sys V and BSD into one standard Unix.
 * Ran on proprietary SPARC hardware platform
-* Leader in operating system feature development.
+* Leader in operating system feature development
   * ZFS
   * Dtrace
   * Zones (OS Containers/Jails)
   * Network based installation -- Jumpstart
-* By 2006 began the process of opensourcing their technology and operating system.
-
-#### OpenSolaris
-
-![*OpenSolaris*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenSolaris_Logo-2.svg.png "Open Solaris")
-
-* In 2006 Sun had opensourced their Unix-based Solaris OS [^16]
-* They hired Ian Murdock (founder of Debian) to oversee this project
-* Project was called OpenSolaris, but was killed when Oracle purchased Sun in 2010
-* [Explanation of how OpenSolaris was killed and *closed* sourced by Oracle.](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Fork")
+* By 2006 began the process of opensourcing their technology and operating system called OpenSolaris
+  * In 2006 Sun had opensourced their Unix-based Solaris OS [^16]
+  * They hired Ian Murdock (founder of Debian) to oversee this project
+  * Project was called OpenSolaris, but was killed when Oracle purchased Sun in 2010
+  * [Explanation of how OpenSolaris was killed and *closed* sourced by Oracle.](http://www.slideshare.net/bcantrill/fork-yeah-the-rise-and-development-of-illumos "Fork")
 
 #### Illumos
 
 ![*Open Indiana*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
 
-* After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers,  the last verson of OpenSolaris was forked into a project called Illumos. [^15]
+* After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers,  the last version of OpenSolaris was forked into a project called Illumos[^15].
 * Illumos is not a distro, but a reference implementation in which other OSes are based.
   * [OmniOS](https://omniosce.org/ "Omni OS")
-  * [SmartOS](https://www.joyent.com/smartos "Smart OS")
-
-#### SmartOS
-
-* [SmartOS](https://smartos.org/ "SmartOS") released by Joyent and full of ex-Sun engineers who worked on Solaris. [^17]  
-  * Combines the best of the BSD/Solaris product but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
-* Recently purchased by Samsung for their OS container technology stack called [Triton](https://www.joyent.com/triton/compute "Joyent Triton") and Manta.
-* Releases all software, even their production clouds as open source.
+  * [SmartOS](https://www.joyent.com/smartos "Smart OS") released by Joyent[^17]  
+    * Combines the best of the BSD/Solaris technology but runs the best of Linux based desktop applications and software--especially the KVM Virtualization Platform
+    * Recently purchased by Samsung for their OS container technology stack called [Triton](https://www.joyent.com/triton/compute "Joyent Triton") and Manta.
+    * Releases all software, even their production cloud as open source.
 
 ## 5th Phase of Unix Maturity - Hard Changes to the Nature of Linux
 
