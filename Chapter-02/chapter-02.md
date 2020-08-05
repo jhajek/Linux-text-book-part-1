@@ -738,7 +738,7 @@ Other foundations include:
 
     "*The Cloud Native Computing Foundation (CNCF) hosts critical components of the global technology infrastructure. CNCF brings together the world’s top developers, end users, and vendors and runs the largest open source developer conferences. CNCF is part of the nonprofit Linux Foundation.*"
 
-* [OpenJS Foundation](https://openjfs.org "Open JS Foundation"): An amalgamation of two other Javascript Foundations: the Javascript Foundation [JS Foundation](https://js.foundation/ "Javascript Foundation") and the [NodeJS Foundation](https://foundation.nodejs.org/ "The NodeJS Foundation").  
+* [OpenJS Foundation](https://openjfs.org "Open JS Foundation"): An amalgamation of two other JavaScript Foundations: the JavaScript Foundation [JS Foundation](https://js.foundation/ "JavaScript Foundation") and the [NodeJS Foundation](https://foundation.nodejs.org/ "The NodeJS Foundation").  
 
     "*The OpenJS Foundation is made up of 32 open source JavaScript projects including Appium, Dojo, jQuery, Node.js, and webpack. Our mission is to support the healthy growth of JavaScript and web technologies by providing a neutral organization to host and sustain projects, as well as collaboratively fund activities that benefit the ecosystem as a whole.*"
 
