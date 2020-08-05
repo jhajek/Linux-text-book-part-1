@@ -302,15 +302,15 @@ Feldman realized building software was difficult and created the ```make``` buil
      all: helloworld
 
     helloworld: helloworld.o
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+  $(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
-    clean: FRC
-	rm -f helloworld helloworld.o
+    clean: FRC  
+    rm -f helloworld helloworld.o
 
     # This is an explicit suffix rule. It may be omitted on systems
     # that handle simple rules like this automatically.
     .c.o:
-	$(CC) $(CFLAGS) -c $<
+  $(CC) $(CFLAGS) -c $<
 
     FRC:
     .SUFFIXES: .c
@@ -318,7 +318,7 @@ Feldman realized building software was difficult and created the ```make``` buil
 
 Clear as mud right?  Like many things in the Unix world, the ```makefile``` system has been modified and augmented but still persists as the way software project are built and installed some 30 years later. Makefiles have an arcane syntax that few people enjoy and over the years ```make``` has been often rewritten.   In 1988 the GNU project had released their Free Software version of ```make``` called GNU Make or ```gmake```. GNU make is included in all standard Linux distributions and is even required for compiling the Linux Kernel.  There are other versions of ```make``` including the Unix version, ```pmake``` and ```bmake``` on the BSD Unix variants, there is a cross platform build tool called ```cmake``` and even Microsoft has its own build tool that can be used called ```nmake```.
 
-### Package Managers
+### Traditional Package Managers
 
 This style of software installation put a high barrier to who could practically use Unix/Linux.  Linux distributions took to making software installation and distribution easier by introducing something initially called __Package Managers__.  These were meant to eliminate all of the above process by solving two key problems. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed.  Second package managers would solve the dependency issues by keeping track of the dependency trail and be smart enough to follow that trail before installation.
 
@@ -341,7 +341,7 @@ A Debian package (or ```.deb``` file) is really just made up of two tarballs [^1
      The GNU hello program produces a familiar, friendly greeting.
 ```
 
-The most important line being the __Depends__ option which controls dependencies and can prevent installation if these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Using ```dpkg``` is a clear step above using tarballs and compiling the code yourself. 
+The most important line being the __Depends__ option which controls dependencies and can prevent installation if these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Using ```dpkg``` is a clear step above using tarballs and compiling the code yourself.
 
 Recently with Oracle changing the nature of how Java is supported with the transition from Java 8 and 11 and into the future, concerned companies created their own OpenJDK for download that will be supported.  One such instance is [Amazon Corretto](https://aws.amazon.com/corretto/ "Amazon Corretto OpenJDK").  These releases are created in ```.deb``` packages.  Let's download one and install it using a simple command called ```wget``` or you can open a web browser and download the package and install it manually.   Click on the link and save the ```.deb``` file on Ubuntu. Now using the ```dpkg``` command we can install the package manually (note there may be an error message about a missing dependency).
 
@@ -362,9 +362,12 @@ You can download a .deb or .rpm file from the Vivaldi browser website: [https://
 ```bash
 sudo dpkg -i ./vivaldi-stable_2.6.1566.49-1_amd64.deb
 sudo rpm -iv ./vivaldi-stable-2.6.1566.49-1.x86_64.rpm
+# This command invovles downloading and installing directly from the web
+sudo rpm -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.rpm
+sudo dpkg -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
 ```
 
-After executing this command you will receive an error message. What is it telling you and why?  You will notice that dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
+After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why?  You will notice that dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
 __Example Usage:__
 
@@ -456,7 +459,7 @@ Seeing as you may want to access a more recent build of an application that may 
 
 You can manually edit the file ```/etc/apt/sources.list``` as well and enter PPAs manually.  Once a new PPA has been added you need to run ```sudo apt-get update``` so APT can see the new repositories and add them to it's cache.
 
-> __Example Usage:__  Ubuntu 18.04.2 installs php 7.2 by default, but if you wanted to use or test php 7.3 you would need to add an additional repository or PPA to enable the php7.3 package to be installed. Try the below sequence:
+> __Example Usage:__  For example, Ubuntu 18.04.4 installs php 7.2 by default, but if you wanted to use or test php 7.3 you would need to add an additional repository or PPA to enable the php7.3 package to be installed. Try the below sequence:
 
 ```bash
 sudo apt-get update
