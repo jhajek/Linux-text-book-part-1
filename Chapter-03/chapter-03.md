@@ -649,6 +649,17 @@ These apps appear on your start menu after a logout and log back in.  They can a
 * ```flatpak run flathub org.blender.Blender```
 * ```flatpak run flathub com.obsproject.Studio```
 
+### AppImage
+
+A third new package manager has arisen called [AppImage](https://appimage.org "app image website").  This is not supported by any Linux vendor.  The idea here is for standalone compatibility.  AppImages are larger files because they contain all of the necessary libraries to run, packed with the application.  This is sometimes called a fat-binary.  This eliminates worrying about software library versions as everything is self-contained.  This is also a good way to distribute older software that may not run on newer systems. AppImage should have vendor support, but currently doesn't have wide deployment, but the AppImage is supported across most Linux distros due to third party work.  AppImages are self-contained binaries so there is no main store or tool for updating, you have to find them and keep an eye on them to make sure they are the latest or most up to date versions.
+
+[AppImage Unofficial Hub](https://bintray.com/probono/AppImages "AppImage unofficial Hub")
+
+* [AppImage for Visual Studio Code](https://bintray.com/probono/AppImages/VSCode "AppImage for Visual Studio Code")
+* [AppImage for sound editor](https://bintray.com/probono/AppImages/Audacity "AppImage for sound editor")
+* [AppImage for Calibre e-book manager](https://bintray.com/probono/AppImages/Calibre "ebook manager")
+* [2D Animation Studio](https://github.com/synfig/synfig/releases/download/v1.3.15/SynfigStudio-1.3.15-testing-2020.07.23-linux64-b5b32.appimage "app image for animation studio")
+
 ## Compiling and Installing source code
 
 In addition to packages you may still want to compile software from source.  This way you can take advantage of the latest compiler optimizations and CPU support.  Or compile older versions that have a feature you need that is no longer supported as a package any more.
@@ -701,11 +712,7 @@ sudo python3 -m pip install pyttsx3
 
 The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is a new candidate to supplement or replace the C language.  Various people have undertaken to replace the GNU coretools with Rust based versions.   These tutorials will help you download and compile these tools with Rust.
 
-To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
-
-[https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils")
-
-[https://github.com/sharkdp/fd](https://github.com/sharkdp/fd "fd-find build using Rust")
+To install the Rust programming language first:  ```curl https://sh.rustup.rs -sSf | sh``` and then follow the step to build Rust based version of the coreutils here: [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils").
 
 ### Installing VirtualBox Guest Additions Package
 
