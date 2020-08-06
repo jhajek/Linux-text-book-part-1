@@ -486,7 +486,7 @@ To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
 
 Run the command ```who --version``` and then ```uutils who --version``` and take a screenshot of the successful output.
 
-#### Window Managers
+#### Installing Window Managers
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and install them.  Once installed you need to log out and restart your session.  In order to change the default window manager on GNOME3 desktop environment you need to click on the user name and select the little gear below the password field.  In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
 
