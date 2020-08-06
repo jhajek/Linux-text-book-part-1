@@ -287,7 +287,7 @@ python3 -m pip install systemd
 
 ```bash
 # Fedora/CentOS - https://pypi.org/project/systemd/
-sudo yum install gcc systemd-devel python-devel python-pip
+sudo yum install gcc systemd-devel python3-devel python3-pip
 python3 -m pip install systemd
 ```
 
