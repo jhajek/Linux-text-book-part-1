@@ -16,7 +16,7 @@ At the completion of this chapter you will have the ability to administer a Linu
 
 ## Sudo and the Root User Paradigm
 
-On every Unix system dating back to Thompson's Unix, there has always been a single *superuser* account on every system.  This account is usually called the __root user__ or __root__.   The __root user__ must be used with the utmost care, as that account has all the system privilege and authority to carry out any operation, even the ```rm -rf /*``` command.  Root is good for getting things done or overriding users, but is *dangerous.* You should log into that account only sparingly.  Every single admin worth their salt will tell you not to use __root__ in almost any case [^ch9f90].
+On every Unix system dating back to Thompson's Unix, there has always been a single *superuser* account on every system.  This account is usually called the __root user__ or __root__.   The __root user__ must be used with the utmost care, as that account has all the system privilege and authority to carry out any operation, even the ```rm -rf /*``` command. Root is good for getting things done or overriding users, but is *dangerous.* You should log into that account only sparingly.  Every single admin worth their salt will tell you not to use __root__ in almost any case [^ch9f90].
 
 This concept is *vital* enough that on the Ubuntu distribution there is no __root__ account available. On the BSD distros, Debian, and the Red Hat/Fedora family - there is still a __root__ account, partially because of tradition and partially because of the way system administration always worked.  Remember that Unix was developed in the environment of multiple users accessing a large central Unix server.  So you always had to have a __root__ account to override any activities of the users and to enforce system policies, such as disk quotas, changing network configurations, or even system wide profiles. As a reminder when you are signed in as, or acting as "root", the shell prompt displays __#__ as the last character in bash and as seen in the image below.  You can use the ```whoami``` command to find out what user account you are logged in as well.
 
@@ -341,7 +341,7 @@ You were probably wondering if systemd had its own system monitoring tool.  And 
 
 There is one other monitoring tool named ```atop```.  The project is located at [http://www.atoptool.nl/](http://www.atoptool.nl/ "atop") The ```atop``` command can be installed via apt-get or yum/dnf.  The ```atop``` command has a series of features compared to other monitoring tools.
 
-![*atop*](images/Chapter-09/monitoring/top/atop.png "atop")   
+![*atop*](images/Chapter-09/monitoring/top/atop.png "atop")
 
 ### Additional Monitoring Tools
 
@@ -598,6 +598,12 @@ aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 You could also disable password authentication to a remote server and only use RSA key authentication.  Uncomment the line ```#PasswordAuthentication yes``` and change it to ```PasswordAuthentication no```[^ch9f108].  By default Fedora and BSD based operating sysems allow the Root account to connect via SSH using a password.  This is inherantly dangerous, Ubuntu uses the value prohibit-password which would allow RSA but not password based auth. It is generally not a good idea to allow this and uncomment and change this setting from  ```PermitRootLogin yes``` to ```PermitRootLogin no```[^ch9f110].
 
 Upon changing any values you need to inform systemd that a config file changed, it will find it and process it: ```sudo systemctl daemon-reload```.
+
+### WireGuard - Linux kernel native VPN
+
+A [VPN](https://en.wikipedia.org/wiki/Virtual_private_network "VPN Wikipedia page")  is a virtual private network.  It uses RSA encryption to extend a private network across the public network.  An example would be an employee connecting from home over the public network to a companies private network.  To do this you would need a VPN.
+
+[WireGuard](https://www.wireguard.com/ "WireGuard Linux Kernel VPN") is a Free and Opensource VPN software.  It's modullarly built and since March of 2020, has been included natively in the Linux Kernel.  This increases speed and flexibilty compared to other VPN solutions.  It was written by Jason A. Donenfeld and is published under the GNU General Public License (GPL) version 2, which makes it compatible with the Linux Kernel as well as being compiled for [MacOS, Windows, Android, iOS, FreeBSD, and OpenBSD](https://ianix.com/wireguard/wireguard-deployment.html "Wireguard deployment web page").  Of note, launched on July 15th, Mozilla launched a VPN service, called [Mozilla VPN](https://en.wikipedia.org/wiki/Mozilla_VPN "Mozilla VPN web page") that runs the wireguard code.
 
 ## Chapter Conclusions and Review
 

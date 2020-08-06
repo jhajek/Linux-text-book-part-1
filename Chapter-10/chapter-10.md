@@ -128,7 +128,7 @@ Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental rep
 
 Upstart wasn't the only replacement option, currently there are two major one, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*  Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
 
-OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible.  Here is a comparison table between systemd, sysVinit, and OpenRC: 
+OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible.  Here is a comparison table between systemd, sysVinit, and OpenRC:
  
            systemd                         SysVinit                         OpenRC
 ------------------------------  -------------------------------- -------------------------------- 
@@ -268,33 +268,7 @@ You will note the 3 headers listed in the file:
 
 Each has its own specific values.  The name of the service file is important as well.  This file name become the service name. The file `/lib/systemd/system/apache2.service` is responsible for the apache2 service.  Under Unit, you have a description field which is a comment for the user.  The next value is: After, this is a powerful addition to systemd that SysVInit did not have.  This allows you to give the service a conditional start.  In this case, only start the webserver after the network.target service starts, which makes sense.
 
-In the Service tag, these are the commands to start and stop various shell scripts.  When you use the start | stop | reload | status commands, these are the files or commands that are executed.  The Install tag, is the final tag and tells systemd on which run level to start this service.  Make note that the application uses absolute paths to all of the executables and binaries, this is do to the service run when parts of the operating system are still loading.
-
-#### Ubuntu Upstart file for the UFW firewall service:
-
-```bash
-/etc/init$ cat ufw.conf
-# ufw - Uncomplicated Firewall
-#
-# The Uncomplicated Firewall is a front-end for iptables, to make managing a
-# Netfilter firewall easier.
-
-description     "Uncomplicated firewall"
-
-# Make sure we start before an interface receives traffic
-start on (starting network-interface
-          or starting network-manager
-          or starting networking)
-
-stop on runlevel [!023456]
-
-console output
-
-pre-start exec /lib/ufw/ufw-init start quiet
-post-stop exec /lib/ufw/ufw-init stop
-```
-
-FreeBSD still uses ```rc``` files which are shell scripts for starting services.  You can find them listed in ```/etc/rc.d/```.  Take a look at ```/etc/rc.d/syslogd``` and you will see it is a 74 line shell script, compared to the 12 line systemd unit file.
+In the Service tag, these are the commands to start and stop various shell scripts.  When you use the start | stop | reload | status commands, these are the files or commands that are executed.  The Install tag, is the final tag and tells systemd on which run level to start this service.  Make note that the application uses absolute paths to all of the executables and binaries, this is do to the service run when parts of the operating system are still loading. FreeBSD still uses ```rc``` files which are shell scripts for starting services.  You can find them listed in ```/etc/rc.d/```.  Take a look at ```/etc/rc.d/syslogd``` and you will see it is a 74 line shell script, compared to the 12 line systemd unit file.
 
 #### Logging and service files
 
@@ -306,15 +280,15 @@ apt-get install build-essential \
     libsystemd-journal-dev \
     libsystemd-daemon-dev \
     libsystemd-dev \
-    python-pip \
-    python-dev
-pip install systemd --user
+    python3-pip \
+    python3-dev
+python3 -m pip install systemd
 ```
 
 ```bash
 # Fedora/CentOS - https://pypi.org/project/systemd/
 sudo yum install gcc systemd-devel python-devel python-pip
-pip install systemd --user
+python3 -m pip install systemd
 ```
 
 Create a python script called `write-journal.py` and include this code after installing the pre-reqs.
@@ -328,7 +302,7 @@ journal.send("Hello Lennart")
 Give the above script execute permission, execute it by typing `python write-journal.py`, and the execute the command: `sudo journalctl -xe`, what do you see?
 
 #### hostnamectl and timedatectl
- 
+
 One of the 69+ components of systemd is hostnamectl which is designed to give you an easy interface into controlling the information relating to your systems hostname. Running the command ```man hostnamectl``` shows you what can be done here [hostnamectl](https://www.freedesktop.org/software/systemd/man/hostnamectl "hostnamectl")
 
 > **Exercise:** Use the hostnamectl command to change your systems hostname to itmo-556 (or your class name).  Now close your shell and reopen it--what do you see?
