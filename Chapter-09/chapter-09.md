@@ -538,6 +538,12 @@ Secure cp (copy) Allows for using the ```cp``` command to a remote system via SS
 
 ```scp [-i identity_file] localfilename username@hostname:filename```
 
+### Rsync
+
+Place holder from man page:
+
+Rsync  is  a  fast and extraordinarily versatile file copying tool.  It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon.  It offers a large number  of  options  that  control every  aspect  of its behavior and permit very flexible specification of the set of files to be copied.  It is famous for its delta-transfer algorithm, which reduces the amount of data sent over  the  network  by  sending only the differences between the source files and the existing files in the destination.  Rsync is widely used for backups and mirroring and as an improved copy command for everyday use.
+
 ### ssh-copy-id
 
 After generating an SSH keypair with the command ```ssh-keygen```, you now have the two keys located in you ```~/.ssh``` directory.  The file with the .pub extension is the public key, the other is the private key.  __Guard the private key with your life!__  
