@@ -5,7 +5,7 @@
 ## Objectives
 
 * Learn about the different types of desktop Linux
-* Understand the nature and use of X, Mir, Wayland, and other GUI compositors
+* Understand the nature and use of X, Wayland, and other GUI compositors
 * Understand the purpose of window managers and the nature of desktop environments
 * Know the major features of GNOME 3 desktop environments
 * Understand GUI package managers and application stores
@@ -94,11 +94,11 @@ At one time it was thought that X is too deep into the bones of Linux and may ne
 
 Not to be outdone Ubuntu saw an opportunity to come up with an X replacement and announced the Mir project in early 2013.  Unfortunately this has met with serious opposition from the X and Wayland communities seeing this as an outside effort to *"corner the market"*, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in its Linux opensource graphic driver package.
 
-Ubuntu is the only Linux operating system to support Mir and development has been delayed as the project has taken on the monumental task of replacing X.  Ubuntu was criticized for not joining the Wayland group's work but I think that may have been somewhat without warrant.  Ubuntu has a business use case--they are looking to make a compositor that could adapt based on form factor, something not unlike how Android works.  This would enable them to make Ubuntu for tablets, phones, TVs, even smaller devices electronic devices.  Mir would be customizable to Ubuntu's hardware dreams and they could sell hardware and perhaps make some money.  Will this strategy work? We will have to wait and see.
+Ubuntu is the only Linux operating system to support Mir and development has been delayed as the project has taken on the monumental task of replacing X.  Ubuntu was criticized for not joining the Wayland group's work but I think that may have been somewhat without warrant.  Ubuntu has a business use case--they are looking to make a compositor that could adapt based on form factor, something not unlike how Android works.  This would enable them to make Ubuntu for tablets, phones, TVs, even smaller devices electronic devices.  Mir would be customizable to Ubuntu's hardware dreams and they could sell hardware and perhaps make some money.
 
 > *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
 
-As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.
+As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.  But the Mir Project and Unity lives on in the Ubuntu Touch port maintained for phones and tablets by the [Ubuntu-Touch.io](https://ubuntu-touch.io/ "Ubuntu Touch webpage") project.
 
 ## Window Managers
 
@@ -145,7 +145,7 @@ About the time that the OSI movement was launching in late 1990s a growing need 
 
 The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the __K Desktop Environment__ was in 1998 and the name was a *"clever hack"* of the CDE--Common Desktop Environment--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in Linux window managers.  You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window managers and independent applications.  At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux.  One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech.
 
-In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2009.
+In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2010.
 
 KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro in the way that GNOME and Red Hat are intricately tied together now. Distros such as  [openSUSE](opensuse.org "opensuse"), [Mageia](mageia.org "Mageia"), [Chakra](www.chakralinux.org "Chakra Linux"), [Kubuntu](www.kubuntu.org "Kubuntu"), [PCLinuxOS](www.pclinuxos.com "PC Linux OS") and even FreeBSD are using KDE by default or have it available in software repositories. Qt recently split itself during the 5.0 release from one entire library into [three separate sub-components](https://en.wikipedia.org/wiki/KDE_Software_Compilation#Post-fourth_series "KDE 5 split"):
 
@@ -218,7 +218,7 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     http://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   http://mate-desktop.org/
 [Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   http://cinnamon.linuxmint.com/
-[Unity](https://unity.ubuntu.com/ "unity")            UnityNext/Qt 5 -> GTK+ 3 https://unity.ubuntu.com/
+[Unity](https://unity.ubuntu.com/ "unity")            GTK+ 3                   https://ubuntu.com/
 [Enlightenment](https://www.enlightenment.org/ "E17") EFL                      https://www.enlightenment.org/
 [Lumina](https://lumina-desktop.org/ "lumina")        C++/Qt5                  https://lumina-desktop.org/
 ----------------------------------------------------- ------------------------ -------------------------------
@@ -247,7 +247,7 @@ Each desktop environment has the ability to modify and display a theme on top of
 
 Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBunutu") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions, but recent development on the Ubuntu Touch project has sadly ended.
 
-### Gnome 3.2x Features
+### Gnome 3.3.x Features
 
 ![*GNOME 3*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
 
@@ -295,7 +295,7 @@ This is a feature added by Red Hat to improve upon Gnome Packages, which is the 
 
 **As of April 2018 Ubuntu released Unity has been deprecated in favor of GNOME3, this section is kept for historical reference.**
 
-[Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME 3 shell augmentation/replacement.  This means that Unity sits on top of GNOME 3 but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.  Unity survices this day as part of the abandoned [Ubuntu Touch](https://ubports.com/ "Ubuntu Touch") mobile phone operating system.
+[Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME 3 shell augmentation/replacement.  This means that Unity sits on top of GNOME 3 but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.  Unity services this day as part of the abandoned [Ubuntu Touch](https://ubports.com/ "Ubuntu Touch") mobile phone operating system.
 
 ## Conclusion
 
@@ -506,7 +506,7 @@ You will chose 1 of the window managers from the categories listed earlier in th
 
 Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
 
-1) Install the Xfce Desktop on Fedora 30
+1) Install the Xfce Desktop on Fedora 32
 1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
 1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-desktop but just xfce4 package)
 1) Download the KDE Neon Desktop distro (Ubuntu based) from [https://neon.kde.org/download](https://neon.kde.org/download "KDE desktop Neon")
