@@ -34,6 +34,8 @@ In early 2012, a new medium called a Solid State Drive, or SSD was released.  Th
 
   SATA Version              Throughput
 ---------------------  -----------------------
+  SATA revision 3.4      features added
+  SATA revision 3.3      features added
   SATA revision 3.2      16 Gbit/s 1.97 GB/s
   SATA revision 3.0      6 Gbit/s  600 MB/s
   SATA revision 2.0      3 Gbit/s  300 MB/s
