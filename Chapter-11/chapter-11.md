@@ -30,7 +30,7 @@ As disks became bigger, new patterns for reading and writing data were created: 
 
 ### Solid State Drives SSDs
 
-In early 2012, a new medium called a Solid State Drive, or SSD was released.  These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data.  The immediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into position to read the correct bits.  The increased speeds dramatically and while the original SSDs storage was low and comparatively today the dollar per megabit ration is not as good as a HDD, the read based access time was orders of magnitude faster.
+In early 2012, a new medium called a Solid State Drive, or SSD was released.  These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data.  The immediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into position to read the correct bits.  This increased speeds dramatically and while the original SSDs storage was low and comparatively today the dollar per megabit ration is not as good as a HDD, the read based access time was orders of magnitude faster.
 
   SATA Version              Throughput
 ---------------------  -----------------------
