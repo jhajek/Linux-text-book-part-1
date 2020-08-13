@@ -95,6 +95,8 @@ TYPE I is used in server environments on hardware utilizing multiple core CPUs, 
 * [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
 * [KVM](https://www.linux-kvm.org/page/Main_Page "KVM homepage")
 * [XEN](https://xenproject.org/ "Xen Project")
+* [bhyve](https://bhyve.org/ "byhyve virtualixation project")
+  * Supported on FreeBSD, macOS, and Illumos
 
 ## Installations and ISOs
 
