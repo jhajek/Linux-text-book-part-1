@@ -31,6 +31,8 @@ The Fedora Project provides its own media writer which can be used with ISOs and
 
 The RaspberryPi Foundation also has their own media writer, [the RaspberryPi Imager](https://www.raspberrypi.org/downloads/ "RaspberryPi Image Writer website") which makes dealing with SD Card based Operating Systems very convenient.  Their tool also has the auto-download of operating system version feature -- which caches the downloads.
 
+One other tool that is of use is Rufus.  [Rufus is](https://rufus.ie/ "Rufus image writer web page"): "A utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc."  Rufus is fast and can be used to create Linux images as well as Windows and even DOS boot disks, should the need arise.
+
 ### Importance of ISOs
 
 This tools takes away the difficulty out of making install media.  You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source.
