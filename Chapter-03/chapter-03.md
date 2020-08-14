@@ -163,7 +163,7 @@ Before beginning there are a series of questions you should ask yourself, "What 
   * Serving web pages?
   * Building Android applications?
   * Hacking your neighbor's Wi-Fi?
-  * Developer platform?
+  * Developer platform for Coding? Audio and Video?
   * Server edition (no gui)
   * Building Clusters, Cloud Computing, Serverless Computing, Virtual Machine farms
 * What processor do I have, 32-bit, 64-bit, ARM?  How much RAM do I have or need?
@@ -304,7 +304,7 @@ This goes for any distro that derive from Debian.  You will need to install the 
 
 One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (\*.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had its own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  
 
-Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named ```makefile``` that includes instructions and ordered steps that can be repeated every time software is built.  This allows software to be portable across systems (in theory).  The utility ```make``` is the binary that automatically builds executable programs and libraries from source code by reading the *makefiles*[^106]. Here is an example  makefile:
+Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named ```makefile``` that includes instructions and ordered steps that can be repeated every time software is built.  This allows software to be portable across systems (in theory).  The utility ```make``` is the binary that automatically builds executable programs and libraries from source code by reading the *makefiles*[^106]. Here is an example makefile:
 
 ```makefile
      all: helloworld
@@ -580,7 +580,7 @@ In 2019 Canonical, the parent company of Ubuntu, introduced a new package manage
 
 Snaps are an attempt to create a similar concept to modern App Stores on mobile devices.  They allow for updating packages in place and the packages contain all needed dependencies.  This is a different focus from simple package managers like APT and RPM. In addition, you can "package" existing applications into Snaps and or distribute them via a Snap account to devices and then instantly download them on another machine that supports snaps.  Currently, Ubuntu distributions are the only Linux distros that have Snappy installed by default.
 
-Snaps, similar to the appstore concept, allows you to:
+Snaps, similar to the App Store concept, allows you to:
 
 * Simple to package leveraging your existing tools
 * Automatic updates for everyone
