@@ -12,7 +12,7 @@ How to install;
 
 ## Ubuntu Linux
 
-I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page for Pandoc 2.2.2-x](https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb "Pandoc Latest deb package").   You will need to issue a ```dpkg``` command to install the deb package directly.  ```sudo dpkg -i pandoc-2.2.2.1-1-amd64.deb```
+I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page for Pandoc 2.x](https://github.com/jgm/pandoc/releases/ "Pandoc Latest deb package").   You will need to issue a ```dpkg``` command to install the deb package directly.  ```sudo dpkg -i pandoc-2.2.*-amd64.deb```
 
 ### Linux dependencies - On Debian/Ubuntu
 
@@ -24,8 +24,12 @@ I would recommend installing Pandoc directly from the latest Debian package.  Lo
 * texlive-font-utils
 * texlive-xetex
 * librsvg2-bin
-* Install these via this command:
-  * ```sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin```
+
+Install these via this command:
+  
+```bash
+sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin
+```
 
 Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16.04 can add the repo via these steps:
 
@@ -68,9 +72,17 @@ sudo dnf install texlive texlive-latex-fonts texlive-xetex texlive-inconsolata-d
 
 To check if the install went correctly type: ```pandoc -v``` on the command line.
 
-## Mac OSX
+## macOS
 
-* [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
+Install the macOS *missing* package manager - [Homebrew](https://brew.sh "Homebrew install page") and run the instructions located here: [http://pandoc.org/installing.html](http://pandoc.org/installing.html)
+
+```bash
+brew install pandoc
+brew install pandoc-siteproc
+brew install libsvrg homebrew/basictex
+sudo tlmgr update --self
+sudo tlmgr install collection-fontsrecommended
+```
 
 To Install the Charis SIL font:
 
@@ -92,13 +104,13 @@ You need Pandoc > 1.19.x and > MikTex 2.9.x to build this book proper as well as
 * [Inconsolata Font](https://fonts.google.com/specimen/Inconsolata?selection.family=Inconsolata "Inconsolata")
 * [Charis Sil Font](https://software.sil.org/charis/download/ "Charis Sil")
 
-In order to enable script execution for Powershell - run this command from an Administrator enabled Powershell console:
+In order to enable script execution for PowerShell - run this command from an Administrator enabled PowerShell console:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 ```
 
-You can then run the build script ./build-windows.ps1 from the powershell window and this will generate the digital output
+You can then run the build script ./build-windows.ps1 from the PowerShell window and this will generate the digital output
 
 On your first build you will receive a Package Installation dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.
 
