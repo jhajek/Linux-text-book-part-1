@@ -660,8 +660,8 @@ A third new package manager has arisen called [AppImage](https://appimage.org "a
 
 [AppImageHub](https://appimage.github.io/)
 
-* [AppImage for Visual Studio Code](https://bintray.com/probono/AppImages/VSCode "AppImage for Visual Studio Code")
-* [AppImage for sound editor](https://bintray.com/probono/AppImages/Audacity "AppImage for sound editor")
+* [AppImage for Visual Studio Code](https://appimage.github.io/Code_OSS/ "AppImage for Visual Studio Code")
+* [AppImage for Audio/Video Player](https://appimage.github.io/VLC/ "AppImage for sound editor")
 * [AppImage for Calibre e-book manager](https://bintray.com/probono/AppImages/Calibre "ebook manager")
 * [2D Animation Studio](https://github.com/synfig/synfig/releases/download/v1.3.15/SynfigStudio-1.3.15-testing-2020.07.23-linux64-b5b32.appimage "app image for animation studio")
 
