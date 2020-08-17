@@ -57,7 +57,7 @@ By having the hypervisor intercepting system calls from the virtualized operatin
 
 For example if we were running an Ubuntu 14.04.5 Desktop virtualized guest system on a Windows 10 host, the Linux desktop has no way of knowing how to issue a command to use the network card to request a website because Linux knows its own OS and kernel and Windows is a completely different kernel and operating system.  The virtualization layer will do the translation for you -- allowing the *"host"* system to think that your guest virtualized operating system is nothing more than a native application, and allowing your guest virtualized operating system to think that it owns the entire set of hardware.  
 
-The main concept of virtualization you need to know is that your computer (PC, laptop, Mac) has vastly more power then is needed most of the time. The benefit of virtualization is that a hypervisor can act as a translator for multiple operating systems running simultaneously on one system.  Thereby maximizing the usage of your resources and preventing you from needing 4 or 5 different physical PCs.  See Chapter 14-15 for application and development uses of Virtualization.
+The main concept of virtualization you need to know is that your computer (PC, laptop, Mac) has vastly more power then is needed most of the time. The benefit of virtualization is that a hypervisor can act as a translator for multiple operating systems running simultaneously on one system.  Thereby maximizing the usage of your resources and preventing you from needing 4 or 5 different physical PCs.  See Chapter 13 and 14 for application and development uses of Virtualization.
 
 ## Hypervisors
 
@@ -100,11 +100,11 @@ TYPE I is used in server environments on hardware utilizing multiple core CPUs, 
 
 ## Installations and ISOs
 
-Now that we covered a bit about what a hypervisor is, let us begin the install process using VirtualBox.  The next pages are going to show you in comparison how to install the latest version of [Fedora Workstation](https://getfedora.org/ "Fedora Workstation") and latest [Ubuntu (LTS)](https://wiki.ubuntu.com/LTS "Ubuntu Long Term Support Link").  This will require you to download two ISOs from their respective download sites. For this install process we will assume that you are using VirtualBox version 5.1.x or later branch.   It might be a good exercise if you have an old laptop or PC laying around to make some installable media (CR-ROM or Flash drive via Etcher) and install one of these distributions directly as the primary operating system.  Finding old laptops is easier than you might think. Try asking your relatives (especially around back-to-school and Christmas), a company you work for, or even a school you go to. Laptops/desktops can have a second life and can still be useful to experiment with Linux installations even if the hardware is not the latest or greatest.  Another option to consider is dual-booting or triple-booting your system, we will not cover that option here.  
+Now that we covered a bit about what a hypervisor is, let us begin the install process using VirtualBox.  The next pages are going to show you in comparison how to install the latest version of [Fedora Workstation](https://getfedora.org/ "Fedora Workstation") and latest [Ubuntu (LTS)](https://wiki.ubuntu.com/LTS "Ubuntu Long Term Support Link").  This will require you to download two ISOs from their respective download sites. For this install process we will assume that you are using VirtualBox version 6.x or later.   It might be a good exercise if you have an old laptop or PC laying around to make some installable media (CR-ROM or Flash drive via Etcher) and install one of these distributions directly as the primary operating system.  Finding old laptops is easier than you might think. Try asking your relatives (especially around back-to-school and Christmas), a company you work for, or even a school you go to. Laptops/desktops can have a second life and can still be useful to experiment with Linux installations even if the hardware is not the latest or greatest.  Another option to consider is dual-booting or triple-booting your system, we will not cover that option here.  
 
 If you do try it, back up your data first, you never know what could go wrong. I created a [quad-boot system](https://forge.sat.iit.edu/2015/05/quad-boot-your-pc-ubuntu-15-04-centos-6-6-fedora-21-windows-10/ "Quad Boot") containing Ubuntu, Fedora, CentOS, and Windows 10.  This processes is beyond the scope of this book but the link is provided for those interested.
 
-You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was   32-bit or 64-bit?  In modern Linux distros, 32-bit distros are mostly a thing of the past due to all CPUs being 64bit.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most specialized or low end chip these days is 64-bit you should be safe with that type of distro.  
+You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was 32-bit or 64-bit?  In modern Linux distros, 32-bit distros are mostly a thing of the past due to all CPUs being 64bit.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most specialized or low end chip these days is 64-bit you should be safe with that type of distro.  
 
 The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name.  There is one other type of architecture called ARM or ARMh7, AARCH, AARCH64.  This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi.  There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple will be moving their laptops to be ARM based starting in 2021.  It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.  
 
@@ -132,8 +132,6 @@ Get-FileHash .\ubuntu-18.04.4-desktop-amd64.iso -Algorithm SHA256 | format-list
 ```
 
 Output: ```C0D025E560D54434A925B3707F8686A7F588C42A5FBC609B8EA2447F88847041```
-
----
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
@@ -178,7 +176,7 @@ Before beginning there are a series of questions you should ask yourself, "What 
 
 Upon completion of a fresh install and launching of VirtualBox you should see this image:
 
-![*VirtualBox fresh install*](images/Chapter-03/virtulabox-fresh-install-550.png "Fresh VirtualBox install")
+![*VirtualBox fresh install*](images/Chapter-03/VirtualBox-Install/virtualbox-fresh-install.png "Fresh VirtualBox install")
 
 See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this documentation is actually very thorough and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
