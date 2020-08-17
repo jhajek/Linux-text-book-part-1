@@ -110,7 +110,7 @@ In order to enable script execution for PowerShell - run this command from an Ad
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 ```
 
-You can then run the build script ./build-windows.ps1 from the PowerShell window and this will generate the digital output
+You can then run the build script `./build-windows.ps1` from the PowerShell window and this will generate the digital output
 
 On your first build you will receive a Package Installation dialogue from MikTex asking you to install additional packages so as to be able to generate PDFs.
 
@@ -123,7 +123,7 @@ The way to remediate it to launch the MikTex Package Manager, search for fontspe
 
 ### Kindle .mobi
 
-To generate .mobi files for use on Kindle devices or apps, you need to install ```Kindlegen``` from [here](https://www.amazon.com/gp/feature.html?docId=1000234621) Works on Windows, MacOS, and Linux.
+To generate .mobi files for use on Kindle devices or apps, you need to install ```Kindlegen``` from [here](https://www.amazon.com/gp/feature.html?docId=1000765211) Works on Windows, MacOS, and Linux.
 
 #### Reading PDF and ePUB
 
