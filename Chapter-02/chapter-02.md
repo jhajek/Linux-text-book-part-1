@@ -394,25 +394,25 @@ You can read Raymond's two seminal books on Unix and opensource philosophy onlin
 Open source doesn't just mean access to the source code. According to the [Opensource Initiative](https://opensource.org/ "Opensource Initiative") written by Bruce Perens, the now 10 rights enshrined in the OSD encompass the 4 software freedoms and extend them with a focus on applications in the business world. The distribution terms of open-source software must comply with the [following criteria:](https://opensource.org/osd-annotated "Annotated definition")
 
 1. Free Redistribution
-  i) The license shall not restrict any party from selling or giving away the software as a component of an aggregate software distribution containing programs from several different sources. The license shall not require a royalty or other fee for such sale.
+    i) The license shall not restrict any party from selling or giving away the software as a component of an aggregate software distribution containing programs from several different sources. The license shall not require a royalty or other fee for such sale.
 2. Source Code
-  i) The program must include source code, and must allow distribution in source code as well as compiled form. Where some form of a product is not distributed with source code, there must be a well-publicized means of obtaining the source code for no more than a reasonable reproduction cost, preferably downloading via the Internet without charge. The source code must be the preferred form in which a programmer would modify the program. Deliberately obfuscated source code is not allowed. Intermediate forms such as the output of a preprocessor or translator are not allowed.
+    i) The program must include source code, and must allow distribution in source code as well as compiled form. Where some form of a product is not distributed with source code, there must be a well-publicized means of obtaining the source code for no more than a reasonable reproduction cost, preferably downloading via the Internet without charge. The source code must be the preferred form in which a programmer would modify the program. Deliberately obfuscated source code is not allowed. Intermediate forms such as the output of a preprocessor or translator are not allowed.
 3. Derived Works
-  i) The license must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software.
+    i) The license must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software.
 4. Integrity of The Author's Source Code
-  i) The license may restrict source-code from being distributed in modified form only if the license allows the distribution of "patch files" with the source code for the purpose of modifying the program at build time. The license must explicitly permit distribution of software built from modified source code. The license may require derived works to carry a different name or version number from the original software.
+    i) The license may restrict source-code from being distributed in modified form only if the license allows the distribution of "patch files" with the source code for the purpose of modifying the program at build time. The license must explicitly permit distribution of software built from modified source code. The license may require derived works to carry a different name or version number from the original software.
 5. No Discrimination Against Persons or Groups
-  i) The license must not discriminate against any person or group of persons.
+    i) The license must not discriminate against any person or group of persons.
 6. No Discrimination Against Fields of Endeavor
-  i) The license must not restrict anyone from making use of the program in a specific field of endeavor. For example, it may not restrict the program from being used in a business, or from being used for genetic research.
+    i) The license must not restrict anyone from making use of the program in a specific field of endeavor. For example, it may not restrict the program from being used in a business, or from being used for genetic research.
 7. Distribution of License
-  i) The rights attached to the program must apply to all to whom the program is redistributed without the need for execution of an additional license by those parties.
+    i) The rights attached to the program must apply to all to whom the program is redistributed without the need for execution of an additional license by those parties.
 8. License Must Not Be Specific to a Product
-  i) The rights attached to the program must not depend on the program's being part of a particular software distribution. If the program is extracted from that distribution and used or distributed within the terms of the program's license, all parties to whom the program is redistributed should have the same rights as those that are granted in conjunction with the original software distribution.
+    i) The rights attached to the program must not depend on the program's being part of a particular software distribution. If the program is extracted from that distribution and used or distributed within the terms of the program's license, all parties to whom the program is redistributed should have the same rights as those that are granted in conjunction with the original software distribution.
 9. License Must Not Restrict Other Software
-  i) The license must not place restrictions on other software that is distributed along with the licensed software. For example, the license must not insist that all other programs distributed on the same medium must be open-source software.
+    i) The license must not place restrictions on other software that is distributed along with the licensed software. For example, the license must not insist that all other programs distributed on the same medium must be open-source software.
 10. License Must Be Technology-Neutral
-  i) No provision of the license may be predicated on any individual technology or style of interface.
+    i) No provision of the license may be predicated on any individual technology or style of interface.
 
 ### Opensource Licensing
 
