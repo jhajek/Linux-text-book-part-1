@@ -260,7 +260,7 @@ The next parts of the installation contain pretty straight-forward parts: time z
 
 ### Installing Fedora
 
-Similarly on Fedora 32 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 26 will initially present you with a language screen option.  After choosing your default language the next step is the *installation summary*.
+Similarly on Fedora 32 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 32 will initially present you with a language screen option.  After choosing your default language the next step is the *installation summary*.
 
 ![*Installation Summary*](images/Chapter-03/fedora-install/installation-summary-800-by-200.png "Installation Summary")
 
@@ -284,7 +284,7 @@ Under the create user dialog box, you will notice a key check box that is circle
 
 ![*Create User With Sudo*](images/Chapter-03/fedora-install/create-user-with-sudo-390-by-200.png "Create User With Sudo")
 
-You can click the *Finish Install* button to complete the install.  You will be presented with a final *Quit* button which will exit the installer and drop you back into the *Live* desktop.  In order to reboot the system you need to open the system menu via the downwards facing white triangle in the upper right hand corner. The reboot icon is located under the traditional power icon.  Once restarted congratulations you have successfully installed and can begin using your installed Fedora 26 system.  
+You can click the *Finish Install* button to complete the install.  You will be presented with a final *Quit* button which will exit the installer and drop you back into the *Live* desktop.  In order to reboot the system you need to open the system menu via the downwards facing white triangle in the upper right hand corner. The reboot icon is located under the traditional power icon.  Once restarted congratulations you have successfully installed and can begin using your installed Fedora 32 system.  
 
 ### VirtualBox Extensions
 
@@ -355,10 +355,10 @@ Recently with Oracle changing the nature of how Java is supported with the trans
 
 ```bash
 # From the command line terminal after you have downloaded the file on a Debian based system:
-wget java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
+wget https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb
 sudo dpkg -i ./java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
 # This method will retrieve the .rpm file directly from the internet and pass it to the rpm command on CentOS or Red Hat systems.
-sudo rpm -iv https://d3pxv6yz143wms.cloudfront.net/8.222.10.1/java-1.8.0-amazon-corretto-devel-1.8.0_222.b10-1.x86_64.rpm
+sudo rpm -iv https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.rpm
 ```
 
 You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through dpkg in Ubuntu's case. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
@@ -366,8 +366,9 @@ You can download a .deb or .rpm file from the Vivaldi browser website: [https://
 > __Example Usage:__  
 
 ```bash
-sudo dpkg -i ./vivaldi-stable_2.6.1566.49-1_amd64.deb
-sudo rpm -iv ./vivaldi-stable-2.6.1566.49-1.x86_64.rpm
+# Download URL at: https://vivaldi.com/download/
+sudo dpkg -i ./vivaldi-stable_3.2.1967.41-1_amd64.deb
+sudo rpm -iv ./vivaldi-stable-3.2.1967.41-1.x86_64.rpm
 # This command invovles downloading and installing directly from the web
 sudo rpm -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.rpm
 sudo dpkg -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
@@ -420,7 +421,6 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 > __Example Usage:__ Install a package from a local file:
 ```rpm -i file.rpm```
 
-
 > __Example Usage:__ Remove a package from the system:
 ```rpm -e pkgname```
 
@@ -429,11 +429,27 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 
 Similar to the previous example let us download the Vivaldi RPM and install it locally.  [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com").  After selecting the Vivaldi 64 bit rpm and using the ```-i``` flag to install it, what error message is printed?  
 
-Let's try another rpm.  This one is a software called *denyhosts* this is a brute force banning tool that will lock out IP addresses that attempt to brute force connect to your server.  The rpm is located at [http://pkgs.repoforge.com/denyhosts](http://pkgs.repoforge.com/denyhosts "Denyhosts").  You can download the `denyhosts-2.6.5-el6.rf.noarch.rpm`.  When you run the rpm based installer what happens?  Why?
+Let's try another rpm.  This one is called "elrepo," it for Enterprise Linux version RHEL and CentOS.  This adds up to date packages and third party repos, adding software that is not part of the stable Enterprise repos.  The rpm is located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "elrepo website").  You need a few pre-reqs to make this work.
+
+```bash
+# Add the GPG key for the repo to make sure that you are adding the official elrepo
+# This works on Fedora 32+ and CentOS 8
+sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+sudo yum install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+# If you are using CentOS 7 use this URL
+sudo yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
+```
 
 #### Installers
 
-As you can see from above package managers were a great step forward in making Linux usable beyond the ranks of Thompson, Ritchie, and Stallman.  But they still don't handle the dependency issue--they don't understand the context of auto-dependency retrieval.  Various solutions were created but every Linux distro has pretty much settled on two families of Installers--those that match the major families.  Fedora based distros use Yum and now use DNF (as of Fedora 23) and Debian based distros use APT.  
+As you can see that package managers were a great step forward in making Linux usable. But they don't handle the dependency issue--they don't understand the context of auto-dependency retrieval.  Various solutions were created and new ones seem to pop up with each new Linux distro.  Fedora based distros use yum and now use dnf (as of Fedora 23) and Debian based distros use apt. Others you might encounter are:
+
+* zypper
+* xbps
+* pkg
+* portage
+* pacman
+* GNU GUIX
 
 ### APT
 
@@ -521,7 +537,7 @@ Here is a list of all the configuration and cache files related to APT and their
 
 ### yum & dnf
 
-Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution.  YUM is supported in Fedora 22 but now deprecated and DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice.  YUM is still available on RHEL and CentOS but as companies move to the version 7 and 8 platform, this will begin to change too. Yum will be eventually replaced by DNF.  Both YUM and DNF use repositories that are maintained by Red Hat or CentOS or even their RHEL repos.
+Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution.  YUM is supported in Fedora 22 but now deprecated and DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice.  YUM is still available on RHEL and CentOS but as companies move to version 7 and 8, this will begin to change too. Yum will be eventually replaced by DNF.  Both YUM and DNF use repositories that are maintained by Red Hat or CentOS or even their RHEL repos.
 
 You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and Red Hat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
 
@@ -548,24 +564,23 @@ rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 Note for RHEL/CentOS the installation URL is slightly different:
 
 ```bash
+# For CentOS 7
 sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
-sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-30.noarch.rpm
-```
-
-```bash
-sudo yum install http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
-sudo yum install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-30.noarch.rpm
+# For CentOS 8
+sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/8/x86_64/r/rpmfusion-free-release-8-0.1.noarch.rpm
+# Fredora 32
+sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-32.noarch.rpm
 ```
 
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
 
 Once those RPMFusion repos have been added you can now retry the example above and install, FFMpeg, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.
 
-> __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the webbrowser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
+> __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the web browser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
 
 * ```sudo dnf update --refresh```
 * ```sudo dnf install dnf-plugin-system-upgrade```
-* ```sudo dnf system-upgrade download --releasever=31```
+* ```sudo dnf system-upgrade download --releasever=32```
 * ```sudo dnf system-upgrade reboot```
 
 ## New Package Managers as App Stores
