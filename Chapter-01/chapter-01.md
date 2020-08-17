@@ -53,7 +53,7 @@ The text of the book is opensource and build instructions are in our GitHub repo
 
 ### For Students
 
-All source code from this book as well as examples are available on our GitHub page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo") 
+All source code from this book as well as examples are available on our GitHub page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo")
 
 Part of this book was inspired by a quote from my friend in regards to Linux textbooks, he said, *"Most text books move along well, but then out of nowhere introduce unrelated content."*  At the same time, I had the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux.
 
@@ -100,5 +100,5 @@ Special thanks to those who have submitted pull requests and bug reports:
 * [Professor Sam](https://appliedtech.iit.edu/people/sheikh-sam-shamsuddin "Sam") - who taught me that it is pronounced *"ee tee cee F-stab"* not *"etc F S tab"* and how to read error messages.
 * Professor Ray Trygstad and Dean Robert Carlson, who gave me my first real IT job and showed me the wonders of Perl.
 * Illinois Institute of Technology who has entrusted me with much.
-* My wife and kids who supported me always.
+* My wife and kids who have supported me always.
 * [Sean Hughes-Durkin](https://appliedtech.iit.edu/people/sean-hughes-durkin "Sean Hughes-Durkin Info") who inspired me to write this book based on his quote above.

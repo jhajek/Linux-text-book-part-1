@@ -4,24 +4,21 @@
 
 ## Objectives
 
-* Understand how and why the Unix Operating System was created
+* Explain the six phases of Unix and Linux maturity and how they encompass each generations technological changes
 * Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
 * Understand the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and *Free/Libre Software*
 * Understand the contributions of Linus Torvalds to the creation of Linux
 * Understand and explain how the AT&T and BSD lawsuit enabled the proliferation of Linux
-* Be able to describe and differentiate the six phases of Unix maturity
 * Understand the nature of modern commercial distributions of Linux and Unix operating systems
 * Understand the principles and key differences of *Free/Libre Software* and *Opensource Software*
 
 ## Outcomes
 
-At the completion of this chapter a student will understand and be able to explain the history of the environment in which Unix and Linux were created. You will be able to relate key names; *Thompson, Ritchie, Stallman, and Torvalds* to their respective technological contributions to free and opensource software.  You will be able to understand what a distribution is and how free and opensource software relates to proprietary software.
-
-### Convention Note
+At the completion of this chapter a student will understand and be able to explain the context in which Unix and Linux were created. You will be able to relate key names; *Thompson, Ritchie, Stallman, and Torvalds* to their respective technological contributions to free and opensource software.  You will be able to understand what a distribution is and how free and opensource software relates to proprietary software.
 
 In this chapter the terms **Linux** and **Unix** are generally interchangeable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software if we left Unix and BSD out. If you are curious the name is pronounced *"Lin-ucks;"* [link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
 
-## Where it Began and Why it Matters Now
+## Zeroith Phase - Where it Began and Why it Matters Now
 
 Marc Andreesen, founder of the Netscape Communicator browser (precursor to FireFox) famously said, "Software is eating the world."  The majority of that is Free/Libre Opensource software and the majority of it is Linux or Unix based.  This trend of software and philosophy of software started over 40 years ago in Unix has come to predominate the technology scene today. There is a good chance you have a smartphone in your pocket with Google's Android OS, or a laptop with Apple's MacOS (formerly OSX) which is based off on BSD Unix.  [Even Microsoft Windows 10 has a Linux compatibility layer now](https://devblogs.microsoft.com/commandline/announcing-wsl-2/ "Windows Subsystem for Linux 2").
 
@@ -33,7 +30,7 @@ When we take a look all operating systems, at a foundational level all operating
 
 In the same way all plants require a seed or a kernel to grow, any computer operating system must contain a kernel.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a Wi-Fi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They speak to the kernel via *device drivers*.  The figure above describes a two way flow of data; the user interacts with the operating system and the operating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom built to communicate with the CPU.  The kernel abstracts away this concern.  The majority of operating system code and drivers is built in C or C++.
 
-Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor? [Even an ARM processor](https://docs.microsoft.com/en-us/windows/arm/ "windows on arm")?  What kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the Windows kernel or Linux Kernel abstracts these differences away.
+Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor? [Or an ARM processor](https://docs.microsoft.com/en-us/windows/arm/ "windows on arm")?  What kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the Windows kernel or Linux Kernel abstracts these differences away.
 
 ### Programming Language and Compiler Tools
 
@@ -68,7 +65,7 @@ Some would argue that without free and opensource software that companies like G
 
 ### Thompson, Ritchie, and Bell Labs
 
-Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix.  *__Know these names.__*
+Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix: __Know these names__!
 
 #### Ken Thompson and Dennis Ritchie
 
@@ -709,7 +706,7 @@ While Android is a Linux based mobile operating system, it is different from a t
 * [postmarketOS](https://postmarketos.org/ "pure longterm linux os for phones")
 * [PureOS from Purism](https://puri.sm/products/librem-5/ "Pure OS mobile")
 
-## 5th Phase of Unix Maturity - Hard Changes to the Nature of Linux
+## Fifth Phase of Unix Maturity - Hard Changes to the Nature of Linux
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
@@ -725,7 +722,7 @@ The first company to adopt systemd was Red Hat.  Debian was the last holdout and
 
 In its defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based system compatibility.  Systemd is entirely Linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros.
 
-## 6th Phase of Linux Maturity - OpenSource is not a business model
+## Sixth Phase of Linux Maturity - OpenSource is not a business model
 
 As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used across the industry and these companies happen to be Venture Capital funded. These companies, which had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providers, vastly out number the original company's developer workforce.  What can these companies do?  They decided on a licensing vector of attack against the cloud providers.  
 
