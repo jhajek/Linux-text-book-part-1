@@ -226,11 +226,9 @@ Wikipedia has a sample gallery of all these desktop environments and more at [ht
 
 ### GNOME 3 Lockin Question
 
-By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's systemd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using systemd for process initialization on boot, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red Hat), and Ubuntu you see very little differentiation desktop-wise now.
+By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's systemd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using the systemd init system, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red Hat), and Ubuntu you see very little differentiation desktop-wise now.
 
-Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  
-
-As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom Unity shell and returned to using GNOME3.
+Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom Unity shell and returned to using GNOME3.
 
 ### Theming
 
@@ -274,7 +272,7 @@ To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](h
 
 Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android.   The issue with a software store became the ability to make money, charge money, and distribute money.  All though the distributions still support Software Stores, their heart is not in this manner of software installation.  The original way to install software was via a package manager, which the stores were a front for anyway.  There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux.  These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").
 
-To access the terminal on a GNOME3 desktop, click the **Activities** button at the top and in the **find** box type: *Terminal*. 
+To access the terminal on a GNOME3 desktop, click the **Activities** button at the top and in the **find** box type: *terminal*.
   
 #### Ubuntu
 
@@ -376,7 +374,7 @@ apply)
   c. Desktop environments have a changeable but consistent look-and-feel
   d. Desktop environments have system configuration tools and user applications built in
   e. Desktop environments have lower memory requirements than window managers
-18) What is the default desktop environment for Fedora 30? (Name and versions)
+18) What is the default desktop environment for Fedora 32? (Name and versions)
 
 19) What is the name of the button on the upper left hand corner of the GNOME 3 desktop that you use to “launch applications?”
 
