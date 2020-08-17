@@ -404,16 +404,6 @@ Using the virtual machines you installed in the previous chapter, you will now i
 
 **Deliverable:** Take screenshots of all successful installs of the software listed.  
 
-#### GNOME Software Store
-
-You will install assorted softwares using the Gnome Software application in Fedora 30. The list of software is as follows:
-
-1) Inkscape
-1) Audacity
-1) GNOME Tweak Tool
-1) Chromium Web Browser
-1) gPodder
-
 #### GNOME 3 Extensions
 
 You will need to install two GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
