@@ -123,14 +123,12 @@ The way to remediate it to launch the MikTex Package Manager, search for fontspe
 
 ### Kindle .mobi
 
-To generate .mobi files for use on Kindle devices or apps, you need to install ```Kindlegen``` from [here](https://www.amazon.com/gp/feature.html?docId=1000765211) Works on Windows, MacOS, and Linux.
+To generate .mobi files for use on Kindle devices or apps, you need to install ```Kindlegen``` from [Amazon here](https://www.amazon.com/gp/feature.html?docId=1000765211).  This executable converts epub file formats to .mobi which works in the Amazon Kindle Works on Windows, MacOS, and Linux.
 
-#### Reading PDF and ePUB
+#### Reading ePUBs
 
-You can use any PDF reader.  ~~~Currently Microsoft Edge browser has native ePub support in [Edge Browser](https://blogs.windows.com/windowsexperience/2017/04/20/week-microsoft-edge-browser-built-books-reading/#fhI8gshdmfAGSrIu.97 "ePub").~~~
+On Windows there are a few less than ideal options for Reading epub files.
 
-Or you can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
-
-ePub and PDF can also be read via the Barnes and Noble Nook app.  It is available for all platforms, [iOS, Android, and Windows](http://www.nook.com/nookapp/#appChoices "Nook app").
-
-The iBooks app on iOS works as well for viewing ePubs and PDFs.
+* [Nook app](https://www.microsoft.com/en-us/p/nook-books-magazines-newspapers-comics/9wzdncrfj33h?activetab=pivot:overviewtab "nook app for Microsoft Store") from Microsoft Store
+* You can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
+* [AZARDI](http://azardi.infogridpacific.com/azardi-download.html "AZARDI ebook reader webpage") is cross platform e-book reader recommended by the DAISY Consortium
