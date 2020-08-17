@@ -333,7 +333,7 @@ Some people think Linus' personality is a shtick or a comedy act he puts on.  Bu
 * [Torvalds doesn't care](http://arstechnica.com/business/2015/01/linus-torvalds-on-why-he-isnt-nice-i-dont-care-about-you/ "Doesn't care")
 * [Linus' response to previous article](http://arstechnica.com/business/2015/01/linus-torvalds-responds-to-ars-about-diversity-niceness-in-open-source/ "Response")
 
-On September 16, 2018, Linus Torvalds issued a public apology for his past behavior and temporarily stepped down as Linux Kernel maintainer.  You can read the apology letter on the [Kernel mailing list](https://lkml.org/lkml/2018/9/16/167 "Linus Apology").   Some say the apology wasn't needed, some say it is too little too late.  Others wonder if a man of Linus' age (48) can be reformed.  Some see this as a step in the right direction and offer a chance for redemption, some would prefer him never to return.  This opens a bigger question of what happens to the Linux Kernel if Linus never returns, who becomes the maintainer?  Time will tell.
+On September 16, 2018, Linus Torvalds issued a public apology for his past behavior and temporarily stepped down as Linux Kernel maintainer.  You can read the apology letter on the [Kernel mailing list](https://lkml.org/lkml/2018/9/16/167 "Linus Apology").   Some say the apology wasn't needed, some say it is too little too late.  Others wonder if a man of Linus' age (48) can be reformed.  Some see this as a step in the right direction and offer a chance for redemption, some would prefer him never to return.  This opens a bigger question of can someone's sins that are on the internet ever be forgiven?
 
 In October 2018, [Linus Torvalds returned from his one month of reflection](https://www.theverge.com/2018/10/22/18011854/linus-torvalds-linux-kernel-development-return-code-of-conduct "Linus returns from a month of reflection").  He realized that his original focus had made the Linux Kernel development area difficult for new people. Torvalds said, *"I need to change some of my behavior, and I want to apologize to the people that my personal behavior hurt and possibly drove away from kernel development.”*  In addition a [Contributor Covenant](https://www.contributor-covenant.org/ "Controbitor Covenant added to Linux project") was added to the Linux Project to govern these kinds of interactions in the future.
 
@@ -438,7 +438,7 @@ As the new century dawned, Stallman's dream for the GNU operating system had bec
 
 It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might wonder if, without the financial backing of a commercial entity, could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.
 
-As of 2017, we have almost 25 years of Linux Kernel and Linux distribution work. Current major commercial Linux distributions hail from two primary and distinct families: __Debian__ and __Red Hat__.  There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on these two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch").
+As of 2020, we have almost 28 years of Linux Kernel and Linux distribution work. Current major commercial Linux distributions hail from two primary and distinct families: __Debian__ and __Red Hat__.  There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on these two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch").
 
 #### Additional Popular Linux Distros
 
@@ -456,7 +456,7 @@ As of 2017, we have almost 25 years of Linux Kernel and Linux distribution work.
 
 > *"I founded Debian in 1993. Debian was one of the first Linux distributions and also one of the most successful and influential open source projects ever launched. Debian pioneered a number of ideas commonplace today, including employing an open community that allowed (and encouraged!) anyone to contribute (much like how Wikipedia would later operate). And, with its integrated software repositories anyone could contribute to, Debian arguably had the industry’s first (albeit primitive) “App Store”. Today, more than 1,000 people are involved in Debian development, and there are millions of Debian users worldwide."* - [http://ianmurdock.com](http://ianmurdock.com)
 
-Unfortunately on December 31st, 2015, Ian Murdock succumbed to mental illness and took his own brilliant life. Bruce Perens eulogized him in this post: [https://perens.com/blog/2015/12/31/ian-murdock-dead/](https://perens.com/blog/2015/12/31/ian-murdock-dead/ "Ian Murdock"). His legacy lives on through the Debian family of distros, which contains 4 major sub-families[^9].
+Unfortunately on December 31st, 2015, Ian Murdock took his own brilliant life. Bruce Perens eulogized him in this post: [https://perens.com/blog/2015/12/31/ian-murdock-dead/](https://perens.com/blog/2015/12/31/ian-murdock-dead/ "Ian Murdock"). His legacy lives on through the Debian family of distros, which contains 4 major sub-families[^9].
 
 #### Debian
 
@@ -491,7 +491,7 @@ Ubuntu pioneered the idea of rolling releases - releasing every 6 months compare
 
 #### PureOS
 
-![*PureOS*](images/Chapter-02/Linux-logos/PureOS/brand_alt.svg "PureOS logo")
+![*PureOS*](images/Chapter-02/Linux-logos/PureOS/pureos-logo-small.png "PureOS logo")
 
 "*PureOS is a general purpose operating system that is based on the Linux kernel and is focused on being an entirely Free (as in freedom) OS. It is officially endorsed by the Free Software Foundation. We adhere to the Debian Social Contract and the GNU FSDG.*"
 
@@ -501,7 +501,7 @@ This is a Debian derivative, that has been produced with an FSF based focus on F
 
 ![*Devuan Linux*](images/Chapter-02/Linux-logos/Devuan/Devuan-logo.png "Devuan")
 
-[Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of the "Debian Civil War" of early 2015 where in half of the Debian Project developers left the project to begin work on this distribution.  It is a direct fork of the Debian 8.0 Jessie Code base with one major incompatible change to the core operating system; that cannot be merged back into Debian.  The disagreement stemmed from Debian's decision to implement Red Hat's systemd init system over the old but reliable sysVInit.  To change the core operating system is a monumental task and these volunteers undertook it and succeeded.  The project started in August of 2016 and has now progressed to a stable systemd free [Debian based release, Devuan 2.1](https://devuan.org/os/debian-fork/ascii-point-release-announce-112119 "Devuan website") (codename ASCII).  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter.
+[Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of the "Debian Civil War" of early 2015 where in half of the Debian Project developers left the project to begin work on this distribution.  It is a direct fork of the Debian 8.0 Jessie Code base with one major incompatible change to the core operating system; that cannot be merged back into Debian.  The disagreement stemmed from Debian's decision to implement Red Hat's systemd init system over the old but reliable sysVInit.  To change the core operating system is a monumental task and these volunteers undertook it and succeeded.  The project started in August of 2016 and has now progressed to a stable systemd free [Debian based release, Devuan 3.0](https://devuan.org/os/announce/beowulf-stable-announce-060120 "Devuan website").  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter.
 
 #### Other Debian Based Distros
 
@@ -519,7 +519,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 * [elementaryOS](http://elementary.io/ "elementary Linux") elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.
 * [Kali Linux](https://www.kali.org/ "Kali Linux") Security based Debian distro
 * [Trisquel](https://trisquel.info "Tri-skel") GNU/Linux-Libre FSF recommended and Richard Stallman uses this one.
-* [PureOS](https://www.pureos.net/ "PureOS") GNU/Linux FSF distro, entirely GPL compliant software.
+* [KDE Neon](https://neon.kde.org/ "KDE Neon website") KDE based desktop versioned distro based off of Ubuntu.
 
 ### Red Hat Family
 
