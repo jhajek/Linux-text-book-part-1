@@ -47,11 +47,11 @@ Every operating system is made up of multiple components as we mentioned in chap
 
 ![*Operating System Rings*](images/Chapter-03/Hypervisor/500px-Priv_rings.svg.png "One Ring")
 
-Virtualization works because your x86 CPU (AMD and Intel) enables it at the CPU[^19].  To do this, AMD and Intel introduced extensions, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica), to assist virtualization. Both instruction sets added "nine new machine code instructions that only work at 'Ring -1,' intended to be used by the hypervisor" ([Andy Dorman - Informationweek](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")).  When using virtualization, you are functionally running multiple operating systems at one time.  Technically this is not possible as only one operating system can have control of your hardware at a time - so how does a hypervisor and virtualization make this work?  
+Virtualization works because your CPU[^19].  To do this, AMD and Intel introduced extensions, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica), to assist virtualization. Both instruction sets add "nine new machine code instructions that only work at 'Ring -1,' intended to be used by the hypervisor" ([Andy Dorman - Informationweek](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")).  When using virtualization, you are functionally running multiple operating systems at one time.  Technically this is not possible as only one operating system can have control of your hardware at a time - so how does a hypervisor and virtualization make this work?  
 
 ### Virtualization Diagram
 
-![*Virtualization Diagram*](images/Chapter-03/Hypervisor/640px-Hyper-V.png "Virtualization Diagram")
+![*Virtualization Diagram*](images/Chapter-03/Hypervisor/Hardware_Virtualization.jpg "Virtualization Diagram")
 
 By having the hypervisor intercepting system calls from the virtualized operating system this allows for multiple operating systems to co-exist on one computer unaware of each other[^20].  The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two attendees.  The hypervisor essentially creates two classes of operating systems.  The "*host*" and potentially multiple "*guests*".  The *"guest"* operating system thinks it has complete control of the hardware - but the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available.  The hypervisor offers a *"virtualized kernel and drivers"* to the guest operating system.  In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands.  
 
@@ -991,7 +991,7 @@ Upon saving this file, from the commandline, execute this code with the command:
 
 [^19]: <a title="wikipedia:User:Hertzsprung" class="extiw" href="//en.wikipedia.org/wiki/User:Hertzsprung">Hertzsprung</a> at <a title="wikipedia:" class="extiw" href="//en.wikipedia.org/wiki/">English Wikipedia</a> [<a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> or <a href="http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0">CC BY-SA 2.5-2.0-1.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3APriv_rings.svg">via Wikimedia Commons</a>
 
-[^20]: By Terendo (Own work) [Public domain], via Wikimedia Commons <a href="https://commons.wikimedia.org/wiki/File%3AHyper-V.png">https://commons.wikimedia.org/wiki/File%3AHyper-V.png</a>
+[^20]: <a href="https://commons.wikimedia.org/wiki/File:Hardware_Virtualization.JPG" title="via Wikimedia Commons">Kwesterh</a>
 
 [^21]: By Scsami (Own work) [CC0], via Wikimedia Commons" <a href="https://commons.wikimedia.org/wiki/File%3AHyperviseur.png">https://commons.wikimedia.org/wiki/File%3AHyperviseur.png</a>
 
