@@ -556,7 +556,7 @@ Fedora 20-30 are no longer supported anymore! Why is the Fedora Project so fast 
 
 Red Hat's founder Mark Ewing had been an IBM employee prior to forming Red Hat.  He knew something about enterprise software and more importantly enterprise profits.  Red Hat began its life as a desktop Linux company.  They quickly shifted their focus to compete not with Microsoft and Apple, but to take on the Unix enterprise giants of IBM, HP, Sun and AT&T. There is irony as Red Hat would be purchased by IBM 20 years later.  These companies had one thing in common: they were all Unix vendors.  Red Hat's vector was to dislodge the established Unix vendors with Red Hat Enterprise Linux (RHEL). They would successfully attack this market with entirely opensource products and running on commodity Intel x86 based processors.  With Oracle also sensing a chance to capture market share along with RHEL, it announced it would port its database products to RHEL and this platform became to the go to choice for using Oracle as a database. By Oracle doing this they have all but abandoned Solaris and positioned themselves to take on Windows Server and Microsoft SQL Server.
 
-The key to RHEL's success in the enterprise is its long term stability.  The RHEL application platform is expected to run for 5+ years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red Hat instead takes "snapshots" from the Fedora project and freezes them to produce RHEL versions.  For example, as of Fall 2015, the released version of RHEL was 7.1 which is a freeze of the technology from Fedora 19, which was released July of 2013.  
+The key to RHEL's success in the enterprise is its long term stability.  The RHEL application platform support is 5 years and paid support up to 10 years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red Hat instead takes "snapshots" from the Fedora project and freezes them to produce RHEL versions.  For example, as of Fall 2020, the released version of RHEL was 8.0 which is a freeze of the technology from Fedora 28, which was released May of 2018.  
 
 How successful is this strategy? By 2012 Red Hat had become the first Linux based company to make a billion dollars in a fiscal year.  But this success brought about an additional serious opensource question; RHEL is licensed under the GPLv2 Free Software license, which requires that all source code for your product to be freely and openly available. That means anyone can examine, modify, and redistribute your code for their own product as well. What if someone did that?  Wouldn't they be able to ride the coat tails of Red Hat to success?  The CentOS project did just that.
 
@@ -581,6 +581,8 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 * [openSUSE Linux](https://www.opensuse.org "openSUSE Linux") is a community-driven version of SUSE and released in 2004.
 * In 2006 Microsoft and SUSE announce interoperability agreement
 * SUSE was responsible for working to port the Linux kernel to 64 bit architecture in 2000
+* Major partner for deploying SAP
+* Owns Rancher -- an Enterprise Kubernetes Management Platform
 
 #### Intel Clear Linux
 
