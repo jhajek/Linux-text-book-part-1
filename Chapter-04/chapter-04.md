@@ -83,7 +83,7 @@ In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began t
 
 * The kernel gets an event and sends it to the compositor. This is similar to the X case, which is great, since we get to reuse all the input drivers in the kernel.
 * The compositor looks through its scenegraph to determine which window should receive the event. The scenegraph corresponds to what's on screen and the compositor understands the transformations that it may have applied to the elements in the scenegraph. Thus, the compositor can pick the right window and transform the screen coordinates to window local coordinates, by applying the inverse transformations. The types of transformation that can be applied to a window is only restricted to what the compositor can do, as long as it can compute the inverse transformation for the input events.
-* As in the X case, when the client receives the event, it updates the UI in response. But in the wayland case, the rendering happens in the client, and the client just sends a request to the compositor to indicate the region that was updated.
+* As in the X case, when the client receives the event, it updates the UI in response. But in the Wayland case, the rendering happens in the client, and the client just sends a request to the compositor to indicate the region that was updated.
 * The compositor collects damage requests from its clients and then recomposites the screen. The compositor can then directly issue an ioctl to schedule a pageflip with KMS.
 
 At one time it was thought that X is too deep into the bones of Linux and may never be ever fully replaced. But we are seeing massive amounts of work from industry to make Wayland a reality. With Intel, Nvidia, the X.Org Foundation and Red Hat leading the way, Fedora 25 was one of the first distros to run Wayland natively.  
@@ -98,7 +98,7 @@ Ubuntu is the only Linux operating system to support Mir and development has bee
 
 > *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
 
-As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.  But the Mir Project and Unity lives on in the Ubuntu Touch port maintained for phones and tablets by the [Ubuntu-Touch.io](https://ubuntu-touch.io/ "Ubuntu Touch webpage") project.
+As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.  But the Mir Project and Unity lives on in the Ubuntu Touch port maintained for phones and tablets by the [Ubuntu-Touch.io](https://ubuntu-touch.io/ "Ubuntu Touch webpage") project.  The Mir display server is now gaining popularity running Ubuntu Touch on the [Librem 5](https://fossbytes.com/librem-5-ubuntu-touch-support/ "librem 5 ubuntu touch web page") and the [Pinephone](https://devices.ubuntu-touch.io/device/pinephone/ "pinephone running ubuntu touch") Linux based cell phones.
 
 ## Window Managers
 
@@ -106,8 +106,7 @@ X will let you display a window and let you capture mouse and keyboard commands.
 
 ### Compositing
 
-* [Compiz](http://www.compiz.org/ "Compiz") - Fusion Adds more functionality to Compiz with more plugins, tools and libraries
-* Compiz - Allows for OpenGL use in windows and compositing
+* [Compiz](http://www.compiz.org/ "Compiz") - Fusion Adds more functionality to Compiz with more plugins, tools and libraries. Allows for OpenGL use in windows and compositing
 * [Metacity](https://blogs.gnome.org/metacity/ "metacity") - Small window manager, using GTK+ 2 to do everything
 * [evilwm](http://www.6809.org.uk/evilwm/ "evilwm") - Maximizes screen real estate and provides good keyboard control
 * [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
@@ -129,12 +128,12 @@ X will let you display a window and let you capture mouse and keyboard commands.
 
 ### Tiling
 
-* [Awesome](https://en.wikipedia.org/wiki/Awesome_(window_manager) "AwesomeWM") - mouse optional
+* [Awesome](https://en.wikipedia.org/wiki/Awesome_(window_manager) "Awesome") - mouse optional
 * [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
 * [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support.
-* [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Common Lisp window manager and Keyboard-only
+* [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Built in Common Lisp window manager and Keyboard-only
 * [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager
-* [ion](https://en.wikipedia.org/wiki/Ion_(window_manager) "ion") - meant for many open windows and keyboard support
+* [tinywm](http://incise.org/tinywm.html "tiny wm") - Very very minimalistic window manager
 * [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support.
 
 ## Desktop Environments
@@ -201,7 +200,7 @@ This project started in 1997 and intended to be a virtual desktop window manager
 
 A distro of FreeBSD, called TrueOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE but the amount of work needed to remove the Linux specific parts prevented new research from being done. Now they have independent development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE and allows Lumina to run on BSD based systems and Linux.
 
-Lumina has been written from scratch in C++/Qt5 and is not based on any existing desktop’s code-base, and does not use any of the Linux-based desktop frameworks (ConsoleKit, PolicyKit, D-Bus, systemd, etc..) and is now available cross platform [BSD and Linux](https://lumina-desktop.org/get-lumina/ "Lumina").
+Lumina has been written from scratch in C++/Qt5 and is not based on any existing desktop’s code-base, and does not use any of the Linux-based desktop frameworks (ConsoleKit, PolicyKit, D-Bus, systemd, etc..) and is now available for Linux as well as VSD in the Project Trident distro based on Void Linux.
 
 ### Android
 
