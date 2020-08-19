@@ -213,12 +213,12 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 ----------------------------------------------------- ------------------------ -------------------------------
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
 [GNOME 3](https://www.GNome.org/ "GNOME")             GTK+ 3                   https://GNome.org/
-[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3                   http://www.xfce.org/
-[LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     http://lxqt.org/about/
-[MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   http://mate-desktop.org/
-[Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   http://cinnamon.linuxmint.com/
-[Unity](https://unity.ubuntu.com/ "unity")            GTK+ 3                   https://ubuntu.com/
-[Enlightenment](https://www.enlightenment.org/ "E17") EFL                      https://www.enlightenment.org/
+[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3                   https://www.xfce.org/
+[LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     https://lxqt.org/about/
+[MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   https://mate-desktop.org/
+[Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   https://cinnamon.linuxmint.com/
+[Unity](https://unity8.io/ "unity 8 web page")        GTK+ 3                   https://unity8.io/
+[Enlightenment](https://www.enlightenment.org/ "E24") EFL                      https://www.enlightenment.org/
 [Lumina](https://lumina-desktop.org/ "lumina")        C++/Qt5                  https://lumina-desktop.org/
 ----------------------------------------------------- ------------------------ -------------------------------
 
