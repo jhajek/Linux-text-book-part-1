@@ -410,8 +410,8 @@ You will need to install two GNOME 3 extensions from [https://extensions.gnome.o
 
 1) Caffeine
 1) Dash to Dock
-1) Freon (first requires you to install the package ```lm_sensors```)
-1) Hide Dash X
+1) Freon by UshakovVasilii (Requires you to install the package ```lm_sensors```)
+1) Screenshot Tool
 
 #### Snaps Install
 
@@ -429,24 +429,24 @@ To install and configure flatpak and flathub, reference chapter 3.  To show thes
 
 1) Kdenlive
 1) Visual Studio Code
-1) LibreOffice
-1) AbiWord
-1) VLC
+1) Discord
+1) Remmina
+1) GtkStressTesting
 
 #### Ubuntu 18.04 Flatpak Install
 
 To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak:
 
-1) Remmina
+1) Microsoft Teams
 1) Shotcut
-1) Fondo
-1) VLC
+1) LibrePCB
+1) OpenBoard
 
 #### AppImage Install
 
-Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instructions to install and run these AppImages on both Ubuntu 18.04 and Fedora 30.  Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").  This can be on a system of your choice.
+Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instructions to install and run these AppImages on both Ubuntu 18.04 and Fedora 32.  Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").
 
-1) Subsurface
+1) Poddr
 1) Archipelago
 1) LibrePCB
 
