@@ -79,11 +79,10 @@ The tutorial on vagrantup.com will walk you through this but a small example (tr
 * ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
 * ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
 * ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
-* ```Vagrant box add generic/Fedora30``` (Fedora 30 server edition)
+* ```Vagrant box add generic/Fedora32``` (Fedora 30 server edition)
 * ```vagrant box add freebsd/FreeBSD-12.0-CURRENT``` (official FreeBSD vagrant box)
 * ```vagrant box add maier/alpine-3.4-x86_64```  (user provided alpine Linux distro)
 * ```vagrant box add ubuntu/bionic64``` (Canonical--Ubuntu 18.04 parent company - provided)
-* ```vagrant box add ubuntu/xenial64``` (Canonical--Ubuntu 16.04 parent company - provided)
 
 You may need to use a full URL in the case of downloading a Vagrant box that is not provided from HashiCorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a [Devuan](https://devuan.org/ "Devuan Home Page") box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
 
