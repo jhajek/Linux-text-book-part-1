@@ -79,7 +79,7 @@ The tutorial on vagrantup.com will walk you through this but a small example (tr
 * ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
 * ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
 * ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
-* ```Vagrant box add generic/Fedora32``` (Fedora 30 server edition)
+* ```Vagrant box add generic/Fedora32``` (Fedora 32 server edition)
 * ```vagrant box add freebsd/FreeBSD-12.0-CURRENT``` (official FreeBSD vagrant box)
 * ```vagrant box add maier/alpine-3.4-x86_64```  (user provided alpine Linux distro)
 * ```vagrant box add ubuntu/bionic64``` (Canonical--Ubuntu 18.04 parent company - provided)
