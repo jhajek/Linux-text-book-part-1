@@ -76,6 +76,7 @@ The first command **add** is the command we will use to add boxes (either of the
 The tutorial on vagrantup.com will walk you through this but a small example (try any of these especially if you are not familiar with these platforms).
 
 * ```vagrant box add centos/7``` (Official CentOS 7 Vagrant box release)
+* ```vagrant box add centos/8``` (Official CentOS 8 Vagrant box release)
 * ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
 * ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
 * ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
@@ -116,7 +117,7 @@ The top two boxes were custom Vagrant boxes I created (we are getting to that pa
 
 ```bash
 vagrant box add ./centos-1908-virtualbox-1485312680.box --name centos-7-vanilla
-vagrant box add ./ubuntu-18044-virtualbox-1485314496.box --name ubuntu-16041-vanilla
+vagrant box add ./ubuntu-18044-virtualbox-1485314496.box --name ubuntu-18044-vanilla
 ```
 
 #### vagrant box remove
