@@ -788,7 +788,7 @@ Packer provides the ability to execute inline Linux commands.  This would be use
 
 ### IT Orchestration
 
-In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to see a world of automation opening up to us.  In a sense these technologies are the culmination of the Unix concepts of small tools doing one things--or shell scripts on steroids, so to speak.  Each of these technologies is beyond the scope of this book, but here are some podcasts and links to learn more about them.
+In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to see a world of automation opening up to us.  In a sense these technologies are the culmination of the Unix concepts of small tools doing one things--or shell scripts on steroids, so to speak.  Each of these technologies is beyond the scope of this book, but here are some podcasts and links to learn more about them.  Some relate to installing traditional virtual machines, some to bare metal installs, others assume cloud platforms.
 
 * [SaltStack](https://www.saltstack.com/ "Saltstack")
   * [Podcast](https://twit.tv/shows/floss-weekly/episodes/262 "SaltStack Podcast")
@@ -801,6 +801,7 @@ In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to 
 * [CfEngine](https://cfengine.com/ "CFengine")
   * [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFengine Podcast")
   * [Dr. Mark Burgess](https://en.wikipedia.org/wiki/Mark_Burgess_(computer_scientist) "Dr Mark Burgess") wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
+* [Cobbler](https://cobbler.github.io/ "Cobblerd website")
 * [Terraform](https://www.hashicorp.com/products/terraform "Terraform")
   * [HashiCorp Terraform Presentation](https://www.youtube.com/watch?v=jdDKjWZ2qbk&index=39&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t "Terraform and Packer")
 
@@ -855,7 +856,7 @@ In this chapter we learned how a spread in technology led to a desire to automat
    d) `*.zip`
 
 8. Name the file that contains the configuration file for each Vagrant box file.
- 
+
 9. What is the correct command to add the Vagrant Box `centos/7`?
 
    a) `vagrant add box centos/7`
