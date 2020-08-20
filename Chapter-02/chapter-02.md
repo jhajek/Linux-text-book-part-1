@@ -285,7 +285,7 @@ SPARC workstations were common desktop stations used by students and researchers
 
 ![*Linus Torvalds*](images/Chapter-02/People/Linus-Torvalds/320px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
 
-In 1991, Linus Torvalds was a graduate student at the University of Helsinki in Finland.  As a student Torvalds was using Unix for his courses on the university's [Sun SPARCstations](https://en.wikipedia.org/wiki/SPARCstation "SPARCstations").  He was not pleased with Sun's Unix, called SunOS, but felt it was the best of the commercial Unix available.  His real dream was to run his own Unix-like operating system on his own personal PC.  He had recently purchased an Intel x386 processor based desktop PC.  Linus tried using Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement.  In a fashion not unlike Ken Thompson, Torvalds set out in the early part of 1991 to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.
+In 1991, Linus Torvalds was a graduate student at the University of Helsinki in Finland.  As a student Torvalds was using Unix for his courses on the university's [Sun SPARCstations](https://en.wikipedia.org/wiki/SPARCstation "SPARCstations").  He was not pleased with Sun's Unix, called SunOS, but felt it was the best of the commercial Unix available.  His real dream was to run his own Unix-like operating system on his own personal PC.  He had recently purchased an Intel 386 processor based desktop PC.  Linus tried using Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement.  In a fashion not unlike Ken Thompson, Torvalds set out in the early part of 1991 to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.
 
 This was very impressive feat for a single person. Torvalds himself acknowledged that if GNU Hurd had been ready for production or if at this time AT&T hadn't been suing BSD, he would have re-used their kernel work and not built his own. By August 25th of 1991 the initial release of the Linux kernel was posted online[^7].  The quote from the beginning of the chapter was the basis of the initial post to the Minix Usenet Newsgroup(A newsgroup was a bulletin board-like precursor to the actual Internet - like Google Groups in a sense--today you would use Twitter). His initial work was not quite a full-fledged system but really just a small kernel, with a port of the GNU Bash shell, and a port of the GNU C Compiler (GCC)Many things were missing, support for other processors, audio, printers, etc etc but it was like a crack in a damn - something was about to burst forth in the operating system world.
 
@@ -346,19 +346,19 @@ AT&T seeing this decided in the early 1992 to take the BSD project to court in o
 After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. Also they are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red Hat.  All are maintained by volunteer organizations.
 
 * FreeBSD
-* DragonFlyBSD
-* OpenBSD
+* DragonFlyBSD, split from FreeBSD
 * NetBSD
+* OpenBSD, split from NetBSD
 
 ## Third Phase of Unix Maturity - Free and Opensource Software Enter the Enterprise
 
 ### Free Software vs. Opensource Software
 
-By the end of the 90s a curious thing was happening; Microsoft had a near total domination of the desktop PC operating system market and was being investigated by the US Department of Justice for anti-competitive practices. Apple had just brought Steve Jobs back as CEO and was beginning to take steps towards recovering from a decade of mediocre performance.  The Internet as the phenomena we recognize today was just beginning to take root in homes across America through dialup services like [AOL](https://en.wikipedia.org/wiki/AOL "AOL"), [Compuserve](https://en.wikipedia.org/wiki/CompuServe "Compuserve"), and [Prodigy](https://en.wikipedia.org/wiki/Prodigy_\(online_service\) "Prodigy"). At the same time, the quality of free and opensource software was increasing.  The Internet was being powered by webservers and databases.  Opensource tools such as Apache Webserver and MySQL database became the *killer apps* to use on Linux or BSD to run these applications.
+By the end of the 90s a curious thing was happening; Microsoft had a near total domination of the desktop PC operating system market and was being investigated by the US Department of Justice for anti-competitive practices. Apple had just brought Steve Jobs back as CEO and was beginning to take steps towards recovering from a decade of mediocre performance.  The Internet as the phenomena we recognize today was just beginning to take root in homes across America through dialup services like [AOL](https://en.wikipedia.org/wiki/AOL "AOL"), [Compuserve](https://en.wikipedia.org/wiki/CompuServe "Compuserve"), and [Prodigy](https://en.wikipedia.org/wiki/Prodigy_\(online_service\) "Prodigy"). At the same time, the quality of free and opensource software was increasing.  The Internet was being powered by webservers and databases.  Opensource tools such as Apache Webserver, Perl programming Language, and MySQL database became the *killer apps* to use on Linux or BSD to run these applications.
 
-The term opensource software is pervasive today but in 1998, it didn't exist.  The term *free software* had existed since 1985, but because of the ambiguity of the English word *free* it became associated with zero-cost free and not freedom free.  The term *free* can also give the potential idea of cheap or shoddy work--compared to professional proprietary work and the enterprise would not touch it.  
+The term opensource software is pervasive today but until 1998, it didn't exist--they were still using the term *free software*.  The term *free software* had existed since 1985, but because of the ambiguity of the English word *free* it became associated with zero-cost free and not freedom free.  The term *free* can also give the potential idea of cheap or shoddy work--compared to professional proprietary work and the enterprise would not touch it.  
 
-The term *opensource* was not a movement away from the principles of *free software* but a chance to show the enterprise that the opensource development model was sustainable and could produce superior products.  To better understand the difference, we need to meet some of the key players.
+The term *opensource* was not a movement away from the principles of *free software* but a chance to show the enterprise that the opensource development model was sustainable and could produce superior products.  To better understand the difference and how it impacts us today, we need to meet some of the key players.
 
 #### Christine Peterson
 
@@ -416,7 +416,7 @@ Open source doesn't just mean access to the source code. According to the [Opens
 
 ### Opensource Licensing
 
-The creators of the Opensource initiative (OSI) took a different approach to market free software not as a moral issue, but as a development improvement and business use case.  This lead to the creation of similar licenses to the GPL, but what was termed as **weak copyleft** or as the Free Software Foundation calls them, *Pushover Copyleft*.   These licenses allow for contributions back to the creators as well as the ability to use, share, and inspect the code.  They provide one key additional feature in that they let you make a copy and keep the changes--making them proprietary.  GitHub has created a site to help you choose a license for your software called, ["Choose a License."](https://choosealicense.com/ "Choose a License")
+The creators of the Opensource initiative (OSI) took a different approach to market free software not as a moral issue, but as a development improvement and business use case.  This lead to the creation of similar licenses to the GPL, but what was termed as **weak copyleft** or as the Free Software Foundation calls them, *Pushover Copyleft*.   These licenses allow for contributions back to the creators as well as the ability to use, share, and inspect the code.  They provide one key additional feature in that they let you make a copy and keep the changes--making them proprietary.  GitHub has created a site to help you choose a license for your software called, ["Choose a License."](https://choosealicense.com/ "Choose a License").  
 
 * [MIT](https://opensource.org/licenses/MIT "MIT License")
 * [APACHE Public License 2.0](https://opensource.org/licenses/Apache-2.0 "Apache Public License")
@@ -425,8 +425,9 @@ The creators of the Opensource initiative (OSI) took a different approach to mar
 * [ISC License](https://opensource.org/licenses/ISC "ISC")
 * [MPLv2 - Mozilla Public License](https://opensource.org/licenses/MPL-2.0 "MPL")
 * [CDDL](https://opensource.org/licenses/CDDL-1.0 "CDDL")
+* [OSI Popular licenses](https://opensource.org/licenses "OSI popular licenses")
 
-In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you can include that allow for remixing and redistribution or no distribution.  There are options that allow for commercial redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "Commons."
+In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you can include that allow for remixing and redistribution or no distribution.  There are options that allow for commercial redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "[Commons](https://creativecommons.org/about/cclicenses/ "Creative Commons License Types")."
 
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux
 

@@ -246,7 +246,7 @@ a. \>
 b. \>\>
 
 16. What meta-character is used to redirect the standard output of one command as the standard input of another command?
-d. \| 
+d. \|
 
 17. Which command is a shortcut to display the kernel's output messages?
 d. dmesg
@@ -381,11 +381,10 @@ c. ```* 2 * * * ~/backup.sh```
 18) Which of these answers will execute a shell script named ~/clean-directory.sh every 15 minutes?
 b. ```*/15 * * * * ~/clean-directory.sh```
 
-
 19) Which of the crontab builtins would you use to execute a cron job 1 time a year on midnight of January 1st?  The name of the script is ~/give-free-cash-to-students.sh
 d. &#64;```yearly ~/give-free-cash-to-students.sh```
 
-20) What is the name of the control structure that allows you to incrementally through the contents of an array? 
+20) What is the name of the control structure that allows you to incrementally through the contents of an array?
 d. FOR
 
 ## Chapter 09
@@ -419,10 +418,10 @@ a.  Name of a group
 9) In the /etc/sudoers file - what does this line mean: ```RMS ALL=(root) NOPASSWD: ALL```
 d.  The user RMS has sudo permissions and access to all commands, and requires no password to elevate to the sudo user
 
-10)  When using the su command to switch from a regular user account to the root user account, what do you type to return to the standard user account?
+10) When using the su command to switch from a regular user account to the root user account, what do you type to return to the standard user account?
 b.  exit
 
-11)  What command would you use to edit the file at this location:  /var/www/html/index.html?
+11) What command would you use to edit the file at this location:  /var/www/html/index.html?
 b.  sudo vi /var/www/html/index.html
 
 12) On a Linux system, which directory are all the traditional system (non-systemd) logs kept in?
