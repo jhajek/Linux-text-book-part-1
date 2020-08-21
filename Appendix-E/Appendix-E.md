@@ -1,6 +1,6 @@
 # Appendix E - Git Tutorial
 
-![*Those were the good old days*](images\Chapter-Header\Appendix-E\old_days_2.png "Cartoon explaining the good old days")
+![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-E/git_commit-2.png "Git Commit")
 
 This is a tutorial for installing Git and Git-It tutorial on Windows 10 and macOS.  
 
@@ -13,6 +13,22 @@ Git can be installed on any operating system via an installer.  But I recommend 
 ### Windows 10 - Chocolatey
 
 [Chocolatey Windows 10 package manager](https://chocolatey.org "chocolatey package manager install page")
+
+Chocolatey is a package manager that allows for scripted installs of applications.  This tool is convenient for installing common applications such as Firefox, Android Studio, Java JDK, VS code, and other commonly installed tools.  You need to enable PowerShell scripts, which is shown via [the install instructions](https://chocolatey.org/install "Chocolatey install instructions").  
+
+From PowerShell (not console or terminal!) with Administrative privileges, run this command to install chocolatey:
+
+```PowerShell
+Set-ExecutionPolicy AllSigned
+```
+
+```PowerShell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
+
+Upon finishing this command you will need to close the PowerShell terminal and reopen it with Administrative privileges again.  Once you have this done you can use the ```choco``` command to install Git amongst other software.
+
+![*Choco install*](images/Appendix-E/powershell-choco.png "Administrator console Choco install of Git")
 
 ### macOS - Home Brew
 

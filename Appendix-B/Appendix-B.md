@@ -1,6 +1,6 @@
 # Appendix B - Answers for Review Questions
 
-![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-B/git_commit-2.png "Git Commit")
+![*One little thing holding everything up*](images/Chapter-Header/Appendix-B/dependency.png "One little thing holding everything up")
 
 This section contains the questions and answers to the chapter review questions.
 
