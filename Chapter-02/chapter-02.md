@@ -838,7 +838,7 @@ Each Student will give a 1-2 minute presentation of one of their papers the foll
 Read this stream of three articles.  It's a commentary on the Opensource license changes, a response from one of the CEOs, and then a reply to the response.
 
 1) [http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/](http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/ "OpenSource confronts its midlife crisis")
-1) [https://medium.com/@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6](https://medium.com/@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6 "Quick Comment on Licensing")
+1) [https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/](https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/ "Quick Comment on Licensing")
 1) [http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/](http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/ "A Eula in FOSS clothing")
 
 Answer these questions with a few short sentences:
@@ -850,6 +850,12 @@ Answer these questions with a few short sentences:
 * What is the main point of Bryan Cantrill's rejoinder in the third article?
 * Do you agree with him, why or why not?
 * What is the solution in your opinion?
+
+#### Activity 3
+
+* Sign up for a GitHub ID at [GitHub.com](https://github.com "GitHub website")
+  * If you have one already no need to sign up for another one
+* See Appendix-E assignment for installing Git on your computer
 
 #### Footnotes
 
