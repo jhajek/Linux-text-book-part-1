@@ -10,15 +10,11 @@ This is a tutorial for installing Git and Git-it tutorial on Windows 10 and macO
 
 Git can be installed on any operating system via an installer.  But I recommend to install it via a third party package manger.
 
-### Windows 10 Git Installation via Chocolatey
+### Windows 10 - Git Installation via Chocolatey
 
 [The Chocolatey Windows 10 package manager](https://chocolatey.org "chocolatey package manager install page") allows for scripted installs of applications.  This tool is convenient for installing common applications such as Firefox, Android Studio, Java JDK, VS code, VirtualBox and other commonly installed tools.  You need to enable PowerShell scripts, which is shown via [the install instructions](https://chocolatey.org/install "Chocolatey install instructions").  Using a package manager allows for having scripted installations as well as a function to update software in place from the command line.
 
 From PowerShell (not console or terminal!) with Administrative privileges, run this command to install chocolatey:
-
-```PowerShell
-Set-ExecutionPolicy AllSigned
-```
 
 ```PowerShell
 Set-ExecutionPolicy Bypass -Scope Process -Force; `
@@ -40,7 +36,7 @@ Once this is successful make sure to close the PowerShell console that was launc
 
 ![*Git-it Executable*](images/Appendix-E/git-it-windows-executable.png "Image of Git-it executable")
 
-### macOS Git Installation via Homebrew
+### macOS - Git Installation via Homebrew
 
 [Homebrew](https://brew.sh/ "macOS Homebrew webpage") is a third party package manager available for macOS.  This functions as a needed package manager and a way to install needed packages via an automated fashion. Using a package manager allows for having scripted installations as well as a function to update software in place from the command line.
 
