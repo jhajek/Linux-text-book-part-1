@@ -56,11 +56,11 @@ brew cask install visual-studio-code
 
 ## Git-it Tutorial
 
-Now you can proceed to complete the Git-it Tutorial.  As you complete the exercises, the *Challenges Completed* circles will fill in.  Complete all the exercises and take a snapshot of the completed work.
+Now you can proceed to complete the Git-it Tutorial.  As you complete the exercises, the *Challenges Completed* circles will fill in.  Complete all the exercises and take a snapshot of the completed work.  You will need a PowerShell or a macOS Terminal open while working on this tool.
 
 ![*Git-it Challenges*](images/Appendix-E/completed.png "Git-it challanges completed image")
 
-The tutorial covers the major functionality of version control: init, add, commit, push, and pull.
+This tutorial covers the major functionality of version control: init, add, commit, push, and pull.
 
 * Get Git
 * Repository
