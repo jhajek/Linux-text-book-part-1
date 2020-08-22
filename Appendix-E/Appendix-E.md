@@ -32,7 +32,7 @@ choco install git vscode powershell-core
 # You can also install VirtualBox via choco
 ```
 
-Once this is successful make sure to close the PowerShell console that was launched with Administrator privileges.  Open a PowerShell console with regular user permissions.  Then we can download and extract the [Git-it Tutorial](https://github.com/jlord/git-it-electron/ "Git-it install Page"). Git-it is a desktop (Mac, Windows and Linux) app that teaches you how to use Git and GitHub on the command line.  Releases can be found under the [Release Tab](https://github.com/jlord/git-it-electron/releases "Git-it Download Releases").  Extract the file, and navigate to the `Git-it.exe`:
+Once this is successful make sure to close the PowerShell console that was launched with Administrator privileges.  Open a PowerShell Core console with regular user permissions.  Then we can download and extract the [Git-it Tutorial](https://github.com/jlord/git-it-electron/ "Git-it install Page"). Git-it is a desktop (Mac, Windows and Linux) app that teaches you how to use Git and GitHub on the command line.  Releases can be found under the [Release Tab](https://github.com/jlord/git-it-electron/releases "Git-it Download Releases").  Extract the file, and navigate to the `Git-it.exe`:
 
 ![*Git-it Executable*](images/Appendix-E/git-it-windows-executable.png "Image of Git-it executable")
 
