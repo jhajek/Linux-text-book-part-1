@@ -57,8 +57,8 @@ When executing the `vagrant box` command from the command line (in Windows recom
 : `vagrant box` commands
 
 -----------------
-   ```add```
-   ```list```
+  ```add```
+  ```list```
   ```remove```  
   ```outdated```
   ```repackage```
@@ -104,14 +104,14 @@ Adding a box via URL both ways, requires an additional parameter, ```--name``` (
 You can check to see if the vagrant box add command was successful by issuing the command: ```vagrant box list```; looking something like this:  (Note this is my system, yours will vary but the structure will be the same).
 
 ```bash
-PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
+PS C:\\Users\\Jeremy\\Documents\\vagrant> vagrant box list
 centos-vanilla-1908  (virtualbox, 0)
 ubuntu-vanilla-18044 (virtualbox, 0)
 ubuntu/bionic64      (virtualbox, 20200324.0.0)
 ubuntu/xenial64      (virtualbox, 20200326.0.0)
 ```
 
-Here you notice that the last two boxes were added directly from the HashiCorp boxes repository (vagrant box add ubuntu/trusty64 and vagrant box add ubuntu/xenial64)
+Here you notice that the last two boxes were added directly from the HashiCorp boxes repository (vagrant box add ubuntu/bionic64 and vagrant box add ubuntu/xenial64)
 
 The top two boxes were custom Vagrant boxes I created (we are getting to that part) that are treated as third party boxes.  To add them I issued a command like this:   (The vanilla term is my own convention, it just means this is a default OS install -- no extra packages)
 
@@ -317,8 +317,8 @@ Let us look at an example JSON template file: This source can be retrieved from 
 {
   "builders": [
     {
-      "name": "ubuntu-vanilla-18044-server",
-      "vm_name": "ubuntu-vanilla-18044-server",
+      "name": "ubuntu-vanilla-18045-server",
+      "vm_name": "ubuntu-vanilla-18045-server",
       "type": "virtualbox-iso",
       "boot_command": [
         "<esc><wait>",
@@ -352,10 +352,9 @@ Let us look at an example JSON template file: This source can be retrieved from 
       "http_port_min": 9001,
       "http_port_max": 9001,
       "iso_urls": [
-        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.4-server-amd64.iso"
+        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso"
       ],
-      "iso_checksum_type": "sha256",
-      "iso_checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
+      "iso_checksum": "sha256:e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
