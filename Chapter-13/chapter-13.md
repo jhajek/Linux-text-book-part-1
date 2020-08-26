@@ -276,7 +276,7 @@ Here is a small walk through to install 3 different Vagrant boxes:
 
 1. Create a directory called vagrant on your host system (not in a virtual machine)
 2. In that directory create 2 sub-directories; `bionic64` and `centos7`
-3. Add the box to vagrant with `vagrant box add ubuntu/bionic64` 
+3. Add the box to vagrant with `vagrant box add ubuntu/bionic64`
 4. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/bionic64`
 5. Issue the command `vagrant up`
 6. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine
