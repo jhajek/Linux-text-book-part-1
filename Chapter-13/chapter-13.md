@@ -104,9 +104,9 @@ Adding a box via URL both ways, requires an additional parameter, ```--name``` (
 You can check to see if the vagrant box add command was successful by issuing the command: ```vagrant box list```; looking something like this:  (Note this is my system, yours will vary but the structure will be the same).
 
 ```bash
-PS C:\\Users\\Jeremy\\Documents\\vagrant> vagrant box list
+PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
 centos-vanilla-1908  (virtualbox, 0)
-ubuntu-vanilla-18044 (virtualbox, 0)
+ubuntu-vanilla-18045 (virtualbox, 0)
 ubuntu/bionic64      (virtualbox, 20200324.0.0)
 ubuntu/xenial64      (virtualbox, 20200326.0.0)
 ```
@@ -117,7 +117,7 @@ The top two boxes were custom Vagrant boxes I created (we are getting to that pa
 
 ```bash
 vagrant box add ./centos-1908-virtualbox-1485312680.box --name centos-7-vanilla
-vagrant box add ./ubuntu-18044-virtualbox-1485314496.box --name ubuntu-18044-vanilla
+vagrant box add ./ubuntu-18045-virtualbox-1598457730.box --name ubuntu-18045-vanilla
 ```
 
 #### vagrant box remove
@@ -279,7 +279,7 @@ Here is a small walk through to install 3 different Vagrant boxes:
 3. Add the box to vagrant with `vagrant box add ubuntu/bionic64`
 4. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/bionic64`
 5. Issue the command `vagrant up`
-6. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine
+6. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine - then exit the ssh session
 7. Repeat the above steps in the centos7 directory and replace the init command with: `vagrant init centos/7`
 8. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
 
@@ -291,7 +291,7 @@ By 2010 Vagrant was being used to manage VMs, there was no tool that could be us
 
 Packer attacked this problem by creating its own binary which acts as a supervisor and initiates the proper key sequence to turn a manual install into and automated install via a json based build template.  This can take place on multiple formats or platforms and does not even focus on physical machines.  Packer uses already existing answer file technology for Linux, such as Kickstart and Preseed to allow for automated and repeatable installs to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]." Network installs have existed for decades, but this method always assumed a physical 1-to-1 infrastructure, which as you have seen in this class is no longer the only reality.  
 
-Having a code based automated configuration now lets you track, audit, and centralize your build template in version control. With minor modifications, you can now have centralized machine image construction and export to various hardware platforms.  You could build a VirtualBox VM, which could be exported to Vagrant or Amazon Web Services, or Docker. Now all of your developers, operations, testers, and QA can have access to the same machine on most any platform. As stated on the [Packer.io](https://packer.io "packer wrebpage") webpage the advantages of using packer are as follows[^156]:
+Having a code based automated configuration now lets you track, audit, and centralize your build template in version control. With minor modifications, you can now have centralized machine image construction and export to various hardware platforms.  You could build a VirtualBox VM, which could be exported to Vagrant or Amazon Web Services, or Docker. Now all of your developers, operations, testers, and QA can have access to the same machine on most any platform. As stated on the [Packer.io](https://packer.io "packer webpage") webpage the advantages of using packer are as follows[^156]:
 
 * **Super fast infrastructure deployment**
   * Packer images allow you to launch completely provisioned and configured machines in seconds rather than several minutes or hours. This benefits not only production, but development as well, since development virtual machines can also be launched in seconds, without waiting for a typically much longer provisioning time.
@@ -351,10 +351,8 @@ Let us look at an example JSON template file: This source can be retrieved from 
       "http_directory": ".",
       "http_port_min": 9001,
       "http_port_max": 9001,
-      "iso_urls": [
-        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso"
-      ],
-      "iso_checksum": "sha256:e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
+      "iso_urls": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso",
+      "iso_checksum": "sha256:8c5fc24894394035402f66f3824beb7234b757dd2b5531379cb310cedfdf0996",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -497,7 +495,7 @@ Provisioners allow you to have multiple provision scripts.  Some people like to 
 ```json
 {
   "type": "shell",
-  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'", 
+  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
   "inline": [
     "mkdir -p /home/vagrant/.ssh",
     "mkdir -p /root/.ssh",
@@ -646,18 +644,21 @@ How then do we build our own artifacts with Packer to manage them?  Here is an e
 # clone the source code from the book to get the sample files
 # git clone https://github.com/jhajek/Linux-text-book-part-1.git
 cd Linux-text-book-part-1/Chapter-13/packer-build-templates
-packer build ubuntu18044-vanilla.json
+packer build ubuntu18045-vanilla.json
 
 # Upon completion of the Packer build...
 # Each build has a string representation of the day, month, year to make each
-# filename unique, called epoch
-vagrant box add ../build/ubuntu18044-vanilla-1574788560.box --name ubuntu-18044-vanilla
+# filename unique, called epoch (yours will be different)
+vagrant box add ../build/ubuntu18045-vanilla-1574788560.box --name ubuntu-18045-vanilla
 cd ../build
-mkdir ubuntu-18044-vanilla
-vagrant init ubuntu-18044-vanilla
+mkdir ubuntu-18045-vanilla
+vagrant init ubuntu-18045-vanilla
+# this command will show the *.box files that Vagrant knows about
+vagrant box list
 vagrant up
 vagrant ssh
-
+# exit the ssh session
+vagrant halt
 ```
 
 ## Secrets Management
