@@ -88,6 +88,8 @@ The tutorial on vagrantup.com will walk you through this but a small example (tr
 You may need to use a full URL in the case of downloading a Vagrant box that is not provided from HashiCorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a [Devuan](https://devuan.org/ "Devuan Home Page") box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
 
 ```bash
+# These are Linux/Mac based line continuations '\'  otherwise this
+# code should all go on one line
 vagrant box add \
 http://devuan.ksx4system.net/devuan_beowulf/minimal-live/\
 devuan_beowulf_3.0.0_amd64_minimal-live.iso \
