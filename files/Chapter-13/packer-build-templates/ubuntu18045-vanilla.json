@@ -1,8 +1,8 @@
 {
   "builders": [
     {
-      "name": "ubuntu-vanilla-18044-server",
-      "vm_name": "ubuntu-vanilla-18044-server",
+      "name": "ubuntu-vanilla-18045-server",
+      "vm_name": "ubuntu-vanilla-18045-server",
       "type": "virtualbox-iso",
       "boot_command": [
         "<esc><wait>",

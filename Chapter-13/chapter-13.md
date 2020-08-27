@@ -130,7 +130,7 @@ vagrant box add ./ubuntu-18045-virtualbox-1598457730.box --name ubuntu-18045-van
 The same way that you add boxes you can remove them from your list.  You need to know the name of the box that was added, run a vagrant box list command and find the name that way.  The below commands would remove the boxes added in the previous section.
 
 * ```vagrant box remove centos-7-vanilla```
-* ```vagrant box remove ubuntu-18044-vanilla```
+* ```vagrant box remove ubuntu-18045-vanilla```
 
 #### vagrant init
 
@@ -319,60 +319,60 @@ Let us look at an example JSON template file: This source can be retrieved from 
 ```json
 {
   "builders": [
-    {
-      "name": "ubuntu-vanilla-18045-server",
-      "vm_name": "ubuntu-vanilla-18045-server",
-      "type": "virtualbox-iso",
-      "boot_command": [
-        "<esc><wait>",
-        "<esc><wait>",
-        "<enter><wait>",
-        "/install/vmlinuz<wait>",
-        " auto<wait>",
-        " console-setup/ask_detect=false<wait>",
-        " console-setup/layoutcode=us<wait>",
-        " console-setup/modelcode=pc105<wait>",
-        " debconf/frontend=noninteractive<wait>",
-        " debian-installer=en_US<wait>",
-        " fb=false<wait>",
-        " initrd=/install/initrd.gz<wait>",
-        " kbd-chooser/method=us<wait>",
-        " keyboard-configuration/layout=USA<wait>",
-        " keyboard-configuration/variant=USA<wait>",
-        " locale=en_US<wait>",
-        " netcfg/get_domain=vm<wait>",
-        " netcfg/get_hostname=vagrant<wait>",
-        " grub-installer/bootdev=/dev/sda<wait>",
-        " noapic<wait>",
-        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed.cfg<wait>",
-        " -- <wait>",
-        "<enter><wait>"
-      ],
-      "boot_wait": "10s",
-      "disk_size": 20000,
-      "guest_os_type": "Ubuntu_64",
-      "http_directory": ".",
-      "http_port_min": 9001,
-      "http_port_max": 9001,
-      "iso_urls": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso",
-      "iso_checksum": "sha256:8c5fc24894394035402f66f3824beb7234b757dd2b5531379cb310cedfdf0996",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
-      "ssh_port": 22,
-      "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-      "guest_additions_mode": "disable",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "virtualbox_version_file": ".vbox_version",
-      "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "2048"
-        ]
+  {
+    "name": "ubuntu-vanilla-18045-server",
+    "vm_name": "ubuntu-vanilla-18045-server",
+    "type": "virtualbox-iso",
+    "boot_command": [
+      "<esc><wait>",
+      "<esc><wait>",
+      "<enter><wait>",
+      "/install/vmlinuz<wait>",
+      " auto<wait>",
+      " console-setup/ask_detect=false<wait>",
+      " console-setup/layoutcode=us<wait>",
+      " console-setup/modelcode=pc105<wait>",
+      " debconf/frontend=noninteractive<wait>",
+      " debian-installer=en_US<wait>",
+      " fb=false<wait>",
+      " initrd=/install/initrd.gz<wait>",
+      " kbd-chooser/method=us<wait>",
+      " keyboard-configuration/layout=USA<wait>",
+      " keyboard-configuration/variant=USA<wait>",
+      " locale=en_US<wait>",
+      " netcfg/get_domain=vm<wait>",
+      " netcfg/get_hostname=vagrant<wait>",
+      " grub-installer/bootdev=/dev/sda<wait>",
+      " noapic<wait>",
+      " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed.cfg<wait>",
+      " -- <wait>",
+      "<enter><wait>"
+    ],
+    "boot_wait": "10s",
+    "disk_size": 20000,
+    "guest_os_type": "Ubuntu_64",
+    "http_directory": ".",
+    "http_port_min": 9001,
+    "http_port_max": 9001,
+    "iso_urls": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso",
+    "iso_checksum": "sha256:8c5fc24894394035402f66f3824beb7234b757dd2b5531379cb310cedfdf0996",
+    "ssh_username": "vagrant",
+    "ssh_password": "vagrant",
+    "ssh_port": 22,
+    "ssh_wait_timeout": "10000s",
+    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+    "guest_additions_mode": "disable",
+    "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+    "virtualbox_version_file": ".vbox_version",
+    "vboxmanage": [
+      [
+        "modifyvm",
+        "{{.Name}}",
+        "--memory",
+        "2048"
       ]
-    }
+    ]
+  }
   ],
   "provisioners": [
     {
