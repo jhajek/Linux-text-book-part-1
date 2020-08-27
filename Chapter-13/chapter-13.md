@@ -89,7 +89,8 @@ You may need to use a full URL in the case of downloading a Vagrant box that is 
 
 ```bash
 vagrant box add \
-http://devuan.ksx4system.net/devuan_beowulf/minimal-live/devuan_beowulf_3.0.0_amd64_minimal-live.iso \
+http://devuan.ksx4system.net/devuan_beowulf/minimal-live/\
+devuan_beowulf_3.0.0_amd64_minimal-live.iso \
 --name devuan-beowulf
 
 vagrant box add ./itmd521-virtualbox-1503930054.box --name itmd-521
@@ -262,7 +263,7 @@ This command is used to destroy the current instance of a virtual machine -- but
 
 **Command:** ```vagrant ssh```
 
-This command is issues after the vagrant up command and allows you to establish an SSH session directly into the vagrant box, with a pre-setup username and password, with NO ASK set in the sudoers file, making for seamless entry.  You should never need to access and username or password in Vagrant as that defeats the purpose of Vagrant.  But for completeness's sake it is vagrant:vagrant. NOTE - the vagrant ssh command works perfectly by default on all Linux, MacOS, and Windows 10 hosts.  
+This command is issues after the vagrant up command and allows you to establish an SSH session directly into the vagrant box, with a pre-setup username and password, with NO ASK set in the sudoers file, making for seamless entry.  You should never need to access and username or password in Vagrant as that defeats the purpose of Vagrant.  But for completeness's sake it is vagrant:vagrant. NOTE - the vagrant ssh command works perfectly by default on all Linux, macOS, and Windows 10 hosts.  
 
 #### vagrant plugin install
 
@@ -289,7 +290,7 @@ Here is a small walk through to install 2 different Vagrant boxes:
 
 By 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs.  This problem was solved by HashiCorp and called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installation of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  Unlike installing software, there is no existing operating system when you are installing an operating system, making automatic installation difficult.
 
-Packer attacked this problem by creating its own binary which acts as a supervisor and initiates the proper key sequence to turn a manual install into and automated install via a json based build template.  This can take place on multiple formats or platforms and does not even focus on physical machines.  Packer uses already existing answer file technology for Linux, such as Kickstart and Preseed to allow for automated and repeatable installs to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]." Network installs have existed for decades, but this method always assumed a physical 1-to-1 infrastructure, which as you have seen in this class is no longer the only reality.  
+Packer attacked this problem by creating its own binary which acts as a supervisor and initiates the proper key sequence to turn a manual install into and automated install via a JSON based build template.  This can take place on multiple formats or platforms and does not even focus on physical machines.  Packer uses already existing answer file technology for Linux, such as Kickstart and Preseed to allow for automated and repeatable installs to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]." Network installs have existed for decades, but this method always assumed a physical 1-to-1 infrastructure, which as you have seen in this class is no longer the only reality.  
 
 Having a code based automated configuration now lets you track, audit, and centralize your build template in version control. With minor modifications, you can now have centralized machine image construction and export to various hardware platforms.  You could build a VirtualBox VM, which could be exported to Vagrant or Amazon Web Services, or Docker. Now all of your developers, operations, testers, and QA can have access to the same machine on most any platform. As stated on the [Packer.io](https://packer.io "packer webpage") webpage the advantages of using packer are as follows[^156]:
 
@@ -311,7 +312,7 @@ HashiCorp essentially built a tool that captures each install step.  These steps
 #### Packer JSON Build Template
 
 Let us look at an example JSON template file: This source can be retrieved from the source code of the book:
-[files > Chapter-13 > packer-build-templates > ubuntu18044-vanilla.json](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18044-vanilla.json "Packer Template")
+[files > Chapter-13 > packer-build-templates > ubuntu18044-vanilla.json](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18045-vanilla.json "Packer Template")
 
 ```json
 {
@@ -441,8 +442,8 @@ In the builder, there is an iso_url and iso_checksum values that will retrieve i
 
 ```json
 
-"iso_urls": ["http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.4-server-amd64.iso"],
-"iso_checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
+"iso_urls": ["http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso"],
+"iso_checksum": "8c5fc24894394035402f66f3824beb7234b757dd2b5531379cb310cedfdf0996",
 
 ```
 
