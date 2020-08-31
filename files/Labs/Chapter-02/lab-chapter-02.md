@@ -1,4 +1,4 @@
-# Lab
+# Chapter 02 Labs
 
 ## Activity 1
 

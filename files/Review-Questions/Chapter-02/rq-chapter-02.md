@@ -1,6 +1,4 @@
-# Review Questions
-
-## Chapter 02
+# Review Questions - Chapter 02
 
 Either individually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001.  The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
