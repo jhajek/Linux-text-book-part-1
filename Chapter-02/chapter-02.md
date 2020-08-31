@@ -787,6 +787,7 @@ Either individually, as a class, or get into groups and watch the documentary mo
 1. What was the first major commercial company to opensource a key product?  What did that product eventually become?
 
 1. How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?  
+
 1. What is the main difference between *"Free Software"* and *"Open Source Software"*?
 
 ### Podcast Questions
@@ -814,9 +815,7 @@ Listen to the Podcast at [https://twit.tv/shows/floss-weekly/episodes/500](https
 
 #### Activity 1
 
-Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based on these issues:  
-
-Post your topics on the Blackboard Class Discussion board under the Chapter-02 Case Studies forum - both of your case study choices have to be unique from everyone else. Those who choose first will get the ones they want. There are over 200+ case studies there will be plenty of options.
+Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based the listed items.
 
 You can find them at [https://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services.   It's best to find a company that you use or support.
 
