@@ -572,24 +572,11 @@ In this chapter we covered the basic nature of the Linux Shell and how it allows
 
 ### Podcast Questions
 
-CentOS - [http://twit.tv/floss/142](http://twit.tv/floss/142 "CentOS")
+Carol Smith of Clearly Defined - [https://twit.tv/shows/floss-weekly/episodes/518](https://twit.tv/shows/floss-weekly/episodes/518 "Clearly Defined")
 
-Answer the said questions:
+Answer these questions:
 
-* ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
-* ~3:40 What is the short story about how CentOS came about?
-* ~4:58 Who is the largest commercial Enterprise Linux?
-* ~7:17 How do the two projects relate to each other?  How do they relate to each other from the Red Hat point of view?
-* ~8:10 Who from Red Hat is not happy with CentOS?
-* ~10:25 How do CentOS users differ from Red Hat's paying customers?
-* ~19:00. How does the RHEL environment work vs Fedora environment? (Red Hat Enterprise Linux)
-* ~22:55 Since CentOS is using the RHEL code base how long does CentOS lag behind the RHEL codebase when a new release is issued?
-* ~24:24 How does CentOS make money?
-* ~29:00 How does CentOS pay for everything?
-* ~30:00 Who was Lance Davis and what happened with him?
-* ~35:00 Kiran mentioned 2 million users for CentOS - what did they do right compared to other projects (whitebox linux) that didn't make it?
-* ~44:00 Is CentOS for Servers only or can you use it on the Desktop?
-* Personal questions - is what CentOS doing legal?  Is it ethical/moral?  Why or why not?
+TBA
 
 ### Lab
 
