@@ -585,7 +585,7 @@ Once those RPMFusion repos have been added you can now retry the example above a
 
 ## New Package Managers as App Stores
 
-The one thing that you can say the mobile revolution brought into computing is the concept of an "app store."  Apple obviously came first, Google Play Store, and even the Microsoft Store took root.  The concept of an app store is pretty ubiquitous at this point.  These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store.  On a fundamental level Linux is conceptually not compatible with the concept of an app store.  But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability.  To this end two standardized methods were developed: flatpak and snaps.  Snaps were created by Ubuntu and is account based across Linux distros that support the snapd library.  Flatpak is the competing standard championed by Red Hat.  
+The one thing that you can say the mobile revolution brought into computing is the concept of an "app store."  Apple obviously came first, Google Play Store, and even the Microsoft Store took root.  The concept of an app store is pretty ubiquitous at this point.  These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store.  On a fundamental level Linux is conceptually not compatible with the concept of an app store.  But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability.  To this end two standardized methods were developed: Flatpak and snaps.  Snaps were created by Ubuntu and is account based across Linux distros that support the snapd library.  Flatpak is the competing standard championed by Red Hat.  
 
 ### Snaps and snapd
 
@@ -625,49 +625,50 @@ sudo snap install simplenote
 sudo snap list
 ```
 
-### flatpak
+### Flatpak
 
-Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command - [Flatpak](https://www.flatpak.org/ "Flatpak").  You can see software available at [Flathub](https://flathub.org/home "Flathub").
+Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command - [Flatpak](https://www.Flatpak.org/ "Flatpak").  You can see software available at [Flathub](https://flathub.org/home "Flathub").
 
-Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that flatpak manages its own applications and list of installed applications.  It is installed as standard on Fedora 32, but not other distributions.  Let's install some flatpak and some applications:  The first thing is to install the flatpak package. [That is done at the Flatpak repo page](https://www.flatpak.org/setup/ "flatpak"). Let's try it with an Ubuntu distribution:
+Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications.  It is installed as standard on Fedora 32, but not other distributions.  Let's install some Flatpak and some applications:  The first thing is to install the Flatpak package. [That is done at the Flatpak repo page](https://www.Flatpak.org/setup/ "Flatpak"). Let's try it with an Ubuntu distribution:
 
 ```bash
-sudo add-apt-repository ppa:alexlarsson/flatpak
+# Flatpak is preinstalled in Fedora 32+
+sudo add-apt-repository ppa:alexlarsson/Flatpak
 sudo apt update
-sudo apt install flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo apt install Flatpak
+Flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.Flatpakrepo
 ```
 
 The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
 
-```sudo apt install gnome-software-plugin-flatpak```
+```sudo apt install gnome-software-plugin-Flatpak```
 
 Add the Flathub repository if you don't already have it:
-```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
+```Flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.Flatpakrepo```
 
-Now let's look at how its done in RHEL/CentOS Linux:
+Now let's look at how its done in CentOS Linux:
 
-```sudo yum install flatpak```
+```sudo yum install Flatpak```
 
 Add the Flathub repository
 
-```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
+```Flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.Flatpakrepo```
 
 Once that is done here is an example of installing Flatpaks with Ubuntu based distro:
 
-* ```sudo flatpak install flathub org.videolan.VLC```
-* ```sudo flatpak install flathub com.discordapp.Discord```
-* ```sudo flatpak install flathub io.atom.Atom```
-* ```sudo flatpak install flathub org.blender.Blender```
-* ```sudo flatpak install flathub com.obsproject.Studio```
+* ```sudo Flatpak install flathub org.videolan.VLC```
+* ```sudo Flatpak install flathub com.discordapp.Discord```
+* ```sudo Flatpak install flathub io.atom.Atom```
+* ```sudo Flatpak install flathub org.blender.Blender```
+* ```sudo Flatpak install flathub com.obsproject.Studio```
 
-These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```.  You can find the official flatpak name by issuing the command: ```flatpak list```.
+These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```Flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```.  You can find the official Flatpak name by issuing the command: ```Flatpak list```.
 
-* ```flatpak run flathub org.videolan.VLC```
-* ```flatpak run flathub com.discordapp.Discord```
-* ```flatpak run flathub io.atom.Atom```
-* ```flatpak run flathub org.blender.Blender```
-* ```flatpak run flathub com.obsproject.Studio```
+* ```Flatpak run flathub org.videolan.VLC```
+* ```Flatpak run flathub com.discordapp.Discord```
+* ```Flatpak run flathub io.atom.Atom```
+* ```Flatpak run flathub org.blender.Blender```
+* ```Flatpak run flathub com.obsproject.Studio```
 
 ### AppImage
 
@@ -907,8 +908,8 @@ Through this chapter we gained an understanding of what x86-based virtualization
   d. Run the ```make``` command
 
 19) What is the name of the new package managers developed by Canonical and Red Hat?
-  a.  flatpak and apt
-  b.  flatpak and snap
+  a.  Flatpak and apt
+  b.  Flatpak and snap
   c.  snapcraft and flatter
   d.  dnf and apt
 
