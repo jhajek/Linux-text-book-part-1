@@ -340,11 +340,11 @@ Recently with Oracle changing the nature of how Java is supported with the trans
 > __Example Usage:__
 
 ```bash
-# From the command line terminal after you have downloaded the file 
+# From the command line terminal after you have downloaded the file
 # on a Debian based system:
 wget https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb
 sudo dpkg -i ./java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
-# This method will retrieve the .rpm file directly from the internet and pass it to 
+# This method will retrieve the .rpm file directly from the internet and pass it to
 # the rpm command on CentOS or Red Hat systems.
 sudo rpm -iv https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.rpm
 ```
