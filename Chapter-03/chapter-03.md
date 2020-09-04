@@ -184,27 +184,23 @@ Let us walk through the initial installation process.  The first step to begin i
 
 ![*Create New Ubuntu and Fedora Instance Dialogs*](images/Chapter-03/VirtualBox-Install/name-and-operating-system-two.png "Create New Instance Dialog")
 
-![*Create New Ubuntu Instance Dialog*](images/Chapter-03/VirtualBox-Install/virtualbox-name-and-operating-system-ubuntu.png "Create New Instance Dialog")
-
-![*Create New Fedora Instance Dialog*](images/Chapter-03/VirtualBox-Install/virtualbox-name-and-operating-system-fedora.png "Create New Instance Dialog")
-
 What happens if you choose the wrong type or version?  Two things: __first__, if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it.  You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off.  __Second__, if you select the wrong version, (32-bit instead of 64-bit) you will receive an error from the BIOS as the operating system loads explaining that it cannot continue.
 
 Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate.  The recommended amount of memory is at least one gigabyte but more likely two gigabytes will be better.  You can also *"over-provision"* memory by making multiple virtual machines whose memory totals beyond your system's memory by not having them running all at once.
 
-![*Memory Selection Dialog*](images/Chapter-03/VirtualBox-Install/virtualbox-memory-size.png "Memory Selection Dialog")
+![*Memory Selection Dialog*](images/Chapter-03/VirtualBox-Install/memory-size.png "Memory Selection Dialog")
 
 The next step is to select the amount of virtual hard drive allocation.  Here you have a choice of how much hard drive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
 
-![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/virtualbox-file-location-and-size.png "Harddisk allocation")
+![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/file-location-and-size.png "Harddisk allocation")
 
 Next is the hard drive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI type is sufficient.  If you know you will be transferring this Virtual Machine to another environment: VMware (VMDK), and Microsoft Hyper-V (VHD) then you can choose the appropriate type.
 
-![*Drive Type*](images/Chapter-03/VirtualBox-Install/virtualbox-hard-disk-file-type.png "Drive Type")
+![*Drive Type*](images/Chapter-03/VirtualBox-Install/hard-disk.png "Drive Type")
 
 You can choose to dynamically allocate your hard drive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The hard drive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be an overhead processing in continually allocating space.  Statically allocating the hard drive space on the other hand will potentially lessen the number of systems that can go on your hard drive because potentially much space that is allocated is actually unused. Virtual hard drives for the guest OSes are treated as files from the point host OSes.
 
-![*Disk Type*](images/Chapter-03/VirtualBox-Install/virtualbox-storage-on-physical-disk.png "Disk Type")
+![*Disk Type*](images/Chapter-03/VirtualBox-Install/storage-type.png "Disk Type")
 
 The final option dialog is where you can choose where to store your virtual machine's virtual hard drive. Usually the default is fine unless you know you need to store the hard drive on a separate partition or disk.   Also VirtualBox will make a suggestion on a recommended virtual hard drive size.
 
@@ -238,35 +234,33 @@ Network
 
 ### Installing Ubuntu
 
-Hitting the *START* button on your virtual machine install for Ubuntu 15.04 Desktop will bring you to a *WELCOME* screen.  Here you will be presented with the option to choose your install language.  As well as presented with two options:  *TRY UBUNTU* or *INSTALL UBUNTU*.  The option *TRY UBUNTU* will load the actual Ubuntu operating system but load it into RAM and not install it on your hard drive.  This is helpful because it gives you the option to use Ubuntu fully without permanently installing it.  Note that all data is stored in memory so nothing will survive a reboot - but this may be a good tool for doing online banking with.  The Live option also has the option to go into an install mode via a desktop icon.
+Hitting the *START* button on your virtual machine for Ubuntu 18.04 Desktop will bring you to a screen that asks you to select install media (or ISO file):
 
-![*Live or Install Mode*](images/Chapter-03/ubuntu-install/live-install-450.png "Live Install")
+![*Select ISO install media*](images/Chapter-03/ubuntu-install/select-iso.png "Select ISO")
 
-Under the *INSTALL* option Ubuntu will present you with multiple option tests that need to be passed before install.  Things such as enough available hard drive space, is your computer plugged into a power source, and do you have an internet connection?  In addition you will be prompted if you want to install proprietary codecs automatically during install?  
+*WELCOME* screen.  Here you will be presented with the option to choose your install language.  As well as presented with two options:  *TRY UBUNTU* or *INSTALL UBUNTU*.  The option *TRY UBUNTU* will load the actual Ubuntu operating system but load it into RAM and not install it on your hard drive.  This is helpful because it gives you the option to use Ubuntu fully without permanently installing it.  Note that all data is stored in memory so nothing will survive a reboot - but this may be a good tool for doing online banking with.  The Live option also has the option to go into an install mode via a desktop icon.
 
-![*Preparing to Install*](images/Chapter-03/ubuntu-install/preparing-to-install-450.png "Preparing to Install")
-
-This would include things such as Adobe Flash, codecs to playback MP3, and potentially proprietary AMD or Nvidia graphics drivers.  Your choice and these can always be added later on demand.  The final option is to install updates while downloading - this will add time to the install but also save you from having to launch the update script upon first login.
+![*Live or Install Mode*](images/Chapter-03/ubuntu-install/live-install.png "Live Install")
 
 For installation type you will be presented with default options such as *ERASE DISK AND INSTALL UBUNTU*.  In addition there are options for enabling full disk encryption for securing your install data.  The third option listed is to install using the LVM method of partitioning, which will be covered in chapter 12.  The fourth option is for a custom partitioning, which is helpful in cases when you are installing multiple operating systems and create a multi-boot system.  
 
-![*Installation Type*](images/Chapter-03/ubuntu-install/installation-type-450.png "Installation Type")
+![*Confirm Partitions*](images/Chapter-03/ubuntu-install/installation-type.png "Installation Type")
 
 At the completion of this dialog box you will be asked to confirm the automatically generated partitions created by the system.  A Linux system needs a minimum of 2 partitions to function but 3 are recommended.  Those partitions are / (pronounced root), /boot (where all the files needed to start the OS are located, and swap (which is an on disk based RAM supplement partition.  
 
-![*Confirm Partitions*](images/Chapter-03/ubuntu-install/write-changes-to-the-disk-450.png "Confirm Partitions")
+![*Installation Type*](images/Chapter-03/ubuntu-install/updates-and-other-software.png "Updates and Other Software")
 
 The next parts of the installation contain pretty straight-forward parts: time zone selection, keyboard layout, and account creation and password setup.  Note that Ubuntu doesn't create any root user by default, which ever user you create first is automatically placed into the **sudo** group, which is a super user.  For a discussion of password strength and strategies [see this cartoon](http://imgs.xkcd.com/comics/password_strength.png "Password Strength Argument"). You can also see the install details by clicking the small white triangle to reveal the verbose output of the process.  
 
-![*Install Details*](images/Chapter-03/ubuntu-install/installing-system-tab.png "Install Details")
+![*Install Details*](images/Chapter-03/ubuntu-install/user-account.png "User Account Details")
 
 ### Installing Fedora
 
 Similarly on Fedora 32 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 32 will initially present you with a language screen option.  After choosing your default language the next step is the *installation summary*.
 
-![*Installation Summary*](images/Chapter-03/fedora-install/installation-summary-800-by-200.png "Installation Summary")
+![*Installation Summary*](images/Chapter-03/fedora-install/installation-summary.png "Installation Summary")
 
-You will note 4 categories: keyboard, time and date, network and hostname, and installation destination.  The first three options should all be filled out by default, the last option installation destination will have an orange notification icon next to it.  This means we need to double click on this section and enter a sub-menu before we can continue.  
+You will note 3 categories: keyboard, time and date, and installation destination.  The first three options should all be filled out by default, the last option installation destination will have an orange notification icon next to it.  This means we need to double click on this section and enter a sub-menu before we can continue.  
 
 ![*Device Selection*](images/Chapter-03/fedora-install/device-selection-370-by-200.png "Device Selection")
 
@@ -287,16 +281,6 @@ Under the create user dialog box, you will notice a key check box that is circle
 ![*Create User With Sudo*](images/Chapter-03/fedora-install/create-user-with-sudo-390-by-200.png "Create User With Sudo")
 
 You can click the *Finish Install* button to complete the install.  You will be presented with a final *Quit* button which will exit the installer and drop you back into the *Live* desktop.  In order to reboot the system you need to open the system menu via the downwards facing white triangle in the upper right hand corner. The reboot icon is located under the traditional power icon.  Once restarted congratulations you have successfully installed and can begin using your installed Fedora 32 system.  
-
-### VirtualBox Extensions
-
-You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is.  So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware.  In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system.  These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.
-
-VirtualBox Guest Additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image."  For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
-
-#### Package Managers for installing software
-
-This goes for any distro that derive from Debian.  You will need to install the following from the commandline to assist with the compiling and installation of VirtualBox drivers.  In order to do this we will talk about the various features, tool, and processes of installing software.   Generally this is done via **package managers**.
 
 ## Package Managers
 
@@ -356,10 +340,12 @@ Recently with Oracle changing the nature of how Java is supported with the trans
 > __Example Usage:__
 
 ```bash
-# From the command line terminal after you have downloaded the file on a Debian based system:
+# From the command line terminal after you have downloaded the file 
+# on a Debian based system:
 wget https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb
 sudo dpkg -i ./java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
-# This method will retrieve the .rpm file directly from the internet and pass it to the rpm command on CentOS or Red Hat systems.
+# This method will retrieve the .rpm file directly from the internet and pass it to 
+# the rpm command on CentOS or Red Hat systems.
 sudo rpm -iv https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.rpm
 ```
 
@@ -446,12 +432,12 @@ sudo yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
 
 As you can see that package managers were a great step forward in making Linux usable. But they don't handle the dependency issue--they don't understand the context of auto-dependency retrieval.  Various solutions were created and new ones seem to pop up with each new Linux distro.  Fedora based distros use yum and now use dnf (as of Fedora 23) and Debian based distros use apt. Others you might encounter are:
 
-* zypper
-* xbps
-* pkg
-* portage
-* pacman
-* GNU GUIX
+* [Zypper](https://en.wikipedia.org/wiki/ZYpp "SuSe Zypper web page")
+* [xbps](https://docs.voidlinux.org/xbps/index.html "xbps package manager webpage")
+* [Pkg for BSD](https://www.freebsd.org/doc/handbook/pkgng-intro.html "pkg for BSD")
+* [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage web page")
+* [Pacman](https://www.archlinux.org/pacman/ "Pacman web page")
+* [GNU GUIX](https://en.wikipedia.org/wiki/GNU_Guix_System "GNU GUIX webpage")
 
 ### APT
 
@@ -566,16 +552,20 @@ rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 Note for RHEL/CentOS the installation URL is slightly different:
 
 ```bash
-# the "\" is a line continuation character to extend a single line beyond for readability purposes
+# the "\" is a line continuation character to extend a single line beyond for
+# readability purposes
 # For CentOS 7
-sudo yum localinstall \
---nogpgcheck http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+sudo yum localinstall --nogpgcheck \
+http://download1.rpmfusion.org/free/el/updates/7/x86_64/\
+r/rpmfusion-free-release-7-4.noarch.rpm
 # For CentOS 8
-sudo yum localinstall \
---nogpgcheck http://download1.rpmfusion.org/free/el/updates/8/x86_64/r/rpmfusion-free-release-8-0.1.noarch.rpm
-# Fredora 32
-sudo yum localinstall \
---nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-32.noarch.rpm
+sudo yum localinstall --nogpgcheck \
+http://download1.rpmfusion.org/free/el/updates/8\
+/x86_64/r/rpmfusion-free-release-8-0.1.noarch.rpm
+# Fedora 32
+sudo yum localinstall --nogpgcheck \
+http://download1.rpmfusion.org/free/fedora/\
+rpmfusion-free-release-32.noarch.rpm
 ```
 
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
@@ -637,44 +627,46 @@ Supported on all Linux operating systems and functions like an app store -- wher
 
 Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications.  It is installed as standard on Fedora 32, but not other distributions.  Let's install some Flatpak and some applications:  The first thing is to install the Flatpak package. [That is done at the Flatpak repo page](https://www.Flatpak.org/setup/ "Flatpak"). Let's try it with an Ubuntu distribution:
 
+#### Install Flatpak for Ubuntu
+
 ```bash
 # Flatpak is preinstalled in Fedora 32+
-sudo add-apt-repository ppa:alexlarsson/Flatpak
+sudo add-apt-repository ppa:alexlarsson/flatpak
 sudo apt update
-sudo apt install Flatpak
-Flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.Flatpakrepo
+sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
 
-```sudo apt install gnome-software-plugin-Flatpak```
+```sudo apt install gnome-software-plugin-flatpak```
 
 Add the Flathub repository if you don't already have it:
-```Flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.Flatpakrepo```
+```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
 
-Now let's look at how its done in CentOS Linux:
+#### Install Flatpak on Fedora/CentOS
 
-```sudo yum install Flatpak```
+Flatpak is installed by default in Fedora 32+ and Centos 7+.  You just need to add the flatpak repo:
 
-Add the Flathub repository
+```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
 
-```Flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.Flatpakrepo```
+#### Installing Flatpaks on Fedora/Ubuntu/CentOS
 
-Once that is done here is an example of installing Flatpaks with Ubuntu based distro:
+Once that is done here is an example of installing Flatpaks:
 
-* ```sudo Flatpak install flathub org.videolan.VLC```
-* ```sudo Flatpak install flathub com.discordapp.Discord```
-* ```sudo Flatpak install flathub io.atom.Atom```
-* ```sudo Flatpak install flathub org.blender.Blender```
-* ```sudo Flatpak install flathub com.obsproject.Studio```
+* ```sudo flatpak install flathub org.videolan.VLC```
+* ```sudo flatpak install flathub com.discordapp.Discord```
+* ```sudo flatpak install flathub io.atom.Atom```
+* ```sudo flatpak install flathub org.blender.Blender```
+* ```sudo flatpak install flathub com.obsproject.Studio```
 
 These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```Flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```.  You can find the official Flatpak name by issuing the command: ```Flatpak list```.
 
-* ```Flatpak run flathub org.videolan.VLC```
-* ```Flatpak run flathub com.discordapp.Discord```
-* ```Flatpak run flathub io.atom.Atom```
-* ```Flatpak run flathub org.blender.Blender```
-* ```Flatpak run flathub com.obsproject.Studio```
+* ```flatpak run flathub org.videolan.VLC```
+* ```flatpak run flathub com.discordapp.Discord```
+* ```flatpak run flathub io.atom.Atom```
+* ```flatpak run flathub org.blender.Blender```
+* ```flatpak run flathub com.obsproject.Studio```
 
 ### AppImage
 
@@ -742,6 +734,10 @@ The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is a new
 To install the Rust programming language first:  ```curl https://sh.rustup.rs -sSf | sh``` and then follow the step to build Rust based version of the coreutils here: [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils").
 
 ### Installing VirtualBox Guest Additions Package
+
+You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is.  So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware.  In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system.  These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.
+
+VirtualBox Guest Additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image."  For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
 
 > "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html](https://www.virtualbox.org/manual/ch04.html "Source")
 
