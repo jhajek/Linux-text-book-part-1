@@ -440,7 +440,7 @@ sudo yum install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
 sudo yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
 ```
 
-#### Installers
+#### Other Package Managers
 
 As you can see that package managers were a great step forward in making Linux usable. But they don't handle the dependency issue--they don't understand the context of auto-dependency retrieval.  Various solutions were created and new ones seem to pop up with each new Linux distro.  Fedora based distros use yum and now use dnf (as of Fedora 23) and Debian based distros use apt. Others you might encounter are:
 
@@ -564,12 +564,16 @@ rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 Note for RHEL/CentOS the installation URL is slightly different:
 
 ```bash
+# the "\" is a line continuation character to extend a single line beyond for readability purposes
 # For CentOS 7
-sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
+sudo yum localinstall \
+--nogpgcheck http://download1.rpmfusion.org/free/el/updates/7/x86_64/r/rpmfusion-free-release-7-4.noarch.rpm
 # For CentOS 8
-sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/el/updates/8/x86_64/r/rpmfusion-free-release-8-0.1.noarch.rpm
+sudo yum localinstall \
+--nogpgcheck http://download1.rpmfusion.org/free/el/updates/8/x86_64/r/rpmfusion-free-release-8-0.1.noarch.rpm
 # Fredora 32
-sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-32.noarch.rpm
+sudo yum localinstall \
+--nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-32.noarch.rpm
 ```
 
 If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
@@ -589,7 +593,7 @@ The one thing that you can say the mobile revolution brought into computing is t
 
 ### Snaps and snapd
 
-In 2019 Canonical, the parent company of Ubuntu, introduced a new package manager architecture called Snappy.  This architecture includes a package manager process called **snapd**, packages called **snaps**, and and overarching technology name called **Snappy**.  The technology is housed at a neutral organization site called [snapcraft](https://snapcraft.io/ "Snapcraft").
+In 2019 Canonical, the parent company of Ubuntu, introduced a new package manager architecture called Snaps.  This architecture includes a package manager process called **snapd**, packages called **snaps**.  The technology is housed at a neutral organization site called [snapcraft](https://snapcraft.io/ "Snapcraft").
 
 Snaps are an attempt to create a similar concept to modern App Stores on mobile devices.  They allow for updating packages in place and the packages contain all needed dependencies.  This is a different focus from simple package managers like APT and RPM. In addition, you can "package" existing applications into Snaps and or distribute them via a Snap account to devices and then instantly download them on another machine that supports snaps.  Currently, Ubuntu distributions are the only Linux distros that have Snappy installed by default.
 
