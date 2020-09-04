@@ -272,15 +272,9 @@ Now you can click "*begin installation*".
 
 ![*Begin Installation*](images/Chapter-03/fedora-install/begin-installation.png "Being Installation")
 
-While the disk partitioner is running and the install process is beginning.  The next screen will prompt you to create a __root__ user password and also to create a non-root user account.  In the Unix/Linux world the __root__ user is akin to the administrator account in Windows, meaning you have all the power to do anything you want to the system.  So use __root__ account sparingly.  You notice a fundamental difference, Ubuntu will not even give you a __root__ account, they make you elevate your privileges, called __sudo__ each time.  Fedora *trusts* you and will give you the __root__ user, trusting you not to destroy the system.   In this case you need to give yourself a strong __root__  password and it is good practice to create a local non-root user account.  
+The installation will finish without prompting you for creating a user.  This will be done on the subsequent reboot as part of the setup process.  You will be prompted with optional dialogs, and then a user creation dialog where you will create a user account that will be given admin privileges and/or the ability to log into a corporate account that is managed by a central LDAP or Active Directory (single sign-on).
 
-![*User Accounts*](images/Chapter-03/fedora-install/user-settings-630-by-100.png "User Accounts")
-
-Under the create user dialog box, you will notice a key check box that is circled in red below: *Make this user administrator*.  This allows your user account to be able to use the *sudo* command to elevate up to root user privileges.  This is considered far safer than using the __root__ user continually.  
-
-![*Create User With Sudo*](images/Chapter-03/fedora-install/create-user-with-sudo-390-by-200.png "Create User With Sudo")
-
-You can click the *Finish Install* button to complete the install.  You will be presented with a final *Quit* button which will exit the installer and drop you back into the *Live* desktop.  In order to reboot the system you need to open the system menu via the downwards facing white triangle in the upper right hand corner. The reboot icon is located under the traditional power icon.  Once restarted congratulations you have successfully installed and can begin using your installed Fedora 32 system.  
+![*Create User With Sudo*](images/Chapter-03/fedora-install/user-account-fedora.png "Create User With Sudo")
 
 ## Package Managers
 
@@ -634,7 +628,8 @@ Flatpak essentially connects the concepts of repositories and app packages, but 
 sudo add-apt-repository ppa:alexlarsson/flatpak
 sudo apt update
 sudo apt install flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add \
+--if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
@@ -695,7 +690,8 @@ Let's compile something to see how this works.  This link is to the Apache webse
 
 ```bash
 # Pre-reqs needed first -- assumuing Ubuntu 18.04 or 20.04
-sudo apt-get install build-essential libapr1 libapr1-dev libaprutil1 libaprutil1-dev libpcre3 libpcre3-dev
+sudo apt-get install build-essential libapr1 libapr1-dev libaprutil1 \
+libaprutil1-dev libpcre3 libpcre3-dev
 # Command to retrieve the source code
 wget http://www.gtlib.gatech.edu/pub/apache//httpd/httpd-2.4.43.tar.gz
 # Command to unzip the source code
@@ -729,9 +725,9 @@ sudo python3 -m pip install pyttsx3
 
 ### Using Rust Packages
 
-The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is a new candidate to supplement or replace the C language.  Various people have undertaken to replace the GNU coretools with Rust based versions.   These tutorials will help you download and compile these tools with Rust.
+The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is a new candidate to supplement or replace the C language.  Various people have undertaken to replace the GNU coretools with Rust based versions.   These tutorials will help you download and compile these tools with Rust and the Rust package manager called [Cargo](https://doc.rust-lang.org/cargo/ "Rust package manager website").  
 
-To install the Rust programming language first:  ```curl https://sh.rustup.rs -sSf | sh``` and then follow the step to build Rust based version of the coreutils here: [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils").
+To install the Rust programming language first:  ```curl https://sh.rustup.rs -sSf | sh``` and then follow the step to build Rust based version of the coreutils here: [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils").  You may need to install the `curl` package first.
 
 ### Installing VirtualBox Guest Additions Package
 
@@ -746,7 +742,7 @@ The Guest Additions offer the following features:
 * Mouse pointer integration
 * Shared folders
 * Better video support
-  * Finally, if the Guest Additions are installed, 3D graphics and 2D video for guest applications can be accelerated; see Section 4.5, “Hardware-accelerated graphics”.
+  * Finally, if the Guest Additions are installed, 3D graphics and 2D video for guest applications can be accelerated; see Section 4.5, “Hardware-accelerated graphics”
 * Seamless windows
 * Time synchronization
 * Shared clipboard
