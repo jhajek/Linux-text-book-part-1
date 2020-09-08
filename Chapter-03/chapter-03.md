@@ -940,7 +940,9 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 
 ### Lab
 
-You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
+You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.  There are 18 different distributions listed.  If a version is not listed, assume the latest one.
+
+![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
 * Debian Based
   * Ubuntu 18.04 Desktop edition
@@ -972,14 +974,13 @@ You will need to do some research and find the download links for the Linux and 
   * openSUSE Leap 15.x
   * Debian 10.x
 
-![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
-
 #### Python pyttsx3
 
 Install these pre-requisites needed for the speech-to-text library. You will also need to install Python3 dependencies to use pip
 
 ```bash
-sudo apt-get install python3-dev python3-setuptools python3-pip libespeak1 libespeak1-dev
+sudo apt-get install python3-dev python3-setuptools \
+python3-pip libespeak1 libespeak1-dev
 ```
 
 Then use Python3 pip installer to install the Python3 Speech-to-Text library:
@@ -998,6 +999,8 @@ engine.runAndWait()
 ```
 
 Upon saving this file, from the commandline, execute this code with the command: `python3 py-speech.py` and if you hear the computer voice you will have successfully installed the modules via Python3.
+
+Submit your file py-speech.py to your private Github repo in the chapter-03 folder of your ITMO-556 folder.
 
 #### Footnotes
 
