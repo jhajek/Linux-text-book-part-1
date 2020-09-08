@@ -452,7 +452,7 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 
 From Chapter 3, you need to install software packages using the Python pip3 installer and the Rust Language using their cargo package manager.
 
-You can see an example of how to install Python language packages (eggs). Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones located at [dronekit.io](http://dronekit.io "drone kit").  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` the Python Package Installer.
+You can see an example of how to install Python language packages (eggs). Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones located at [dronekit.io](http://dronekit.io "drone kit").  To [install their Python development packages](https://dronekit-python.readthedocs.io/en/latest/guide/quick_start.html "Python packages") you need to use ```pip3``` the Python Package Installer.
 
 ```sudo apt-get install python3-pip python3-dev python3-setuptools```
 
