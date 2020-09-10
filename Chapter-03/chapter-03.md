@@ -949,7 +949,7 @@ You will need to do some research and find the download links for the Linux and 
   * Lubuntu 18.04 Desktop edition
   * Ubuntu 20.04 Desktop edition
   * Trisquel Linux
-  * Solus
+  * Solus Linux
   * PureOS 8.x
 
 * Red Hat Based
@@ -966,8 +966,6 @@ You will need to do some research and find the download links for the Linux and 
 * Linux
   * Alpine Linux
   * MX Linux
-  * Arch Linux
-  * Intel Clear Linux Desktop
   * Void Linux
 
 * Network Based Install
