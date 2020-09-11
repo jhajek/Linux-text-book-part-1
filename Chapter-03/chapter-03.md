@@ -940,7 +940,7 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 
 ### Lab
 
-You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.  There are 18 different distributions listed.  If a version is not listed, assume the latest one.
+You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.  There are 18 different distributions listed.  If a version is not listed, assume the latest version unless noted.
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
@@ -950,7 +950,7 @@ You will need to do some research and find the download links for the Linux and 
   * Ubuntu 20.04 Desktop edition
   * Trisquel Linux
   * Solus Linux
-  * PureOS 8.x
+  * PureOS
 
 * Red Hat Based
   * Fedora 32 - Workstation edition
@@ -967,10 +967,12 @@ You will need to do some research and find the download links for the Linux and 
   * Alpine Linux
   * MX Linux
   * Void Linux
+  * Linux Mint
 
 * Network Based Install
-  * openSUSE Leap 15.x
-  * Debian 10.x
+  * openSUSE Leap
+  * Debian
+  * Project-Trident
 
 #### Python pyttsx3
 
