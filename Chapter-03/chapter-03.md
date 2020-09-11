@@ -974,7 +974,7 @@ You will need to do some research and find the download links for the Linux and 
 
 #### Python pyttsx3
 
-Install these pre-requisites needed for the speech-to-text library. You will also need to install Python3 dependencies to use pip
+Install these pre-requisites needed for the speech-to-text library. You can choose to do this on either Fedora 32 or Ubuntu 18.04 or Ubuntu 20.04. You will also need to install Python3 dependencies to use pip
 
 ```bash
 sudo apt-get install python3-dev python3-setuptools \
