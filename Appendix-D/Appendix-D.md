@@ -56,7 +56,7 @@ The Webserver will have:
 * Rename the host to: *webhost*
   * Add an entry to `/etc/hosts` file of: 192.168.33.10   dbhost.example.com dbhost
   * Add an entry to `/etc/hosts` file of: 192.168.33.11   webhost.example.com webhost
-* Install Apache2 or Nginx, php, php-mysql, and mysql-client library (just the client)
+* Install Apache2 or Nginx, php, php-mysql, and mysql-client library (just the client, try Apache2 first)
 * We will be generating a self-signed cert (follow the Digital Ocean tutorial)
   * You can generate the cert manually or there is a process to automate the creation of a self-signed cert
 * Modify the Webserver configuration to serve only on 443
