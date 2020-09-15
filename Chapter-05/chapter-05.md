@@ -55,6 +55,16 @@ The dream of a unified Linux standard never really occurred. __No one implements
 
 > "*The crux of the issue is, I think, whether this whole game is worth the work: I am yet to hear about software distribution happening through LSB packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4 [^59].*"
 
+### Lennart Poettering's thoughts on POSIX
+
+Lennart Poettering, the Red Hat engineer and leader of the systemd init system has some things to say about POSIX and his being a Red Hat employee seems to mirror Red Hat's position on the history of the Linux Filesystem.
+
+> "POSIX is really an encapsulation of some choices that various Unix systems made along the way, rather than a body of text that got standardized and then implemented. According to Poettering, Linux should use its position as "market leader" (in the market of free Unix-like operating systems) and try out some new things. If developers don't force themselves into the constraints of the POSIX API, they could develop some really innovative software, like systemd shows. When these new developments happen to turn out really interesting, other operating systems could eventually adopt them as well." [^53]
+
+> "Not having to care about portability has two big advantages: we can make maximum use of what the modern Linux kernel offers these days without headaches -- Linux is one of the most powerful kernels in existence, but many of its features have not been used by the previous solutions. And secondly, it greatly simplifies our code and makes it shorter: since we never need to abstract OS interfaces the amount of glue code is minimal, and hence what we gain is a smaller chance to create bugs, a smaller chance of confusing the reader of the code (hence better maintainability) and a smaller footprint." [^54]
+
+> "In fact, the way I see things the Linux API has been taking the role of the POSIX API and Linux is the focal point of all Free Software development. Due to that I can only recommend developers to try to hack with only Linux in mind and experience the freedom and the opportunities this offers you. So, get yourself a copy of The Linux Programming Interface, ignore everything it says about POSIX compatibility and hack away your amazing Linux software. It's quite relieving!" [^54]
+
 #### Linux Filesystem Standard Hierarchy
 
 The one useful thing that came out of the LSB is the __Filesystem Hierarchy Standard__, or *FHS* [^47][^61].  This is a voluntary standard maintained by the [Linux Foundation](http://www.linuxfoundation.org/ "Linux Foundation") that includes a standard hierarchy of directories and optional directories that exists under the __root__ in a standard Linux distro.  You should *memorize* each directory name and its general function [^63].  
@@ -113,19 +123,9 @@ X11R6             X Window System, Version 11, Release 6 (up to FHS-2.3, optiona
 
 #### Red Hat vs POSIX and LSB
 
-Over the years and by tradition inherited from Unix, this is the generally accepted Linux standard filesystem.  This layout harkens back to Ken Thompson's original Unix design of nearly ~50 years ago. This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure.   Note that Red Hat based distros have made a move to change this arguing that when Unix was designed it was constrained by hardware restrictions that no longer exist and should not be maintained for tradition's sake.  
+Over the years and by tradition inherited from Unix, this is the generally accepted Linux standard filesystem.  This layout harkens back to Ken Thompson's original Unix design of nearly ~50 years ago. This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure.   Note that Red Hat based distros have made a move to change this arguing that when Unix was designed it was constrained by hardware restrictions that no longer exist and should not be maintained for tradition's sake.
 
 Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They want to update the filesystem hierarchy but need to maintain backwards compatibility.  They may have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr``` [^52].  Red Hat also says this makes Linux applications more in-line with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros.  By using the command ```ls -l /``` you can see the light blue colored soft links to the actual directories.
-
-![*Fedora root*](images/Chapter-05/filesystems/fedora-30.png "Fedora root filesystem")
-
-Leonart Poettering, the Red Hat engineer and leader of the systemd init system has some things to say about POSIX and LSB:  
-
-> "POSIX is really an encapsulation of some choices that various Unix systems made along the way, rather than a body of text that got standardized and then implemented. According to Poettering, Linux should use its position as "market leader" (in the market of free Unix-like operating systems) and try out some new things. If developers don't force themselves into the constraints of the POSIX API, they could develop some really innovative software, like systemd shows. When these new developments happen to turn out really interesting, other operating systems could eventually adopt them as well." [^53]
-
-> "Not having to care about portability has two big advantages: we can make maximum use of what the modern Linux kernel offers these days without headaches -- Linux is one of the most powerful kernels in existence, but many of its features have not been used by the previous solutions. And secondly, it greatly simplifies our code and makes it shorter: since we never need to abstract OS interfaces the amount of glue code is minimal, and hence what we gain is a smaller chance to create bugs, a smaller chance of confusing the reader of the code (hence better maintainability) and a smaller footprint." [^54]
-
-> "In fact, the way I see things the Linux API has been taking the role of the POSIX API and Linux is the focal point of all Free Software development. Due to that I can only recommend developers to try to hack with only Linux in mind and experience the freedom and the opportunities this offers you. So, get yourself a copy of The Linux Programming Interface, ignore everything it says about POSIX compatibility and hack away your amazing Linux software. It's quite relieving!" [^54]
 
 ## Path
 
@@ -568,7 +568,7 @@ In this chapter we covered the basic nature of the Linux Shell and how it allows
     d. usr/bin
 19) What is the directory that holds all of the user’s home directories? (no slash, just the name)
 
-20) True or False - Leonart Poettering created POSIX
+20) True or False - Lennart Poettering created POSIX
 
 ### Podcast Questions
 
