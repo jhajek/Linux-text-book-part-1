@@ -5,10 +5,10 @@
 ## Objectives
 
 * Understand the structure of the Linux Filesystem
-* Understand the difference between absolute and relative paths.
-* Understand the function of the Linux Shell and its relation to the operating system.
-* Understand the fundamental shell commands for traversing and modifying the contents of the filesystem.
-* Learn the Linux commandline nomenclature.
+* Understand the difference between absolute and relative paths
+* Understand the function of the Linux Shell and its relation to the operating system
+* Understand the fundamental shell commands for traversing and modifying the contents of the filesystem
+* Learn the Linux commandline nomenclature
 * Understand the nomenclature describing file permissions and security
 
 ## Outcomes
