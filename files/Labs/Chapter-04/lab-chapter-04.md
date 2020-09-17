@@ -6,11 +6,10 @@ Using the virtual machines you installed in the previous chapter, you will now i
 
 ## GNOME 3 Extensions
 
-You will need to install two GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
+You will need to install the list of GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
 
 1) Caffeine
 1) Dash to Dock
-1) Freon by UshakovVasilii (Requires you to install the package ```lm_sensors```)
 1) Screenshot Tool
 
 ## Snaps Install
@@ -71,7 +70,7 @@ Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instruc
 
 To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
 
-Run the command ```who --version``` and then ```uutils who --version``` and take a screenshot of the successful output.
+Use the `cd` command to change to the directory where you installed the Rust utils. Run the command ```./who --version``` and then ```./uutils --version``` and take a screenshot of the successful output.
 
 ## Installing Window Managers
 

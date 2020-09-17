@@ -436,20 +436,34 @@ Unlike Bash which provided a *"free"* ```sh``` compatible shell for the GNU syst
 
 Seeing that everything in Linux is file, there is a simple security model.  There are three types of permission per file: __read__, __write__, __execute__.  These files give a combination of permissions.  With __read permission__ you can display the content of a file or copy it, but cannot delete or rename it.  For that you need __write permission__.  If a file is a shell script or an executable binary you will need __execute permission__ for it to run.  How can you tell what permissions a file has?  Type ```ls -l``` see the output.  We have seen this output before and now we will explain it.
 
-![*ls -l listing of the home directory in Ubuntu*](images/Chapter-05/permissions/ls-l-ubuntu.png "Ubuntu ls -l listing")
+```bash
+$ ls -l
+total 936
+drwxr-xr-x 3 student student   4096 Sep  8 21:24 aws
+-rw-rw-r-- 1 student student 946176 Sep  9 14:34 awscliv2.zip
+-rw------- 1 student student   1675 Sep  9 14:49 laptoppc-ubuntu-vm2.priv
+-rw-r--r-- 1 root    root       409 Aug 24  2019 vagrant.pub
+```
 
 The first column is a listing of the permissions for a file. Notice that there are actually 3 groupings of the letters __rwx__ combined into one long string like this:  ```rw-r--r--```.  In addition to individual permissions there are three categories of permission.  These three categories are __owner__, __group__, __other__  Each of these groups has its own read, write, and execute permissions.  
 
 Every file includes an owner and a group.  If you notice the next two columns in the output of ```ls -l``` you will see them listed.  The group name and owner name can be the same, we will talk more about that in Chapter 9. Permissions can be read in a short hand numeric fashion as well.  The read value is worth 4, the write value is worth 2, the execute value is worth 1  so a permission of ```rw-r--r--``` can be read as 644.  The permissions for rwxrwxrwx is 777.  Numeric value for this is ```rw-------``` is 600. Permissions are calculated with binary.
 
-### chmod 763
+### Owner, Group, Other (World)
 
-| Owner| Group | Everyone |
+In addition to the rwx permissions, each file has three groupings of permissions associated with it.  The first triad of rwx is the file's __owner__ permission--meaning what the person who owns the file can do to it.  These permissions are usually more liberal because you trust yourself.
+
+The second triad of rwx permissions is __group__ permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
+
+The final triad of rwx permissions is considered __other__ or sometimes called unofficially __world__.  This covers the permissions for a user who is not the owner nor in the group that owns the file. Usually this column is conservatively "read-only."
+
+### Reading and Changing File Permissions
+
+| Owner| Group | Other |
 |-----|-----|-----|
 | 7   | 6   | 5   |
 | 421 | 42- | 4-1 |
 | rwx | rw- | r-x |
-
 
 There is one character either a "-" or a "d" generally proceeding the file permissions, and this tells "d" for directory and "-" for a file.  There are additional file type characters that I will list here, only the first three we will be dealing with directly in this book [^60].  
 
@@ -462,16 +476,6 @@ named pipe                  p
 devices                   b or c
 sockets                     s
 ------------------       --------
-
-![*4 most common file types*](images/Chapter-05/permissions/file-types.png "File types")
-
-### Owner, Group, Other (World)
-
-In addition to the rwx permissions, each file has three groupings of permissions associated with it.  The first triad of rwx is the file's __owner__ permission--meaning what the person who owns the file can do to it.  These permissions are usually more liberal because you trust yourself.
-
-The second triad of rwx permissions is __group__ permissions.  Each user is assigned to a group upon account creation and additional groups can be created as needed.  You can give group permissions that cascade to all users in a group.
-
-The final triad of rwx permissions is considered __other__ or sometimes called unofficially __world__.  This covers the permissions for a user who is not the owner nor in the group that owns the file. Usually this column is conservatively "read-only."
 
 ## Chapter Conclusion and Review
 
@@ -598,11 +602,12 @@ The objectives of this lab is to use the shell commands we learned in this chapt
 
 1) From the commandline and in your home directory use your systems package manager (yum or apt) and install the `git` client.  
     1. issue the command ```git --version``` and take a screenshot of the output
-1) Navigate to this location: `~/Documents`.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously, no need to redo it).
-    1. Take a screenshot of the output of the ```ls``` command
+1) Navigate to this location: `~/Documents`.  Issue the command to clone the source code of the text. (If you have done this command previously, no need to redo it).
+    1. ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  
+    1. Take a screenshot of the output of the ```ls``` command in the `Linux-text-book-part-1` directory
 1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```./title/metadata.yaml``` is.  Issue that same command to display what type of file ```Appendix-A``` is.
     1. Take a screen shot of the output of the previous commands.
-1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.4.3/](https://releases.hashicorp.com/packer/1.4.3/ "Packer Download URL")
+1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget``` [https://releases.hashicorp.com/packer/1.4.3/](https://releases.hashicorp.com/packer/1.4.3/ "Packer Download URL")
     1. Take a screenshot of the ```ls``` command after you have executed the previous command.
 1) Use the ```unzip``` command to unzip the binary and extract the packer executable.  Issue the move command, `mv` to move the executable to this location: ```/usr/local/bin```.  **Hint:** you will need to use `sudo` to get the permission needed for this operation.
     1. To show this was succesful take a screenshot of the output of the command ```packer -v```.
