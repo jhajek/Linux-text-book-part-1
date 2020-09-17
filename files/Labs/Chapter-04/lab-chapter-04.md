@@ -70,7 +70,7 @@ Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instruc
 
 To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
 
-Use the `cd` command to change to the directory where you installed the Rust utils. Run the command ```./who --version``` and then ```./uutils --version``` and take a screenshot of the successful output.
+Run the command ```who --version``` and then ```uutils who --version``` and take a screenshot of the successful output.
 
 ## Installing Window Managers
 
