@@ -70,7 +70,8 @@ Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instruc
 
 To install the Rust-lang ```curl https://sh.rustup.rs -sSf | sh```
 
-Run the command ```who --version``` and then ```uutils who --version``` and take a screenshot of the successful output.
+Run the command `base64 --version` and then ```uniq --version``` and take a screenshot of the GNU output.  
+run the command `~/.cargo/bin/coreutils/base64 --version` and then `~/.cargo/bin/coreutils/uniq --version` and take a screenshot of the Rust based Coretools output.
 
 ## Installing Window Managers
 
