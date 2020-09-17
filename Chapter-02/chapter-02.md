@@ -774,7 +774,7 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 1. When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint?  Why or why not?
 
-1. Would Richard Stallman enter into a discussion on which is a **better** product: Microsoft Word or LibreOffice Writer? Why or why not?  Would Eric S. Raymond enter into a discussion on which is a **better** product: Microsoft Word or LibreOffice Writer? Why or why not?
+1. According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
 
 1. Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
 
