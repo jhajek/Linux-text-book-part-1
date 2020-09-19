@@ -163,32 +163,40 @@ cd ~-
 
 \<tab>
 
-: Tab key is used for autocomplete on the commandline.  This is a feature of bash, not present in sh, csh, and ksh.
+: Tab key is used for autocomplete on the commandline.  This is a feature of bash, not present in `sh`, `csh`, and `ksh`.
 
 \\
 
 : By placing a ```\``` in front of any character, the shell will *escape* that characters function.  This is helpful if you want to print out the text of commands without having the shell execute them.
 ```bash
-echo "To assign the content of the date command to a variable type: DT=\`date\`\; echo \$DT"
+echo "Assign date command output to a variable type: DT=`date`; echo $DT"
+echo "This is a variation of the above command: DT2=$(date); echo $DT2"
 ```
 
 \$
 
 :  The dollar sign (shift+4) is used to reference shell variables.  You can declare a local variable by assigning a value with the equal sign-just like you can in C or Java.  But in this case space matters (no spaces) and you only use the ```$``` sign the reference that variable.  There are a number of preset system environment variables that the os sets for you and you can make your own as well. The command ```printenv``` will display all of the system environment variables.  By convention shell variables are usually declared all capital letters.  Note that shell variables only "live" for the time that the terminal window in which they were declared is open.  
+
 ```bash
 echo $PATH
 ```
+
 ```bash
 DT=`date`; echo $DT
 ```
+
 ```bash
 JAVA_HOME="/usr/bin/java"; echo $JAVA_HOME
 ```
 
 There is a final meta-character called the backtick or formally the grave accent. The backtick key is to left of number 1.  The backtick is used for encasing Linux binary command names.  The backtick tells the system to interpret the command and execute it and return its value to the user for further processing. In the 2 prior examples we stored the content of the date command to a shell variable named DT. __Usage example:__
+
 ```bash
 DT=`date`
+# second method to execute the above
+DT2=$(date)
 ```
+
 ```bash
 CONTENTS=`cat /etc/services`
 ```
@@ -204,20 +212,18 @@ The original concept behind defining standard input and output devices came from
 ### Standard In
 
 The __standard in__ is the default method of getting text input into the terminal.  Currently this happens to be the keyboard.  The __standard in__ from the keyboard can be overridden by using the reversed angle bracket ```<``` to read __standard in__ from a file. You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with. Why might you want to send __standard in__ from anywhere other then the keyboard?  Here are a couple of examples.
+
 ```bash
 wc < state-of-the-union-address.txt
 ```
+
 ```bash
 mail < complete-works-of-shakespere.txt
 ```
 
 ### Standard Out
 
-When Unix was developed, Ken Thompson made the design decision that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more than a file that is located in the /dev directory.  By typing the ```who``` command you will see which accounts are logged into the system.  You will also see the screenshot below.  Try to open another terminal and execute the ```who``` command again.  What do you see now?
-
-![*Output TTYs of who command*](images/Chapter-06/standard/who.png "Output of TTYs of who command")
-
-By having a __standard out__ device handle instead of a hard coded driver, this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are referred to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file. Be careful, a single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file.
+When Unix was developed the design decision was made that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more than a file that is located in the `/dev` directory. By having a __standard out__ device this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are referred to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file. Be careful, a single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file.
 ```bash
 date > /tmp/todaysdate
 ```
@@ -232,10 +238,11 @@ When you type a command that does not execute successfully it returns an error m
 #### Suppressing Standard Out and Error
 
 Each of the standards can be referenced numerically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard error__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to separate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
+
 ```bash
 sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err
 sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err
-service nginx start 1>/tmp/03.out 2>/tmp/03.err
+sudo systemctl nginx start 1>/tmp/03.out 2>/tmp/03.err
 ```
 
 > __Exercise:__ Use the single angle bracket to redirect the output of a command to a file.  Technically this command is a "1" followed by an angle bracket ">" but the one is implied and can be left out.  What happens when you try this command: ```ls -l > ./dir-list.txt; cat ./dir-list.txt```
@@ -252,7 +259,7 @@ service nginx start 1>/tmp/03.out 2>/tmp/03.err
 
 ![*Douglas McIlroy*](images/Chapter-06/people/Douglas_McIlroy-2.jpg "Douglas McIlroy")
 
-Douglas McIlroy was the manager of the Bell Labs Computing Techniques Research Department from 1965 to 1986 where Ken Thompson, Dennis Ritchie, and Brian Kernighan worked under his direction.  He gave support to Unix and encouraged its development.  He even built several Unix commandline binaries such as spell, diff, sort, join, graph, speak, and tr[^66]. Most importantly McIlroy envisioned the concepts of __pipes__ or __pipelines__. This idea allowed for the output of one command to be directed as the input of another command--making a pipeline.  This was in compliance with Thompson's idea of small command binaries doing only one thing.  So by 1973 McIlroy had convinced Thompson to modify and add this feature to Unix.  
+Douglas McIlroy was the manager of the Bell Labs Computing Techniques Research Department from 1965 to 1986 where Ken Thompson, Dennis Ritchie, and Brian Kernighan worked under his direction.  He gave support to Unix and encouraged its development.  He even built several Unix commandline binaries such as `spell`, `diff`, `sort`, `join`, `graph`, `speak`, and `tr`[^66]. Most importantly McIlroy envisioned the concepts of __pipes__ or __pipelines__. This idea allowed for the output of one command to be directed as the input of another command--making a pipeline.  This was in compliance with Thompson's idea of small command binaries doing only one thing.  So by 1973 McIlroy had convinced Thompson to modify and add this feature to Unix.  
 
 > "Pipes were first suggested by [M. Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Douglas McIlroy"), when he was a department head in the Computing Science Research Center at Bell Labs, the research arm of AT&T (American Telephone and Telegraph Company), the former U.S. telecommunications monopoly. McIlroy had been working on macros since the latter part of the 1950s, and he was a ceaseless advocate of linking macros together as a more efficient alternative to series of discrete commands. A macro is a series of commands (or keyboard and mouse actions) that is performed automatically when a certain command is entered or key(s) pressed.
 
