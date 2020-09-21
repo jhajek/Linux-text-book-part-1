@@ -651,7 +651,7 @@ packer build ubuntu18045-vanilla.json
 
 # Upon completion of the Packer build...
 # Each build has a string representation of the day, month, year to make each
-# filename unique, called epoch (yours will be different)
+# filename unique, called epoch (your *.box name will be different)
 vagrant box add ../build/ubuntu18045-vanilla-1574788560.box --name ubuntu-18045-vanilla
 cd ../build
 mkdir ubuntu-18045-vanilla
