@@ -646,7 +646,7 @@ How then do we build our own artifacts with Packer to manage them?  Here is an e
 
 # clone the source code from the book to get the sample files
 # git clone https://github.com/jhajek/Linux-text-book-part-1.git
-cd Linux-text-book-part-1/Chapter-13/files/packer-build-templates
+cd Linux-text-book-part-1/files/Chapter-13/packer-build-templates
 packer build ubuntu18045-vanilla.json
 
 # Upon completion of the Packer build...
