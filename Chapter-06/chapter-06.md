@@ -79,7 +79,8 @@ ls ???.txt
 See the next example below.
   __Usage example:__
 ```bash
-echo 'Today's date is $DT' 
+echo 'Today's date is $DT'
+echo 'Today the date is: $DT'
 ```
 
 \"
@@ -169,8 +170,8 @@ cd ~-
 
 : By placing a ```\``` in front of any character, the shell will *escape* that characters function.  This is helpful if you want to print out the text of commands without having the shell execute them.
 ```bash
-echo "Assign date command output to a variable type: DT=`date`; echo $DT"
-echo "This is a variation of the above command: DT2=$(date); echo $DT2"
+echo "Assign date command output to a variable type: DT=`date`; echo \$DT"
+echo "This is a variation of the above command: DT2=$(date); echo \$DT2"
 ```
 
 \$
@@ -183,6 +184,7 @@ echo $PATH
 
 ```bash
 DT=`date`; echo $DT
+DT=$(date); echo $DT
 ```
 
 ```bash
