@@ -707,7 +707,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. Create a shell variable named UT, assign the contents of the command ```uptime``` to UT and print a string to the screen with its value and with a string stating, "The system has been up for: " and then the value of UT.
     i) Take a screenshot of the above command with output
-1. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with dnf and skip the first instruction. Display the contents of the \*.out files in one command and pipe its output to the ```less``` command. Display the contents of the \*.err files in one command and pipe its output to the ```less``` command.  
+1. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace `apt-get` with `dnf` and skip the first instruction. Display the contents of the \*.out files in one command and pipe its output to the ```less``` command. Display the contents of the \*.err files in one command and pipe its output to the ```less``` command.  
     i) Take a screenshot of the above command with output
 1. You are typing the command ```ls -l /topsecret``` and you want to redirect both standard out and standard error to a file named /tmp/out-and-error.txt, how would you do it?
     i) Take a screenshot of the above command with output
