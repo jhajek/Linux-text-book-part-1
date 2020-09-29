@@ -86,15 +86,13 @@ By using vim as a text editor we can create shell scripts which are collections 
 
 To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modification commands will automatically take you to __INSERT__ mode.  You will know you are in INSERT mode because the bottom of the screen will say INSERT.
 
-![*vi insert*](images/Chapter-07/editors/vi/vi-insert.png "vi-insert")
-
 > __Example usage:__  Let's type a hello world message in the vi editor. Continuing from the example above, to be able to insert text to the file you need to switch modes to INSERT mode.  Hit `ESC` then `i` and then type ```hello world!```  
 
 > __Example usage:__ What happens when you hit an arrow key after typing ```hello world!```?  Why is this? Remember we need to switch modes between COMMAND mode and INSERT command.
 
 ## vi Command Cheat Sheet
 
-There are actually over 150 distinct commands in vi.   But to be proficient you need to memorize only about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger INSERT mode after you execute them.  For instance the ```ESC then a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT mode after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard and case matters!
+There are over 150 distinct commands in vi.   But to be proficient you need to memorize only about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger INSERT mode after you execute them.  For instance the ```ESC then a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT mode after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard and case matters!
 
 : Positional Commands That Trigger Insert Mode
 
@@ -204,23 +202,23 @@ __EX__ mode also contains the ability to search for occurrences of text patterns
 
 ### vi/ex Mode Find and Replace Globally
 
-__vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC then :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.  See the sample file ```2016-05-31-using-s3cmd.md``` located in the chapter-07 directory of the files folder.
+__vi__ also has the ability to find and replace via a single line or globally.  By typing the ```ESC then :``` you will enter the same __ex__ mode mentioned above when learning about saving and quitting files.  See the sample file ```2016-05-31-using-s3cmd.md``` located in `files` > `Chapter-07` > `markdown` directory of the files folder.
 
-`s/Hajek/Jhajek`
+`:s/Ubuntu/Fedora`
 
 :  The *s* tells us it is a single find and replace or substitute.  This is a single instance replacement.
 
-`s/jeremy/ClassWork/g`
+`:s/fall2020/spring2021/g`
 
-:  This command the *s* tells us to substitute the word *False* for the word *True* and the trailing *g* means every occurrence on that line.
+:  This command the *s* tells us to substitute the word *fall2020* for the word *spring2021* and the trailing *g* means every occurrence on that line.
 
-`1,$s/&#47;/\//g`
+`:1,$s/&#47;/\//g`
 
-:  This command has a range prefix the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
+:  This command has a range prefix, the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
 
-`47,86s/<br \/>//g`
+`:47,86s/<br \/>//g`
 
-:  This command tells us to do the replacement of lines 47-86 and strip out all the extranuous ```<br />``` tags only.  Note the backslash to escape the forward slash.
+:  This command tells us to do the replacement of lines 47-86 and strip out all the extranious ```<br />``` tags.  Note the backslash to escape the forward slash.
 
 ### Why vi Key Bindings are as They Are
 
@@ -244,7 +242,7 @@ The second family of editors differs from the first in that they were created af
 
 #### GNU Nano
 
-[GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  The design in simpler than vim and has become a popular alternative.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file--these commands are listed at the bottom of the screen. Unlike vim, there are no modes, so you are always in *insert* mode and can use the arrow keys and type as if you were in a regular GUI based text editor. For Fedora 33, GNU Nano is to replace vim as the default editor.
+[GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  The design in simpler than vim and has become a popular alternative.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file--these commands are listed at the bottom of the screen. Unlike vim, there are no modes, so you are always in *insert* mode and can use the arrow keys and type as if you were in a regular GUI based text editor. For Fedora 33, GNU Nano is to replace vim as the default editor.  Nano is very similar to editors such as notepad but has features similar to vim and VSCode.  Nano is entirely rendered in text.
 
 #### JOE
 
@@ -481,10 +479,10 @@ You will need to install the program ```vimtutor``` for the first part.   You ca
     i)  Using vim commands replace all occurrences of the numbers ```2.6.5``` with ```2.8.5```.
     i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
     i)  In the shell script,  ```install-java-8-openjdk.sh```,  using `vim`, insert a comment above each line explaining what the command is doing.
-1) In vim using create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03-07 as well: (resist writing it in notepad)
+1) Using vim, create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03-07 as well: (resist writing it in notepad)
     i) Create a script with the proper shebang on the first line.
-    i) Type the command to update package repositories.
-    i) type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto accept 'Yes' to any question.
+    i) Type the command to update package repositories
+    i) Type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto-accept 'Yes' to any question
     i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
     i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban```
     i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to `/tmp/distupgrade.out`

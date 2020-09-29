@@ -18,7 +18,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. You are typing the command ```ls -l /topsecret``` and you want to redirect both standard out and standard error to a file named /tmp/out-and-error.txt, how would you do it?
     i) Take a screenshot of the above command with output
-1. You will find a file named hosts.deny located in the files directory of the download of the textbook. It contains a list of IP addresses - what command would you use to count ONLY the number of lines?
+1. You will find a file named hosts.deny located in the directory `files` > `Chapter-06` of the download of the textbook. It contains a list of IP addresses - what command would you use to count ONLY the number of lines?
     i) Take a screenshot of the above command with output
 1. Using the error.log file located in the files directory - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
     i) Take a screenshot of the above command with output
@@ -32,7 +32,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screensot of the above command with output
 1. Use the `grep` tool to search the file error.log for the line "Invalid method in request" and print to the screen the lines found.
     i) Take a screensot of the above command with output
-1. Using tools discussed in this chapter, create a commandline based reporting tool based the contents of **error.log**.  Inthe report type the commands to find the following:  How many unique IPs did the error messages come from?  Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
+1. Using tools discussed in this chapter, create a commandline based reporting tool based the contents of **error.log**.  In the report type the commands to find the following:  How many unique IPs did the error messages come from?  Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
     i) take a screenshot of each of the above commands and output.
 1. Using the ```find``` command and starting from the \~ directory what would be the command to find all files with the name .md?
     i) Take a screenshot of the above command with output
