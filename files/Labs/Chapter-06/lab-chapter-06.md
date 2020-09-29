@@ -20,7 +20,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. You will find a file named hosts.deny located in the directory `files` > `Chapter-06` of the download of the textbook. It contains a list of IP addresses - what command would you use to count ONLY the number of lines?
     i) Take a screenshot of the above command with output
-1. Using the error.log file located in the files directory - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
+1. Using the error.log file located in the directory `files` > `Chapter-06` - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
     i) Take a screenshot of the above command with output
 1. What command would let you display the content of the hosts.deny file, cut out the the second column and sort it?
     i) Take a screenshot of the above command with output
