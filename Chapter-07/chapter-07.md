@@ -70,11 +70,7 @@ Many people will say that the __vi editor__ has a sharp learning curve and not t
 
 #### vi and vim
 
-By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  The reason they are different sized is that there are different versions of vim that have different levels of features enabled.
-
-![*vim Ubuntu*](images/Chapter-07/editors/vi/ubuntu-vi.png "vim Ubuntu")
-
-![*vim Fedora*](images/Chapter-07/editors/vi/fedora-vi.png "vim Fedora")
+By using vim as a text editor we can create shell scripts which are collections of shell commands with meta-characters and and some control logic. Ubuntu links to vim directly as seen in the image below.   Fedora keeps two distinct binaries __vi__ and __vim__ but both of then link back to __vim__.  You can use the `which vi` and/or `which vim` to find out the default state of vim on your distro.
 
 ### The 3 vi Modes
 
