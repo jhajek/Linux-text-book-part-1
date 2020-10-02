@@ -1,15 +1,27 @@
 # Podcast Questions - Chapter 07
 
-Listen to the FLOSS podcast number 88 with [Linus Torvalds - http://twit.tv/show/floss-weekly/88](http://twit.tv/show/floss-weekly/88 "FLOSS Linus Torvalds")
+View or listen to this Podcast: [https://twit.tv/shows/floss-weekly/episodes/594?autostart=false](https://twit.tv/shows/floss-weekly/episodes/594?autostart=false "PIP Podcast page")
 
-* ~6:32 Who is Linus Torvalds?
-* ~6:54 Where did he create Linux?
-* ~7:30 What did Unix have that other operating systems didn't at that time?
-* ~10:02 Within a few months of Linux first release roughly how many people were interested in Linux?
-* ~10:30 About what month and what year did this happen?
-* ~10:40-13:30 What was the initial inspiration to create the Linux Kernel as an open source project?
-* ~13:30-14:00 Why was it licensed under the GPL?
-* ~20:48 Why didn't Linus want to work for a Linux company?
-* ~41:00 More than the technology hurdle what else is needed to get into Linux Kernel Development?
-* ~46:10 What is the way to become a great programmer?
-* ~51:17 What is Linus' farewell message to the audience?
+PIP AND THE PYTHON PACKAGE INDEX
+
+~7:40 What is pip and how is it related to the Python language?
+~9:31 What are some of the utilities that a developer who is making a Python package are going to use?
+~11:15 If someone is getting started with Python what is the right way to install packages?
+~12:39 Is the number of different package managers and methods of installing Python packages a benefit to the new user?
+~13:43 Does (did) Pradyun agree with the first speaker?
+~14:34 Where does the overview of packaging for Python live (URL)?
+~17:52 Where has Pradyun and pip secured opensource funding from?
+~19:00 What did Sumana do with the funding received from various companies and organizations?
+~30:30 How does Sumana explain "DevOps"?
+~31:37 What happens when you release software more often?
+~36:10 What is the Hollywood portrayal of those who develop and make software and how is it different from reality of developing software?
+~39:10 What can a short term Project Maintainer do for a software project?
+~43:20 How many maintainers did the pip project have in 2017? How many do they have now in 2020? Are they paid developers?
+~44:44 If pip is one of the most important tool chains in the industry -- who funds its development/maintenance?
+~46:40 What is the programing language that Python is written in?
+~53:10 What is the tip for what not to do with pip on Linux?
+~55:15 What is the website (URL) to keep up with Python language announcements?
+
+Book mentioned in the Podcast:
+The Bug by Ellen Ullman
+[https://www.amazon.com/dp/B00AZ181TQ/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1](https://www.amazon.com/dp/B00AZ181TQ/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1 "The Bug by Ellen Ullman book purchase website")
