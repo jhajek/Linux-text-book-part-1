@@ -725,7 +725,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screensot of the above command with output
 1. Use the `grep` tool to search the file error.log for the line "Invalid method in request" and print to the screen the lines found.
     i) Take a screensot of the above command with output
-1. Using tools discussed in this chapter, create a commandline based reporting tool based the contents of **error.log**.  In the report type the commands to find the following:  How many unique IPs did the error messages come from?  Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
+1. Using tools discussed in this chapter, create a commandline based reporting tool based on the contents of the file **error.log**.  In the report type the commands to find the following:  How many unique IPs did the error messages come from?  Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
     i) take a screenshot of each of the above commands and output.
 1. Using the ```find``` command and starting from the \~ directory what would be the command to find all files with the name .md?
     i) Take a screenshot of the above command with output
