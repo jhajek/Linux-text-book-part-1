@@ -623,13 +623,15 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     1. Take a screenshot of that single command and a screenshot of the web browser showing the **stallman.jpg** image properly rendering.
 1) Using the commandline again, move the **ms-loves-linux.png** image to the proper directory using the ```mv``` command in a single command:
     1. Take a screenshot of that single command and a screenshot of the output of the web browser showing both the **stallman.jpg** and the **ms-loves-linux.png** images properly rendering.
-1) Assume your PWD is your Home directory: In a series of commands, ```cd``` to Documents, then create a directory named ```packer-scripts```.  Under this directory create 5 sub-directories, ```ubuntu16-04```, ```ubuntu18-04```, ```fedora28```, ```centos7```, ```OmniOS```.  
+1) Assume your PWD is your Home directory: In a series of commands, ```cd``` to Documents, then create a directory named ```packer-scripts```.  Under this directory create 5 sub-directories, ```ubuntu1804```, ```ubuntu2004```, ```fedora32```, ```centos7```, ```OmniOS```.  
     1. With your PWD as ```~/Documents/packer-scripts```, execute the command that will give a long listing of the contents of the directory.  Take a screenshot of this command as well as the output.
-1) the the `git` command and clone your own repository to your Linux system.  In the folder created for this class, issue the commands to create directories for each chapter of the book starting from 01 and upto 15.  For example: **chapter-01, chapter02**.  Then issue the command to create a file named `Readme.md` in each directory (**Note:** if you already have a folder for a particular chapter and a Readme.md created for previous assignments then you can skip created that entry).
+1) the the `git` command and clone your own repository to your Linux system.  In the folder created for this class, issue the commands to create directories for each chapter of the book starting from 01 and up to 15.  For example: **chapter-01, chapter02**.  Then issue the command to create a file named `Readme.md` in each directory (**Note:** if you already have a folder for a particular chapter and a Readme.md created for previous assignments then you can skip created that entry).
 1) Using the `man ssh` command, find the command line option that will display verbose version information about ssh.  
     1. take a screenshot of the `ssh` command and option displaying verbose version information.
 1) Use the man command for the `cp` command to find how to do a recursive, verbose, and interactive `cp` command.
-    1. Issue the stated command above to copy the directory `~/Documents/Linux-text-book-part-1/Appendix-D/` to `~/Documents/` and take a screenshot of the command and output.
+    1. Issue the stated command above to copy the directory:
+     `~/Documents/Linux-text-book-part-1/Appendix-D/` to `~/Documents/`
+     and take a screenshot of the command and output.
 1) Use the command to rename the folder `~/Documents/Appendix-D` to `~/Documents/Appendix-E`.
     1. Take a screenshot of the command and its output
 
