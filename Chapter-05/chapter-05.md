@@ -630,8 +630,8 @@ The objectives of this lab is to use the shell commands we learned in this chapt
     1. take a screenshot of the `ssh` command and option displaying verbose version information.
 1) Use the man command for the `cp` command to find how to do a recursive, verbose, and interactive `cp` command.
     1. Issue the stated command above to copy the directory:
-     `~/Documents/Linux-text-book-part-1/Appendix-D/` to `~/Documents/`
-     and take a screenshot of the command and output.
+    1. `~/Documents/Linux-text-book-part-1/Appendix-D/` to `~/Documents/`
+    1. take a screenshot of the command and output.
 1) Use the command to rename the folder `~/Documents/Appendix-D` to `~/Documents/Appendix-E`.
     1. Take a screenshot of the command and its output
 

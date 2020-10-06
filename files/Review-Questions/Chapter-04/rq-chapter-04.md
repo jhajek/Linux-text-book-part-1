@@ -32,7 +32,7 @@ VT-220 terminals they used prior.
   d. Z
 6) True or False – X was originally not opensourced by MIT in 1984
 
-7) For Ubuntu 18.04 what is the default desktop environment being used?
+7) What is the model that the X server uses to render screens?
 
 8) What is the name of the successor GUI compositor to X being created by the X.org foundation?
   a. KDE

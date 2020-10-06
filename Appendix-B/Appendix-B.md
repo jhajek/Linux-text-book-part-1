@@ -94,13 +94,13 @@ b. Alt + Ctrl + F1 - F7
 b. X
 6. True or False – X was originally not opensourced by MIT in 1984
 a. True
-7. For Ubuntu 18.04 what is the default desktop environment being used?
-GNOME or GNOME3
+7. What is the model that the X server uses to render screens?
+Client Server
 8. What is the name of the successor GUI compositor to X being created by the X.org foundation?
 c. Wayland Project
 9. What is the name of Ubuntu’s own GUI compositor replacement for X? (Just the name.
 a. Mir
-10.	What are the 3 types of Linux window managers?
+10. What are the 3 types of Linux window managers?
 Compositing, Stacking, and Tiling
 11. There are 4 major Linux desktop environments in use today: which grouping is correct?
 d. KDE, GNOME, Xfce, LXDE
@@ -114,16 +114,14 @@ a. Miguel de Icaza
 c. Unity, Mate, Cinnamon
 16. When released in 2006, what was the main development goal of the LXDE desktop environment?
 c. Energy saving and extremely fast
-17.	Which of these statements are true in regards to Linux desktop environments? (choose all that 
-apply.
+17. Which of these statements are true in regards to Linux desktop environments? (choose all that apply).
 a. Desktop environments have a File Manager
 b. Desktop Environments have start or action buttons and task and notification bars
 c. Desktop environments have a changeable but consistent look-and-feel
 d. Desktop environments have system configuration tools and user applications built-in
-18.	What is the default desktop environment for Fedora 22? (Name and versions.
+18. What is the default desktop environment for Fedora 22? (Name and versions.
 a. GNOME 3
-19. What is the name of the button on the upper left hand corner of the GNOME 3 desktop in 
-Fedora 22 that you use to “launch applications?”
+19. What is the name of the button on the upper left hand corner of the GNOME 3 desktop in Fedora 22 that you use to “launch applications?”
 a. Activities
 20. What is the name of the default Ubuntu desktop environment?
 GNOME3
