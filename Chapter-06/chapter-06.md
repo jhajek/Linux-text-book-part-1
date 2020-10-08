@@ -737,7 +737,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. In the folder, **files > chapter-06 > weather-data**, uncompress the .xz file.  Recompress the original text file using gzip, bzip2, xz, and Brotli.
     i) Take a screenshot of the above commands with output and a long listing showing file size, `ls -lh`
-1. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz "kernel.org") or any other mainline stable kernel. Extract this `xzip` and `tar` in one command.  Then type the command to delete the xz tarball.  Now type the command to re-tar and re-compress it with xzip.
+1. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.77.tar.xz "kernel.org") or any other mainline stable kernel. Extract this `tarball` in one command.  Then type the command to delete the tarball.  Now type the command to re-tar and re-compress it with xzip in one `tar` command.
      i) Take a screenshot of the above command with output -- Note this may be best as a series of screenshots
 
 #### Footnotes
