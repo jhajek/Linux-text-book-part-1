@@ -725,7 +725,7 @@ In the GitHub repo provided to you please create a folder in your ITMO-556 direc
   
 1) Write a shell script that takes 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
   
-1) Write a cron job that executes the command, `sudo mysqldump --all-databases` at 11:59 pm on Sunday every week of the month.
+1) Write a `cron` job that executes the command, `sudo mysqldump --all-databases` at 11:59 pm on Sunday every week of the month.
   
 1) Using `awk` and other tools, how would you find which ip caused the most HTTP 404 errors? Take a screenshot of the command and the output.  Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log.
 
