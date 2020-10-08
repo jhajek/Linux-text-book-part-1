@@ -10,7 +10,7 @@ The objectives of this lab will be to use the shell and understand meta-characte
     i) Take a screenshot of the above command with output
 1. What command inside the textbook directory will do a long listing of Chapters-02,04,06, and 08 only?
     i) Take a screenshot of the above command with output
-1. What command will copy the content of file Chapter-02/chapter-02.md to a directory named Chapter-00/chapter-02.md.  Use meta-characters to string together commands.
+1. Write a command that will make a directory names Chapter-00 and copy the file `Chapter-02/chapter-02.md` into the directory `Chapter-00`, and finally use the `move` command (`mv`) to rename the copied file to `chapter-00.md`.  Use the meta-character needed to execute the proceeding commands only if the previous command is true. Place all these commands onto one single line.
     i) Take a screenshot of the above command with output
 1. Create a shell variable named UT, assign the contents of the command ```uptime``` to UT and print a string to the screen with its value and with a string stating, "The system has been up for: " and then the value of UT.
     i) Take a screenshot of the above command with output
