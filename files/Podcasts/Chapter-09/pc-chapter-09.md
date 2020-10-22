@@ -1,25 +1,20 @@
 # Podcast Questions - Chapter 09
 
-NodeJS - [https://twit.tv/shows/floss-weekly/episodes/387](https://twit.tv/shows/floss-weekly/episodes/387 "NodeJS")
+DevOps [https://www.redhat.com/en/command-line-heroes/season-1/devops-tear-down-that-wall#tab.show_info.1](https://www.redhat.com/en/command-line-heroes/season-1/devops-tear-down-that-wall#tab.show_info.1 "Command Line Heros DevOps Podcast")
 
-Node.js Update
-
-* ~4:20 Where does Aaron (guy wearing black) say he is starting to see Node JS more and more?
-* ~7:22 What is Node.js?
-* ~8:50 Accroding to Mikael, what are we seeing an explosion of?
-* ~9:15 What language(s) is NodeJS similar to?
-* ~9:35 What is Event Driven Programming?
-* ~10:45 what is NodeJS package manager/ecosystem?
-* ~12:05 what kind of things would use Node?
-* ~17:20 What are the two popular desktop apps built in NodeJS that Mikael mentioned?
-* ~ 19:30 What are some of the ways to learn NodeJS?
-* ~ 21:30 What did Microsoft do with NodeJS and where did it get Node?
-* ~ 22:30 Mikael mentions multiple languages: TypeScript, CoffeeScript, Electron, and Dart -- what are they and how do they relate to the NodeJS project? (Need to do some side research)
-* ~25:27 What company started the NodeJS and eventually the NodeJS foundation? (Currently owned by Samsung)
-* ~ 26:43 What does the NodeJS foundation do (what is its role?)
-* ~ 34:00 Who is the guest and what is his job?
-* ~ 38:48 How much did Mikael reduce his code when he switched from Python to NodeJS?
-* ~41:54 is is possible to run NodeJS for command line scripting?
-* ~45:00 Where is pretty much every NPM module hosted?
-* ~47:40 What is the Go language good at and what is it not?
-* ~50:55 Is there any relationship between NodeJS and Docker?
+* ~0:30  What do developers do and whose problem is it?
+* ~0:54 What are the two opposing sides and why are the opposed to each other?
+* ~1:00 Who is the host and who does she work for?
+* ~1:20 For decades how was the IT world was defined?
+* ~3:10 These days, a company like Amazon will deploy new code how many times every minute?
+* ~4:50 Where does Joanah Horowitz work?
+* ~5:20 What is one of the biggest ways to increase uptime for an application?
+* ~5:41 What do developers commit to and what does operations commit to?
+* ~6:25 Who coined the term DevOps and in what year?
+* ~6:58 Who is Scott Hanselman?
+* ~7:24 How does Scott define DevOps?
+* ~8:24 DevOps is not just about Code release velocity, what is the other vital part of that code release?
+* ~12:18 Why does a business write and deploy software?
+* ~13:00 The Agile methodology says who should own the product? IT or the Developers?
+* ~16:48 Is DevOps a mindset or a set of tools?
+* ~18:25 Beyond IT and Developers, who else has to buy in for the DevOps mindset to take place?

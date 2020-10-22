@@ -228,7 +228,7 @@ journalctl -k -b -1
 journalctl -f -u apache
 ```
 
-> This will show you only the logs of the current boot,
+> This will show you only the logs of the current boot:
 
 ```bash
 journalctl -b
@@ -255,7 +255,7 @@ journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
 > See log entries created only by the SSH service
 
 ```bash
-journalctl -u sshd
+journalctl -u ssh
 ```
 
 ### Log rotation
@@ -264,7 +264,7 @@ The concept of log rotation existed under syslog and rsyslog when logs were simp
 
 When viewing an older syslog style text log you can use the ```tail -f``` command and it will auto-update if there is new content automatically.  This command can be very helpful if you are watching a log for some particular output - can you find the journald equivalent?  ```journalctl --follow --since=-1day```
 
-You can find the systemd journald log rotation and collection specifics [here](http://www.freedesktop.org/software/systemd/man/journald.conf.html "journald.conf"): [^101]
+You can find the systemd journald log rotation and collection specifics [here](http://www.freedesktop.org/software/systemd/man/journald.conf.html "journald.conf"): [^101].
 
 `/etc/systemd/journald.conf`
 
@@ -351,7 +351,6 @@ There are many additional standard Linux tools as well as many GitHub projects b
 --------------  -------------------------------------------------------------
   ```free```       Report the amount of free and used memory in the system
   ```load```         Graphical representation of system load average
-  ```top```           Dynamic real-time view of running processes
  ```uptime```         Display how long the system has been running
  ```vmstat```              Report virtual memory statistics
    ```w```            Report logged in users and what they are doing
@@ -371,6 +370,18 @@ Another interesting project is something called ranwhen.  It shows a visual repr
 In addition to memory, CPU, and process information.  You can other commands to measure system I/O. The ```sar``` command - system activity report -- is something that came from the BSD Unixes and was ported over to Linux. It is used to sample and report various cumulative statistic counters maintained by the operating system.  You can take *n* samples at *t* intervals. Finally the ```iostat``` command, which in Linux is part of the sysstat package--displays kernel I/O statistics on terminal, device and cpu operations. A common word for this is I/O measurement or throughput.  These reports can then be used to change system configurations to better balance the input/output load between physical disks.  
 
 ![*iostat*](images/Chapter-09/monitoring/io/iostat.png "iostat")
+
+#### Procmon
+
+[Process Monitor (Procmon)](https://github.com/microsoft/ProcMon-for-Linux "Download site for Procmon") is a Linux reimagining of the classic Procmon tool from the Sysinternals suite of tools for Windows. Procmon provides a convenient and efficient way for Linux developers to trace the syscall activity on the system.
+
+#### iftop
+
+Dynamic real-time view of network connetions.  This can be installed by your package manager.
+
+#### iotop
+
+Display a dynamic view of system I/O. This can be installed by your package manager.
 
 ## User Administration
 
@@ -453,7 +464,7 @@ Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like 
 
 If you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced "*ack-els*") __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  The difficulties of ACL's in Linux is that they are exclusive to RHEL and not portable to other Linux or Unix systems.
 
-### The 3 P's Describing 99% of all Linux Problems
+### The 3 P's of Troubleshooting Linux Problems
 
 All my troubleshooting experience in Linux boils down to three things.  I have jokingly named them the 3P's (yes I know that they all don't start with *P*).  If you have an error message or cannot execute a command--run down these three troubleshooting steps:
 
@@ -734,29 +745,24 @@ e. ```sudo useradd -c "User for spring class" -G sudo -m controller```
 
 ### Podcast Questions
 
-NodeJS - [https://twit.tv/shows/floss-weekly/episodes/387](https://twit.tv/shows/floss-weekly/episodes/387 "NodeJS")
+DevOps [https://www.redhat.com/en/command-line-heroes/season-1/devops-tear-down-that-wall#tab.show_info.1](https://www.redhat.com/en/command-line-heroes/season-1/devops-tear-down-that-wall#tab.show_info.1 "Command Line Heros DevOps Podcast")
 
-Node.js Update
-
-* ~4:20 Where does Aaron (guy wearing black) say he is starting to see Node JS more and more?
-* ~7:22 What is Node.js?
-* ~8:50 Accroding to Mikael, what are we seeing an explosion of?
-* ~9:15 What language(s) is NodeJS similar to?
-* ~9:35 What is Event Driven Programming?
-* ~10:45 what is NodeJS package manager/ecosystem?
-* ~12:05 what kind of things would use Node?
-* ~17:20 What are the two popular desktop apps built in NodeJS that Mikael mentioned?
-* ~ 19:30 What are some of the ways to learn NodeJS?
-* ~ 21:30 What did Microsoft do with NodeJS and where did it get Node?
-* ~ 22:30 Mikael mentions multiple languages: TypeScript, CoffeeScript, Electron, and Dart -- what are they and how do they relate to the NodeJS project? (Need to do some side research)
-* ~25:27 What company started the NodeJS and eventually the NodeJS foundation? (Currently owned by Samsung)
-* ~ 26:43 What does the NodeJS foundation do (what is its role?)
-* ~ 34:00 Who is the guest and what is his job?
-* ~ 38:48 How much did Mikael reduce his code when he switched from Python to NodeJS?
-* ~41:54 is is possible to run NodeJS for command line scripting?
-* ~45:00 Where is pretty much every NPM module hosted?
-* ~47:40 What is the Go language good at and what is it not?
-* ~50:55 Is there any relationship between NodeJS and Docker?
+* ~0:30  What do developers do and whose problem is it?
+* ~0:54 What are the two opposing sides and why are the opposed to each other?
+* ~1:00 Who is the host and who does she work for?
+* ~1:20 For decades how was the IT world was defined?
+* ~3:10 These days, a company like Amazon will deploy new code how many times every minute?
+* ~4:50 Where does Joanah Horowitz work?
+* ~5:20 What is one of the biggest ways to increase uptime for an application?
+* ~5:41 What do developers commit to and what does operations commit to?
+* ~6:25 Who coined the term DevOps and in what year?
+* ~6:58 Who is Scott Hanselman?
+* ~7:24 How does Scott define DevOps?
+* ~8:24 DevOps is not just about Code release velocity, what is the other vital part of that code release?
+* ~12:18 Why does a business write and deploy software?
+* ~13:00 The Agile methodology says who should own the product? IT or the Developers?
+* ~16:48 Is DevOps a mindset or a set of tools?
+* ~18:25 Beyond IT and Developers, who else has to buy in for the DevOps mindset to take place?
 
 ### Lab
 
