@@ -14,13 +14,32 @@
 
 At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work.  You will understand how to examine, start, and stop services in both arenas.  You will learn about the ```/proc``` virtual-filesystem and how it represents running processes as files.  You will be able to use the systemd mechanisms for process reporting and termination.
 
-## Init Systems and Services
+## BIOS
 
 When you hit the power button, after a short pause, your system begins to whir to life.  Fans spinning and a short POST *beep* sound tells you are on your way.  The next thing you see is some messages flash across the screen, a logo perhaps, some spinning icons, and then the login screen comes to life.  Collectively this is called the *boot* process.  We are interested in the last part--when the operating system is loaded from disk into memory and the init process begins to start launching the components of our operating system.  Before we dive into that part, let's review what goes on before hand.
 
-This boot order will assume that you are booting a [BIOS](https://en.wikipedia.org/wiki/BIOS "BIOS") based system and not a [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface#Platforms_using_EFI.2FUEFI "UEFI") system, but the overarching principles are still the same.  When the BIOS boots and successfully receives a positive result from the POST test, which will be a short *beep* there are hard coded basic I/O device drivers that are loaded into memory to allow the computer to complete basic I/O functions, display information, and read from a hard disk.  Immediately the system loads the MBR-Master Boot Record, which is the first sector of the first identified bootable device.  This is usually your hard drive but could be a flash drive, SD Card, or even a good old fashioned CD-ROM.  The Master Boot Record points to the VBR or Volume Boot Record.  
+How does the system come to life?  There is a small chip on your motherboard that has some basic drivers hard coded into it.  This chip loads these basic drivers into memory with just enough access to start to load the operating system from disk.  Traditionally this was called the [BIOS](https://en.wikipedia.org/wiki/BIOS "BIOS"), Basic Input Output System.  This BIOS stems from the first PC device The IBM PC which developed it back in 1979.  When the BIOS boots and successfully receives a positive result from the POST test, which will be a short *beep*, there are hard coded basic I/O device drivers that are loaded into memory to allow the computer to complete basic I/O functions, display information, and read from a hard disk.  Immediately the system loads the MBR-Master Boot Record, which is the first sector of the first identified bootable device.  This is usually your hard drive but could be a flash drive, SD Card, or even a good old fashioned CD-ROM.  The Master Boot Record points to the VBR or Volume Boot Record.  
 
 In modern Linux the VBR is controlled by [GNU GRUB](https://www.gnu.org/software/grub/ "GNU GRUB").  *"Briefly, a boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd or Linux). The kernel, in turn, initializes the rest of the operating system (e.g. GNU)."* [^ch10f114]
+
+## UEFI
+
+The [Unified Extensible Firmware Interface](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface "UEFI Wiki Page") was developed as a successor to the BIOS as the original BIOS only supported a 16-bit real-mode and 1 MB of memory, which limited what could be done on a system.  The replacement UEFI does the same job as BIOS but is a modern reimplementation of BIOS basic functions.  BIOS is controlled by a trade organization which all the major PC makes and OS vendors purchase a seat in the UEFI consortium.
+
+UEFI capabilities include additional features not available in the traditional BIOS.  Most modern Laptops and Servers, since 2015 are using UEFI, some come with a BIOS Compatibility Layer, but BIOS and UEFI are two separate things.  When booting UEFI on stage 4, the UEFI Boot Manager that holds the entry for the location of the bootable device is loaded.
+
+1) SEC - Security Phase
+1) PEI - Pre-EFI Initialization
+1) DXE - Driver Execution Environment
+1) BDS - Boot Device Select
+1) TSL - Transient System Load
+1) RT - Runtime
+
+UEFI supported is detected on install by all operating systems.  You can specifically enable it in VirtualBox 6+:
+
+![*Enable EFI*](images/Chapter-10/UEFI/virtualbox-uefi.png "virtualbox efi support")
+
+## GNU GRUB Boot Loaders
 
 GNU GRUB superseded what is now called legacy GRUB (version 0.9x) and begins with version 2 to separate the different tools--though they are both called GRUB.  We will only talk here about GRUB 2 or GNU GRUB when referring to GRUB. GRUB itself has 3 stages in order to get you to stage two which is the loading of your Linux Kernel from disk into memory.  Stage 1 detects and finds the locations of and discovers various file systems on disk for loading at a later time.  Once this is accomplished GRUB loads stage 1.5 and passes control to it.  GRUB 1.5 will load file system drivers that are separate from the Operating System so the file ```/boot/grub/grub.cfg``` can be read, Fedora stores its grub configuration at ```/boot/grub2/grub.cfg```.  This file contains details about the path to various kernels for loading and various system configurations.  Once complete stage 2 is loaded and control is passed.  This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
 
@@ -29,7 +48,6 @@ GNU GRUB superseded what is now called legacy GRUB (version 0.9x) and begins wit
 By default this User Interface will pop up if you have more than one operating system or kernel version installed in the case of Fedora.  If you have a single operating system this screen will be skipped by default, you can hold down the SHIFT key at boot and force this screen to come up.  In the case of Ubuntu you can select ADVANCED to see different kernel versions you can load.
 
 Once we select a kernel version, GRUB knows where to go to find that file, read it into memory, decompress it. All kernel images are located in ```/boot``` and your GRUB 2 configuration file knows this.  
-\newpage
 
 ![*Terminal User Interface Advanced*](images/Chapter-10/GRUB/tui-advanced.png "TUI Advanced")  
 
@@ -37,7 +55,7 @@ Once we select a kernel version, GRUB knows where to go to find that file, read 
 
 You will notice that there is a vmlinuz kernel image per each instance that corresponds to the TUI entries in the previous image.   The file that is loaded first is actually the ```initrd.img-X.XX.X-XX``` file.  This is the pre-kernel which contains all the drivers necessary for the kernel to use before the root filesystem has been mounted.  The *initrd* file is gzip compressed and is decompressed on each boot.  Once the *initrd* temporary filesystem is loaded, with its own /etc and own /bin, the *vmlinuz* file which is the actual kernel is now loaded into memory and begins to un-mount and remove the *initrd* from memory as it is no longer needed.  
 
-### GRUB
+### GNU GRUB Settings
 
  The GRUB 2 or GNU GRUB bootloader exists in the file ```/boot/grub/grub.cfg``` but this file is auto generated so to edit the settings you would modify the ```/etc/default/grub``` file.  
  The ```/etc/default/grub``` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
@@ -64,9 +82,9 @@ There is a replacement in the works for GRUB called systemd-boot or also known a
 
 ### SysVinit
 
-I am going to describe the Unix System V init process - this is the basis of all Unix and Linux knowledge since the early 1980s.  This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. Debian recently dropped it, with Fedora and Ubuntu abandoning circa 2015.  This is not in use anymore in Linux as we learned in Chapter 2 but we shall go over it for completeness sake.
+I am going to describe the Unix System V init process - this is the basis of all Unix and Linux knowledge since the early 1980s.  This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. SysVinit is not in use in Linux as it was replaced by systemd as the init system.
 
-Now that the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by setting up the system processes.  The first task it executes is ```/sbin/init```.  This is referred to as the init process.  It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.  The ```/sbin/init/``` looks at the value stored in ```/etc/inittab``` to find the system __run level__.  The **run level** tells us which mode to start in and which associated services are needed.  These levels are general and each Linux distro modifies them as needed.  The default run level for a GUI based distro is **5**. The default run level for a server based OS is **3**.
+Once the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by setting up the system processes.  The first task it executes is ```/sbin/init```.  This is referred to as the init process.  It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.  The ```/sbin/init/``` looks at the value stored in ```/etc/inittab``` to find the system __run level__.  The **run level** tells us which mode to start in and which associated services are needed.  These levels are general and each Linux distro modifies them as needed.  The default run level for a GUI based distro is **5**. The default run level for a server based OS is **3**.
 
 : Traditional Run Levels
 
@@ -85,51 +103,93 @@ Once the run level is determined, there is a directory called ```/etc/rc.d``` wh
 
 ![*Classic SysVinit RC files on Ubuntu 14.04*](images/Chapter-10/sysvinit/rc-d.png "rc.d")
 
+### ps
+
+The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
+
+![*ps command*](images/Chapter-10/processes/ps.png "ps")
+
+These additional commands will share more information:
+
+* ```ps -e```  <-- select all processes (similar to -A)
+* ```ps -ef```  <-- this is one of the more helpful and verbose sets of options with full-formatting
+* ```ps -eF``` <-- Extra full-formatting
+* ```ps -ely```  <-- Long formatting
+* ```ps -eo pif,tid,class,ni,pri,psr...```  <-- the ```o``` option allows you to customize the column arraingment and output.
+* ```ps -C syslogd -o pid=```  <-- this is the same as doing ```ps -ef | grep firefox``` or ```pidof firefox```
+* ```ps xawf -eo pid,user,cgroup,args``` [^119]  Shows cgroup ownership details.
+* systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership.
+  * cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
+
+### kill
+
+In the SysVinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
+
+ Level       Name            Function
+-------- ------------ -----------------------------------------------------------------------
+  1        SIGHUP       Used to make a process re-read a config file
+  2        SIGINT       Effectively hitting CTRL+C
+  9        SIGKILL      Kills a process ungracefully--could damage files, use as last resort
+  15       SIGTERM      Like a kill 9, but with class, gracefully kills a process
+-------- ------------ -----------------------------------------------------------------------
+
+All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors.  All except ```kill -9``` every process has to obey.  You can use the ```killall``` command to kill the process and any associated processes that it had launched all in one fell swoop.  You and use the ```ptkill``` command to kill a process by name instead of PID.
+
+### nice
+
+The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
+
+> __Example Usage:__  This example will increase favorability of this process to the scheduler by 10 on a scale of -20 to 19--default is 0.
+
+```bash
+nice -n 10 my-loop
+```
+
 ### Upstart
 
 In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called ```upstart```.  Upstart moved all the traditional runlevels and start up scripts to ```/etc/init``` directory and placed the scripts in configuration files. While leaving the ```/etc/rc.d``` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in ```/etc/init/myservice.conf```:  Note the use of the __run level__ concept from SysVinit.  Compare this to (on an Ubuntu system) the contents of any script in ```/etc/rc3.d``` (run level 3).  Upstart exhibits a bit more process control but still being a shell script when you boil it down.
 
 ```bash
- myservice - myservice job file
-
+myservice - myservice job file
 description "my service description"
 author "Me <myself@i.com>"
-
 # Stanzas
 #
 # Stanzas control when and how a process is started and stopped
 # See a list of stanzas here: http://upstart.ubuntu.com/wiki/Stanzas#respawn
-
 # When to start the service
 start on runlevel [2345]
-
 # When to stop the service
 stop on runlevel [016]
-
 # Automatically restart process if crashed
 respawn
-
 # Essentially lets upstart know the process will detach itself to the background
 expect fork
-
 # Run before process
 pre-start script
     [ -d /var/run/myservice ] || mkdir -p /var/run/myservice
     echo "Put bash code here"
 end script
-
 # Start the process
 exec myprocess
 ```
 
 Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental replacement in Fedora 9 - until version 18 when systemd was ready.  RHEL and CentOS used Upstart as well until RHEL 7, and ChromeOS still does (OS for Chromebooks).  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between SysVinit and its failings but in the end systemd won out.  MacOS uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris and Illumos/SmartOS use [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
 
+### Working With Services in SysVinit/Upstart  
+
+Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | reload | status```.  This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the text files information is parsed and placed in memory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```.
+
+> __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
+
+> __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
+
 ### Other SysVinit replacements
 
-Upstart wasn't the only replacement option, currently there are two major one, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*  Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
+Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*  Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
 
 OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible.  Here is a comparison table between systemd, sysVinit, and OpenRC:
- 
+
            systemd                         SysVinit                         OpenRC
 ------------------------------  -------------------------------- -------------------------------- 
 ```systemctl list-units```      ```service --list-all```         ```rc-status```
@@ -173,17 +233,9 @@ You can use the command  ```systemctl``` to list all running services and to iss
 
 Whenever you start a program in Linux, whether that is a service, or something as simple as run a command in the terminal or open a new web-browser tab, that creates a system process.  Each process gets an ID so that it can be accessed or referenced and is assigned memory space and CPU affinity (priority).  In addition to a process--which can be short lived or long lived, there are services--which can be helper items such as the login and authentication service or something focused such as an apache2 web-server. Each process in turn has a PPID--Parent Process ID, which tells you which other process launched that process.  In traditional SysVinit ```/sbin/init``` launches each additional service.  In systemd, instead of having PPIDs and PIDs, you have the concept of cgroups and processes grouped together.
 
-### Working With Services in SysVinit/Upstart  
-
-Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | reload | status```.  This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the text files information is parsed and placed in memory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```.
-
-> __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
-
-> __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
-
 ### Working With Services in systemctl
 
-> __Example Usage:__ On a systemd based system, service control is done with ```sudo systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart httpd.service```  The ```.service``` can be left off and the system will assume the exetension.
+> __Example Usage:__ On a systemd based system, service control is done with ```sudo systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart httpd.service```  The ```.service``` can be left off and the system will assume the extension.
 
 > __Example Usage:__ The ```systemctl``` command has additional abilities.  It absorbed the ```chkconfig``` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: ```sudo systemctl is-enabled httpd.service```.  Issue that command and what does it report?
 
@@ -199,9 +251,7 @@ You can see the dependencies the httpd service needs and will only start if the 
 
 #### Major systemd Components
 
-Not just an init system replacement, systemd has replaced or merged the functionality of many other Linux services into systemd[^122].
-
-Beside its primary purpose of providing a replacement Linux init system, systemd suite provides additional functionality, including its following components:
+Not just an init system replacement, systemd has replaced or merged the functionality of many other Linux services into systemd[^122]. Beside its primary purpose of providing a replacement Linux init system, systemd suite provides additional functionality, including its following components:
 
 journald
 
@@ -235,11 +285,17 @@ systemd-boot
 
 : systemd-boot is a boot manager, formerly known as gummiboot. Kay Sievers merged it into systemd with rev 220.
 
+systemd-homed
+
+: systemd-homed.service manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata[^ch10f124].  This is a brand new paradigm and just released 10/26/20 -- yet to be implemented in any Linux distros.
+
 ### Systemd Service Types
 
-Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The units that systemd include are ```.service```, ```.mount```, ```.target``` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files").
+Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The major units that systemd include are `.service`, `.mount`, `.timer`, `.target` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files").
 
 #### Systemd Service file
+
+This is an example of the service file installed in Ubuntu 20.04 for Apache2 Web Server located in `/lib/systemd/system/apache2.service`.  All system services are installed in this location.  The parallel location in `/etc/systemd/system/` will append and override system defined settings.
 
 ```bash
 #/lib/systemd/system/apache2.service
@@ -270,7 +326,59 @@ Each has its own specific values.  The name of the service file is important as 
 
 In the Service tag, these are the commands to start and stop various shell scripts.  When you use the start | stop | reload | status commands, these are the files or commands that are executed.  The Install tag, is the final tag and tells systemd on which run level to start this service.  Make note that the application uses absolute paths to all of the executables and binaries, this is do to the service run when parts of the operating system are still loading. FreeBSD still uses ```rc``` files which are shell scripts for starting services.  You can find them listed in ```/etc/rc.d/```.  Take a look at ```/etc/rc.d/syslogd``` and you will see it is a 74 line shell script, compared to the 12 line systemd unit file.
 
-#### Logging and service files
+#### Create a Service File for a User Created Script
+
+This is a sample of a .service file created for a Python user script, called `brownbear.service`
+
+```bash
+
+[Unit]
+Description=The Brownbear render server service starts at boot
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/run/bb.pid
+User=controller
+ExecStart=/usr/bin/python3 /usr/local/bin/annotations-load-viewer-service.py
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+```
+
+#### Creating a .timer script
+
+Systemd is efforting to replace cron jobs with a centralized systemd format called timers.   You can see all the timers set on your system by default by using the `systemctl list-timers` command.  The `.timer` files are named the same as the `.service` file -- this correlates them.  Here is a sample `.timer`:
+
+```bash
+[Unit]
+Description=Daily man-db regeneration
+
+[Timer]
+OnCalendar=daily
+AccuracySec=12h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency.  It can use various types of time definitions[^ch10f125].  
+
+       Time Definitions
+------------------------------
+   Wed 18:00:00
+   Mon..Wed *-5-27
+   2020-05-27
+   *:0/2
+   15/2
+   hourly
+   daily
+   weekly
+   monthly
+
+#### Logging and Service Files
 
 You will need to install some pre-reqs for this example.
 
@@ -303,49 +411,17 @@ Give the above script execute permission, execute it by typing `python write-jou
 
 #### hostnamectl and timedatectl
 
-One of the 69+ components of systemd is hostnamectl which is designed to give you an easy interface into controlling the information relating to your systems hostname. Running the command ```man hostnamectl``` shows you what can be done here [hostnamectl](https://www.freedesktop.org/software/systemd/man/hostnamectl "hostnamectl")
+One of the 69+ components of systemd is hostnamectl which is designed to give you an easy interface into controlling the information relating to your systems hostname. Running the command ```man hostnamectl``` shows you what can be done here [hostnamectl](https://www.freedesktop.org/software/systemd/man/hostnamectl "hostnamectl"). The command `sudo hostnamectl set-hostname newhostnamehere` will change the displayed hostname of your system upon next session login.
 
 > **Exercise:** Use the hostnamectl command to change your systems hostname to itmo-556 (or your class name).  Now close your shell and reopen it--what do you see?
 
-The ```timedatectl``` is used for setting time zone and to activate ntp, [network time protocol](http://tldp.org/LDP/sag/html/ntp.html "Network Time Protocol"), synchronization.  This part of systemd supersedes previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl").  
+The ```timedatectl``` is used for setting time zone and to activate ntp, [network time protocol](http://tldp.org/LDP/sag/html/ntp.html "Network Time Protocol"), synchronization.  This part of systemd supersedes previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl").  The command `sudo timedatectl status` shows the current timedatectl configuration.  You can also enable NTP and change the timezone via timedatectl, no need to use external NTP services anymore.  The command 
 
-> **Exercise:** Using the man command for `timedatectl` can you enable `ntp` synchronization?  Can you change the timezone to UTC?
+> **Exercise:** Using the man command for `timedatectl` can you enable `ntp` synchronization?  Can you change the timezone to UTC using the information at this URL: [https://www.freedesktop.org/software/systemd/man/timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl")?
 
 #### systemd-analyze
 
 Systemd was designed to bring modern OS principles to desktop and server Linux.  That includes a tool called ```systemd-analyze``` which breaks down the time it took for all services, modules, and parts of the kernel to finish loading.  To further debug these numbers use, ```systemd-analyze blame```.  This will print out individually which services/targets/units/mounts are taking the most time to load and allow you to investigate or disable those elements.  You can even use the builtin *plotting* feature of systemd-analyze, by typing, ```systemd-analyze plot > plot.svg``` and then typing ```eog plot.svg``` to create a visual time based graph of your plot.  There are additional commands under systemd-analyze, ```critical-chain``` will print specific load time for dependent services of the service you provide, ```systemd-analyze critical-chain httpd.service```.   These tools and options available in the man page, are used to determine system boot-up performance statistics.
-
-### ps
-
-The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
-
-![*ps command*](images/Chapter-10/processes/ps.png "ps")
-
-These additional commands will share more information:
-
-* ```ps -e```  <-- select all processes (similar to -A)
-* ```ps -ef```  <-- this is one of the more helpful and verbose sets of options with full-formatting
-* ```ps -eF``` <-- Extra full-formatting
-* ```ps -ely```  <-- Long formatting
-* ```ps -eo pif,tid,class,ni,pri,psr...```  <-- the ```o``` option allows you to customize the column arraingment and output.
-* ```ps -C syslogd -o pid=```  <-- this is the same as doing ```ps -ef | grep firefox``` or ```pidof firefox```
-* ```ps xawf -eo pid,user,cgroup,args``` [^119]  Shows cgroup ownership details.
-* systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership.
-  * cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
-
-### kill
-
-In the SysVinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
-
- Level       Name            Function
--------- ------------ -----------------------------------------------------------------------
-  1        SIGHUP       Used to make a process re-read a config file
-  2        SIGINT       Effectively hitting CTRL+C
-  9        SIGKILL      Kills a process ungracefully--could damage files, use as last resort
-  15       SIGTERM      Like a kill 9, but with class, gracefully kills a process
--------- ------------ -----------------------------------------------------------------------
-
-All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors.  All except ```kill -9``` every process has to obey.  You can use the ```killall``` command to kill the process and any associated processes that it had launched all in one fell swoop.  You and use the ```ptkill``` command to kill a process by name instead of PID.
 
 ### Killing Processes with systemd
 
@@ -361,17 +437,7 @@ By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of whi
 
 > __Example Usage:__ To terminate the Apache2 web-server service, (assuming it has been enabled and started) first let's see the processes in its cgroup by typing ```systemd-cgls```.  You can filter just the apache2 process and sub-processes with the command: ```sudo systemd-cgls -u apache2.service```.  You can issue a kill command in the same way you can kill traditional processes by typing, ```systemctl kill httpd.service```.  You can also issue a kill level command through the ```-s``` flag, ```systemctl kill -s SIGHUP httpd.service``` will issue a ```kill -1``` command to all the members of the httpd.service cgroup.
 
-### nice
-
-The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
-
-> __Example Usage:__  This example will increase favorability of this process to the scheduler by 10 on a scale of -20 to 19--default is 0.
-
-```bash
-nice -n 10 my-loop
-```
-
-## /proc
+## Filesystems /proc
 
 > *"/proc is very special in that it is also a virtual filesystem. It's sometimes referred to as a process information pseudo-file system. It doesn't contain 'real' files but runtime system information (e.g. system memory, devices mounted, hardware configuration, etc). For this reason it can be regarded as a control and information centre for the kernel. In fact, quite a lot of system utilities are simply calls to files in this directory. [^120]"*
 
@@ -656,3 +722,7 @@ __Lab Activities:__
 [^122]: [https://en.wikipedia.org/wiki/Systemd#Ancillary_components](https://en.wikipedia.org/wiki/Systemd#Ancillary_components "Wikipedia systemd Article")
 
 [^123]:[http://smarden.org/runit/](http://smarden.org/runit/ "runit wikipage")
+
+[^ch10f124]: [https://systemd.io/HOME_DIRECTORY/](https://systemd.io/HOME_DIRECTORY/ "systemd home page")
+
+[^ch10f125]: [https://linuxconfig.org/how-to-schedule-tasks-with-systemd-timers-in-linux](https://linuxconfig.org/how-to-schedule-tasks-with-systemd-timers-in-linux "systemd timers tutorial")
