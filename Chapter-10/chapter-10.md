@@ -201,9 +201,7 @@ OpenRC and runit do not use systemd at all and therefore any software that requi
 
 Init Systems: Comparison of actions
 
-### Systemd and Systemctl
-
-![*The architecture of systemd as it is used by Tizen. Several components, including telephony, bootmode, dlog and tizen service, are from Tizen and are not components of systemd.*](images/Chapter-10/systemd/systemd.png "systemd")
+## Systemd and Systemctl
 
 Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at Red Hat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.  Systemd is licensed under the LGPL 2.1 or later, [GNU Lesser General Public License](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License "LGPL").  
 
@@ -364,19 +362,17 @@ Persistent=true
 WantedBy=timers.target
 ```
 
-The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency.  It can use various types of time definitions[^ch10f125].  
+The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency.  It can use various types of time definitions[^ch10f125]. Here is a small list defining the various ways you can state time:
 
-       Time Definitions
-------------------------------
-   Wed 18:00:00
-   Mon..Wed *-5-27
-   2020-05-27
-   *:0/2
-   15/2
-   hourly
-   daily
-   weekly
-   monthly
+* Wed 18:00:00
+* Mon..Wed \*-5-27
+* 2020-05-27
+* \*:0/2
+* 15/2
+* hourly
+* daily
+* weekly
+* monthly
 
 #### Logging and Service Files
 
