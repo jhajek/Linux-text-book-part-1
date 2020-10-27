@@ -145,7 +145,15 @@ The ```nice``` command is a *suggestion* tool to the operating system scheduler 
 nice -n 10 my-loop
 ```
 
-### Upstart
+### Working With Services in SysVinit/Upstart  
+
+Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | reload | status```.  This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the text files information is parsed and placed in memory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```.
+
+> __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
+
+> __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
+
+## Upstart
 
 In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called ```upstart```.  Upstart moved all the traditional runlevels and start up scripts to ```/etc/init``` directory and placed the scripts in configuration files. While leaving the ```/etc/rc.d``` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in ```/etc/init/myservice.conf```:  Note the use of the __run level__ concept from SysVinit.  Compare this to (on an Ubuntu system) the contents of any script in ```/etc/rc3.d``` (run level 3).  Upstart exhibits a bit more process control but still being a shell script when you boil it down.
 
@@ -176,15 +184,7 @@ exec myprocess
 
 Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental replacement in Fedora 9 - until version 18 when systemd was ready.  RHEL and CentOS used Upstart as well until RHEL 7, and ChromeOS still does (OS for Chromebooks).  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between SysVinit and its failings but in the end systemd won out.  MacOS uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris and Illumos/SmartOS use [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
 
-### Working With Services in SysVinit/Upstart  
-
-Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | reload | status```.  This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the text files information is parsed and placed in memory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```.
-
-> __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
-
-> __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
-
-### Other SysVinit replacements
+## Other SysVinit replacements
 
 Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*  Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
 
