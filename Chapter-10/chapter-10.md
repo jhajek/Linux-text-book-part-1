@@ -239,7 +239,7 @@ Compared to the make up of a SysVinit service, systemd has a simple design for e
 
 You can see the dependencies the httpd service needs and will only start if the targets listed in \[Unit\] under *After* have started--which makes sense. The command ```sudo systemctl show --property "Wants" httpd.service``` will show only the property from the unit file that you identify with __--property__. The *ExecStart* and *ExecReload* are called when you start and restart the service--which point to the absolute path to the Apache2 binary.  The final value is when the service is installed it has a dependency of being in a mutli-user target--it obviously be used on a single user system.
 
-#### Major systemd Components
+### Major systemd Components
 
 Not just an init system replacement, systemd has replaced or merged the functionality of many other Linux services into systemd[^122]. Beside its primary purpose of providing a replacement Linux init system, systemd suite provides additional functionality, including its following components:
 
@@ -335,6 +335,26 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
+```
+
+```bash
+ # .service file for the Rsyslog service:
+ # /lib/systemd/system/rsyslog.service
+[Unit]
+Description=System Logging Service
+Requires=syslog.socket
+Documentation=man:rsyslogd(8)
+Documentation=http://www.rsyslog.com/doc/
+
+[Service]
+Type=notify
+ExecStart=/usr/sbin/rsyslogd -n
+StandardOutput=null
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=syslog.service
 ```
 
 #### Creating a .timer script
