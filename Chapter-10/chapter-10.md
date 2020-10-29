@@ -644,7 +644,7 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 
 #### Lab 10 Outcomes
 
-At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  After each item take a screenshot and place it below the question to demonstrate the answer (unless specified otherwise).  Edit your screenshots to show jsut the relevant information.
+At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  After each item take a screenshot and place it below the question to demonstrate the answer (unless specified otherwise).  Edit your screenshots to show just the relevant information.
 
 1) Take a screenshot of the Advanced GRUB boot settings in an Ubuntu virtual Machine (you can access this menu by starting a virtual machine from a cold start, click your mouse into the virtualbox window immediately after the VM starts and hold the **shift** key down until you see the GRUB menu). Select the Advanced option and take the screenshot of the kernels and the recovery options.
 
