@@ -1,2 +1,2 @@
-white True:
+while True:
   print("looping...\n")
