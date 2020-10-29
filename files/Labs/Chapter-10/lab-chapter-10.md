@@ -1,42 +1,34 @@
-# Lab - Chapter 10
+# Lab 10
 
-__Objectives:__
+## Lab 10 Objectives
 
-* Modify GRUB settings
+* Learn how to modify GRUB settings
 * Use `systemctl` to start, stop, and examine processes in systemd
 * Use `systemd-analyze` to understand what services are loading during system boot
-* Change systemd targets.
-* Use the `nice` command to modify a process' priority.
+* Learn how to change systemd targets
 * List the kernel modules currently loaded on your Linux system.
 
-__Outcomes:__
+## Lab 10 Outcomes
 
-At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.
+At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  After each item take a screenshot and place it below the question to demonstrate the answer (unless specified otherwise).  Edit your screenshots to show jsut the relevant information.
 
-1) Change the default GRUB settings in Ubuntu by adding a background image (preferably dark) and removing or disabling the `quiet splash` option. Make sure to execute `update-grub` before rebooting or else your changes won't be written.
+1) Take a screenshot of the Advanced GRUB boot settings in an Ubuntu virtual Machine (you can access this menu by starting a virtual machine from a cold start, click your mouse into the virtualbox window immediately after the VM starts and hold the **shift** key down until you see the GRUB menu). Select the Advanced option and take the screenshot of the kernels and the recovery options.
 
-1) Use the `systemd-analyze` tools to print out the most recent boot time for your system.
+1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`.  Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, and now take a screenshot of the same menu that is missing the recovery options.
 
-1) Install MariaDB server, `sudo dnf install mariadb-server`.
-   a) Use the command `systemctl status <servicename>` after MariaDB is installed to display its current status, enable the service via `systemctl`, and then start the service. Finally, reboot your system.
+1) Use the `systemd-analyze` tools to print out the most recent boot times for your Ubuntu virtual machine.
 
-1) With MariaDB enabled, use the `systemd-analyze` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.
+1) Use the `systemd-analyze` tools to print out the most recent boot times for your Ubuntu virtual machine.
 
-1) Use `systemd-analyze blame` to collect start times of each element after installing and enabling the MariaDB service.
+1) Install MariaDB server on Fedora, `sudo dnf install mariadb-server`.  Use the command `sudo systemctl status <servicename>` after MariaDB is installed to take a screenshot of the display of its current status. Enable the service via `systemctl`, and then start the service. Finally, reboot your system.
 
-1) Use `systemctl` to enable and start the httpd.service (Fedora).
+1) With MariaDB enabled on Fedora, use the `systemd-analyze` tools to print out the most recent boot time for your system again and compare this to the first boot time screenshot to see if adding this service increased the boot time.
 
-1) Use `systemctl` to SIGHUP the httpd.service (Fedora).
+1) Use `systemctl` to enable and start the nginx.service (Fedora).  Take a screenshot of this command and its output (you may need to install ngnix).
 
 1) Change the `systemd` target to the systemd commandline-only level, display the `systemd` default target level, and then change back to the GUI target (or runlevel5).
 
 1) Using systemctl and the `--show` option, display the "After" and "Wants" properties of the sshd.service.
-
-1) Use the `nice` command to set the priority of a process - create/compile a C infinite loop program and `nice` it to lowest priority and then highest priority.  Open a second terminal tab/window and use `htop` (install it if needed) to display that process' system usage.
-
-1) Launch multiple tabs in Firefox using this command: `firefox -new-tab -url krebsonsecurity.com -new-tab -url twit.tv/floss/`
-   a) Find the process IDs via `ps -ef` and kill those tabs/processes with a `kill -2` command.
-   b) Repeat the above launch command and this time use systemd and the proper cgroups to kill the FireFox processes.
 
 1) Using `lsmod` and `grep`, list all of the kernel modules loaded on your system that contain VirtualBox (search for `vb*`).
 
@@ -44,13 +36,13 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Run the command that will list all the PCI devices attached to your system.
 
-1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware.
+1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware (a single screenshot will do incase the output scrolls past one screen).
 
 1) Using `systemctl`, find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
 
 1) Using `systemd-cgls`, list and filter the output to show the sub-process IDs for the httpd.service or apache2.service.
 
-1) Use the `timedatectl` command to change the clock of your system to UTC.
+1) Use the `timedatectl` command to change the clock of your system to UTC, show the output of the `date` command before and after the timezone change.
 
 1) Use the `hostnamectl` command to:
    a) set-hostname to itmo-556-xyz (xyz is your initials)
@@ -58,19 +50,18 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
    c) set-chassis to: vm
    d) set-deployment to: development
 
-1) Install a copy of Devuan Linux from [devuan.org](https://devuan.org "Devuan Linux"). Take a screenshot of the `ps -ef` command focusing on PID 1.
-   a) Install the OpenRC init system via `sudo apt-get install openrc`
-   b) The install process asks you to run a command after successful install: ```for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done```
-   c) Explain what this command is doing.
-   d) Reboot the system and take a screenshot of the output of the `ps -ef` command focusing on PID 1.
-
 1) What would be the command to change the systemd target runlevel to recovery mode?  Execute this command and take a screenshot of the result.
 
 1) Review the content of the mysql.service file. List the contents of the `[Install]` header that must load before and after the mysql service starts.
 
-1) Using GCC `sudo dnf install gcc` or `sudo apt-get install build essential`, create and compile a simple C++ code that is an infinite loop -- just put `while true` in the body of main.   Execute this script (note you could do this in Python as well, your choice).  Use ```systemd-cgtop``` to display the usage and capture that output.
-   a) use the `ps` and various filters to show only information related to this process.
-   b) use the `systemd-cgls` command and filters to display the process information
-   c) use the kill command from systemd to kill the cgroup related to the infinite loop process.
+1) Find the sample file located in: files > Chapter-10 > python > iloop.py.  Copy this file to `/usr/local/bin` and then execute the file by typing: `python3 iloop.py`, take a screenshot of the output
 
-1) Find the sample file located in: files > Chapter-10 > python > write-journal.py and copy it to any directory but NOT your home directory (you can use `/usr/local/bin`). Create a systemd service file called write-journal.service.  Have the service file execute this python script (use absolute paths).  Use the commands to **enable** and **start** the service.  Use the `sudo journalctl -xe` command to show the output in the systemd logs at boot and after the system has loaded.
+1) Copy the sample template file located in: files > Chapter-10 > python > iloop.service to your `/lib/systemd/system` directory. Edit the iloop.service file adding a description, type simple, private tmp true, wantedby multi-user.target, and ExecStart the absolute path to the python3 binary and absolute path to iloop.py.  Take a screenshot of the output of the systemctl start command and then the status command.
+
+1) Using the `systemd-cgls` command find the cgroup ID for the iloop.service and take a screenshot of that entry. After taking the screenshot execute the systemctl stop command for the iloop.service.
+
+1) Take a screenshot of the output of the command: `systemctl list-timers`.
+
+1) Copy the sample template file located in: files > Chapter-10 > python > iloop.timer to your `/lib/systemd/system` directory. Edit the .timer file configuring the onCalander value for execution 3 minutes from the current time.  This is so you can see the results of the scheduled task execute. Take a screenshot of the output of the command: `systemctl list-timers` showing the iloop timer as active.
+
+1) Find the sample file located in: files > Chapter-10 > python > write-journal.py and copy it to `/usr/local/bin`. Exeecute this command and use the journalctl command with the `-xe` flags to show the output message in the journald logs.

@@ -1,10 +1,10 @@
 # Review Questions - Chapter 10
 
-1) What is the name of *beep* sound heard in the initial boot of a PC (assume you are using BIOS not UEFI)?
-a) PERC
+1) What is the name of the firmware that since 2015 has replaced BIOS on essenitally all computers?
+a) BIOS
 b) POST
 c) GRUB
-d) BIOS
+d) UEFI
 
 2) What is the name of the GNU software that is the first software program that runs when a computer with Linux installed starts?
 a) BIOS
@@ -12,41 +12,41 @@ b) LILO
 c) GRUB
 d) GLOADER
 
-3) In what Linux directory is the kernel and initrd image stored?
+3) In what Linux directory are the kernel and initrd image stored?
 a) /root
 b) /root/kernel
 c) /boot
 d) /boot/vmlinux
 
-4) What is the name of the pre-kernel gzip file located in /boot that helps the kernel load?
+4) What is the name of the pre-kernel gzip file located in `/boot` that helps the kernel load?
 a) vmlinuz
 b) initrd
 c) initram
 d) init
 
-5) Where is the file location where the GNU Grub configuration is stored that a user would edit?
-a) /boot/grub/grub.cfg
-b) /etc/default/grub
-c) /etc/grub/grub.cfg
-d) /boot/kernel/conf
+5) Where is the file location where the GNU Grub configuration is stored (on Ubuntu) that a user would edit?
+a) `/boot/grub/grub.cfg`
+b) `/etc/default/grub`
+c) `/etc/grub/grub.cfg`
+d) `/boot/kernel/conf`
 
-6) In the /etc/default/grub file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
+6) In the /etc/default/grub file, which of these options below would you edit to dispaly the *splash* screen on boot so kernel messages are displayed?
 a) GRUB_CMDLINE_LINUX_DEDFAULT
 b) GRUB_BACKGROUND
 c) GRUB_GFXMODE
 d) GRUB_TIMEOUT
 
-7) What is the command to make changes to /etc/default/grub permanent?
+7) What is the command to make changes to `/etc/default/grub` permanent?
 a) No special command just edit and save /etc/default/grub
 b) sudo apt-get update
 c) sudo update-grub
 d) sudo updatedb
 
-8) Under SysVinit - what is the ancestor process that launches first and everyother process is started by it?
-a)  root
-b)  sbin
-c)  init
-d)  systemd
+8) Under SysVinit - what is the ancestor process that launches first and every other process is started by it?
+a) root
+b) sbin
+c) init
+d) systemd
 
 9) Under SysVinit - what runlevel is considered multi-user command-line only?
 a) 1
@@ -54,35 +54,35 @@ b) m
 c) 3
 d) 5
 
-10) Under SysVinit - what runlevel is considered multi-user GUI only?
-a) 1
-b) 0
-c) 3
-d) 5
+10) Which Operating System is still using the Upstart init system?
+a) Ubuntu
+b) MX Linux
+c) Fedora
+d) ChomeOS
 
-11) Which company created the Upstart init system as an improvement of SysVinit?
-a) Red Hat
-b) Debian
-c) Oracle
-d) Ubuntu
+11) What is the name of the init system that has replaced SysVinit in every single major Linux distribution (not including Devuan and Gentoo Linux)?
+a) systemX
+b) systemd
+c) systemV
+d) initrd
 
-12) What is the name of the init system that has replaced SysVinit in every single major Linux distribution (Not including Devuan and Gentoo Linux)?
-a)  systemX
-b)  systemd
-c)  systemV
-d)  initrd
-
-13) What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
+12) What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
 a) systemd
-b)  systemd-init
-c)  service
+b) systemd-init
+c) service
 d) systemctl
 
-14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora using systemd?
-a)  sudo service apache2 stop
-b)  sudo systemctl disable apache2.service
-c)  sudo systemctl stop apache2.service
-d)  sudo systemctl disable httpd.service
+13) How would you start the `nginx.service` on an Ubuntu system using systemd?
+a) `sudo system start nginx`
+b) `sudo service start nginx`
+c) `sudo systemctl nginx start`
+d) `sudo systemctl start nginx`
+
+14) What would be the command to disable (make the service not start at boot time) the `httpd` service on Fedora using systemd?
+a) `sudo service httpd stop`
+b) `sudo systemctl disable apache2.service`
+c) `sudo systemctl stop httpd.service`
+d) `sudo systemctl disable httpd.service`
 
 15) What is the Linux command to inspect processes (not part of systemd)?
 a) p

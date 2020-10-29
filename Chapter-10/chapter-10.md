@@ -53,22 +53,22 @@ You will notice that there is a vmlinuz kernel image per each instance that corr
 
 ### GNU GRUB Settings
 
- The GRUB 2 or GNU GRUB bootloader exists in the file ```/boot/grub/grub.cfg``` but this file is auto generated so to edit the settings you would modify the ```/etc/default/grub``` file.  
- The ```/etc/default/grub``` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
+The GRUB 2 or GNU GRUB bootloader exists in the file ```/boot/grub/grub.cfg``` but this file is auto generated so to edit the settings you would modify the ```/etc/default/grub``` file.  
+The ```/etc/default/grub``` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
 
- GRUB_DEFAULT=N  -- this value is which entry in your GRUB list is the default operating system to boot.  If you have a single OS installed, this value will be 0.  
+GRUB_DEFAULT=N  -- this value is which entry in your GRUB list is the default operating system to boot.  If you have a single OS installed, this value will be 0.  
 
- GRUB_TIMEOUT -- this is the setting that tells the system to boot the default command N seconds after the GRUB menu has appeared.  It functions as a countdown.  
+GRUB_TIMEOUT -- this is the setting that tells the system to boot the default command N seconds after the GRUB menu has appeared.  It functions as a countdown.  
 
- GRUB_TIMEOUT_STYLE -- this will let the count down appear or silently countdown.  
+GRUB_TIMEOUT_STYLE -- this will let the count down appear or silently countdown.  
 
- GRUB_CMDLINE_LINUX_DEFAULT -- this value adds additional key value pairs to the kernel boot parameters.  A common setting here is to change the setting of *splash quiet* which hides and boot time kernel message behind the Ubuntu logo and instead displays them on the screen.  
+GRUB_CMDLINE_LINUX_DEFAULT -- this value adds additional key value pairs to the kernel boot parameters.  A common setting here is to change the setting of *splash quiet* which hides and boot time kernel message behind the Ubuntu logo and instead displays them on the screen.  
 
- GRUB_DISABLE_LINUX_RECOVERY -- this hides the single user/recovery mode from the GRUB menu per kernel entry
+GRUB_DISABLE_RECOVERY -- this hides the single user/recovery mode from the GRUB menu per kernel entry
 
- GRUB_GFXMODE=640x480 -- this setting is commented out by default, but you can enable this to hard code a certain boot resolution.
+GRUB_GFXMODE=640x480 -- this setting is commented out by default, but you can enable this to hard code a certain boot resolution.
 
- GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a background image.
+GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a background image.
 
 To make these changes permanent you need to execute the ```sudo update-grub``` command after saving the file so the ```/boot/grub/grub.cfg``` will be regenerated and used on the next boot.
 
@@ -339,28 +339,32 @@ WantedBy=multi-user.target
 
 #### Creating a .timer script
 
-Systemd is efforting to replace cron jobs with a centralized systemd format called timers.   You can see all the timers set on your system by default by using the `systemctl list-timers` command.  The `.timer` files are named the same as the `.service` file -- this correlates them.  Here is a sample `.timer`:
+Systemd is efforting to replace cron jobs with a centralized systemd format called timers.   You can see all the timers set on your system by default by using the `systemctl list-timers` command.  The `.timer` files are named the same as the `.service` file -- this correlates them. Timer files are stored along with service files in the `/lib/systemd/system` directory. Here is a sample `.timer`:
 
 ```bash
+# This is the /lib/systemd/system/apt-daily.timer
+# that runs /lib/systemd/system/apt-daily.service
+# This does a daily update for packages via apt-get
 [Unit]
-Description=Daily man-db regeneration
+Description=Daily apt download activities
 
 [Timer]
-OnCalendar=daily
-AccuracySec=12h
+OnCalendar=*-*-* 6,18:00
+RandomizedDelaySec=12h
 Persistent=true
 
 [Install]
 WantedBy=timers.target
 ```
 
-The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency.  It can use various types of time definitions[^ch10f125]. Here is a small list defining the various ways you can state time:
+The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency.  It can use various types of time definitions[^ch10f125]. Here is a small list defining the various ways you can state time, even extending the traditional CronTab syntax and adding ranges (seperated by the two dots "..").
 
 * Wed 18:00:00
 * Mon..Wed \*-5-27
 * 2020-05-27
 * \*:0/2
 * 15/2
+* *-*-* 4:00:00
 * hourly
 * daily
 * weekly
@@ -371,10 +375,8 @@ The main variable here is the `OnCalendar` value, where you can define a time wh
 You will need to install some pre-reqs for this example.
 
 ```bash
-# Ubuntu - https://pypi.org/project/systemd/
-apt-get install build-essential \
-    libsystemd-journal-dev \
-    libsystemd-daemon-dev \
+# Ubuntu 18.04 and 20.04 - https://pypi.org/project/systemd/
+sudo apt-get install build-essential \
     libsystemd-dev \
     python3-pip \
     python3-dev
@@ -392,7 +394,7 @@ Create a python script called `write-journal.py` and include this code after ins
 ```python
 from systemd import journal
 
-journal.send("Hello Lennart")
+journal.write("Hello Lennart!")
 ```
 
 Give the above script execute permission, execute it by typing `python write-journal.py`, and the execute the command: `sudo journalctl -xe`, what do you see?
@@ -403,7 +405,7 @@ One of the 69+ components of systemd is hostnamectl which is designed to give yo
 
 > **Exercise:** Use the hostnamectl command to change your systems hostname to itmo-556 (or your class name).  Now close your shell and reopen it--what do you see?
 
-The ```timedatectl``` is used for setting time zone and to activate ntp, [network time protocol](http://tldp.org/LDP/sag/html/ntp.html "Network Time Protocol"), synchronization.  This part of systemd supersedes previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl").  The command `sudo timedatectl status` shows the current timedatectl configuration.  You can also enable NTP and change the timezone via timedatectl, no need to use external NTP services anymore.  The command 
+The ```timedatectl``` is used for setting time zone and to activate ntp, [network time protocol](http://tldp.org/LDP/sag/html/ntp.html "Network Time Protocol"), synchronization.  This part of systemd supersedes previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl").  The command `sudo timedatectl status` shows the current timedatectl configuration.  You can also enable NTP and change the timezone via timedatectl, no need to use external NTP services anymore.
 
 > **Exercise:** Using the man command for `timedatectl` can you enable `ntp` synchronization?  Can you change the timezone to UTC using the information at this URL: [https://www.freedesktop.org/software/systemd/man/timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl")?
 
@@ -436,11 +438,11 @@ The ```/proc``` virtual filesystem provides you a file based interface to the pr
  The Linux kernel also has a concept of loadable kernel modules.  These are pieces of code that can be added into or removed from the kernel--statically at boot, or dynamically as needed, so as to extend the capabilities of your kernel, without forcing uneeded code. For example--needing drivers for a floppy disk would be a waste to include that in the kernel when it could be added and removed via a loadable module if you happened to need it for testing.   To list all the module currently loaded you would type, ```lsmod```.   This command is actually just formatting the content of ```/proc/modules```.  There are other shortcut commands as well to inspect system devices.
 
 --------------   ---------------------------------------------------------------------------
-  lsmod           Lists all currently loaded kernel modules
-  lspci           Lists all the currently detected PCI devices
-  lsusb           Lists all the currently detected USB connections
-  lsblk           Lists all block devices attached to the system (useful for hard-drives)
-  lshw            Lists detailed information on the hardware configuration of the machine
+  `lsmod`           Lists all currently loaded kernel modules
+  `lspci`           Lists all the currently detected PCI devices
+  `lsusb`           Lists all the currently detected USB connections
+  `lsblk`           Lists all block devices attached to the system (useful for hard-drives)
+  `lshw`            Lists detailed information on the hardware configuration of the machine
 --------------   ---------------------------------------------------------------------------
 
 ### Loading Modules
@@ -465,15 +467,15 @@ If you have a system with an issue--or damage that needs to be repaired.  Perhap
 
 ## Chapter Conclusions and Review
 
-Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands.  You learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under SysVinit.  Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in file format dynamically on boot and during a system's use.
+Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands.  We learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under SysVinit.  Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in a file format dynamically on boot and during a system's use.
 
 ### Review Questions
 
-1) What is the name of *beep* sound heard in the initial boot of a PC (assume you are using BIOS not UEFI)?
-a) PERC
+1) What is the name of the firmware that since 2015 has replaced BIOS on essenitally all computers?
+a) BIOS
 b) POST
 c) GRUB
-d) BIOS
+d) UEFI
 
 2) What is the name of the GNU software that is the first software program that runs when a computer with Linux installed starts?
 a) BIOS
@@ -481,41 +483,41 @@ b) LILO
 c) GRUB
 d) GLOADER
 
-3) In what Linux directory is the kernel and initrd image stored?
+3) In what Linux directory are the kernel and initrd image stored?
 a) /root
 b) /root/kernel
 c) /boot
 d) /boot/vmlinux
 
-4) What is the name of the pre-kernel gzip file located in /boot that helps the kernel load?
+4) What is the name of the pre-kernel gzip file located in `/boot` that helps the kernel load?
 a) vmlinuz
 b) initrd
 c) initram
 d) init
 
-5) Where is the file location where the GNU Grub configuration is stored that a user would edit?
-a) /boot/grub/grub.cfg
-b) /etc/default/grub
-c) /etc/grub/grub.cfg
-d) /boot/kernel/conf
+5) Where is the file location where the GNU Grub configuration is stored (on Ubuntu) that a user would edit?
+a) `/boot/grub/grub.cfg`
+b) `/etc/default/grub`
+c) `/etc/grub/grub.cfg`
+d) `/boot/kernel/conf`
 
-6) In the /etc/default/grub file, which of these options below would I edit to dispaly the *splash* screen on boot so kernel messages are displayed?
+6) In the /etc/default/grub file, which of these options below would you edit to dispaly the *splash* screen on boot so kernel messages are displayed?
 a) GRUB_CMDLINE_LINUX_DEDFAULT
 b) GRUB_BACKGROUND
 c) GRUB_GFXMODE
 d) GRUB_TIMEOUT
 
-7) What is the command to make changes to /etc/default/grub permanent?
+7) What is the command to make changes to `/etc/default/grub` permanent?
 a) No special command just edit and save /etc/default/grub
 b) sudo apt-get update
 c) sudo update-grub
 d) sudo updatedb
 
-8) Under SysVinit - what is the ancestor process that launches first and everyother process is started by it?
-a)  root
-b)  sbin
-c)  init
-d)  systemd
+8) Under SysVinit - what is the ancestor process that launches first and every other process is started by it?
+a) root
+b) sbin
+c) init
+d) systemd
 
 9) Under SysVinit - what runlevel is considered multi-user command-line only?
 a) 1
@@ -523,35 +525,35 @@ b) m
 c) 3
 d) 5
 
-10) Under SysVinit - what runlevel is considered multi-user GUI only?
-a) 1
-b) 0
-c) 3
-d) 5
+10) Which Operating System is still using the Upstart init system?
+a) Ubuntu
+b) MX Linux
+c) Fedora
+d) ChomeOS
 
-11) Which company created the Upstart init system as an improvement of SysVinit?
-a) Red Hat
-b) Debian
-c) Oracle
-d) Ubuntu
+11) What is the name of the init system that has replaced SysVinit in every single major Linux distribution (not including Devuan and Gentoo Linux)?
+a) systemX
+b) systemd
+c) systemV
+d) initrd
 
-12) What is the name of the init system that has replaced SysVinit in every single major Linux distribution (Not including Devuan and Gentoo Linux)?
-a)  systemX
-b)  systemd
-c)  systemV
-d)  initrd
-
-13) What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
+12) What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
 a) systemd
-b)  systemd-init
-c)  service
+b) systemd-init
+c) service
 d) systemctl
 
-14) What would be the command to disable (make the service not start at boot time) the httpd service on Fedora using systemd?
-a)  sudo service apache2 stop
-b)  sudo systemctl disable apache2.service
-c)  sudo systemctl stop apache2.service
-d)  sudo systemctl disable httpd.service
+13) How would you start the `nginx.service` on an Ubuntu system using systemd?
+a) `sudo system start nginx`
+b) `sudo service start nginx`
+c) `sudo systemctl nginx start`
+d) `sudo systemctl start nginx`
+
+14) What would be the command to disable (make the service not start at boot time) the `httpd` service on Fedora using systemd?
+a) `sudo service httpd stop`
+b) `sudo systemctl disable apache2.service`
+c) `sudo systemctl stop httpd.service`
+d) `sudo systemctl disable httpd.service`
 
 15) What is the Linux command to inspect processes (not part of systemd)?
 a) p
@@ -610,47 +612,37 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 1) ~28:20 What are a few features that BSD could gain from systemd?
 1) ~28:20 Why can't BSD run containers?
 
-### Lab
+### Lab 10
 
-__Objectives:__
+#### Lab 10 Objectives
 
-* Modify GRUB settings.
-* Use `systemctl` to start, stop, and examine processes in systemd.
+* Learn how to modify GRUB settings
+* Use `systemctl` to start, stop, and examine processes in systemd
 * Use `systemd-analyze` to understand what services are loading during system boot
-* Change systemd targets.
-* Use the `nice` command to modify a process' priority.
+* Learn how to change systemd targets
 * List the kernel modules currently loaded on your Linux system.
 
-__Outcomes:__
+#### Lab 10 Outcomes
 
-At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.
+At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  After each item take a screenshot and place it below the question to demonstrate the answer (unless specified otherwise).  Edit your screenshots to show jsut the relevant information.
 
-__Lab Activities:__
+1) Take a screenshot of the Advanced GRUB boot settings in an Ubuntu virtual Machine (you can access this menu by starting a virtual machine from a cold start, click your mouse into the virtualbox window immediately after the VM starts and hold the **shift** key down until you see the GRUB menu). Select the Advanced option and take the screenshot of the kernels and the recovery options.
 
-1) Change the default GRUB settings in Ubuntu by adding a background image (preferably dark) and removing or disabling the `quiet splash` option. Make sure to execute `update-grub` before rebooting or else your changes won't be written.
+1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`.  Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, and now take a screenshot of the same menu that is missing the recovery options.
 
-1) Use the `systemd-analyze` tools to print out the most recent boot time for your system.
+1) Use the `systemd-analyze` tools to print out the most recent boot times for your Ubuntu virtual machine.
 
-1) Install MariaDB server, `sudo dnf install mariadb-server`.
-   a) Use the command `systemctl status <servicename>` after MariaDB is installed to display its current status, enable the service via `systemctl`, and then start the service. Finally, reboot your system.
+1) Use the `systemd-analyze` tools to print out the most recent boot times for your Ubuntu virtual machine.
 
-1) With MariaDB enabled, use the `systemd-analyze` tools to print out the most recent boot time for your system again and compare if adding this service increased boot times.
+1) Install MariaDB server on Fedora, `sudo dnf install mariadb-server`.  Use the command `sudo systemctl status <servicename>` after MariaDB is installed to take a screenshot of the display of its current status. Enable the service via `systemctl`, and then start the service. Finally, reboot your system.
 
-1) Use `systemd-analyze blame` to collect start times of each element after installing and enabling the MariaDB service.
+1) With MariaDB enabled on Fedora, use the `systemd-analyze` tools to print out the most recent boot time for your system again and compare this to the first boot time screenshot to see if adding this service increased the boot time.
 
-1) Use `systemctl` to enable and start the httpd.service (Fedora).
-
-1) Use `systemctl` to SIGHUP the httpd.service (Fedora).
+1) Use `systemctl` to enable and start the nginx.service (Fedora).  Take a screenshot of this command and its output (you may need to install ngnix).
 
 1) Change the `systemd` target to the systemd commandline-only level, display the `systemd` default target level, and then change back to the GUI target (or runlevel5).
 
 1) Using systemctl and the `--show` option, display the "After" and "Wants" properties of the sshd.service.
-
-1) Use the `nice` command to set the priority of a process - create/compile a C infinite loop program and `nice` it to lowest priority and then highest priority.  Open a second terminal tab/window and use `htop` (install it if needed) to display that process' system usage.
-
-1) Launch multiple tabs in Firefox using this command: `firefox -new-tab -url krebsonsecurity.com -new-tab -url twit.tv/floss/`
-   a) Find the process IDs via `ps -ef` and kill those tabs/processes with a `kill -2` command.
-   b) Repeat the above launch command and this time use systemd and the proper cgroups to kill the FireFox processes.
 
 1) Using `lsmod` and `grep`, list all of the kernel modules loaded on your system that contain VirtualBox (search for `vb*`).
 
@@ -658,13 +650,13 @@ __Lab Activities:__
 
 1) Run the command that will list all the PCI devices attached to your system.
 
-1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware.
+1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware (a single screenshot will do incase the output scrolls past one screen).
 
 1) Using `systemctl`, find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
 
 1) Using `systemd-cgls`, list and filter the output to show the sub-process IDs for the httpd.service or apache2.service.
 
-1) Use the `timedatectl` command to change the clock of your system to UTC.
+1) Use the `timedatectl` command to change the clock of your system to UTC, show the output of the `date` command before and after the timezone change.
 
 1) Use the `hostnamectl` command to:
    a) set-hostname to itmo-556-xyz (xyz is your initials)
@@ -672,22 +664,21 @@ __Lab Activities:__
    c) set-chassis to: vm
    d) set-deployment to: development
 
-1) Install a copy of Devuan Linux from [devuan.org](https://devuan.org "Devuan Linux"). Take a screenshot of the `ps -ef` command focusing on PID 1.
-   a) Install the OpenRC init system via `sudo apt-get install openrc`
-   b) The install process asks you to run a command after successful install: ```for file in /etc/rc0.d/K*; do s=`basename $(readlink "$file")` ; /etc/init.d/$s stop; done```
-   c) Explain what this command is doing.
-   d) Reboot the system and take a screenshot of the output of the `ps -ef` command focusing on PID 1.
-
 1) What would be the command to change the systemd target runlevel to recovery mode?  Execute this command and take a screenshot of the result.
 
 1) Review the content of the mysql.service file. List the contents of the `[Install]` header that must load before and after the mysql service starts.
 
-1) Using GCC `sudo dnf install gcc` or `sudo apt-get install build essential`, create and compile a simple C++ code that is an infinite loop -- just put `while true` in the body of main.   Execute this script (note you could do this in Python as well, your choice).  Use ```systemd-cgtop``` to display the usage and capture that output.
-   a) use the `ps` and various filters to show only information related to this process.
-   b) use the `systemd-cgls` command and filters to display the process information
-   c) use the kill command from systemd to kill the cgroup related to the infinite loop process.
+1) Find the sample file located in: files > Chapter-10 > python > iloop.py.  Copy this file to `/usr/local/bin` and then execute the file by typing: `python3 iloop.py`, take a screenshot of the output
 
-1) Find the sample file located in: files > Chapter-10 > python > write-journal.py and copy it to any directory but NOT your home directory (you can use `/usr/local/bin`). Create a systemd service file called write-journal.service.  Have the service file execute this python script (use absolute paths).  Use the commands to **enable** and **start** the service.  Use the `sudo journalctl -xe` command to show the output in the systemd logs at boot and after the system has loaded.
+1) Copy the sample template file located in: files > Chapter-10 > python > iloop.service to your `/lib/systemd/system` directory. Edit the iloop.service file adding a description, type simple, private tmp true, wantedby multi-user.target, and ExecStart the absolute path to the python3 binary and absolute path to iloop.py.  Take a screenshot of the output of the systemctl start command and then the status command.
+
+1) Using the `systemd-cgls` command find the cgroup ID for the iloop.service and take a screenshot of that entry. After taking the screenshot execute the systemctl stop command for the iloop.service.
+
+1) Take a screenshot of the output of the command: `systemctl list-timers`.
+
+1) Copy the sample template file located in: files > Chapter-10 > python > iloop.timer to your `/lib/systemd/system` directory. Edit the .timer file configuring the onCalander value for execution 3 minutes from the current time.  This is so you can see the results of the scheduled task execute. Take a screenshot of the output of the command: `systemctl list-timers` showing the iloop timer as active.
+
+1) Find the sample file located in: files > Chapter-10 > python > write-journal.py and copy it to `/usr/local/bin`. Exeecute this command and use the journalctl command with the `-xe` flags to show the output message in the journald logs.
 
 #### Footnotes
 
