@@ -832,7 +832,7 @@ __Note__ The ```mysqldump``` application requires the ```mysql-client``` package
 
 1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomalies.
 
-1) On the SSH server make the following changes to the `sshd_config` file take screenshots of the changes
+1) On the SSH server make the following changes to the `sshd_config` file. Take screenshots of the changes:
    i. Not accept any password based authentication attempts
    i. Change the default port to be 5555
    i. Disable the value PermitRootLogin
