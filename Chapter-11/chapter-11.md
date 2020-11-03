@@ -60,15 +60,15 @@ The latest incarnation of SSD disk based technology is [NVMe](https://en.wikiped
 
 ![*mini-Sata and M.2*](images/Chapter-11/ssd/M.2_and_mSATA_SSDs_comparison.jpg "mini-Sata and M.2")
 
-The future of disk is something of a hybrid between ram and solid state/flash memory.  Intel launched a trademarked platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane").  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of disk to the point that is is close to or equal in speed to RAM (Non-volitile memory), thereby eliminating potential memory bottlenecks.  As of 2018 the cost and technology is still a bit prohibitive, but this is where the industry will move in the next 5 to 10 years.
+The future of disk is something of a hybrid between ram and solid state/flash memory.  Intel launched a trademarked platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane").  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of disk to the point that is is close to or equal in speed to RAM (Non-volitile memory), thereby eliminating potential memory bottlenecks.  As of 2020 the cost and technology is still a bit prohibitive, but this is where the industry will move in the next 5 to 10 years, driven by the demands of the Hyper Scalers/Cloud Computing companies.
 
 ### Virtual Hard Drives
 
-When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files.  This [interface was standardized](https://lwn.net/Articles/239238/ "virtuio announcement webpage")] and opensourced as part of the `virtio`package.  
+When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files.  This [interface was standardized](https://lwn.net/Articles/239238/ "virtuio announcement webpage") and opensourced as part of the `virtio` package.  
 
 ### Disk Management in VirtualBox
 
-For this chapter we will assume that you are using VirtualBox 5.x, but these concepts apply to any virtual machine or Hypervisor.  This also assumes you have free space on your computer.  Since the point of this lab is to explore and not production usage, you may want to get an external USB hard drive and use that for this chapter so as not to fill up your hard drive.
+For this chapter we will assume that you are using VirtualBox 6.x, but these concepts apply to any virtual machine or Hypervisor.  This also assumes you have free space on your computer.  Since the point of this lab is to explore and not production usage, you may want to get an external USB hard drive and use that for this chapter so as not to fill up your hard drive.
 
 With your Ubuntu or Fedora virtual machine powered down, let's add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu.
 
@@ -83,6 +83,7 @@ The next menu to come up will show the *SETTINGS* options and the name of the vi
 Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in VirtualBox.  In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well.  That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached.
 
 ![*Storage menu*](images/Chapter-11/virtual-box/storage.png "Storage")
+
 \newpage
 
 We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the name of the signaling protocol the operating system uses to retrieve data from a hard drive. Go ahead and highlight the SATA Controller entry.
@@ -94,6 +95,7 @@ In order to add a new hard drive to your virtual machine, click the blue HDD ico
 Upon completion of that step a new menu will pop out of the HDD icon and give you and option to *Add Hard Disk*.
 
 ![*Add Storage*](images/Chapter-11/virtual-box/add-storage.png "Add Storage")
+
 \newpage
 
 Once you have selected *Add Hard Disk* a familiar set of screens come up, these are the same screens you walked through in chapter 2, and the same set of screens you walk through when setting up a new virtual machine.  You are presented first with an option to create a new disk or attach an existing one.  Usually you want to create a new disk.
@@ -103,32 +105,34 @@ Once you have selected *Add Hard Disk* a familiar set of screens come up, these 
 Once that is selected you will be presented with the virtual disk type screen.  Since we will be working with VirtualBox, the default setting of VDI (VirtualBox Disk Image) will be the best selection.  But if you know this VM will be moving to another platform--you may want to choose accordingly.
 
 ![*VDI step-through*](images/Chapter-11/virtual-box/vdi.png "VDI")
+
 \newpage
 
 The next page allows you to choose either a dynamic or static allocated hard drive.  Dynamic is usually the best when you are working on a laptop or other development system, as you will be creating and destroying virtual machine rapidly, and static allocations of multiple gigabytes can become an issue after some time due to your disk filling up.
 
 ![*Dynamic Filesystem*](images/Chapter-11/virtual-box/dynamic.png "Dynamic")
-\newpage
 
 This next screen allows you to change the location of where the virtual hard disk will be stored, as well as adjust the size of this new partition.  
 ![*Hard Drive Size*](images/Chapter-11/virtual-box/size.png "Size")
+
 \newpage
 
-Once you see the screen below - it means you have successfully created a new virtual hard drive and have attached it to your virtual machine.  You can reverse the above operations by highlighting the virtual disk drive of choice and selecting the HDD icon with the minus sign and that will delete the hard drive.  But I recommend against that as your operating system won't know what happened and that could cause system instability.  Always best to unmount a partition from inside the operating system first before deleting the virtual hard drive. By highlighting the new disk or existing one, you can see the meta-data about the disk.
+The final step is to choose to attach the virtual disk you just created to the virtual machine.
+
+![*Choose new Virtual Disk to attach*](images/Chapter-11/virtual-box/choose-new-disk.png "Image showing how to attach new virtual disk to VM")
+
+Once you see the screen below - it means you have successfully created a new virtual hard drive and have attached it to your virtual machine.  You can reverse the above operations by highlighting the virtual disk drive of choice and selecting the HDD icon with the minus sign and that will delete the hard drive. By highlighting the new disk or existing one, you can see the meta-data about the disk.
 
 ![*Successfully Added New disk*](images/Chapter-11/virtual-box/new-disk.png "New")
 
-![*Disk Information*](images/Chapter-11/virtual-box/information.png "Information")
-
-Adding a virtual disk is only the first step, there are three more steps before we can use this disk.  We need to:
-
-1) partition the disk
-1) create a filesystem
-1) then mount the disk so that it can be used by your operating system.
-
 ## Disk Partitioning and Formatting
 
-According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of partition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where its partitions are. Each disk can have multiple partitions.
+Adding a virtual disk is only the first step, there are three more steps before we can use this disk.  Though the first two steps have been largely merged into a single step for the last decade.
+
+1) Partition the disk / create a filesystem
+1) Mount the disk so that it can be used by your operating system.
+
+According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of partition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where its partitions are. Each disk can have multiple partitions.  The `fdisk` method here is mentioned for historic reasons but is not used the installation of modern operating systems, but it is good to know where we came from.
 
 Linux inherited a way to name each device and reference certain partitions attached to a system.  Windows simply uses the letter C, D, E, and so forth.  Linux and Unix use a device/partition nomenclature.  You can see this currently by typing the ```lsblk``` command, which will print out currently all the block devices, their device name and their partitions in a nice tree based format.
 
@@ -193,7 +197,7 @@ Using the ```fdisk``` command does have its drawbacks.  The tool was designed in
 
 In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored in the users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
 
-The question is under standard partitioning you don't. You simply backup, reinstall, and reformat the entire drive.  This is very time consuming and a risky operation that is usually not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
+The answer is that under standard partitioning you don't. You simply backup and reinstall the Operating System on a bigger drive.  This is very time consuming and a risky operation that is not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
 
 LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*  In order to install LVM2 on Fedora/CentOS and Ubuntu you can type:
 
@@ -223,7 +227,7 @@ Once you have added the disks/partitions to the PV, now you need to create a Vol
 
 From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to Linear, but that is an application based decision.  Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command ```lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME``` will extend the LV to become 50 GB in size.  Using ```-L+50G``` will add 50 additional gigabytes to an existing LV's size.
 
-Once you have successfully created an LV, now it needs a file-system installed.  Here you can add XFS, Btrfs, ZFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each file-system type (XFS, Btrfs, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.
+Once you have successfully created an LV, now it needs a file-system installed.  Here you can add XFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each file-system type (XFS, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.
 
 One definite feature not included in traditional partitioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in (Btrfs and ZFS, but not XFS or ext4 they are too old.  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or COW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV.
 
