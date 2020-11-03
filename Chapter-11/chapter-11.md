@@ -115,8 +115,6 @@ The next page allows you to choose either a dynamic or static allocated hard dri
 This next screen allows you to change the location of where the virtual hard disk will be stored, as well as adjust the size of this new partition.  
 ![*Hard Drive Size*](images/Chapter-11/virtual-box/size.png "Size")
 
-\newpage
-
 The final step is to choose to attach the virtual disk you just created to the virtual machine.
 
 ![*Choose new Virtual Disk to attach*](images/Chapter-11/virtual-box/choose-new-disk.png "Image showing how to attach new virtual disk to VM")
@@ -262,11 +260,11 @@ You can remove the snapshots by unmounting the partition ```umount``` and the us
 
 To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory.  A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.
 
-If you have used Windows before you are familiar with Fat32 and NTFS filesystems. Since Windows is created and curated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the other-hand supports multiple different filesystems that serve many different purposes.
+If you have used Windows before you are familiar with FAT32 and NTFS filesystems. Since Windows is created and curated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the other-hand supports multiple different filesystems that serve many different purposes.
 
 ### ext/ext2
 
-The MINIX filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created. It had severe limitations since MINIX filesystem was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesystem.   By January of 1993, __ext2__ had been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written [^ch11f123].
+The MINIX filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created. It had severe limitations since MINIX filesystem was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesystem.   By January of 1993, __ext2__ had been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written by the operating system[^ch11f123].
 
 : Limits of ext2
 
@@ -280,7 +278,7 @@ Traditionally your ```/boot``` partition is formatted as __ext2__ because it is 
 
 ### ext3/ext4
 
-As filesystems became larger and the amount of data being written increased, the chances for data corruption or writes to fail became more evident and critical.  The CPU could now handle to overhead of managing data writes to disk to ensure that those operations actually happened.
+By 2001, as filesystems became larger, the amount of data being written increased and the chances for data corruption or disk writes to fail became more evident and critical.  The CPU could now handle to overhead of managing data writes to disk to ensure that those operations actually happened.
 
  *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted[^124][^125]."*
 
@@ -295,13 +293,13 @@ Block size   Max file size   Max file system size
   4 KiB         2 TiB             16 TiB
 ----------- --------------- ----------------------
 
-By 2008 it became apparent that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __ext__ filesystem a bit longer, but the growth of __ext__ had hit the end, and a newer filesystem needed to be developed to handle the larger sets of data and the massively improved hardware that existed since 1992, when ext was developed.
+By 2008 it became apparent that ext3 has reached the end of its development, and [Theodore Ts'o](https://en.wikipedia.org/wiki/Theodore_Ts%27o "Ts'o") announced that __ext4__ would extend the __ext__ filesystem a bit longer, but the growth of __ext__ had hit the end, and a newer filesystem needed to be developed to handle the larger sets of data and the massively improved hardware that existed since 1992, when ext was developed.  A major drawback of ext4 is the lack of snapshot support (like LVM) and the need to be backward compatible with ext2.
 
 Ext4 saw the capacity extension of __ext3__ and introduction to __extents__. The __ext4__ filesystem can support volumes with sizes up to 1 exibyte (EiB) and files with sizes up to 16 tebibytes (TiB).
 
-In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in __ext4__ can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].
+In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in __ext4__ can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].  The advantage is that the smaller 4KB blocks are bound contiguously on disk together.
 
-Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros.  It is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type `mkfs.ext4` and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems that fill the voids left by __ext4__.
+Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros, though that is changing as OpenSuse and Fedora 33 have adopted using Btrfs and Ubuntu is working on adopting OpenZFS as their default filesystem.  The advantage of ext4 is it is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type `mkfs.ext4` and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems since 2008 that fill the void left by __ext4__.
 
 ### Giga vs Gibi
 
@@ -327,17 +325,23 @@ XFS is a robust and highly-scalable single host 64-bit journaling file system. I
 
 XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used-also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices[^127].
 
-XFS was ported to Linux in 2001, as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  Red Hat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large scale files.  Red Hat also hired many of the SGI engineers and developers who created this filesystem and brought back into production quality.  Red Hat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem.
+XFS was ported to Linux in 2001 as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  Red Hat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large sized files.  Red Hat also hired many of the SGI engineers and developers who created this filesystem and brought it back into production quality.  Red Hat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem on the RHEL product.
 
 XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partition of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.
 
+### Modern Linux Filesystems
+
+The ext4 filesystem served its purpose well but by 2008 became apparent that ext4 was not the right filesystem design for taking full advantage of memory, disk, and processor improvements--as well as the changing use case of computing focusing on large dynamic clusters such as service companies like Google, Facebook, Twitter, and other social media companies. These new generation of filesystems combine the volume management and the filesystem.  The two main candidates that are opensource and designed to take advantage of this current technological environment are [Btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page "btrfs wiki page") and [OpenZFS](https://openzfs.org/wiki/Main_Page "openZFS wiki page").
+
 ### Btrfs
 
-Theodore Ts'o has recommended moving to Btrfs (pronounced *butter fs*) as a replacement for ext4 moving forward, but development on Btrfs is stable enough for the openSUSE distro to use it as their default filesystem. Btrfs uses copy-on-write, which is a strategy where as multiple processes using the same piece of data, don't make copies of it each, but use pointers to the initial data, thereby speeding up the system, reducing the number of writes needed. The project was initially created by Oracle in 2007, for use on their own storage products, but was GPL'd and now many companies contribute to the codebase.  Development continued on Btrfs after Oracle acquired the ZFS filesystem when they bought Sun. The project is marked stable and included in the Linux kernel since July of 2013.
+The project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS operating system.  By 2013 is was considered stable and included in the Linux Kernel by default.  Facebook is currently where Chris Mason, the original author is employed, and they are championing the use of this operating system on [their servers](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
 
-Chris Mason, the principal Btrfs author, has stated that the goal was, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
+Btrfs is a modern copy on write (CoW) filesystem for Linux aimed at implementing advanced features while also focusing on fault tolerance, repair and easy administration[^ch11f121]. Chris Mason, the principal Btrfs author, has stated that the goal of Btrfs was, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
 
-Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshots of files--for point in time restore and in place cloning, and file based checksums. In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  Suse Linux is the only major Linux distribution that has adopted btrfs as the default filesystem on their [Enterprise Edition Linux](https://www.suse.com/documentation/sles-12/singlehtml/stor_admin/stor_admin.html#sec.filesystems.major.btrfs "Suse Linux adopts btrfs as default"). Though Facebook has made a significant investment and use of Btrfs and though they are not a Linux Distro company, they have [a large vested interest in Btrfs](https://facebookmicrosites.github.io/btrfs/ "Facebook uses btrfs"). [Oracle maintains the documentation for btrfs](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html "Oracle maintains the documentation for btrfs").
+Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshots of files capability--for point-in-time restore, in-place cloning, and file based checksums.  Recently openSuse and Fedora have adopted Btrfs as a filesystem, but support for Btrfs was remove in RHEL 8 (in favor of XFS and LVM).
+
+In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  
 
 * ```sudo dnf install btrfs-progs```
 * ```sudo yum install btrfs-progs```
@@ -345,15 +349,19 @@ Btrfs adds support for resource pooling and using extents to make logical drives
 
 ### ZFS
 
-A third alternative is a filesystem originally developed by Sun, called ZFS.  ZFS is an elegantly designed filesystem.   *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
+  This allowed the operating system to be ported to MacOS, Windows, BSD, but not natively into the Linux Kernel, only as a loadable kernel module.  ZFS is an elegantly designed filesystem: *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
 
-ZFS was developed by Sun and inherited by Oracle.  It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowed Sun and Oracle to include proprietary parts of the operating system with opensource code. The CDDL was an opensource license, but not a copy-left license and thus GPL incompatible.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
+ZFS is a filesystem originally developed by Sun for their Solaris Unix operating system and in use since 2001.  ZFS was opensourced by SUN in 2005 under the CDDL license (similar to the Mozilla Public License) but incompatible with the GPL. Oracle inherited ZFS when it invaded SUN in 2010. It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowed Sun and Oracle to include proprietary parts of the operating system with opensource code. The CDDL is an opensource license, but not a copy-left license and thus GPL incompatible.  Recently Canonical, Ubuntu's parent company, disagreed with this, and began to offer OpenZFS natively as part of their operating system.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
 
 * [GPL Violations Related to Combining ZFS and Linux](https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/ "GPL Violations Related to Combining ZFS and Linux")
 * [Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS](https://www.fsf.org/licensing/zfs-and-linux "Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS")
 * [Ubuntu ZFS announcement](https://blog.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04 "Ubuntu ZFS Annoucement")
 
-FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and ZFS is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module.  Ubuntu now supports the root partition being ZFS as well.  Here is an example to install the ZFS module, load the module, and then format and create a zpool logical mirror (RAID1) in a few steps,  tutorial comes from here: [https://wiki.ubuntu.com/Kernel/Reference/ZFS](https://wiki.ubuntu.com/Kernel/Reference/ZFS "ZFS Tutorial").
+FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and ZFS is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module.  Ubuntu now supports the root partition being ZFS as well.  
+
+Development of all ZFS code now lives in the upstream [OpenZFS project](https://openzfs.org/wiki/Main_Page "OpenZFS wikipage").  Since the ZFS code was opensourced, when Oracle tried to "closesource" the code base in 2010, essentially what Oracle did was make a fork of the project and keep their changes proprietary.  The rest of the community took ZFS and made the OpenZFS community, which now consolidates various ZFS code bases into a single repo for MacOS, FreeBSD, and Linux as a loadable kernel module.  RedHat has not participated in the Linux development of OpenZFS as most companies are afraid of potential litigation and lawsuits from Oracle (real or perceived). There is even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), using the latest Windows 10 OS.
+
+Here is an example to install the ZFS module, load the module, and then format and create a zpool logical mirror (RAID1) in a few steps, tutorial comes from here: [https://wiki.ubuntu.com/Kernel/Reference/ZFS](https://wiki.ubuntu.com/Kernel/Reference/ZFS "ZFS Tutorial").
 
 ```bash
 sudo apt install zfsutils-linux
@@ -361,18 +369,16 @@ sudo apt install zfsutils-linux
 # Now check to see if the zfs module is loaded
  modprobe zfs
  lsmod | grep zfs
-# change the value of sdX and sdZ to the actual device 
-# names (your entire unformated devices)
 # the name "tank" is used in the tutorial -- I replaced it with: mydatapool.
+# the /dev/sdX and /dev/sdZ can be replaced by the actual device names
+# found at the output of the command: lsblk
  sudo zpool create mydatapool mirror /dev/sdX /dev/sdZ
  lsblk
  zfs list
  df -h | grep mydatapool
 ```
 
-ZFS doesn't have native support for Fedora OS, seeing as they put their weight behind XFS and are even deprecating Btrfs from future RHEL releases.  This may have something to do with Oracle and Red Hat competition, as Oracle is one of the sponsors of Btrfs.  A third party project called [ZFS on Linux](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux") supports third party packages for deployment and testing on various Linux distros.  There was even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), the port is mature enough to install on the latest Windows 10 systems.
-
-Much like LVM, ZFS native support for snapshots.  ZFS has a series of commands such as:
+Much like LVM, ZFS has native support for snapshots.  ZFS has a series of commands such as:
 
 * ```zpool```
   * create, list, destroy, status
@@ -437,7 +443,7 @@ lsblk --nodeps -o name,serial
 
 ### HFS+, UFS, and APFS
 
-The BSD systems has its own filesystem, UFS, [the Unix File System](http://www.ivoras.net/blog/tree/2013-10-24.why-ufs-in-freebsd-is-great.html "Unix Filesystem"). This filesystem was native to Unix going back to the System 7 Unix release.  Though UFS has been updated since and is officially UFS2, which was released around 1994 when BSD split from Unix due to the AT&T lawsuit.  UFS2 is considered similar to ext4 on Linux in capabilities at the current time.  FreeBSD and then other BSDs adopted ZFS to be able to extend the filesystem, capability of UFS.  All Illumos, or OpenSolaris based distros use ZFS natively as well, but [BSD based systems have switched](https://www.phoronix.com/scan.php?page=news_item&px=FreeBSD-ZFS-On-Linux "BSD rebases to ZFS on Linux") their ZFS to be based on the [ZFS on Linux](https://zfsonlinux.org/ "ZFS on Linux") code base due to a larger developer and feature base.
+The BSD systems has its own filesystem, UFS: [the Unix File System](http://www.ivoras.net/blog/tree/2013-10-24.why-ufs-in-freebsd-is-great.html "Unix Filesystem"). This filesystem was native to Unix going back to the System 7 Unix release.  Though UFS has been updated since and is officially UFS2, which was released around 1994 when BSD split from Unix due to the AT&T lawsuit.  UFS2 is considered similar to ext4 on Linux in capabilities at the current time.  FreeBSD and then other BSDs adopted ZFS to be able to extend the filesystem, capability of UFS.  All Illumos, or OpenSolaris based distros use ZFS natively as well, but [BSD based systems have switched](https://www.phoronix.com/scan.php?page=news_item&px=FreeBSD-ZFS-On-Linux "BSD rebases to ZFS on Linux") their ZFS to be based on the [ZFS on Linux](https://zfsonlinux.org/ "ZFS on Linux") code base due to a larger developer and feature base.
 
 Apple had been using their own filesystem called HFS+ which was introduced in 1998 in MacOS 8.1 in 1998.  Features were added over time and in each release to keep the filesystem with feature parity for ext4.  This was used as the standard file system on all Mac and iOS devices until 2016/2017 when a new Apple designed filesystem was released across devices. Why a new filesystem?  Think about it, by 2016 what was the primary device that Apple was selling compared to 1998?  What type of storage media had HFS+ been designed for?   What type of storage media was running on the new Apple systems, in laptops and mobile?
 
@@ -445,9 +451,9 @@ Though Apple Was one of the first companies to [port ZFS to MacOS](http://dtrace
 
 ### F2FS and EROFS
 
-Due to the increased use of NAND or Flash based memory storage such as SSD, eMMC, and SD cards, a consortium of companies dealing with mobile devices came together in 2012 to create a filesystem which takes the nature of Flash into direct account in order to overcome some of the weaknesses of Flash based storage. F2FS stands for Flash-Friendly File System, and was developed by Samsung Electronics, Motorola Mobility, Huawei and Google.  The F2FS systems was adopted for some devices in 2012-1016, but the working group recently splintered.
+Due to the increased use of NAND or Flash based memory storage such as SSD, eMMC, and SD cards, a consortium of companies dealing with mobile devices came together in 2012 to create a filesystem which takes the nature of Flash into direct account in order to overcome some of the weaknesses of Flash based storage. F2FS stands for Flash-Friendly File System, and was developed by Samsung Electronics, Motorola Mobility, Huawei and Google.  The F2FS systems was adopted for some devices in 2012-2016 and saw a resurgence in use by 2018 led by the Pixel 3 and Motorola devices.
 
-F2FS was effectively replaced by the [Enhanced Read-Only File System](https://en.wikipedia.org/wiki/EROFS "EROFS wiki page"), or EROFS.  It is designed and maintained by Huawei and is used on their own Android based devices introduced in 2018 and is part of the Linux Kernel.
+Hauwei replaced F2FS on their Honor devices with the [Enhanced Read-Only File System](https://en.wikipedia.org/wiki/EROFS "EROFS wiki page"), or EROFS.  It is designed and maintained by Huawei and is used on their own Android based devices introduced in 2018 and is part of the Linux Kernel.
 
 ### DragonFly BSD and Hammer FS
 
@@ -509,6 +515,8 @@ Options=defaults
 WantedBy=multi-user.target
 ```
 
+Btrfs and ZFS handle explicit mounting of volumes by themselves and do not need to have mount files created, but they can be.
+
 ### Disk related tools
 
 There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The ```df``` command will list the disk usage.   There is an optional ```-H``` and ```-h``` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use ```df``` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: ```/home/controller``` for example.
@@ -521,7 +529,7 @@ The ```du``` command is disk usage.  This is a helpful command to show the exact
 
 ## Chapter Conclusions and Review
 
-In this chapter we learned and mastered the tools and concepts needed to manage, create, and format disks in Linux.  We learned how to inspect and how to `mount` and `umount` these drives from our system.  We learned about the standard Linux file-systems and new advanced file-systems.  Finally we learned about file-system tools and the use of Logical Volume Management.  Finally we learned about the concept of volume management snapshotting.  You have been prepared to with the basics of how to manage and understand the file-system on your Linux distro.
+In this chapter we learned and mastered the concepts of disk based hardware.  We learned about the types of Linux filesystems and the features of the new generation of filesystems.  We learned how to install and configure volumes, snapshots, and compression. You have been prepared to with the basics of how to manage and understand the file-system on your Linux distro.
 
 ### Review Questions
 
@@ -822,6 +830,8 @@ For each of the bullet points, take a screenshot of the output of the commands t
     f. Intel Optane M.2 32 GB and explain what 3D XPoint technology is
 
 #### Footnotes
+
+[^ch11f121]: [https://btrfs.wiki.kernel.org/index.php/Main_Page](https://btrfs.wiki.kernel.org/index.php/Main_Page "btrfs wiki page")
 
 [^ch11f122]: [http://tldp.org/HOWTO/Partition/fdisk_partitioning.html](http://tldp.org/HOWTO/Partition/fdisk_partitioning.html)
 
