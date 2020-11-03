@@ -8,19 +8,19 @@ b.  ```#```
 c.  ```!```
 d.  No character - trick questions
 
-3) When assigning the standard output of a command to a variable what characters do you encase the command in?
-a. \`\`
-b. ```$```
-c. ```""```
-d. No characters - trick questions
+3) When assigning the standard output of a command to a variable which of these are valid methods?
+a. DT=``` `date` ```
+b. `DT=$(date)`
+c. `DT="date"`
+d. Not possible, trick questions
 
-4) True or False - You can include shell meta-charecters inside of two backticks ```\`\```` - example: ```ANS=`ls -l test[1-5]````
+4) True or False - You can include shell meta-characters inside of two backticks ``` ` ` ``` - example: ANS=``` `ls -l test[1-5]` ```
 
 5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
-a. ```DIR='ls -l ./test[1-4].txt'```
-b. ```DIR = \`ls -l ./test[1-4].txt\````
-c. ```$DIR=\`ls -l ./test[1-4].txt\````
-d. ```DIR=\`ls -l ./test[1-4].txt\````
+a. `DIR='ls -l ./test[1-4].txt'`
+b. DIR = ``` `ls -l ./test[1-4].txt` ```
+c. $DIR=``` `ls -l ./test[1-4].txt` ```
+d. DIR=``` `ls -l ./test[1-4].txt` ```
 
 6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables)
 a. ```#!/bin/bash```
