@@ -337,11 +337,33 @@ Btrfs adds support for resource pooling and using extents to make logical drives
 
 In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  
 
-* ```sudo dnf install btrfs-progs```
-* ```sudo yum install btrfs-progs```
-* ```sudo apt-get install btrfs-tools```
+       Install Btrfs tools
+----------------------------------
+`sudo dnf install btrfs-progs`
+`sudo yum install btrfs-progs`
+`sudo apt-get install btrfs-tools`
 
+Table:  Demonstration of Btrfs syntax
 
+### Btrfs Creation Commands
+
+* Create a btrfs file system on a single device. For example:
+  * `mkfs.btrfs /dev/sdb1`
+* Create a btrfs file system with a label that you can use when mounting the file system. For example:
+  * `mkfs.btrfs -L myvolume /dev/sdb2`
+  * Note: The device must correspond to a partition if you intend to mount it by specifying the name of its label.
+* Create a btrfs file system on a single device, but do not duplicate the metadata on that device. For example:
+  * `mkfs.btrfs -m single /dev/sdc`
+* Stripe the file system data and mirror the file system metadata across several devices. For example:
+  * `mkfs.btrfs /dev/sdd /dev/sde`
+* Stripe both the file system data and metadata across several devices. For example:
+  * `mkfs.btrfs -m raid0 /dev/sdd /dev/sde`
+* Mirror both the file system data and metadata across several devices. For example:
+  * `mkfs.btrfs -d raid1 /dev/sdd /dev/sde`
+* Stripe the file system data and metadata across several mirrored devices. You must specify an even number of devices, of which there must be at least four. For example:
+  * `mkfs.btrfs -d raid10 -m raid10 /dev/sdf /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk`
+
+Btrfs extensive documentation can be found at Oracle's website: [https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html "Oracle's Btrfs website")
 
 ### ZFS
 
@@ -522,6 +544,10 @@ The ```du``` command is disk usage.  This is a helpful command to show the exact
 
 ![*du -H --exclude=".\*" /home/controller*](images/Chapter-11/du/du-h.png "du")
 
+These commands might not report completely accurate information when dealing with next generation filesystems like ZFS and Btrfs.  To execute the same command on Btrfs:
+
+`btrfs filesystem usage [path]`
+
 ## Chapter Conclusions and Review
 
 In this chapter we learned and mastered the concepts of disk based hardware.  We learned about the types of Linux filesystems and the features of the new generation of filesystems.  We learned how to install and configure volumes, snapshots, and compression. You have been prepared to with the basics of how to manage and understand the file-system on your Linux distro.
@@ -690,20 +716,20 @@ In this chapter we learned and mastered the concepts of disk based hardware.  We
 
 ### Lab
 
-#### Objectives
+#### Lab 11 Objectives
 
 * Creating virtual disks in VirtualBox
 * Creating new partitions in fdisk
 * Creating new filesystems with mkfs
-* Creating new filesystems in ZFS
+* Creating new filesystems in ZFS and Btrfs
 * Mounting new filesystems
-* Editing /etc/fstab to make our mounts permanent
+* Editing `/etc/fstab` and using systemd .mount files to make our mounts permanent
 
-#### Outcomes
+#### Lab 11 Outcomes
 
 At the conclusion of this lab you will have successfully created a new virtual disk in VirtualBox, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the `/etc/fstab`.
 
-#### Lab Activities
+#### Lab 11 Activities
 
 For each of the bullet points, take a screenshot of the output of the commands to display the content to demonstrate the concepts.  Note - make your screenshot efficient, and capture only relevant data along with numbering the output.  All disks that are created can be 2 GB unless noted.
 
@@ -735,28 +761,13 @@ For each of the bullet points, take a screenshot of the output of the commands t
    c. Mount the snapshot to /mnt/disk3 (create this location if not existing)
    d. `ls -l` the contents of /mnt/disk3
 
-5. Using Ubuntu 18.04 attach four 1 GB disks and create RAIDZ10 (a mirrored stripe). Display the `zpool status` and take a screenshot of the output.
+5. Using Ubuntu 20.04 and ZFS, attach four 1 GB disks and create RAIDZ10 (a mirrored stripe). Display the `zpool status` and take a screenshot of the output.
 
-6. Using Ubuntu 18.04 or higher, set networking to bridged mode (take note of your public IP by typing: `ip a sh`
+6. Using Ubuntu 20.04, attach 4 virtual disks of 1 GB each. Create two Btrfs mirrored drives named disk1 and disk2.  Take a screenshot of the output of the `btrfs filesystem show` command for each disk.
 
-   a. Attach a virtual disk
-   b. Using this tutorial: [https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/](https://www.hiroom2.com/2018/05/05/ubuntu-1804-tgt-en/ "Configure iSCSI target") configure the system using as an iSCSI target
-   c. Use the proper iSCSI command to list the current targets
+7. From the previous question, attach another 1 GB virtual disk. Create a Btrfs partition on this disk named disk3.  Create a snapshot of disk1 save it to the newly created disk.  Use the `btrfs subvolume list` command to generate output for a snapshot. Reference [https://docs.oracle.com/cd/E37670_01/E37355/html/ol_use_case3_btrfs.html](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_use_case3_btrfs.html "btrfs documentation for subvolumes")
 
-7. Using a second Ubuntu 18.04 instance with its network mode set to bridged (note the public IP):
-
-   a. Using this tutorial: [https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html "Configure iSCSI initiator") configure and complete iSCSI initiator
-   b. List the currently available iSCSI targets on your network
-   c. Create two files on the connected iSCSI target - `file1.txt` and `file2.txt` and list those files
-
-8. Create 3 Virtual disks and install the ZFS package:
-
-   a. Attach it to an existing Ubuntu 18.04 system
-   b. Create a zpool stripe with two disks name it **datapool**
-   c. Execute a `zpool status` and a `zpool list` command
-   d. Expand the capacity of the zpool by adding the third disk in
-   e. Execute the `zpool status command
-   f. Execute the command to take the first disk out of the zpool, this command fails, why? Capture the error message in a screenshot
+8. Using Fedora, attach 4 1 GB disks in a btrfs stripe.  Take a screenshot of the `btrfs filesystem df` command for this volume.  Then remove one of the virtual disks from the stripe.  Take a screenshot of the `btrfs filesystem df` command for this volume. Attach an additional 2 gb disk to the btrfs stripe. Take a screenshot of the `btrfs filesystem df` command for this volume.  Extend the btrfs filesystem to encompass using all of the new disk space. Take a screenshot of the `btrfs filesystem df` command for this volume.
 
 9. From the previous exercise using your ZFS pool named datapool, create a 25 megabyte file named datadump.txt:
 
@@ -773,7 +784,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
     a. List both contents here
     b. Reboot the system and make sure it works
 
-11. Using the 2 Ubuntu 18.04 systems you used in exercises 7 and 8, create a 25 megabyte file named databasedump.txt on the zpool datapool:
+11. You will need two systems with bridged networking and ssh enabled, create a 25 megabyte file named databasedump.txt on the zpool datapool:
 
     a. On the first system (the system without zpool datapool), create a datapool name backuppool (you might need to attach a virtual disk to do this)
     b. Take a snapshot of the zpool datapool and name it @now
