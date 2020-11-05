@@ -329,7 +329,7 @@ The ext4 filesystem served its purpose well but by 2008 became apparent that ext
 
 ### Btrfs
 
-This project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS operating system.  By 2013 it was considered stable and included in the Linux Kernel.  Facebook is currently where Chris Mason is employed and they are championing the use of this operating system on [their infrastructure](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
+This project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS filesystem.  By 2013 it was considered stable and included in the Linux Kernel.  Facebook is currently where Chris Mason is employed and they are championing the use of this operating system on [their infrastructure](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
 
 Btrfs is a modern copy-on-write (CoW) filesystem for Linux. Copy-on-write is at its core and optimization pattern that uses pointers instead of making multiple copies of data on a disk, therefore reducing write operations.  When the original file is modified then a true on disk copy of the file is made[^ch11f121]. Chris Mason said the goal of Btrfs is, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
 
