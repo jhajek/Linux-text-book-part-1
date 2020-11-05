@@ -41,15 +41,11 @@ For each of the bullet points, take a screenshot of the output of the commands t
 4. Using LVM of the previous exercise on the logical volume lv-group
 
    a. Using either `fallocate` or `truncate` commands, create a file 25 megabytes in size and name it **datadump.txt**
-   b. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named lv-backup
+   b. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named `lv-backup`
    c. Mount the snapshot to /mnt/disk3 (create this location if not existing)
    d. `ls -l` the contents of /mnt/disk3
 
-5. Launch a copy of Fedora and follow the all the instructions to install ZFS on Fedora: [https://github.com/zfsonlinux/zfs/wiki/Fedora](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux for Fedora")
-
-   a. Attach two additional virtual disks to the Fedora 30 Virtual Machine
-   b. Create a zpool stripe containing both disks
-   c. Execute a `zpool status` command to display the contents of the zpool
+5. Using Ubuntu 18.04 attach four 1 GB disks and create RAIDZ10 (a mirrored stripe). Display the `zpool status` and take a screenshot of the output.
 
 6. Using Ubuntu 18.04 or higher, set networking to bridged mode (take note of your public IP by typing: `ip a sh`
 
@@ -122,8 +118,8 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
     a. Run the `btrfs filesystem show` command and capture the output.
     b. Using the UID of the btrfs device created in the previous step, add the mount point to the `/etc/fstab` and add the `nodatacow` attribute. Mount point options are listed here: [btrfs mount-point options](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5) "btrfs mount-point options")
-   
-19. Download a copy of Ubuntu 19.10 and when going through the installer, choose the [EXPERIMENTAL erase disk and use zfs](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
+
+19. Download a copy of Ubuntu 20.04 and when going through the installer, choose the [EXPERIMENTAL erase disk and use zfs](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
 
 20. This is a research question regarding current hardware. Using [Newegg.com](http://newegg.com "Newegg.com"), find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
 

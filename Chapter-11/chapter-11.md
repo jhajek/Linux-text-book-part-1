@@ -84,8 +84,6 @@ Select the *STORAGE* option from the menu on the left--this is where you can att
 
 ![*Storage menu*](images/Chapter-11/virtual-box/storage.png "Storage")
 
-\newpage
-
 We will be working with attaching virtual hard drives so we are interested in the bottom portion of the menu which is identified by *Controller: SATA* which is your [Serial ATA](https://en.wikipedia.org/wiki/Serial_ATA "Serial ATA") hard drive bus connection.  As a refresher, Serial ATA is the name of the signaling protocol the operating system uses to retrieve data from a hard drive. Go ahead and highlight the SATA Controller entry.
 
 In order to add a new hard drive to your virtual machine, click the blue HDD icon with a __+__ sign at the bottom of the menu.
@@ -119,13 +117,9 @@ The final step is to choose to attach the virtual disk you just created to the v
 
 ![*Choose new Virtual Disk to attach*](images/Chapter-11/virtual-box/choose-new-disk.png "Image showing how to attach new virtual disk to VM")
 
-Once you see the screen below - it means you have successfully created a new virtual hard drive and have attached it to your virtual machine.  You can reverse the above operations by highlighting the virtual disk drive of choice and selecting the HDD icon with the minus sign and that will delete the hard drive. By highlighting the new disk or existing one, you can see the meta-data about the disk.
-
-![*Successfully Added New disk*](images/Chapter-11/virtual-box/new-disk.png "New")
-
 ## Disk Partitioning and Formatting
 
-Adding a virtual disk is only the first step, there are three more steps before we can use this disk.  Though the first two steps have been largely merged into a single step for the last decade.
+Adding a virtual disk is only the first step, there are three more steps before we can use this disk.  Though the first two steps have been largely merged into a single step over the last decade.
 
 1) Partition the disk / create a filesystem
 1) Mount the disk so that it can be used by your operating system.
@@ -195,7 +189,7 @@ Using the ```fdisk``` command does have its drawbacks.  The tool was designed in
 
 In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored in the users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
 
-The answer is that under standard partitioning you don't. You simply backup and reinstall the Operating System on a bigger drive.  This is very time consuming and a risky operation that is not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
+The answer is that under standard partitioning and partitions you don't. You simply backup and reinstall the Operating System on a bigger drive.  This is very time consuming and a risky operation that is not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
 
 LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*  In order to install LVM2 on Fedora/CentOS and Ubuntu you can type:
 
@@ -223,15 +217,15 @@ Once you have added the disks/partitions to the PV, now you need to create a Vol
 
 ### Logical Volumes
 
-From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to Linear, but that is an application based decision.  Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command ```lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME``` will extend the LV to become 50 GB in size.  Using ```-L+50G``` will add 50 additional gigabytes to an existing LV's size.
+From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to linear, but that is an application based decision.  Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command ```lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME``` will extend the LV to become 50 GB in size.  Using ```-L+50G``` will add 50 additional gigabytes to an existing LV's size.
 
-Once you have successfully created an LV, now it needs a file-system installed.  Here you can add XFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the file-system created then you need a mount point just as with traditional partitions and mounting.  Each file-system type (XFS, Ext4, etc etc) has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.
+Once you have successfully created an LV, now it needs a filesystem installed.  Here you can add XFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the filesystem created then you need a mount point.  Each filesystem type has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.
 
-One definite feature not included in traditional partitioning is the concept of ```snapshots```.  Now ```snapshots``` exist at the file-system level too in (Btrfs and ZFS, but not XFS or ext4 they are too old.  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or COW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV.
+### LVM Snapshots
 
-LVM is a sperate component from traditional filesystems and was seen as a stop gap method until newer filesystems could be created that would effectively do the same thing as LVM + Ext4. Filesystems like XFS, Btrfs, and ZFS have been developed and integrated to the Linux Kernel.
+One definite feature not included in traditional partitioning is the concept of **snapshots**.  **Snapshots** exist at the filesystem level in Btrfs and ZFS, but not XFS or ext4 as they are too old.  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or CoW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV.
 
-### Filesystem Snapshots
+#### Filesystem Snapshots
 
 When dealing with LVM there is an ability to provide a snapshot, that is a point in time exact copy of a logical volume[^139].  Assuming your have your physical volumes, your volume groups, and logical volumes created, lets now create a snapshot of a logical volume (assume that we formatted the logical volume with ext4 and mounted it to ```/mnt/disk1```).
 
@@ -239,7 +233,7 @@ When dealing with LVM there is an ability to provide a snapshot, that is a point
 cd /mnt/disk1
 # command to create a random file of 5MB
 head -c 5MB /dev/urandom > datafile.txt
-ls -l
+ls -lh
 # Picking up from the tutorial at http://tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html
 lvcreate -L592M -s -n disk-backup /dev/volgroupname/logicalvolname
 # Type the random command to change the data since the original snapshot
@@ -329,17 +323,17 @@ XFS was ported to Linux in 2001 as SGI and IRIX went out of business and the fil
 
 XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partition of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.
 
-### Modern Linux Filesystems
+### Next Generation Linux Filesystems
 
-The ext4 filesystem served its purpose well but by 2008 became apparent that ext4 was not the right filesystem design for taking full advantage of memory, disk, and processor improvements--as well as the changing use case of computing focusing on large dynamic clusters such as service companies like Google, Facebook, Twitter, and other social media companies. These new generation of filesystems combine the volume management and the filesystem.  The two main candidates that are opensource and designed to take advantage of this current technological environment are [Btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page "btrfs wiki page") and [OpenZFS](https://openzfs.org/wiki/Main_Page "openZFS wiki page").
+The ext4 filesystem served its purpose well but by 2008 became apparent that ext4 was not the right filesystem design for taking full advantage of memory, disk, and processor improvements--as well as the changing use case of computing focusing on large dynamic clusters such as service companies like Google, Facebook, Twitter, and other social media companies. These new generation of filesystems combine  the filesystem, volume management, data compression, volume snapshots, and datafile integrity.  The two main candidates that are opensource and designed to take advantage of this current technological environment are [Btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page "btrfs wiki page") and [OpenZFS](https://openzfs.org/wiki/Main_Page "openZFS wiki page").
 
 ### Btrfs
 
-The project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS operating system.  By 2013 is was considered stable and included in the Linux Kernel by default.  Facebook is currently where Chris Mason, the original author is employed, and they are championing the use of this operating system on [their servers](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
+This project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS operating system.  By 2013 it was considered stable and included in the Linux Kernel.  Facebook is currently where Chris Mason is employed and they are championing the use of this operating system on [their infrastructure](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
 
-Btrfs is a modern copy on write (CoW) filesystem for Linux aimed at implementing advanced features while also focusing on fault tolerance, repair and easy administration[^ch11f121]. Chris Mason, the principal Btrfs author, has stated that the goal of Btrfs was, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
+Btrfs is a modern copy-on-write (CoW) filesystem for Linux. Copy-on-write is at its core and optimization pattern that uses pointers instead of making multiple copies of data on a disk, therefore reducing write operations.  When the original file is modified then a true on disk copy of the file is made[^ch11f121]. Chris Mason said the goal of Btrfs is, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
 
-Btrfs adds support for resource pooling and using extents to make logical drives across physical devices. It also includes snapshots of files capability--for point-in-time restore, in-place cloning, and file based checksums.  Recently openSuse and Fedora have adopted Btrfs as a filesystem, but support for Btrfs was remove in RHEL 8 (in favor of XFS and LVM).
+Btrfs adds support for resource pooling and using extents to make logical drives across physical devices removing the need for the use of LVM, volume management is now built in. Recently openSUSE and Fedora have adopted Btrfs as a filesystem, but support for Btrfs was remove in RHEL 8 (in favor of XFS and LVM).
 
 In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  
 
@@ -347,9 +341,9 @@ In order to format a system using Btrfs you need to install ```btrfs-tools``` on
 * ```sudo yum install btrfs-progs```
 * ```sudo apt-get install btrfs-tools```
 
-### ZFS
 
-  This allowed the operating system to be ported to MacOS, Windows, BSD, but not natively into the Linux Kernel, only as a loadable kernel module.  ZFS is an elegantly designed filesystem: *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
+
+### ZFS
 
 ZFS is a filesystem originally developed by Sun for their Solaris Unix operating system and in use since 2001.  ZFS was opensourced by SUN in 2005 under the CDDL license (similar to the Mozilla Public License) but incompatible with the GPL. Oracle inherited ZFS when it invaded SUN in 2010. It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowed Sun and Oracle to include proprietary parts of the operating system with opensource code. The CDDL is an opensource license, but not a copy-left license and thus GPL incompatible.  Recently Canonical, Ubuntu's parent company, disagreed with this, and began to offer OpenZFS natively as part of their operating system.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
 
@@ -360,6 +354,10 @@ ZFS is a filesystem originally developed by Sun for their Solaris Unix operating
 FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and ZFS is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module.  Ubuntu now supports the root partition being ZFS as well.  
 
 Development of all ZFS code now lives in the upstream [OpenZFS project](https://openzfs.org/wiki/Main_Page "OpenZFS wikipage").  Since the ZFS code was opensourced, when Oracle tried to "closesource" the code base in 2010, essentially what Oracle did was make a fork of the project and keep their changes proprietary.  The rest of the community took ZFS and made the OpenZFS community, which now consolidates various ZFS code bases into a single repo for MacOS, FreeBSD, and Linux as a loadable kernel module.  RedHat has not participated in the Linux development of OpenZFS as most companies are afraid of potential litigation and lawsuits from Oracle (real or perceived). There is even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), using the latest Windows 10 OS.
+
+ZFS is an elegantly designed filesystem: *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
+
+#### ZFS Installation
 
 Here is an example to install the ZFS module, load the module, and then format and create a zpool logical mirror (RAID1) in a few steps, tutorial comes from here: [https://wiki.ubuntu.com/Kernel/Reference/ZFS](https://wiki.ubuntu.com/Kernel/Reference/ZFS "ZFS Tutorial").
 
@@ -380,21 +378,18 @@ sudo apt install zfsutils-linux
 
 Much like LVM, ZFS has native support for snapshots.  ZFS has a series of commands such as:
 
-* ```zpool```
-  * create, list, destroy, status
-  * creates a datapool
-* ```zfs```
-  * create, list, destroy
+* ```zpool create | list | destroy | status```
+  * this command creates a datapool
+* ```zfs create | list | destroy```
   * used to create a ZFS filesystem on a zpool
-* ```zfs snapshot```
-  * volume@snap-name
+* ```zfs snapshot volume@snap-name```
   * ```zfs snapshot mydatapool@snap1```
   * ```zfs list -t snapshot```
 * ```zfs rollback```
 
-ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments essentially creates a serialized synchronization feature.  This can be done on the same system as well as over a network connection to a remote computer.  Try to do that on ext4.  To synchronize a ZFS filesystem:
+ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments which effectively creates a serialized synchronization feature.  This can be done on the same system as well as over a network connection to a remote computer. To synchronize a ZFS filesystem:
 
-* first create a snapshot of a zpool
+* First create a snapshot of a zpool
 * Using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partition
   * ```zfs send datapool@today | zfs recv backuppool/backup```  
 * You can pipe the command over ```ssh``` to restore to a remote system
@@ -736,15 +731,11 @@ For each of the bullet points, take a screenshot of the output of the commands t
 4. Using LVM of the previous exercise on the logical volume lv-group
 
    a. Using either `fallocate` or `truncate` commands, create a file 25 megabytes in size and name it **datadump.txt**
-   b. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named lv-backup
+   b. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named `lv-backup`
    c. Mount the snapshot to /mnt/disk3 (create this location if not existing)
    d. `ls -l` the contents of /mnt/disk3
 
-5. Launch a copy of Fedora and follow the all the instructions to install ZFS on Fedora: [https://github.com/zfsonlinux/zfs/wiki/Fedora](https://github.com/zfsonlinux/zfs/wiki/Fedora "ZFS on Linux for Fedora")
-
-   a. Attach two additional virtual disks to the Fedora 30 Virtual Machine
-   b. Create a zpool stripe containing both disks
-   c. Execute a `zpool status` command to display the contents of the zpool
+5. Using Ubuntu 18.04 attach four 1 GB disks and create RAIDZ10 (a mirrored stripe). Display the `zpool status` and take a screenshot of the output.
 
 6. Using Ubuntu 18.04 or higher, set networking to bridged mode (take note of your public IP by typing: `ip a sh`
 
@@ -817,8 +808,8 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
     a. Run the `btrfs filesystem show` command and capture the output.
     b. Using the UID of the btrfs device created in the previous step, add the mount point to the `/etc/fstab` and add the `nodatacow` attribute. Mount point options are listed here: [btrfs mount-point options](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5) "btrfs mount-point options")
-   
-19. Download a copy of Ubuntu 19.10 and when going through the installer, choose the [EXPERIMENTAL erase disk and use zfs](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
+
+19. Download a copy of Ubuntu 20.04 and when going through the installer, choose the [EXPERIMENTAL erase disk and use zfs](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
 
 20. This is a research question regarding current hardware. Using [Newegg.com](http://newegg.com "Newegg.com"), find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
 
