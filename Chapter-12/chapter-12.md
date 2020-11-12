@@ -237,7 +237,7 @@ network:
 
 #### Netmask
 
-The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable.  Apple famously has the 16.0.0.0 Class A giving them access to 255*255*255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE. 
+The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable.  Apple famously has the 16.0.0.0 Class A giving them access to 255*255*255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE.
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
 
@@ -740,13 +740,11 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 ### Lab
 
-1) Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to host-only (details are in last chapter and the VirtualBox networking details are in chapter 03).
+1) Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to **Bridged Adapter** (details are in last chapter and the VirtualBox networking details are in chapter 03).
 
-   a. You will be modifying the IP address of both of these systems: 192.168.33.10 and 192.168.33.11, netmask is 255.255.255.0 and gateway should be 10.0.2.2 (this is due to VirtualBox).
-   b. Configure these settings in Network Manager for the respective Virtual Machines.
-   c. Capture a screenshot of each system using the `ping` tool to ping the other IP and its results.
-   d. Modify the `/etc/hosts` file and add an entry for both system in both systems.
-   e. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
+   a. Capture a screenshot of each system using the `ping` tool to ping the other IP and its results.
+   b. Modify the `/etc/hosts` file and add an entry for both system in both systems.
+   c. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
 
 2) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS).
 

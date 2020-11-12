@@ -1,12 +1,10 @@
 # Lab - Chapter 12
 
-1) Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to host-only (details are in last chapter and the VirtualBox networking details are in chapter 03).
+1) Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to **Bridged Adapter** (details are in last chapter and the VirtualBox networking details are in chapter 03).
 
-   a. You will be modifying the IP address of both of these systems: 192.168.33.10 and 192.168.33.11, netmask is 255.255.255.0 and gateway should be 10.0.2.2 (this is due to VirtualBox).
-   b. Configure these settings in Network Manager for the respective Virtual Machines.
-   c. Capture a screenshot of each system using the `ping` tool to ping the other IP and its results.
-   d. Modify the `/etc/hosts` file and add an entry for both system in both systems.
-   e. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
+   a. Capture a screenshot of each system using the `ping` tool to ping the other IP and its results.
+   b. Modify the `/etc/hosts` file and add an entry for both system in both systems.
+   c. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
 
 2) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS).
 
