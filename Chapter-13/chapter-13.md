@@ -278,13 +278,12 @@ This command specifically enables the automatic installation of the VirtualBox A
 Here is a small walk through to install 2 different Vagrant boxes:
 
 1. Create a directory called vagrant on your host system (not in a virtual machine)
-2. In that directory create 2 sub-directories; `bionic64` and `centos7`
-3. Add the box to vagrant with `vagrant box add ubuntu/bionic64`
-4. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/bionic64`
-5. Issue the command `vagrant up`
-6. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine - then exit the ssh session
-7. Repeat the above steps in the centos7 directory and replace the init command in step 3 with: `vagrant init centos/7`
-8. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
+1. In that directory create 2 sub-directories; `bionic64` and `centos7`
+1. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/bionic64`
+1. Issue the command `vagrant up`
+1. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine - then exit the ssh session
+1. Repeat the above steps in the centos7 directory and replace the init command in step 3 with: `vagrant init centos/7`
+1. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
 
 ## Packer
 
