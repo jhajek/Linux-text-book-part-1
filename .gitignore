@@ -16,3 +16,5 @@ texput.log
 files/Chapter-13/packer-build-templates/build/*
 variables.json
 debug.log
+packer_cache/
+*.iso
