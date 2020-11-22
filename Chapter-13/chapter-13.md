@@ -313,7 +313,7 @@ HashiCorp essentially built a tool that captures each install step.  These steps
 #### Packer JSON Build Template
 
 Let us look at an example JSON template file: This source can be retrieved from the source code of the book:
-[files > Chapter-13 > packer-build-templates > ubuntu18044-vanilla.json](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18045-vanilla.json "Packer Template")
+[files > Chapter-13 > packer-build-templates > ubuntu18045-vanilla.json](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18045-vanilla.json "Packer Template")
 
 ```json
 {
@@ -639,7 +639,7 @@ Preseed Used for all Debian and Ubuntu based server installs - example and expla
 
 ### Putting Vagrant and Packer together
 
-How then do we build our own artifacts with Packer to manage them?  Here is an end-to-end example using some sample code provided in the source code repo of the book.  This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server 1804-3.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then `ssh` into the box via Vagrant.
+How then do we build our own artifacts with Packer to manage them?  Here is an end-to-end example using some sample code provided in the source code repo of the book.  This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server 1804-5.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then `ssh` into the box via Vagrant.
 
 ```bash
 
@@ -717,7 +717,7 @@ Packer has the ability to set ENV variables upon install.  From the command line
 
 ```bash
 
-packer build --var-file=./variables.json ubuntu18044-vanilla-multi-drives.json
+packer build --var-file=./variables.json ubuntu18045-vanilla-multi-drives.json
 
 ```
 
@@ -963,7 +963,7 @@ Create a folder structure for 1 Ubuntu Bionic64 vagrant box and 1 CentOS 7 vagra
 
 #### Part 2
 
-Run the packer json build templates for CentOS 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18041-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command with the proper options to create a Vagrantfile and then run the ```vagrant up``` command to instantiate the box. Issue the command ```vagrant ssh``` and once logged in take a screenshot of the output of the command ```free --giga``` to list the amount of memory in the virtual machine.
+Run the packer json build templates for CentOS 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18045-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command with the proper options to create a Vagrantfile and then run the ```vagrant up``` command to instantiate the box. Issue the command ```vagrant ssh``` and once logged in take a screenshot of the output of the command ```free --giga``` to list the amount of memory in the virtual machine.
 
 Upon completion take a screenshot of the output of the ```vagrant box list``` command to show that these steps completed successfully.
 
