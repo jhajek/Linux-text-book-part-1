@@ -618,7 +618,7 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 1) ~1:00 Who is Benno Rice?
 1) ~1:31 What is Contempt Culture?
 1) ~3:21 What is inits job?
-1) ~6:11 What lead to the concept of a service?
+1) ~6:11 What led to the concept of a service?
 1) ~8:35 What does the traditional rc system not do?
 1) ~9:27 What OS had a strong initial concept of services from the beginning?
 1) ~10:00 On MacOS what did launchd replace?
