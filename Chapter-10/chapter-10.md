@@ -477,7 +477,7 @@ You can also use the ```systemctl``` command with filter options to find modules
 
 > __Example Usage:__ You will notice your can filter the systemctl command: ```sudo systemctl --failed```, the normal behavior is to show all running and failed.
 
-> __Example USage:__ On Ubuntu, if you install the package, `zfsutils-linux` this will add a kernel module for the ZFS file system.  Run the lsmod command before and after you install the ZFS package.  What is the difference?
+> __Example Usage:__ On Ubuntu, if you install the package, `zfsutils-linux` this will add a kernel module for the ZFS file system.  Run the lsmod command before and after you install the ZFS package.  What is the difference?
 
 ![*sudo systemctl --failed*](images/Chapter-10/systemd/systemctl-failed.png "Image of failed services output for systemctl --failed")
 
