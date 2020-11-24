@@ -38,9 +38,9 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware (a single screenshot will do incase the output scrolls past one screen).
 
-1) Using `systemctl`, find the cgroup for the apache2 webserver (known as httpd on Fedora) and issue a SIGHUP to the entire cgroup.
+1) Using `systemctl status` command, find and display the status and cgroup information for the apache2 webserver (known as httpd on Fedora) and take a screenshot. Then issue a `kill -s SIGHUP` command to that service and take a screenshot of the results.
 
-1) Using `systemd-cgls`, list and filter the output to show the sub-process IDs for the httpd.service or apache2.service.
+1) Using `systemd-cgls -u httpd.service` command and the SysVinit command, `ps -ef | grep httpd`, take a single screenshot of the combined output of the httpd.service process IDs.
 
 1) Use the `timedatectl` command to change the clock of your system to UTC, show the output of the `date` command before and after the timezone change.
 
