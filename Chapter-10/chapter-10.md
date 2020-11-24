@@ -656,7 +656,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Install MariaDB server on Fedora, `sudo dnf install mariadb-server`.  Use the command `sudo systemctl status <servicename>` after MariaDB is installed to take a screenshot of the display of its current status. Enable the service via `systemctl`, and then start the service. Finally, reboot your system.
 
-1) With MariaDB enabled on Fedora, use the `systemd-analyze` tools to print out the most recent boot time for your system again and compare this to the first boot time screenshot to see if adding this service increased the boot time.
+1) With MariaDB enabled on Fedora, use the `systemd-analyze` tool to print out the most recent boot time for your system again and compare this to the first boot time screenshot to see if adding this service increased the boot time.
 
 1) Use `systemctl` to enable and start the nginx.service (Fedora).  Take a screenshot of this command and its output (you may need to install ngnix).
 
