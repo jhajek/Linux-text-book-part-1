@@ -21,6 +21,6 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 1. ~31:42 What are the two approaches to the container ecosystem, and what is the difference?
 1. ~33:25 What is the "Hashi" ethos?
 1. ~37:00 What was the mistake that happened with the pilot-operated relief valve at 3 Mile Island?
-1. ~39:05 Accroding to the speaker, with container based systems, in what terms must we think in?
+1. ~39:05 According to the speaker, with container based systems, in what terms must we think in?
 1. ~40:00 Why is scheduling containers inside of Virtual Machines a bad idea?
 1. ~What are Joyent's thoughts regarding Virtual Machines in the application stack?
