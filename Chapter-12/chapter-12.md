@@ -725,7 +725,7 @@ In this chapter we learned about the basic components of networking. We learned 
 View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/283](http://twit.tv/show/floss-weekly/283 "Nginx on Twit.tv")
 
 1) ~2:02 What is Nginx?
-1) ~3:22 What percentage of the world's websites are served with Nginx?
+1) ~3:22 What percentage of the world's websites are served with Nginx (as of 2014)?
 1) ~4:57 What was the challenge that led to the creation of Nginx?
 1) ~5:33 What is the main architectural difference between Nginx and Apache webservers?
 1) ~8:32 What are some of the main use cases for Nginx?
