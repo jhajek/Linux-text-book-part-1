@@ -757,8 +757,8 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
 4. Using LVM of the previous exercise on the logical volume lv-group
 
-   a. Using either `fallocate` or `truncate` commands, create a file 25 megabytes in size and name it **datadump.txt**
-   b. Following this tutorial: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "LVM Snapshot intro") create an LVM snapshot of the logical volume named `lv-backup`
+   a. Using either `fallocate` or `truncate` commands, create a file 25 megabytes in size and name it **datadump.txt** on your Logical Volume
+   b. Reference Section 11.5.4 LVM Snapshots: create an LVM snapshot of the logical volume named `lv-backup`
    c. Mount the snapshot to /mnt/disk3 (create this location if not existing)
    d. `ls -l` the contents of /mnt/disk3
 
