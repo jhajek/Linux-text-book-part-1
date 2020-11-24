@@ -666,7 +666,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Using `lsmod` and `grep`, list all of the kernel modules loaded on your system that contain VirtualBox (search for `vb`).
 
-1) Run the systemd `systemctl` command to list the VirtualBox kernel modules that are loaded.
+1) Run the systemd `systemctl` command to list all fo the services that are currently in the failed state (use --failed flag).
 
 1) Run the command that will list all the PCI devices attached to your system.
 
