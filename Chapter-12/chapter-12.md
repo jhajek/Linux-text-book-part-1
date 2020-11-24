@@ -730,7 +730,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 1) ~5:33 What is the main architectural difference between Nginx and Apache webservers?
 1) ~8:32 What are some of the main use cases for Nginx?
 1) ~11:00 When did Sarah get involved in Nginx?
-1) ~12:56 Where did the name "Nginx" come from?
+1) ~16:23 How do you pronounce "Nginx"?
 1) ~17:41 What is "caching" in relation to websites?
 1) ~19:45 What is "proxying" in relation to websites?
 1) ~29:36 What was the founder's motive to opensource Nginx?
