@@ -595,7 +595,7 @@ d) SIGTERM
 
 18) The /proc filesystem provides you what?  (choose all that apply)
 a) Provides you a file based interface to the processes that are running on your system
-b) It can be regarded as a control and information centre for the kernel
+b) It can be regarded as a control and information center for the kernel
 c) Shows up to the second process usage--updated in real time
 d) Is a replacement for the top command
 
