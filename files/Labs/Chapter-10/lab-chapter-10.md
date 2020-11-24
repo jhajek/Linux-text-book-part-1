@@ -60,8 +60,8 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Using the `systemd-cgls` command find the cgroup ID for the iloop.service and take a screenshot of that entry. After taking the screenshot execute the systemctl stop command for the iloop.service.
 
-1) Take a screenshot of the output of the command: `systemctl list-timers`.
+1) Take a screenshot of the output of the command: `systemctl list-timers`, make sure the terminal is expanded to include the UNIT column in the screenshot.
 
-1) Copy the sample template file located in: files > Chapter-10 > python > iloop.timer to your `/lib/systemd/system` directory. Edit the .timer file configuring the onCalander value for execution 3 minutes from the current time.  This is so you can see the results of the scheduled task execute. Take a screenshot of the output of the command: `systemctl list-timers` showing the iloop timer as active.
+1) Copy the sample template file located in: files > Chapter-10 > python > iloop.timer to your `/lib/systemd/system` directory. Edit the .timer file configuring the onCalander value for execution 3 minutes from the current time.  This is so you can see the results of the scheduled task execute. Take a screenshot of the output of the command: `systemctl list-timers` showing the iloop timer as active, make sure the terminal is expanded to include the UNIT column in the screenshot.
 
 1) Find the sample file located in: files > Chapter-10 > python > write-journal.py and copy it to `/usr/local/bin`. Exeecute this command and use the journalctl command with the `-xe` flags to show the output message in the journald logs.
