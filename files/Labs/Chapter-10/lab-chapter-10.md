@@ -26,7 +26,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Use `systemctl` to enable and start the nginx.service (Fedora).  Take a screenshot of this command and its output (you may need to install ngnix).
 
-1) Change the `systemd` target to the systemd commandline-only level, display the `systemd` default target level, and then change back to the GUI target (or runlevel5).
+1) Change the `systemd` target to the systemd commandline-only level, display the `systemd` default target level, display the new default run-level and take a screenshot.  Then change the run level back to the GUI target (or runlevel5) and take a screenshot of the default run-level.
 
 1) Using systemctl and the `--show` option, display the "After" and "Wants" properties of the sshd.service.
 
