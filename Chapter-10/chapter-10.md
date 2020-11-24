@@ -650,7 +650,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`.  Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, and now take a screenshot of the same menu that is missing the recovery options.
 
-1) Use the `systemd-analyze` tools to print out the most recent boot times for your Ubuntu virtual machine.
+1) Use the `systemd-analyze` tools to print out the most recent boot times for your Fedora virtual machine.
 
 1) Use the `systemd-analyze` tools to print out the most recent boot times for your Ubuntu virtual machine.
 
