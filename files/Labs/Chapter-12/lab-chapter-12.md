@@ -39,9 +39,13 @@
     b. Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
     c. Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
 
-13) Create a fresh Ubuntu Virtual Machine and create a shell script that will automate the installation of the following and their dependencies:
+13) Create a shell script to automate the following steps.  Name the shell script: `install-env.sh` and push it to your chapter-12 folder in GitHub along side the lab answers as well as place the content of the script as an answer to this questions.
 
-    a. Install and activate Firewalld, open ports 22, 80, 443.
-    b. Download and install latest Wordpress tarball (look at using `sed -i` to do an in-place substitution of the default values in the wordpress config file).
-    c. Configure the firewall to only allow single IP connection for SSH and port 80 and 443 (that IP being a second virtual machine with a static IP assigned).
-    d. Modify `/etc/hosts` to include these entries and take a screenshot of the output of your firewall status as well as you accessing the Wordpress blog via the browser using the hostname configured in `/etc/hosts` on the remote machine.
+    a. Use two fresh Ubuntu 18.04 Desktop Virtual Machines
+    b. Determine the IP addresses ahead of time for each system (use a bridged network)
+    c. Dedicate one server as web-frontend and one as database backend
+    d. Install and activate Firewalld, open ports 22, 80, 443
+    e. Download and install latest Wordpress tarball (look at using `sed -i` to do an in-place substitution of the default values in the wordpress config file).
+    f. Create a self-signed Cert and configure Apache2 to use that cert.
+    g. Configure the firewall to only allow single IP connection for SSH and port 80 and 443.
+    h. use the `firefox` command to launch the WordPress Welcome page using HTTPS
