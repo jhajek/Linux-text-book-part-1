@@ -7,5 +7,5 @@ PIDfile=/run/iloop.pid
 ExecStart=
 PrivateTMP=
 
-[Installs]
+[Install]
 WantedBy=
