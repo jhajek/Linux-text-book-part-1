@@ -24,7 +24,7 @@
 
    a. Make sure you have installed all the pre-reqs (Apache2 and PHP).
 
-9) Enable the Apache Webserver and the proper firewall port to serve you `phpinfo()` page over https.
+9) Enable the Apache Webserver and the proper firewall port to serve yoru `phpinfo()` page over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04 "Digital Ocean Self-signed Apache2 cert config").
 
 10) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working WordPress blog.
 
