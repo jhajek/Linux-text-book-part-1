@@ -726,7 +726,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 1) ~2:02 What is Nginx?
 1) ~3:22 What percentage of the world's websites are served with Nginx?
-1) ~4:57 What was the challenge that lead to the creation of Nginx?
+1) ~4:57 What was the challenge that led to the creation of Nginx?
 1) ~5:33 What is the main architectural difference between Nginx and Apache webservers?
 1) ~8:32 What are some of the main use cases for Nginx?
 1) ~11:00 When did Sarah get involved in Nginx?
