@@ -78,7 +78,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
     a. Execute a ```zpool status``` command
     b. Enable LZ4 compression on the zpool datapool
-    c. Execute a zpool list command to display that compression is enabled
+    c. Execute a `zfs get all | grep compression` command to display that compression is enabled
 
 13. On the zpool named datapool, execute a `zpool status` command:
 
