@@ -30,7 +30,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Using systemctl and the `--show` option, display the "After" and "Wants" properties of the sshd.service.
 
-1) Using `lsmod` and `grep`, list all of the kernel modules loaded on your system that contain VirtualBox (search for `vb*`).
+1) Using `lsmod` and `grep`, list all of the kernel modules loaded on your system that contain VirtualBox (search for `vb`).
 
 1) Run the systemd `systemctl` command to list the VirtualBox kernel modules that are loaded.
 
