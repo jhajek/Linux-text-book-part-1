@@ -335,13 +335,14 @@ Btrfs is a modern copy-on-write (CoW) filesystem for Linux. Copy-on-write is at 
 
 Btrfs adds support for resource pooling and using extents to make logical drives across physical devices removing the need for the use of LVM, volume management is now built in. Recently openSUSE and Fedora have adopted Btrfs as a filesystem, but support for Btrfs was remove in RHEL 8 (in favor of XFS and LVM).
 
-In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu and ```btrfs-progs``` on Fedora.  
+In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu 18.04 and ```btrfs-progs``` on Fedora 32+ and Ubuntu 20.04.  
 
        Install Btrfs tools
 ----------------------------------
 `sudo dnf install btrfs-progs`
 `sudo yum install btrfs-progs`
-`sudo apt-get install btrfs-tools`
+`sudo apt-get install btrfs-tools` - Ubuntu 18.04
+`sudo apt-get install btrfs-progs` - Ubuntu 20.04
 
 Table:  Demonstration of Btrfs syntax
 
@@ -813,7 +814,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
     a. Install `mariadb-server` and modify the my.cnf file to remount the database storage from `/var/lib/mysql` to be `/zstripe/mysql`: restart the service and execute the `sudo systemctl status mysql` command to show the service successfully restart and is now mounted in a new location.  Note, you will need to `chown` the new zstripe mount to get write permissions.
 
-17. Using an OS of your choice, install the `btrfs-tools` package.  Create a 2 GB Virtual Disk.  On this disk create a 1 GB Ext4 partition.  Using the `btrfs-convert` program [convert the partition](https://btrfs.wiki.kernel.org/index.php/Conversion_from_Ext3 "Btrfs wiki") from ext4 to Btrfs: `sudo btrfs-convert /dev/xxx`.  Take a screenshot of the command output.
+17. Using an OS of your choice, install the `btrfs-tools` or `btrfs-progs` package.  Create a 2 GB Virtual Disk.  On this disk create a 1 GB Ext4 partition.  Using the `btrfs-convert` program [convert the partition](https://btrfs.wiki.kernel.org/index.php/Conversion_from_Ext3 "Btrfs wiki") from ext4 to Btrfs: `sudo btrfs-convert /dev/xxx`.  Take a screenshot of the command output.
 
 18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 18.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
 
