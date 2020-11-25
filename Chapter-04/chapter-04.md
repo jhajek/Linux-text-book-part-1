@@ -448,22 +448,22 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 1) Archipelago
 1) LibrePCB
 
-#### Python Packages
+#### Python
 
-From Chapter 3, you need to install software packages using the Python pip3 installer and the Rust Language using their cargo package manager.
+From Chapter 3, you need to install software packages using the Python pip installer and the Rust Language using their cargo package manager.
 
-You can see an example of how to install Python language packages (eggs). Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones located at [dronekit.io](http://dronekit.io "drone kit").  To [install their Python development packages](https://dronekit-python.readthedocs.io/en/latest/guide/quick_start.html "Python packages") you need to use ```pip3``` the Python Package Installer.
+You can see an example of how to install Python language packages (eggs). Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones located at [dronekit.io](http://dronekit.io "drone kit").  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` the Python Package Installer.
 
-```sudo apt-get install python3-pip python3-dev python3-setuptools```
+```sudo apt-get install python-pip python-dev```
 
 ```bash
-pip3 install dronekit
-pip3 install dronekit-sitl
+sudo pip install dronekit
+sudo pip install dronekit-sitl
 ```
 
 From the command line, run the ```dronekit-sitl --version``` command and take a screenshot of the output.
 
-Using the the ```pip3``` command install the Amazon Web Services Command Line toolkit from [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/ "AWS CLI Install"). From the command line take a screenshot of the command ```aws --version```
+Using the the ```pip``` command install the Image editor Pillow, [https://pillow.readthedocs.io/en/latest/handbook/index.html](https://pillow.readthedocs.io/en/latest/handbook/index.html "Pillow pip page")
 
 #### Rust Packages
 

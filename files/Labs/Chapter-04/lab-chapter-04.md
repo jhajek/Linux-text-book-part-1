@@ -49,7 +49,7 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 1) Archipelago
 1) LibrePCB
 
-## Python and Rust Packages
+## Python
 
 From Chapter 3, you need to install software packages using the Python pip installer and the Rust Language using their cargo package manager.
 
@@ -64,7 +64,9 @@ sudo pip install dronekit-sitl
 
 From the command line, run the ```dronekit-sitl --version``` command and take a screenshot of the output.
 
-Using the the ```pip``` command install the Amazon Web Services Command Line toolkit from [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/ "AWS CLI Install"). From the command line take a screenshot of the command ```aws --version```
+Using the the ```pip``` command install the Image editor Pillow, [https://pillow.readthedocs.io/en/latest/handbook/index.html](https://pillow.readthedocs.io/en/latest/handbook/index.html "Pillow pip page")
+
+## Rust Packages
 
 Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instructions to install a Rust based version of the GNU coretools. Follow the tutorial to help you download and compile these tools with Rust, [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils"); use the ```cargo build``` and ```cargo install``` commands. This will compile Rust based versions of all of the GNU C based coreutils.
 
