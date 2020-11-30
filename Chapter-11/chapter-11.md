@@ -491,7 +491,19 @@ The partition can be unmounted by typing the ```umount``` command--yes it is mis
 
 The ```/etc/fstab``` file controls the automatic mounting of your filesystems at boot.  Every time your system boots, technically each partition is remounted every time too.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
 
-An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid``` or `lsblk --fs /dev/sda`.  That is the actual command not a place holder. This is where the long strings you see in the ```/etc/fstab``` file in place of the device name.  There are many options that can be set in the place of ```defaults``` as well, such as:
+An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid``` or `lsblk --fs /dev/sda`.  That is the actual command not a place holder. This is where the long strings you see in the ```/etc/fstab``` file in place of the device name.  
+
+The use of UUIDs is a better idea as once a UUID is given, even if the device name changes the UUID will not.  Here is a sample `/etc/fstab` file showing UUID based fstab with an additional disk being mounted.
+
+```bash
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during installation
+UUID=e720a798-b02c-4e3f-8132-8f67f2be0c2c /               ext4    errors=remount-ro 0       1
+/swapfile                                 none            swap    sw              0         0
+UUID=003e6f67-9d31-4198-b3dd-4447f2337445 /mnt/disk2      btrfs   defaults        0         0
+```
+
+There are many options that can be set in the place of ```defaults``` or appended via a "," such as:
 
 1. sync/async - All I/O to the file system should be done (a)synchronously.
 2. auto - The filesystem can be mounted automatically (at bootup, or when mount is passed the -a option). This is really unnecessary as this is the default action of mount -a anyway.
@@ -522,13 +534,17 @@ sdc    btrfs          62bab009-e64e-445c-bf33-5f2143569a83
 ```
 
 ```bash
-# Create this file: /etc/systemd/system/database-disk.mount
+# Create this file: /etc/systemd/system/mnt-databasedisk.mount
+# Note that the .mount file name needs to be the same as the "Where" location
+# Replace the / with -
+# Make sure to enable the .mount at boot
+# sudo systemctl enable mnt-databasedisk.mount
 [Unit]
 Description=Disk that was added to host the storage of our database
 
 [Mount]
 What=/dev/disk/by-uuid/003e6f67-9d31-4198-b3dd-4447f2337445
-Where=/mnt/database-disk
+Where=/mnt/databasedisk
 Type=btrfs
 Options=defaults
 
