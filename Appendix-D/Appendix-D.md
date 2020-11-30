@@ -81,5 +81,4 @@ Total point is 100.
 * 80 points for the code
   * 10 points for the each of the 7 items required in Packer Provisioner Script Requirements
   * 10 points for completing all of the Vagrant Requirements
-
-20 points for the video demonstrating the successful working code and the demonstration of a successful blog post
+* 20 points for the video demonstrating the successful working code and the demonstration of a successful blog post
