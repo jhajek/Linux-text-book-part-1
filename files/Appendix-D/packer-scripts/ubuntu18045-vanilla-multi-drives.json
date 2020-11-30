@@ -1,8 +1,8 @@
 {
   "builders": [
     {
-      "name": "ubuntu-vanilla-18043-server-multi-disk",
-      "vm_name": "ubuntu-vanilla-18043-server-multi-disk",
+      "name": "ubuntu-vanilla-18045-server-multi-disk",
+      "vm_name": "ubuntu-vanilla-18045-server-multi-disk",
       "type": "virtualbox-iso",
       "boot_command": [
         "<esc><wait>",
@@ -22,7 +22,7 @@
         " keyboard-configuration/variant=USA<wait>",
         " locale=en_US<wait>",
         " netcfg/get_domain=vm<wait>",
-        " netcfg/get_hostname=vagrant<wait>",
+        " netcfg/get_hostname=itmo-556-final-project<wait>",
         " grub-installer/bootdev=/dev/sda<wait>",
         " noapic<wait>",
         " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed-multi-drives.cfg<wait>",
@@ -30,16 +30,13 @@
         "<enter><wait>"
       ],
       "boot_wait": "10s",
-      "disk_size": 20000,
+      "disk_size": 10000,
       "guest_os_type": "Ubuntu_64",
       "http_directory" : ".",
       "http_port_min" : 9001,
       "http_port_max" : 9001,
-      "iso_urls": [
-        "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.3-server-amd64.iso"
-      ],
-      "iso_checksum_type": "sha256",
-      "iso_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
+      "iso_urls": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso",
+      "iso_checksum": "sha256:8c5fc24894394035402f66f3824beb7234b757dd2b5531379cb310cedfdf0996",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -56,7 +53,7 @@
           "--memory",
           "2048"
         ],
-        ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk2.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
+        ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk2.vdi", "--size", "5000", "--format", "VDI", "--variant", "Standard"],
         ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk2.vdi"]      
         ]
       }],
