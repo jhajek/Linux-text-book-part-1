@@ -496,11 +496,11 @@ An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4 
 The use of UUIDs is a better idea as once a UUID is given, even if the device name changes the UUID will not.  Here is a sample `/etc/fstab` file showing UUID based fstab with an additional disk being mounted.
 
 ```bash
-# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# <file system> <mount point>   <type>  <options>     <dump>  <pass>
 # / was on /dev/sda1 during installation
-UUID=e720a798-b02c-4e3f-8132-8f67f2be0c2c /               ext4    errors=remount-ro 0       1
-/swapfile                                 none            swap    sw              0         0
-UUID=003e6f67-9d31-4198-b3dd-4447f2337445 /mnt/disk2      btrfs   defaults        0         0
+UUID=e720a798-b02c-4e3f-8132-8f67f2be0c2c /           ext4    errors=remount-ro 0       1
+/swapfile                                 none        swap    sw              0         0
+UUID=003e6f67-9d31-4198-b3dd-4447f2337445 /mnt/disk2  btrfs   defaults        0         0
 ```
 
 There are many options that can be set in the place of ```defaults``` or appended via a "," such as:
@@ -528,7 +528,7 @@ In this example the output of the command, `lsblk --fs` will look like this (ass
 
 ```bash
 sda
-└─sda1 ext4           e720a798-b02c-4e3f-8132-8f67f2be0c2c /
+  sda1 ext4           e720a798-b02c-4e3f-8132-8f67f2be0c2c /
 sdb    btrfs          003e6f67-9d31-4198-b3dd-4447f2337445
 sdc    btrfs          62bab009-e64e-445c-bf33-5f2143569a83
 ```
