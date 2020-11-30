@@ -36,9 +36,9 @@ The following software will be installed and configured in the provisioner scrip
 
 1) Using deb-conf pre-seed the root database password (yes you can hardcode the root password: ilovebunnies)
 1) Install Apache2 webserver and MySQL server
-1) From the WordPress.org tutorial, install any needed pre-req software
-1) Using `sed` or other tools, modify user variables in the WordPress configuration file to allow for WordPress to work without the need for a user to manually configure WordPress
-1) Change the hostname to **wp-host-xyz** xyz are your initials.
+1) From the WordPress.org tutorial, using `wget` retrieve the latest install zip file, install it, along with any needed pre-req software
+1) Using `sed` and/or other tools, modify user variables in the WordPress configuration file to allow for WordPress to work without the need for a user to manually configure WordPress
+1) Change the hostname to **wp-host-xyz**: xyz are your initials.
 1) Change the timezone to UTC
 1) During the Packer build, a second hard drive was attached. Install btrfs-progs and format that device.
 
