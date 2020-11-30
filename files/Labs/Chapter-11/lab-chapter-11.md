@@ -63,10 +63,10 @@ For each of the bullet points, take a screenshot of the output of the commands t
    f. Using the commandline, append an additional 25 mb to `/datapool/datadump.txt`
    g. Execute an `ls -l` on zpool datapool and backup to compare the two files
 
-10. On the same Ubuntu 18.04 system, create a systemd mount.unit file for both ZFS partitions created in the previous exercise.
+10. Create a systemd .mount unit files for the Btrfs partitions created in question number 8
 
-    a. List both contents here
-    b. Reboot the system and make sure it works
+    a. List the content of the .mount files in a screenshot(s)
+    b. Reboot the system and take a screenshot of the df -H to make the .mount files work
 
 11. You will need two systems with bridged networking and ssh enabled, create a 25 megabyte file named databasedump.txt on the zpool datapool:
 
