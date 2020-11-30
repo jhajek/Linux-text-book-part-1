@@ -825,7 +825,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
     a. file system is UUID=
     b. mount point is `/mnt/disk100` (create this partition if it doesn't exist)
     c. type is btrfs
-    d. options = auto ro,nosuid,nodev,nofail,x-gvfs-show  (ro for read-only)
+    d. options: defaults,ro  (ro for read-only)
     e. dump and pass fields can be 0
     f. Change owner and group to your username for `/mnt/disk100` (`chmod`)
     g. Reboot your system. Change directory to `/mnt/disk100` and take a screenshot to demonstrate that the disk is in read-only mode by trying to create a file via this command:  `touch demo.txt`
