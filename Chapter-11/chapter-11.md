@@ -846,7 +846,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
     c. type is btrfs
     d. options: defaults,ro  (ro for read-only)
     e. dump and pass fields can be 0
-    f. Change owner and group to your username for `/mnt/disk100` (`chmod`)
+    f. Change owner and group to your username for `/mnt/disk100` (using `chmod`)
     g. Reboot your system. Change directory to `/mnt/disk100` and take a screenshot to demonstrate that the disk is in read-only mode by trying to create a file via this command:  `touch demo.txt`
 
 18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 18.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
