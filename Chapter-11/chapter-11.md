@@ -562,34 +562,44 @@ There are two useful commands to use in regards to understanding the disk resour
 
 The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using `ls -l` Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.
 
-These commands might not report completely accurate information when dealing with next generation filesystems like ZFS and Btrfs.  To execute the same command on Btrfs:
-
-`sudo btrfs filesystem usage [mountpoint]`
+These commands might not report completely accurate information when dealing with next generation filesystems like ZFS and Btrfs. use the commands: `sudo btrfs filesystem usage [mountpoint]` or `sudo zfs list [poolname]`
 
 ```bash
-sudo btrfs filesystem usage /mnt/databasedisk 
+sudo btrfs filesystem usage /mnt/databasedisk
 Overall:
-    Device size:		   3.00GiB
-    Device allocated:		 331.12MiB
-    Device unallocated:		   2.68GiB
-    Device missing:		     0.00B
-    Used:			 320.00KiB
-    Free (estimated):		   2.68GiB	(min: 1.35GiB)
-    Data ratio:			      1.00
-    Metadata ratio:		      2.00
-    Global reserve:		   3.25MiB	(used: 0.00B)
+    Device size:         3.00GiB
+    Device allocated:    331.12MiB
+    Device unallocated:  2.68GiB
+    Device missing:      0.00B
+    Used:                320.00KiB
+    Free (estimated):    2.68GiB (min: 1.35GiB)
+    Data ratio:          1.00
+    Metadata ratio:      2.00
+    Global reserve:      3.25MiB (used: 0.00B)
 
 Data,single: Size:8.00MiB, Used:64.00KiB
-   /dev/sdc	   8.00MiB
+   /dev/sdc    8.00MiB
 
 Metadata,DUP: Size:153.56MiB, Used:112.00KiB
-   /dev/sdc	 307.12MiB
+   /dev/sdc  307.12MiB
 
 System,DUP: Size:8.00MiB, Used:16.00KiB
-   /dev/sdc	  16.00MiB
+   /dev/sdc   16.00MiB
 
 Unallocated:
-   /dev/sdc	   2.68GiB
+   /dev/sdc    2.68GiB
+```
+
+> *When you compare the space consumption that is reported by the df command with the zfs list command, consider that df is reporting the pool size and not just file system sizes. In addition, df doesn't understand descendent file systems or whether snapshots exist. If any ZFS properties, such as compression and quotas, are set on file systems, reconciling the space consumption that is reported by df might be difficult[^138].*
+
+```bash
+# df -H /data1
+Filesystem      Size  Used Avail Use% Mounted on
+data1           1.9G  132k  1.9G   1% /data1
+
+# sudo zfs list data1
+NAME    USED  AVAIL     REFER  MOUNTPOINT
+data1   104K  1.75G       24K  /data1
 ```
 
 ## Chapter Conclusions and Review
@@ -925,7 +935,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
 [^137]: <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0 By Anand Lal Shimpi, anandtech.com</a> <a href="https://commons.wikimedia.org/wiki/File:M.2_and_mSATA_SSDs_comparison.jpg">via Wikimedia Commons</a>)
 
-[^138]: [https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/](https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/ "Systemd Mount file")
+[^138]: [https://docs.oracle.com/cd/E23824_01/html/821-1448/gbchp.html](https://docs.oracle.com/cd/E23824_01/html/821-1448/gbchp.html "Compare the difference between df and zfs list")
 
 [^139]: [http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html](http://tldp.org/HOWTO/LVM-HOWTO/snapshotintro.html "TLDP LVM Snapshots")
 
