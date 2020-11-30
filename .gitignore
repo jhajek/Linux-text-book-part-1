@@ -20,3 +20,4 @@ packer_cache/
 *.iso
 output*/
 build/
+*.vdi
