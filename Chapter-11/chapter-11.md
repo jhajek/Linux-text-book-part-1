@@ -560,13 +560,37 @@ There are two useful commands to use in regards to understanding the disk resour
 
 ![*df -H /home/controller*](images/Chapter-11/du/df-h.png "df")
 
-The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using ls -l Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.
-
-![*du -H --exclude=".\*" /home/controller*](images/Chapter-11/du/du-h.png "du")
+The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using `ls -l` Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.
 
 These commands might not report completely accurate information when dealing with next generation filesystems like ZFS and Btrfs.  To execute the same command on Btrfs:
 
-`btrfs filesystem usage [path]`
+`sudo btrfs filesystem usage [mountpoint]`
+
+```bash
+sudo btrfs filesystem usage /mnt/databasedisk 
+Overall:
+    Device size:		   3.00GiB
+    Device allocated:		 331.12MiB
+    Device unallocated:		   2.68GiB
+    Device missing:		     0.00B
+    Used:			 320.00KiB
+    Free (estimated):		   2.68GiB	(min: 1.35GiB)
+    Data ratio:			      1.00
+    Metadata ratio:		      2.00
+    Global reserve:		   3.25MiB	(used: 0.00B)
+
+Data,single: Size:8.00MiB, Used:64.00KiB
+   /dev/sdc	   8.00MiB
+
+Metadata,DUP: Size:153.56MiB, Used:112.00KiB
+   /dev/sdc	 307.12MiB
+
+System,DUP: Size:8.00MiB, Used:16.00KiB
+   /dev/sdc	  16.00MiB
+
+Unallocated:
+   /dev/sdc	   2.68GiB
+```
 
 ## Chapter Conclusions and Review
 
