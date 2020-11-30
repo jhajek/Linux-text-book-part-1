@@ -779,11 +779,12 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
    a. Attach a third virtual disk to the system and create a zpool named backup
    b. Execute the `ls -lh` command to display the file and its size
-   c. Take a ZFS snapshot of the datapool named @today
+   c. Take a ZFS snapshot of the datapool named @today - take a screenshot of the command output: `zfs list -s snapshot`
    d. Using the ZFS send and recv commands copy the @today snapshot to the zpool named backup
    e. Execute `ls -lh` command on the zpool backup
    f. Using the commandline, append an additional 25 mb to `/datapool/datadump.txt`
    g. Execute an `ls -lh` on zpool datapool and backup to compare the two files
+   h. Take a screenshot of the command output: `zfs list -s snapshot` to show the growth in the snapshot
 
 10. Create a systemd .mount unit file for the Btrfs partitions created in question number 8
 
