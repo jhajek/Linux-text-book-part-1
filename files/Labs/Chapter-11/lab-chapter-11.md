@@ -71,7 +71,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
 10. Create a systemd .mount unit file for the Btrfs partitions created in question number 8
 
     a. List the content of the .mount files in a screenshot(s)
-    b. Reboot the system and take a screenshot of the df -H to make the .mount files work
+    b. Reboot the system and take a screenshot of the df -H to see the .mount files work
 
 11. You will need two systems with bridged networking and ssh enabled, create a 25 megabyte file named databasedump.txt on the zpool datapool:
 
