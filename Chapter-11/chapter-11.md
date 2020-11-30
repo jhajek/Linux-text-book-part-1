@@ -506,26 +506,29 @@ An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4 
 11. defaults - Use default settings. Equivalent to rw, suid, dev, exec, auto, nouser, async.
 12. netdev - this is a network device, mount it after bringing up the network. Only valid with fstype nfs.
 
-### iSCSI
-
-The [iSCSI protocol](https://en.wikipedia.org/wiki/ISCSI "iSCSI") is a reimplemntation of the SCSI disk communication protocol.  SCSI was an alternative that could move data faster than the then ATA (pre-SATA) standard.  Once SATA became available the SCSI based hardware was more expensive and was replaced by cheaper SATA and more standardized USB (for external devices). The SCSI bus was faster than the standardized ATA bus, but required a specialized adapter card and specialized cable to connect devices and external peripherals.  Think of it pre-USB (circa 1998).  This made SCSI desirable but expensive.  Also the SCSI standard continued to improve throughput but at the cost of not being backwards compatabile with older and other versions of SCSI, each had its own cabes and connectors. By the year 2000 the SCSI protocol was well known and heavily invested in for server class hardware.  In that year IBM and Cisco standardized the iSCSI protocol.  iSCSI integrated SCSI commands to external targets over Ethernet/IP.  Allowing you to seperate your disks from storage and access them over a local network via the iSCSI protocol.  Disks were formatted as LVMs or directly as a ZFS, Btrfs, or XFS based drives and then presented as __iSCSI targets__ over the network. iSCSI has two components, the __iSCSI target__ and the __iSCSi initiator__. The system that connects to a target in an __initiator__.   iSCSI devices can replace the need for SAN technology (Storage Area Networks) and work on commodity hardware over basic ethernet cables and switches.
-
-This allows you top separate your storage and your compute.  You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an initiator.  A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD and TrueOS.
-
-### systemd mounting units
+### systemd Mounting Units
 
 Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*"   ZFS will take care of automounting its own partitions.  Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the ```blkid``` command.
 
-If you wanted to maintain mount points in systemd you can create a **.mount** file like this example[^138].  The file name is located in the comment below as the content of the ```What=``` directive is the output of the command ```blkid```, but could be a ```/dev/name``` as well.
+Systemd has absorbed the purpose of the `/etc/fstab` file by creating **.mount** files.  Systemd processes `.mount` files first then processes the `/etc/fstab` file.  Let's look at an example where we have already created a Btrfs filesystem on a new virtual disk.  By using the `lbslk --fs` command we can retrieve the UUID of the disk.  The reason we would want look at using the UUID instead of the `/dev/sdx` is that once assigned the UUID won't change.  The device designation can change.  Say for instance that a hard drive fails, on reboot your system will re-enumerate the devices and now hard drive names will be changed.
+
+In this example the output of the command, `lsblk --fs` will look like this (assuming you have attached the virtual disk and formatted it as Btrfs):
 
 ```bash
-# vi /etc/systemd/system/var-lib-docker.mount
+sda
+└─sda1 ext4           e720a798-b02c-4e3f-8132-8f67f2be0c2c /
+sdb    btrfs          003e6f67-9d31-4198-b3dd-4447f2337445
+sdc    btrfs          62bab009-e64e-445c-bf33-5f2143569a83
+```
+
+```bash
+# Create this file: /etc/systemd/system/database-disk.mount
 [Unit]
-Description=Docker mount
+Description=Disk that was added to host the storage of our database
 
 [Mount]
-What=/dev/disk/by-uuid/5813cd72-ff30-44bc-a7a3-27c68fe3e6c7
-Where=/var/lib/docker
+What=/dev/disk/by-uuid/003e6f67-9d31-4198-b3dd-4447f2337445
+Where=/mnt/database-disk
 Type=btrfs
 Options=defaults
 
@@ -533,7 +536,7 @@ Options=defaults
 WantedBy=multi-user.target
 ```
 
-Btrfs and ZFS handle explicit mounting of volumes by themselves and do not need to have mount files created, but they can be.
+**Remember!** ZFS handles explicit mounting of volumes/zpools as part of the act of creating zpools and do not need to have `.mount` files created.
 
 ### Disk related tools
 

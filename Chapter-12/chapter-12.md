@@ -508,6 +508,16 @@ MongoDB packages are maintained by MongoDB -- and are released outside of Linux 
   * [Run Mongo insert sample](https://docs.mongodb.com/manual/tutorial/insert-documents/ "Mongo Insert Sample")
   * [Run Mongo query sample](https://docs.mongodb.com/manual/tutorial/query-documents/ "Mongo query example")
 
+### Network File System - NFS
+
+Enter NFS info here
+
+### iSCSI
+
+The [iSCSI protocol](https://en.wikipedia.org/wiki/ISCSI "iSCSI") is a reimplemntation of the SCSI disk communication protocol.  SCSI was an alternative that could move data faster than the then ATA (pre-SATA) standard.  Once SATA became available the SCSI based hardware was more expensive and was replaced by cheaper SATA and more standardized USB (for external devices). The SCSI bus was faster than the standardized ATA bus, but required a specialized adapter card and specialized cable to connect devices and external peripherals.  Think of it pre-USB (circa 1998).  This made SCSI desirable but expensive.  Also the SCSI standard continued to improve throughput but at the cost of not being backwards compatabile with older and other versions of SCSI, each had its own cabes and connectors. By the year 2000 the SCSI protocol was well known and heavily invested in for server class hardware.  In that year IBM and Cisco standardized the iSCSI protocol.  iSCSI integrated SCSI commands to external targets over Ethernet/IP.  Allowing you to seperate your disks from storage and access them over a local network via the iSCSI protocol.  Disks were formatted as LVMs or directly as a ZFS, Btrfs, or XFS based drives and then presented as __iSCSI targets__ over the network. iSCSI has two components, the __iSCSI target__ and the __iSCSi initiator__. The system that connects to a target in an __initiator__.   iSCSI devices can replace the need for SAN technology (Storage Area Networks) and work on commodity hardware over basic ethernet cables and switches.
+
+This allows you top separate your storage and your compute.  You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an initiator.  A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD and TrueOS.
+
 ## Firewall
 
 Used to block external communication on you system ports.   Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.  These numbers are useful to know, but applications have changed.  For instance SMTP is no longer unencrypted and used over port 25,but port 567 or 995.  Also the use of Git over http has replaced the need for FTP/SFTP/SSH and other protocols to send and retrieve data.
