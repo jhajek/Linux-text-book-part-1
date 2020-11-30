@@ -42,10 +42,10 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
    a. Using either `fallocate` or `truncate` commands, create a file 25 megabytes in size and name it **datadump.txt** on your Logical Volume
    b. Reference Section 11.5.4 LVM Snapshots: create an LVM snapshot of the logical volume named `lv-backup`
-   c. Mount the snapshot to /mnt/disk3 (create this location if not existing)
-   d. `ls -l` the contents of /mnt/disk3
+   c. Mount the snapshot to `/mnt/disk3` (create this location if not existing)
+   d. `ls -l` the contents of `/mnt/disk3`
 
-5. Using Ubuntu 20.04 and ZFS, attach four 1 GB disks and create RAIDZ10 (a mirrored stripe). Display the `zpool status` and take a screenshot of the output.
+5. Using Ubuntu 20.04 and ZFS, attach four 1 GB disks and create RAID 10 (a mirrored stripe). Display the `zpool status` and take a screenshot of the output.
 
 6. Using Ubuntu 20.04, attach 4 virtual disks of 1 GB each. Create two Btrfs mirrored drives named disk1 and disk2.  Take a screenshot of the output of the `btrfs filesystem show` command for each disk.
 
@@ -56,12 +56,12 @@ For each of the bullet points, take a screenshot of the output of the commands t
 9. From the previous exercise using your ZFS pool named datapool, create a 25 megabyte file named datadump.txt:
 
    a. Attach a third virtual disk to the system and create a zpool named backup
-   b. Execute the `ls -l` command to display the file and its size
+   b. Execute the `ls -lh` command to display the file and its size
    c. Take a ZFS snapshot of the datapool named @today
    d. Using the ZFS send and recv commands copy the @today snapshot to the zpool named backup
-   e. Execute `ls -l` command on the zpool backup
+   e. Execute `ls -lh` command on the zpool backup
    f. Using the commandline, append an additional 25 mb to `/datapool/datadump.txt`
-   g. Execute an `ls -l` on zpool datapool and backup to compare the two files
+   g. Execute an `ls -lh` on zpool datapool and backup to compare the two files
 
 10. Create a systemd .mount unit file for the Btrfs partitions created in question number 8
 
