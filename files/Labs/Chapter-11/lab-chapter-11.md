@@ -103,7 +103,15 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
     a. Install `mariadb-server` and modify the my.cnf file to remount the database storage from `/var/lib/mysql` to be `/zstripe/mysql`: restart the service and execute the `sudo systemctl status mysql` command to show the service successfully restart and is now mounted in a new location.  Note, you will need to `chown` the new zstripe mount to get write permissions.
 
-17. Using an OS of your choice, install the `btrfs-tools`  or `btrfs-progs` package.  Create a 2 GB Virtual Disk.  On this disk create a 1 GB Ext4 partition.  Using the `btrfs-convert` program [convert the partition](https://btrfs.wiki.kernel.org/index.php/Conversion_from_Ext3 "Btrfs wiki") from ext4 to Btrfs: `sudo btrfs-convert /dev/xxx`.  Take a screenshot of the command output.
+17. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created.  Add an entry for this disk to the `/etc/fstab` file with the following values:
+
+    a. file system is UUID=
+    b. mount point is `/mnt/disk100` (create this partition if it doesn't exist)
+    c. type is btrfs
+    d. options = auto ro,nosuid,nodev,nofail,x-gvfs-show  (ro for read-only)
+    e. dump and pass fields can be 0
+    f. Change owner and group to your username for `/mnt/disk100` (`chmod`)
+    g. Reboot your system. Change directory to `/mnt/disk100` and take a screenshot to demonstrate that the disk is in read-only mode by trying to create a file via this command:  `touch demo.txt`
 
 18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 18.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
 
