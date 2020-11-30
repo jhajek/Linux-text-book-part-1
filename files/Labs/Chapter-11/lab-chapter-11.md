@@ -51,7 +51,12 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
 7. From the previous question, attach another 1 GB virtual disk. Create a Btrfs partition on this disk named disk3.  Create a snapshot of disk1 save it to the newly created disk.  Use the `btrfs subvolume list` command to generate output for a snapshot. Reference [https://docs.oracle.com/cd/E37670_01/E37355/html/ol_use_case3_btrfs.html](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_use_case3_btrfs.html "btrfs documentation for subvolumes")
 
-8. Using Fedora, attach 4 1 GB disks in a Btrfs stripe.  Take a screenshot of the `btrfs filesystem df` command for this volume.  Then remove one of the virtual disks from the stripe.  Take a screenshot of the `btrfs filesystem df` command for this volume. Attach an additional 2 gb disk to the Btrfs stripe. Take a screenshot of the `btrfs filesystem df` command for this volume.  Extend the Btrfs filesystem to encompass using all of the new disk space. Take a screenshot of the `btrfs filesystem df` command for this volume.
+8. Using Fedora, attach 4 1 GB disks in a Btrfs stripe.  
+
+    a. Take a screenshot of the `btrfs filesystem df` command for this volume.  
+    b. Then remove one of the virtual disks from the stripe.  Take a screenshot of the `btrfs filesystem df` command for this volume.
+    c. Attach an additional 2 gb disk to the Btrfs stripe. Take a screenshot of the `btrfs filesystem df` command for this volume.  
+    d. Extend the Btrfs filesystem to encompass using all of the new disk space. Take a screenshot of the `btrfs filesystem df` command for this volume.
 
 9. From the previous exercise using your ZFS pool named datapool, create a 25 megabyte file named datadump.txt:
 
