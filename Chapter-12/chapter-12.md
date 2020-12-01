@@ -798,7 +798,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
     e. Download and install latest Wordpress tarball (look at using `sed -i` to do an in-place substitution of the default values in the wordpress config file).
     f. Create a self-signed Cert and configure Apache2 to use that cert.
     g. Configure the firewall to only allow single IP connection for SSH and port 80 and 443.
-    h. use the `firefox` command to launch the WordPress Welcome page using HTTPS
+    h. Use the `firefox` command to launch the WordPress Welcome page using HTTPS
 
 #### Footnotes
 
