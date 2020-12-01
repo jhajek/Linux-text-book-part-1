@@ -9,22 +9,11 @@ This Appendix lists the final project that applies all of the learned concepts a
 * Demonstrate the advantages of automation by building and deploying servers
 * Demonstrate how to install software via a shell script
 * Demonstrate how to preseed values for using MySQL database
-* Display knowledge of configuring the firewall service
-* Display knowledge to create disk partitions, create filesystems, and mount those partitions at boot
+* Display knowledge to create filesystems
 
 ## Outcomes
 
 At the conclusion of this project, you will have successfully demonstrated the basic installation and system administration concepts talked about in this book.  Congratulations.
-
-### Description
-
-You are to create a client-server application using a webserver and a database.   The webserver will retrieve data from the database.  The database will be pre-configured to allow only connections from the webserver.
-
-It is recommended to complete these steps manually first, then taking notes, write the commands into shell scripts for the automation process. You will use Packer to build two systems that have all the necessary code, configurations, and setup needed to deploy the entire webserver and database.
-
-I recommend using the [OBS Studio project](https://obsproject.com/ "OBS Studio Project") for screen capture.  It is a cross platform OpenSource solution used for major podcast production, but is simple enough that can be used for screen recordings.  Deliver the Recording format using your school Google Drive account and enable access for me to retrieve it.
-
-For deliverables, create a folder in your repo under itmo-556, named **final**.
 
 ### Part 1 - Using Ubuntu 18.04
 
@@ -73,6 +62,8 @@ Create a folder in your private GitHub repo named **final-project** submit:
 * All Packer build scripts, preseed/kickstarts, and provisioner shell scripts needed to run and build this application.  
 * Include all Vagrant files needed to start the Vagrant box
 * To blackboard submit the URL to your GitHub repo as well as a URL to the video recording (preferably uploaded to your Google Drive account)
+
+I recommend using the [OBS Studio project](https://obsproject.com/ "OBS Studio Project") for screen capture.  It is a cross platform OpenSource solution used for major podcast production, but is simple enough that can be used for screen recordings.  Deliver the Recording format using your school Google Drive account and enable access for me to retrieve it.
 
 ### Points breakdown
 
