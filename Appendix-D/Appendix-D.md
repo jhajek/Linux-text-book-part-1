@@ -17,7 +17,7 @@ At the conclusion of this project, you will have successfully demonstrated the b
 
 ### Part 1 - Using Ubuntu 18.04
 
-This project will deploy and customize the existing Ubuntu 1804 packer build template located in the files > Appendix-D directory. You will configure the provisioner file under the **scripts** directory to customize the Packer build script, `post_install_vagrant.sh`. The purpose is to deploy a single node WordPress install.  Upon completion of the build task, you will import the Packer artifact (from the build directory) the Vagrant box (virtual machine) that was created and that will have WordPress basic installation configured upon the first `vagrant up` command.  The settings to make WordPress work automatically will be configured in the Packer **provisioner** shell script.
+This project will deploy and customize the existing Ubuntu 1804 packer build template located in the files > Appendix-D directory. You will configure the provisioner file under the **scripts** directory to customize the Packer build script, `post_install_vagrant.sh`. The purpose is to deploy a single node WordPress install.  Upon completion of the build task, you will import the Packer artifact from the build directory, the Vagrant box (virtual machine) that was created, that will have WordPress basic installation configured upon the first `vagrant up` command.  The settings to make WordPress work automatically will be configured in the Packer **provisioner** shell script.
 
 #### Packer Provisioner Requirements
 
