@@ -789,17 +789,6 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
     b. Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
     c. Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
 
-13) Create a shell script to automate the following steps.  Name the shell script: `install-env.sh` and push it to your chapter-12 folder in GitHub along side the lab answers as well as place the content of the script as an answer to this questions.
-
-    a. Use two fresh Ubuntu 18.04 Desktop Virtual Machines
-    b. Determine the IP addresses ahead of time for each system (use a bridged network)
-    c. Dedicate one server as web-frontend and one as database backend
-    d. Install and activate Firewalld, open ports 22, 80, 443
-    e. Download and install latest Wordpress tarball (look at using `sed -i` to do an in-place substitution of the default values in the wordpress config file).
-    f. Create a self-signed Cert and configure Apache2 to use that cert.
-    g. Configure the firewall to only allow single IP connection for SSH and port 80 and 443.
-    h. Use the `firefox` command to launch the WordPress Welcome page using HTTPS
-
 #### Footnotes
 
 [^145]: [https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1](https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1 "why-is-my-network-interface-named-enp0s25-instead-of-eth0?")
