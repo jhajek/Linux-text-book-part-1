@@ -1,75 +1,75 @@
-# Appendix D - Final Project
+# Appendix E - Git Tutorial
 
-![*Projects sometimes get out of hand...*](images/Chapter-Header/Appendix-D/cautionary.png "Project gets out of hand")
+![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-E/git_commit-2.png "Git Commit")
 
-This Appendix lists the final project that applies all of the learned concepts and puts them together into a single deliverable.
+This is a tutorial for installing Git and Git-it tutorial on Windows 10 and macOS.  
 
-## Objectives
+## Installing Git
 
-* Demonstrate the advantages of automation by building and deploying servers
-* Demonstrate how to install software via a shell script
-* Demonstrate how to preseed values for using MySQL database
-* Display knowledge to create filesystems
+[Git](https://git-scm.org "Gits site") is a piece of software that allows for distributed version control.  Version control is an idea that started with giving a central repository for controlling access to source control. Version control is a way that all source code for a project can be stored in a central place.   With the rise of the internet, the concept of DVCS--distributed version control software, implemented the bring-over, merge, and modify model. Currently the industry standard VCS software is Git.  Git should not be confused with GitHub.  Git is the opensource version control software and GitHub is a commercial implementation of the Git software.
 
-## Outcomes
+Git can be installed on any operating system via an installer, but I recommend to install it via a third party package manger.
 
-At the conclusion of this project, you will have successfully demonstrated the basic installation and system administration concepts talked about in this book.  Congratulations.
+### Windows 10 - Git Installation via Chocolatey
 
-### Part 1 - Using Ubuntu 18.04
+[The Chocolatey Windows 10 package manager](https://chocolatey.org "chocolatey package manager install page") allows for scripted installs of applications.  This tool is convenient for installing common applications such as Firefox, Android Studio, Java JDK, VS code, VirtualBox and other commonly installed tools.  You need to enable PowerShell scripts, which is shown via [the install instructions](https://chocolatey.org/install "Chocolatey install instructions").  Using a package manager allows for having scripted installations as well as a function to update software in place from the command line.
 
-This project will deploy and customize the existing Ubuntu 1804 packer build template located in the files > Appendix-D directory. You will configure the provisioner file under the **scripts** directory to customize the Packer build script, `post_install_vagrant.sh`. The purpose is to deploy a single node [WordPress install](https://wordpress.org/download/ "Added WordPress installation link").  Upon completion of the build task, you will import the Packer artifact from the build directory, the Vagrant box (virtual machine) that was created, that will have WordPress basic installation configured upon the first `vagrant up` command.  The settings to make WordPress work automatically will be configured in the Packer **provisioner** shell script.
+From PowerShell (not console or terminal!) with Administrative privileges, run this command to install chocolatey:
 
-#### Packer Provisioner Requirements
+```PowerShell
+Set-ExecutionPolicy Bypass -Scope Process -Force; `
+[System.Net.ServicePointManager]::SecurityProtocol `
+= [System.Net.ServicePointManager]::SecurityProtocol `
+-bor 3072; iex ((New-Object `
+System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
 
-The following software will be installed and configured in the provisioner script of Packer:
+Upon finishing this command you will need to close the PowerShell terminal and reopen it with Administrative privileges again.  Once you have this done you can use the ```choco``` command to install Git amongst other software. Lets install some software we will use during the class.
 
-1) Using deb-conf pre-seed the root database password (yes you can hardcode the root password: ilovebunnies)
-1) Install Apache2 webserver and MySQL server
-1) From the WordPress.org tutorial, using `wget` retrieve the latest install zip file, install it, along with any needed pre-req software
-1) Using `sed` and/or other tools, modify user variables in the WordPress configuration file to allow for WordPress to work without the need for a user to manually configure WordPress
-1) Change the hostname to **wp-host-xyz**: xyz are your initials.
-1) Change the timezone to UTC
-1) During the Packer build, a second hard drive was attached. Install btrfs-progs and format that device.
+```PowerShell
+# from an admin console
+choco install git vscode powershell-core
+# You can also install VirtualBox via choco
+```
 
-#### Vagrant Requirements
+Once this is successful make sure to close the PowerShell console that was launched with Administrator privileges.  Open a PowerShell Core console with regular user permissions.  Then we can download and extract the [Git-it Tutorial](https://github.com/jlord/git-it-electron/ "Git-it install Page"). Git-it is a desktop (Mac, Windows and Linux) app that teaches you how to use Git and GitHub on the command line.  Releases can be found under the [Release Tab](https://github.com/jlord/git-it-electron/releases "Git-it Download Releases").  Extract the file, and navigate to the `Git-it.exe`:
 
-The following actions need to take place to configure the Vagrant box:
+![*Git-it Executable*](images/Appendix-E/git-it-windows-executable.png "Image of Git-it executable")
 
-1) Using Vagrant add the artifact generated from the output of the Packer command, name the box **wp**
-1) Initialize the vagrant box using the name value as: `--name wp`
-1) Modify the `Vagrantfile`, configure the system to use a *Private Network* with the IP: 192.168.33.100
+### macOS - Git Installation via Homebrew
 
-#### Video Demonstration Requirements
+[Homebrew](https://brew.sh/ "macOS Homebrew webpage") is a third party package manager available for macOS.  This functions as a needed package manager and a way to install needed packages via an automated fashion. Using a package manager allows for having scripted installations as well as a function to update software in place from the command line.
 
-The following actions need to be captured in a short video:
+To install `Homebrew` or `brew` run the below command:
 
-1) Use the command `vagrant up` command to launch the Vagrant box (this command may take a few minutes to run that is fine you can just let the video run)
-1) Open a Web Browser and navigate to the IP address set in the Vagrantfile
-1) Display the working WordPress "hello world" message
-1) Log into WordPress and create a simple post entitled, "Final" with content that says "done." Post it and return to the Welcome Screen showing the newly made post.
-1) Close the browser tab
-1) Issue the command `vagrant ssh` to ssh into the **wp** box
-1) Display the changed hostname
-1) Using the `timedatectl` command, display the timezone
-1) Exit the ssh session
-1) Issue a `vagrant halt` command -- this is last command to capture -- after end the video
-1) Push all code used to construct this deliverable to GitHub (not the video) under the **final-project** folder
+```bash
+/bin/bash -c \
+"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
 
-## Deliverable
+For installing Git on a Mac, open the `terminal` app.  Run the command:
 
-Create a folder in your private GitHub repo named **final-project** submit:
+```bash
+brew install git
+brew cask install visual-studio-code
+```
 
-* All Packer build scripts, preseed/kickstarts, and provisioner shell scripts needed to run and build this application.  
-* Include all Vagrant files needed to start the Vagrant box
-* To blackboard submit the URL to your GitHub repo as well as a URL to the video recording (preferably uploaded to your Google Drive account)
+## Git-it Tutorial
 
-I recommend using the [OBS Studio project](https://obsproject.com/ "OBS Studio Project") for screen capture.  It is a cross platform OpenSource solution used for major podcast production, but is simple enough that can be used for screen recordings.  Deliver the Recording format using your school Google Drive account and enable access for me to retrieve it.
+Now you can proceed to complete the Git-it Tutorial.  As you complete the exercises, the *Challenges Completed* circles will fill in.  Complete all the exercises and take a snapshot of the completed work.  You will need a PowerShell or a macOS Terminal open while working on this tool.
 
-### Points breakdown
+![*Git-it Challenges*](images/Appendix-E/completed.png "Git-it challanges completed image")
 
-Total point is 100.
+This tutorial covers the major functionality of version control: init, add, commit, push, and pull.
 
-* 80 points for the code
-  * 10 points for the each of the 7 items required in Packer Provisioner Script Requirements
-  * 10 points for completing all of the Vagrant Requirements
-* 20 points for the video demonstrating the successful working code and the demonstration of a successful blog post
+* Get Git
+* Repository
+* Commit To It
+* GitHubbin
+* Remote Control
+* Forks And Clones
+* Branches Aren't Just For Birds
+* It's A Small World
+* Pull Never Out Of Date
+* Requesting You Pull Please
+* Merge Tada

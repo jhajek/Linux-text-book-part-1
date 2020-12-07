@@ -474,11 +474,46 @@ You can automate connections to MySQL by creating a file called `my.cnf`.  In th
 * `~/.my.cnf`
 
 ```bash
-
 # basic contents of ~/.my/cnf
 [client]
 password = secret99
+```
 
+```bash
+# Now you can login without passing your password on the commandline
+sudo mysql -u root
+```
+
+You can place the previous SQL code that will create a table and enter a record into a single file. You can give it any name but convention says it should explain what the code does and end with *.sql. This code will be place into a file named `create-table.sql` and the sample is located in the files > chapter-12 directory.
+
+```sql
+CREATE DATABASE records;
+USE records;
+CREATE TABLE tutorials_tbl(
+   tutorial_id INT NOT NULL AUTO_INCREMENT,
+   tutorial_title VARCHAR(100) NOT NULL,
+   tutorial_author VARCHAR(40) NOT NULL,
+   submission_status INT(1) DEFAULT 0, -- Status, not done is 0, done is 1
+   PRIMARY KEY ( tutorial_id )
+  );
+
+-- This code inserts a single record into the table for test purposes
+INSERT INTO records(tutorial_title,turotial_author,submission_status) VALUES('Best Book Ever',"Joseph Hajek",0);
+```
+
+Making use of the `.my.cnf` we can now automate the creation of our table without having to pass our password on the command line or hardcode it into our code
+
+```bash
+sudo mysql -u root < ./create-table.sql
+```
+
+SQL commands can also be executed inline as well.  This sample assumes you have configured a `~/.my/cnf` file:
+
+```bash
+sudo mysql -u root -e "CREATE DATABASE wordpress_db;"
+sudo mysql -u root -e "CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';"
+sudo mysql -u root -e "GRANT ALL ON wordpress_db.* TO 'wp_user'@'localhost' IDENTIFIED BY 'password';"
+sudo mysql -u root -e "FLUSH PRIVILEGES;"
 ```
 
 ### PostgreSQL
