@@ -44,4 +44,4 @@ Answer these questions with a few short sentences:
 
 * Sign up for a GitHub ID at [GitHub.com](https://github.com "GitHub website")
   * If you have one already no need to sign up for another one
-* See Appendix-E assignment for installing Git on your computer
+* See Appendix-D assignment for installing Git on your computer
