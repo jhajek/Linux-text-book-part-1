@@ -197,7 +197,7 @@ a. False
 
 Shell Meta-Characters, Pipes, Search, and Tools
 
-1.  What is the name for characters that have special meanings in the Linux shell?
+1. What is the name for characters that have special meanings in the Linux shell?
 d. shell meta-characters
 
 2. Assume your pwd is ~. If you wanted to list every directory only that started with the letters "Do" what would be the command?

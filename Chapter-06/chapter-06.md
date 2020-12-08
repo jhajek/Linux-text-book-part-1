@@ -1,4 +1,5 @@
 # Shell Meta-Characters, Pipes, Search and Tools
+
 ![*The beauty of Unix Commands*](images/Chapter-Header/Chapter-06/tar-2.png "tar")
 
 ## Objectives

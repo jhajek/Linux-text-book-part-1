@@ -1,4 +1,5 @@
 # Hardware and Installation
+
 ![*Must be a Linux User...*](images/Chapter-Header/Chapter-03/surgery.png  "Understanding the Technology and Philosophy of Unix/Linux")
 
 ## Objectives
