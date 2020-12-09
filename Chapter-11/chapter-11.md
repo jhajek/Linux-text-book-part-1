@@ -6,7 +6,7 @@
 
 * Compare and contrast different Linux filesystems
 * Understand how to create and attach virtual disks
-* Understand how the ```fdisk``` command is used to list, modify, and create filesystem partitions
+* Understand how the `fdisk` command is used to list, modify, and create filesystem partitions
 * Understand Linux tools relating to filesystems, disk utilization, and mounting
 * Understand how Logical Volume Management, extents, and disk based partitions differ
 
