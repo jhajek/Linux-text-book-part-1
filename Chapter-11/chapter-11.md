@@ -1,4 +1,4 @@
-# Filesystems: Creating, Partitioning, and Mounting
+# Creating, Managing, and Mounting Filesystems
 
 ![*Easy as cake...*](images/Chapter-Header/Chapter-11/server_problem-2.png "Server Problem")
 
