@@ -427,7 +427,7 @@ The OpenBSD project which values security and home grown solutions over pure ava
 Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here], *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language.
 
 * SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
-* NoSQL sample: ```db.inventory.find( { status: { $in: [ "A", "D" ]}})```
+* NoSQL sample: ```db.inventory.find( { status: { $in: [ "A", "D" ]} })```
 
 ### MySQL and MariaDB
 
