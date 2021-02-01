@@ -501,9 +501,9 @@ By 1979 local storage had increased to the point where it was conceivable that a
 
 The tar command only does archiving and does not do any compression--only preserving of file structure in the same way that an ISO file preserves structure.  The tar archive by convention is assigned a file extension of __.tar__ but this is not added automatically.
 
->  __Example Usage:__ ```tar -cvf code.tar ./code-directory``` This command will create a ```tar``` archive of the directory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
+> __Example Usage:__ ```tar -cvf code.tar ./code-directory``` This command will create a ```tar``` archive of the directory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
 
->  __Example Usage:__ ```tar -xvf code.tar``` This command will unpack or extract a ```tar``` archive of the directory called code-directory and place it in the ```pwd```.
+> __Example Usage:__ ```tar -xvf code.tar``` This command will unpack or extract a ```tar``` archive of the directory called code-directory and place it in the ```pwd```.
 
 ### compress
 

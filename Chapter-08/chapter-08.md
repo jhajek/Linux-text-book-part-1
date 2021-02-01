@@ -328,7 +328,7 @@ fi
 
 #### CASE Statement
 
-  Sometimes called a switch statement in C or Java,  a __case statement__ is really just a way to simplify complicated nested IF statements [^89]. []() statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book but I wanted to make you aware of them.
+Sometimes called a switch statement in C or Java, a __case statement__ is really just a way to simplify complicated nested IF statements [^89]. \[\]\(\) statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book but I wanted to make you aware of them.
 
 ```bash
 case "$1" in
