@@ -4,43 +4,43 @@
 
 ## Objectives
 
-* Explain the six phases of Unix/Linux maturity and how they encompass each generations technological changes
-* Understand the contributions of Ken Thompson and Dennis Ritchie to Unix
-* Understand the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and *Free/Libre Software*
-* Understand the contributions of Linus Torvalds to the creation of Linux
-* Understand and explain how the AT&T and BSD lawsuit enabled the proliferation of Linux
-* Understand the nature of modern commercial distributions of Linux and Unix operating systems
-* Understand the principles and key differences of *Free/Libre Software* and *Opensource Software*
+* Explain the six phases of Unix/Linux maturity and how they encompass each generation's technological changes
+* Explain the contributions of Ken Thompson and Dennis Ritchie to Unix
+* Explain the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and *Free/Libre Software*
+* Explain the contributions of Linus Torvalds to the creation of Linux and the Linux Kernel
+* Discuss the nature of modern commercial distributions of Linux and Unix operating systems
+* Compare and Contrast the principles and key differences of *Free/Libre Software* and *Opensource Software*
+* Discuss and explain how Free and Opensource software lead to Cloud Computing and Mobile Compute
 
 ## Outcomes
 
-At the completion of this chapter a student will understand and be able to explain the context in which Unix and Linux were created. You will be able to relate key names; *Thompson, Ritchie, Stallman, and Torvalds* to their respective technological contributions to free and opensource software.  You will be able to understand what a distribution is and how free and opensource software relates to proprietary software.
+At the completion of this chapter a student will understand and be able to explain the context in which Unix and Linux were created. You will be able to relate key names; *Thompson, Ritchie, Stallman, and Torvalds* to their respective technological contributions to free and opensource software.  You will be able to explain what a Linux distribution is and how Free and Opensource software lead to modern compute paradigms such as Cloud and Mobile.  This chapter will also discourse over 6 discreet technology phases since the create of the UNIX operating system.
 
-In this chapter the terms **Linux** and **Unix** are generally interchangeable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software if we left Unix and BSD out. If you are curious the name is pronounced *"Lin-ucks;"* [link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
+In this chapter the terms **Linux** and **Unix** are generally interchangeable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software if we left Unix and BSD out. If you are curious, the name is pronounced *"Lin-ucks;"* [link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux") and Unix; *"Yoo-nix."*
 
 ## Zeroith Phase - Where it Began and Why it Matters Now
 
-Marc Andreesen, founder of the Netscape Communicator browser (precursor to FireFox) famously said, "Software is eating the world."  The majority of that is Free/Libre Opensource software and the majority of it is Linux or Unix based.  This trend of software and philosophy of software started over 40 years ago in Unix has come to predominate the technology scene today. There is a good chance you have a smartphone in your pocket with Google's Android OS, or a laptop with Apple's MacOS (formerly OSX) which is based off on BSD Unix.  [Even Microsoft Windows 10 has a Linux compatibility layer now](https://devblogs.microsoft.com/commandline/announcing-wsl-2/ "Windows Subsystem for Linux 2").
+One could say that computer programming as we would recognize it started in the 1930's with Alan Turing.  Operating Systems that we would recognize such as Unix didn't materialize until the early 1970's.  And desktop and server CPU and hardware architecture we are familiar with started in the 1990's with Intel, and Mobile computing started in late 2000s using ARM based processors.
 
-When we take a look all operating systems, at a foundational level all operating systems have three basic components. An operating system can be boiled down to three main parts:
+These modern operating systems such as Windows, MacOS, Ubuntu Linux, Fedora Linux, Android, and others all have a basic architecture in common. At a foundational level all operating systems have three basic components: the kernel, program languages and compiler tools, and user interface and user applications.
 
 ### The Kernel  [^1]
 
 ![*Kernel_Layout.svg*](images/Chapter-02/Kernel/Kernel_Layout.svg.png "Kernel Layout")
 
-In the same way all plants require a seed or a kernel to grow, any computer operating system must contain a kernel.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a Wi-Fi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They speak to the kernel via *device drivers*.  The figure above describes a two way flow of data; the user interacts with the operating system and the operating system, via drivers, interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each manufacturer's computer would have to be custom built to communicate with the CPU.  The kernel abstracts away this concern.  The majority of operating system code and drivers is built in C or C++.
+In the same way all plants require a seed or a kernel to grow, any computer operating system must contain a kernel.  This is a small piece of code that forms the core of your operating system.  You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a Wi-Fi network card will do so when you take any action on the system.  How do the devices talk to the kernel?  They speak to the kernel via *device drivers*.  The figure above describes a two way flow of data; the user interacts with the operating system and the operating system interacts with the kernel.  The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware.  Without the concept of device drivers and a kernel, each operating system would have to be custom built to communicate with the CPU.  The majority of operating system code and drivers are built in the C language.
 
-Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor? [Or an ARM processor](https://docs.microsoft.com/en-us/windows/arm/ "windows on arm")?  What kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the Windows kernel or Linux Kernel abstracts these differences away.
+Take the Windows operating system for instance in which you have just one version, 7, 8, 10, etc. etc.  How many of you have an AMD processor?  Have an Intel processor? [Or an ARM processor](https://docs.microsoft.com/en-us/windows/arm/ "windows on arm")?  What kind of network card or motherboard brand? You may not even know off the top of your head.  There is no need to know because of the Windows kernel abstracting these differences away.
 
 ### Programming Language and Compiler Tools
 
-Once you have a kernel to interface with the hardware, you need a programming language or standard library that will let you build tools and code libraries to put the system to use.  In Unix and Linux most system tools and commands are built using the C language.  These tools such as gcc (GNU C Compiler) help you to compile and build other tools and programs.
+Once you have a kernel to interface with the hardware, you need a programming language and standard library that will let you build tools and libraries to put an operating system together.  In Unix and Linux most system tools and commands are built using the C language.  These tools such as `gcc` (GNU C Compiler) help you to compile and build other tools and programs.
 
 ### User Interface and User Tools
 
-All operating systems need a way for a user to interface with the kernel.  This is where the *shell* and *user applications* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel and returns output to your screen.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even after CRT monitors became prevalent the GUI command line shell still was the standard interface.  X Windows is the standard windowing toolkit that allows for GUIs, *Graphical User Interfaces* to exist across Linux and Unix and will be covered more in chapter 5.
+All operating systems need a way for a user to interface with the kernel.  This is where the *shell* and *user applications* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel and returns output to your screen.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even when you click an icon in a GUI, it is actually issuing commands via the shell behind the scenes.
 
-User tools include all tooling or commands (executable binaries) needed to function in an operating system: copy, delete, move, make directory, kill a process, open a text editor to modify a file, issue a compile command to the C compiler, redirect output from the screen to a file, etc, etc.  
+User tools include all tooling or commands (executable binaries) needed to function in an operating system: `copy`{.bash}, `delete`, `move`, `make directory`, `kill` a process, open a text editor to modify a file, issue a compile command to the C compiler, redirect output from the screen to a file, etc, etc.  
 
 User applications like web browsers and email clients are seen as user-created tooling that is an amalgamation of many smaller tools to accomplish a larger task. Without these user tools and user interface, your computer would be essentially useless with no way to interact with it.
 
