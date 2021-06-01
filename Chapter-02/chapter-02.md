@@ -40,30 +40,9 @@ Once you have a kernel to interface with the hardware, you need a programming la
 
 All operating systems need a way for a user to interface with the kernel.  This is where the *shell* and *user applications* (sometimes called user-land) come into play.  The shell is a way for the user to send commands to the operating system--which executes these commands through the kernel and returns output to your screen.  Unix originally didn't have a graphical user interface but it always had a shell, which we will cover more about in chapter 5.  Even when you click an icon in a GUI, it is actually issuing commands via the shell behind the scenes.
 
-User tools include all tooling or commands (executable binaries) needed to function in an operating system: `copy`{.bash}, `delete`, `move`, `make directory`, `kill` a process, open a text editor to modify a file, issue a compile command to the C compiler, redirect output from the screen to a file, etc, etc.  
+User tools include all tooling or commands (executable binaries) needed to function in an operating system: `copy`{.bash}, `delete`, `move`, `make directory`, `kill` a process, open a text editor to modify a file, issue a compile command to the C compiler, redirect output from the screen to a file, etc, etc.  User applications like web browsers and email clients are seen as user-created tooling that is an amalgamation of many smaller tools to accomplish a larger task.
 
-User applications like web browsers and email clients are seen as user-created tooling that is an amalgamation of many smaller tools to accomplish a larger task. Without these user tools and user interface, your computer would be essentially useless with no way to interact with it.
-
-#### Linux is the same as Unix-kind of
-
-Based on these three components, we see that Unix is a complete operating system, but Linux is not. Linux is just a kernel, missing items 2 and 3 from the above list. Despite this, you will hear people refer to it as an operating system. Depending on your audience you need to know both facets.  The Linux kernel plus someone else's *User Interface and User Tools* plus a *Programming Language* and *Compiler Tools* makes up a Linux distribution or simply called for short a *Linux distro*.
-
-#### Who Uses Unix and Linux
-
-* [Facebook](http://royal.pingdom.com/2010/06/18/the-software-behind-facebook/ "Facebook architecture")
-* [Oracle](https://en.wikipedia.org/wiki/Oracle_Linux "Unbreakable Oracle Linux")
-* [Google](http://highscalability.com/google-architecture "You Tube Architecture" )
-* [Amazon](http://highscalability.com/blog/2007/9/18/amazon-architecture.html "Amazon Architecture")
-* [NYSE -New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange "NYSE architecture")
-* [CME - Chicago Mercantile Exchange](https://en.wikipedia.org/wiki/Chicago_Mercantile_Exchange "CME architecture")
-* [Netflix](http://highscalability.com/blog/2015/11/9/a-360-degree-view-of-the-entire-netflix-stack.html "Netflix arch")
-* [WhatsApp](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html "whatsApp Architecture")
-* [Microsoft](https://en.wikipedia.org/wiki/History_of_Linux#Competition_from_Microsoft "2009 submitted 12,000 Lines of Code to the Linux Kernel")
-* [Pretty much every top website except stackoverflow.com](http://highscalability.com/all-time-favorites/ "Architectures")
-
-Some would argue that without free and opensource software that companies like Google and Facebook never could have existed because the cost of buying the equivalent software would be prohibitive.
-
-### Thompson, Ritchie, and Bell Labs
+### Ken Thompson, Dennis Ritchie, and Bell Labs
 
 Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix: __Know these names__!
 
@@ -200,7 +179,7 @@ Thompson didn't have a name for his project initially, another related figure, B
 
 ## First Phase of Unix Maturity -- OS Implementation
 
-By 1974/75 internal use of Unix at Bell Labs was high amongst engineers.  Word was starting to spread about it as Bell Labs engineers moved on and into academia. Other Bell Labs divisions and universities got wind of this and began to request Unix install *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code.  By law AT&T was prohibited from getting into the computer business so they took a hands-off approach to Unix at the time.  AT&T left it curiously as Thompson and Ritchie's pet project.  Many universities at this time, wanting to teach computing and operating systems, began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.  This was evidence of free and opensource software even before the term was coined a decade later.
+By 1974/75 internal use of Unix at Bell Labs was high amongst engineers.  Word was starting to spread about it as Bell Labs engineers moved on and into academia. Other Bell Labs divisions and universities got wind of this and began to request Unix install *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code.  By law AT&T was prohibited from getting into the computer business so they took a hands-off approach to Unix at the time.  AT&T left it curiously as Thompson and Ritchie's pet project.  Many universities at this time, wanting to teach computing and operating systems, began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a magnetic tape reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.  This was evidence of free and opensource software even before the term was coined a decade later.
 
 In 1975 Ken Thompson took a sabbatical from Bell Labs and went back to his Alma Mater, Berkeley, in California.  Installing the Version 6 Unix Release, the students at Berkeley started adding their own features to improve it to solve their own problems.  One student in 1978, Bill Joy, added vi and the C Shell (two things still in use today in modern Linux and Unix) and people started referring to the changes made to the Unix at Berkeley as BSD Unix (Berkeley Software Distribution Unix).
 
