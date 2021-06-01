@@ -316,13 +316,13 @@ Some people think Linus' personality is a shtick or a comedy act he puts on.  Bu
 
 On September 16, 2018, Linus Torvalds issued a public apology for his past behavior and temporarily stepped down as Linux Kernel maintainer.  You can read the apology letter on the [Kernel mailing list](https://lkml.org/lkml/2018/9/16/167 "Linus Apology").   Some say the apology wasn't needed, some say it is too little too late.  Others wonder if a man of Linus' age (48) can be reformed.  Some see this as a step in the right direction and offer a chance for redemption, some would prefer him never to return.  This opens a bigger question of can someone's sins that are on the internet ever be forgiven?
 
-In October 2018, [Linus Torvalds returned from his one month of reflection](https://www.theverge.com/2018/10/22/18011854/linus-torvalds-linux-kernel-development-return-code-of-conduct "Linus returns from a month of reflection").  He realized that his original focus had made the Linux Kernel development area difficult for new people. Torvalds said, *"I need to change some of my behavior, and I want to apologize to the people that my personal behavior hurt and possibly drove away from kernel development.”*  In addition a [Contributor Covenant](https://www.contributor-covenant.org/ "Controbitor Covenant added to Linux project") was added to the Linux Project to govern these kinds of interactions in the future.
+In October 2018, [Linus Torvalds returned from his one month of reflection](https://www.theverge.com/2018/10/22/18011854/linus-torvalds-linux-kernel-development-return-code-of-conduct "Linus returns from a month of reflection").  He realized that his original focus had made the Linux Kernel development area difficult for new people. Torvalds said, *"I need to change some of my behavior, and I want to apologize to the people that my personal behavior hurt and possibly drove away from kernel development.”*  In addition a [Contributor Covenant](https://www.contributor-covenant.org/ "Contributor Covenant added to Linux project") was added to the Linux Project to govern these kinds of interactions in the future.
 
 ### AT&T and BSD Lawsuit
 
 The nascent Linux project saw a rush of growth and developer contribution from August of 1991 to February of 1992. But where did all these developers come from?  At this time we need to go back to Berkeley University and check in on the BSD project, (Berkeley Software Distribution).  In the late 80s and up to the early 1990s BSD Unix development had been flourishing at Berkeley.  Some would attribute this to great minds and an open environment, some would attribute it to lots of government funding.  Either way the product produced began to eclipse the commercial AT&T Unix in features and quality.  BSD began to significantly and irreconcilably differ from AT&T Unix.
 
-AT&T seeing this decided in the early 1992 to take the BSD project to court in order to stop BSD from cutting into their commercial business.  BSD technically came from AT&T Unix back in 1976, when Ken Thompson took his sabbatical at Berkeley and brought the then pet project AT&T Unix with him. AT&T found that some of the BSD code had not been changed as was claimed and was still original AT&T Unix code, which they claimed was a copyright infringement. In early 1992 AT&T was granted a court ordered development injunction against the BSD project, preventing development work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing or copyright issues to worry about. BSD developers in droves flocked to the Linux project. By the time the lawsuit was finished in late 1993/1994 it was too late.  All that had happened was that BSD no longer use the term Unix to describe itself and they had to rewrite a handful of programs to remove the AT&T code.  AT&T had succeeded in planting the seed for the growth of the entire Linux industry with this action. The Linux rocket had left the launch pad and was never coming back.
+AT&T seeing this decided in the early 1992 to take the BSD project to court in order to stop BSD from cutting into their commercial business.  BSD technically came from AT&T Unix back in 1976, when Ken Thompson took his sabbatical at Berkeley and brought the then pet project AT&T Unix with him. AT&T found that some of the BSD code had not been changed as was claimed and was still original AT&T Unix code, which they claimed was a copyright infringement. In early 1992 AT&T was granted a court ordered development injunction against the BSD project, preventing development work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing or copyright issues to worry about. BSD developers in droves flocked to the Linux project. By the time the lawsuit was finished in late 1993/1994 it was too late.  The results of the court case were that BSD could no longer use the term Unix to describe itself and they had to rewrite a handful of programs to remove AT&T code.  AT&T had succeeded in planting the seed for the growth of the entire Linux industry with this action. The Linux rocket had left the launch pad.
 
 After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. Also they are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red Hat.  All are maintained by volunteer organizations.
 
@@ -331,11 +331,11 @@ After the BSD and AT&T lawsuit was settled the BSD code base split into three an
 * NetBSD
 * OpenBSD, split from NetBSD
 
-## Third Phase of Unix Maturity - Free and Opensource Software Enter the Enterprise
+## Third Phase of Unix Maturity - Free and Opensource Software Enters the Enterprise
 
 ### Free Software vs. Opensource Software
 
-By the end of the 90s a curious thing was happening; Microsoft had a near total domination of the desktop PC operating system market and was being investigated by the US Department of Justice for anti-competitive practices. Apple had just brought Steve Jobs back as CEO and was beginning to take steps towards recovering from a decade of mediocre performance.  The Internet as the phenomena we recognize today was just beginning to take root in homes across America through dialup services like [AOL](https://en.wikipedia.org/wiki/AOL "AOL"), [Compuserve](https://en.wikipedia.org/wiki/CompuServe "Compuserve"), and [Prodigy](https://en.wikipedia.org/wiki/Prodigy_\(online_service\) "Prodigy"). At the same time, the quality of free and opensource software was increasing.  The Internet was being powered by webservers and databases.  Opensource tools such as Apache Webserver, Perl programming Language, and MySQL database became the *killer apps* to use on Linux or BSD to run these applications.
+By the end of the 90s a curious thing was happening; Microsoft had a near total domination of the desktop PC operating system market and was being investigated by the US Department of Justice for anti-competitive practices. Apple had just brought Steve Jobs back as CEO and was beginning to take steps towards recovering from lost decade.  The Internet as the phenomena we recognize today was just beginning to take root in homes across America through dialup services like [AOL](https://en.wikipedia.org/wiki/AOL "AOL"), [Compuserve](https://en.wikipedia.org/wiki/CompuServe "Compuserve"), and [Prodigy](https://en.wikipedia.org/wiki/Prodigy_\(online_service\) "Prodigy"). At the same time, the quality and quantity of free and opensource software was increasing.  The Internet was being powered by webservers and databases.  Opensource tools such as the Apache Webserver, Perl programming Language, and MySQL database became the *killer apps* to use on Linux or BSD.
 
 The term opensource software is pervasive today but until 1998, it didn't exist--they were still using the term *free software*.  The term *free software* had existed since 1985, but because of the ambiguity of the English word *free* it became associated with zero-cost free and not freedom free.  The term *free* can also give the potential idea of cheap or shoddy work--compared to professional proprietary work and the enterprise would not touch it.  
 
@@ -355,7 +355,7 @@ Eric S. Raymond[^8] had long been a free software developer and part of the hack
 
 His main point was that by business-as-usual practices Linux should have been a massive failure and a poorly implemented experiment.  But instead it was an unprecedented success because of the opensource development method.  His article examined why this is the case comparing the cathedral like design of Emacs and GCC--open but not publicly available during development versus Linux bazaar style development of everything publicly open and available at all time via the internet.
 
-In conclusion Raymond proposed that opensource code and opensource design methodology of treating your user as a valued resource was vital to an opensource project's success.  Based on this Raymond and [Bruce Perens](https://en.wikipedia.org/wiki/Bruce_Perens "Bruce Perens") founded the [Open Source Initiative (OSI)](http://opensource.org/ "OSI") and were part of the group that in 1998 coined the term "opensource". Their goal was to continue to promote free software but instead of focusing on the moral issue of software freedom, they focused on the design principals of producing superior software.  A quote from Raymond puts his opinion bluntly;
+In conclusion Raymond proposed that opensource code and an opensource design methodology of treating your user as a valued resource was vital to an opensource project's success.  Based on this Raymond and [Bruce Perens](https://en.wikipedia.org/wiki/Bruce_Perens "Bruce Perens") founded the [Open Source Initiative (OSI)](http://opensource.org/ "OSI") and were part of the group that in 1998 coined the term "opensource". Their goal was to continue to promote free software but instead of focusing on the moral issue of software freedom, they focused on the design principals of producing superior software.  A quote from Raymond puts his opinion bluntly;
 
 > *As head of the Open Source Initiative, he (Raymond) argued that advocates should focus on the potential for better products. "The "very seductive" moral and ethical rhetoric of Richard Stallman and the Free Software Foundation fails, he said, "not because his principles are wrong, but because that kind of language ... simply does not persuade anybody".* [Eric S. Raymond](https://en.wikipedia.org/wiki/Eric_S._Raymond#Open_source "Quote")
 
@@ -412,7 +412,7 @@ In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Cr
 
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux
 
-As the 1990s came to a close we began to see established companies adopting and using opensource projects in enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils") and a GUI interface.  Of all the Linux companies that started at that time, Red Hat Linux is one of the few remaining and by far the most successful. How successful?  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
+As the 1990s came to a close we began to see established companies adopting and using opensource projects in the enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils") and a GUI interface.  Of all the Linux companies that started by the turn of the century, Red Hat Linux is one of the few remaining and by far the most successful. How successful?  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
 
 ### Modern Linux Distributions
 
@@ -450,9 +450,9 @@ The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the s
 * It is the only major Linux distribution not backed by a corporation.
 * Debian is an all volunteer project and organization--project leader is elected on a rotating basis
 * Dedicated to protecting software rights and freedoms of users
-* First major distribution to come with a [software contract](https://www.debian.org/social_contract "Contract") - stating what rights the project will guarantee to the user.
-* Debian supports free and opensource software as superior to closed source but will allow for closed source software/drivers to be installed by the user.
-* Supported at various times 11 different processor types giving it a wide install base.
+* First major distribution to come with a [software contract](https://www.debian.org/social_contract "Contract") - stating what rights the project will guarantee to the user
+* Debian supports free and opensource software as superior to closed source but will allow for closed source software/drivers to be installed by the user
+* Supported at various times 11 different processor types giving it a wide install base
 * The Debian project and its history can be found at:
   * [About the Debian Project](https://www.debian.org/intro/about)
   * [History of Debian](https://www.debian.org/doc/manuals/project-history)
@@ -514,23 +514,17 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 ![*Fedora Project*](images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
 
-The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, as well as a container based edition based on a company Red Hat purchased called Red Hat CoreOS Edition for use on Kubernetes.
+The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, a cloud instance, as well as a container based edition based on a company Red Hat purchased called Red Hat CoreOS Edition for use on Kubernetes.
 
+* Fedora 34 was released on 05/20/21
+* Fedora 33 was released on 10/27/20
 * Fedora 32 was released on 04/21/20
 * Fedora 31 was released on 10/21/19
 * Fedora 30 was released on 04/30/19
 * Fedora 29 was released on 10/30/18
 * Fedora 28 was released on 05/01/18
-* Fedora 27 was released on 11/14/17
-* Fedora 26 was released on 07/11/17
-* Fedora 25 was released on 11/22/16
-* Fedora 24 was released on 06/21/16
-* Fedora 23 was released on 11/03/15
-* Fedora 22 was released on 05/26/15
-* Fedora 21 was released on 12/09/14
-* Fedora 20 was released on 12/17/13
 
-Fedora 20-30 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  The Fedora Project is just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
+Fedora version less that 32 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  The Fedora Project is just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
 
 #### Red Hat Enterprise Linux--RHEL
 
@@ -561,10 +555,10 @@ Not to be out done by CentOS, Oracle saw that many of their customers were payin
 * Originally a German company Linux Distro [started in 1994](https://www.suse.com/company/history/ "History of SUSE Linux")
   * SUSE is an acronym meaning: "*Software und System-Entwicklung*” (software and systems development)
 * [openSUSE Linux](https://www.opensuse.org "openSUSE Linux") is a community-driven version of SUSE and released in 2004.
-* In 2006 Microsoft and SUSE announce interoperability agreement
+* In 2006 Microsoft and SUSE announce an interoperability agreement (Patent Lawsuit Protection)
 * SUSE was responsible for working to port the Linux kernel to 64 bit architecture in 2000
 * Major partner for deploying SAP
-* Owns Rancher -- an Enterprise Kubernetes Management Platform
+* Owns RancherOS -- an Enterprise Kubernetes Management Platform
 
 #### Intel Clear Linux
 
@@ -700,7 +694,7 @@ Why would this technology be so divisive?  Well, the init system is at the root 
 
 The other major point of contention is with all the changes systemd makes to the init process. Many other pieces of software need to change as well.  Linux has always been about the freedom to choose your software, but systemd has made fundamental choices forcing fundamental changes to the structure of how software interacts with the Linux kernel.  For example, the GNOME desktop developers have chosen to integrate their software with systemd directly.  This means that you have no choice but to use systemd instead of SysVinit if you want to use the GNOME desktop. You are basically locked into using GNOME as a Desktop environment in this case, which some would argue is progress and some would argue as captivity.  Note that BSD still uses SysVinit; systemd is a pure Linux-ism and not compatible with BSD.
 
-According to BSD developer Benno Rice at BSDcan 2018, systemd gives Linux, a system management layer that had always been missing, not unlike what exists in Windows today.  You need to give Lennart credit for convincing all major Linux distros to adopt systemd as their init system. Lennart convinced his management at Red Hat to take a chance on his technology, and now most of the industry followed suit 6+ years after he first released systemd.  That is not an easy accomplishment if you think about it.
+You need to give Lennart credit for convincing all major Linux distros to adopt systemd as their init system. Lennart convinced his management at Red Hat to take a chance on his technology, and now most of the industry followed suit 6+ years after he first released systemd.  That is not an easy accomplishment if you think about it.
 
 The first company to adopt systemd was Red Hat.  Debian was the last holdout and they had a spirited debate, which led to a number of resignations and a split within the community over the issue.  Some Debian developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focused on removing all systemd and udev dependencies from a Debian based Linux distro.  
 
