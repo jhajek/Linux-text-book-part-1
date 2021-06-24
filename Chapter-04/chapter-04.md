@@ -102,29 +102,27 @@ As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ub
 
 ## Window Managers
 
-X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows on one machine and manage their state as well (open and close them?) How about arranging them?  Do you need them tiled or overlapping? Then you need a window manager to sit on top of X and handle that rendering.  Thankfully window managers are essentially common in Desktop Linux and almost inseparable from X in this case. Window Managers are not the full GUIs you might be used to. They are one step below a full blown desktop environment but window managers are very fast because they render simple windows and simple sets of icons.  Their job is to render content inside of particular windows and manage that window's state. Since Linux and X were developed independent of a central product, you will see a depth and breadth of different window managers serving different functions and features.  Some are very simple, some serve direct purposes, some are tied to full blown desktop environments. Window Managers can be changed and swapped as needed because they are not a central part of the operating system. Some of the minimalistic window managers can be used to help older laptops and PCs remain useful with modern Linux. You can break window managers into 3 categories based on their window behavior.
+X will let you display a window and let you capture mouse and keyboard commands.  But what if you want to render multiple windows on one machine and manage their state as well such as opening and closing them. How about arranging them?  Do you need them tiled or overlapping? Then you need a window manager to sit on top of X and handle that rendering.  Thankfully window managers are essentially common in Desktop Linux and almost inseparable from X. Window Managers are not the full GUIs you might be used to. They are one step below a full blown desktop environment but window managers are very fast because they render simple windows and simple sets of icons.  Their job is to render content inside of particular windows and manage that window's state. Since Linux and X were developed independently, you will see a depth and breadth of different window managers serving different functions and features.  Some are very simple, some serve direct purposes, some are tied to full blown desktop environments. You can break window managers into 3 categories based on their window behavior.
 
 ### Compositing
 
-* [Compiz](http://www.compiz.org/ "Compiz") - Fusion Adds more functionality to Compiz with more plugins, tools and libraries. Allows for OpenGL use in windows and compositing
+* [Compiz](http://www.compiz.org/ "Compiz") - Fusion Adds more functionality to Compiz with more plugins, tools and libraries. Allows for OpenGL use in windows
 * [Metacity](https://blogs.gnome.org/metacity/ "metacity") - Small window manager, using GTK+ 2 to do everything
-* [evilwm](http://www.6809.org.uk/evilwm/ "evilwm") - Maximizes screen real estate and provides good keyboard control
 * [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
 * [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME Desktop Environment
 
 ### Stacking
 
 * [Blackbox](http://blackboxwm.sourceforge.net/ "Blackbox Wiki") - Similar to the NeXT interface and Window Maker
+* [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
+* [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager
 * [Fluxbox](http://fluxbox.org/ "Fluxbox") - Highly configurable and low resource
-* [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop
-* [Enlightenment](https://www.enlightenment.org/ "Enlightenment") - Focuses on pushing the limits of existing technologies
 * [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager
 * [Sawfish](http://sawfish.tuxfamily.org/ "Sawfish") - Extensible window manager using an Emacs Lisp-like scripting language
 * [Motif - mwm](http://motif.ics.com/ "Motif") - Originally the libraries contained in the CDE -- now opensource
 * [IceWM](http://www.icewm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager
-* [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
-* [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager
 * [FLWM](https://en.wikipedia.org/wiki/FLWM "Fast and Light Window Manager") Fast and Light Window Manager
+* [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop
 
 ### Tiling
 
