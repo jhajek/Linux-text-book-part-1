@@ -755,7 +755,7 @@ The Guest Additions offer the following features:
 # Assuming using VirtualBox 6.1.x
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
-cd /media/user/VBox_GAs_6.1.22
+cd /media/$USER/VBox_GAs_6.1.22
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```

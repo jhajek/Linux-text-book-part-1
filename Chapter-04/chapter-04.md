@@ -131,7 +131,6 @@ X will let you display a window and let you capture mouse and keyboard commands.
 * [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support.
 * [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Built in Common Lisp window manager and Keyboard-only
 * [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager
-* [tinywm](http://incise.org/tinywm.html "tiny wm") - Very very minimalistic window manager
 * [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support.
 
 ## Desktop Environments
