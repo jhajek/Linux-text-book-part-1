@@ -480,7 +480,7 @@ You will chose 1 of the window managers from the categories listed earlier in th
 1) Compositing window manager
 1) Stacking window manager
 1) Tiling window manager
-1) Install Enlightenment (E17) on Ubuntu 18.04
+1) Install Enlightenment (E17) on Ubuntu 20.04
 
 **Note:** the names of packages are not always obvious so you can use search features of package managers.  For example here would be how to search for the i3 package.
 
@@ -492,8 +492,8 @@ You will chose 1 of the window managers from the categories listed earlier in th
 Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
 
 1) Install the Xfce Desktop on Fedora 34
-1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
-1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-desktop but just xfce4 package)
+1) Install the Ubuntu Mate Desktop on Ubuntu 20.04
+1) Install the Xfce4 Desktop on Ubuntu 20.04 (not xubuntu-desktop but just xfce4 package)
 1) Download the KDE Neon Desktop distro (Ubuntu based) from [https://neon.kde.org/download](https://neon.kde.org/download "KDE desktop Neon")
 
 #### Ubuntu Theme Tweaking
