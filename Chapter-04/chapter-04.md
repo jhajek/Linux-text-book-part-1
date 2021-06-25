@@ -491,7 +491,7 @@ You will chose 1 of the window managers from the categories listed earlier in th
 
 Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
 
-1) Install the Xfce Desktop on Fedora 32
+1) Install the Xfce Desktop on Fedora 34
 1) Install the Ubuntu Mate Desktop on Ubuntu 18.04
 1) Install the Xfce4 Desktop on Ubuntu 18.04 (not xubuntu-desktop but just xfce4 package)
 1) Download the KDE Neon Desktop distro (Ubuntu based) from [https://neon.kde.org/download](https://neon.kde.org/download "KDE desktop Neon")
