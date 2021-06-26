@@ -106,10 +106,11 @@ X will let you display a window and let you capture mouse and keyboard commands.
 
 ### Compositing
 
-* [Compiz](http://www.compiz.org/ "Compiz") - Fusion Adds more functionality to Compiz with more plugins, tools and libraries. Allows for OpenGL use in windows
-* [Metacity](https://blogs.gnome.org/metacity/ "metacity") - Small window manager, using GTK+ 2 to do everything
+The first compositing window managers came about in 2005/2006 as the necessary extensions were added to the X server.  The compositing window managers are now considered standard and default part of desktop environments such as GNOME, KDE, and XFCE.  The LXQT desktop environment uses  [Openbox](http://openbox.org/wiki/Main_Page "Openbox") as it's window manager.
+
+* [Xfwm](https://en.wikipedia.org/wiki/Xfwm "Xfwm") - Xfce window manager
 * [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
-* [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME Desktop Environment
+* [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME3 Desktop Environment
 
 ### Stacking
 
