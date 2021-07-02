@@ -121,7 +121,6 @@ The first compositing window managers came about in 2005/2006 as the necessary e
 * [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop
 * [IceWM](https://ice-wm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager
 * [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager
-* [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager
 
 ### Tiling
 
