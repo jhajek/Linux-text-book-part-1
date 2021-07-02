@@ -114,25 +114,24 @@ The first compositing window managers came about in 2005/2006 as the necessary e
 
 ### Stacking
 
-* [Blackbox](http://blackboxwm.sourceforge.net/ "Blackbox Wiki") - Similar to the NeXT interface and Window Maker
 * [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
-* [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager
+* [Blackbox](http://blackboxwm.sourceforge.net/ "Blackbox Wiki") - Similar to the NeXT interface and Window Maker
 * [Fluxbox](http://fluxbox.org/ "Fluxbox") - Highly configurable and low resource
-* [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager
-* [Sawfish](http://sawfish.tuxfamily.org/ "Sawfish") - Extensible window manager using an Emacs Lisp-like scripting language
-* [Motif - mwm](http://motif.ics.com/ "Motif") - Originally the libraries contained in the CDE -- now opensource
-* [IceWM](http://www.icewm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager
 * [FLWM](https://en.wikipedia.org/wiki/FLWM "Fast and Light Window Manager") Fast and Light Window Manager
 * [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop
+* [IceWM](https://ice-wm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager
+* [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager
+* [Window Maker](http://windowmaker.org/ "wmaker") - NeXTSTEP-like window manager
 
 ### Tiling
 
 * [Awesome](https://en.wikipedia.org/wiki/Awesome_(window_manager) "Awesome") - mouse optional
-* [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
-* [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support.
-* [StumpWM](https://stumpwm.github.io/ "Stumpwm") - Built in Common Lisp window manager and Keyboard-only
 * [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager
-* [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support.
+  * [dwm tutorial](https://dwm.suckless.org/tutorial/ "Tutorial for dwm")
+* [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support
+  * [i3 keyboard command reference](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")
+* [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
+* [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support
 
 ## Desktop Environments
 
@@ -170,7 +169,7 @@ In an interesting development Miguel ended up forming the company that became Xa
 
 In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros.  Red Hat and Debian adopted GNOME as well. With the release of Ubuntu 18.04, Ubuntu returned to the Gnome desktop.
 
-GNOME 2 was released in early 2002 and the last GNOME 3 release was in 2010.  Over this 8 years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different metaphor, called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks.
+GNOME 2 was released in early 2002 and the last GNOME 3 release was in 2010.  Over this 8 years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different metaphor, called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks.
 
 #### GNOME Forks: Unity, Mate, and Cinnamon
 
@@ -232,7 +231,7 @@ Some people in the Free and Opensource world think that this amounts to a Linux 
 
 Each desktop environment has the ability to modify and display a theme on top of its shell.  GNOME 3 has been notoriously hard to modify. The GNOME Tweak Tool allows for the adjustment of several advanced GNOME options that can't be configured in gnome-control-center. This includes things like:
 
-* fonts used in user interface elements and titlebar
+* fonts used in user interface elements and title bar
 * font hinting and aliasing
 * alternative user interface themes
 * changes in window management behavior
