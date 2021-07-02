@@ -131,6 +131,7 @@ The first compositing window managers came about in 2005/2006 as the necessary e
 * [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support
   * [i3 keyboard command reference](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")
 * [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
+  * [Xmonad User Guide](https://xmonad.org/tour.html "Xmonad User Guide")
 * [ratpoison](http://www.nongnu.org/ratpoison/shot2.png "ratpoison") - Keyboard-only window manager no mouse support
 
 ## Desktop Environments
