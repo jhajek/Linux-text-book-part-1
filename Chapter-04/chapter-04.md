@@ -189,15 +189,11 @@ Seeing as KDE and GNOME focused on features and usability, many people who were 
 
 The LXQT project was started as the LXDE project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce but is one step above a window manager. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux.  Recently the lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT.  LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.
 
-### Enlightenment
+### Enlightenment and Lumina
 
 This project started in 1997 and intended to be a virtual desktop window manager.  This would involve a grid of desktops a user could move windows around and onto.  The initial release was in 1999 called E16.  The second release E17 took 12 years.  But E17 had grown from just a window manager into a full-fledged desktop environment using its own libraries called Enlightenment Foundation Libraries.  Enlightenment can also be a shell that can sit on top of KDE and GNOME.
 
-### Lumina
-
-A distro of FreeBSD, called TrueOS, created their own native desktop environment for their GUI based FreeBSD distro.  They had previously relied on GNOME and KDE but the amount of work needed to remove the Linux specific parts prevented new research from being done. Now they have independent development that doesn't rely on them back-porting and changing all the Linux-based dependencies in GNOME and KDE and allows Lumina to run on BSD based systems and Linux.
-
-Lumina has been written from scratch in C++/Qt5 and is not based on any existing desktop’s code-base, and does not use any of the Linux-based desktop frameworks (ConsoleKit, PolicyKit, D-Bus, systemd, etc..) and is now available for Linux as well as VSD in the Project Trident distro based on Void Linux.
+Lumina is a desktop environment created for a distro of FreeBSD, called TrueOS.  They had previously relied on GNOME and KDE but the amount of work needed to remove the Linux specific parts prevented new research from being done. As of 2019, TrueOS rebased itself to be part of Project Trident and based on Void Linux and became a Linux distro but continues to use the Lumina desktop.
 
 ### Android
 
