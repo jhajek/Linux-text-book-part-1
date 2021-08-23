@@ -7,8 +7,8 @@ pipeline {
             steps {
                 script {
                   echo 'Building..'
-                  sh 'chmod +x ./Documents/build-linux-and-macos.sh'
-                  sh './Documents/build-linux-and-macos.sh'
+                  sh 'chmod +x ./build-linux-and-macos.sh'
+                  sh './build-linux-and-macos.sh'
                 }
             }
         }
