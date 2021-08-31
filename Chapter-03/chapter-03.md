@@ -1,4 +1,4 @@
-# Hardware and Installation
+# Installation of Linux
 
 ![*Must be a Linux User...*](images/Chapter-Header/Chapter-03/surgery.png  "Understanding the Technology and Philosophy of Unix/Linux")
 
