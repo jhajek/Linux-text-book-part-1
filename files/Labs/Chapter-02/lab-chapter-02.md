@@ -17,8 +17,6 @@ Answer these questions (not all of the Answers are in each case study!)
 1. What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
 1. What can you learn from this article relating to technology and infrastructure?
 
-Each Student will give a 1-2 minute presentation of one of their papers the following class.
-
 ## Activity 2
 
 Read these four articles.  It's a commentary on the Opensource license changes, a response from one of the CEOs, and then a reply to the response.
@@ -39,9 +37,3 @@ Answer these questions with a few short sentences:
 * Do you agree with him, why or why not?
 * What is Adam Jacob's opinion on running a company with an opensource product?
 * What is the solution in your opinion?
-
-## Activity 3
-
-* Sign up for a GitHub ID at [GitHub.com](https://github.com "GitHub website")
-  * If you have one already no need to sign up for another one
-* See Appendix-D assignment for installing Git on your computer
