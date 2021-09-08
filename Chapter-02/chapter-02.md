@@ -714,12 +714,14 @@ As the story moves into the year of 2019, we begin to see the issue of opensourc
   * [Community License Agreement](https://www.cockroachlabs.com/cockroachdb-community-license/ "Community License Agreement")
 * Amazon vs Elastic
   * In a bit of irony, after the Elastic company moved some of their products features to an Enterprise Edition and non-opensource offering, Amazon felt the need to make a statement rebuking Elastic for not [keeping Opensource open](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/ "Keeping Opensource Open").  Amazon neglected to mention that they had forked Elastic's code, made a hosted version on the AWS Cloud and was not contributing any code or money back to Elastic.  Mind you this was all legal according to the Apache Public License v2.  
+* [Grafana changes to APGL3](https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/ "Grafana changes license to AGPL3").
+  * Some companies have reacted strongly by changing permissive licensing like Apache2 and MIT to the [AGPL3](https://www.gnu.org/licenses/agpl-3.0.en.html "AGPL3 license web page"), which is within their rights.  
 
 Some would argue that this is where the GPL with its strong copyleft would prevent this from happening.  Others would argue that this is the fundamental market effect of opensource, and let the two fight it out and the market will determine the winner.  The other solution is to create 503c based foundations to steward projects, which means governance and tight corporate control of a project.  When Amazon essentially forked MongoDB and created a product called DocumentDB, the GPL would have forced Amazon, by its license, to release the changes made to the MongoDB source code--leveling the playing field.  The FSF and GPL people will tell you, the license is not about money or commerce, but freedom.
 
 Others will cite the fact that very few successful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception.  Apple, for instance, has removed all GPLv3 based software from its MacOS due to concerns about GPLv3.  
 
-The industry solution has been the formation of foundations.  For example, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation") employs Linus Torvalds to continue work on the Linux Kernel.  In addition, the Linux Foundation runs multiple other significant technology foundations--all offspring of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and shepherded by the Linux Foundation is pretty astounding.  But if you look at the foundations they are "pay-to-play" and controlled by the largest corporations who don't always have a good track record.
+One industry solution has been the formation of foundations that have largely avoided the GPL license for fear of the copyleft clause.  For example, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation") employs Linus Torvalds to continue work on the Linux Kernel.  In addition, the Linux Foundation runs multiple other significant technology foundations--all offspring of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and shepherded by the Linux Foundation is pretty astounding.
 
 Other foundations include:
 
@@ -734,6 +736,8 @@ Other foundations include:
 * The [Continuous Delivery Foundation](https://cd.foundation/ "The Continuous Delivery Foundation") (CDF)
 
     "*The Continuous Delivery Foundation (CDF) serves as the vendor-neutral home of many of the fastest-growing projects for continuous delivery, including Jenkins, Jenkins X, Spinnaker, and Tekton. CDF supports DevOps practitioners with an open model, training, industry guidelines, and a portability focus.*"
+
+But if you look at the foundations they are "pay-to-play" and controlled by the largest corporations who don't always have a good track record in relation to respecting free/opensource licensing.  Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out.  Perhaps the time for the focus on the business model for Free and Opensource software has arrived as the large corporations have found and embraced Opensource Software.  The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
 
 ## Chapter Conclusion and Summary
 
