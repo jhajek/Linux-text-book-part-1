@@ -3,38 +3,37 @@
 You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.
 
 * Debian Based
-  * Ubuntu 18.04 Desktop edition
-  * Lubuntu 18.04 Desktop edition
   * Ubuntu 20.04 Desktop edition
+  * Lubuntu 20.04 Desktop edition
+  * Ubuntu 20.04 Desktop edition
+  * Ubuntu 20.04 Server edition
   * Trisquel Linux
-  * Solus
-  * PureOS 8.x
+  * Solus Linux - MATE
+  * PureOS
 
 * Red Hat Based
-  * Fedora 32 - Workstation edition
-  * CentOS 8.x - Minimal install
+  * Fedora 34 - Workstation edition
+  * CentOS 8 Stream - Minimal install
 
 * Illumos Based
   * OmniOS Community Edition
 
 * BSD based
   * FreeBSD
-  * GhostBSD
 
 * Linux
-  * Alpine Linux
+  * Alpine Linux - Standard
   * MX Linux
-  * Arch Linux
-  * Intel Clear Linux Desktop
-  * Void Linux
+  * PCLinuxOS - Xfce mini
+  * Linux Mint
 
 * Network Based Install
-  * openSUSE Leap 15.x
-  * Debian 10.x
+  * openSUSE Leap
+  * Debian 11.x
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
-#### Python pyttsx3
+## Python pyttsx3
 
 Install these pre-requisites needed for the speech-to-text library. You will also need to install Python3 dependencies to use pip
 

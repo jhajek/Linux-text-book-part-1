@@ -946,23 +946,23 @@ You will need to do some research and find the download links for the Linux and 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
 * Debian Based
-  * Ubuntu 18.04 Desktop edition
-  * Lubuntu 18.04 Desktop edition
   * Ubuntu 20.04 Desktop edition
+  * Lubuntu 20.04 Desktop edition
+  * Ubuntu 20.04 Desktop edition
+  * Ubuntu 20.04 Server edition
   * Trisquel Linux
   * Solus Linux - MATE
   * PureOS
 
 * Red Hat Based
-  * Fedora 32 - Workstation edition
-  * CentOS 8.x - Minimal install
+  * Fedora 34 - Workstation edition
+  * CentOS 8 Stream - Minimal install
 
 * Illumos Based
   * OmniOS Community Edition
 
 * BSD based
   * FreeBSD
-  * GhostBSD
 
 * Linux
   * Alpine Linux - Standard
@@ -973,11 +973,10 @@ You will need to do some research and find the download links for the Linux and 
 * Network Based Install
   * openSUSE Leap
   * Debian
-  * Project-Trident
-
+  
 #### Python pyttsx3
 
-Install these pre-requisites needed for the speech-to-text library. You can choose to do this on either Fedora 32 or Ubuntu 18.04 or Ubuntu 20.04. You will also need to install Python3 dependencies to use pip
+Install these pre-requisites needed for the speech-to-text library. You can choose to do this on either Fedora 34 or Ubuntu 20.04 Desktop. You will also need to install Python3 dependencies to use pip
 
 ```bash
 sudo apt-get install python3-dev python3-setuptools \
@@ -1001,7 +1000,7 @@ engine.runAndWait()
 
 Upon saving this file, from the commandline, execute this code with the command: `python3 py-speech.py` and if you hear the computer voice you will have successfully installed the modules via Python3.
 
-Submit your file py-speech.py to your private Github repo in the chapter-03 folder of your ITMO-556 folder.
+Include the file `py-speech.py` in your private GitHub repo Lab > chapter-03 folder.
 
 #### Footnotes
 
