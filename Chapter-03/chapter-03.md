@@ -941,7 +941,7 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 
 ### Lab
 
-You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.  There are 18 different distributions listed.  If a version is not listed, assume the latest version unless noted.
+You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox.  Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.  There are 17 different distributions listed.  If a version is not listed, assume the latest version unless noted.
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
