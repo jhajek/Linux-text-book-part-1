@@ -5,7 +5,7 @@ You will need to do some research and find the download links for the Linux and 
 * Debian Based
   * Ubuntu 20.04 Desktop edition
   * Lubuntu 20.04 Desktop edition
-  * Ubuntu 20.04 Desktop edition
+  * Xubuntu 20.04 Desktop edition
   * Ubuntu 20.04 Server edition
   * Trisquel Linux
   * Solus Linux - MATE
