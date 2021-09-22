@@ -35,10 +35,11 @@ You will need to do some research and find the download links for the Linux and 
 
 ## Python pyttsx3
 
-Install these pre-requisites needed for the speech-to-text library. You will also need to install Python3 dependencies to use pip
+Install these pre-requisites needed for the speech-to-text library. You can choose to do this on either Fedora 34 or Ubuntu 20.04 Desktop. You will also need to install Python3 dependencies to use pip
 
 ```bash
-sudo apt-get install python3-dev python3-setuptools python3-pip libespeak1 libespeak1-dev
+sudo apt-get install python3-dev python3-setuptools \
+python3-pip libespeak1 libespeak1-dev
 ```
 
 Then use Python3 pip installer to install the Python3 Speech-to-Text library:
@@ -57,3 +58,5 @@ engine.runAndWait()
 ```
 
 Upon saving this file, from the commandline, execute this code with the command: `python3 py-speech.py` and if you hear the computer voice you will have successfully installed the modules via Python3.
+
+Include the file `py-speech.py` in your private GitHub repo Lab > chapter-03 folder.
