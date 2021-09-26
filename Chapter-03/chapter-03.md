@@ -187,7 +187,7 @@ Let us walk through the initial installation process.  The first step to begin i
 
 What happens if you choose the wrong type or version?  Two things: __first__, if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it.  You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off.  __Second__, if you select the wrong version, (32-bit instead of 64-bit) you will receive an error from the BIOS as the operating system loads explaining that it cannot continue.
 
-Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate.  The recommended amount of memory is at least one gigabyte but more likely two gigabytes will be better.
+Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate.  The recommended amount of memory is at least one gigabyte but two gigabytes or more will be better.
 
 ![*Memory Selection Dialog*](images/Chapter-03/VirtualBox-Install/memory-size.png "Memory Selection Dialog")
 
@@ -203,17 +203,15 @@ You can choose to dynamically allocate your hard drive space or statically alloc
 
 ![*Disk Type*](images/Chapter-03/VirtualBox-Install/storage-type.png "Disk Type")
 
-The next step is to select the amount of virtual hard drive allocation.  Here you have a choice of how much hard drive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM. As a rule of thumb, I generally double the space recommended.
+The final option dialog is where you can choose where to store your virtual machine's virtual hard drive and the amount of virtual hard drive you want to allocate.  Here you have a choice of how much hard drive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM. As a rule of thumb, I generally double the space recommended. Usually the default storage location is fine unless you know you need to store the hard drive on a separate partition or disk.
 
 ![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/file-location-and-size.png "Harddisk allocation")
-
-The final option dialog is where you can choose where to store your virtual machine's virtual hard drive. Usually the default is fine unless you know you need to store the hard drive on a separate partition or disk.   Also VirtualBox will make a suggestion on a recommended virtual hard drive size.
 
 Now click *finish* and you should be ready to go.  
 
 ### Walk Through the Settings
 
-![*Virtual Machine Settings*](images/Chapter-03/settings.png "Virtual Machine Settings")
+![*Virtual Machine Settings*](images/Chapter-03/VirtualBox-Install/settings.png "Virtual Machine Settings")
 
 Before we hit the start button - let us select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.  The most common options you will deal with are described as follows:
 
@@ -275,11 +273,11 @@ This warning icon is a forcing mechanism to make you review these settings.  You
 
 Now you can click "*begin installation*".
 
-![*Begin Installation*](images/Chapter-03/fedora-install/begin-installation.png "Being Installation")
-
 The installation will finish without prompting you for creating a user.  This will be done on the subsequent reboot as part of the setup process.  You will be prompted with optional dialogs, and then a user creation dialog where you will create a user account that will be given admin privileges and/or the ability to log into a corporate account that is managed by a central LDAP or Active Directory (single sign-on).
 
 ![*Create User With Sudo*](images/Chapter-03/fedora-install/user-account-fedora.png "Create User With Sudo")
+
+\newpage
 
 ## Package Managers
 
