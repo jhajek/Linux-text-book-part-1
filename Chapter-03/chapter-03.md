@@ -181,27 +181,31 @@ Upon completion of a fresh install and launching of VirtualBox you should see th
 
 See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this documentation is actually very thorough and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
-Let us walk through the initial installation process.  The first step to begin is with the *NEW* button.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-18-04-Desktop" and "Fedora-32-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.  
+Let us walk through the initial installation process.  The first step to begin is with the *NEW* button.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-20-04-Desktop" and "Fedora-34-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.  
 
 ![*Create New Ubuntu and Fedora Instance Dialogs*](images/Chapter-03/VirtualBox-Install/name-and-operating-system-two.png "Create New Instance Dialog")
 
 What happens if you choose the wrong type or version?  Two things: __first__, if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it.  You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off.  __Second__, if you select the wrong version, (32-bit instead of 64-bit) you will receive an error from the BIOS as the operating system loads explaining that it cannot continue.
 
-Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate.  The recommended amount of memory is at least one gigabyte but more likely two gigabytes will be better.  You can also *"over-provision"* memory by making multiple virtual machines whose memory totals beyond your system's memory by not having them running all at once.
+Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate.  The recommended amount of memory is at least one gigabyte but more likely two gigabytes will be better.
 
 ![*Memory Selection Dialog*](images/Chapter-03/VirtualBox-Install/memory-size.png "Memory Selection Dialog")
 
-The next step is to select the amount of virtual hard drive allocation.  Here you have a choice of how much hard drive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM.  
-
-![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/file-location-and-size.png "Harddisk allocation")
-
-Next is the hard drive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI type is sufficient.  If you know you will be transferring this Virtual Machine to another environment: VMware (VMDK), and Microsoft Hyper-V (VHD) then you can choose the appropriate type.
+The next step is the hard drive creation step. In this step we will choose to create a new hard drive now.
 
 ![*Drive Type*](images/Chapter-03/VirtualBox-Install/hard-disk.png "Drive Type")
 
-You can choose to dynamically allocate your hard drive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The hard drive will grow incrementally as you need space until it hits the maximum you defined.  The disadvantage of this is that if you are creating lots of data there will be an overhead processing in continually allocating space.  Statically allocating the hard drive space on the other hand will potentially lessen the number of systems that can go on your hard drive because potentially much space that is allocated is actually unused. Virtual hard drives for the guest OSes are treated as files from the point host OSes.
+Next is the hard drive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI virtual disk type is sufficient.
+
+![*Hard Disk File Type*](images/Chapter-03/VirtualBox-Install/file-type.png "Hard Disk File Type")
+
+You can choose to dynamically allocate your hard drive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The hard drive will grow incrementally as you need space until it hits the maximum you defined.
 
 ![*Disk Type*](images/Chapter-03/VirtualBox-Install/storage-type.png "Disk Type")
+
+The next step is to select the amount of virtual hard drive allocation.  Here you have a choice of how much hard drive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM. As a rule of thumb, I generally double the space recommended.
+
+![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/file-location-and-size.png "Harddisk allocation")
 
 The final option dialog is where you can choose where to store your virtual machine's virtual hard drive. Usually the default is fine unless you know you need to store the hard drive on a separate partition or disk.   Also VirtualBox will make a suggestion on a recommended virtual hard drive size.
 
@@ -235,7 +239,7 @@ Network
 
 ### Installing Ubuntu
 
-Hitting the *START* button on your virtual machine for Ubuntu 18.04 Desktop will bring you to a screen that asks you to select install media (or ISO file):
+Hitting the *START* button on your virtual machine for Ubuntu 20.04 Desktop will bring you to a screen that asks you to select install media (or ISO file):
 
 ![*Select ISO install media*](images/Chapter-03/ubuntu-install/select-iso.png "Select ISO")
 
