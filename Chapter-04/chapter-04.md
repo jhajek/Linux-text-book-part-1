@@ -209,7 +209,7 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 ----------------------------------------------------- ------------------------ -------------------------------
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
-[GNOME 4](https://www.GNome.org/ "GNOME")             GTK+ 4                   https://GNome.org/
+[GNOME 40](https://www.GNome.org/ "GNOME")            GTK+ 4                   https://GNome.org/
 [Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3                   https://www.xfce.org/
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     https://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   https://mate-desktop.org/
@@ -261,7 +261,7 @@ In order to find the window commands for open, close, resize, tiling, and so for
 
 #### GNOME 40 Features
 
-The major change in GNOME 40, which as of September 2021 only Fedora 34 has adopted is that the application doc is now located along the bottom of the screen and no longer vertical.  There have been numerous internal app changes as well as cloud service integrations.  There have been changes to active application on the doc.
+The major change in GNOME 40, which as of September 2021 only Fedora 34 has adopted, is that the application doc is now located along the bottom of the screen and no longer vertical.  There have been numerous internal app changes as well as cloud service integrations.  There have been changes to active application on the doc.
 
 [There has also been an integration of track pad gestures](https://news.itsfoss.com/gnome-40-release/ "Website itsfoss GNOME 40 what is new").  *"Even if you’re not a laptop user, you can still use these gestures by using the keyboard shortcut: Super+Alt+↑ or ↓ or ← or →. Going up and down on the touchpad takes you in and out of the activities overview and app grid screens, left and right switches you between workspaces. And, if you’re using a mouse, you can navigate using Super + Alt + Scroll."*
 
