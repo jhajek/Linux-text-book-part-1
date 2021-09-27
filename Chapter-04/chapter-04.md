@@ -201,9 +201,7 @@ Lumina is a desktop environment created for a distro of FreeBSD, called TrueOS. 
 
 ### Android
 
-Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.  It has a custom rendering layer that does not use X or Wayland.
-
-![*https://source.android.com/devices/graphics/*](images/Chapter-04/Android/ape_fwk_graphics-400-by-367.png "Android Rendering Layers")
+Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.  [It has a custom rendering layer](https://source.android.com/devices/graphics/ "Image of Android custom rendering layer") that does not use X or Wayland.
 
 ### Who Uses What
 
