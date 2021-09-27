@@ -171,9 +171,7 @@ In an interesting development Miguel ended up forming the company that became Xa
 
 In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros.  Red Hat and Debian adopted GNOME as well. With the release of Ubuntu 18.04, Ubuntu returned to the Gnome desktop.
 
-GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released March 2021.  Over this 18+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different metaphor than say Windows OS, called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks.  
-
-The GNOME naming convention has changed from the previous 2.x and 3.x to just 40.  So there is in a sense no more GNOME 3 or 4, but like a webbrowser just a rolling version starting at the number 40.  There are a few changes in that the application doc is now located along the bottom of the screen and no longer vertical.  
+GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released March 2021.  Over this 18+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different metaphor than say Windows OS, called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks.  The GNOME naming convention has changed from the previous 2.x and 3.x to just 40.  So there is in a sense no more GNOME 3 or 4, but like a webbrowser just a rolling version starting at the number 40.  
 
 #### GNOME Forks: Unity, Mate, Cinnamon, and Pop!_OS
 
@@ -260,6 +258,12 @@ Each application has a preferences and content menu area in GNOME 3.  It is loca
 In order to find the window commands for open, close, resize, tiling, and so forth you just need to right click on the gray toolbar on top of the window that has the focus.
 
 ![*GNOME 3 Toolbar*](images/Chapter-04/toolbar.png "Toolbar")
+
+#### GNOME 40 Features
+
+The major change in GNOME 40, which as of September 2021 only Fedora 34 has adopted is that the application doc is now located along the bottom of the screen and no longer vertical.  There have been numerous internal app changes as well as cloud service integrations.  There have been changes to active application on the doc.
+
+[There has also been an integration of track pad gestures](https://news.itsfoss.com/gnome-40-release/ "Website itsfoss GNOME 40 what is new").  *"Even if you’re not a laptop user, you can still use these gestures by using the keyboard shortcut: Super+Alt+↑ or ↓ or ← or →. Going up and down on the touchpad takes you in and out of the activities overview and app grid screens, left and right switches you between workspaces. And, if you’re using a mouse, you can navigate using Super + Alt + Scroll."*
 
 #### GNOME Extensions
 
