@@ -245,13 +245,9 @@ Everything in [GNOME 3](https://www.gnome.org/gnome-3/ "GNOME 3") starts with th
 
 You will notice a few other system designs or features.  For instance there is no logout button.  The little white triangle in the upper right hand corner next to the battery and sound icon controls poweroff and restart, but by default there is no logout button.  This is a GNOME feature.  
 
-Each application has a preferences and content menu area in GNOME 3.  It is located right next to the Activities button.  You will see the application name with a small white drop down arrow.
+Each application has a preferences and content menu area in GNOME 3.  It is located right next to the Activities button.  You will see the application name with a small white drop down arrow. In order to find the window commands for open, close, resize, tiling, and so forth you just need to right click on the gray toolbar on top of the window that has the focus.
 
-![*GNOME 3 Taskbar*](images/Chapter-04/taskbar.png "Taskbar")
-
-In order to find the window commands for open, close, resize, tiling, and so forth you just need to right click on the gray toolbar on top of the window that has the focus.
-
-![*GNOME 3 Toolbar*](images/Chapter-04/toolbar.png "Toolbar")
+![*GNOME 3 Taskbar*](images/Chapter-04/GNOME3/taskbar-and-toolbar.png "Taskbar")
 
 #### GNOME 40 Features
 
