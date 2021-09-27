@@ -221,20 +221,6 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
-### Theming
-
-Each desktop environment has the ability to modify and display a theme on top of its shell.  GNOME 3 has been notoriously hard to modify. The GNOME Tweak Tool allows for the adjustment of several advanced GNOME options that can't be configured in gnome-control-center. This includes things like:
-
-* fonts used in user interface elements and title bar
-* font hinting and aliasing
-* alternative user interface themes
-* changes in window management behavior
-* behavior on laptop lid close
-* file manager desktop icons
-* icons in menus and buttons
-
-Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBunutu") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions, but recent development on the Ubuntu Touch project has sadly ended.
-
 ### Gnome 3.3.x Features
 
 ![*GNOME 3*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
@@ -248,6 +234,10 @@ You will notice a few other system designs or features.  For instance there is n
 Each application has a preferences and content menu area in GNOME 3.  It is located right next to the Activities button.  You will see the application name with a small white drop down arrow. In order to find the window commands for open, close, resize, tiling, and so forth you just need to right click on the gray toolbar on top of the window that has the focus.
 
 ![*GNOME 3 Taskbar*](images/Chapter-04/GNOME3/taskbar-and-toolbar.png "Taskbar")
+
+#### GNOME 3 Modify Favorites
+
+You can remove default icons from the favorite menu as well as add your own favorite applications in GNOME 3 and GNOME 40.  
 
 #### GNOME 40 Features
 
@@ -281,11 +271,19 @@ To access the terminal on a GNOME desktop, click the **Activities** button at th
 
 This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
 
-### Ubuntu Unity Desktop - Deprecated
+### Theming
 
-**As of April 2018 Ubuntu released Unity has been deprecated in favor of GNOME, this section is kept for historical reference.**
+Each desktop environment has the ability to modify and display a theme on top of its shell.  GNOME 3 has been notoriously hard to modify. The GNOME Tweak Tool allows for the adjustment of several advanced GNOME options that can't be configured in gnome-control-center. This includes things like:
 
-[Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME shell augmentation/replacement.  This means that Unity sits on top of GNOME but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.  Unity survives this day as part of the [Ubuntu Touch](https://ubports.com/ "Ubuntu Touch") mobile phone operating system.
+* fonts used in user interface elements and title bar
+* font hinting and aliasing
+* alternative user interface themes
+* changes in window management behavior
+* behavior on laptop lid close
+* file manager desktop icons
+* icons in menus and buttons
+
+Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBunutu") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions, but recent development on the Ubuntu Touch project has sadly ended.
 
 ## Conclusion
 
