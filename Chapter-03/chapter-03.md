@@ -762,7 +762,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Debian 10.x
+#### Debian 10 & 11
 
 ```bash
 # Assuming using VirtualBox 6.1.x
