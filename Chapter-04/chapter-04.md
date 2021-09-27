@@ -249,7 +249,7 @@ Everything in [GNOME 3](https://www.gnome.org/gnome-3/ "GNOME 3") starts with th
 
 ![firefox](images/Chapter-04/ff.png "FF") ![Evolution](images/Chapter-04/evolution.png "Evolution") ![Rhythm Box](images/Chapter-04/rythembox.png "Rhythem Box") ![Shotwell](images/Chapter-04/shotwell.png "Shotwell") ![Nautilus](images/Chapter-04/files.png "File Manager") ![Software](images/Chapter-04/software.png "Software") ![Application Launcher](images/Chapter-04/application.png "Application")
 
-You will notice a few other system designs or features.  For instance there is no logout button.  The little white triangle in the upper right hand corner next to the battery and sound icon controls poweroff and restart, but by default there is no logout button.  Once again this is a GNOME 3 design.  
+You will notice a few other system designs or features.  For instance there is no logout button.  The little white triangle in the upper right hand corner next to the battery and sound icon controls poweroff and restart, but by default there is no logout button.  This is a GNOME feature.  
 
 Each application has a preferences and content menu area in GNOME 3.  It is located right next to the Activities button.  You will see the application name with a small white drop down arrow.
 
@@ -267,7 +267,7 @@ The major change in GNOME 40, which as of September 2021 only Fedora 34 has adop
 
 #### GNOME Extensions
 
-To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](https://extensions.gnome.org "GNOME 3 extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME 3 enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor")
+To extend the functionality of GNOME there is a [GNOME extensions website](https://extensions.gnome.org "GNOME extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor"). Most GNOME 3 extensions should work on GNOME 40 but not all have been ported and some are in the prosses as GNOME 40 is still relatively new.
 
 ![*GNOME 3 Extensions*](images/Chapter-04/extensions.png "Extensions")
 
@@ -275,7 +275,7 @@ To extend the functionality of GNOME 3 there is a [GNOME 3 extensions website](h
 
 Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android.   The issue with a software store became the ability to make money, charge money, and distribute money.  All though the distributions still support Software Stores, their heart is not in this manner of software installation.  The original way to install software was via a package manager, which the stores were a front for anyway.  There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux.  These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").
 
-To access the terminal on a GNOME3 desktop, click the **Activities** button at the top and in the **find** box type: *terminal*.
+To access the terminal on a GNOME desktop, click the **Activities** button at the top and in the **find** box type: *terminal*.
   
 #### Ubuntu
 
