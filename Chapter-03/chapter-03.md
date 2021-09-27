@@ -960,7 +960,7 @@ You will need to do some research and find the download links for the Linux and 
   * Fedora 34 - Workstation edition
   * CentOS 8 Stream - Minimal install
 
-* Illumos Based
+* Illumos / Solaris Based
   * OmniOS Community Edition
 
 * BSD based
