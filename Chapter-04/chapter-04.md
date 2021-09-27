@@ -175,13 +175,15 @@ GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--n
 
 The GNOME naming convention has changed from the previous 2.x and 3.x to just 40.  So there is in a sense no more GNOME 3 or 4, but like a webbrowser just a rolling version starting at the number 40.  There are a few changes in that the application doc is now located along the bottom of the screen and no longer vertical.  
 
-#### GNOME Forks: Unity, Mate, and Cinnamon
+#### GNOME Forks: Unity, Mate, Cinnamon, and Pop!_OS
 
 Linus Torvalds was quoted as saying:
 
 > "People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done,"  [^38]
 
 GNOME 3 led to the creation of alternatives in 2012. When GNOME moved from version 2 to version 3 the amount change was seen by some GNOME users as treason. The MATE project (pronounced *"ma-tay"* not *"may-tuh"*) was a fork and continuation of the GNOME 2 code base.  The Cinnamon desktop was a fork of GNOME 3 with an added features set for the Linux Mint distro. Unity was Ubuntu's reimplementation of the GNOME shell with the Unity shell on top of GNOME 3.  These desktops, with the exception of Unity, can be deployed or installed on most Linux distributions. As a final thought Linus Torvalds has since reconciled with GNOME 3 as of 2013 based on some additional 3rd party tools that allow the GNOME 3 experience to be customized to his liking. [^37]
+
+In April of 2021, [Linux open laptop manufacturer, System76](https://system76.com/ "Website for System76 Linux Laptop manufacturer") released a themed GNOME 3 desktop called [Pop!_OS](https://pop.system76.com/ "Website to Pop OS") with a custom windows manager that defaults to a tiling mode rather than a stacking mode.  
 
 Which is better GNOME or KDE?  With all major Linux systems that are using systemd you now have no choice but to adopt GNOME as the default desktop.  Both have had great set backs and great feature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer.  Try them both and choose the best one for your needs.
 
