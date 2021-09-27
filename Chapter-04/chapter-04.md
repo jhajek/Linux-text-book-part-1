@@ -233,13 +233,13 @@ Each application has a preferences and content menu area in GNOME 3.  It is loca
 
 ![*GNOME 3 Taskbar*](images/Chapter-04/GNOME3/taskbar-and-toolbar.png "Taskbar")
 
-#### GNOME 3 Modify Favorites
+#### GNOME Remove and Add Favorites
 
 You can remove default icons from the favorite menu as well as add your own favorite applications in GNOME 3 and GNOME 40. By right-clicking on the icon you have an option to remove it from the Favorites menu.
 
 For example to add a Favorite for the Terminal program click **Activities** > **Search** > type **Terminal** > right click on the icon > **Add to Favorites**.
 
-#### GNOME 40 Features
+### GNOME 40 Features
 
 ![*GNOME 40*](images/Chapter-04/GNOME40/gnome40-desktop.png "GNOME 40 Desktop image")
 
@@ -271,30 +271,13 @@ To access the terminal on a GNOME desktop, click the **Activities** button at th
 
 ![*GNOME Software Store*](images/Chapter-04/software-store.png "Software Store")
 
-This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything.
-
-### Theming
-
-Each desktop environment has the ability to modify and display a theme on top of its shell.  GNOME 3 has been notoriously hard to modify. The GNOME Tweak Tool allows for the adjustment of several advanced GNOME options that can't be configured in gnome-control-center. This includes things like:
-
-* fonts used in user interface elements and title bar
-* font hinting and aliasing
-* alternative user interface themes
-* changes in window management behavior
-* behavior on laptop lid close
-* file manager desktop icons
-* icons in menus and buttons
-
-Various [custom themes](http://www.noobslab.com/p/themes-icons.html "Themes") exist for Ubuntu. Some Ubuntu users went beyond changing the standard theme and implemented a copy of the Mac OSX theme called [MacBuntu](http://www.noobslab.com/2015/05/mbuntu-y-macbuntu-transformation-pack.html "MacBunutu") and also Windows 7 & 8 themes called [Mindows](http://www.noobslab.com/2015/06/do-you-like-windows-look-and-feel-but.html "Mindows"). Additional Ubuntu Icons matching the [Windows 7 & 8 icons](http://www.noobslab.com/2014/04/make-your-ubuntulinux-mint-look-like.html "Icons") can be installed as well.  Also themes touch on issues of usability.  [Ubuntu Touch theme](http://www.noobslab.com/2015/01/ubuntu-touch-theme-released-for-ubuntu.html "Ubuntu Touch") re-aligns Ubuntu to work on a tablet or phone and considers touch points more important then mouse and keyboard actions, but recent development on the Ubuntu Touch project has sadly ended.
+This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything. The Software store fits a niche need along side the Snap and Flatpak stores, as the GNOME software store focuses on software that integrates with the Desktop, and not so much on standalone applications that the other package managers focus on.
 
 ## Conclusion
 
-In this chapter we learned about the creation and evolution of the desktop GUI.  From ttys to X to Wayland and a modern compositor.  We also learned about window managers and the four major desktop environments.  Finally we learned about the major GUI desktop environment development kits and how each major DE uses them.
+In this chapter we learned about the creation and evolution of the desktop GUI.  From ttys to X to Wayland and a modern compositor.  We also learned about window managers and the four major desktop environments.  Finally we learned about the major GUI desktop environment development kits and how each major DE uses them on the Linux GUI desktop.
 
 ### Review Questions
-
-Linux Desktop and GUI
-Chapter 04 review questions
 
 1) What was the original and most popular Unix “Smart Terminal?”
   a. VIC-100
