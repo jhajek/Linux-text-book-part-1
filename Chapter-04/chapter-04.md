@@ -237,7 +237,9 @@ Each application has a preferences and content menu area in GNOME 3.  It is loca
 
 #### GNOME 3 Modify Favorites
 
-You can remove default icons from the favorite menu as well as add your own favorite applications in GNOME 3 and GNOME 40.  
+You can remove default icons from the favorite menu as well as add your own favorite applications in GNOME 3 and GNOME 40. By right-clicking on the icon you have an option to remove it from the Favorites menu.
+
+For example to add a Favorite for the Terminal program click **Activities** > **Search** > type **Terminal** > right click on the icon > **Add to Favorites**.
 
 #### GNOME 40 Features
 
@@ -249,7 +251,7 @@ The major change in GNOME 40, which as of September 2021 only Fedora 34 has adop
 
 To extend the functionality of GNOME there is a [GNOME extensions website](https://extensions.gnome.org "GNOME extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor"). Most GNOME 3 extensions should work on GNOME 40 but not all have been ported and some are in the prosses as GNOME 40 is still relatively new.
 
-![*GNOME 3 Extensions*](images/Chapter-04/extensions.png "Extensions")
+![*GNOME Extensions*](images/Chapter-04/extensions.png "Extensions")
 
 ### Installing Windows Managers and Desktop Environments
 
