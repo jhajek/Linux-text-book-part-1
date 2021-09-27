@@ -38,7 +38,7 @@ You will need to do some research and find the download links for the Linux and 
 Install these pre-requisites needed for the speech-to-text library. You will also need to install Python3 dependencies to use pip
 
 ```bash
-sudo apt-get install python3-dev python3-setuptools python3-pip libespeak1 libespeak1-dev
+sudo apt-get install python3-dev python3-setuptools python3-pip libespeak1 libespeak-dev
 ```
 
 Then use Python3 pip installer to install the Python3 Speech-to-Text library:

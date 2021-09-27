@@ -982,7 +982,7 @@ Install these pre-requisites needed for the speech-to-text library. You can choo
 
 ```bash
 sudo apt-get install python3-dev python3-setuptools \
-python3-pip libespeak1 libespeak1-dev
+python3-pip libespeak1 libespeak-dev
 ```
 
 Then use Python3 pip installer to install the Python3 Speech-to-Text library:
