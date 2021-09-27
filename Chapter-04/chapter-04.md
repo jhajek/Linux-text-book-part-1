@@ -171,7 +171,7 @@ In an interesting development Miguel ended up forming the company that became Xa
 
 In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros.  Red Hat and Debian adopted GNOME as well. With the release of Ubuntu 18.04, Ubuntu returned to the Gnome desktop.
 
-GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released 2020.  Over this 18+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different metaphor than say Windows OS, called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks.
+GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released March 2021.  Over this 18+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different metaphor than say Windows OS, called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks.
 
 #### GNOME Forks: Unity, Mate, and Cinnamon
 
@@ -207,7 +207,7 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 ----------------------------------------------------- ------------------------ -------------------------------
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
-[GNOME 3](https://www.GNome.org/ "GNOME")             GTK+ 3                   https://GNome.org/
+[GNOME 4](https://www.GNome.org/ "GNOME")             GTK+ 4                   https://GNome.org/
 [Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3                   https://www.xfce.org/
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     https://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   https://mate-desktop.org/
@@ -219,11 +219,11 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
-### GNOME 3 Lockin Question
+### GNOME Lockin Question
 
-By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's systemd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME 3 the default desktop of any system using the systemd init system, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red Hat), and Ubuntu you see very little differentiation desktop-wise now.
+By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's systemd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME the default desktop of any system using the systemd init system, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red Hat), and Ubuntu you see very little differentiation desktop-wise now.
 
-Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom Unity shell and returned to using GNOME3.
+Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom Unity shell and returned to using GNOME.
 
 ### Theming
 
