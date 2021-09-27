@@ -183,7 +183,7 @@ GNOME 3 led to the creation of alternatives in 2012. When GNOME moved from versi
 
 In April of 2021, [Linux open laptop manufacturer, System76](https://system76.com/ "Website for System76 Linux Laptop manufacturer") released a themed GNOME 3 desktop called [Pop!_OS](https://pop.system76.com/ "Website to Pop OS") with a custom windows manager that defaults to a tiling mode rather than a stacking mode.  
 
-Which is better GNOME or KDE?  With all major Linux systems that are using systemd you now have no choice but to adopt GNOME as the default desktop.  Both have had great set backs and great feature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer.  Try them both and choose the best one for your needs.
+GNOME is considered the Linux default desktop due to its tight integration with systemd. So much so that GNOME community contributed development has begun to wane [^29]. Which is better GNOME or KDE?  With all major Linux systems that are using systemd you now have no choice but to adopt GNOME as the default desktop.  Both have had great set backs and great feature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer.  Try them both and choose the best one for your needs.
 
 ### Xfce
 
@@ -220,12 +220,6 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 ----------------------------------------------------- ------------------------ -------------------------------
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
-
-### GNOME Lockin Question
-
-By 2012 the GNOME project was considered pretty mature opensource project. It was a complete desktop environment and had accomplished what it had set out to do back in 1999.  So much so that GNOME community contributed development began to wane [^29]. By that time there was one community developer working on GNOME full time and the other 10 were Red Hat Employees coincidentally. By the end 2012 the GNOME project voted to include Lennart Poettering's systemd as a hard dependency in GNOME. This had a two-fold effect.  This made GNOME the default desktop of any system using the systemd init system, which is all of the two major families of Linux operating systems except for the Devuan/Debian fork. When you compare Debian, Fedora (Red Hat), and Ubuntu you see very little differentiation desktop-wise now.
-
-Some people in the Free and Opensource world think that this amounts to a Linux coup d'etat and some would argue that it is just good business sense.  One wonders if there are clear signs or if this is the natural evolution of Linux.  Can Linux survive as an opensource project at this scale or will it have to become a commercially sponsored project?  For arguments sake, imagine if Red Hat could co-opt all of the Linux desktop market and even the Linux kernel.  What would that mean financially?  As of Ubuntu's 18.04 Bionic Beaver edition release, they have dropped the custom Unity shell and returned to using GNOME.
 
 ### Theming
 
