@@ -243,6 +243,8 @@ For example to add a Favorite for the Terminal program click **Activities** > **
 
 #### GNOME 40 Features
 
+![*GNOME 40*](images/Chapter-04/GNOME40/gnome40-desktop.png "GNOME 40 Desktop image")
+
 The major change in GNOME 40, which as of September 2021 only Fedora 34 has adopted, is that the application doc is now located along the bottom of the screen and no longer vertical.  There have been numerous internal app changes as well as cloud service integrations.  There have been changes to active application on the doc.
 
 [There has also been an integration of track pad gestures](https://news.itsfoss.com/gnome-40-release/ "Website itsfoss GNOME 40 what is new").  *"Even if you’re not a laptop user, you can still use these gestures by using the keyboard shortcut: Super+Alt+↑ or ↓ or ← or →. Going up and down on the touchpad takes you in and out of the activities overview and app grid screens, left and right switches you between workspaces. And, if you’re using a mouse, you can navigate using Super + Alt + Scroll."*
