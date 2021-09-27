@@ -388,7 +388,7 @@ You will need to install the listed GNOME 3 extensions from [https://extensions.
 
 #### Snaps Install
 
-To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on Ubuntu 20.04 desktop:
+To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on any **Ubuntu or Debian** based desktop:
 
 1) Android Studio
 1) Blender
@@ -398,7 +398,7 @@ To install and configure snaps, reference chapter 3.  To show these packages are
 
 #### Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on the Fedora virtual machine:
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on the **Fedora** virtual machine:
 
 1) Kdenlive
 1) Visual Studio Code
@@ -447,7 +447,7 @@ Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instruc
 All steps executed inside the Ubuntu 20.04 Virtual Machine, from the terminal issue the following and take a screenshot of the working program at the end (not the intermediate steps).
 
 * From the terminal issue the command to install the pre-reqs
-  * ```sudo apt-get install git wget curl```
+  * ```sudo apt-get install git wget curl libelf1 libelf-dev clang```
 * To install the [Rust language](https://www.rust-lang.org/ "Website for the Rust Language") ```curl https://sh.rustup.rs -sSf | sh```
   * This command will retrieve the rust-lang installation script and install the needed software
   * Select the default settings (1) to install the language and its package manager, cargo
