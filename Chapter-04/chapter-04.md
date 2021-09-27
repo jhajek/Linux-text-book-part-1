@@ -293,9 +293,9 @@ This is a feature added by Red Hat to improve upon Gnome Packages, which is the 
 
 ### Ubuntu Unity Desktop - Deprecated
 
-**As of April 2018 Ubuntu released Unity has been deprecated in favor of GNOME3, this section is kept for historical reference.**
+**As of April 2018 Ubuntu released Unity has been deprecated in favor of GNOME, this section is kept for historical reference.**
 
-[Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME 3 shell augmentation/replacement.  This means that Unity sits on top of GNOME 3 but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.  Unity survives this day as part of the [Ubuntu Touch](https://ubports.com/ "Ubuntu Touch") mobile phone operating system.
+[Unity](https://unity.ubuntu.com/ "Unity") is Ubuntu's GNOME shell augmentation/replacement.  This means that Unity sits on top of GNOME but has its interface drastically reimagined.  Unity focuses on two parts, the Application Launcher and the top panel.  Everything else is dedicated to screen space.  This is part of Ubuntu's goal to make their interface perform and scale on multiple screen sizes and devices not unlike Windows 10.  Unity survives this day as part of the [Ubuntu Touch](https://ubports.com/ "Ubuntu Touch") mobile phone operating system.
 
 ## Conclusion
 
