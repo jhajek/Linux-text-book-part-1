@@ -67,7 +67,7 @@ The story gets more complicated.  As the userbase of Linux surges in the early 2
 
 This led to the founding of the X.Org Foundation merging the two groups.  This was a breakthrough event.  It basically reconciled the two groups under one new foundation, [X.Org Foundation](http://www.x.org "X.Org Foundation"), it also ensured that the creators of the X project were once again the stewards, and finally it insured that there was a GPL based and protected X project that developers and companies could contribute to as well. The X.Org Foundation continues to innovate and foster the project to this day.
 
-A final GUI note that in parallel the most breakthrough commercial GUI available in the early 80s was released by Apple in 1984[^23].  Here is a [link to an article](http://www.folklore.org/StoryView.py?story=Busy_Being_Born.txt "Mac") from the developers about how it came to be.
+As X was being developed, the most breakthrough commercial GUI available in the early 80s was released by Apple in 1984[^23].  Here is a [link to an article](http://www.folklore.org/StoryView.py?story=Busy_Being_Born.txt "Mac") from the developers about how it came to be.
 
 ![*Apple Macintosh 1984*](images/Chapter-04/Terminals/205px-Macintosh_128k_transparency.png "Apple Macintosh")
 
@@ -86,11 +86,11 @@ In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began t
 * As in the X case, when the client receives the event, it updates the UI in response. But in the Wayland case, the rendering happens in the client, and the client just sends a request to the compositor to indicate the region that was updated.
 * The compositor collects damage requests from its clients and then recomposites the screen. The compositor can then directly issue an ioctl to schedule a pageflip with KMS.
 
-At one time it was thought that X is too deep into the bones of Linux and may never be ever fully replaced. But we are seeing massive amounts of work from industry to make Wayland a reality. With Intel, Nvidia, the X.Org Foundation and Red Hat leading the way, Fedora 25 was one of the first distros to run Wayland natively.  
+At one time it was thought that X was too deep into the bones of Linux and may never be ever fully replaced. But we are seeing massive amounts of work from industry to make Wayland a reality. With Intel, Nvidia, the X.Org Foundation and Red Hat leading the way, Fedora 25 was one of the first distros to run Wayland natively.  
 
 ![*X on Wayland*](images/Chapter-04/x-on-wayland.png "X on Wayland")
 
-### Ubuntu Mir
+### Ubuntu Mir - Depricated
 
 Not to be outdone Ubuntu saw an opportunity to come up with an X replacement and announced the Mir project in early 2013.  Unfortunately this has met with serious opposition from the X and Wayland communities seeing this as an outside effort to *"corner the market"*, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in its Linux opensource graphic driver package.
 
@@ -106,13 +106,15 @@ X will let you display a window and let you capture mouse and keyboard commands.
 
 ### Compositing
 
-The first compositing window managers came about in 2005/2006 as the necessary extensions were added to the X server.  The compositing window managers are now considered standard and default part of desktop environments such as GNOME, KDE, and XFCE.  The LXQT desktop environment uses  [Openbox](http://openbox.org/wiki/Main_Page "Openbox") as it's window manager.
+The first compositing window managers came about in 2005/2006 as the necessary extensions were added to the X server.  The compositing window managers are now considered standard and default part of desktop environments such as GNOME, KDE, and XFCE.  
 
 * [Xfwm](https://en.wikipedia.org/wiki/Xfwm "Xfwm") - Xfce window manager
 * [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
 * [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME3 Desktop Environment
 
 ### Stacking
+
+These allow for overlapping windows, like Windows or MacOS. The LXQT desktop environment uses  [Openbox](http://openbox.org/wiki/Main_Page "Openbox") as it's window manager.
 
 * [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
 * [Blackbox](http://blackboxwm.sourceforge.net/ "Blackbox Wiki") - Similar to the NeXT interface and Window Maker
@@ -124,7 +126,7 @@ The first compositing window managers came about in 2005/2006 as the necessary e
 
 ### Tiling
 
-Tiling Window Managers came from a day when their was no desktop environments (pre mouse).  So there is generally no mouse support and everything is done via the keyboard.  The windows are placed next to each other like tiles on the floor.
+Tiling Window Managers place window next to each other like tiles on the floor and are non-overlapping.  This style is popular with many coders and developers who want to see many windows open at once.
 
 * [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager
   * [dwm tutorial](https://dwm.suckless.org/tutorial/ "Tutorial for dwm")
