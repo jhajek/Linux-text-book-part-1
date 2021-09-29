@@ -374,11 +374,7 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 
 ### Lab
 
-Using the virtual machines you installed in the previous chapter, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.
-
-#### Package based install
-
-**Deliverable:** Take screenshots of all successful installs of the software listed.  
+Using the virtual machines you installed in the previous chapter, Fedora 34 and Ubuntu Desktop 20.04, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.  We will be focusing on package based installs in the first part of the lab.
 
 #### GNOME 3 Extensions
 
@@ -425,52 +421,18 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 1) Archipelago
 1) LibrePCB
 
-#### Python
-
-From Chapter 3, you need to install software packages using the Python pip installer and the Rust Language using their cargo package manager on Ubuntu 20.04.
-
-You can see an example of how to install Python language packages (eggs). Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones located at [dronekit.io](http://dronekit.io "drone kit").  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` the Python Package Installer.
-
-```sudo apt-get install python-pip python-dev```
-
-```bash
-pip install dronekit
-pip install dronekit-sitl
-```
-
-From the command line, run the ```dronekit-sitl --version``` command and take a screenshot of the output.
-
-Using the the ```pip``` command install the Image editor Pillow, [https://pillow.readthedocs.io/en/latest/handbook/index.html](https://pillow.readthedocs.io/en/latest/handbook/index.html "Pillow pip page")
-
-#### Rust Packages
-
-Using [Rust](https://www.rust-lang.org/ "Rust-lang"), follow the install instructions to install a Rust based tool from [Facebook called Below](https://github.com/facebookincubator/below "Git repo for Below project"). It is an interactive tool to view historical system data.
-
-All steps executed inside the Ubuntu 20.04 Virtual Machine, from the terminal issue the following and take a screenshot of the working program at the end (not the intermediate steps).
-
-* From the terminal issue the command to install the pre-reqs
-  * ```sudo apt-get install git wget curl libelf1 libelf-dev clang```
-* To install the [Rust language](https://www.rust-lang.org/ "Website for the Rust Language") run the command:
-  * ```curl https://sh.rustup.rs -sSf | sh```
-  * This command will retrieve the rust-lang installation script and install the needed software
-  * Select the default settings (1) to install the language and its package manager, cargo
-  * Type the last command listed: ```source $HOME/.cargo/env```
-* From the terminal issue the command:
-  * ```git clone https://github.com/facebookincubator/below.git```
-  * Issue the command:  ```cd below``` to change the directory
-  * Issue the command to build the project: ```cargo install below```
-  * You will see a number of software dependencies being built
-  * Once complete, issue the command: ```sudo below live``` to view the live output of your system hardware
-  * Take a screenshot of the previous step - and type Ctrl + C to exit the Below application
-
 #### Installing Window Managers
 
 You will chose 1 of the window managers from the categories listed earlier in the chapter and install them.  Once installed you need to log out and restart your session.  In order to change the default window manager on GNOME3 desktop environment you need to click on the user name and select the little gear below the password field.  In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
 
 ![*Change Window Managers*](images/Chapter-04/GNOME3/window-manager.png "Change")
 
-1) Stacking window manager - OpenBox
-1) Tiling window manager - i3
+* Stacking window manager - [Openbox](http://openbox.org/wiki/Main_Page "Openbox")
+  * Show 3 Windows stacked (FireFox, Terminal, and the File Manager)
+* Tiling window manager - i3
+  * [i3 keyboard command reference](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")
+  * Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.
+  * Use the link above to learn the key commands to launch windows, remember there is no mouse!
 
 **Note:** the names of packages are not always obvious so you can use search features of package managers.  For example, here would be how to search for the i3 package.
 
