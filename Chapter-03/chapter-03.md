@@ -775,7 +775,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Red Hat Fedora 34/35
+#### Red Hat Fedora 33/34/35
 
 ```bash
 # Assuming using VirtualBox 6.1.x
