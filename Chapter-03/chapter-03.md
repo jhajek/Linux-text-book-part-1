@@ -773,7 +773,7 @@ mkdir -p /mnt/virtualboxga
 mount -r /dev/cdrom /mnt/virtualboxga
 cd /mnt/virtualboxga
 ./VBoxLinuxAdditions.run
-reboot
+/usr/sbin/reboot
 ```
 
 #### Red Hat Fedora 33/34/35
