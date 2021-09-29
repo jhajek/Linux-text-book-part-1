@@ -239,6 +239,8 @@ You can remove default icons from the favorite menu as well as add your own favo
 
 For example to add a Favorite for the Terminal program click **Activities** > **Search** > type **Terminal** > right click on the icon > **Add to Favorites**.
 
+\newpage
+
 ### GNOME 40 Features
 
 ![*GNOME 40*](images/Chapter-04/GNOME40/gnome40-desktop.png "GNOME 40 Desktop image")
@@ -448,11 +450,13 @@ All steps executed inside the Ubuntu 20.04 Virtual Machine, from the terminal is
 
 * From the terminal issue the command to install the pre-reqs
   * ```sudo apt-get install git wget curl libelf1 libelf-dev clang```
-* To install the [Rust language](https://www.rust-lang.org/ "Website for the Rust Language") ```curl https://sh.rustup.rs -sSf | sh```
+* To install the [Rust language](https://www.rust-lang.org/ "Website for the Rust Language") run the command:
+  * ```curl https://sh.rustup.rs -sSf | sh```
   * This command will retrieve the rust-lang installation script and install the needed software
   * Select the default settings (1) to install the language and its package manager, cargo
   * Type the last command listed: ```source $HOME/.cargo/env```
-* From the terminal issue the command: ```git clone https://github.com/facebookincubator/below.git```
+* From the terminal issue the command:
+  * ```git clone https://github.com/facebookincubator/below.git```
   * Issue the command:  ```cd below``` to change the directory
   * Issue the command to build the project: ```cargo install below```
   * You will see a number of software dependencies being built
@@ -465,8 +469,8 @@ You will chose 1 of the window managers from the categories listed earlier in th
 
 ![*Change Window Managers*](images/Chapter-04/GNOME3/window-manager.png "Change")
 
-1) Stacking window manager
-1) Tiling window manager
+1) Stacking window manager - OpenBox
+1) Tiling window manager - i3
 
 **Note:** the names of packages are not always obvious so you can use search features of package managers.  For example, here would be how to search for the i3 package.
 
