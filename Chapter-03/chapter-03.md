@@ -766,13 +766,14 @@ sudo reboot
 
 ```bash
 # Assuming using VirtualBox 6.1.x
-sudo apt-get update
-sudo apt-get install build-essential dkms linux-headers-$(uname -r)
-sudo mkdir -p /mnt/virtualboxga
-sudo mount -r /dev/cdrom /mnt/virtualboxga
+su root
+apt-get update
+apt-get install build-essential dkms linux-headers-$(uname -r)
+mkdir -p /mnt/virtualboxga
+mount -r /dev/cdrom /mnt/virtualboxga
 cd /mnt/virtualboxga
-sudo ./VBoxLinuxAdditions.run
-sudo reboot
+./VBoxLinuxAdditions.run
+reboot
 ```
 
 #### Red Hat Fedora 33/34/35
