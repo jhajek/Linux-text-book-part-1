@@ -970,7 +970,7 @@ You will need to do some research and find the download links for the Linux and 
 * Linux
   * Alpine Linux - Standard
   * MX Linux
-  * PCLinuxOS - Xfce mini
+  * PCLinuxOS - Mate
   * Linux Mint
 
 * Network Based Install
