@@ -65,7 +65,7 @@
     b. object
     c. tree
     d. mess
-14) What is the name of the top of the Linux Filesystem?
+14) What is the character name of the top of the Linux Filesystem tree?
     a. ```/```
     b. ```./```
     c. ```../```

@@ -161,8 +161,7 @@ d. bash
 10. Based on the ls command, what is the option to do a long listing?
 d. ls –l
 
-11. What is the command you can use to find out additional usage information about a shell 
-command?
+11. What is the command you can use to find out additional usage information about a shell command?
 b. man
 
 12. Which of these directories is not part of the LSB LFH?
@@ -171,14 +170,13 @@ c. temp
 13. The Linux Filesystem is an upside down what?
 c. tree
 
-14. What is the name of the top of the Linux Filesystem?
+14. What is the character name of the top of the Linux Filesystem tree?
 a. ```/```
 
 15. Everything (directories, files, devices. in Unix/Linux is a what?
 a. file
 
-16. What is the name of the Unix system standard developed in ~1985 that defines at a minimum 
-what a certified Unix based system must support?
+16. What is the name of the Unix system standard developed in ~1985 that defines at a minimum what a certified Unix based system must support?
 c. POSIX
 
 17. What is the directory where all configuration files are stored in Linux?
@@ -352,13 +350,13 @@ d.  ```echo $sys-hostname```
 9) What is the name of the command that allows you to take stdout of a command and insert the lines of output into an array?
 d. mapfile
 
-10)  Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
+10) Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
 c. ```mapfile -t SEARCHARRAY < <(find ~ -name mozilla*)```
 
-11)  Which below is a valid command to find the LENGTH of an array?
+11) Which below is a valid command to find the LENGTH of an array?
 a. ```${#SEARCHARRAY[@]}```
 
-12)Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy```
+12) Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy```
 b.  ```echo $1```
 
 13) Based on this shell script and positional parameters, what would the command be to print out the entire content of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```
@@ -408,7 +406,7 @@ b. Ubuntu
 d. /etc/sudoers
 
 7) What is the name of the command used to modify /etc/sudoers to grant a new user sudo privilege?
-c. visudo 
+c. visudo
 
 8) Based on this line in /etc/sudoers - ```%meninblack  ALL=(ALL:ALL) ALL``` - what does the first value by the % mean? 
 a.  Name of a group
@@ -649,7 +647,7 @@ an abstraction layer
 c) `*.box`
 
 8. Name the file that contains the configuration file for each Vagrant box file.
- 
+
 9. What is the correct command to add the Vagrant Box `centos/7`?
 b) `vagrant box add centos/7`
 
