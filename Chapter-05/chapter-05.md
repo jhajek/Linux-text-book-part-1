@@ -576,38 +576,40 @@ In this chapter we covered the basic nature of the Linux Shell and how it allows
 
 ### Podcast Questions
 
-Carol Smith of Clearly Defined - [https://twit.tv/shows/floss-weekly/episodes/518](https://twit.tv/shows/floss-weekly/episodes/518 "Clearly Defined")
+[Command Line Heroes: Bash](https://www.redhat.com/en/command-line-heroes/season-3/heroes-in-a-bash-shell "Command Line Heroes: bash")
 
-Answer these questions:
-
-* ~6:05 Who is Carol Smith and what is here relationship to The Clearly Defined Project and the Open Source Inititive (OSI)?
-* ~6:20 The Clearly Defined Project, what is it all about?
-* ~6:32 What are the three attributes that the Clearly Defined Project is interested in?
-* ~7:01 Why is (opensource) licensing important?
-* ~8:10 Does the Clearly Defined Project take a stance or support any particular license?
-* ~10:13 How did the Clearly Defined Project get started?
-* ~11:34 How is the Clearly Defined Project working with GitHub and existing projects' license files?
-* ~14:04 What is the [SPDX](https://spdx.org/licenses/ "SPDX website") format?
-* ~18:00 How can a developer get started or interact with the Clearly Defined Project?
-* ~19:10 How would/could a company use this Project in relation to license compliance?
-* ~22:28 Compliance is the first step for the Clearly Defined Project, what is the next horizen?
-* ~24:00 How does the Clearly Defined Project scoring work?
-* ~33:10 According to the OSI and Carol is Public Domain a valid Open Source license?
-* ~41:50 What is the Clearly Defined Project software licensed as?  What is the data's license?
-* What is the package, [App Dynamics NPM 4.5.13](https://clearlydefined.io/workspace "Clearly Defined website"), mentioned by the host Aaron, scored at?
+* ~0:20 Who is the creator of the Bash Shell?
+* ~0:43 Which organization did the creator of the Bash Shell write the shell for?  
+* ~2:05 How does the podcast host define a shell script?
+* ~2:23 Shell scripts are the key to what?
+* ~3:28 When did Ken Thompson release his shell and what was it missing?
+* ~3:45 What year was shell scripting come into existence?
+* ~4:27 What was the shell that became the AT&T UNIX standard shell?
+* ~5:53 The Bourne Shell was licensed and owned by whom?
+* ~7:59 Why was Brian Fox the perfect person to develop the Bash Shell?
+* ~9:30 How long did it take to create the Bash shell and what was difficult about this?
+* ~12:02 What did Brian accidentally do to the Bash Shell?
+* ~14:48 What was the other shell released one month before Bash?
+* ~15:19 When was GNU Bash released?
+* ~18:40 What was the released/intended purpose of GNU Bash?
+* ~19:25 What words and terms are now in use in everyday English?
+* ~20:46 Was Steven Bourne "cool" with the Bash Shell?
+* ~22:52 What prepares you to be more of a long-term thinker?
 
 ### Lab
 
-The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage and form. The outcome will your ability to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  All work can be done on either Ubuntu desktop or Fedora desktop unless noted.
+The objectives of this lab is to use the shell commands we learned in this chapter and understand their proper usage and form. The outcome will your ability to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  
 
-1) From the commandline and in your home directory use your systems package manager (yum or apt) and install the `git` client.  
+**Note:** All work should be done on either Ubuntu desktop or Fedora desktop unless noted and using the Terminal.
+
+1) From the commandline and in your home directory use your systems package manager (dnf or apt) and install the `git` client.  
     1. issue the command ```git --version``` and take a screenshot of the output
 1) Navigate to this location: `~/Documents`.  Issue the command to clone the source code of the text. (If you have done this command previously, no need to redo it).
     1. ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  
-    1. Take a screenshot of the output of the ```ls``` command in the `Linux-text-book-part-1` directory
+    1. Take a screenshot of the output of the ```ls``` command inside the `Linux-text-book-part-1` directory
 1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```./title/metadata.yaml``` is.  Issue that same command to display what type of file ```Appendix-A``` is.
     1. Take a screen shot of the output of the previous commands.
-1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget``` [https://releases.hashicorp.com/packer/1.4.3/](https://releases.hashicorp.com/packer/1.4.3/ "Packer Download URL")
+1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget``` [https://releases.hashicorp.com/packer/1.7.6/packer_1.7.6_linux_amd64.zip](https://releases.hashicorp.com/packer/1.7.6/packer_1.7.6_linux_amd64.zip "Packer Download URL")
     1. Take a screenshot of the ```ls``` command after you have executed the previous command.
 1) Use the ```unzip``` command to unzip the binary and extract the packer executable.  Issue the move command, `mv` to move the executable to this location: ```/usr/local/bin```.  **Hint:** you will need to use `sudo` to get the permission needed for this operation.
     1. To show this was succesful take a screenshot of the output of the command ```packer -v```.
