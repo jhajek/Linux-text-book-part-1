@@ -1,0 +1,10 @@
+Debian
+Red Hat
+Ubuntu
+Fedora
+Linux Mint
+FreeBSD
+OpenBSD
+NetBSD
+OmniOS
+Devuan
