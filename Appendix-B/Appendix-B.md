@@ -119,12 +119,12 @@ a. Desktop environments have a File Manager
 b. Desktop Environments have start or action buttons and task and notification bars
 c. Desktop environments have a changeable but consistent look-and-feel
 d. Desktop environments have system configuration tools and user applications built-in
-18. What is the default desktop environment for Fedora 22? (Name and versions.
-a. GNOME 3
-19. What is the name of the button on the upper left hand corner of the GNOME 3 desktop in Fedora 22 that you use to “launch applications?”
+18. What is the default desktop environment for the latest Fedora desktop? (Name and version)?
+a. GNOME 40
+19. What is the name of the button on the upper left hand corner of the GNOME 3 desktop that you use to “launch applications?”
 a. Activities
 20. What is the name of the default Ubuntu desktop environment?
-GNOME3
+GNOME
 
 ## Chapter 05
 
@@ -260,7 +260,7 @@ d. gzip
 
 Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles 
 
-1.  What are the two main representatives of stream editors  
+1. What are the two main representatives of stream editors  
 d. vi and Emacs
 
 2. Which family of editors came first?
