@@ -14,8 +14,8 @@ The following commands are intentionally out of order as you will be issuing com
 1) distros > redhat
 1) Inside of each of the three directories just created we will need to create some text files.  Take a screenshot of the `ls` listing the contents of each directory showing how to create the files and listing them in the directory.
 1) In the directory BSD use the command to create a file: Create three files names: oracle-linux.txt openbsd.txt netbsd.txt
-1) In the directory BSD use the command to create a file: Create three three names: ubuntu.txt freebsd.txt devuan.txt
-1) In the directory BSD use the command to create a file: Create three files names: fedora.txt rhel.txt debian.txt
+1) In the directory Debian use the command to create a file: Create three three names: ubuntu.txt freebsd.txt devuan.txt
+1) In the directory redhat use the command to create a file: Create three files names: fedora.txt rhel.txt debian.txt
 1) At the same level as distro distros level -> omnios.txt
 1) In the text files created you will notice that a few of them are out of place, such as a debian.txt is in the redhat folder.  Issue the command to move the text files to the correct locations and show a directory listing before and after the move command.  (*Hint*: ls mv ls)
 1) Use the `mv` command to rename the Debian directory to have a lowercase "D"
@@ -35,14 +35,14 @@ The following commands are intentionally out of order as you will be issuing com
 1) Issue the `cd` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file `./title/metadata.yaml` is.  
 1) Issue that same command to display what type of file `Appendix-A` is.
 1) Using in the book source code, under files > chapter-05 > sample-script: copy the file sample-command to your home directory. Use the command to the give the script execute permission `+x`.  Issue the `ls -l sample-script/sample-command` command to show the permissions of just the `sample-command` file 
-1) Move the file `sample-command` to the location `/usr/local/bin` (**Note:** you will need to add the `sudo` command in front to give yourself root privilleges to move a file to this location)
-1) Then from the command line (any location) execute the command: `sample-command`, and if succesful you will receive a message of success
+1) Move the file `sample-command` to the location `/usr/local/bin` (**Note:** you will need to add the `sudo` command in front to give yourself root privileges to move a file to this location)
+1) Then from the command line (any location) execute the command: `sample-command`, and if successful you will receive a message of success
 1) Execute the `ssh-keygen` command on the command line (from any location) and accept all the default values (just hit enter for now, we will cover RSA in depth later in the text).  This command generates two files that are part of an RSA keypair, located in `~/.ssh`
 1) `cd` into that directory and type the command to show the long listing of the directory
 1) From the textbook sample code > Files > Chapter-05 > sample-scripts > copy the file `date-time-script.sh` to your home directory.  `cd` to your home directory and execute the shell script you just copied (which will print out the current datetime) with the command: `./date-time-script.sh`.  You get an error message stating **permission is denied**: Explain why?
 1) Type the command to enable your user to be able to execute this command and capture the results
-1) From the textbook smaple code > Files > Chapter-05 > sample-textfiles > distro-list.txt : issue the command to display the content of the distro-list.txt to the screen
+1) From the textbook sample code > Files > Chapter-05 > sample-textfiles > distro-list.txt : issue the command to display the content of the distro-list.txt to the screen
 1) Issue the command using a relative path to copy the file distro-list.txt to distros directory you made under the itmo356 folder
-1) Issue the command to show the listing of the distros directory content and showing that the file was copied   
+1) Issue the command to show the listing of the distros directory content and showing that the file was copied
 1) Use the `wget` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for `wget` [https://releases.hashicorp.com/packer/1.7.6/packer_1.7.6_linux_amd64.zip](https://releases.hashicorp.com/packer/1.7.6/packer_1.7.6_linux_amd64.zip "Packer Download URL")
-1) Use the `unzip` command to unzip the binary and extract the packer executable.  Issue the move command, `mv` to move the executable to this location: `/usr/local/bin`.  **Hint:** you will need to use `sudo` to get the permission needed for this operation and you may need to install the `unzip` application using your package manager. To show this was succesful take a screenshot of the output of the command `packer -v`.
+1) Use the `unzip` command to unzip the binary and extract the packer executable.  Issue the move command, `mv` to move the executable to this location: `/usr/local/bin`.  **Hint:** you will need to use `sudo` to get the permission needed for this operation and you may need to install the `unzip` application using your package manager. To show this was successful take a screenshot of the output of the command `packer -v`.

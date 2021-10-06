@@ -612,8 +612,8 @@ The following commands are intentionally out of order as you will be issuing com
 1) distros > redhat
 1) Inside of each of the three directories just created we will need to create some text files.  Take a screenshot of the `ls` listing the contents of each directory showing how to create the files and listing them in the directory.
 1) In the directory BSD use the command to create a file: Create three files names: oracle-linux.txt openbsd.txt netbsd.txt
-1) In the directory BSD use the command to create a file: Create three three names: ubuntu.txt freebsd.txt devuan.txt
-1) In the directory BSD use the command to create a file: Create three files names: fedora.txt rhel.txt debian.txt
+1) In the directory Debian use the command to create a file: Create three three names: ubuntu.txt freebsd.txt devuan.txt
+1) In the directory redhat use the command to create a file: Create three files names: fedora.txt rhel.txt debian.txt
 1) At the same level as distro distros level -> omnios.txt
 1) In the text files created you will notice that a few of them are out of place, such as a debian.txt is in the redhat folder.  Issue the command to move the text files to the correct locations and show a directory listing before and after the move command.  (*Hint*: ls mv ls)
 1) Use the `mv` command to rename the Debian directory to have a lowercase "D"
