@@ -24,13 +24,13 @@ The following commands are intentionally out of order as you will be issuing com
 1) `cd` to the distros BSD directory - what would be the command using a relative path to change your pwd to redhat?
 1) From the redhat directory - what would be the command using the relative path to change your pwd to your home directory?
 1) From your home directory - what would be the command using the relative path to change your pwd to the debian directory created earlier?
-1) From the debian directory - what would be the command using an absolute path to change your pwd to /etc/ssh/ssh_config?
+1) From the debian directory - what would be the command using an absolute path to change your pwd to /etc/ssh/ssh_config.d?
 1) Use the `man` command to figure out how to display the format of the `date` command as month, day, year combined to look like: 10152021
-1) Using the file: `/var/log/syslog`:  Type the command to display the last 10 lines of this file
-1) Using the file: `/var/log/syslog`:  Type the command to display the first 10 lines of this file
-1) Using the file: `/var/log/syslog`:  Using the `man` command on the previous question, find how to display the last 25 lines of this file
-1) Using the file: `/var/log/syslog`:  Type the command to display the enitre contents of this file backwards (last line to first)
-1) Using the file: `/var/log/syslog`:  Use one of the commands to allow for paging through one of these commands (hit 'q' to quit the paging command)
+1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Type the command to display the last 10 lines of this file
+1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Type the command to display the first 10 lines of this file
+1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Using the `man` command on the previous question, find how to display the last 25 lines of this file
+1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Type the command to display the enitre contents of this file backwards (last line to first)
+1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Use one of the commands to allow for paging through one of these commands (hit 'q' to quit the paging command)
 1) Clone the textbook source code into your virtual machine.  `cd` into Documents and issue the command: `git clone https://github.com/jhajek/Linux-text-book-part-1.git`.  (*Hint:* You may have to use your distro package manager to install the `git` tool)
 1) Issue the `cd` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file `./title/metadata.yaml` is.  
 1) Issue that same command to display what type of file `Appendix-A` is.
