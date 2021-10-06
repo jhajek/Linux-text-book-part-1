@@ -87,6 +87,6 @@
     b. sbin
     c. usr/sbin
     d. usr/bin
-19) What is the directory that holds all of the user’s home directories? (no slash, just the name)
+19) What is the absolute path of a user's home directory, assuming the user is named controller?
 
 20) True or False - Leonart Poettering created POSIX

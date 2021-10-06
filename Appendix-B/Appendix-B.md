@@ -185,8 +185,8 @@ c. etc
 18. What is the directory where all system binaries are stored?
 a. bin
 
-19. What is the directory that holds all of the user’s home directories? (no slash, just the name.
-a. home
+19. What is the absolute path of a user's home directory, assuming the user is named controller?
+a. /home/controller
 
 20. True or False - Lennart Poettering supports POSIX
 a. False
