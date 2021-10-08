@@ -628,7 +628,8 @@ Flatpak essentially connects the concepts of repositories and app packages, but 
 
 ```bash
 # Flatpak is preinstalled in Fedora 32+
-sudo add-apt-repository ppa:alexlarsson/flatpak
+# Instructions for Ubuntu: https://www.flatpak.org/setup/Ubuntu/
+sudo add-apt-repository ppa:flatpak/stable
 sudo apt update
 sudo apt install flatpak
 flatpak remote-add \
