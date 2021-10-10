@@ -295,8 +295,6 @@ cat error.log
 [Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
 [Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
 [Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
-[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
-[Sun Mar 16 16:35:16 2014] [error] [client 64.131.110.29] File does not exist:
 [Sun Mar 16 16:35:30 2014] [error] [client 157.55.33.126] File does not exist:
 [Sun Mar 16 17:49:05 2014] [error] [client 216.152.249.242] File does not exist:
 [Sun Mar 16 18:05:54 2014] [error] [client 75.148.238.204] Invalid method
