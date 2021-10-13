@@ -4,7 +4,7 @@ Carol Smith of Clearly Defined - [https://twit.tv/shows/floss-weekly/episodes/51
 
 Answer these questions:
 
-* ~6:05 Who is Carol Smith and what is here relationship to The Clearly Defined Project and the Open Source Inititive (OSI)?
+* ~6:05 Who is Carol Smith and what is here relationship to The Clearly Defined Project and the Open Source Initiative (OSI)?
 * ~6:20 The Clearly Defined Project, what is it all about?
 * ~6:32 What are the three attributes that the Clearly Defined Project is interested in?
 * ~7:01 Why is (opensource) licensing important?

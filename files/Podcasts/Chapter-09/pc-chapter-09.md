@@ -2,7 +2,7 @@
 
 DevOps [https://www.redhat.com/en/command-line-heroes/season-1/devops-tear-down-that-wall#tab.show_info.1](https://www.redhat.com/en/command-line-heroes/season-1/devops-tear-down-that-wall#tab.show_info.1 "Command Line Heros DevOps Podcast")
 
-* ~0:30  What do developers do and whose problem is it?
+* ~0:30 What do developers do and whose problem is it?
 * ~0:54 What are the two opposing sides and why are the opposed to each other?
 * ~1:00 Who is the host and who does she work for?
 * ~1:20 For decades how was the IT world was defined?

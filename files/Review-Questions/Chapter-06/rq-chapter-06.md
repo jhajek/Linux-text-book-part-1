@@ -107,14 +107,14 @@ b. locate
 c. slocate
 d. grep
 
-19. When you combine a tar (tape archive) and an additional compression method--what is the name for the resulting file?
-a. tar
-b. tarx
-c. tarall
-d. tarball
+19. Which command can be used to count lines that are in a text file?
+a. count
+b. wc
+c. lines
+d. uniq
 
-20. What is the name of the GNU compression tool project released in 1992?
-a. xz
-b. zip
-c. DEFLATE
-d. gzip
+20. Which command can be used to find unique line occurrences in a text file? 
+a. sort
+b. uniq
+c. wc
+d. who

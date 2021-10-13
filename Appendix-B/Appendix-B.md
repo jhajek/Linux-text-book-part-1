@@ -10,9 +10,9 @@ NA
 
 ## Chapter 02
 
-TBA
+NA
 
-## Chapter 03
+## Chapter 03 - Review Questions
 
 Hardware and Linux Installation
 
@@ -75,7 +75,7 @@ d. Run the ```make``` command
 20. What is the name of the new package manager RedHat has developed?
  flatpak
 
-## Chapter 04
+## Chapter 04 - Review Questions
 
 Linux Desktop and GUI
 
@@ -126,7 +126,7 @@ a. Activities
 20. What is the name of the default Ubuntu desktop environment?
 GNOME
 
-## Chapter 05
+## Chapter 05 - Review Questions
 
 The Linux Filesystem, Path, Shell, and File Permissions
 
@@ -191,7 +191,7 @@ a. /home/controller
 20. True or False - Lennart Poettering supports POSIX
 a. False
 
-## Chapter 06
+## Chapter 06 - Review Questions
 
 Shell Meta-Characters, Pipes, Search, and Tools
 
@@ -220,7 +220,7 @@ a. \?
 d. ranges
 
 9. If you wanted to use brace expansion and create a series of nine files named: file1, file2, file3, etc etc all at once--what command would you use?  (type the full command using touch .
-a. touch file{1..9}
+d. touch file{1..9}
 
 10. If you wanted to assign the value of /etc/alternatives/java to a shell variable named JAVA_HOME--what would be the proper syntax?
 c. JAVA_HOME=/etc/alternatives/java
@@ -250,13 +250,13 @@ d. dmesg
 18. Which command is used to search within files using textual filter patterns?
 d. grep
 
-19. When you combine a tar (tape archive. and an additional compression method--what is the name for the resulting file?
-d. tarball
+19. Which command can be used to count lines that are in a text file?
+b. wc
 
-20. What is the name of the GNU compression tool project released in 1992?
-d. gzip
+20. Which command can be used to find unique line occurrences in a text file? 
+b. uniq
 
-## Chapter 07
+## Chapter 07 - Review Questions
 
 Introduction to Linux Editors, Introduction to Shell Scripts, and User Profiles 
 
