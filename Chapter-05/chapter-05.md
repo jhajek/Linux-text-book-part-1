@@ -272,7 +272,8 @@ tac
 
 ```bash
 tac /etc/passwd
-# The contents of tac can be piped to a less command to allow paging:  hit the letter 'q' to exit the less command
+# The contents of tac can be piped to a less command to allow paging:  
+# hit the letter 'q' to exit the less command
 tac /etc/passwd | less
 ```
 
