@@ -266,6 +266,16 @@ cat
 cat /etc/apache2/sites-available/000-default
 ```
 
+tac
+
+: This command is used to display the entire content of a file but backwards.  The last line of the file will be printed first
+
+```bash
+tac /etc/passwd
+# The contents of tac can be piped to a less command to allow paging:  hit the letter 'q' to exit the less command
+tac /etc/passwd | less
+```
+
 less
 
 : This command is a *hack* on the __more__ command which allows for scrolling the text of a file using the enter key or page down, and space bar or arrow down key for single line scroll.  The __more__ command only went down, not up.  Hence the more powerful command __less__ which pages and line scrolls up and down a document.  Less is more.
@@ -312,6 +322,18 @@ unzip
 
 ```bash
 unzip music.zip
+```
+
+tail
+
+: This command is used to display the last 10 lines of a file.  The number 10 can be overridden by using the `-n` flag to display an arbitrary number of lines.
+
+```bash
+tail /etc/passwd
+```
+
+```bash
+tail -n 25 /etc/passwd
 ```
 
 man
