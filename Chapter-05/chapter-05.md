@@ -260,7 +260,7 @@ touch todolist.txt
 
 cat
 
-: This command is used to display the content of a file to the screen.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a filename content and output it to the screen.  There are lengthy articles discussing if this is the [correct method or a superlative way](http://stackoverflow.com/questions/11710552/useless-use-of-cat "UUoC").  We will use it through out the textbook because of readability and common usage acceptance.
+: This command is used to display the content of a file to the screen.  Technically created to concatenate two files but will accept "nothing" as one input and concatenate nothing plus a filename content and output that to the screen.  There are lengthy articles discussing if this is the [correct method or a superlative way](http://stackoverflow.com/questions/11710552/useless-use-of-cat "UUoC").  We will use it through out the textbook because of readability and common usage acceptance.
 
 ```bash
 cat /etc/apache2/sites-available/000-default
