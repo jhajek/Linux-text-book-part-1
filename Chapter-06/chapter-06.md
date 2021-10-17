@@ -10,7 +10,7 @@ In this chapter we will be continuing our exploration of the commandline.  We wi
 * Understand the concept of standard in, standard out, and standard error
 * Understand the concept of input/output redirection and piping
 * Understand how to search the file system for files and directories
-* Understand how to use the grep command for detailed search and replace options using shell meta-characters
+* Understand how to use the `grep` command for detailed search and replace options using shell meta-characters
 
 ## Outcomes
 
