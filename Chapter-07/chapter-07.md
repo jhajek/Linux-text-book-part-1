@@ -84,7 +84,7 @@ To transition from command mode to insert mode you use the __ESC__ key.  Hitting
 
 ## vi Command Cheat Sheet
 
-There are over 150 distinct commands in vi.   But to be proficient you need to memorize only about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger INSERT mode after you execute them.  For instance the ```ESC then a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT mode after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard and case matters!
+There are over 150 distinct commands in vi.   But to be proficient you need to memorize *initially* about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger INSERT mode after you execute them.  For instance the ```ESC then a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT mode after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard and case matters!
 
 : Positional Commands That Trigger Insert Mode
 
