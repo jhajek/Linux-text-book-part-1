@@ -236,13 +236,9 @@ The second family of editors differs from the first in that they were created af
 
 [GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  The design in simpler than vim and has become a popular alternative.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file--these commands are listed at the bottom of the screen. Unlike vim, there are no modes, so you are always in *insert* mode and can use the arrow keys and type as if you were in a regular GUI based text editor. For Fedora 33, GNU Nano is to replace vim as the default editor.  Nano is very similar to editors such as notepad but has features similar to vim and VSCode.  Nano is entirely rendered in text.
 
-#### JOE
+![*GNU Nano*](images/Chapter-07/editors/nano.png "GNU Nano Image")
 
-[JOE - Joe's own editor](https://en.wikipedia.org/wiki/Joe%27s_Own_Editor "JOE") was released back in 1991 as a simplified editor based on the [WordStar](https://en.wikipedia.org/wiki/WordStar "WordStar") key bindings.  WordStar was one of the first word-processors released initially back in 1978.  JOE is a very basic editor and very small in size.  It is often used in Linux distros as the shell in the recovery or read-only mode because of its small size.
-
-#### JED
-
-[JED](https://en.wikipedia.org/wiki/JED_\(text_editor\) "JED") is a text editor that has its roots in early MS-DOS style editors.  It supports menus and even has mouse support.  It is available on all Linux/Unix/Windows/Mac platforms.
+GNU Nano was derived from two UNIX utilities originally used to edit/read/send email: PINE and PICO.  These were designed before GNU and Linux and did not have Free Software Licenses.  In 2001, GNU Nano was developed to give a free mail reader to the world.  The function of Nano changed as GUIs developed and became an regular text or file editor.
 
 ### GUI Text Editors
 
@@ -463,19 +459,25 @@ Book mentioned in the Podcast:
 
 ### Lab Chapter 7
 
-#### Lab Objectives
+Objectives
 
 The objective of this lab is to master vi commands and shell scripts
 
-#### Lab Outcomes
+Outcomes
 
 At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
 
 #### Prerequisites
 
-You will need to install the program ```vimtutor``` for the first part.   You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk``` and on Fedora by typing ```sudo dnf install vim vim-enhanced```.  There is a good text explanation of each of the vim tutor exercises: [https://www.systutorials.com/vim-tutorial-beginners-vimtutor/](https://www.systutorials.com/vim-tutorial-beginners-vimtutor/ "vimtutor exercises")
+* You will need a virtual machine with Ubuntu Server 20.04
+* You will need to make sure the `vim` program is installed on Ubuntu 20.04, desktop, server and Fedora 34
+* You will need to make sure the the `nano` program is installed on Ubuntu 20.04, desktop, server and Fedora 34
+* You will need to install the program ```vimtutor```
+  * You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk```
+  * On Fedora by typing ```sudo dnf install vim vim-enhanced```
+  * There is a good text explanation of each of the vim tutor exercises: [https://www.systutorials.com/vim-tutorial-beginners-vimtutor/](https://www.systutorials.com/vim-tutorial-beginners-vimtutor/ "vimtutor exercises")
 
-1) To begin type the command ```vimtutor``` from the commandline. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
+1) To begin type the command ```vimtutor``` from the terminal. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
 1) Inside of the ```files/Chapter-07/lab``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
