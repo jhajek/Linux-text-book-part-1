@@ -530,26 +530,26 @@ The *Tweak tool* referred in the tutorial is the GNOME tweak tool:
 
 20)	True or False - Leonart Poettering supports POSIX
 
-### Podcast Questions
+### Chapter 05 - Podcast Questions
 
 Centos - [http://twit.tv/floss/142](http://twit.tv/floss/142 "CentOS")
 
 Answer said questions:
 
-  * ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
-  * ~3:40 What is the short story about how Centos came about?
-  * ~4:58 Who is the largest commercial Enterprise Linux?
-  * ~7:17 How do the two projects relate to each other?  How do they relate to each other from the RedHat point of view?
-  * ~8:10 Who from RedHat is not happy with Centos?
-  * ~10:25 How do Centos users differ from RedHat's paying customers?
-  * ~19:00. How does the RHEL environment work vs Fedora environment? (RedHat Enterprise Linux)
-  * ~22:55 Since Centos is using the RHEL code base how long does Centos lag behind the RHEL codebase when a new release is issued?
-  * ~24:24 How does Centos make money?
-  * ~29:00 How does Centos pay for everything?
-  * ~30:00 Who was Lance Davis and what happened with him?
-  * ~35:00 Kiran mentioned 2 million users for Centos - what did they do right compared to other projects (whitebox linux) that didn't make it?
-  * ~44:00 Is Centos for Servers only or can you use it on the Desktop?
-  * Personal questions - is what Centos doing legal?  Is it ethical/moral?  Why or why not?
+* ~2:25 Why did Randal's previous employer have a large (1000s) Red Hat system deployed?
+* ~3:40 What is the short story about how Centos came about?
+* ~4:58 Who is the largest commercial Enterprise Linux?
+* ~7:17 How do the two projects relate to each other?  How do they relate to each other from the RedHat point of view?
+* ~8:10 Who from RedHat is not happy with Centos?
+* ~10:25 How do Centos users differ from RedHat's paying customers?
+* ~19:00. How does the RHEL environment work vs Fedora environment? (RedHat Enterprise Linux)
+* ~22:55 Since Centos is using the RHEL code base how long does Centos lag behind the RHEL codebase when a new release is issued?
+* ~24:24 How does Centos make money?
+* ~29:00 How does Centos pay for everything?
+* ~30:00 Who was Lance Davis and what happened with him?
+* ~35:00 Kiran mentioned 2 million users for Centos - what did they do right compared to other projects (whitebox linux) that didn't make it?
+* ~44:00 Is Centos for Servers only or can you use it on the Desktop?
+* Personal questions - is what Centos doing legal?  Is it ethical/moral?  Why or why not?
 
 ### Lab
 
@@ -561,7 +561,7 @@ Preface all screenshots with an H3 header indicated the question number: for exa
     i) issue the command ```git --version``` and take a screenshot of the output
 1) Navigate to your home directory and then to your Documents directory.  Issue the command ```git clone https://github.com/jhajek/Linux-text-book-part-1.git```  (If you have done this command previously no need to redo it).
     i) Take a screenshot of the output of the ```ls``` command.  
-1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```.git``` is.  Repeat the process for the file named ```./title/metadata.yaml```   
+1) Issue the ```cd``` command to change directory into Linux-text-book-part-1.  Issue the command to display what type of file ```.git``` is.  Repeat the process for the file named ```./title/metadata.yaml```
     i) Take a screen shot of the output of the previous commands.
 1) Use the ```wget``` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for ```wget```:[https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip](https://releases.hashicorp.com/packer/1.3.0/packer_1.3.0_linux_amd64.zip "Packer") 
     i) Take a screenshot of the ```ls``` command after you have executed the previous command.
@@ -582,9 +582,7 @@ Preface all screenshots with an H3 header indicated the question number: for exa
 1) Assume your PWD is your Home directory: In a series of commands, ```cd``` to Documents, then create a directory named ```packer-scripts```.  Under this directory create 5 sub-directories, ```ubuntu16-04```, ```ubuntu18-04```, ```fedora28```, ```centos7```, ```OmniOS```.  
     i) With your PWD as ```~/Documents/packer-scripts```, execute the command that will give a long listing of the contents of the directory.  Take a screenshot of this command as well as the output.
 
-## Chapter 06
-
-### Review Questions
+## Chapter 06 - Review Questions
 
 Shell Meta-Characters, Pipes, Search, and Tools
 
@@ -709,9 +707,6 @@ d. gzip
 
 ### Podcast Questions
 
-(Replace with Brian Kernighan GREP interview and a few others)
-TBA
-
 Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
 
 * Who is Tim Orielly? ~3:00-5:00
@@ -724,50 +719,36 @@ Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/
 * What prediction did Tim Oreilly make in this podcast (2009) that is now coming true? ~51:32
 * [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
 
-### Lab
+### Lab - Chapter 06
 
-The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell.
+The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell. You can use either an Ubuntu or a Fedora based OS.  **Deliverable:** Take a screenshot demonstrating the required output of each command.
 
-1. Your PWD is ~. Make a new directory called ```text```.  In that directory Use the ```wget``` command to retrieve a compressed file (zip) of the class textbook from: [https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip](https://github.com/jhajek/Linux-text-book-part-1/archive/master.zip) and extract it.
-    i)  Take a screenshot of the above commands used to extract the zip file
-1. Now ```cd``` into the directory you just decompressed. Type the command that will create folders named Chapter-16..31 in one command.
-    i) Take a screenshot of the above command with output 
-1. What command will list every file in the textbook directory that has any number of characters and a ```.sh``` two character file extension of any name?
-    i) Take a screenshot of the above command with output 
-1. What command inside the textbook directory will do a long listing of Chapters-02,04,06, and 08 only?
-    i) Take a screenshot of the above command with output
-1. What command will copy the content of file Chapter-02/chapter-02.md to a directory named Chapter-00/chapter-02.md.  Use meta-characters to string together commands.
-    i) Take a screenshot of the above command with output
-1. Create a shell variable named UT, assign the contents of the command ```uptime``` to UT and print a string to the screen with its value and a message describing what it is.
-    i) Take a screenshot of the above command with output
-1. Execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err``` *Note* if you are on Fedora replace apt-get with dnf and skip the first instruction. Display the contents of the \*.out files in one command and pipe its output to the ```less``` command. Display the contents of the \*.err files in one command and pipe its output to the ```less``` command.  
-    i) Take a screenshot of the above command with output
-1. You are typing the command ```ls -l /topsecret``` and you want to redirect both standard out and standard error to a file named /tmp/out-and-error.txt, how would you do it?
-    i) Take a screenshot of the above command with output
-1. You will find a file named hosts.deny located in the files directory of the download of the textbook. It contains a list of IP addresses - what command would you use to count ONLY the number of lines?
-    i) Take a screenshot of the above command with output
-1. Using the error.log file located in the files directory - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
-    i) Take a screenshot of the above command with output
-1. What command would let you display the content of the hosts.deny file, cut out the the second column and sort it?
-    i) Take a screenshot of the above command with output
-1. What command would let you search the file error.log for the lines that contain the term "robots.txt"?
-    i) Take a screenshot of the above command with output
+1. Issue the command to clone a copy of the textbook code (if you have already done this in Lab 5 no need to repeat the step). Issue the command to `cd` into the `Linux-Text-Book-Part-I` directory. Type the command that will list every file in this directory that has any number of characters and a ```.sh``` two character file extension of any name
+1. Type the command inside the textbook directory will do a *long listing* of Chapters-02, 04, 06, and 08 only
+1. Type the command that will copy the file `Chapter-02/chapter-02.md` into the your home directory, then list the content of your home directory. Use the meta-character needed to execute the proceeding commands only if the previous command is true and place all these commands into one single line
+1. In your home directory, using the meta-character, create these two series of files: ubuntu10.txt - ubuntu15.txt and redhat10.txt - redhat15.txt.  Create each series using a single command
+1. In your home directory, using the meta-character, issue a command to list only the ubuntu10.txt - ubuntu15.txt files
+1. In your home directory, using the meta-character, create the directories named: debian10, debian11, and debian12 with a single command
+1. In your home directory, using the meta-character, delete the directories named debian10, debian11, and debian12 with a single command
+1. In your home directory redirect the output of the `date` command into a file named: **today.txt**
+1. In your home directory append the output of the `date +%m%d%Y` command to the file **today.txt** and display the content - you should see two formatted date entries
+1. Create a shell variable named `UT`, assign the contents of the command ```uptime``` to `UT` and print a string to the screen with its value and with a string stating, "The system has been up for: " and then the value of UT.
+1. Using an Ubuntu Desktop system, execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` and ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err```. Issue the command to list the contents of the `/tmp` directory.
+1. Display the contents of the \*.out files using a meta-character in one command and pipe the output to the ```less``` command
+1. Display the contents of the \*.err files using a meta-character in one command and pipe its output to the ```less``` command.  
+1. Type the command ```ls -l /topsecret``` and redirect both standard out and standard error to a file named: `/tmp/out-and-error.txt`
+1. You will find a file named `hosts.deny` located in the directory `files` > `Chapter-06` of the download of the textbook. It contains a list of IP addresses - what command would you use to count ONLY the number of lines in the file?
+1. Using the `error.log` file located in the directory `files` > `Chapter-06` - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
+1. What command would let you display the content of the `hosts.deny` file, cut out the the second column and sort it?
+1. What command would let you search the file `error.log` for the lines that contain the term **robots.txt**?
 1. What command would let you count the number of lines that have the term "robots.txt" in the file error.log?
-    i) Take a screenshot of the above command with output
+1. Using the hosts.deny file, what command would you type to display the last 10 lines of the file, cut out the field with the IP address and sort them in ascending order?
+1. Use the `grep` tool to search the file error.log for the line "Invalid method in request" and print to the screen the lines found.
+1. Using tools discussed in this chapter and based on the contents of the file **error.log**, type the commands needed to find the following information:  How many unique IPs did the error messages come from?  
+1. Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
 1. Using the ```find``` command and starting from the \~ directory what would be the command to find all files with the name .md?
-    i) Take a screenshot of the above command with output
-1. Using the find command and starting from the \~ directory what would be the command to find all the files that have been modified in the last hour prior?
-    i) Take a screenshot of the above command with output
-1. Using the command line install the git client, ```sudo apt-get install git``` or ```sudo dnf install git``` Then clone down these two repositories: ```git clone https://github.com/jhajek/C_Space.git``` and ```git clone https://github.com/jhajek/Space_java.git```  Use the tar command to create a tape archive of each of the directories.  Name them with their file name plus the .tar extension
-    i) Take a screenshot of the above command with output
-1. Add gzip compression for tar archives you just created Space_java.tar and C_Space.tar.  Not required but see if you can chain the commands and do it in one line.
-    i) Take a screenshot of the above command with output
-1. Add bzip2 compression to your Space_java.tar and C_Space.tar
-    i) Take a screenshot of the above command with output
-1. Download the Linux kernel archive via wget from: (use the latest version), an example: [https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz "kernel.org") Extract this xzip and tar archive in one command.  Then type the command to delete the xz tarball.  Now type the command to re-tar and re-compress it with xzip.     
-     i) Take a screenshot of the above command with output -- Note this may be best as a series of screenshots
-1.  1 point extra credit each if you can compile and run Space_java and or Space_C. *Note* Space_java is a Netbeans project.  Space_C is an old Visual Studio C++ project.  
-     i) Take a screenshot of the above command with output
+1. Using the `find` command and starting from your home directory, what would be the command to find all the files that have been modified in the previous hour?
+
 
 ## Chapter 07
 

@@ -21,7 +21,7 @@ In the previous chapter we continued learning about essential and additional com
 
 ### Stream Editors
 
-The reason we call them __stream editors__ is that at their time of development at the dawn of Unix and the dawn of commercial Unix, the modern day 30 inch screen we have, and even X for that matter, didn't exist.  So editing was done not via text editors or word processors, but it was done by editing single lines at a time.  One line would follow another line - hence a *stream*.  The two main families represented in this category are __emacs__ and __vi__.  Each of these has evolved a distinct following.  The __vi editor__ (pronounced *vee-eye*) currently is a Unix Posix standard and the only editor that you will find installed by default on all Unix and Linux distros guaranteed.  So learning __vi__ gives you the ability create shell scripts on any Unix/Linux system.   In addition both families have a storied history.
+The reason we call them __stream editors__ is that at their time of development, the modern day 30 inch screen we have, and even X for that matter, didn't exist.  So editing was done not via text editors or word processors, but it was done by editing single lines at a time.  One line would follow another line - hence a *stream*.  The two main editors represented in this category are __emacs__ and __vi__.  Each of these has evolved a distinct following.  The __vi editor__ (pronounced *vee-eye*) currently is a Unix Posix standard and the only editor that you will find installed by default on all Unix and Linux distros guaranteed, though some newer Linux distros are changing **vi** out for **nano**.  So learning __vi__ gives you the ability create shell scripts on any Unix/Linux system.
 
 ### Emacs
 
@@ -30,17 +30,9 @@ Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Sta
 > *In it normal editing mode, GNU Emacs behaves like other text editors and allows the user to insert characters with the corresponding keys and to move the editing point with the arrow keys. Escape key sequences or pressing the control key and/or the meta key, alt key or super keys in conjunction with a regular key produces modified keystrokes that invoke functions from the Emacs Lisp environment. Commands such as save-buffer and save-buffers-kill-emacs combine multiple modified keystrokes [^80]*.
 > *GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing [^78] [^79].*
 
-Emacs features include:
-
-* Content-sensitive editing modes, including syntax coloring, for a variety of file types including plain text, source code, and HTML.
-* Complete built-in documentation, including a tutorial for new users.
-* Full Unicode support for nearly all human languages and their scripts.
-* Highly customizable, using Emacs Lisp code or a graphical interface.
-* A large number of extensions that add other functionality, including a project planner, mail and news reader, debugger interface, calendar, and more.
-
 ### The vi Editor
 
-The other major family of stream editors is the __vi editor__ or just __vi__ (pronounced *vee-eye*).  The __vi editor__ took a different route than emacs as it had an different intended  purpose.  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His original intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in C language but doesn't expose the language programmatically unlike emacs which exposes it's LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  This book will focus on the __vi editor__ exclusively but not to the detriment of GNU Emacs or GNU Nano. The chart below shows the history of the __vi editor__.
+The other stream editor is the __vi editor__ or just __vi__ (pronounced *vee-eye*).  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in the C language but you don't code it in C, Unlike emacs which exposes it's LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  The chart below shows the history of the __vi editor__.
 
   Editor           Year Released              Originator
 ------------     ------------------------   -------------------------------------
@@ -74,11 +66,11 @@ By using vim as a text editor we can create shell scripts which are collections 
 
 ### The 3 vi Modes
 
-> __Example Usage:__ Let's invoke vi from the shell.  Open up a terminal and type ```vim notes.txt```, what happens?  You see a screen like this.  All those tilde marks (\~) mean that those lines don't exist--they are visual place holders. If you receive an error that `vim` is not installed you will need to install it via your package manager.
+> __Example Usage:__ Let's invoke vim from the shell.  Open up a terminal and type ```vim notes.txt```, what happens?  You see a screen like this.  All those tilde marks (\~) mean that those lines don't exist--they are visual place holders. If you receive an error that `vim` is not installed you will need to install it via your package manager.
 
 ![*vi initial screen*](images/Chapter-07/editors/vi/vi-blank.png "vi blank")
 
-   The __vi editor__ has 3 modes.
+The __vi editor__ has 3 modes:
 
 1) COMMAND mode used to position the cursor
 2) INSERT mode used to insert/delete text
