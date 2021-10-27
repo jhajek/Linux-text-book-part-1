@@ -78,40 +78,16 @@ sudo rm /lib/systemd/system/carbon-cache.service
 wget https://dl.grafana.com/oss/release/grafana_7.3.6_amd64.deb
 sudo dpkg -i grafana_7.3.6_amd64.deb
 
-## Command to clone your own @hawk ID private repo with all the configuration files
-# We need to add
-git clone git@github.com:illinoistech-itm/sample-student.git
-
-## Code to copy the new systemd service files from our GitHub repo code to the systemd service directory
-sudo cp -v ./sample-student/itmo-453/week-09/service-files/carbon-cache@.service /lib/systemd/system/carbon-cache@.service
-sudo cp -v ./sample-student/itmo-453/week-09/service-files/carbon-relay@.service /lib/systemd/system/carbon-relay@.service
-
-## Code to cp our carbon.conf configuration file we created and overwrite the default
-sudo cp -v ./sample-student/itmo-453/week-09/graphite/graphitemc/carbon.conf /etc/carbon/carbon.conf
-
-## Code to cp our storage aggregation configuration files and overwrite the default
-sudo cp -v ./sample-student/itmo-453/week-09/graphite/graphitemc/storage-schemas.conf /etc/carbon/storage-schemas.conf
-
 ## Code to create a blank storage aggregation file (not needed at the moment) but will avoid warning message 
 # in the logs
 sudo touch /etc/carbon/storage-aggregation.conf
 
-## Ubuntu only - default file to start 2 carbon cache and 1 carbon-relay instances at boot time
-sudo cp -v ./sample-student/itmo-453/week-09/graphite/graphitemc/graphite-carbon.default /etc/default/graphite-carbon
-
 ## Command to create the graphite-api search index file
 sudo touch /var/lib/graphite/api_search_index
-
-## Code to copy our customized Graphite parameter's file and overwrite the default one
-sudo cp -v ./sample-student/itmo-453/week-09/graphite/graphitemc/graphite-api.yaml /etc/
 
 ## Command to reload all of the daemons and start them
 # Daemon-reload must be run each time you change the content of a .service file
 sudo systemctl daemon-reload 
-
-# Command to start and enable at boot 2 instances of the carbon-cache
-sudo systemctl enable carbon-cache@1.service
-sudo systemctl enable carbon-cache@2.service
 
 ## Command to start and enable at boot 1 instance of carbon-relay
 sudo systemctl enable carbon-relay@1.service
