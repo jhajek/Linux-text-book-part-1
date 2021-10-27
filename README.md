@@ -12,7 +12,7 @@ How to install;
 
 ## Ubuntu Linux
 
-I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page for Pandoc 2.x](https://github.com/jgm/pandoc/releases/ "Pandoc Latest deb package").   You will need to issue a ```dpkg``` command to install the deb package directly.  ```sudo dpkg -i pandoc-2.2.*-amd64.deb```
+I would recommend installing Pandoc directly from the latest Debian package.  Located here: [Pandoc Release Page for Pandoc 2.x](https://github.com/jgm/pandoc/releases/ "Pandoc Latest deb package").   You will need to issue a ```dpkg``` command to install the deb package directly.  ```sudo dpkg -i ```
 
 ### Linux dependencies - On Debian/Ubuntu
 
@@ -31,7 +31,7 @@ Install these via this command:
 sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin
 ```
 
-Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu 16.04 can add the repo via these steps:
+Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu can add the repo via these steps:
 
 * ```wget http://packages.sil.org/sil.gpg```
 * ```sudo apt-key add sil.gpg```
@@ -46,9 +46,9 @@ To Install the Inconsolata font:
 
 To confirm install from the command line type: ```pandoc -v```
 
-### Linux Dependencies - On Fedora 31 & 32
+### Linux Dependencies - On Fedora
 
-This is for installing Pandoc 2.X branch.  You will need to download the Pandoc binary from [pandoc.org](https://github.com/jgm/pandoc/releases/ "Pandoc GitHub release tab"), do not install via dnf or yum as those versions are out of date.  Extract the tarball (tar.gz) and copy the contents of ```./pandoc-2.X/bin/```  to ```/usr/local/bin```.  You will need to use sudo because ```/usr/local/bin/``` is owned by root.  Tested with version 2.9.1 and 2.10.x.
+This is for installing Pandoc 2.X branch.  You will need to download the Pandoc binary from [pandoc.org](https://github.com/jgm/pandoc/releases/ "Pandoc GitHub release tab"), do not install via dnf or yum as those versions are out of date.  Extract the tarball (tar.gz) and copy the contents of ```./pandoc-2.X/bin/```  to ```/usr/local/bin```.  You will need to use sudo because ```/usr/local/bin/``` is owned by root.  Tested with version 2.15.x.
 
 * texlive
 * texlive-latex-fonts
