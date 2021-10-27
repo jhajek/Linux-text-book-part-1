@@ -487,7 +487,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-java-8-openjdk.sh``` to your home directory
     i)  Using vim/ex commands, find **all** occurrences of ```;``` and replace them with ```&&```
     i)  Using vim/ex commands, replace **all** occurrences of the numbers ```2.6.5``` with ```2.8.5```
-    i)  Use the vim/ex command to move directly to line 18
+    i)  Use the vim/ex command to move directly to line 9
     i)  Using vim/ex commands to append the package names ```python``` and ```python-dev``` to line 18
     i)  Save file and quit the vim editor
     i)  Take a screenshot of the command used to display the entire content of the file
@@ -517,7 +517,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i) Save the file and exit from your editor
     i) Give the script execute permission and execute it
     i) To test the results, `cd` into the Linux-Text-Book-Part-1 directory (clone it if you have not) and execute the the script: `./build-linux-and-macos.sh`  (the script already have execute permission)
-    i) To test if the textbook built correctly - cd into the directory: **output/pdf**.  Issue the `ls` command and you will see two PDf files.
+    i) To test if the textbook built correctly - cd into the directory: **output/pdf**.  Issue the `ls` command and you will see two PDF files.
 
 ```bash
 
