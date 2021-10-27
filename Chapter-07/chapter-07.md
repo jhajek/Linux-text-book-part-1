@@ -490,7 +490,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i)  Use the vim/ex command to move directly to line 18
     i)  Using vim/ex commands to append the package names ```python``` and ```python-dev``` to line 18
     i)  Save file and quit the vim editor
-    i)  To test your work, give the shell script execute permission and execute it
+    i)  Take a screenshot of the command used to display the entire content of the file
 1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
     i) Using vim/ex commands, find all occurrences of ```python``` and replace them with ```python3```
     i) Save file and quit the vim editor
