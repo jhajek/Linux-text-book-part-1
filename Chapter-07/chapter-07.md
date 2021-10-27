@@ -236,7 +236,7 @@ The second family of editors differs from the first in that they were created af
 
 [GNU Nano](https://en.wikipedia.org/wiki/GNU_nano "Nano") was created in 2000 as a GPL replacement for a common non-free text editor that had come from the University of Washington called PINE.  The design in simpler than vim and has become a popular alternative.  Nano relies on using the *Control* key in combination with other keys for action.  For example ```^O``` to save and ```^X``` to quit a file--these commands are listed at the bottom of the screen. Unlike vim, there are no modes, so you are always in *insert* mode and can use the arrow keys and type as if you were in a regular GUI based text editor. For Fedora 33, GNU Nano is to replace vim as the default editor.  Nano is very similar to editors such as notepad but has features similar to vim and VSCode.  Nano is entirely rendered in text.
 
-![*GNU Nano*](images/Chapter-07/editors/nano.png "GNU Nano Image")
+![*GNU Nano*](./images/Chapter-07/editors/nano.png "GNU Nano Image")
 
 GNU Nano was derived from two UNIX utilities originally used to edit/read/send email: PINE and PICO.  These were designed before GNU and Linux and did not have Free Software Licenses.  In 2001, GNU Nano was developed to give a free mail reader to the world.  The function of Nano changed as GUIs developed and became an regular text or file editor.
 

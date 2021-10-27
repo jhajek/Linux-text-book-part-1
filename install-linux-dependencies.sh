@@ -2,7 +2,7 @@
 
 sudo apt-get -y update
 sudo apt-get install wget git
-wget https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb
+wget https://github.com/jgm/pandoc/releases/download/2.15/pandoc-2.15-1-amd64.deb
 sudo dpkg -i pandoc-2.2.2.1-1-amd64.deb
 sudo apt-get -y install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-math-extra
 
