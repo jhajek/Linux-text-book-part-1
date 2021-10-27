@@ -499,14 +499,14 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i) Add the proper *shebang* on the first line.
     i) Add two lines of space
     i) Store the output of the command ```date``` into the shell variable named **DT**
-    i) Add the command that will print out the text: "###################################"
+    i) Add the command that will print out the text: "#############"
     i) Add the command that will print out the text: "Shell successfully execute at: $DT"
-    i) Add the command that will print out the text: "###################################"
+    i) Add the command that will print out the text: "#############"
     i) Save the file and quit the vim editor
     i) Execute the command to give first-shell.sh execute permission
     i) Take a screenshot of the output executing first-shell.sh
     i) Take a screenshot of the command used to print the content of the file: first-shell.sh
-1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
+1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh``` to your home directory
     i) Open the file install-software.sh in GNU Nano
     i) On line 5 replace my name with yours - take a before and after screenshot
     i) Save the file and quit Nano, then execute the command to show only the **first** 10 lines of the file install-software.sh
@@ -524,8 +524,8 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 wget https://github.com/jgm/pandoc/releases/download/2.15/pandoc-2.15-1-amd64.deb
 sudo dpkg -i pandoc-2.15-1-amd64.deb
 
-sudo apt-get install -y texlive texlive-latex-recommended texlive-latex-extra \ 
-texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils \ 
+sudo apt-get install -y texlive texlive-latex-recommended texlive-latex-extra  
+texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils  
 librsvg2-bin texlive-science-doc texlive-science
 
 wget http://packages.sil.org/sil.gpg
