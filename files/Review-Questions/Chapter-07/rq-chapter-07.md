@@ -12,11 +12,11 @@
    c. GUI editors
    d. Stream Editors
 
-3. Emacs at its core is what?
-   a. A fine operating system in need of a good editor
-   b. The heart and soul of hackers
-   c. An interpreter for Emacs Lisp
-   d. A C program
+3. What type of editor is GNU Nano?
+   a. stream
+   b. text
+   c. A small one
+   d. file
 
 4. Who created the vi editor?
    a. Richard Stallman, 1984
@@ -33,7 +33,7 @@
 
 6. What are the three modes in vi?  
 
-7. What is the key you use in vi to transition between COMMAND MODE and INSERT mode? 
+7. What is the key you use in vi to transition between COMMAND MODE and INSERT mode?
 
 8. What command sequence (key) in vi will add text to the right of the current cursor position?  (just the letter)
 
@@ -47,19 +47,21 @@
 
 13. In the log file u\_ex150911.log what would be the ex command to search forward for occurrences of YandexBot? (include the forward slash)
 
-14. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
+14. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02 > chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
 
-15. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
+15. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02 > chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
 
-16. Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
+16. Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02 > chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
 
-17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give the owner of the file permission to execute the script?
+17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give just the owner of the file additional permissions to execute the script?
 
-18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the other group?
+18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the **other** group?
 
-19. What is the correct sequence of profile inheritance?
-   a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
-   b. ~/.bashrc -> ~/.bash_profile or ~/.bash_login or ~/.profile -> /etc/profile
+19. What is the correct command sequence to save or write out a file in GNU Nano?
+    a. ^6
+    b. ^X
+    c. ^O
+    d. :wq
 
 20. What is the command to display the contents of the PATH system variable on the command line?
     a. echo PATH

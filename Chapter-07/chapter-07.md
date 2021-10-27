@@ -374,11 +374,11 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
    c. GUI editors
    d. Stream Editors
 
-3. Emacs at its core is what?
-   a. A fine operating system in need of a good editor
-   b. The heart and soul of hackers
-   c. An interpreter for Emacs Lisp
-   d. A C program
+3. What type of editor is GNU Nano?
+   a. stream
+   b. text
+   c. A small one
+   d. file
 
 4. Who created the vi editor?
    a. Richard Stallman, 1984
@@ -395,7 +395,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
 
 6. What are the three modes in vi?  
 
-7. What is the key you use in vi to transition between COMMAND MODE and INSERT mode? 
+7. What is the key you use in vi to transition between COMMAND MODE and INSERT mode?
 
 8. What command sequence (key) in vi will add text to the right of the current cursor position?  (just the letter)
 
@@ -409,19 +409,21 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
 
 13. In the log file u\_ex150911.log what would be the ex command to search forward for occurrences of YandexBot? (include the forward slash)
 
-14. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
+14. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02 > chapter-02.md into vi, what would be the ex mode command to replace all occurrences of linux with Linux?
 
-15. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
+15. Assuming your pwd is Linux-text-book-part-I and you have loaded Chapter-02 > chapter-02.md into vi, what would be the ex mode command to replace all occurrences of Linux with GNU/Linux? (remember to escape the /)
 
-16. Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02.chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
+16. Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02 > chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
 
-17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give the owner of the file permission to execute the script?
+17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give just the owner of the file additional permissions to execute the script?
 
-18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the other group?
+18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the **other** group?
 
-19. What is the correct sequence of profile inheritance?
-   a. /etc/profile -> ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc
-   b. ~/.bashrc -> ~/.bash_profile or ~/.bash_login or ~/.profile -> /etc/profile
+19. What is the correct command sequence to save or write out a file in GNU Nano?
+   a. ^6
+   b. ^X
+   c. ^O
+   d. :wq
 
 20. What is the command to display the contents of the PATH system variable on the command line?
     a. echo PATH
@@ -465,32 +467,35 @@ The objective of this lab is to master vi commands and shell scripts
 
 Outcomes
 
-At the end you will have mastered the basics of vi and now be proficient in all the tools of Linux shell scripting
+At the end you will have mastered the basics of vi and now be proficient in the tools of Linux shell scripting
 
 #### Prerequisites
 
-* You will need a virtual machine with Ubuntu Server 20.04
-* You will need to make sure the `vim` program is installed on Ubuntu 20.04, desktop, server and Fedora 34
-* You will need to make sure the the `nano` program is installed on Ubuntu 20.04, desktop, server and Fedora 34
+* You will need an additional virtual machine with Ubuntu Server 20.04 installed
+* You will need to make sure the `vim` program is installed on Ubuntu 20.04
+* You will need to make sure the the `nano` program is installed on Ubuntu 20.04
 * You will need to install the program ```vimtutor```
   * You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk```
   * On Fedora by typing ```sudo dnf install vim vim-enhanced```
   * There is a good text explanation of each of the vim tutor exercises: [https://www.systutorials.com/vim-tutorial-beginners-vimtutor/](https://www.systutorials.com/vim-tutorial-beginners-vimtutor/ "vimtutor exercises")
 
-1) To begin type the command ```vimtutor``` from the terminal. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
+1) Using Ubuntu Server, type the command ```vimtutor``` from the terminal. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
-1) Inside of the ```files/Chapter-07/lab``` folder using ```vim``` open ```install-java-8-openjdk.sh```.  You will be using vim to modify this file
-    i)  Use the ex command to find all occurrences of ```;``` and replace them with ```&&```.
-    i)  Using vim commands replace all occurrences of the numbers ```2.6.5``` with ```2.8.5```.
-    i)  Using vim to append the packages ```python``` and ```python-dev``` to line 18.  
-    i)  In the shell script,  ```install-java-8-openjdk.sh```,  using `vim`, insert a comment above each line explaining what the command is doing.
-1) Using vim, create a shell script named ```created-shell-script.sh``` to run in Ubuntu with the following requirements, you will need to reference chapter 03-07 as well: (resist writing it in notepad)
+1) Inside the ```files/Chapter-07/lab``` folder copy the file ```install-java-8-openjdk.sh```, into your cloned repo: files > chapter-07 > lab folder
+    i)  Using vim/ex commands, find all occurrences of ```;``` and replace them with ```&&```
+    i)  Using vim/ex commands, replace all occurrences of the numbers ```2.6.5``` with ```2.8.5```
+    i)  Using vim to append the package names ```python``` and ```python-dev``` to line 18
+    i)  Save file and quit the vim editor  
+1) Inside the ```files/Chapter-07/lab``` folder copy the file ```install-software.sh```, into your cloned repo: files > chapter-07 > lab folder
+    i) Using vim/ex commands, find all occurrences of ```python``` and replace it with ```python3```
+    i) Save file and quit the vim editor
+1) Using vim, create a shell script named ```created-shell-script.sh``` in your home directory--to run on Ubuntu Server with the following requirements, you will need to reference chapter 03-07 as well:
     i) Create a script with the proper shebang on the first line.
     i) Type the command to update package repositories
     i) Type the command to install the ```java 8 openjdk``` and the ```software-properties-common``` package with the flag to auto-accept 'Yes' to any question
     i) Type and chain the commands to use ```wget``` and retrieve this tarball: [http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz](http://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz "hadop 2.8.5 tarball") then extract it--in one line.
-    i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf wget liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban```
+    i) Type the command to install these packages with the auto accept flag turned on: ```pkgconf liblzo2-dev sysstat iotop vim libssl-dev libsnappy-dev libsnappy-java libbz2-dev libgcrypt11-dev zlib1g-dev lzop htop fail2ban```
     i) Type the command to upgrade the Ubuntu distribution and redirect the standard output to `/tmp/distupgrade.out`
     i) Create a shell variable named RESULT, set the result of the command ```sudo find / -name tools.jar``` to this value and run the command to display the content of the ```$RESULT``` variable to the screen.
     i) Add these lines to the END of your shell script:
