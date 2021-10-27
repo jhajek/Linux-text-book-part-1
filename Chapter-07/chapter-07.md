@@ -474,19 +474,22 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 * You will need an additional virtual machine with Ubuntu Server 20.04 installed
 * You will need to make sure the `vim` program is installed on Ubuntu 20.04
 * You will need to make sure the the `nano` program is installed on Ubuntu 20.04
+* You will need to clone your private Git repo to the Ubuntu Server virtual machine in the home directory
+* You will need to clone the Textbook source code to the Ubuntu Server virtual machine in the home directory
 * You will need to install the program ```vimtutor```
-  * You can do that on Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk```
+  * On Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk```
   * On Fedora by typing ```sudo dnf install vim vim-enhanced```
   * There is a good text explanation of each of the vim tutor exercises: [https://www.systutorials.com/vim-tutorial-beginners-vimtutor/](https://www.systutorials.com/vim-tutorial-beginners-vimtutor/ "vimtutor exercises")
 
-1) Using Ubuntu Server, type the command ```vimtutor``` from the terminal. __Warning:__ ```vimtutor``` requires you to read the instructions carefully.
+1) Using Ubuntu Server, type the command ```vimtutor``` from the terminal. __Warning:__ ```vimtutor``` requires you to read the instructions carefully!
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
-1) Inside the ```files/Chapter-07/lab``` folder copy the file ```install-java-8-openjdk.sh```, into your cloned repo: files > chapter-07 > lab folder
-    i)  Using vim/ex commands, find all occurrences of ```;``` and replace them with ```&&```
-    i)  Using vim/ex commands, replace all occurrences of the numbers ```2.6.5``` with ```2.8.5```
+1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-java-8-openjdk.sh``` to your home directory
+    i)  Using vim/ex commands, find **all** occurrences of ```;``` and replace them with ```&&```
+    i)  Using vim/ex commands, replace **all** occurrences of the numbers ```2.6.5``` with ```2.8.5```
     i)  Using vim to append the package names ```python``` and ```python-dev``` to line 18
-    i)  Save file and quit the vim editor  
+    i)  Save file and quit the vim editor
+    i)  To test your work 
 1) Inside the ```files/Chapter-07/lab``` folder copy the file ```install-software.sh```, into your cloned repo: files > chapter-07 > lab folder
     i) Using vim/ex commands, find all occurrences of ```python``` and replace it with ```python3```
     i) Save file and quit the vim editor
