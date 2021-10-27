@@ -752,10 +752,11 @@ The Guest Additions offer the following features:
 * Shared clipboard
 * Automated logons (credentials passing)
 
-#### Ubuntu 18.04 and 20.04
+#### Ubuntu 18.04 and 20.04 Desktop
 
 ```bash
-# Assuming using VirtualBox 6.1.x
+# Assuming using VirtualBox 6.1.x and you have inserted 
+# the VirtualBox Guest editons iso (under Devices)
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
 cd /media/$USER/VBox_GAs_6.1.26
@@ -763,10 +764,24 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
+#### Ubuntu 18.04 and 20.04 Server
+
+```bash
+# Assuming using VirtualBox 6.1.x and you have inserted 
+# the VirtualBox Guest editons iso (under Devices)
+sudo apt-get update
+sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+sudo mount /dev/sr0 /media
+cd /media
+sudo ./VBoxLinuxAdditions.run
+sudo reboot
+```
+
 #### Debian 10 & 11
 
 ```bash
-# Assuming using VirtualBox 6.1.x
+# Assuming using VirtualBox 6.1.x and you have inserted 
+# the VirtualBox Guest editons iso (under Devices)
 su root
 apt-get update
 apt-get install build-essential dkms linux-headers-$(uname -r)
@@ -780,7 +795,8 @@ cd /mnt/virtualboxga
 #### Red Hat Fedora 33/34/35
 
 ```bash
-# Assuming using VirtualBox 6.1.x
+# Assuming using VirtualBox 6.1.x and you have inserted 
+# the VirtualBox Guest editons iso (under Devices)
 sudo dnf update kernel*
 sudo reboot
 sudo mkdir -p /media/virtualboxga
@@ -794,6 +810,8 @@ sudo reboot
 #### CentOS 7 & 8 using yum
 
 ```bash
+# Assuming using VirtualBox 6.1.x and you have inserted 
+# the VirtualBox Guest editons iso (under Devices)
 sudo yum update kernel*
 sudo reboot
 sudo yum install gcc kernel-devel kernel-headers dkms make bzip2 perl

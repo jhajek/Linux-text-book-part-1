@@ -474,7 +474,6 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 * You will need an additional virtual machine with Ubuntu Server 20.04 installed
 * You will need to make sure the `vim` program is installed on Ubuntu 20.04
 * You will need to make sure the the `nano` program is installed on Ubuntu 20.04
-* You will need to clone your private Git repo to the Ubuntu Server virtual machine in the home directory
 * You will need to clone the Textbook source code to the Ubuntu Server virtual machine in the home directory
 * You will need to install the program ```vimtutor```
   * On Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk```
@@ -489,8 +488,8 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i)  Using vim/ex commands, replace **all** occurrences of the numbers ```2.6.5``` with ```2.8.5```
     i)  Using vim to append the package names ```python``` and ```python-dev``` to line 18
     i)  Save file and quit the vim editor
-    i)  To test your work 
-1) Inside the ```files/Chapter-07/lab``` folder copy the file ```install-software.sh```, into your cloned repo: files > chapter-07 > lab folder
+    i)  To test your work, give the shell script execute permission and execute it
+1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
     i) Using vim/ex commands, find all occurrences of ```python``` and replace it with ```python3```
     i) Save file and quit the vim editor
 1) Using vim, create a shell script named ```created-shell-script.sh``` in your home directory--to run on Ubuntu Server with the following requirements, you will need to reference chapter 03-07 as well:
