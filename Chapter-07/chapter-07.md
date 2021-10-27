@@ -248,7 +248,7 @@ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1
 
 #### Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code") is a new comer to this field.  It is a text editor that has builtin support for Git, plugins, and syntax highlighting. The advantage is that you can download VS Code for Windows, Mac, and Linux as the project is opensource.
+[Visual Studio Code](https://code.visualstudio.com/Docs/?dv=linux64 "Visual Studio Code") is a new comer to this field.  It is a text editor that has built in support for Git, plugins, and syntax highlighting. The advantage is that you can download VS Code for Windows, Mac, and Linux as the project is opensource.
 
 #### Atom
 
@@ -256,7 +256,7 @@ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1
 
 #### Leafpad and Mousepad
 
-* [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for [LXQT](https://lxqt.org/ "Leadpad default lxqt text editor") and was for Xfce until its replacement by mousepad. Leafpad is built using GTK+.
+* [Leafpad](http://tarot.freeshell.org/leafpad/ "Leafpad") is an opensource notepad clone released in 2004.  Leafpad focuses on being light and having minimal dependencies. It provides syntax highlighting and is the default editor for [LXQT](https://lxqt.org/ "Leadpad default lxqt text editor") and was for Xfce until its replacement by Mousepad. Leafpad is built using GTK+.
 * [Mousepad](https://en.wikipedia.org/wiki/Xfce#Mousepad "Mousepad") comes standard in Xfce as a notepad clone.  It is built using GTK3+.
 
 #### Sublime
