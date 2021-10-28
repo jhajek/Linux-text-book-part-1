@@ -521,6 +521,8 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 ```bash
 
+# These lines retrieve the pandoc .deb file which is the executable that turns markdown
+# into a PDF and ePub
 wget https://github.com/jgm/pandoc/releases/download/2.15/pandoc-2.15-1-amd64.deb
 sudo dpkg -i pandoc-2.15-1-amd64.deb
 
