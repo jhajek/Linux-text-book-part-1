@@ -534,7 +534,7 @@ of editors.
 sed script inputfile
 ```
 
-The ```sed``` command uses regular expressesions between the ```\/..\/```[^92]
+The ```sed``` command uses regular expressesions between the ```/../```[^92]
 
 * \^ Matches the beginning of the line
 * \$ Matches the end of the line
