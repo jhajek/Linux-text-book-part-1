@@ -97,15 +97,20 @@ Arrays are a data-type that can be used to associate data in an ordered collecti
 This example below creates a Bash array and stores the redirected output (note the ```< <```) of an ```ls -l /etc``` command storing every line of the listing as an element of an array.
 
 ```bash
-declare -a instanceARR
-mapfile -t instanceARR < <(ls -l /etc)
+## assume you have a file names: names.txt with names of Joseph, Evelyn, and Lincoln on each line
+
+NAMESARRAY=( $(cat names.txt))
+
+echo ${NAMESARRAY[2]}
+# this will print out: Evelyn
 ```
 
 How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by an index.  ```echo ${instanceARR[0]}; echo ${instanceARR [1]}; echo ${instanceARR[2]}```.  Remember that arrays like in C and Java are __0 indexed__.
 
 ```bash
-echo ${instanceARR[@]}
-LENGTH=${#instanceARR[@]}
+# Using the array from the previous example:
+echo ${NAMESARRAY[@]}
+LENGTH=${#NAMESARRAY[@]}
 echo "ARRAY LENGTH IS $LENGTH"
 ```
 
