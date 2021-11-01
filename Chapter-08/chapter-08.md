@@ -40,16 +40,16 @@ UT2=$(uptime)
 ```
 
 ```bash
+# This variable assignment command will, why?
 UT=(`ls -l star[1-3]`)
+# This variable assignment will succeed
 USA="United States of America"
 echo $USA
 DIR="monthly-reports-winter-quarter-north-america"
 ls $DIR
 ```
 
-Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.  Variables that are predefined by the system can be found by typing: ```printenv``` and you will see a list of system variables. You can also define your own variables in a shell script--just as you could do on the command line.   Often this is a good idea when you want to assign the output of one command and reuse that value later.  Note also that the command ```UT2=$(ls -l star[1-3])``` fails--why?
-
-![*Output of printenv command on Fedora*](images/Chapter-08/bash-shell/printenv2.png "printenv")
+Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.
 
 > __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.
 
