@@ -92,17 +92,21 @@ echo "Finished"
 
 #### Array Support in Bash
 
-Arrays are a data-type that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for ArrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data. You can declare an array by simple using the ```declare -a NAMEOFYOURARRAY``` syntax.  The ```-a``` makes your variable an array.  As of Bash 4.x bash gained support for the ```mapfile``` variable. The new mapfile builtin makes it possible to load an array with the contents of a text file without using a loop or command substitution.  Note that Mac as of OSX 10.11 release with Bash 3.2 as the standard.
-
-This example below creates a Bash array and stores the redirected output (note the ```< <```) of an ```ls -l /etc``` command storing every line of the listing as an element of an array.
+Arrays are a datatype that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for ArrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data.
 
 ```bash
-## assume you have a file names: names.txt with names of Joseph, Evelyn, and Lincoln on each line
+# Create a file of names named: names.txt
+echo "Joseph" >> names.txt
+echo "Evelyn" >> names.txt
+echo "Lincoln" >> names.txt
 
+# This will assign the content of each line of names.txt
+# to an array named NAMESARRAY
 NAMESARRAY=( $(cat names.txt))
 
 echo ${NAMESARRAY[2]}
-# this will print out: Evelyn
+# this will print out the second element of the array
+# which is Lincoln
 ```
 
 How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by an index.  ```echo ${instanceARR[0]}; echo ${instanceARR [1]}; echo ${instanceARR[2]}```.  Remember that arrays like in C and Java are __0 indexed__.
@@ -372,15 +376,16 @@ This while loop will read each line of a text file allow you to operate on each 
 
 ```bash
 #!/bin/bash
+# Assume the names.txt file exists from previous examples
 
 while read LINE
 do echo $LINE; mkdir -v /tmp/$LINE
-done < roster.txt
+done < names.txt
 ```
 
 #### FOR Loops
 
-  A FOR loop is used to loop incrementally through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimited list of items.  The syntax of a FOR loop is:
+A FOR loop is used to loop incrementally through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimited list of items.  The syntax of a FOR loop is:
 
 ```bash
 for arg in [LIST];
@@ -393,7 +398,19 @@ If the ```do``` portion of the for loop is on the same line as the for loop a si
 
 ```bash
 #!/bin/bash
-# Listing the planets.
+
+# Assuming the existence of the names.txt file
+# from the previous Bash Array example
+
+for NAME in ${NAMESARRAY[@]};
+do
+  echo "The names in the file: $NAME"
+done
+```
+
+```bash
+#!/bin/bash
+# Or you can list elements out manually
 
 for planet in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto
 do
@@ -403,6 +420,7 @@ done
 
 ```bash
 #!/bin/bash
+# This is a traditional C based for loop
 
 declare -a planetARRAY
 planetARRAY=( mars earth mercury )
@@ -609,10 +627,10 @@ c. for loop
 d. mapfile
 
 10) Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
-a. ```mapfile SEARCHARRAY = (find ~ -name mozilla*)```
-b. ```mapfile SEARCHARRAY < < (find ~ -name mozilla*)```
-c. ```mapfile -t SEARCHARRAY < <(find ~ -name mozilla*)```
-d. ```mapfile -t SEARCHARRY < (find ~ -name mozilla*)```
+a. ```SEARCHARRAY = (find ~ -name mozilla*)```
+b. ```SEARCHARRAY < < (find ~ -name mozilla*)```
+c. ```SEARCHARRAY=( $(find ~ -name mozilla*))```
+d. ```SEARCHARRY < (find ~ -name mozilla*)```
 
 11) Which below is a valid command to find the LENGTH of an array?
 a. ```${#SEARCHARRAY[@]}```
@@ -676,25 +694,30 @@ d. FOR
 
 ### Podcast Questions
 
-Carol Smith of Clearly Defined - [https://twit.tv/shows/floss-weekly/episodes/518](https://twit.tv/shows/floss-weekly/episodes/518 "Clearly Defined")
+Watch or listen to this Podcast: OwnCloud
+[https://twit.tv/shows/floss-weekly/episodes/274](https://twit.tv/shows/floss-weekly/episodes/274 "OwnCloud Podcast Floss Weekly)
 
-Answer these questions:
-
-* ~6:05 Who is Carol Smith and what is here relationship to The Clearly Defined Project and the Open Source Inititive (OSI)?
-* ~6:20 The Clearly Defined Project, what is it all about?
-* ~6:32 What are the three attributes that the Clearly Defined Project is interested in?
-* ~7:01 Why is (opensource) licensing important?
-* ~8:10 Does the Clearly Defined Project take a stance or support any particular license?
-* ~10:13 How did the Clearly Defined Project get started?
-* ~11:34 How is the Clearly Defined Project working with GitHub and existing projects' license files?
-* ~14:04 What is the [SPDX](https://spdx.org/licenses/ "SPDX website") format?
-* ~18:00 How can a developer get started or interact with the Clearly Defined Project?
-* ~19:10 How would/could a company use this Project in relation to license compliance?
-* ~22:28 Compliance is the first step for the Clearly Defined Project, what is the next horizen?
-* ~24:00 How does the Clearly Defined Project scoring work?
-* ~33:10 According to the OSI and Carol is Public Domain a valid Open Source license?
-* ~41:50 What is the Clearly Defined Project software licensed as?  What is the data's license?
-* What is the package, [App Dynamics NPM 4.5.13](https://clearlydefined.io/workspace "Clearly Defined website") mentioned by the host Aaron, scored at?
+* ~2:50 - Who is the creator of OwnCloud?
+* ~3:23 - How is OwnCloud's purpose described?
+* ~4:03 - Is OwnCloud opensource and can you install it on your own hardware?
+* ~5:20 - What other opensource project is the guest involved in?
+* ~5:40 -6:55 - According to the guest speaker, what is wrong with Google Drive and DropBox?
+* ~7:56 - According to the Host -- why do people not run their own instances of OwnCloud?
+* ~8:28 - Using a hosted OwnCloud Provider what is the advantage with moving your data that other companies don't give you?
+* ~12:28 - Can OwnCloud connect to a University authentication system?
+* ~12:44 - What is the largest install base for a University using OwnCloud?
+* ~15:07 - What language is the server written in?  
+* ~15:27 - What language and library are the Linux/MacOS/Windows sync clients built in?
+* ~20:55 - What does the c-sync tool do for OwnCloud?
+* ~23:58 - How many contributors to code does OwnCloud have?
+* ~25:21 - What is the most important thing to have in order to build a thriving opensource community, according to the guest?
+* ~26:45 - Is there commercial support available for OwnCloud?
+* ~27:44 - What is the OpenSource License the OwnCloud project using?
+* ~28:28 - What rights to the GNU AGPL enforce/give you?
+* ~31:00 - What guarantee does a code contributor have about anything they submit to the OwnCloud project?
+* ~34:12 - How safe can a web-hosted OwnCloud system be against hackers?
+* ~37:30 - What does the FreedomBox project do ([https://www.freedombox.org/](https://www.freedombox.org/ "FreedomBox website")) and how do they compare OwnCloud?
+* ~41:30 - What is the main new Google-like feature discussed/added in OwnCloud 6?
 
 ### Lab
 
@@ -706,22 +729,22 @@ This lab will allow you to create shell scripts.  Use positional parameters, con
 
 At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts.
 
-In the GitHub repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your GitHub URL.
+1) Create a shell script that will take 3 positional parameters, append each parameter to a file named roster.txt (each of the parameters will be a name).
 
-1) What would be the command to create an array in Bash named itemARRAY?
+1) Create a shell script to cat the content of the roster.txt file into an array named: ROSTERARRAY and echo the 2nd element of the array.
 
-1) Write a shell script that declares an array in Bash named `dirarr`. Using the `mapfile` command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
-  
+1) Create a shell script that redirects the content of roster.txt into an array, uses a forloop to cycle through the array's contents, and then uses the command to make a directory for each name listed in the array in your home directory, echo a message telling the user the path of the directory just created. Final command of the script is to list the content of the home directory to show the success of the script.
+
+1) Modify the shell script from the previous question to include an if statement that checks for the existence of a directory.  If the directory exists, echo a message: "Directory $NAME exists".  Then add an else clause that if the directory does not exist, create it and echo a message that the new directory and its path have been created.
+
 1) Write a WHILE loop that will read the content of the file names.txt, (located in the files > Chapter-08 > lab folder) and create a directory based on the value on the line in the `/tmp` directory (one per users).  Include an if statement to detect if the directory already exists, if it does exist, write the duplicate name out to a text file named: `duplicates.txt` located in the `/tmp` directory.  
   
-1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shell script you previously made to store the content of `ls -l ~` into an array named `dirarr`.
+1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shell script you previously made to store the content of `ls -l ~` into an array named `DIRARR`.
   
 1) Locate the file `install-java8.sh` located in the **files > Chapter-08 > lab** directory.  Modify the script to include IF statements to check for the existence of the path ```/datapool1``` and to print an error message if the path does not exist.
   
 1) Modify `install-java8.sh` again--this time take a positional parameter and put that in place of the directory name `/datapool1` (this will allow you to customize the install location of the shell script).  
-  
-1) Modify the `install-java8.sh` from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script (exit).
-  
+
 1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named `xfile.txt`.  Write a shell script to check if that file has executable permission by passing the filename as a positional parameter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
   
 1) Write a shell script to check in the `~/topsecret` directory to see if a given file name exists (passed in by positional parameters).  If TRUE print a message else print an error message with the given file name being passed.

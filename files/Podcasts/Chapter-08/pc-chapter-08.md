@@ -1,21 +1,26 @@
 # Podcast Questions - Chapter 08
 
-Carol Smith of Clearly Defined - [https://twit.tv/shows/floss-weekly/episodes/518](https://twit.tv/shows/floss-weekly/episodes/518 "Clearly Defined")
+Watch or listen to this Podcast: OwnCloud
+[https://twit.tv/shows/floss-weekly/episodes/274](https://twit.tv/shows/floss-weekly/episodes/274 "OwnCloud Podcast Floss Weekly)
 
-Answer these questions:
-
-* ~6:05 Who is Carol Smith and what is here relationship to The Clearly Defined Project and the Open Source Initiative (OSI)?
-* ~6:20 The Clearly Defined Project, what is it all about?
-* ~6:32 What are the three attributes that the Clearly Defined Project is interested in?
-* ~7:01 Why is (opensource) licensing important?
-* ~8:10 Does the Clearly Defined Project take a stance or support any particular license?
-* ~10:13 How did the Clearly Defined Project get started?
-* ~11:34 How is the Clearly Defined Project working with GitHub and existing projects' license files?
-* ~14:04 What is the [SPDX](https://spdx.org/licenses/ "SPDX website") format?
-* ~18:00 How can a developer get started or interact with the Clearly Defined Project?
-* ~19:10 How would/could a company use this Project in relation to license compliance?
-* ~22:28 Compliance is the first step for the Clearly Defined Project, what is the next horizen?
-* ~24:00 How does the Clearly Defined Project scoring work?
-* ~33:10 According to the OSI and Carol is Public Domain a valid Open Source license?
-* ~41:50 What is the Clearly Defined Project software licensed as?  What is the data's license?
-* What is the package, [App Dynamics NPM 4.5.13](https://clearlydefined.io/workspace "Clearly Defined website") mentioned by the host Aaron, scored at?
+* ~2:50 - Who is the creator of OwnCloud?
+* ~3:23 - How is OwnCloud's purpose described?
+* ~4:03 - Is OwnCloud opensource and can you install it on your own hardware?
+* ~5:20 - What other opensource project is the guest involved in?
+* ~5:40 -6:55 - According to the guest speaker, what is wrong with Google Drive and DropBox?
+* ~7:56 - According to the Host -- why do people not run their own instances of OwnCloud?
+* ~8:28 - Using a hosted OwnCloud Provider what is the advantage with moving your data that other companies don't give you?
+* ~12:28 - Can OwnCloud connect to a University authentication system?
+* ~12:44 - What is the largest install base for a University using OwnCloud?
+* ~15:07 - What language is the server written in?  
+* ~15:27 - What language and library are the Linux/MacOS/Windows sync clients built in?
+* ~20:55 - What does the c-sync tool do for OwnCloud?
+* ~23:58 - How many contributors to code does OwnCloud have?
+* ~25:21 - What is the most important thing to have in order to build a thriving opensource community, according to the guest?
+* ~26:45 - Is there commercial support available for OwnCloud?
+* ~27:44 - What is the OpenSource License the OwnCloud project using?
+* ~28:28 - What rights to the GNU AGPL enforce/give you?
+* ~31:00 - What guarantee does a code contributor have about anything they submit to the OwnCloud project?
+* ~34:12 - How safe can a web-hosted OwnCloud system be against hackers?
+* ~37:30 - What does the FreedomBox project do ([https://www.freedombox.org/](https://www.freedombox.org/ "FreedomBox website")) and how do they compare OwnCloud?
+* ~41:30 - What is the main new Google-like feature discussed/added in OwnCloud 6?

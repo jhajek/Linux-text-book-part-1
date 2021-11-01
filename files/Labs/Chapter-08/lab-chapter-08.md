@@ -8,27 +8,27 @@ This lab will allow you to create shell scripts.  Use positional parameters, con
 
 At the completion of this lab you will further your knowledge of shell scripting and enhance your abilities using Bash shell scripts.
 
-In the GitHub repo provided to you please create a folder in your ITMO-556 directory named Chapter-08.  In this directory you will create a file called ReadMe.md and all of the answers, screenshots, and code will be contained in this document.  Submit to Blackboard just your GitHub URL.
+1) Create a shell script that will take 3 positional parameters, append each parameter to a file named roster.txt (each of the parameters will be a name).
 
-1) What would be the command to create an array in Bash named itemARRAY?
+1) Create a shell script to cat the content of the roster.txt file into an array named: ROSTERARRAY and echo the 2nd element of the array.
 
-1) Write a shell script that declares an array in Bash named `dirarr`. Using the `mapfile` command - redirect the output of the ls -l ~ command into the array previously named and echo out the 3rd and 4th elements of that array.
-  
+1) Create a shell script that redirects the content of roster.txt into an array, uses a forloop to cycle through the array's contents, and then uses the command to make a directory for each name listed in the array in your home directory, echo a message telling the user the path of the directory just created. Final command of the script is to list the content of the home directory to show the success of the script.
+
+1) Modify the shell script from the previous question to include an if statement that checks for the existence of a directory.  If the directory exists, echo a message: "Directory $NAME exists".  Then add an else clause that if the directory does not exist, create it and echo a message that the new directory and its path have been created.
+
 1) Write a WHILE loop that will read the content of the file names.txt, (located in the files > Chapter-08 > lab folder) and create a directory based on the value on the line in the `/tmp` directory (one per users).  Include an if statement to detect if the directory already exists, if it does exist, write the duplicate name out to a text file named: `duplicates.txt` located in the `/tmp` directory.  
   
-1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shellscript you previously made to store the content of ls -l ~ into an array named dirarr.
+1) Write the syntax to make a cronjob execute 5 minutes past every hour everyday to execute the shell script you previously made to store the content of `ls -l ~` into an array named `DIRARR`.
   
 1) Locate the file `install-java8.sh` located in the **files > Chapter-08 > lab** directory.  Modify the script to include IF statements to check for the existence of the path ```/datapool1``` and to print an error message if the path does not exist.
   
-1) Modify `install-java8.sh` again--this time take a positional parameter and put that in place of the directory name ```/datapool1``` (this will allow you to customize the install location of the shell script).  
-  
-1) Modify the `install-java8.sh` from the previous question to count the number of positional parameters and if less than 1 or more than 1 stop execution of the script (exit).
-  
+1) Modify `install-java8.sh` again--this time take a positional parameter and put that in place of the directory name `/datapool1` (this will allow you to customize the install location of the shell script).  
+
 1) Create a directory in ```~``` named ```topsecret```.  In that directory create a file named `xfile.txt`.  Write a shell script to check if that file has executable permission by passing the filename as a positional parameter.  If TRUE print a message.  If FALSE print an error message that the positional parameter name of the file is not executable.
   
-1) Write a shell script to check in the `~/topsecret` directory to see if a given file name exists (passed in by postional parameters).  If TRUE print a message else print an error message with the given file name being passed.
+1) Write a shell script to check in the `~/topsecret` directory to see if a given file name exists (passed in by positional parameters).  If TRUE print a message else print an error message with the given file name being passed.
   
-1) Write a shell script to check if a given PATH is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
+1) Write a shell script to check if a given PATH, via a positional parameter, $1, is a file or a directory.  If TRUE print a message, else print an error message using the given file name.
   
 1) Write a shell script that takes 4 positional parameters.  In the shell script print out $0, $#, and $@ with an explanation of what these variables contain.
   
