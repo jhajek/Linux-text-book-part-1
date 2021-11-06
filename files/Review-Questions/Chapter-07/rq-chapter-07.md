@@ -1,4 +1,4 @@
-# Review Questions - Chapter 06
+# Review Questions - Chapter 07
 
 1. What are the two main representatives of stream editors?
    a. gedit and kate
