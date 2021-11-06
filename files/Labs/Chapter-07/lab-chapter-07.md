@@ -33,7 +33,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
     i) Using vim/ex commands, find all occurrences of ```python``` and replace them with ```python3```
     i) Save file and quit the vim editor
-    i)  To test your work, give the shell script execute permission and execute it
+    i)  To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
 1) In your home directory, using vim, create a shell script named ```first-shell.sh``` in your home directory that contains the following:
     i) Add the proper *shebang* on the first line.
     i) Add two lines of space
