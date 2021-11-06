@@ -206,6 +206,10 @@ __vi__ also has the ability to find and replace via a single line or globally.  
 
 `:1,$s/&#47;/\//g`
 
+: There is a wildcard option for the line range as well using the `%`
+
+`:%s/&#47;/\//g`
+
 :  This command has a range prefix, the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
 
 `:47,86s/<br \/>//g`
