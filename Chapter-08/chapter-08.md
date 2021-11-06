@@ -597,7 +597,7 @@ b. `DT=$(date)`
 c. `DT="date"`
 d. Not possible, trick questions
 
-4) True or False - You can include shell meta-characters inside of two backticks ``` ` ` ``` - example: ANS=``` `ls -l test[1-5]` ```
+4) True or False - You can include shell meta-characters inside of two backticks ``` ` ` ``` - example: ``` `ls -l test[1-5]` ```
 
 5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
 a. `DIR='ls -l ./test[1-4].txt'`

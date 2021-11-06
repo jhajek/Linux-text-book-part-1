@@ -14,7 +14,7 @@ b. `DT=$(date)`
 c. `DT="date"`
 d. Not possible, trick questions
 
-4) True or False - You can include shell meta-characters inside of two backticks ``` ` ` ``` - example: ANS=``` `ls -l test[1-5]` ```
+4) True or False - You can include shell meta-characters inside of two backticks ``` ` ` ``` - example: ``` `ls -l test[1-5]` ```
 
 5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
 a. `DIR='ls -l ./test[1-4].txt'`
@@ -44,10 +44,10 @@ c. for loop
 d. mapfile
 
 10) Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
-a. ```mapfile SEARCHARRAY = (find ~ -name mozilla*)```
-b. ```mapfile SEARCHARRAY < < (find ~ -name mozilla*)```
-c. ```mapfile -t SEARCHARRAY < <(find ~ -name mozilla*)```
-d. ```mapfile -t SEARCHARRY < (find ~ -name mozilla*)```
+a. ```SEARCHARRAY = (find ~ -name mozilla*)```
+b. ```SEARCHARRAY < < (find ~ -name mozilla*)```
+c. ```SEARCHARRAY=( $(find ~ -name mozilla*))```
+d. ```SEARCHARRY < (find ~ -name mozilla*)```
 
 11) Which below is a valid command to find the LENGTH of an array?
 a. ```${#SEARCHARRAY[@]}```
