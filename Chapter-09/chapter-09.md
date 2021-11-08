@@ -361,10 +361,6 @@ There are many additional standard Linux tools as well as many GitHub projects b
 
 The opposite side of system monitoring is sometime you want to generate a load to see how your system responds.  On modern system that are multi-core with fast memory. There is a tool called ```stress``` you can install it via The Ubuntu and Fedora software stores or form the commandline using apt-get and yum/dnf.  It is also available for the Mac via the Homebrew package manager. The command ```stress --cpu 2 --timeout 60```  will cause two processors to max out for 60 seconds.  You would then be able to see this using an of the above top based commands.  There are some other ways to generate loads in bash as well located here: [http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326](http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326 "Bash load generator ideas")
 
-#### ranwhen
-
-Another interesting project is something called ranwhen.  It shows a visual representation of ```uptime``` on all your previous reboots.  This allows you to see in detail the amount of time your system ran for and also the time between restarts.  This project is written in Python 3 so you need to make sure that Python 3 is installed prior to running it. Simply clone the repo via git (may need to install git as well) via ```git clone https://github.com/p-e-w/ranwhen.git```  Once cloned, cd into the ranwhen directory and type ```python3 ranwhen.py```
-
 #### sar and iostat
 
 In addition to memory, CPU, and process information.  You can other commands to measure system I/O. The ```sar``` command - system activity report -- is something that came from the BSD Unixes and was ported over to Linux. It is used to sample and report various cumulative statistic counters maintained by the operating system.  You can take *n* samples at *t* intervals. Finally the ```iostat``` command, which in Linux is part of the sysstat package--displays kernel I/O statistics on terminal, device and cpu operations. A common word for this is I/O measurement or throughput.  These reports can then be used to change system configurations to better balance the input/output load between physical disks.  
@@ -781,15 +777,19 @@ The objective of this lab are as follows:
 
 At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm.  You will understand the binary logging mechanism of journald.  You will be able to add, delete, and modify user accounts.  Finally you will be able to schedule shell scripts to execute at repeated intervals.
 
-__Note__ Submit the answers all contained in one shell script with a comment above stating which question the code answers
-__Note__ If a command asks you to work on a user that doesn't exist it is assumed that you have to create it.
-__Note__ The ```mysqldump``` application requires the ```mysql-client``` package to be installed. [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
+Assumptions
 
-1) What would be the command to add a user named "controller" to your system - using the system default values?  
+* All questions need to display the content of each answer as a shell script and also display the output of that shell script - unless stated otherwise
+* Assignments can be done using Ubuntu or Fedora desktop unless stated.
+  * For a challenge try to use Ubuntu Server
+* If a command asks you to work on a user that doesn't exist, it is assumed that you have to create it.
+* The ```mysqldump``` application requires the ```mysql-client``` package to be installed. [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
 
-1) What would be the command to modify the user's group to add them to a *superuser* group (sudo on Ubuntu or wheel on Fedora based)?
+1) Write a shell script that issues the command to add a user named "controller" to your system, using the system default values and display the content of the `/etc/passwd` file to show that the user has been created?  
 
-1) What would be the commands to add and then delete a user account named nsa-spy?  (Note you also have to include the steps to add this user... unless the NSA is already in your system =)
+1) Write a shell script that issues the command to modify the user **controller** to add them to a *superuser* group (sudo on Ubuntu or wheel on Fedora based)?
+
+1) Write a shell script that issues the command  to add and then delete a user account named **nsa-spy**?  (Note you also have to include the steps to add this user... unless the NSA is already in your system =)
 
 1) What would be the command to edit the ```/etc/sudoers``` file and give the **user** "mysql-backup" sudo privilege? (Give the command to edit and then add a screenshot of the relevant line that you add to ```/etc/sudoers```)
 

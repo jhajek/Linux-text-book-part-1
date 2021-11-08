@@ -431,7 +431,7 @@ In addition there is an L2ARC cache for caching most recent and most frequently 
 
 ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up any silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  You can check the status of a disk with the command ```zpool status datapool``` and execute a scrub command ```zpool scrub datapool```.
 
-ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 tank/log```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables.
+ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 datapool```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables.
 
 #### Finding a physical disk
 

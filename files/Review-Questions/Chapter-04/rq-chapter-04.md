@@ -73,8 +73,8 @@ apply)
   c. Desktop environments have a changeable but consistent look-and-feel
   d. Desktop environments have system configuration tools and user applications built in
   e. Desktop environments have lower memory requirements than window managers
-18) What is the default desktop environment for the latest Fedora desktop (Name and version)?
+18) What is the default desktop environment and version for the latest Fedora desktop (Name and version)?
 
 19) What is the name of the button on the upper left hand corner of the GNOME desktop that you use to “launch applications?”
 
-20) What is the name of the default Ubuntu 20.04 desktop environment?
+20) What is the name of the desktop environment used in Xubuntu?

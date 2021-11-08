@@ -947,7 +947,7 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 * ~2:35 Who is Andy Hall and Achim Hasenmuller?
 * ~3:00 What is Simon Phipps relationship to the VirtualBox project?
 * ~4:45 What does VirtualBox do in Andy Hall's words?
-* ~6:30 What other company previously owned VirtualBox?
+* ~6:00 About what year did the product that became VirtualBox start?
 * ~11:20 According to Simon, what is the definition of open core?
 * ~14:17 How does VirtualBox fit into Oracle's business model?
 * ~16:15 As of the time of the podcast (2010) how many downloads did VirtualBox have?
