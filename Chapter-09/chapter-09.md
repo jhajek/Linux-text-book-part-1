@@ -255,7 +255,7 @@ journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
 > See log entries created only by the SSH service
 
 ```bash
-journalctl -u ssh
+journalctl -u ssh.service
 ```
 
 ### Log rotation
@@ -296,7 +296,7 @@ SystemMaxFiles and RuntimeMaxFiles
 
 ## System Monitoring
 
-The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occurring on our system is a command called ```top``.  This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps) [^102].
+The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occurring on our system is a command called `top`.  This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps) [^102].
 
 ### top
 
@@ -717,7 +717,7 @@ d. /etc/systemd/journald.conf
 17) What command provides a dynamic real-time view of a running system?
 a.  top
 b.  iostat
-c.  ranwhen
+c.  systmed-top
 d.  journalctl
 
 18) Debian based distros have an additional command to abstract the process to add users to the system - what is it?
