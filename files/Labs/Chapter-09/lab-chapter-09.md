@@ -1,78 +1,54 @@
 # Lab - Chapter 09
 
-#### Lab Objectives
+At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm.  You will understand the binary logging mechanism of journald.  You will be able to add, delete, and modify user accounts.  Finally, you will be able to succesfully setup and establish remote connections.
 
-The objective of this lab are as follows:
+Assumptions:
 
-* Understand when and how to use the sudo command
-* Understand how to edit the /etc/sudoers file
-* Understand how to use the journald and journalctl logging mechanism in systemd
-* Understand how to add and manage user accounts
-* Understand the structure and use of the cron service
-* Understand how to modify, use, and secure the SSH service
+* All questions need to display the content of each answer as a shell script and also display the output of that shell script - unless stated otherwise
+* Assignments can be done using Ubuntu or Fedora desktop unless stated.
+  * For a challenge try to use Ubuntu Server
+* If a command asks you to work on a user that doesn't exist, it is assumed that you have to create it.
+* The ```mysqldump``` application requires the ```mysql-client``` package to be installed: [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump).
 
-#### Lab Outcomes
+1) Write a shell script that issues the command to add a user named "controller" to your system, using the system default values and display the content of the `/etc/passwd` file to show that the user has been created
 
-At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm.  You will understand the binary logging mechanism of journald.  You will be able to add, delete, and modify user accounts.  Finally you will be able to schedule shell scripts to execute at repeated intervals.
+1) Write a shell script that issues the command to add a group named *itmo356* to your system. Then use the command to modify the user and append this additional group to the user controller you just created.  Issue the command that shows all of the groups a user is a member of.
 
-__Note__ Submit the answers all contained in one shell script with a comment above stating which question the code answers
-__Note__ If a command asks you to work on a user that doesn't exist it is assumed that you have to create it.
-__Note__ The ```mysqldump``` application requires the ```mysql-client``` package to be installed. [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
+1) Write a shell script that issues the command to modify the user **controller** to add them to a *superuser* group (sudo on Ubuntu or wheel on Fedora based)
 
-1) What would be the command to add a user named "controller" to your system - using the system default values?  
+1) Write a shell script that issues the command to add the user named **nsa**, display the content of the `/etc/passwd` file, and then delete the user account, display the content of the `/etc/passwd` to show that the user has been deleted
 
-1) What would be the command to modify the user's group to add them to a *superuser* group (sudo on Ubuntu or wheel on Fedora based)?
+1) Issue the commands to edit the ```/etc/sudoers``` file and give the **user** "mysql-backup" sudo privilege. Take a screenshot of the relevant line that you added to ```/etc/sudoers``` file.
 
-1) What would be the commands to add and then delete a user account named nsa-spy?  (Note you also have to include the steps to add this user... unless the NSA is already in your system =)
+1) Issue the commands to edit the ```/etc/sudoers``` file and give the **group** "mysql-admins" sudo privilege. Take a screenshot of the relevant line that you added to ```/etc/sudoers``` file.
 
-1) What would be the command to edit the ```/etc/sudoers``` file and give the **user** "mysql-backup" sudo privilege? (Give the command to edit and then add a screenshot of the relevant line that you add to ```/etc/sudoers```)
+1) Issues the commands to edit the ```/etc/sudoers``` file and give the **user** "mysql-admin" sudo privilege to only use the mysql database backup command named `mysqldump`. Take a screenshot of the relevant line that you added to ```/etc/sudoers``` file.
 
-1) What would be the command to edit the ```/etc/sudoers``` file and give the **group** "mysql-admins" sudo privilege? (Show the ```/etc/sudoers``` being edited and enter the relevant line that you add to that file)
+1) Issue the commands to edit the ```/etc/sudoers``` file to give the user "mysql-admin" sudo privilege to only execute the ```mysql``` command and not require a password. Take a screenshot of the relevant line that you added to ```/etc/sudoers``` file.
 
-1) What would be the command to edit the ```/etc/sudoers``` file to give the user "mysql-admin" sudo privilege to only use the mysql database backup command `mysqldump`? (Show the ```/etc/sudoers``` being edited and enter the relevant line that you add to that file)
+1) Issue the command to list all log messages of priority levels ERROR and worse, from the current boot.
 
-1) What would be the command to edit the ```/etc/sudoers``` file to give the user "mysql-admin" sudo privilege to only execute the ```mysql``` command and not require a password?
+1) Issue the command to install the Nginx webserver from the command line using either `dnf` or `apt-get`.
 
-1) What would be the command to list all log messages of priority levels ERROR and worse, from the current boot?
+1) Issue the command to list all the occurrences in the logs generated by nginx using journalctl.
 
-1) What would be the command to execute to find all the occurences of logs generated by SSH in journalctl?  Section 9.4.4 in the text book -- you may need to install ```openssh-server``` package if the command returns no results
+1) In your Virtual Machine open a webbrowser and navigate to http://127.0.0.1. Then type in the address bar http://127.0.0.1/cats (this site will 404 -- not be found). Then issue the command to display the content of the Nginx access.log showing both connection you just made, from the log file
 
-1) What would be the command to execute to find all the logs generated by the service Nginx?
+1) In your home directory, create a file named: todo-list.txt.  Then create a group named: accounting. What command would you use to change the group ownership of the file todo-list.txt to be owned by the "accounting" group?  
 
-1) What would be the command to execute to see the logs of the current boot only using journalctl since yesterday?
-
-1) Which file and what value would I modify to change the journal's settings to make the logs be stored in memory (volatile storage)?
-
-1) The journald values SystemMaxUse= and RuntimeMaxUse= default to 10% and 15% of the system disk respectively.  How would you modify that value to be 20% and 30% respectively?  (Note you can't add percentages, you have to use your system and do some scratch math - you can execute a ```df -H``` command to see the size of your root partition)
-
-1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at 2 am every Sunday?
-
-1) What would be the command to edit the cron service and run this command "mysqldump --xml -u root world City" (Assume you have mysql installed) at the 1st day of every month?
-
-1) What command would you use to change the group ownership of the file todo-list.txt to be owned by the "accounting" group?  (If that group doesn't exist then create it on your system)
-
-1) What would be the command you would type to generate a RSA key pair?
-
-1) What would be the command to transfer an RSA key pair to a remote system named logserver with the username worker?
-
-1) What would be the command to connect via ssh using the identity logserver and connect to the non-standard port of 5555 instead of the default 22?
+1) Issue the command you would type to generate a RSA key pair, if you created it previously you can overwrite the previous key.
 
 1) The next questions require some setup:
    i. You need two virtual machines for this part: One Ubuntu based and one Fedora based
    i. You will need to modify the Network settings to **Bridged** in VirtualBox to get a public IP (if you are at home your router should suffice, if you are on campus you can come to the lab).  
-   i. Install **openssh-server** on Fedora.
-   i. Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system
-   i. Run the ssh audit on the client and server, list the weak ciphers installed by default
+   i. Install **openssh-server** on Ubuntu (Server) via apt
+
+1) Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the client (Fedora) and server (Ubuntu), list the weak ciphers installed by default
 
 1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomalies.
 
-1) On the SSH server make the following changes to the `sshd_config` file. Take screenshots of the changes:
-   i. Not accept any password based authentication attempts
-   i. Change the default port to be 5555
-   i. Disable the value PermitRootLogin
+1) Issue the command to transfer an RSA key pair to from your system designated as a client, Fedora, to the Ubuntu SSH server
 
-1) Install fail2ban on both of the above systems:
-   i. Configure fail2ban to start the service and enable it via systemctl command.
-   i. Configure the fail2ban to parse the systemd jounrnalctl logs
-   i. From the first system (Ubuntu) try to SSH into the second system (Fedora) with an incorrect username and password 5 times and get yourself banned.
-   i. Submit the fail2ban config file to blackboard as part of the deliverable.
+1) Issue the command to connect remotely to the Fedora server via ssh using username and password, create a text file named: website.app - then exit the remote session.  On the Fedora system show that the file: website.app, has been created
+
+1) Issue the command to connect remotely to the Fedora server via ssh using username and the identifyFile (RSA key), create a text file named: new-website.app - then exit the remote session.  On the Fedora system show that the file: website.app, has been created

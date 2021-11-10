@@ -18,7 +18,7 @@ b.  ```root cat topsecret.txt```
 c.  ```sudo cat topsecret.txt```
 d.  ```su cat topsecret.txt```
 
-4) What licesnse is the sudo application under?
+4) What license is the sudo application under?
 a.  GPL
 b.  BSD
 c.  Public Domain
