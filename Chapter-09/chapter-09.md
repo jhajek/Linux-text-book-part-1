@@ -482,17 +482,13 @@ All my troubleshooting experience in Linux boils down to three things.  I have j
 
 What happens when you need to remotely access a system and it needs to be secure?  The need for security or encryption of data sent over a network was not apparent.  But as the ability to access data grew and the need to remotely access systems across untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1999, appearing first in OpenBSD 2.6, introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, Mac, and now even Microsoft Windows.  In fact [Microsoft was the first ever gold-level sponsor of the OpenBSD project](https://undeadly.org/cgi?action=article&sid=20150708134520 "Microsoft was the first ever gold-level sponsor of the OpenBSD project").
 
+By default the SSH *client* is installed on all Linux and Unix systems.  This connection is authenticated via a username and password matching an account on the remote system or an RSA key.
+
 > You can access SSH from the command line via typing: ```ssh -V```
 
-![*Windows 10 Native ssh -V*](images/Chapter-09/ssh/windows10-ssl-v.png "Windows 10 Native ssh -V")
+![*Fedora Native ssh -V*](images/Chapter-09/ssh/fedora30-ssl-v.png "Fedors Native ssh -V")
 
-![*Fedora 30 Native ssh -V*](images/Chapter-09/ssh/fedora30-ssl-v.png "Fedors 30 Native ssh -V")
-
-![*Ubuntu 18.04.3 Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu 18.04.3 Native ssh -V")
-
-![*MacOS 10.15 Native ssh -V*](images/Chapter-09/ssh/macos-10-15-ssh-v.png "MacOS 10.15 Native ssh -v")
-
-By default the SSH *client* is installed on all Linux and Unix systems.  As of Windows 10 version 1803, there is a native SSH client installed as well. You can install the OpenSSH *server* that allows clients to make remote connections to your server.  This connection is authenticated via a username and password mathcing an account on the remote system or an RSA key.
+![*Ubuntu Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu Native ssh -V")
 
 > ```sudo apt-get install openssh-server``` or ```sudo dnf install openssh-server```
 
@@ -512,11 +508,11 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 
 While having SSH give us secure remote tunnels, it does lead to a potential problem.  It means exposing an open port to the external network.   This can and should be mitigated by things such as VPNs and mandating use of RSA keys only.  But there are many systems that are exposed.  This is a serious security vulnerability as hackers are actively scanning the entire IPv4 space looking for SSH systems and they will simply try to brute force the username and password.
 
-One of the tools to alliviate this is called [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban website").  This is a brute force login denial tool.  This tool will scan the connection (or auth) logs looking for failed connection. Fail2ban can use the defaul syslog location as well as journalctl logs. Fail2ban will count the number of occurances and the distinct IP and after a user defined threshold of failure will ban any network connection from the offending IP.  This can be a time based backoff or can be a permanent ban, configured by the user in the configuration file. Fail2ban can also ban failed MySQL database connections as well if you have an exposed database server.
+One of the tools to alleviate this is called [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban website").  This is a brute force login denial tool.  This tool will scan the connection (or auth) logs looking for failed connection. Fail2ban can use the default syslog location as well as journalctl logs. Fail2ban will count the number of occurrences and the distinct IP and after a user defined threshold of failure will ban any network connection from the offending IP.  This can be a time based back-off or can be a permanent ban, configured by the user in the configuration file. Fail2ban can also ban failed MySQL database connections as well if you have an exposed database server.
 
 #### OpenSSL
 
-OpenSSL is an Opensource Library used for crytographic key generation by OpenSSH.  In 2016, it suffered an exploit due to the quality of the library maintaining older code from non-existent systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributred almost nothing to its development.   After the exploit a huge infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
+OpenSSL is an Opensource Library used for cryptographic key generation by OpenSSH.  In 2016, it suffered an exploit due to the quality of the library maintaining older code from non-existent systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributed almost nothing to its development.   After the exploit a huge infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
 
 The heartbleed OpenSSL bug even has its own website to explain the details of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
 
@@ -524,7 +520,7 @@ The heartbleed OpenSSL bug even has its own website to explain the details of it
 
 > "The Heartbleed bug allows anyone on the Internet to read the memory of the systems protected by the vulnerable versions of the OpenSSL software. This compromises the secret keys used to identify the service providers and to encrypt the traffic, the names and passwords of the users and the actual content. This allows attackers to eavesdrop on communications, steal data directly from the services and users and to impersonate services and users[^ch9f106]."
 
-Links to Security Now Technical Podcast explaing HeartBleed
+Links to Security Now Technical Podcast explaining HeartBleed
 
 * [https://twit.tv/shows/security-now/episodes/450 - Part 1](https://twit.tv/shows/security-now/episodes/450 "heartbleed podcast part 1")
 * [https://twit.tv/shows/security-now/episodes/451 - Part 2](https://twit.tv/shows/security-now/episodes/451 "heartbleed podcast part 2")
@@ -553,7 +549,7 @@ Secure cp (copy) Allows for using the ```cp``` command to a remote system via SS
 
 ### Rsync
 
-Place holder from man page:
+From the rsync man page:
 
 Rsync  is  a  fast and extraordinarily versatile file copying tool.  It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon.  It offers a large number  of  options  that  control every  aspect  of its behavior and permit very flexible specification of the set of files to be copied.  It is famous for its delta-transfer algorithm, which reduces the amount of data sent over  the  network  by  sending only the differences between the source files and the existing files in the destination.  Rsync is widely used for backups and mirroring and as an improved copy command for everyday use.
 
@@ -821,9 +817,10 @@ Assumptions:
 1) The next questions require some setup:
    i. You need two virtual machines for this part: One Ubuntu based and one Fedora based
    i. You will need to modify the Network settings to **Bridged** in VirtualBox to get a public IP (if you are at home your router should suffice, if you are on campus you can come to the lab).  
-   i. Install **openssh-server** on Ubuntu (Server) via apt
+   i. Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
+   i. On Fedora only, you will need to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
 
-1) Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the client (Fedora) and server (Ubuntu), list the weak ciphers installed by default
+1) Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default
 
 1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomalies.
 

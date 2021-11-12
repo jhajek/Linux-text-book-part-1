@@ -41,9 +41,10 @@ Assumptions:
 1) The next questions require some setup:
    i. You need two virtual machines for this part: One Ubuntu based and one Fedora based
    i. You will need to modify the Network settings to **Bridged** in VirtualBox to get a public IP (if you are at home your router should suffice, if you are on campus you can come to the lab).  
-   i. Install **openssh-server** on Ubuntu (Server) via apt
+   i. Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
+   i. On Fedora only, you will need to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
 
-1) Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the client (Fedora) and server (Ubuntu), list the weak ciphers installed by default
+1) Clone the repository [https://github.com/arthepsy/ssh-audit](https://github.com/arthepsy/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default
 
 1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomalies.
 
