@@ -529,7 +529,7 @@ Links to Security Now Technical Podcast explaining HeartBleed
 
 #### LibreSSL
 
-Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork of the OpenSSL project code and called it [LibreSSL](https://www.libressl.org/ "LibreSSL") and began to strip out as much uneeded code as possible and to write new code.  This library became the default cryptographic library on OpenBSD and was ported to Linux.  Though it is new and has a smaller attack surface, so many products (for better or worse) are using OpenSSL that they have not or cannot switch libraries. Microsoft adopted LibreSSL for use in their native SSh client and server in Windows 10 as well.
+Not to be outdone, the OpenBSD group immediately after HeartBleed, made a fork of the OpenSSL project code and called it [LibreSSL](https://www.libressl.org/ "LibreSSL") and began to strip out as much uneeded code as possible and to write new code.  This library became the default cryptographic library on OpenBSD and was ported to Linux.  Though it is new and has a smaller attack surface, so many products (for better or worse) are using OpenSSL that they have not or cannot switch libraries. Microsoft adopted LibreSSL for use in their native SSH client and server in Windows 10 as well.
 
 > "LibreSSL is a version of the TLS/crypto stack forked from OpenSSL in 2014, with goals of modernizing the codebase, improving security, and applying best practice development processes.
 
