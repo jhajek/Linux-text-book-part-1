@@ -963,7 +963,9 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 
 ### Lab
 
-You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox. You will need to install the latest version of [VirtualBox 6.1.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well.  If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for M1 Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac") Complete each install to disk.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.  There are 17 different distributions listed.  If a version is not listed, assume the latest version unless noted.
+You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox. You will need to install the latest version of [VirtualBox 6.1.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well.  If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for M1 Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
+
+Complete each install to disk--there should NOT be an INSTALL ICON on the desktop -- your screenshot is taken after a complete install is finished and a reboot has taken place.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.  There are 17 different distributions listed.  If a version number is not listed, assume the latest version unless noted.
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
@@ -977,8 +979,8 @@ You will need to do some research and find the download links for the Linux and 
   * PureOS
 
 * Red Hat Based
-  * Fedora 34 - Workstation edition
-  * CentOS 8 Stream - Minimal install
+  * Fedora 35 - Workstation edition
+  * CentOS Stream - Minimal install
 
 * Illumos / Solaris Based
   * OmniOS Community Edition
@@ -989,40 +991,23 @@ You will need to do some research and find the download links for the Linux and 
 * Linux
   * Alpine Linux - Standard
   * MX Linux
-  * PCLinuxOS - Mate
+  * Pop!_OS
   * Linux Mint
 
 * Network Based Install
   * openSUSE Leap
-  * Debian
+  * Debian 11.x
   
-#### Python pyttsx3
-
-Install these pre-requisites needed for the speech-to-text library. You can choose to do this on either Fedora 34 or Ubuntu 20.04 Desktop. You will also need to install Python3 dependencies to use pip
-
-```bash
-sudo apt-get install python3-dev python3-setuptools \
-python3-pip libespeak1 libespeak-dev
-```
-
-Then use Python3 pip installer to install the Python3 Speech-to-Text library:
-
-```bash
-python3 -m pip install pyttsx3
-```
-
-To test this create a file named `py-speech.py` using a Text Editor, Visual Studio Code, or a similar application with this content:
-
-```python
-import pyttsx3
-engine = pyttsx3.init()
-engine.say("I will speak this text")
-engine.runAndWait()
-```
-
-Upon saving this file, from the commandline, execute this code with the command: `python3 py-speech.py` and if you hear the computer voice you will have successfully installed the modules via Python3.
-
-Include the file `py-speech.py` in your private GitHub repo Lab > chapter-03 folder.
+* Installing Guest Additions in each VirtualMachine
+  * Following the instructions in section 3.9.5, install the VirtualBox Guest Additions Package in the below listed Operating systems, placing a screenshot directly below each bullet point
+    * To show the successful install of the guest additions, maximize the screen and take the screenshot showing the installed guest additions. These are the example before and after maximized images:
+    * ![Before Guest Additions](images/Chapter-03/guest-additions-install/before-guest-additions.png "Before Guest Additions Install")
+    * ![After Guest Additions](images/Chapter-03/guest-additions-install/after-guest-additions.png "After Guest Additions Install")
+  * Ubuntu Desktop
+  * Fedora Desktop
+  * Debian
+  * Pop!_OS
+  * Ubuntu Server
 
 #### Footnotes
 

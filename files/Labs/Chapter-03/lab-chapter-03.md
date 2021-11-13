@@ -12,8 +12,8 @@ You will need to do some research and find the download links for the Linux and 
   * PureOS
 
 * Red Hat Based
-  * Fedora 34 - Workstation edition
-  * CentOS 8 Stream - Minimal install
+  * Fedora 35 - Workstation edition
+  * CentOS Stream - Minimal install
 
 * Illumos Based
   * OmniOS Community Edition
@@ -24,7 +24,7 @@ You will need to do some research and find the download links for the Linux and 
 * Linux
   * Alpine Linux - Standard
   * MX Linux
-  * PCLinuxOS - Mate
+  * Pop!_OS
   * Linux Mint
 
 * Network Based Install
@@ -33,27 +33,13 @@ You will need to do some research and find the download links for the Linux and 
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
-## Python pyttsx3
-
-Install these pre-requisites needed for the speech-to-text library. You will also need to install Python3 dependencies to use pip
-
-```bash
-sudo apt-get install python3-dev python3-setuptools python3-pip libespeak1 libespeak-dev
-```
-
-Then use Python3 pip installer to install the Python3 Speech-to-Text library:
-
-```bash
-python3 -m pip install pyttsx3
-```
-
-To test this create a file named `py-speech.py` using a Text Editor, Visual Studio Code, or a similar application with this content:
-
-```python
-import pyttsx3
-engine = pyttsx3.init()
-engine.say("I will speak this text")
-engine.runAndWait()
-```
-
-Upon saving this file, from the commandline, execute this code with the command: `python3 py-speech.py` and if you hear the computer voice you will have successfully installed the modules via Python3.
+* Installing Guest Additions in each VirtualMachine
+  * Following the instructions in section 3.9.5, install the VirtualBox Guest Additions Package in the below listed Operating systems, placing a screenshot directly below each bullet point
+    * To show the successful install of the guest additions, maximize the screen and take the screenshot showing the installed guest additions. These are the example before and after maximized images:
+    * ![Before Guest Additions](images/Chapter-03/guest-additions-install/before-guest-additions.png "Before Guest Additions Install")
+    * ![After Guest Additions](images/Chapter-03/guest-additions-install/after-guest-additions.png "After Guest Additions Install")
+  * Ubuntu Desktop
+  * Fedora Desktop
+  * Debian
+  * Pop!_OS
+  * Ubuntu Server
