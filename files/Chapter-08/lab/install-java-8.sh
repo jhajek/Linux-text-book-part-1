@@ -22,8 +22,6 @@ tar -xvzf hadoop-2.7.5.tar.gz
 mv -v /tmp/hadoop-2.7.5 /datapool1
 
 mv -v ./hadoop-env.sh /home/hajek/hadoop-2.7.5/etc/hadoop
-
-ssh-keygen e
   
 sudo sed -i "s/ignoreip = 127.0.0.1\/8/ignoreip = 127.0.0.01\/8 64.131.111.178/g" /etc/fail2ban/jail.conf
 # http://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Jails
