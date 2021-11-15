@@ -1,0 +1,13 @@
+[Unit]
+Description=Script that writes a Hello message to the journal
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/run/bb.pid
+User=controller
+ExecStart=/usr/bin/python3 /usr/local/bin/write-journal.py
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
