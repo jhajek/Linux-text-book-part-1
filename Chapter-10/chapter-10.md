@@ -14,7 +14,9 @@
 
 At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work.  You will understand how to examine, start, and stop services in both arenas.  You will learn about the ```/proc``` virtual-filesystem and how it represents running processes as files.  You will be able to use the systemd mechanisms for process reporting and termination.
 
-## BIOS
+## First Phase of the system boot
+
+### BIOS
 
 When you hit the power button, after a short pause, your system begins to whir to life.  Fans spinning and a short POST *beep* sound tells you are on your way.  The next thing you see is some messages flash across the screen, a logo perhaps, some spinning icons, and then the login screen comes to life.  Collectively this is called the *boot* process.  We are interested in the last part--when the operating system is loaded from disk into memory and the init process begins to start launching the components of our operating system.  Before we dive into that part, let's review what goes on before hand.
 
@@ -22,11 +24,11 @@ How does the system come to life?  There is a small chip on your motherboard tha
 
 In modern Linux the VBR is controlled by [GNU GRUB](https://www.gnu.org/software/grub/ "GNU GRUB").  *"Briefly, a boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd or Linux). The kernel, in turn, initializes the rest of the operating system (e.g. GNU)."* [^ch10f114]
 
-## UEFI
+### UEFI
 
-The [Unified Extensible Firmware Interface](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface "UEFI Wiki Page") was developed as a successor to the BIOS as the original BIOS only supported a 16-bit real-mode and 1 MB of memory, which limited what could be done on a system.  The replacement UEFI does the same job as BIOS but is a modern reimplementation of BIOS basic functions.  BIOS is controlled by a trade organization which all the major PC makes and OS vendors purchase a seat in the UEFI consortium.
+The [Unified Extensible Firmware Interface](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface "UEFI Wiki Page") was developed as a successor to the BIOS. The original BIOS spec only supported a 16-bit real-mode and 1 MB of memory, which limited what could be done on a system.  The replacement UEFI, does the same job as BIOS but is a modern reimplementation of BIOS's basic functions.  Who runs [UEFI](https://uefi.org/members "UEFI member list website")? It is controlled by a trade organization which all the major PC makes and OS vendors purchase a seat in the UEFI consortium.
 
-UEFI capabilities include additional features not available in the traditional BIOS.  Most modern Laptops and Servers, since 2015 are using UEFI, some come with a BIOS Compatibility Layer, but BIOS and UEFI are two separate things.  When booting UEFI on stage 4, the UEFI Boot Manager that holds the entry for the location of the bootable device is loaded.
+UEFI capabilities include additional features not available in the traditional BIOS.  Most modern Laptops and Servers, since 2015 are using UEFI, some come with a BIOS Compatibility Layer, but BIOS and UEFI are two separate things.  When booting with UEFI, at stage 4 the UEFI Boot Manager  entry that holds the location of the bootable device is loaded.
 
 1) SEC - Security Phase
 1) PEI - Pre-EFI Initialization
@@ -38,6 +40,8 @@ UEFI capabilities include additional features not available in the traditional B
 UEFI supported is detected on install by all operating systems.  You can specifically enable it in VirtualBox 6+:
 
 ![*Enable EFI*](images/Chapter-10/UEFI/virtualbox-uefi.png "virtualbox efi support")
+
+## Second Phase of the system boot
 
 ## GNU GRUB Boot Loaders
 
@@ -72,7 +76,9 @@ GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a backg
 
 To make these changes permanent you need to execute the ```sudo update-grub``` command after saving the file so the ```/boot/grub/grub.cfg``` will be regenerated and used on the next boot.
 
-## SysVinit
+## Third Phase of the system boot
+
+### SysVinit
 
 I am going to describe the Unix System V init process - this is the basis of all Unix and Linux knowledge since the early 1980s.  This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. SysVinit is not in use in Linux as it was replaced by systemd as the init system.
 
@@ -103,7 +109,7 @@ Under the Upstart methodology you can simply start services and stop them with t
 
 > __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
 
-### ps
+#### ps
 
 The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
 
@@ -121,7 +127,7 @@ These additional commands will share more information:
 * systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership.
   * cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
 
-### kill
+#### kill
 
 In the SysVinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
 
@@ -135,7 +141,7 @@ In the SysVinit/Upstart world to terminate a process you would use the ```kill``
 
 All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors.  All except ```kill -9``` every process has to obey.  You can use the ```killall``` command to kill the process and any associated processes that it had launched all in one fell swoop.  You and use the ```ptkill``` command to kill a process by name instead of PID.
 
-### nice
+#### nice
 
 The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
 
@@ -145,7 +151,7 @@ The ```nice``` command is a *suggestion* tool to the operating system scheduler 
 nice -n 10 my-loop
 ```
 
-## Upstart
+### Upstart
 
 In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called ```upstart```.  Upstart moved all the traditional runlevels and start up scripts to ```/etc/init``` directory and placed the scripts in configuration files. While leaving the ```/etc/rc.d``` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in ```/etc/init/myservice.conf```:  Note the use of the __run level__ concept from SysVinit.  Compare this to (on an Ubuntu system) the contents of any script in ```/etc/rc3.d``` (run level 3).  Upstart exhibits a bit more process control but still being a shell script when you boil it down.
 
@@ -176,7 +182,7 @@ exec myprocess
 
 Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental replacement in Fedora 9 - until version 18 when systemd was ready.  RHEL and CentOS used Upstart as well until RHEL 7, and ChromeOS still does (OS for Chromebooks).  Debian considered using Upstart when Debian 8 was being developed but instead decided to jump entirely to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end.  Upstart was seen as the compromise between SysVinit and its failings but in the end systemd won out.  MacOS uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris and Illumos/SmartOS use [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
 
-## Other SysVinit replacements
+### Other SysVinit replacements
 
 Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*  Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
 
@@ -193,7 +199,7 @@ OpenRC and runit do not use systemd at all and therefore any software that requi
 
 Init Systems: Comparison of actions
 
-## Systemd and Systemctl
+### Systemd and Systemctl
 
 Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at Red Hat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.  Systemd is licensed under the LGPL 2.1 or later, [GNU Lesser General Public License](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License "LGPL").  
 
@@ -318,7 +324,7 @@ In the Service tag, these are the commands to start and stop various shell scrip
 
 #### Create a Service File for a User Created Script
 
-This is a sample of a .service file created for a Python user script, called `brownbear.service`
+This is a sample of a `.service` file created for a Python user script, called `brownbear.service`
 
 ```bash
 
@@ -395,29 +401,36 @@ The main variable here is the `OnCalendar` value, where you can define a time wh
 You will need to install some pre-reqs for this example.
 
 ```bash
-# Ubuntu 18.04 and 20.04 - https://pypi.org/project/systemd/
+# Ubuntu  20.04 - https://pypi.org/project/cysystemd/
 sudo apt-get install build-essential \
     libsystemd-dev \
     python3-pip \
     python3-dev
-python3 -m pip install systemd
+python3 -m pip install cysystemd
 ```
 
 ```bash
-# Fedora/CentOS - https://pypi.org/project/systemd/
-sudo yum install gcc systemd-devel python3-devel python3-pip
-python3 -m pip install systemd
+# Fedora/CentOS - https://pypi.org/project/cysystemd/
+sudo yum install gcc systemd-devel python3 python3-devel python3-pip
+python3 -m pip install cysystemd
 ```
 
 Create a python script called `write-journal.py` and include this code after installing the pre-reqs.
 
 ```python
-from systemd import journal
+from cysystemd import journal
 
-journal.write("Hello Lennart!")
+journal.write("Hello Lennart")
+
+# Or send structured data
+journal.send(
+    message="Hello Lennart",
+    priority=journal.Priority.INFO,
+    some_field='some value',
+)
 ```
 
-Give the above script execute permission, execute it by typing `python write-journal.py`, and the execute the command: `sudo journalctl -xe`, what do you see?
+Give the above script execute permission, execute it by typing `python3 write-journal.py`, and the execute the command: `sudo journalctl -xe`, what do you see?
 
 #### hostnamectl and timedatectl
 
@@ -587,11 +600,7 @@ b) sys-groups
 c) cgroups
 d) xgroups
 
-17) What is the signal name for a kill -2 command?
-a) SIGHUP
-b) SIGINT
-c) SIGKILL
-d) SIGTERM
+17) According to Lennart, how is systemd defined?
 
 18) The /proc filesystem provides you what?  (choose all that apply)
 a) Provides you a file based interface to the processes that are running on your system
@@ -664,12 +673,6 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Using systemctl and the `--show` option, display the "After" and "Wants" properties of the sshd.service.
 
-1) Using `lsmod` and `grep`, list all of the kernel modules loaded on your system that contain VirtualBox (search for `vb`).
-
-1) Run the systemd `systemctl` command to list all of the services that are currently in the failed state (use --failed flag).
-
-1) Run the command that will list all the PCI devices attached to your system.
-
 1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware (a single screenshot will do incase the output scrolls past one screen).
 
 1) Using `systemctl status` command, find and display the status and cgroup information for the apache2 webserver (known as httpd on Fedora) and take a screenshot. Then issue a `kill -s SIGHUP` command to that service and take a screenshot of the results.
@@ -684,7 +687,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
    c) set-chassis to: vm
    d) set-deployment to: development
 
-1) What would be the command to change the systemd target runlevel to recovery mode?  Execute this command and take a screenshot of the result.
+1) What would be the command to change the systemd target runlevel to recovery mode?  Execute this command and take a screenshot of the result -- then change it back to the regular GUI interface.
 
 1) Review the content of the mysql.service file. List the contents of the `[Install]` header that must load before and after the mysql service starts.
 
