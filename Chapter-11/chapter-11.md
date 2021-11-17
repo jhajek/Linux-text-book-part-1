@@ -336,7 +336,7 @@ Btrfs is a modern copy-on-write (CoW) filesystem for Linux. Copy-on-write is at 
 
 Btrfs adds support for resource pooling and using extents to make logical drives across physical devices removing the need for the use of LVM, volume management is now built in. Recently openSUSE and Fedora have adopted Btrfs as a filesystem, but support for Btrfs was remove in RHEL 8 (in favor of XFS and LVM).
 
-In order to format a system using Btrfs you need to install ```btrfs-tools``` on Ubuntu 18.04 and ```btrfs-progs``` on Fedora 32+ and Ubuntu 20.04.  
+In order to format a system using Btrfs you need to install ```btrfs-progs``` on Fedora 32+ and Ubuntu 20.04.  
 
        Install Btrfs tools
 ----------------------------------
@@ -437,7 +437,7 @@ ZFS can enable transparent compression using GZIP or LZ4 with a simple set comma
 
 ![*HP HP EVA4400 storage array*](images/Chapter-11/disk/278px-HP_EVA4400-1.jpg "HP storage array")[^144]
 
-ZFS, Btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but how do you identify which physical disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial number of the disk via the ```hdparm``` tool.  This script would enumerate through all of the disks you have on a system and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive ```/dev/sda``` through ```/dev/sdg```[^143] run the command on your system and see what comes out.  Depending on what processor you have, older Intel CPUs (2nd Gen Core i), might not report the disk serial number correctly for a virtualized hard drive on Ubuntu 16.04 and 18.04, but reporting correctly on Virtualized Fedora 28 and 29.
+ZFS, Btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but how do you identify which physical disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial number of the disk via the ```hdparm``` tool.  This script would enumerate through all of the disks you have on a system and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive ```/dev/sda``` through ```/dev/sdg```[^143] run the command on your system and see what comes out.
 
 ```bash
   for i in a b c d e f g;
@@ -649,9 +649,9 @@ A tape archive that is additionally compressed by another tool is called a __tar
 
 > __Example usage:__ Each one of these tar archives has been further compressed by one of the 4 Unix/Linux compression methods ```file linux-4.3-rc3.tar.Z; file linux-4.3-rc3.tar.gzip; file linux-4.3-rc3.tar.bzip2; file linux-4.3-rc3.tar.xz```
 
-> __Example usage:__  Previously you had to pass a flag to the ```tar``` command to tell it what type of compression algorithm to decompress with but now ```tar``` is smart and will autodetect for you.  The flags you need to simply pass are -x for extract, -v for verbose (optional), and -f for file (optional) ```wget https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.3-rc3.tar.xz; tar -xvf linux-4.3-rc3.tar.xz```  
+> __Example usage:__  Previously you had to pass a flag to the ```tar``` command to tell it what type of compression algorithm to decompress with but now ```tar``` is smart and will autodetect for you.  The flags you need to simply pass are -x for extract, -v for verbose (optional), and -f for file (optional) ```wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.22.tar.xz; tar -xvJf linux-5.11.22.tar.xz```  
 
-As of version > 1.31 of `tar` there is also support for zstd.  Which can be filter and archive via the ```--zstd`` flag.  Ubuntu 18.04 supports only tar version 1.29 currently.
+As of version > 1.31 of `tar` there is also support for zstd.  Which can be filter and archive via the ```--zstd`` flag.
 
 ## Chapter Conclusions and Review
 
@@ -912,7 +912,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
     a. Execute a scrub of the zpool datapool
     b. Create a cron job that executes a zfs scrub on the zpool datapool at 3 am every Sunday morning
 
-14. Using the sample from the text on your Ubuntu 18.04 system, add two additional virtual disks:
+14. Using the sample from the text on your Ubuntu 20.04 system, add two additional virtual disks:
 
     a. Create two partitions on each of these devices
     b. Then using the sample code add these two devices as a log and a cache to the zpool datapool
@@ -920,9 +920,9 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
 15. On your Fedora system execute, any of the commands listed to print out the disk serial numbers.
 
-16. Using an Ubuntu system of your choice, create two pair of four 2-GB virtual disks.  Create a ZFS stripe on one of the four disk arrays and create a ZFS equivalent of a RAID 10 (striped mirror) on the other 4 disk array.  Run the command `sudo zpool status` and capture the output.  Name the first zpool, **zstripe** and the second zpool, **zmirror**
+16. Using an Ubuntu system of your choice, create two pair of four 2-GB virtual disks.  Create a ZFS stripe on one of the four disk arrays and create a ZFS equivalent of a RAID 10 (striped mirror) on the other 4 disk array.  Run the command `sudo zpool status` and capture the output.  Name the first zpool, **zstripe** and the second zpool, **zmirror** -- make sure to `chown` to your user `/zstripe` and `/zmirror`
 
-    a. Install `mariadb-server` and modify the my.cnf file to remount the database storage from `/var/lib/mysql` to be `/zstripe/mysql`: restart the service and execute the `sudo systemctl status mysql` command to show the service successfully restart and is now mounted in a new location.  Note, you will need to `chown` the new zstripe mount to get write permissions.
+    a. Install the Nginx webserver.  We will modify the file `/etc/nginx/sites-enabled/default` and change the default root setting to serve from the directory `/zstripe`.
 
 17. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created.  Add an entry for this disk to the `/etc/fstab` file with the following values:
 
@@ -934,7 +934,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
     f. Change owner and group to your username for `/mnt/disk100` (using `chmod`)
     g. Reboot your system. Change directory to `/mnt/disk100` and take a screenshot to demonstrate that the disk is in read-only mode by trying to create a file via this command:  `touch demo.txt`
 
-18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 18.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
+18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 20.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
 
     a. Run the `btrfs filesystem show` command and capture the output.
     b. Using the UID of the btrfs device created in the previous step, add the mount point to the `/etc/fstab` and add the `nodatacow` attribute. Mount point options are listed here: [btrfs mount-point options](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5) "btrfs mount-point options")
