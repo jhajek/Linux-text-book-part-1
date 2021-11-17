@@ -28,7 +28,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Change the `systemd` target to the systemd commandline-only level, display the `systemd` default target level.  Then change the run level back to the GUI target (or runlevel5)
 
-1) Using systemctl and the `--show` option, display the "After" and "Wants" properties of the sshd.service.
+1) Using systemctl and the `--show` option, display the "After" and "WantedBy" properties of the sshd.service.
 
 1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware (a single screenshot will do incase the output scrolls past one screen).
 

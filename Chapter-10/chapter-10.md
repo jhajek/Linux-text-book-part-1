@@ -231,19 +231,45 @@ Whenever you start a program in Linux, whether that is a service, or something a
 
 ### Working With Services in systemctl
 
-> __Example Usage:__ On a systemd based system, service control is done with ```sudo systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart httpd.service```  The ```.service``` can be left off and the system will assume the extension.
+> __Example Usage:__ On a systemd based system, service control is done with ```sudo systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart nginx.service```  The ```.service``` can be left off and the system will assume the extension.
 
-> __Example Usage:__ The ```systemctl``` command has additional abilities.  It absorbed the ```chkconfig``` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: ```sudo systemctl is-enabled httpd.service```.  Issue that command and what does it report?
+> __Example Usage:__ The ```systemctl``` command has additional abilities.  It absorbed the ```chkconfig``` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: ```sudo systemctl is-enabled nginx.service```.  Issue that command and what does it report?
 
-> __Example Usage:__ To disable a service at boot type: ```sudo systemctl disable httpd.service``` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.  
+> __Example Usage:__ To disable a service at boot type: ```sudo systemctl disable nginx.service``` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.  
 
-Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start.  Systemd command ```systemctl show``` will show all details relating to a target or a service.  Let us look at a service definition.  Type this command, ```cd /lib/systemd/system; ls http*; file http*```  what do you see? Type this command to see the contents of the httpd.serivce file, ```cat httpd.service``` what do you see contained inside?
+Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start.  Systemd command ```systemctl show``` will show all details relating to a target or a service.  Let us look at a service definition.  Type this command, ```cd /lib/systemd/system```,  what do you see? Type this command to see the contents of the httpd.serivce file, ```cat nginx.service``` what do you see contained inside?
 
 Compared to the make up of a SysVinit service, systemd has a simple design for each of its *service* files.  They are located in ```/lib/systemd/system```.  Upon entering this directory you can launch an ```ls``` command and see the actual service files that you start/stop and enable/disable with ```systemctl```.
 
-![*httpd.service*](images/Chapter-10/systemd/httpd-service.png "service")
+```bash
+# /lib/systemd/system/nginx.service file content
+[Unit]
+Description=A high performance web server and a reverse proxy server
+Documentation=man:nginx(8)
+After=network.target
 
-You can see the dependencies the httpd service needs and will only start if the targets listed in \[Unit\] under *After* have started--which makes sense. The command ```sudo systemctl show --property "Wants" httpd.service``` will show only the property from the unit file that you identify with __--property__. The *ExecStart* and *ExecReload* are called when you start and restart the service--which point to the absolute path to the Apache2 binary.  The final value is when the service is installed it has a dependency of being in a mutli-user target--it obviously be used on a single user system.
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+```
+
+The `show` and `--property` options allow you to retrieve individual values from any service file without having to display the entire file.
+
+* The command ```sudo systemctl show --property "WantedBy" nginx.service```
+  * Will show only the property "WantedBy" from the service file
+* The command ```sudo systemctl show --property "ExecStart" nginx.service```
+  * Will show only the property "ExecStart" from the service file
+* The command ```sudo systemctl show --property "After" nginx.service```
+  * Will show only the property "ExecStart" from the service file
 
 ### Major systemd Components
 
@@ -671,7 +697,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Change the `systemd` target to the systemd commandline-only level, display the `systemd` default target level.  Then change the run level back to the GUI target (or runlevel5)
 
-1) Using systemctl and the `--show` option, display the "After" and "Wants" properties of the sshd.service.
+1) Using systemctl and the `--show` option, display the "After" and "WantedBy" properties of the sshd.service.
 
 1) Type one of the two commands mentioned in the chapter to display info about your CPU hardware (a single screenshot will do incase the output scrolls past one screen).
 
