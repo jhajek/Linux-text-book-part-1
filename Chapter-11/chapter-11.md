@@ -391,8 +391,8 @@ sudo apt install zfsutils-linux
 # Now check to see if the zfs module is loaded
 modprobe zfs
 lsmod | grep zfs
-# the name "tank" is used in the tutorial -- I replaced it with: mydatapool.
-# the /dev/sdX and /dev/sdZ can be replaced by the actual device names
+# The name of the zfspool is: mydatapool
+# The /dev/sdX and /dev/sdZ can be replaced by the actual device names
 # found at the output of the command: lsblk
 sudo zpool create mydatapool mirror /dev/sdX /dev/sdZ
 lsblk
@@ -403,7 +403,7 @@ df -h | grep mydatapool
 Much like LVM, ZFS has native support for snapshots.  ZFS has a series of commands such as:
 
 * ```zpool create | list | destroy | status```
-  * this command creates a datapool
+  * this command creates a zpool
 * ```zfs create | list | destroy```
   * used to create a ZFS filesystem on a zpool
 * ```zfs snapshot volume@snap-name```
@@ -484,7 +484,7 @@ Once a disk is partitioned, and formatted with a filesystem, it now needs to be 
 
 In the previous examples we we have created partitions and filesystem, now let us mount them.  The first step we need to do is provide a mount point.  Traditionally that is done in the ```/mnt``` directory.  You should create your __mountpoints__ here.   Let's type ```sudo mkdir -p /mnt/data-drive```.  The name *data-drive* is an arbitrary name I have given my newly created __mountpoint__.  The ```-p``` flag will auto-create any subdirectory under ```/mnt``` that doesn't already exist.  Why did I type ```sudo```?  Who owns the ```/mnt``` directory?
 
-Once this directory is created, you can use the ```mount``` command like this: ```sudo mount -t ext4 /dev/sdb /mnt/data-drive```.  The ```-t``` flag tells this mount that the filesystem is of type __ext4__ and the operating system needs to know so that it can interface correctly with the filesystem.  Once this is done, the directory will still be owned by root, you probably need to change the ownership of the directory so that you own and can write to it. How would you do that based on last chapter?  You could type ```sudo chown jeremy:jeremy /mnt/data-drive```, assuming your username is *jeremy*.
+Once this directory is created, you can use the ```mount``` command like this: ```sudo mount -t ext4 /dev/sdb /mnt/data-drive```.  The ```-t``` flag tells this mount that the filesystem is of type __ext4__ and the operating system needs to know so that it can interface correctly with the filesystem.  Once this is done, the directory will still be owned by root, you probably need to change the ownership of the directory so that you own and can write to it. How would you do that based on last chapter?  You could type ```sudo chown controller:controller /mnt/data-drive```, assuming your username is *controller*.
 
 The partition can be unmounted by typing the ```umount``` command--yes it is missing the __n__.  Be careful you don't try to unmount the device while your pwd is in a directory on that mount--otherwise you will get a *device is busy error.*
 
