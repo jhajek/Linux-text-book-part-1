@@ -941,14 +941,13 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
 19. Download a copy of Ubuntu 20.04 and when going through the installer, choose the [EXPERIMENTAL erase disk and use zfs](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
 
-20. This is a research question regarding current hardware. Using [Newegg.com](http://newegg.com "Newegg.com"), find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
+20. Using the `wget` command, retrieve this URL: https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.19.tar.xz
 
-    a. Seagate Barracuda 4 TB
-    b. Western Digital Blue 1 TB
-    c. Western Digital Red 10 TB
-    d. Samsung 970 EVO M.2 500 GB
-    e. Corsair Force MP300 M.2 960 GB
-    f. Intel Optane M.2 32 GB and explain what 3D XPoint technology is
+   a. Untar/uncompress this archive.
+   b. Tar the directory and compress it using bzip2, make sure to keep the original input
+   c. Tar the directory and compress it using gzip, make sure to keep the original input
+   d. Tar the directory and compress it using ztd, make sure to keep the original input
+   e. Tar the directory and compress it using xz, make sure to keep the original input
 
 #### Footnotes
 
