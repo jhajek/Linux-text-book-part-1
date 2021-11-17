@@ -15,6 +15,7 @@ At the conclusion of this lab you will have successfully created a new virtual d
 
 ## Lab 11 Activities
 
+
 For each of the bullet points, take a screenshot of the output of the commands to display the content to demonstrate the concepts.  Note - make your screenshot efficient, and capture only relevant data along with numbering the output.  All disks that are created can be 2 GB unless noted.
 
 1. Create 1 virtual drive in VirtualBox:
@@ -91,7 +92,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
     a. Execute a scrub of the zpool datapool
     b. Create a cron job that executes a zfs scrub on the zpool datapool at 3 am every Sunday morning
 
-14. Using the sample from the text on your Ubuntu 18.04 system, add two additional virtual disks:
+14. Using the sample from the text on your Ubuntu 20.04 system, add two additional virtual disks:
 
     a. Create two partitions on each of these devices
     b. Then using the sample code add these two devices as a log and a cache to the zpool datapool
@@ -99,9 +100,9 @@ For each of the bullet points, take a screenshot of the output of the commands t
 
 15. On your Fedora system execute, any of the commands listed to print out the disk serial numbers.
 
-16. Using an Ubuntu system of your choice, create two pair of four 2-GB virtual disks.  Create a ZFS stripe on one of the four disk arrays and create a ZFS equivalent of a RAID 10 (striped mirror) on the other 4 disk array.  Run the command `sudo zpool status` and capture the output.  Name the first zpool, **zstripe** and the second zpool, **zmirror**
+16. Using an Ubuntu system of your choice, create two pair of four 2-GB virtual disks.  Create a ZFS stripe on one of the four disk arrays and create a ZFS equivalent of a RAID 10 (striped mirror) on the other 4 disk array.  Run the command `sudo zpool status` and capture the output.  Name the first zpool, **zstripe** and the second zpool, **zmirror** -- make sure to `chown` to your user `/zstripe` and `/zmirror`
 
-    a. Install `mariadb-server` and modify the my.cnf file to remount the database storage from `/var/lib/mysql` to be `/zstripe/mysql`: restart the service and execute the `sudo systemctl status mysql` command to show the service successfully restart and is now mounted in a new location.  Note, you will need to `chown` the new zstripe mount to get write permissions.
+    a. Install the Nginx webserver.  We will modify the file `/etc/nginx/sites-enabled/default` and change the default root setting to serve from the directory `/zstripe`.
 
 17. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created.  Add an entry for this disk to the `/etc/fstab` file with the following values:
 
@@ -110,21 +111,20 @@ For each of the bullet points, take a screenshot of the output of the commands t
     c. type is btrfs
     d. options: defaults,ro  (ro for read-only)
     e. dump and pass fields can be 0
-    f. Change owner and group to your username for `/mnt/disk100` (`chmod`)
+    f. Change owner and group to your username for `/mnt/disk100` (using `chmod`)
     g. Reboot your system. Change directory to `/mnt/disk100` and take a screenshot to demonstrate that the disk is in read-only mode by trying to create a file via this command:  `touch demo.txt`
 
-18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 18.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
+18. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 20.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
 
     a. Run the `btrfs filesystem show` command and capture the output.
     b. Using the UID of the btrfs device created in the previous step, add the mount point to the `/etc/fstab` and add the `nodatacow` attribute. Mount point options are listed here: [btrfs mount-point options](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5) "btrfs mount-point options")
 
 19. Download a copy of Ubuntu 20.04 and when going through the installer, choose the [EXPERIMENTAL erase disk and use zfs](https://ubuntu.com/blog/enhancing-our-zfs-support-on-ubuntu-19-10-an-introduction "ZFS on Ubuntu Root").  Once the install is complete, upon first login, execute the `sudo zpool status` command and capture the output.
 
-20. This is a research question regarding current hardware. Using [Newegg.com](http://newegg.com "Newegg.com"), find the current price per Gigabyte for the following along with listing the throughput of the drive and make a chart of the results.
+20. Using the `wget` command, retrieve this URL: https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.19.tar.xz
 
-    a. Seagate Barracuda 4 TB
-    b. Western Digital Blue 1 TB
-    c. Western Digital Red 10 TB
-    d. Samsung 970 EVO M.2 500 GB
-    e. Corsair Force MP300 M.2 960 GB
-    f. Intel Optane M.2 32 GB and explain what 3D XPoint technology is
+   a. Untar/uncompress this archive.
+   b. Tar the directory and compress it using bzip2, make sure to keep the original input
+   c. Tar the directory and compress it using gzip, make sure to keep the original input
+   d. Tar the directory and compress it using ztd, make sure to keep the original input
+   e. Tar the directory and compress it using xz, make sure to keep the original input
