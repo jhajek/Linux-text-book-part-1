@@ -488,13 +488,10 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
     i) Take a screenshot as you complete each sub-section (i.e. 2.1 2.2 3.1 4.1 )
-1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-java-8-openjdk.sh``` to your home directory
-    i)  Using vim/ex commands, find **all** occurrences of ```;``` and replace them with ```&&```
-    i)  Using vim/ex commands, replace **all** occurrences of the numbers ```2.6.5``` with ```2.8.5```
-    i)  Use the vim/ex command to move directly to line 9
-    i)  Using vim/ex commands to append the package names ```python``` and ```python-dev``` to line 18
-    i)  Save file and quit the vim editor
-    i)  Take a screenshot of the command used to display the entire content of the file
+1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
+    i) Using vim/ex commands, find all occurrences of ```python``` and replace them with ```python3```
+    i) Save file and quit the vim editor
+    i)  To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
 1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
     i) Using vim/ex commands, find all occurrences of ```python``` and replace them with ```python3```
     i) Save file and quit the vim editor
