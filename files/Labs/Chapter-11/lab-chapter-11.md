@@ -45,7 +45,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
    c. Mount the snapshot to `/mnt/disk3` (create this location if not existing)
    d. `ls -l` the contents of `/mnt/disk3`
 
-5. Using Ubuntu 20.04 and ZFS, attach four 1 GB disks and create RAID 10 (a mirrored stripe). Display the `zpool status` and take a screenshot of the output.
+5. Using Ubuntu 20.04 and ZFS, attach four 1 GB disks and create RAID 10 (a mirrored stripe). Name the pool: `datapool`. Display the `zpool status` and take a screenshot of the output.
 
 6. Using Ubuntu 20.04, attach 4 virtual disks of 1 GB each. Create two Btrfs mirrored drives named disk1 and disk2.  Take a screenshot of the output of the `btrfs filesystem show` command for each disk.
 
@@ -56,25 +56,15 @@ For each of the bullet points, take a screenshot of the output of the commands t
     c. Attach an additional 2 gb disk to the Btrfs stripe. Take a screenshot of the `btrfs filesystem df` command for this volume.  
     d. Extend the Btrfs filesystem to encompass using all of the new disk space. Take a screenshot of the `btrfs filesystem df` command for this volume.
 
-8. Create a systemd .mount unit file for the Btrfs partitions created in question number 8
-
-    a. List the content of the .mount files in a screenshot(s)
-    b. Reboot the system and take a screenshot of the df -H to see the .mount files work
-
-9. On the zpool named datapool on Ubuntu:
+8. On the zpool named `datapool` on Ubuntu 20.04 from question 5:
 
     a. Execute a ```zpool status``` command
     b. Enable LZ4 compression on the zpool datapool
     c. Execute a `zfs get all | grep compression` command to display that compression is enabled
 
-10. On the zpool named datapool, execute a `zpool status` command:
+9. On your Fedora system execute, any of the commands listed to print out the disk serial numbers.
 
-    a. Execute a scrub of the zpool datapool
-    b. Create a cron job that executes a zfs scrub on the zpool datapool at 3 am every Sunday morning
-
-11. On your Fedora system execute, any of the commands listed to print out the disk serial numbers.
-
-12. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created.  Add an entry for this disk to the `/etc/fstab` file with the following values:
+10. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created.  Add an entry for this disk to the `/etc/fstab` file with the following values:
 
     a. file system is UUID=
     b. mount point is `/mnt/disk100` (create this partition if it doesn't exist)
@@ -84,12 +74,7 @@ For each of the bullet points, take a screenshot of the output of the commands t
     f. Change owner and group to your username for `/mnt/disk100` (using `chmod`)
     g. Reboot your system. Change directory to `/mnt/disk100` and take a screenshot to demonstrate that the disk is in read-only mode by trying to create a file via this command:  `touch demo.txt`
 
-13. Using an OS of your choice, create 4 2 GB Virtual Disks.  Create a [Btrfs RAID 10](https://btrfs.wiki.kernel.org/index.php/UseCases#How_do_I_create_a_RAID10_striped_mirror_in_Btrfs.3F "btrfs RAID 10") (mirror and stripe) on these four disks. Download one of the Ubuntu 20.04 ISO files onto your Btrfs partition.  Using the [btrfs-replace command](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs-replace "btrfs-replace"). Add a fifth virtual disk and replace device `/dev/sde` with the new virtual disk.
-
-    a. Run the `btrfs filesystem show` command and capture the output.
-    b. Using the UID of the btrfs device created in the previous step, add the mount point to the `/etc/fstab` and add the `nodatacow` attribute. Mount point options are listed here: [btrfs mount-point options](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5) "btrfs mount-point options")
-
-14. Using the `wget` command, retrieve this URL: https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.19.tar.xz
+11. Using `wget`, retrieve this URL: https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.19.tar.xz
 
    a. Untar/uncompress this archive.
    b. Tar the directory and compress it using bzip2, make sure to keep the original input
