@@ -20,11 +20,9 @@
 
 7) Create a self-signed SSL certificate.
 
-8) Create a sample PHP webpage that displays `phpinfo()` at "https://localhost/index.php". Name the file `info.php` and push it to your GitHub repo.
+8) On an OS of your choice, install Node.js version 16.x and use NPM to install the `express` package.  Using the sample, "Hello World" code provided in the chapter, take a screenshot of the output of opening a browser on your Virtual Machine at the URL: http://127.0.0.1:3000
 
-   a. Make sure you have installed all the pre-reqs (Apache2 and PHP).
-
-9) Enable the Apache Webserver and the proper firewall port to serve your `phpinfo()` page over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04 "Digital Ocean Self-signed Apache2 cert config").
+9) Enable the Apache Webserver and the proper firewall port to serve pages over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04 "Digital Ocean Self-signed Apache2 cert config").  Take a screenshot of the webbrowser showing https://127.0.0.1
 
 10) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working WordPress blog.
 

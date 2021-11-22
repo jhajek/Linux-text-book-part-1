@@ -456,6 +456,28 @@ npm install express
 npm install mysql2
 ```
 
+Now using vim or nano lets code a sample "Hello World" Node.js program, let's create a directory in the *Documents* directory named: **myapp**. Name the file **app.js**. Then type the code sample below:
+
+```javascript
+// Simple sample app from
+// http://expressjs.com/en/starter/hello-world.html
+// You can access this by opening a webbrowser on your Virtual Machine
+// and go to http://127.0.0.1:3000
+
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
+
 ## Database and NoSQL
 
 Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here], *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language.
@@ -475,7 +497,7 @@ sudo apt-get install mysql
 sudo apt-get install mariadb-client
 sudo apt-get install mariadb-server
 
-# Installing on Fedora 34
+# Installing on Fedora
 sudo dnf install mariadb mariadb-server
 sudo dnf install mariadb-client
 # make sure to start and enable the maria or mysql service on Fedora/CentOS
@@ -842,11 +864,9 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 7) Create a self-signed SSL certificate.
 
-8) Create a sample PHP webpage that displays `phpinfo()` at "https://localhost/index.php". Name the file `info.php` and push it to your GitHub repo.
+8) On an OS of your choice, install Node.js version 16.x and use NPM to install the `express` package.  Using the sample, "Hello World" code provided in the chapter, take a screenshot of the output of opening a browser on your Virtual Machine at the URL: http://127.0.0.1:3000
 
-   a. Make sure you have installed all the pre-reqs (Apache2 and PHP).
-
-9) Enable the Apache Webserver and the proper firewall port to serve your `phpinfo()` page over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04 "Digital Ocean Self-signed Apache2 cert config").
+9) Enable the Apache Webserver and the proper firewall port to serve pages over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04 "Digital Ocean Self-signed Apache2 cert config").  Take a screenshot of the webbrowser showing https://127.0.0.1
 
 10) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working WordPress blog.
 
