@@ -422,6 +422,40 @@ For instructions on configuring and installing the php library for Nginx, [https
 
 The OpenBSD project which values security and home grown solutions over pure availability.  Instead of trusting others code, the OpenBSD project built and maintain [their own webserver](https://bsd.plumbing/about.html#features "OpenBSD httpd").
 
+### NodeJS
+
+In late 2009/2010, a developer from Joyent (later Samsung/Joyent) wanted to explore the probabilities of JavaScript.  Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity.  He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome Webbrowser, added an event loop and I/O functions and made it a standalone server.  Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website").
+
+The Node.js release cycle is different then most major Linux distro's release cycles, so you need to go to the nodejs site directly to get a newer version. For the latest 16.x LTS (long term support branch):
+
+```bash
+# Using Ubuntu
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v
+
+# Using Debian, as root
+curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+apt-get install -y nodejs
+node -v
+
+# Using Fedora/CentOS/Red Hat
+sudo dnf install -y gcc-c++ make
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
+sudo dnf install nodejs
+node -v
+```
+
+Using the NPM package manager, we can install additional plugins that allow our Node.js JavaScript application to have additional features.  For example:
+
+```bash
+# Using NPM to install the ExpressJS JavaScript server
+npm install express
+
+# Using NPM to install the Mysql connector to talk to a MySQL or MariaDB database
+npm install mysql2
+```
+
 ## Database and NoSQL
 
 Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL [link here], *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language.
@@ -434,12 +468,14 @@ Databases come in two types: **Relational databases** and **Non-relational datab
 Installation of a database is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accessing a database remotely, you do not need to install the entire server just the client tools to use the applications.
 
 ```bash
+# Using Ubuntu or Debian based distros
 sudo apt-get install mariadb  
 sudo apt-get install mysql
 
 sudo apt-get install mariadb-client
 sudo apt-get install mariadb-server
 
+# Installing on Fedora 34
 sudo dnf install mariadb mariadb-server
 sudo dnf install mariadb-client
 # make sure to start and enable the maria or mysql service on Fedora/CentOS
@@ -568,6 +604,7 @@ Used to block external communication on you system ports.   Not unlike plugs in 
 * PostgreSQL - 5432
 * MySQL - 3306
 * Oracle DB - 1521
+* ExpressJS - 3000
 
 You can use rules to allow or deny traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity.  I do not recommend this.  If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security, privacy, and government regulation.  
 
