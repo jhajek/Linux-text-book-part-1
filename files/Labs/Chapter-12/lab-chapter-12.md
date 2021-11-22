@@ -33,8 +33,3 @@
     a. Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.
     b. The second database server requires the `mysql-server` package.  Make one to be Ubuntu, and the other to be Fedora/CentOS.
 
-12) Install the Ghost Blogging Platform on a single OS of your choice.
-
-    a. Install nodejs, nginx, and mysql prerequisites.
-    b. Create a directory in your home directory called **ghost-files**. Execute the install tutorial in the next step in that directory.
-    c. Follow the install instructions at [Ghost.org](https://github.com/TryGhost/Ghost "Ghost Blogging Platform") to install the Ghost blogging platform.
