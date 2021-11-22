@@ -511,7 +511,8 @@ MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Mich
 * Quit
 
 ```bash
-sudo mysql -u root -p
+# On mysql/mariadb 8.x Fedora and Ubuntu
+sudo mysql -u root
 CREATE DATABASE records;
 USE records;
 create table tutorials_tbl(
