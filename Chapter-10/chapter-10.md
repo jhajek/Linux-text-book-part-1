@@ -561,7 +561,7 @@ c) `/etc/grub/grub.cfg`
 d) `/boot/kernel/conf`
 
 6) In the /etc/default/grub file, which of these options below would you edit to dispaly the *splash* screen on boot so kernel messages are displayed?
-a) GRUB_CMDLINE_LINUX_DEDFAULT
+a) GRUB_CMDLINE_LINUX_DEFAULT
 b) GRUB_BACKGROUND
 c) GRUB_GFXMODE
 d) GRUB_TIMEOUT
