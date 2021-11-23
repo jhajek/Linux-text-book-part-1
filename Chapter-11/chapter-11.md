@@ -224,25 +224,36 @@ Once you have successfully created an LV, now it needs a filesystem installed.  
 
 ### LVM Snapshots
 
-One definite feature not included in traditional partitioning is the concept of **snapshots**.  **Snapshots** exist at the filesystem level in Btrfs and ZFS, but not XFS or ext4 as they are too old.  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or CoW, Copy-on-Write partition.  It often can be smaller, because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.   This delta can be merged back in, returning you to a point in time state, via the ```sudo lvconvert --merge``` command.  Also snapshot can be *promoted* to be a full LV that can be copied and mounted itself as a full LV.
-
-#### Filesystem Snapshots
-
-When dealing with LVM there is an ability to provide a snapshot, that is a point in time exact copy of a logical volume[^139].  Assuming your have your physical volumes, your volume groups, and logical volumes created, lets now create a snapshot of a logical volume (assume that we formatted the logical volume with ext4 and mounted it to ```/mnt/disk1```).
+One definite feature not included in traditional partitioning is the concept of **snapshots**.  **Snapshots** exist at the filesystem level in Btrfs and ZFS, but not XFS or ext4 as they are too old.  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or CoW, Copy-on-Write partition.
 
 ```bash
+sudo lvcreate -L1000M -s -n lv-group-snapshot /dev/vg-group/lv-group
+```
+
+When dealing with LVM there is an ability to provide a snapshot, that is a point in time exact copy of a logical volume[^139]. The snapshot can be a smaller disk size because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.  This delta can be merged back in, returning you to a point in time state, via the command:
+
+```bash
+sudo lvconvert --merge /dev/vg-group/lv-group-snapshot
+```
+
+Assuming your have your physical volumes, your volume groups, and logical volumes created, lets now create a snapshot of a logical volume (assume that we formatted the logical volume with ext4 and mounted it to ```/mnt/disk1```).
+
+```bash
+# This works with ext4, but XFS requires two additional commands
+# https://learn.redhat.com/t5/Platform-Linux/How-to-Mounting-an-XFS-LVM-snapshot/td-p/287
+# xfs_repair and xfs_admin
 cd /mnt/disk1
 # command to create a random file of 5MB
 head -c 5MB /dev/urandom > datafile.txt
 ls -lh
 # Picking up from the tutorial at http://tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html
-lvcreate -L592M -s -n disk-backup /dev/volgroupname/logicalvolname
+sudo lvcreate -L1000M -s -n disk1snapshot /dev/volgroupname/logicalvolname
 # Type the random command to change the data since the original snapshot
 head -c 25MB /dev/urandom >> datafile.txt
 # You will now have a new device called /dev/volgroupname/disk-backup
 # Mount this to /mnt/disk2
 sudo mkdir -p /mnt/disk2
-sudo mount -t ext4 /dev/volgroupname/disk-backup /mnt/disk2
+sudo mount -t ext4 /dev/volgroupname/disk1snapshot /mnt/disk2
 cd /mnt/disk2
 ls -l
 ls -l /mnt/disk1
@@ -391,25 +402,77 @@ sudo apt install zfsutils-linux
 # Now check to see if the zfs module is loaded
 modprobe zfs
 lsmod | grep zfs
-# The name of the zfspool is: mydatapool
-# The /dev/sdX and /dev/sdZ can be replaced by the actual device names
-# found at the output of the command: lsblk
-sudo zpool create mydatapool mirror /dev/sdX /dev/sdZ
-lsblk
-zfs list
-df -h | grep mydatapool
 ```
 
-Much like LVM, ZFS has native support for snapshots.  ZFS has a series of commands such as:
+### ZFS RAID-Z
 
-* ```zpool create | list | destroy | status```
-  * this command creates a zpool
-* ```zfs create | list | destroy```
-  * used to create a ZFS filesystem on a zpool
-* ```zfs snapshot volume@snap-name```
-  * ```zfs snapshot mydatapool@snap1```
-  * ```zfs list -t snapshot```
-* ```zfs rollback```
+ZFS supports creating multiple types of redundant disks that increase speed or increase redundancy, such as:
+
+* ZFS stripe
+  * Two or more disks that are collected into a single logical disks in order to speed up writes at the expense of redundancy
+  * Also known as a [RAID 0](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0 "Raid 0 Website")
+* ZFS mirror
+  * Disks in pairs of 2 that mirror each other's writes for fail over protection in case of disk failure
+  * Also known as a [RAID 1](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_1 "Raid 1 website")
+* ZFS stripped mirror
+  * Two or more disks that are striped and then mirrored for redundancy but also gains the advantage of the stripes speed
+  * Also known as a RAID 10
+* ZFS RAID-Z
+  * Using multiple disks and redundancy to support multiple disk failure and recovery
+  * Also known as a [RAID 5](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_5 "Raid 5 website")
+
+```bash
+
+# Assume each disk is 2 GB in size
+# Create a Stripe of 3 disks for a single 6 GB logical volume
+sudo zpool create datastripe /dev/sdb /dev/sdc /dev/sdc
+sudo zpool status
+
+# Create a Mirror of 2 disks for a single 2 GB logical volume
+# with failover protection
+sudo zpool create datamirror mirror /dev/sde /dev/sdf
+sudo zpool status
+
+# Create a Striped Mirror of 4 disks for a logical volume of 4 GB
+# with failover protection
+sudo zpool create sm mirror /dev/sdg /dev/sdh /dev/sdi /dev/sdj
+sudo zpool status
+```
+
+### ZFS Snapshots
+
+ZFS has support for snapshots similar to LVM but built into the filesystem layer.  Let's demonstrate this by creating a file named **accounts.txt** on `/datamirror`.
+
+```bash
+
+# Create the mirror -- change the devices names as needed
+sudo zpool create datamirror mirror /dev/sde /dev/sdf
+
+# Change the owenership to of the datamirror pool
+# Assume your user name is controller
+sudo chown -R controller:controller /datamirror
+```
+
+```bash
+# Create a file of 25 mb size
+cd /datamirror
+truncate -s 25m accounts.txt
+sudo zfs snapshot datamirror@snap-datamirror1
+sudo zfs list -t datamirror@snap-datamirror1
+```
+
+```bash
+# Lets modify the contents of datamirror and then rollback the snapshot
+truncate -s 50m new-accounts.txt
+touch newer-accounts.txt
+ls
+# Lets rollback the changes to pre-snapshot
+sudo zfs rollback datamirror@snap-datamirror1
+# Issue the ls command and you will see all the additional files gone
+ls 
+```
+
+### ZFS Send and Receive
 
 ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments which effectively creates a serialized synchronization feature.  This can be done on the same system as well as over a network connection to a remote computer. To synchronize a ZFS filesystem:
 
@@ -419,19 +482,27 @@ ZFS also has a mechanism to send and receive snapshots, which done in a small en
 * You can pipe the command over ```ssh``` to restore to a remote system
   * ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```
 
+#### Additional ZFS Features
+
+In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a separate SSD based disk and can speed up data access[^141] [^142].  The ZIL and the L2ARC if not defined on separate disks will take a small portion of the each zpool created.  This is fine for low volume disk writes, but puts extra overhead on the system.  If you have fast SSDs that are small in size, say 30 to 80 GB, you can stripe them and place the L2ARC cache and or ZIL on these disks.  ZIL is a write only function and L2ARC cache becomes read predominant.
+
 #### ZFS ZIL and SLOG
+
+ZFS shines by creating additional read and write caches, called a ZIL and a SLOG.  These caches enable the disks to reach and write in consistent batches or blocks of data instead of small random amounts of data.   This way the disk can "report" a successful write, but the data is actually momentarily cached -- then flushed to the disk along with block of writes.
+
+Using an existing zpool, called **datapool**, we can attach two additional disk `/dev/sde` and `/dev/sdf`. You can add the directives for the log and cache after the `zpool create` command:  ```zpool add datapool cache /dev/sde2 /dev/sdf2 log mirror /dev/sde1 /dev/sdf1```.  You can use the /dev/ locations of disks or you can see your UUIDs with the ```blkid``` or `lblkd --fs` command[^141].
 
 "*ZFS Intent Log, or ZIL- A logging mechanism where all of the data to be the written is stored, then later flushed as a transactional write. Similar in function to a journal for journaled filesystems, like ext3 or ext4. Typically stored on platter disk. Consists of a ZIL header, which points to a list of records, ZIL blocks and a ZIL trailer. The ZIL behaves differently for different writes. For writes smaller than 64KB (by default), the ZIL stores the write data. For writes larger, the write is not stored in the ZIL, and the ZIL maintains pointers to the synched data that is stored in the log record[^140]*".
 
 "*Separate Intent Log, or SLOG- A separate logging device that caches the synchronous parts of the ZIL before flushing them to slower disk. This would either be a battery-backed DRAM drive or a fast SSD. The SLOG only caches synchronous data, and does not cache asynchronous data. Asynchronous data will flush directly to spinning disk. Further, blocks are written a block-at-a-time, rather than as simultaneous transactions to the SLOG. If the SLOG exists, the ZIL will be moved to it rather than residing on platter disk. Everything in the SLOG will always be in system memory[^140]*".
 
-#### Additional ZFS Features
-
-In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a separate SSD based disk and can speed up data access[^141] [^142].  The ZIL and the L2ARC if not defined on separate disks will take a small portion of the each zpool created.  This is fine for low volume disk writes, but puts extra overhead on the system.  If you have fast SSDs that are small in size, say 30 to 80 GB, you can stripe them and place the L2ARC cache and or ZIL on these disks.  ZIL is a write only function and L2ARC cache becomes read predominant.   Using a zpool called **datapool** we are attaching two additional disk /dev/sde and /dev/sdf. You can add the directives for the log and cache after the zpool create command:  ```zpool add datapool cache /dev/sde2 /dev/sdf2 log mirror /dev/sde1 /dev/sdf1```.  You can use the /dev/ locations of disks, but disks can move around and be renamed.  It is often better to use the unique user ID or uuid for a disk, which doesn't change.  You can see your UUIDs with the ```blkid``` or `lblkd --fs` command[^141].
+#### ZFS Disk Scrubbing
 
 ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up any silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  You can check the status of a disk with the command ```zpool status datapool``` and execute a scrub command ```zpool scrub datapool```.
 
-ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 datapool```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables.
+#### ZFS Transparent Disk Compression
+
+ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 datapool```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables. You can display the current compression level with the command: `sudo zfs get compression mydatapool`.
 
 #### Finding a physical disk
 
@@ -857,12 +928,18 @@ At the conclusion of this lab you will have successfully created a new virtual d
    b. Grow the volume group and logical volume
    c. Grow the XFS file system
 
-4. Using LVM of the previous exercise on the logical volume lv-group
+4. Using section 11.7.4 you will create a ZFS snapshot and roll back to it
 
-   a. Using either `fallocate` or `truncate` commands, create a file 25 megabytes in size and name it **datadump.txt** on your Logical Volume
-   b. Reference Section 11.5.4 LVM Snapshots: create an LVM snapshot of the logical volume named `lv-backup`
-   c. Mount the snapshot to `/mnt/disk3` (create this location if not existing)
-   d. `ls -l` the contents of `/mnt/disk3`
+   a. Create a two disk ZFS stripe named `memorycache`
+   b. Change the ownership on the `/memorychace` volume to `controller:controller`
+   c. Change directory to `/memorycache` and display your `pwd`
+   d. Issue the command: `truncate -s 500m accounts.csv` to create a 500 mb file named accounts.csv
+   e. Create a ZFS snapshot of the memorycache volume named: `mc-snap1`
+   f. Using the `truncate` command create two more files: ubunut-distros.csv and fedora-distros.csv of 100 mb on the `/memorycache` volume
+   g. Issue the `ls -lh` command on the `/memorycache` volume to show that the new files have been created
+   h. Using the zfs list command list the current snapshots
+   i. Using the zfs rollback command the `mc-snap1` snapshot
+   j. Issue the `ls -lh` command on the `/memorycache` volume to show that the snapshot has been rolled back
 
 5. Using Ubuntu 20.04 and ZFS, attach four 1 GB disks and create RAID 10 (a mirrored stripe). Name the pool: `datapool`. Display the `zpool status` and take a screenshot of the output.
 

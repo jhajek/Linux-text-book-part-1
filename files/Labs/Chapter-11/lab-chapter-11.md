@@ -38,12 +38,18 @@ For each of the bullet points, take a screenshot of the output of the commands t
    b. Grow the volume group and logical volume
    c. Grow the XFS file system
 
-4. Using LVM of the previous exercise on the logical volume lv-group
+4. Using section 11.7.4 you will create a ZFS snapshot and roll back to it
 
-   a. Using either `fallocate` or `truncate` commands, create a file 25 megabytes in size and name it **datadump.txt** on your Logical Volume
-   b. Reference Section 11.5.4 LVM Snapshots: create an LVM snapshot of the logical volume named `lv-backup`
-   c. Mount the snapshot to `/mnt/disk3` (create this location if not existing)
-   d. `ls -l` the contents of `/mnt/disk3`
+   a. Create a two disk ZFS stripe named `memorycache`
+   b. Change the ownership on the `/memorychace` volume to `controller:controller`
+   c. Change directory to `/memorycache` and display your `pwd`
+   d. Issue the command: `truncate -s 500m accounts.csv` to create a 500 mb file named accounts.csv
+   e. Create a ZFS snapshot of the memorycache volume named: `mc-snap1`
+   f. Using the `truncate` command create two more files: ubunut-distros.csv and fedora-distros.csv of 100 mb on the `/memorycache` volume
+   g. Issue the `ls -lh` command on the `/memorycache` volume to show that the new files have been created
+   h. Using the zfs list command list the current snapshots
+   i. Using the zfs rollback command the `mc-snap1` snapshot
+   j. Issue the `ls -lh` command on the `/memorycache` volume to show that the snapshot has been rolled back
 
 5. Using Ubuntu 20.04 and ZFS, attach four 1 GB disks and create RAID 10 (a mirrored stripe). Name the pool: `datapool`. Display the `zpool status` and take a screenshot of the output.
 
