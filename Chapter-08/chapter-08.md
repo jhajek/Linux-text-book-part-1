@@ -597,40 +597,48 @@ b. `DT=$(date)`
 c. `DT="date"`
 d. Not possible, trick questions
 
-4) True or False - You can include shell meta-characters inside of two backticks ``` ` ` ``` - example: ``` `ls -l test[1-5]` ```
+4) What is the name of the program used for manipulating streams of text inside of a file (used for find and replace)?
+a. awk
+b. grep
+c. pgrep
+d. sed
 
-5) Which command will list the names of any file that matches these names: file1.txt file2.txt file3.txt file4.txt and send the content of that output to a variable named DIR?
-a. `DIR='ls -l ./test[1-4].txt'`
-b. DIR = ``` `ls -l ./test[1-4].txt` ```
-c. $DIR=``` `ls -l ./test[1-4].txt` ```
-d. DIR=``` `ls -l ./test[1-4].txt` ```
+5) What would be the correct syntax to find and replace the value 127.0.0.1 with 0.0.0.0 in a the file `50-server.cnf`?
+a. `sudo sed "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
+b. `sudo sed -s "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
+c. `sudo sed -i "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
+d. `sudo sed -r "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
 
 6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables)
 a. ```#!/bin/bash```
 b. ```!#/bin/bash```
 c. ```#!/usr/local/bin/bash```
 d. ```#/bin/bash```
-e. ```#!/bin/ksh```
+e. ```#!/bin/sh```
 
-7) If you stored the output of the command hostname into a variable named sys-hostname, what would be the command to print the content to the screen?
-a.  ```echo $HOSTNAME```
-b.  ```echo $hostname```
-c.  ```echo $SYS-HOSTNAME```
-d.  ```echo $sys-hostname```
+7) If you stored the output of the command hostname into a variable named *ROSTER*, what would be the command to print the content to the screen?
+a.  ```echo $ROSTER```
+b.  ```echo $roster```
+c.  ```echo ROSTER```
+d.  ```echo roster```
 
-8) What is the name of the command to print out all the predefined system variables?
+8) What is the proper syntax to end an `IF` statement -- what is the very last line?
+a. }
+b. done
+c. fi
+d. exit
 
-9) What is the name of the command that allows you to take stdout of a command and insert the lines of output into an array?
-a. arrayfile
-b. declare
-c. for loop
-d. mapfile
+9) What is the correct **primaries** syntax for an `IF` statement, to check if a file exists?
+a. `if [-e filename]`
+b. `if [ -e filename ]`
+c. `if (-e filename)`
+d. `if [ true filename ]`
 
-10) Which of these is a valid command to take the output of this find command and assign the contents to an array?  (Assume the array name has already been declared. Choose one)
-a. ```SEARCHARRAY = (find ~ -name mozilla*)```
-b. ```SEARCHARRAY < < (find ~ -name mozilla*)```
-c. ```SEARCHARRAY=( $(find ~ -name mozilla*))```
-d. ```SEARCHARRY < (find ~ -name mozilla*)```
+10) Which of these is a valid command to redirect the standard out of a `cat` command to a shell variable?
+a. ```NAMES = (cat roster.txt)```
+b. ```NAMES << (cat roster.txt)```
+c. ```NAMES=( $(cat roster.txt))```
+d. ```NAMES < (cat roster.txt)```
 
 11) Which below is a valid command to find the LENGTH of an array?
 a. ```${#SEARCHARRAY[@]}```
@@ -680,11 +688,11 @@ b. ```*/15 * * * * ~/clean-directory.sh```
 c. ```* 3/15 * * * ~/clean-directory.sh```
 d. ```* */15 * * * ~/clean-directory.sh```
 
-19) Which of the crontab builtins would you use to execute a cron job 1 time a year on midnight of January 1st?  The name of the script is ~/give-free-cash-to-students.sh
-a. ```* * * * 1 ~/give-free-cash-to-students.sh```
-b. ```1 * * * * ~/give-free-cash-to-students.sh```
-c. ```1 1 1 1 1 ~/give-free-cash-to-students.sh```
-d. &#64;```yearly ~/give-free-cash-to-students.sh```
+19) Which of the crontab builtins would you use to execute a cron job 1 time a year on midnight of January 1st?  The name of the script is /home/controller/homework-is-finished.sh
+a. ```* * * * 1 /home/controller/homework-is-finished.sh```
+b. ```1 * * * * /home/controller/homework-is-finished.sh```
+c. ```1 1 1 1 1 /home/controller/homework-is-finished.sh```
+d. &#64;```yearly /home/controller/homework-is-finished.sh```
 
 20) What is the name of the control structure that allows you to incrementally through the contents of an array?
 a. IF
