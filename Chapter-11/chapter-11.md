@@ -920,7 +920,8 @@ At the conclusion of this lab you will have successfully created a new virtual d
    b. Create 1 logical volume named lv-group using the two drives
    c. Format it with XFS
    d. Mount it to /mnt/disk2
-   e. Add the lv-group to your fstab, reboot the system and `cat` the  `/etc/fstab` and show that your entry is present.
+   e. Add the lv-group to your fstab, using the disk path to the logical volume not the UUID
+   f. Reboot the system and `cat` the  `/etc/fstab` and show that your entry is present
 
 3. Using the same LVM as before:
 
