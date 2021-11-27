@@ -516,37 +516,32 @@ MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Mich
 * Enter commands at the CLI
 * Quit
 
-```bash
-# On mysql/mariadb 8.x Fedora and Ubuntu
-sudo mysql -u root
+```sql
+-- On mysql/mariadb 8.x Fedora and Ubuntu
+-- sudo mysql -u root
 CREATE DATABASE records;
 USE records;
 create table tutorials_tbl(
    tutorial_id INT NOT NULL AUTO_INCREMENT,
    tutorial_title VARCHAR(100) NOT NULL,
-   tutorial_author VARCHAR(40) NOT NULL,
-   submission_date DATE,
    PRIMARY KEY ( tutorial_id )
   );
-quit;
+-- quit;
 ```
 
-You can automate connections to MySQL by creating a file called `my.cnf`.  In this file you can create user options that will override default connections, including username and password.  This increases security by not having to manually type a password on the commandline.  MySQL and MariaDB will look for a `my.cnf` file in four default locations in cascading order.  Some of these locations are owned by root and require permission.  We will use the last location, `~/.my.cnf` which stored in your home directory and requires no root access.
+#### User Accounts and Securtiy Concerns
 
-* `/etc/my.cnf`
-* `/etc/mysql/my.cnf`
-* `/usr/etc/my.cnf`
-* `~/.my.cnf`
+After the installation of MariaDB/MySQL, you can create user accounts with limited privilleges.  This is a good idea as the `root` account doesn't have a password by default and is clearly recommended **NOT** to be used for anything other than administration.  So your application will need to use a non-root account.
 
-```bash
-# basic contents of ~/.my/cnf
-[client]
-password = secret99
-```
+After you log in to the MySQL command-line using the command: `sudo msql -u root`, and after you have created a database (as in the example above), you can create users and assign access to particular databases and even particular tables.
 
-```bash
-# Now you can login without passing your password on the commandline
-sudo mysql -u root
+```sql
+-- This is a comment
+-- This statement grants only SELECT privilleges, no edit privilleges 
+-- creates a user named: worker
+-- gives permission to all tables in the records database
+-- from only the localhost IP address, 127.0.0.1
+GRANT SELECT ON records.* TO worker@'127.0.0.1' IDENTIFIED BY 'password-goes-here'; flush privileges;
 ```
 
 You can place the previous SQL code that will create a table and enter a record into a single file. You can give it any name but convention says it should explain what the code does and end with *.sql. This code will be place into a file named `create-table.sql` and the sample is located in the files > chapter-12 directory.
@@ -557,18 +552,15 @@ USE records;
 CREATE TABLE tutorials_tbl(
    tutorial_id INT NOT NULL AUTO_INCREMENT,
    tutorial_title VARCHAR(100) NOT NULL,
-   tutorial_author VARCHAR(40) NOT NULL,
-   submission_status INT(1) DEFAULT 0, -- Status, not done is 0, done is 1
    PRIMARY KEY ( tutorial_id )
   );
 
 -- This code inserts a single record into the table for test purposes
-INSERT INTO records(tutorial_title,turotial_author,submission_status) VALUES('Best Book Ever',"Joseph Hajek",0);
+INSERT INTO records(tutorial_title) VALUES('Best Book Ever');
 ```
 
-Making use of the `.my.cnf` we can now automate the creation of our table without having to pass our password on the command line or hardcode it into our code
-
 ```bash
+# You can redirect input by having the create commands placed in a single file
 sudo mysql -u root < ./create-table.sql
 ```
 
