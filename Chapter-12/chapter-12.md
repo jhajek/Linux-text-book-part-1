@@ -658,38 +658,45 @@ Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would
 * internal
 
 ```bash
-# Excellent firewalld tutorial
-# https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7
+# Firewalld Documentation and Examples
+# https://firewalld.org/
+# https://firewalld.org/documentation/
 
-sudo yum install firewalld
+# Install firewalld on Ubuntu
+sudo apt-get install firewalld
 sudo systemctl enable firewalld
 sudo systemctl start firewalld
-sudo firewall-cmd --state
-firewall-cmd --get-active-zones
-sudo firewall-cmd --list-all
+```
 
-# add services or ports
-sudo firewall-cmd --zone=public --add-service=http
+```bash
+# Commands to check the state/status of firewalls
+sudo systemctl status firewalld
+sudo firewall-cmd --state
+sudo firewall-cmd --get-active-zones
+```
+
+```bash
+# Firewalld any OS, how to add exceptions for services or ports
+sudo firewall-cmd --zone=public --add-service=http --permanent
 sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
 sudo firewall-cmd --zone=public --list-ports
+```
 
+```bash
 # specific IPs -- changes the semantics
 # https://serverfault.com/questions/680780/block-all-but-a-few-ips-with-firewalld
 
-firewall-cmd --zone=internal --add-service=ssh
-firewall-cmd --zone=internal --add-source=192.168.56.105/32
-firewall-cmd --zone=internal --add-source=192.168.56.120/32
+firewall-cmd --zone=public --add-service=ssh
+firewall-cmd --zone=public --add-source=192.168.56.105/32
+firewall-cmd --zone=public --add-source=192.168.56.120/32
 firewall-cmd --zone=public --remove-service=ssh
 ```
 
-The main reason to have a firewall is to restrict traffic.  Note the command above does not dictate in anyway who can connect to a system.  The firewall can be used for a granular allowance.  If a database will be receiving connections from one front end webserver, why allow any other IPs to connect?
-
 #### fail2ban
 
-Firewalld includes a standard interface so third party tools and build integration into your firewall.  [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
+The main reason to have a firewall is to restrict traffic to your system or server.  Note the commands above do not dictate in anyway who can connect to a system. Firewalld includes a standard interface so third party tools and build integration into your firewall.  [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
 
 ```bash
-
 # you may need the epel-release package on Fedora/CentOS
 # https://fedoraproject.org/wiki/Fail2ban_with_FirewallD
 # https://unix.stackexchange.com/questions/268357/how-to-configure-fail2ban-with-systemd-journal
