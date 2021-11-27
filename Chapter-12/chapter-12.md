@@ -564,6 +564,8 @@ INSERT INTO records(tutorial_title) VALUES('Best Book Ever');
 sudo mysql -u root < ./create-table.sql
 ```
 
+#### Inline SQL commands
+
 SQL commands can also be executed inline as well.
 
 ```bash
