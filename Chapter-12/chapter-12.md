@@ -541,7 +541,8 @@ After you log in to the MySQL command-line using the command: `sudo msql -u root
 -- creates a user named: worker
 -- gives permission to all tables in the records database
 -- from only the localhost IP address, 127.0.0.1
-GRANT SELECT ON records.* TO worker@'127.0.0.1' IDENTIFIED BY 'password-goes-here'; flush privileges;
+GRANT SELECT ON records.* TO worker@'127.0.0.1' IDENTIFIED BY 'password-goes-here'; 
+flush privileges;
 ```
 
 You can place the previous SQL code that will create a table and enter a record into a single file. You can give it any name but convention says it should explain what the code does and end with *.sql. This code will be place into a file named `create-table.sql` and the sample is located in the files > chapter-12 directory.
@@ -571,7 +572,9 @@ SQL commands can also be executed inline as well.
 ```bash
 sudo mysql -u root -e "CREATE DATABASE wordpress_db;"
 sudo mysql -u root -e "CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';"
-sudo mysql -u root -e "GRANT ALL ON wordpress_db.* TO 'wp_user'@'localhost' IDENTIFIED BY 'password';"
+# You can assign long commands to variables and execute them too
+COMMAND="GRANT ALL ON wordpress_db.* TO 'wp_user'@'localhost' IDENTIFIED BY 'password';"
+sudo mysql -u root -e "$COMMAND"
 sudo mysql -u root -e "FLUSH PRIVILEGES;"
 ```
 
@@ -693,7 +696,7 @@ The main reason to have a firewall is to restrict traffic to your system or serv
 ```bash
 # you may need the epel-release package on Fedora/CentOS
 # https://fedoraproject.org/wiki/Fail2ban_with_FirewallD
-# https://unix.stackexchange.com/questions/268357/how-to-configure-fail2ban-with-systemd-journal
+# https://unix.stackexchange.com/questions/268357/
 
 sudo dnf install fail2ban fail2ban-firewalld
 sudo apt-get install fail2ban fail2ban-firewalld
