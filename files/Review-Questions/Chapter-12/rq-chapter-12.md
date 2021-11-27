@@ -1,6 +1,6 @@
 # Review Questions - Chapter 12
 
-1) Using the ip2 suite of tools, which command would show your IP address?
+1) Using the ip2 suite of tools, which command(s) would show your IP address?
 
    a. `ifconfig`
    b. `ipconfig`
@@ -25,19 +25,19 @@
 
 5) What is the purpose of DNS?
 
-6) Which of the following is a valid class C network address?
+6) What is the name of the systemd firewall?
 
-   a. 10.0.0.0
-   b. 172.24.0.0
-   c. 192.168.1.0
-   d. 221.0.0.0
+   a. systemd-firewalld
+   b. systemd-firewall
+   c. firewalld-cmd
+   d. ufw
 
-7) If you had a network with a CIDR block of /23, how many IP addresses would you have control of?
+7) What would be the command to list all of the firewalld public zone ports in use?
 
-   a. 23
-   b. 254
-   c. 512
-   d. 256
+   a. `sudo systemctl status firewalld`
+   b. `sudo firewalld-cmd --zone=public --list-all`
+   c. `sudo firewall-cmd --zone=public --list-all`
+   d. `sudo firewall-cmd --list-all`
 
 8) If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
 
@@ -46,9 +46,14 @@
    c. 24
    d. 256
 
-9) How does CIDR block addressing differ from class-based networking (A-D)?
+9) What is the default port for HTTPS (TLS/SSL)?
 
-10) What tool is used to release a DHCP address from the command line?
+   a. 80
+   b. 3000
+   c. 8080
+   d. 443
+
+10) Using Network Manager, what tool is used to release a DHCP address from the command line?
 
     a. `rhclient`
     b. `ipconfig /release`
@@ -62,11 +67,11 @@
     c.  `wireshark`
     d.  `netstat`
 
-12) Where are your network card settings located on Ubuntu while using network manager?
+12) Where are your network card settings located on Ubuntu while using Network Manager?
 
-13) Where are your network card settings located on CentOS/Fedora using network manager?
+13) Where are your network card settings located on Fedora using Network Manager?
 
-14) Where are your network card settings located on Ubuntu 18.04 using netplan?
+14) Where are your network card settings located on Ubuntu using Netplan?
 
 15) What are the two major opensource webservers?
 
@@ -82,7 +87,7 @@
     c. MySQL and Oracle DB
     d. Nginx and MySQL
 
-17) Name one major NoSQL database mentioned in this chapter?
+17) What command would you type to get to the MySQL command line prompt?
 
 18) What is the file location that the system uses as a *local DNS* for resolving IP?
 
@@ -91,12 +96,12 @@
     c. `/etc/allow`
     d. `/etc/etc/etc`
 
-19) What is the name of the file that you would place in your home directory that allows you not to have to type your login password for a MySQL database?
+19) What flag would you add to this command to make it survive a reboot: `sudo firewall-cmd --zone=public --add-port=22/tcp`
 
-    a. `~/my.cnf`
-    b. `/etc/mysql/settings.conf`
-    c. `~/allow`
-    d. `~/.my.cnf`
+    a. `--peppermint`
+    b. `--permenant`
+    c. `--allow`
+    d. `--list-all`
 
 20) Before systemd, NIC interface naming schemes depended on a driver based enumeration process. They switched to a predictable network interface naming process that depends on what for the interface names?
 
