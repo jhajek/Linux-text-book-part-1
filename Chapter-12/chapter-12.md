@@ -529,7 +529,7 @@ create table tutorials_tbl(
 -- quit;
 ```
 
-#### User Accounts and Securtiy Concerns
+#### User Accounts and Security Concerns
 
 After the installation of MariaDB/MySQL, you can create user accounts with limited privilleges.  This is a good idea as the `root` account doesn't have a password by default and is clearly recommended **NOT** to be used for anything other than administration.  So your application will need to use a non-root account.
 
@@ -564,7 +564,7 @@ INSERT INTO records(tutorial_title) VALUES('Best Book Ever');
 sudo mysql -u root < ./create-table.sql
 ```
 
-SQL commands can also be executed inline as well.  This sample assumes you have configured a `~/.my/cnf` file:
+SQL commands can also be executed inline as well.
 
 ```bash
 sudo mysql -u root -e "CREATE DATABASE wordpress_db;"
