@@ -122,11 +122,16 @@ What does this mean?  Well let us take a look at the output of the ```ip a sh```
 
 Here is where things get tricky.  In the future I would like to think this is will all be sorted out, but for now, buckle up.  So networking was always controlled by a service under sysVinit, that was usually ```sudo service networking restart```. This was common across all Linux.  This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc.  That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done.  In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations.  Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service.  Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
 
-As of Ubuntu 18.04 there is a Network Manager replacement.  It is called [netplan.io](https://netplan.io "netplan").  Netplan is an Ubuntu style version of Network manager which reads YAML style files from a network configuration located in ```/etc/netplan/*.yaml```.  Netplan works on top of Network Manager as well as systemd-networkd.  
+The control of the network has been unified once again in all major Linux distros under **systemd-networkd**, which being part of systemd you assume that it controls the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```.  Files in that directory need to end in a .network extension. The systemd-networkd .network file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
 
-Systemd-networkd is the systemd utitlity to take over network service and IP address authority.  It is still a work in progress which has implemented many of the Network Manager features but not all of them.  You can disable Network Manager as a service and enable/start systemd-networkd.  Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```.  That directory is blank by default as systemd-networkd is not enabled by default.  Files in that directory need to end in a .network extension. The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation"). The systemd-networkd .network file has an INI style value structure[^147]:
+#### Who uses what?
+
+For the desktop Linux, Ubuntu and Fedora/Red Hat based, Network Manger is being used by default as of late 2021, but systemd-networkd can be enabled.  The server edition of Ubuntu 20.04 use systemd-networkd.
+
+#### Systemd-networkd network config file templates
 
 ```bash
+# Systemd-networkd .network file (not Ubuntu Netplan)
 # Name of the file /etc/systemd/network/20-wired.network
 [Match]
 Name=enp1s0
@@ -148,7 +153,9 @@ DNS=10.1.10.1
 #DNS=8.8.8.8
 ```
 
-This is the structure of the ```/etc/network/interfaces``` file for Ubuntu and Debian:
+### Ubuntu non-netplan Network Manager Config
+
+This is the structure of the ```/etc/network/interfaces``` file Network Manager based file for Ubuntu and Debian (deprecated):
 
 ```bash
 auto eth0
@@ -159,8 +166,6 @@ iface eth0 inet static
      broadcast 192.168.0.255
      gateway 192.168.0.1
 ```
-
-Note the change in device name due to systemd
 
 ```bash
 auto enp0s8
@@ -205,6 +210,8 @@ IPV6_PEERROUTES=yes
 ```
 
 #### Netplan.io
+
+To further confuse things, Ubuntu decided to write a YAML based file management abstraction layer for networking that can use the same configuration for either Network Manager or Networkd-Systemd.  It is called [netplan.io](https://netplan.io "netplan").  Netplan reads YAML style files from a network configuration located in ```/etc/netplan/*.yaml```.
 
 Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By default in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allows Network Manager to manage by default unless specifically altered below.
 
@@ -412,11 +419,9 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
 
 ### Nginx
 
-Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique webserving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
+Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique web-serving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
 
 CentOS and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
-
-For instructions on configuring and installing the php library for Nginx, [https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04 "Digitla Ocean 18.04 nginx php").
 
 ### OpenBSD httpd Process
 
@@ -424,9 +429,9 @@ The OpenBSD project which values security and home grown solutions over pure ava
 
 ### NodeJS
 
-In late 2009/2010, a developer from Joyent (later Samsung/Joyent) wanted to explore the probabilities of JavaScript.  Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity.  He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome Webbrowser, added an event loop and I/O functions and made it a standalone server.  Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website").
+In late 2009/2010, a developer from Joyent (later Samsung/Joyent) wanted to explore the probabilities of JavaScript.  Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity.  He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome browser, added an event loop and I/O functions and made it a standalone server.  Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website").
 
-The Node.js release cycle is different then most major Linux distro's release cycles, so you need to go to the nodejs site directly to get a newer version. For the latest 16.x LTS (long term support branch):
+The Node.js release cycle is different then most major Linux distro's release cycles, so you need to go to the NodeJS site directly to get a newer version. For the latest 16.x LTS (long term support branch):
 
 ```bash
 # Using Ubuntu
@@ -462,6 +467,7 @@ Now using vim or nano lets code a sample "Hello World" Node.js program, let's cr
 // Simple sample app from
 // http://expressjs.com/en/starter/hello-world.html
 // You can access this by opening a webbrowser on your Virtual Machine
+// from the directory where the app.js is located run: node app.js
 // and go to http://127.0.0.1:3000
 
 const express = require('express')
@@ -477,7 +483,6 @@ app.listen(port, () => {
 })
 ```
 
-
 ## Database and NoSQL
 
 Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL, *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language.
@@ -491,6 +496,7 @@ Installation of a database is straight forward using package managers, there are
 
 ```bash
 # Using Ubuntu or Debian based distros
+# Install either mysql or mariadb
 sudo apt-get install mariadb  
 sudo apt-get install mysql
 
@@ -604,7 +610,11 @@ MongoDB packages are maintained by MongoDB -- and are released outside of Linux 
 
 ### Network File System - NFS
 
-Enter NFS info here
+> *NFS, the network filesystem, is probably the most prominent network services using RPC. It allows to access files on remote hosts in exactly the same way as a user would access any local files. This is made possible by a mixture of kernel functionality on the client side (that uses the remote file system) and an NFS server on the server side (that provides the file data). This file access is completely transparent to the client, and works across a variety of server and host architectures. NFS offers a number of advantages[^157]:*
+
+* Data accessed by all users can be kept on a central host, with clients mounting this directory at boot time. For example, you can keep all user accounts on one host, and have all hosts on your network mount /home from that host. If installed alongside with NIS, users can then log into any system, and still work on one set of files.
+* Data consuming large amounts of disk space may be kept on a single host. For example, all files and programs relating to LaTeX and METAFONT could be kept and maintained in one place.
+* Administrative data may be kept on a single host.
 
 ### iSCSI
 
@@ -845,36 +855,37 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 ### Lab
 
-1) Using two virtual machines, while powered off, in the VirtualBox settings, enable a second network interface and set the type to **Bridged Adapter** (details are in last chapter and the VirtualBox networking details are in chapter 03).
+#### Pre-reqs and Assumptions
 
-   a. Capture a screenshot of each system using the `ping` tool to ping the other IP and its results.
-   b. Modify the `/etc/hosts` file and add an entry for both system in both systems.
-   c. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file.
+Using two virtual machines, while powered off, in the VirtualBox settings, enable a second bridged network interface and set the type to **Bridged Adapter** (details are in last chapter and the VirtualBox networking details are in chapter 03).
 
-2) Repeat the above exercise but deactivate NetworkManager in systemctl and activate systemd-networkd (CentOS).
+1) Use the command to identify the IP address of each of the two systems
 
-   a. In addition, on Ubuntu modify the Netplan conf to use networkd and place your YAML configuration there.
+   a. Capture a screenshot of both systems IP addresses
+   b. Use the `ping` tool to ping the each others IP and its results (ctrl +C to quit), take a screenshot of the results
+   b. Modify the `/etc/hosts` file and add an entry for both system in both systems give them the hostname host1 and host2
+   c. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file and capture a screenshot of the results
 
-3) Using firewalld, open port 22 permanently to allow SSH connections to your Fedora or CentOS system.
+2) Use the command to display you MAC address of the network connection used in question 1, and in your screenshot highlight the MAC address
 
-4) Using firewalld, open port 80 permanently to allow SSH connections to your Fedora or CentOS system.
+3) Use the command to display your IP address of the network connection used in question 1, and in your screenshot highlight the Netmask/CIDR block
 
-5) Enable the firewall to start at boot and show its status after a successful boot.
+4) On Ubuntu Desktop, Fedora Desktop, and Ubuntu Server -- determine if you are running Systemd-Networkd or Network-Manager. On each system run these commands and take a screenshot of each results:
 
-6) Install and enable firewalld on Ubuntu, deactivate UFW if it is running.
+   a. `sudo systemctl status systemd-networkd`
+   b. `sudo systemctl status NetworkManager`
 
-7) Create a self-signed SSL certificate.
+5) On Ubuntu and Fedora Desktop, use the command: `sudo systemctl status firewalld` check to see if firewalld is enabled, if its not installed, use the package manager to install the package `firewalld`
 
-8) On an OS of your choice, install Node.js version 16.x and use NPM to install the `express` package.  Using the sample, "Hello World" code provided in the chapter, take a screenshot of the output of opening a browser on your Virtual Machine at the URL: http://127.0.0.1:3000
+6) Using firewalld, open port 22 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --list-all` to show the port is open
 
-9) Enable the Apache Webserver and the proper firewall port to serve pages over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04 "Digital Ocean Self-signed Apache2 cert config").  Take a screenshot of the webbrowser showing https://127.0.0.1
+7) Using firewalld, open port 80 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --list-all` to show the port is open
 
-10) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working WordPress blog.
+8) If needed, install Nginx Webserver, and enable the proper firewall port (443) to serve pages over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1 "Digital Ocean Self-signed Nginx cert config").  Take a screenshot of the webbrowser showing the [https://127.0.0.1](https://127.0.0.1 "https example")
 
-11) Repeat the install process above, this time using two servers, with static IP addresses configured, placing the MySQL database on a separate IP address -- configuring WordPress properly and installing all needed pre-reqs.
+9) On an OS of your choice, install Node.js version 16.x and use NPM to install the `express` package.  Using the sample, "Hello World" code provided in the chapter, take a screenshot of the output of opening a browser on your Virtual Machine at the URL: http://127.0.0.1:3000 -- **Note** - from the directory where your app.js file is you will need to run `node app.js` to start the server and make sure that port 3000 is open in the firewall
 
-    a. Make sure to open the proper firewall ports and note that the first server will be the webserver and requires the apache2, php, php-mysql, and the php-client library only.
-    b. The second database server requires the `mysql-server` package.  Make one to be Ubuntu, and the other to be Fedora/CentOS.
+10) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working WordPress blog -- installing all the needed dependencies, initialize the WordPress system and create a simple blog post named: "Hello World" as the screenshot to prove the work was done on the OS of your choice
 
 #### Footnotes
 
@@ -893,3 +904,5 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 [^151]: [https://en.wikipedia.org/wiki/NoSQL](https://en.wikipedia.org/wiki/NoSQL "NoSQL")
 
 [^152]: [https://en.wikipedia.org/wiki/HTTP/2](https://en.wikipedia.org/wiki/HTTP/2 "HTTP/2")
+
+[^157]: [https://tldp.org/LDP/nag/node140.html](https://tldp.org/LDP/nag/node140.html NFS description")
