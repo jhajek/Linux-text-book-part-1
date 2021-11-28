@@ -363,8 +363,8 @@ Apache has extendable modules so its base features can be enhanced without needi
 
 > Let's try installing apache2 and php at the same time and look at the dependency list:
 
-* ```sudo apt-get install apache2 php```
-* ```sudo systemctl reload apache2``` -- (as opposed to restart)  just re-reads the configurable
+* ```sudo apt-get install apache2 php php-mysql mariadb-server```
+* ```sudo systemctl restart apache2``` -- (as opposed to restart)  just re-reads the configurable
 
 Sample code is shown here for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
 
@@ -436,18 +436,18 @@ The Node.js release cycle is different then most major Linux distro's release cy
 ```bash
 # Using Ubuntu
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt-get install -y nodejs npm
 node -v
 
 # Using Debian, as root
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-apt-get install -y nodejs
+apt-get install -y nodejs npm
 node -v
 
 # Using Fedora/CentOS/Red Hat
 sudo dnf install -y gcc-c++ make
 curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
-sudo dnf install nodejs
+sudo dnf install nodejs npm
 node -v
 ```
 
@@ -519,14 +519,18 @@ MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Mich
 ```sql
 -- On mysql/mariadb 8.x Fedora and Ubuntu
 -- sudo mysql -u root
+-- Create a database named: records
 CREATE DATABASE records;
+```
+
+```sql
 USE records;
 create table tutorials_tbl(
    tutorial_id INT NOT NULL AUTO_INCREMENT,
    tutorial_title VARCHAR(100) NOT NULL,
    PRIMARY KEY ( tutorial_id )
   );
--- quit;
+-- Type quit to exit from the mysql cli
 ```
 
 #### User Accounts and Security Concerns
@@ -541,6 +545,7 @@ After you log in to the MySQL command-line using the command: `sudo msql -u root
 -- creates a user named: worker
 -- gives permission to all tables in the records database
 -- from only the localhost IP address, 127.0.0.1
+-- The basic permissions are: CREATE, SELECT, UPDATE, DELETE, and INSERT
 GRANT SELECT ON records.* TO worker@'127.0.0.1' IDENTIFIED BY 'password-goes-here'; 
 flush privileges;
 ```
