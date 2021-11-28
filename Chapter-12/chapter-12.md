@@ -617,7 +617,7 @@ MongoDB packages are maintained by MongoDB -- and are released outside of Linux 
 
 The [iSCSI protocol](https://en.wikipedia.org/wiki/ISCSI "iSCSI") is a reimplemntation of the SCSI disk communication protocol.  SCSI was an alternative that could move data faster than the then ATA (pre-SATA) standard.  Once SATA became available the SCSI based hardware was more expensive and was replaced by cheaper SATA and more standardized USB (for external devices). The SCSI bus was faster than the standardized ATA bus, but required a specialized adapter card and specialized cable to connect devices and external peripherals.  Think of it pre-USB (circa 1998).  This made SCSI desirable but expensive.  Also the SCSI standard continued to improve throughput but at the cost of not being backwards compatabile with older and other versions of SCSI, each had its own cabes and connectors. By the year 2000 the SCSI protocol was well known and heavily invested in for server class hardware.  In that year IBM and Cisco standardized the iSCSI protocol.  iSCSI integrated SCSI commands to external targets over Ethernet/IP.  Allowing you to seperate your disks from storage and access them over a local network via the iSCSI protocol.  Disks were formatted as LVMs or directly as a ZFS, Btrfs, or XFS based drives and then presented as __iSCSI targets__ over the network. iSCSI has two components, the __iSCSI target__ and the __iSCSi initiator__. The system that connects to a target in an __initiator__.   iSCSI devices can replace the need for SAN technology (Storage Area Networks) and work on commodity hardware over basic ethernet cables and switches.
 
-This allows you top separate your storage and your compute.  You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an initiator.  A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD and TrueOS.
+This allows you top separate your storage and your compute.  You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an initiator.  A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD.
 
 ## Firewall
 
@@ -677,6 +677,8 @@ sudo firewall-cmd --get-active-zones
 sudo firewall-cmd --zone=public --add-service=http --permanent
 sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
 sudo firewall-cmd --zone=public --list-ports
+# Needed to reload the changed to the firewall
+sudo firewall-cmd --reload
 ```
 
 ```bash
@@ -687,6 +689,8 @@ firewall-cmd --zone=public --add-service=ssh
 firewall-cmd --zone=public --add-source=192.168.56.105/32
 firewall-cmd --zone=public --add-source=192.168.56.120/32
 firewall-cmd --zone=public --remove-service=ssh
+# Needed to reload the changed to the firewall
+sudo firewall-cmd --reload
 ```
 
 #### fail2ban
@@ -870,7 +874,7 @@ Using two virtual machines, while powered off, in the VirtualBox settings, enabl
 
 1) Use the command to identify the IP address of each of the two systems
 
-   a. Capture a screenshot of both systems IP addresses
+   a. Capture a screenshot of both system's IP addresses
    b. Use the `ping` tool to ping the each others IP and its results (ctrl +C to quit), take a screenshot of the results
    b. Modify the `/etc/hosts` file and add an entry for both system in both systems give them the hostname host1 and host2
    c. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file and capture a screenshot of the results
@@ -886,11 +890,11 @@ Using two virtual machines, while powered off, in the VirtualBox settings, enabl
 
 5) On Ubuntu and Fedora Desktop, use the command: `sudo systemctl status firewalld` check to see if firewalld is enabled, if its not installed, use the package manager to install the package `firewalld`
 
-6) Using firewalld, open port 22 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --list-all` to show the port is open
+6) Using firewalld, open port 22 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --zone=public --list-all` to show the port is open
 
-7) Using firewalld, open port 80 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --list-all` to show the port is open
+7) Using firewalld, open port 80 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --zone=public --list-all` to show the port is open
 
-8) If needed, install Nginx Webserver, and enable the proper firewall port (443) to serve pages over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1 "Digital Ocean Self-signed Nginx cert config").  Take a screenshot of the webbrowser showing the [https://127.0.0.1](https://127.0.0.1 "https example")
+8) If needed, install Nginx Webserver, and enable the proper firewall port (443) to serve pages over **https** following [this Digital Ocean configuration tutorial to create a self-signed cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1 "Digital Ocean Self-signed Nginx cert config").  Take a screenshot of the webbrowser showing the [https://127.0.0.1](https://127.0.0.1 "https example")
 
 9) On an OS of your choice, install Node.js version 16.x and use NPM to install the `express` package.  Using the sample, "Hello World" code provided in the chapter, take a screenshot of the output of opening a browser on your Virtual Machine at the URL: http://127.0.0.1:3000 -- **Note** - from the directory where your app.js file is you will need to run `node app.js` to start the server and make sure that port 3000 is open in the firewall
 

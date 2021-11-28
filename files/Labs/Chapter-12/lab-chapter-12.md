@@ -6,7 +6,7 @@ Using two virtual machines, while powered off, in the VirtualBox settings, enabl
 
 1) Use the command to identify the IP address of each of the two systems
 
-   a. Capture a screenshot of both systems IP addresses
+   a. Capture a screenshot of both system's IP addresses
    b. Use the `ping` tool to ping the each others IP and its results (ctrl +C to quit), take a screenshot of the results
    b. Modify the `/etc/hosts` file and add an entry for both system in both systems give them the hostname host1 and host2
    c. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file and capture a screenshot of the results
@@ -22,11 +22,11 @@ Using two virtual machines, while powered off, in the VirtualBox settings, enabl
 
 5) On Ubuntu and Fedora Desktop, use the command: `sudo systemctl status firewalld` check to see if firewalld is enabled, if its not installed, use the package manager to install the package `firewalld`
 
-6) Using firewalld, open port 22 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --list-all` to show the port is open
+6) Using firewalld, open port 22 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --zone=public --list-all` to show the port is open
 
-7) Using firewalld, open port 80 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --list-all` to show the port is open
+7) Using firewalld, open port 80 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --zone=public --list-all` to show the port is open
 
-8) If needed, install Nginx Webserver, and enable the proper firewall port (443) to serve pages over **https** following [this Digital Ocean configuration tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1 "Digital Ocean Self-signed Nginx cert config").  Take a screenshot of the webbrowser showing the [https://127.0.0.1](https://127.0.0.1 "https example")
+8) If needed, install Nginx Webserver, and enable the proper firewall port (443) to serve pages over **https** following [this Digital Ocean configuration tutorial to create a self-signed cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1 "Digital Ocean Self-signed Nginx cert config").  Take a screenshot of the webbrowser showing the [https://127.0.0.1](https://127.0.0.1 "https example")
 
 9) On an OS of your choice, install Node.js version 16.x and use NPM to install the `express` package.  Using the sample, "Hello World" code provided in the chapter, take a screenshot of the output of opening a browser on your Virtual Machine at the URL: http://127.0.0.1:3000 -- **Note** - from the directory where your app.js file is you will need to run `node app.js` to start the server and make sure that port 3000 is open in the firewall
 
