@@ -87,7 +87,7 @@
     c. MySQL and Oracle DB
     d. Nginx and MySQL
 
-17) What command would you type to get to the MySQL command line prompt?
+17) What command would you type to get to the MySQL command line prompt as the root user?
 
 18) What is the file location that the system uses as a *local DNS* for resolving IP?
 

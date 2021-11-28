@@ -645,9 +645,9 @@ You can use rules to allow or deny traffic based on source IP, source Port, Dest
 
 ### Firewalld
 
-Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewalld and firewalld seeks to abstract these away and present a unified interface to your systems firewall.    Fedora turns their firewall on by default, CentOS 7 does not.  
+Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewall and firewalld seeks to abstract these away and present a unified interface to your systems firewall Fedora turns their firewall on by default, CentOS 7 does not.
 
-Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When declaring a new rule you need to declare if the rule is permanent or will be reset when the firewalld service is reloaded.  The firewalld system contains zones such as:
+Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When adding a new rule you need to declare if the rule is permanent or it will be reset when the firewalld service is reloaded.  The firewalld system contains zones such as:
 
 * trusted or untrusted
 * drop
@@ -682,7 +682,7 @@ sudo firewall-cmd --get-active-zones
 sudo firewall-cmd --zone=public --add-service=http --permanent
 sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
 sudo firewall-cmd --zone=public --list-ports
-# Needed to reload the changed to the firewall
+# Needed to reload the process changes to the firewall
 sudo firewall-cmd --reload
 ```
 
@@ -700,7 +700,7 @@ sudo firewall-cmd --reload
 
 #### fail2ban
 
-The main reason to have a firewall is to restrict traffic to your system or server.  Note the commands above do not dictate in anyway who can connect to a system. Firewalld includes a standard interface so third party tools and build integration into your firewall.  [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as mysql and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
+The main reason to have a firewall is to restrict traffic to your system or server.  Note the commands above do not dictate in anyway who can connect to a system. Firewalld includes a standard interface so third party tools and build integration into your firewall.  [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as MySQL and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
 
 ```bash
 # you may need the epel-release package on Fedora/CentOS
@@ -830,7 +830,7 @@ In this chapter we learned about the basic components of networking. We learned 
     c. MySQL and Oracle DB
     d. Nginx and MySQL
 
-17) What command would you type to get to the MySQL command line prompt?
+17) What command would you type to get to the MySQL command line prompt as the root user?
 
 18) What is the file location that the system uses as a *local DNS* for resolving IP?
 
