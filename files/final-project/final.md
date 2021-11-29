@@ -29,7 +29,7 @@ This final project will consist of writing a single shell script that will accom
 
 You will create a single shell script (use the template provided in files > final-project > final-XYZ.sh), rename the shell script (the XYZ replace with your initials, and place your name the section requested in the header of the script).
 
-You will need the `git` package pre-installed and issue the command to clone your your own private repo to the Virtual Machine and `cd` into your `itmo-356 > files > final-project` directory, execute the `final-XYZ.sh` shell script.
+You will need the `git` package pre-installed and issue the command to clone your your own private repo to the Virtual Machine and `cd` into your `itmo-356 > files > final-project` directory, execute the `final-XYZ.sh` shell script and it will execute the following 8 sections:
 
 #### Section One - Chapter 8
 
