@@ -81,9 +81,9 @@ You will create a single shell script (use the template provided in files > fina
 1. Using the `wget` command: retrieve the Wordpress tarball from [https://wordpress.org/latest.tar.gz](https://wordpress.org/latest.tar.gz "Wordpress Tarball link")
 1. Extract the tarball -- using the command `tar -xvzf latest.tar.gz`
 1. Rename the file in the `wordpress` directory using relative paths: `wp-config-sample.php` to `config-sample.php`
-1. Use the `sed` command to find and replace the value: `database_name_here` with the value `wp` (section 8.5.2) in the `config-sample.wp` in the `wordpress` directory
-1. Use the `sed` command to find and replace the value: `username_here` with the value `worker` (section 8.5.2) in the `config-sample.wp` in the `wordpress` directory
-1. Use the `sed` command to find and replace the value: `password_here` with the value `cluster` (section 8.5.2) in the `config-sample.wp` in the `wordpress` directory
+1. Use the `sed` command to find and replace the value: `database_name_here` with the value `wp` (section 8.5.2) in the `config-sample.php` in the `wordpress` directory
+1. Use the `sed` command to find and replace the value: `username_here` with the value `worker` (section 8.5.2) in the `config-sample.php` in the `wordpress` directory
+1. Use the `sed` command to find and replace the value: `password_here` with the value `cluster` (section 8.5.2) in the `config-sample.php` in the `wordpress` directory
 1. Move the directory, `wordpress`, to the `/var/www/html` directory
 
 ### Live Demo Requirements
