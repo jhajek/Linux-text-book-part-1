@@ -1,4 +1,4 @@
-# Lab - Chapter 07
+# Lab Chapter-07
 
 ## Objectives
 
@@ -8,7 +8,7 @@ The objective of this lab is to master vi commands and shell scripts
 
 At the end you will have mastered the basics of vi and now be proficient in the tools of Linux shell scripting
 
-## Prerequisites
+### Prerequisites
 
 * You will need an additional virtual machine with Ubuntu Server 20.04 installed for this entire lab
 * You will need to make sure the `vim` program is installed
@@ -23,17 +23,14 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i) This is a 6 part tutorial.  You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
     i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again.  Note you need to use ```vim``` for this assignment.
     i) Take a screenshot as you complete each sub-section (i.e. 2.1 2.2 3.1 4.1 )
-1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-java-8-openjdk.sh``` to your home directory
-    i)  Using vim/ex commands, find **all** occurrences of ```;``` and replace them with ```&&```
-    i)  Using vim/ex commands, replace **all** occurrences of the numbers ```2.6.5``` with ```2.8.5```
-    i)  Use the vim/ex command to move directly to line
-    i)  Using vim/ex commands to append the package names ```python``` and ```python-dev``` to line 9
-    i)  Save file and quit the vim editor
-    i)  Take a screenshot of the command used to display the entire content of the file
 1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
     i) Using vim/ex commands, find all occurrences of ```python``` and replace them with ```python3```
     i) Save file and quit the vim editor
     i)  To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
+1) From the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
+    i) Using vim/ex commands, find all occurrences of ```python``` and replace them with ```python3```
+    i) Save file and quit the vim editor
+    i) To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
 1) In your home directory, using vim, create a shell script named ```first-shell.sh``` in your home directory that contains the following:
     i) Add the proper *shebang* on the first line.
     i) Add two lines of space
@@ -60,6 +57,8 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 ```bash
 
+# These lines retrieve the pandoc .deb file which is the executable that turns markdown
+# into a PDF and ePub
 wget https://github.com/jgm/pandoc/releases/download/2.15/pandoc-2.15-1-amd64.deb
 sudo dpkg -i pandoc-2.15-1-amd64.deb
 
@@ -77,7 +76,3 @@ sudo apt-get -y install fonts-inconsolata
 sudo fc-cache -fv
 
 ```
-
-__Deliverable:__  
-
-Submit your GitHub URL for your repo to Blackboard
