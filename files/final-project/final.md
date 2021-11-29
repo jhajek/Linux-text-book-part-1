@@ -60,7 +60,7 @@ You will need the `git` package pre-installed and issue the command to clone you
 
 #### Section Five - Chapter 12
 
-1. Install NodeJS 16.x and NPM as per the instructions in section 12.4.4 of the textbook
+1. Install NodeJS 16.x per the instructions in section 12.4.4 of the textbook
 1. Issue the command: `node -v` to display the version of NodeJS
 1. Issue the npm command to install the package: `express`
 
@@ -74,7 +74,7 @@ You will need the `git` package pre-installed and issue the command to clone you
 
 #### Section Seven - Chapter 11 and 12
 
-1. Install these packages via apt-get: mariadb-server php php5-mysql
+1. Install these packages via apt-get: apache2 mariadb-server php php-mysql
 1. Restart the Apache2 service via `systemctl` to initialize the PHP language interpreter
 1. Issue the mysql command to import the SQL files for creating a database and creating a user: `sudo mysql -u root < create-database.sql` and `sudo mysql -u root < create-user-and-grant-permissions.sql`
 
