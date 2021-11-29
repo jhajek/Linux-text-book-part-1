@@ -29,11 +29,11 @@ You will create a single shell script (use the template provided in files > fina
 
 1. Assume your starting PWD is your Home Directory (/home/name-of-your-user)
 1. Issue a git clone command of the Textbook repository
-1. Issue the command to read the contents of the file roster.txt into a shell variable named: NAMES
+1. From section 8.3.2.1, issue the command to read the contents of the file roster.txt into a shell variable named: NAMES
 
 #### Section Two - Chapter 8 & 9
 
-1. Create a for loop that will loop through the Array NAMES using NAME as the instance variable and do two things:
+1. From section 8.3.4.4, create a for loop that will loop through the Array NAMES using NAME as the instance variable and do two things:
 1. Issue the `useradd` command to create a user account for each of the items in the array NAMES
 1. `sudo useradd -c "User for ITMO-356 Final" -d /home/$NAME -m $NAME`
 1. Echo to the screen a message: User $NAME was created
