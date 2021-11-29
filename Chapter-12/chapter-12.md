@@ -436,18 +436,18 @@ The Node.js release cycle is different then most major Linux distro's release cy
 ```bash
 # Using Ubuntu
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs npm
+sudo apt-get install -y nodejs
 node -v
 
 # Using Debian, as root
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-apt-get install -y nodejs npm
+apt-get install -y nodejs
 node -v
 
 # Using Fedora/CentOS/Red Hat
 sudo dnf install -y gcc-c++ make
 curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
-sudo dnf install nodejs npm
+sudo dnf install nodejs
 node -v
 ```
 
@@ -537,7 +537,7 @@ create table tutorials_tbl(
 
 After the installation of MariaDB/MySQL, you can create user accounts with limited privilleges.  This is a good idea as the `root` account doesn't have a password by default and is clearly recommended **NOT** to be used for anything other than administration.  So your application will need to use a non-root account.
 
-After you log in to the MySQL command-line using the command: `sudo msql -u root`, and after you have created a database (as in the example above), you can create users and assign access to particular databases and even particular tables.
+After you log in to the MySQL command-line using the command: `sudo mysql -u root`, and after you have created a database (as in the example above), you can create users and assign access to particular databases and even particular tables.
 
 ```sql
 -- This is a comment
