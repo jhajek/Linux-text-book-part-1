@@ -19,18 +19,20 @@ At the conclusion of this project, you will have successfully demonstrated the b
 
 For this final deliverable you will need to use a fresh install of either Fedora or Ubuntu Desktop or Ubuntu Server - you will only need one instance. Attach 2 Virtual Disks of 2 GB before you start this install.  Also before starting the install of your virtual machine add an additional network interface to VirtualBox and create a bridged network so a DHCP address is received.
 
+You will need to use the `-y` flag when you install packages via the package manager to auto answer yes to the install questions.  If you restore snapshots -- you will have to re-add your disks and re-enable your bridged network adapter.
+
+Copy the `final-project` folder from the Textbook sample code to your own private GitHub repo.
+
 ### Requirements
 
 This final project will consist of writing a single shell script that will accomplish all of the defined tasks below.  Essentially taking parts of lab 8-12 and automating them into one single shell script -- with a small amount of manual work.  You will submit your shell-script to Blackboard and push it to your private GitHub repo.  During the final exam period you will demonstrate it live on a clean OS install.
 
-You will create a single shell script (use the template provided in files > final-project > final-XYZ.sh), rename the shell script (the XYZ replace with your initials, and place your name the section requested in the header of the script).  
+You will create a single shell script (use the template provided in files > final-project > final-XYZ.sh), rename the shell script (the XYZ replace with your initials, and place your name the section requested in the header of the script).
+
+You will need the `git` package pre-installed and issue the command to clone your your own private repo to the Virtual Machine and `cd` into your `itmo-356 > files > final-project` directory, execute the `final-XYZ.sh` shell script.
 
 #### Section One - Chapter 8
 
-1. Assume your starting PWD is your Home Directory (/home/name-of-your-user)
-1. Use your package manager to install the `git` package
-1. Issue a git clone command of the Textbook repository
-1. Issue the command to `cd ~/Linux-Text-Book-Part-1/files/final-project`
 1. From section 8.3.2.1, issue the command to read the contents of the file roster.txt into a shell variable named: NAMES
 
 #### Section Two - Chapter 8 & 9
@@ -80,10 +82,10 @@ You will create a single shell script (use the template provided in files > fina
 
 1. Using the `wget` command: retrieve the Wordpress tarball from [https://wordpress.org/latest.tar.gz](https://wordpress.org/latest.tar.gz "Wordpress Tarball link")
 1. Extract the tarball -- using the command `tar -xvzf latest.tar.gz`
-1. Rename the file in the `wordpress` directory using relative paths: `wp-config-sample.php` to `config-sample.php`
-1. Use the `sed` command to find and replace the value: `database_name_here` with the value `wp` (section 8.5.2) in the `config-sample.php` in the `wordpress` directory
-1. Use the `sed` command to find and replace the value: `username_here` with the value `worker` (section 8.5.2) in the `config-sample.php` in the `wordpress` directory
-1. Use the `sed` command to find and replace the value: `password_here` with the value `cluster` (section 8.5.2) in the `config-sample.php` in the `wordpress` directory
+1. Rename/move the file in the `wordpress` directory using relative paths: `wp-config-sample.php` to `wp-config.php`
+1. Use the `sed` command to find and replace the value: `database_name_here` with the value `wp` (section 8.5.2) in the `wp-config.php` in the `wordpress` directory
+1. Use the `sed` command to find and replace the value: `username_here` with the value `worker` (section 8.5.2) in the `wp-config.php` in the `wordpress` directory
+1. Use the `sed` command to find and replace the value: `password_here` with the value `cluster` (section 8.5.2) in the `wp-config.php` in the `wordpress` directory
 1. Move the directory, `wordpress`, to the `/var/www/html` directory
 
 ### Live Demo Requirements
@@ -106,5 +108,5 @@ Point total is 100 points.
 Create a folder in your private GitHub repo, under the itmo-356 directory, create a folder named **final-project** and in the directory push:
 
 * Your shell-script named: `final-XYZ.sh` -- XYZ is your initials
-* And all the supporting files needed to execute your script succesfully
+* And all the supporting files needed to execute your script successfully
 * Submit to Blackboard the URL to this file
