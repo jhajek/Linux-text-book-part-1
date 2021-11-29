@@ -28,7 +28,9 @@ You will create a single shell script (use the template provided in files > fina
 #### Section One - Chapter 8
 
 1. Assume your starting PWD is your Home Directory (/home/name-of-your-user)
+1. Use your package manager to install the `git` package
 1. Issue a git clone command of the Textbook repository
+1. Issue the command to `cd ~/Linux-Text-Book-Part-1/files/final-project`
 1. From section 8.3.2.1, issue the command to read the contents of the file roster.txt into a shell variable named: NAMES
 
 #### Section Two - Chapter 8 & 9
