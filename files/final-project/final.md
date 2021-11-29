@@ -1,6 +1,6 @@
 # Final Projects
 
-![*Projects sometimes get out of hand...*](../images/Chapter-Header/Appendix-D/cautionary.png "Project gets out of hand")
+![*Projects sometimes get out of hand...*](../../images/Chapter-Header/Appendix-D/cautionary.png "Project gets out of hand")
 
 The list of final projects that applies all of the learned concepts and puts them together into a single deliverable.
 
