@@ -814,7 +814,7 @@ In this chapter we learned and mastered the concepts of disk based hardware.  We
     c) ZFS
     d) HAMMER
 
-13) What is the name of the filesystem that Red Hat adopted on their RHEL 7 platform to replace ext4 and support better performance on large filesystems?
+13) What is the name of the filesystem that Red Hat adopted on their RHEL platform to replace ext4 and support better performance on large filesystems?
 
     a) ZFS
     b) XFS
