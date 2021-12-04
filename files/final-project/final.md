@@ -70,7 +70,7 @@ You will need the `git` package pre-installed and issue the command to clone you
 1. Issue the firewall-cmd command to permanently open these services: http and https
 1. Issue the firewall-cmd command to permanently open port 3000/tcp
 1. Reload the firewalld service to accept changes
-1. Issue the firewalld-cmd --zone=public --list-all to show the open ports
+1. Issue the ~~firewalld-cmd~~ `firewall-cmd --zone=public --list-all`  to show the open ports
 
 #### Section Seven - Chapter 11 and 12
 
