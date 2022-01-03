@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     echo 'Deploying....'
-                    sh '/home/controller/github-push-scripts/linux-textbook-release-script.sh'
+                    sh '/opt/github-push-scripts/linux-textbook-release-script.sh'
                 }
                 
             }
