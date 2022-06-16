@@ -475,7 +475,7 @@ All my troubleshooting experience in Linux boils down to three things.  I have j
 * Permission
   * Every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la or see if you need sudo.
 * dePendencies
-  * Are all the correct software dependencies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?  For example in the sample above running runwhen, you need Python3 installed.  If you typed ```python runwhen.py``` you would receive a strange python error which would take you off on a useless googling experience.  The problem is you needed to type ```python3 runwhen.py``` and if you don't have python3 installed you will have a dependency problem.
+  * Are all the correct software dependencies installed.  Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?  For example in the sample above running `runwhen`, you need Python3 installed.  If you typed ```python runwhen.py``` you would receive a strange python error which would take you off on a useless googling experience.  The problem is you needed to type ```python3 runwhen.py``` and if you don't have python3 installed you will have a dependency problem.
 * All else fails and you still have a problem, see if it is a full moon outside.
 
 ## Secure Shell
@@ -496,7 +496,7 @@ By default the SSH *client* is installed on all Linux and Unix systems.  This co
 
 SSH works because of Public/Private Key Encryption and a standard created and widely adopted by the RSA company.  Without going to deep into RSA encryption, this set of public and private keys allows you to securely transmit information across an untrusted network.  How does it work?
 
-Each person generates a **keypair**, a public key and a private key. Both halves of the key make up the single key used for authentication.  These keys are exactly what they sound like.  The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened.  Think of the **public key** as the lock on your front door.  Conceivably anyone can come up to that lock and try to insert a key.  Unless they have the particular key, the lock won't open.   The **private key** is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.
+Each person generates a __keypair__, a public key and a private key. Both halves of the key make up the single key used for authentication.  These keys are exactly what they sound like.  The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened.  Think of the __public key__ as the lock on your front door.  Conceivably anyone can come up to that lock and try to insert a key.  Unless they have the particular key, the lock won't open.   The __private key__ is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.
 
 How do you then exchange data?  First you generate a keypair.   On the command line you can issue the command: ```ssh-keygen``` and take notice of the prompts:
 
@@ -508,7 +508,7 @@ How do you then exchange data?  First you generate a keypair.   On the command l
 
 While having SSH give us secure remote tunnels, it does lead to a potential problem.  It means exposing an open port to the external network.   This can and should be mitigated by things such as VPNs and mandating use of RSA keys only.  But there are many systems that are exposed.  This is a serious security vulnerability as hackers are actively scanning the entire IPv4 space looking for SSH systems and they will simply try to brute force the username and password.
 
-One of the tools to alleviate this is called [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban website").  This is a brute force login denial tool.  This tool will scan the connection (or auth) logs looking for failed connection. Fail2ban can use the default syslog location as well as journalctl logs. Fail2ban will count the number of occurrences and the distinct IP and after a user defined threshold of failure will ban any network connection from the offending IP.  This can be a time based back-off or can be a permanent ban, configured by the user in the configuration file. Fail2ban can also ban failed MySQL database connections as well if you have an exposed database server.
+One of the tools to alleviate this is called [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban website").  This is a brute force login denial tool.  This tool will scan the connection (or auth) logs looking for failed connection. Fail2ban can use the default syslog location as well as `journalctl` logs. Fail2ban will count the number of occurrences and the distinct IP and after a user defined threshold of failure will ban any network connection from the offending IP.  This can be a time based back-off or can be a permanent ban, configured by the user in the configuration file. Fail2ban can also ban failed MySQL database connections as well if you have an exposed database server.
 
 #### OpenSSL
 
@@ -537,7 +537,7 @@ Primary development occurs inside the OpenBSD source tree with the usual care th
 
 ### SFTP
 
-Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are trasnmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.  Some would argue the rise in using version control such as Git makes SFTP/FTP redundant.  
+Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencrypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are transmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.  Some would argue the rise in using version control such as Git makes SFTP/FTP redundant.  
 
 ```sftp [-i identity_file] username@hostname```
 
