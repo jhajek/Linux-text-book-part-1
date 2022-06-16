@@ -567,11 +567,11 @@ ssh-copy-id -i identityname username@hostname
 
 ```  
 
-### ssh config file
+### SSH config file
 
 The ssh command has a provision for a file named ```config``` located in the ```~/.ssh``` directory.  This is where you can hardcode short cut information per connection.  Items such as:
 
-* Turning off stricthostkeychecking
+* Turning off strict host key checking
 * predefining hostname
 * defining a non-default connection port
 * predefining a password (not recommended)
@@ -579,17 +579,20 @@ The ssh command has a provision for a file named ```config``` located in the ```
 
 The format of the file is as such:
 
-![*ssh config file](images/Chapter-09/ssh/config.png "ssh config file")
+```bash
+Host github.com
+  User jhajek
+  Hostname github.com
+  IdentityFile /home/user/.ssh/id_ed25519_sample_student
+```
 
-By having this config file the command: ```ssh joseph@development.com -i id_ub2``` now becomes ```ssh devel```.
-
-The full range of options for the config file can be found in this Digital Ocean Turotial located at [https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client](https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client "Digital Ocean Tutorial for ssh config file")
+The full range of options for the config file can be found in this Digital Ocean Tutorial located at [https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client](https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client "Digital Ocean Tutorial for ssh config file")
 
 ### SSH Service Daemons and Security
 
-SSH has two configuration files that control its abilites.  Located at ```/etc/ssh/ssh_config``` and ```/etc/ssh/sshd_config```.  The first file contains user information about what options your client will present and use when connecting to a remote SSH server.  
+SSH has two configuration files that control its abilities.  Located at ```/etc/ssh/ssh_config``` and ```/etc/ssh/sshd_config```.  The first file contains user information about what options your client will present and use when connecting to a remote SSH server.  
 
-In the ssh_config file you can modify these lines to increase the security of the encryption ciphers you use.  By default OpenSSH defaults back to an older and weaker set of encryption ciphers such as:
+In the `ssh_config` file you can modify these lines to increase the security of the encryption ciphers you use.  By default OpenSSH defaults back to an older and weaker set of encryption ciphers such as:
 
 ```Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc```
 
