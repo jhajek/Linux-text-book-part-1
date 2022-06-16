@@ -413,7 +413,7 @@ You have the option as well to override the default values and set your own valu
 > __Example Usage:__ What do the options and arguments below do?  Type it in and see what happens.
 
 ```bash
-sudo useradd -c "This is a user for ITMO-456-01 Fall 2017" -d /home/controller \
+sudo useradd -c "This is a user for ITMO-356-01 Fall 2022" -d /home/controller \
 -G sudo -s /bin/ksh -m controller
 ```
 
