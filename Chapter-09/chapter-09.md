@@ -312,7 +312,7 @@ This section tells you the number of processes, how much memory and swap is in u
 
 Finally this section shows the name and individual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
 
-![*top processes*](images/Chapter-09/monitoring/top/top-processes.png "Top process")   
+![*top processes*](images/Chapter-09/monitoring/top/top-processes.png "Top process")
 
 The ```top``` command also has the ability to sort and modify its output while running.  
 
