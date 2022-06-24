@@ -759,7 +759,7 @@ The Guest Additions offer the following features:
 # the VirtualBox Guest editons iso (under Devices)
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
-cd /media/$USER/VBox_GAs_6.1.26
+cd /media/$USER/VBox_GAs_6.1.X # replace .X with your VBox version number
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
