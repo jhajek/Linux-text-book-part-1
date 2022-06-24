@@ -752,7 +752,7 @@ The Guest Additions offer the following features:
 * Shared clipboard
 * Automated logons (credentials passing)
 
-#### Ubuntu 18.04 and 20.04 Desktop
+#### Ubuntu 18.04, 20.04, & 22.04 Desktop
 
 ```bash
 # Assuming using VirtualBox 6.1.x and you have inserted 
