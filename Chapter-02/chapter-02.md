@@ -500,6 +500,14 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 * [About Red Hat](http://www.redhat.com/en/about/company)
 * [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
 
+According to Red Hat this is the difference between the various Red Hat operating systems:
+
+> Fedora: The upstream project on which future Red Hat Enterprise Linux major releases are based. This is where significant operating system (OS) innovations are introduced.
+
+> CentOS Stream: CentOS Stream better connects [ISV](https://en.wikipedia.org/wiki/Independent_software_vendor "ISV wiki page"), [IHV](https://en.wikipedia.org/wiki/Independent_hardware_vendor "IHV wiki page") and other ecosystem developers to the OS developers of the Fedora Project–the foundation of the Fedora OS. This shortens the feedback loop and makes it easier for all voices to be heard in the creation of the next Red Hat Enterprise Linux versions.
+
+> Red Hat Enterprise Linux: A production-grade operating system that provides a more secure, supported, and flexible foundation for critical workloads and applications.
+
 #### Fedora Project
 
 ![*Fedora Project*](images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
@@ -511,8 +519,6 @@ The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Projec
 * Fedora 34 was released on 05/20/21
 * Fedora 33 was released on 10/27/20
 * Fedora 32 was released on 04/21/20
-* Fedora 31 was released on 10/21/19
-* Fedora 30 was released on 04/30/19
 
 Fedora version less that 35 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution is meant for desktop users and developers who don't mind updating rapidly, called the *bleeding edge*. The Fedora Project is a testing ground for technology that will eventually go into Red Hat's enterprise Linux project, referred to as RHEL.
 
@@ -522,7 +528,7 @@ Fedora version less that 35 are no longer supported anymore! Why is the Fedora P
 
 Red Hat's founder Mark Ewing had been an IBM employee prior to forming Red Hat.  He knew something about enterprise software and more importantly enterprise profits.  Red Hat began its life as a desktop Linux company.  They quickly shifted their focus to compete not with Microsoft and Apple, but to take on the Unix enterprise giants of IBM, HP, Sun and AT&T. There is irony as Red Hat would be purchased by IBM 20 years later.  These companies had one thing in common: they were all Unix vendors.  Red Hat's vector was to dislodge the established Unix vendors with Red Hat Enterprise Linux (RHEL). They would successfully attack this market with entirely opensource products and running on commodity Intel x86 based processors.  With Oracle also sensing a chance to capture market share along with RHEL, it announced it would port its database products to RHEL and this platform became to the go to choice for using Oracle as a database. By Oracle doing this they have all but abandoned Solaris and positioned themselves to take on Windows Server and Microsoft SQL Server.
 
-The key to RHEL's success in the enterprise is its long term stability.  The RHEL application platform support is 5 years and paid support up to 10 years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red Hat instead takes "snapshots" from the Fedora project and freezes them to produce RHEL versions.  For example, as of Fall 2020, the released version of RHEL was 8.0 which is a freeze of the technology from Fedora 28, which was released May of 2018.  
+The key to RHEL's success in the enterprise is its long term stability.  The RHEL application platform support is 5 years and paid support up to 10 years.  An enterprise grade server product cannot be changing every six months like the Fedora project.  Red Hat instead takes "snapshots" from the Fedora project and freezes them to produce RHEL versions.  For example, RHEL 8.0 was based on Fedora 28.  RHEL 9.0 was based on Fedora 34.
 
 How successful is this strategy? By 2012 Red Hat had become the first Linux based company to make a billion dollars in a fiscal year.  But this success brought about an additional serious opensource question; RHEL is licensed under the GPLv2 Free Software license, which requires that all source code for your product to be freely and openly available. That means anyone can examine, modify, and redistribute your code for their own product as well. What if someone did that?  Wouldn't they be able to ride the coat tails of Red Hat to success?  The CentOS project did just that.
 
@@ -532,21 +538,15 @@ How successful is this strategy? By 2012 Red Hat had become the first Linux base
 
 By 2010 RHEL was firmly entrenched as a viable enterprise based server platform. Many customers loved the reliability of RHEL, but the two year technology freeze was to long for some people.  They wanted to use RHEL but with the opportunity to update libraries and applications much quicker. The CentOS (*Community ENTerprise Operating System*) emerged[^14].  The goal of this project is to use the freely available GPLv2 code of RHEL and redistribute it with their own custom modifications.  Some would argue that CentOS is succeeding based on RHEL's hard work. Until about 2014, Red Hat had a very frosty relationship with the CentOS developers--even taking them to court numerous times over trademarked Red Hat logos that had not been properly removed by CentOS developers. Their developers, like Debian, are entirely volunteer based and not backed by a company (technically since they base their work off of RHEL--they are commercially backed via Red Hat).
 
-Eventually all of Red Hat's copyrighted material was removed and CentOS was then in full compliance with the GPLv2 license.  This made Red Hat angry because they felt that CentOS were pirates stealing their work and causing them to lose sales to enterprises that had been using RHEL but had switched to use CentOS.  By 2014, Red Hat and CentOS came to terms to work together--with Red Hat offering to sell support contracts to CentOS users.  Is CentOS doing anything illegal?  Anything immoral?  Not according to the GPLv2 and the spirit of free and opensource software.
+Eventually all of Red Hat's copyrighted material was removed and CentOS was then in full compliance with the GPLv2 license.  This made Red Hat angry because they felt that CentOS were pirates stealing their work and causing them to lose sales to enterprises that had been using RHEL but had switched to use CentOS.  By 2014, Red Hat and CentOS came to terms to work together--with Red Hat offering to sell support contracts to CentOS users.  Was CentOS doing anything illegal?  Anything immoral?  Not according to the GPLv2 and the spirit of free and opensource software.
+
+#### CentOS Stream
 
 Recently Red Hat changed CentOS's purpose and mission.  Red Hat had control of CentOS's board of directors for a while and after IBM purchased Red Hat in 2019, Red Hat shifted CentOS to a rolling release called [CentOS Stream](https://www.redhat.com/en/topics/linux/what-is-centos-stream "Centos Stream webpage").
 
-#### CentOS Stream and the differences between the Red Hat Distros
+From the [CentOS Blog, December 2020:](https://blog.centos.org/2020/12/future-is-centos-stream/ "Centos Blog announcing Stream")
 
-According to Red Hat this is the difference between the various Red Hat operating systems:
-
-> Fedora: The upstream project on which future Red Hat Enterprise Linux major releases are based. This is where significant operating system (OS) innovations are introduced.
-
-> CentOS Stream: CentOS Stream better connects ISV, IHV and other ecosystem developers to the OS developers of the Fedora Project–the foundation of the Fedora OS. This shortens the feedback loop and makes it easier for all voices to be heard in the creation of the next Red Hat Enterprise Linux versions.
-
-> Red Hat Enterprise Linux: A production-grade operating system that provides a more secure, supported, and flexible foundation for critical workloads and applications.
-
-Large companies that has been using CentOS in production.  One of the largest users is Facebook.
+> *CentOS Stream will also be the centerpiece of a major shift in collaboration among the CentOS Special Interest Groups (SIGs). This ensures SIGs are developing and testing against what becomes the next version of RHEL. This also provides SIGs a clear single goal, rather than having to build and test for two releases. It gives the CentOS contributor community a great deal of influence in the future of RHEL.*
 
 #### Oracle Linux
 
@@ -561,14 +561,14 @@ Oracle saw that many of their customers were paying Red Hat for operating system
 * [openSUSE Linux](https://www.opensuse.org "openSUSE Linux") is a community-driven version of SUSE and released in 2004.
 * In 2006 Microsoft and SUSE announce an interoperability agreement (Patent Lawsuit Protection)
 * SUSE was responsible for working to port the Linux kernel to 64 bit architecture in 2000
-* Major partner for deploying SAP
-* Owns RancherOS -- an Enterprise Kubernetes Management Platform
+* Major partner for deploying [SAP](https://www.sap.com "SAP webpage")
+* Owns [RancherOS](https://rancher.com/ "RancherOS webpage") -- an Enterprise Kubernetes Management Platform
 
 #### Intel Clear Linux
 
 * [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
   * Rolling release designed by Intel with auto-updating features built into the OS.
-* _"Clear Linux OS is an open source, rolling release Linux distribution optimized for performance and security, from the Cloud to the Edge, designed for customization, and manageability [https://clearlinux.org/](https://clearlinux.org/ "Clear Linux")."_
+* *"Clear Linux OS is an open source, rolling release Linux distribution optimized for performance and security, from the Cloud to the Edge, designed for customization, and manageability [https://clearlinux.org/](https://clearlinux.org/ "Clear Linux")."*
 * Designed to work on recent Intel processors, dropping legacy support for older hardware--in order to optimize for modern cloud and OS Container based workloads like Kubernetes.
 * Not focused on desktop Linux but for Cloud-based virtual machines and OS Container images
 
@@ -592,6 +592,8 @@ Oracle saw that many of their customers were paying Red Hat for operating system
 ![*Arch Linux*](images/Chapter-02/Linux-logos/Arch/200px-Arch_Linux_logo.svg.png "Arch Linux Logo")
 
 Arch Linux has a different philosophy, Arch Linux defines simplicity as without unnecessary additions or modifications. It ships software as released by the original developers (upstream) with minimal distribution-specific (downstream) changes.  They also have their own package manager called [Pacman](https://en.wikipedia.org/wiki/Arch_Linux#Pacman "Pacman package manager").
+
+The current [Steam Deck](https://www.steamdeck.com/ "Steam Deck webpage") Steam OS is built using [Manjaro Linux](https://manjaro.org/ "manjaro linux webpage") which is based on Arch and different from Ubuntu and Red Hat Oses.
 
 ### Unix and the BSD Family Distros
 
