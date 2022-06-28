@@ -495,7 +495,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 
 ### Red Hat Family
 
-Red Hat Linux distribution was formed after the Debian project by Marc Ewing and Bob Young.  The company went public August 11th, 1999.  Red Hat source code is currently shared across three main distributions: The Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. Currently there are [25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or as Fedora calls them *"spins"* -- this term is unique to Fedora.
+Red Hat Linux distribution was formed after the Debian project by Marc Ewing and Bob Young.  The company went public August 11th, 1999.  Red Hat source code is currently shared across three main distributions: The Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. Currently there are [~25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or as Fedora calls them *"spins"* -- this term is unique to Fedora.
 
 * [About Red Hat](http://www.redhat.com/en/about/company)
 * [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
@@ -504,17 +504,17 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 ![*Fedora Project*](images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
 
-The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, a cloud instance, as well as a container based edition based on a company Red Hat purchased called Red Hat CoreOS Edition for use on Kubernetes.
+The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13].  The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, a cloud instance, as well as a container based edition `Red Hat CoreOS Edition` for use on Kubernetes.
 
+* Fedora 36 was released on 05/06/22
+* Fedora 35 was released on 11/02/21
 * Fedora 34 was released on 05/20/21
 * Fedora 33 was released on 10/27/20
 * Fedora 32 was released on 04/21/20
 * Fedora 31 was released on 10/21/19
 * Fedora 30 was released on 04/30/19
-* Fedora 29 was released on 10/30/18
-* Fedora 28 was released on 05/01/18
 
-Fedora version less that 32 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution was meant for desktop users and developers who don't mind updating rapidly.  The Fedora Project is just a testing ground for technology that will eventually go into Red Hat's enterprise project, referred to as RHEL.
+Fedora version less that 35 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution is meant for desktop users and developers who don't mind updating rapidly, called the *bleeding edge*. The Fedora Project is a testing ground for technology that will eventually go into Red Hat's enterprise Linux project, referred to as RHEL.
 
 #### Red Hat Enterprise Linux--RHEL
 
@@ -534,9 +534,23 @@ By 2010 RHEL was firmly entrenched as a viable enterprise based server platform.
 
 Eventually all of Red Hat's copyrighted material was removed and CentOS was then in full compliance with the GPLv2 license.  This made Red Hat angry because they felt that CentOS were pirates stealing their work and causing them to lose sales to enterprises that had been using RHEL but had switched to use CentOS.  By 2014, Red Hat and CentOS came to terms to work together--with Red Hat offering to sell support contracts to CentOS users.  Is CentOS doing anything illegal?  Anything immoral?  Not according to the GPLv2 and the spirit of free and opensource software.
 
+Recently Red Hat changed CentOS's purpose and mission.  Red Hat had control of CentOS's board of directors for a while and after IBM purchased Red Hat in 2019, Red Hat shifted CentOS to a rolling release called [CentOS Stream](https://www.redhat.com/en/topics/linux/what-is-centos-stream "Centos Stream webpage").
+
+#### CentOS Stream and the differences between the Red Hat Distros
+
+According to Red Hat this is the difference between the various Red Hat operating systems:
+
+> Fedora: The upstream project on which future Red Hat Enterprise Linux major releases are based. This is where significant operating system (OS) innovations are introduced.
+
+> CentOS Stream: CentOS Stream better connects ISV, IHV and other ecosystem developers to the OS developers of the Fedora Project–the foundation of the Fedora OS. This shortens the feedback loop and makes it easier for all voices to be heard in the creation of the next Red Hat Enterprise Linux versions.
+
+> Red Hat Enterprise Linux: A production-grade operating system that provides a more secure, supported, and flexible foundation for critical workloads and applications.
+
+Large companies that has been using CentOS in production.  One of the largest users is Facebook.
+
 #### Oracle Linux
 
-Not to be out done by CentOS, Oracle saw that many of their customers were paying Red Hat for operating systems licenses, buying support contracts, and running an Oracle database on top of it.  Oracle wanted a piece of this pie.  Oracle made a fork of RHEL's opensource code as well, adding Oracle product code and services and redistributing it as Oracle Linux.
+Oracle saw that many of their customers were paying Red Hat for operating systems licenses, buying support contracts, and running an Oracle database on top of it.  Oracle wanted a piece of this pie.  Oracle made a fork of RHEL's opensource code as well, adding Oracle product code and services and redistributing it as Oracle Linux.
 
 [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can be installed and run unchanged. One may ask, isn't this illegal too? Is Oracle breaking the law? Are they stealing RHEL software and reselling it?  Is this piracy? Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.
 
