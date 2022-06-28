@@ -418,19 +418,9 @@ As the 1990s came to a close we began to see established companies adopting and 
 
 As the new century dawned, Stallman's dream for the GNU operating system had become a reality.  Companies were combining the opensource Linux kernel with the free [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils"), and by integrating GUIs such as X11, KDE, and the GNU GNOME project, they were creating what could easily be described as a GNU/Linux based operating system. Each company made their own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well.
 
-It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might wonder if, without the financial backing of a commercial entity, could a distro ever rise beyond a niche use?  BSD distros would argue that mass commercialization was never their primary goal.
+It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might wonder if, without the financial backing of a commercial entity, could a distro ever rise beyond a niche use? BSD distros would argue that mass commercialization was never their primary goal.
 
-As of 2020, we have almost 28 years of Linux Kernel and Linux distribution work. Current major commercial Linux distributions hail from two primary and distinct families: __Debian__ and __Red Hat__.  There are many other quality distributions of Linux that I don't want to leave out or paint in a bad light.  For the purposes of this book I will focus on these two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch").
-
-#### Additional Popular Linux Distros
-
-* [Slackware](http://www.slackware.com/info/ "Slackware")
-* [Gentoo Linux](https://www.gentoo.org/get-started/about/ "Gentoo Linux")
-* [SUSE Linux](https://en.wikipedia.org/wiki/SUSE_Linux_distributions "SUSE Linux")
-* [Kali Linux](https://www.kali.org/ "Kali Linux") - Hacking tool based Debian distro
-* [Arch Linux](https://www.archlinux.org/ "Arch Linux")
-* [Tails Linux](https://tails.boum.org/ "Tails Linux") - Online security focused Debian based distro
-* and many more at [http://www.distrowatch.com](http://www.distrowatch.com "Distro Watch")
+As of 2020, we have almost 28 years of Linux Kernel and Linux distribution work. Current major commercial Linux distributions hail from two primary and distinct families: `Debian` and `Red Hat`. For the purposes of this book I will focus on these two main distribution families.  You can find almost all known Linux distributions at [http://distrowatch.com](http://distrowatch.com/ "Distro Watch").
 
 ### The Debian-based Family
 
@@ -461,7 +451,7 @@ The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the s
 
 ![*Ubuntu Linux*](images/Chapter-02/Linux-logos/Ubuntu/128px-Ubuntu_logo_copyleft_1.svg.png "Ubuntu Linux")
 
-Ubuntu Linux is a unique distribution [^10].  It is entirely based on Debian.  It is Debian repackaged with a focus on applications that "just work."  Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was unnerved that Windows had such a dominant position in the PC market.  He had been a Debian developer, but felt that the lack of a corporate sponsor in some ways hindered Debian from catching market share from Windows.  He set out to make a Debian based distro which he called Ubuntu.  Shuttleworth is from South Africa and Ubuntu is a Zulu word meaning *"community"*. Shuttleworth wanted his Linux distro to be people friendly and work really well out of the box--like Windows.  
+Ubuntu Linux is a unique distribution [^10]. It is entirely based on Debian.  It is Debian repackaged with a focus on applications that "just work." Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was unnerved that Windows had such a dominant position in the PC market. He had been a Debian developer, but felt that the lack of a corporate sponsor in some ways hindered Debian from catching market share from Windows.  He set out to make a Debian based distro which he called Ubuntu. Shuttleworth is from South Africa and Ubuntu is a Zulu word meaning *"community"*. Shuttleworth wanted his Linux distro to be people friendly and work really well out of the box--like Windows.
 
 In 2004 Red Hat, which had previously owned the desktop Linux market, decided to exit and focus on selling Linux based server operating systems to corporate entities. Red Hat felt there was little money to be made in that market where the code was given away freely. This left a void that Ubuntu rushed to fill and they did it well. By 2006, Mark Shuttleworth who had started the Thawte SSL security company, which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux.  
 
@@ -741,7 +731,7 @@ But if you look at the foundations they are "pay-to-play" and controlled by the 
 
 ### GitHub Copilot - Opensource and AI
 
-As of 2022 a new wrinkle has appeared. With [GitHub](https://github.com "GitHub version control webpage") being one of the largest repositories of public opensource code, there came a new opportunity. Could AI scan the existing code base and make coding suggestions as you develop? GitHub is now offering this via their [Copilot](https://github.com/features/copilot/ "GitHub copilot webpage") paid product.
+As of 2022 a new wrinkle has appeared in the Opensource discussion. With [GitHub](https://github.com "GitHub version control webpage") being one of the largest repositories of public opensource code, there came a new opportunity. Could AI scan the existing code base and make coding suggestions as you develop? GitHub is now offering this via their [Copilot](https://github.com/features/copilot/ "GitHub copilot webpage") paid product.
 
 `GitHub Copilot uses the OpenAI Codex to suggest code and entire functions in real-time, right from your editor.`
 
