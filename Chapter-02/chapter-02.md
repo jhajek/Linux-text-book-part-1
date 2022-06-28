@@ -737,7 +737,19 @@ Other foundations include:
 
     "*The Continuous Delivery Foundation (CDF) serves as the vendor-neutral home of many of the fastest-growing projects for continuous delivery, including Jenkins, Jenkins X, Spinnaker, and Tekton. CDF supports DevOps practitioners with an open model, training, industry guidelines, and a portability focus.*"
 
-But if you look at the foundations they are "pay-to-play" and controlled by the largest corporations who don't always have a good track record in relation to respecting free/opensource licensing.  Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out.  Perhaps the time for the focus on the business model for Free and Opensource software has arrived as the large corporations have found and embraced Opensource Software.  The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
+But if you look at the foundations they are "pay-to-play" and controlled by the largest corporations who don't always have a good track record in relation to respecting free/opensource licensing.  Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out. The large corporations have found and embraced Opensource Software.  The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
+
+### GitHub Copilot - Opensource and AI
+
+As of 2022 a new wrinkle has appeared. With [GitHub](https://github.com "GitHub version control webpage") being one of the largest repositories of public opensource code, there came a new opportunity. Could AI scan the existing code base and make coding suggestions as you develop? GitHub is now offering this via their [Copilot](https://github.com/features/copilot/ "GitHub copilot webpage") paid product.
+
+`GitHub Copilot uses the OpenAI Codex to suggest code and entire functions in real-time, right from your editor.`
+
+The question this presents -- is this legal? How does the existing opensource licenses: MIT, Apache2, GPL3, and the MPL impact this service? Can a third party collect opensource code and sell it to you without creating a derivative work? The [FSF](https://fsf.org "Free Software Foundation webpage") has a lengthy commentary on this.
+
+* [On the Nature of AI Code Copilots](https://www.fsf.org/licensing/copilot/on-the-nature-of-ai-code-copilots "On the Nature of AI Code Copilots article webpage")
+* [If Software is My Copilot, Who Programmed My Software?](https://www.fsf.org/licensing/copilot/if-software-is-my-copilot-who-programmed-my-software "If Software is My Copilot, Who Programmed My Software article webpage")
+* [Copilot, Copying, Commons, Community, Culture](https://www.fsf.org/licensing/copilot/copilot-copying-commons-community-culture "Copilot, Copying, Commons, Community, Culture Article webpage")
 
 ## Chapter Conclusion and Summary
 
