@@ -352,14 +352,14 @@ You can download a .deb or .rpm file from the Vivaldi browser website: [https://
 
 ```bash
 # Download URL at: https://vivaldi.com/download/
-sudo dpkg -i ./vivaldi-stable_3.2.1967.41-1_amd64.deb
-sudo rpm -iv ./vivaldi-stable-3.2.1967.41-1.x86_64.rpm
-# This command invovles downloading and installing directly from the web
+sudo dpkg -i ./vivaldi-stable_5.3.2679.70-1_amd64.deb
+sudo rpm -iv ./vivaldi-stable_5.3.2679.70-1.x86_64.rpm
+# This command involves downloading and installing directly from the web
 sudo rpm -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.rpm
 sudo dpkg -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
 ```
 
-After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why?  You will notice that dpkg found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
+After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why?  You will notice that `dpkg` command found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
 __Example Usage:__
 
@@ -462,23 +462,23 @@ APT relies on the concept of repositories in order to find software and resolve 
 
 The package system and architecture is on of the reasons for Debian's long standing existence and credibility.  The system just works. Ubuntu is a Debian derivative that utilizes this archive of packages.  Remember that the founder of Ubuntu, Mark Shuttleworth, had been a Debian contributor at one point. Ubuntu builds on top of Debian's 25,000 packages by maintaining additional *downstream* repositories that add additional software and repositories to make up the Ubuntu distribution.  Ubuntu is a little more liberal on including non-free drivers for mainly high-end video cards.  Users can then add additional repositories or PPA's of their own choosing to extend APT functionality and expand that package base.  
 
-Seeing as you may want to access a more recent build of an application that may not be in the standard Debian/Ubuntu distribution or not even submitted to a repository because the version is moving too fast or the maintainer just didn't want to package it up.  For example if you want to install a newer version of the php language on your system, you have to wait for another version of the OS or you can find the maintainer's repository and add their PPA directly.  That way when you can update in real time with them or even install beta software. The example below will add the php5 latest repository for installation.  
+Seeing as you may want to access a more recent build of an application that may not be in the standard Debian/Ubuntu distribution or not even submitted to a repository because the version is moving too fast or the maintainer just didn't want to package it up.  For example if you want to install a newer version of the Python3 language on your system, you have to wait for another version of the OS.
 
-You can manually edit the file ```/etc/apt/sources.list``` as well and enter PPAs manually.  Once a new PPA has been added you need to run ```sudo apt-get update``` so APT can see the new repositories and add them to it's cache.
-
-> __Example Usage:__  For example, Ubuntu 18.04.4 installs php 7.2 by default, but if you wanted to use or test php 7.3 you would need to add an additional repository or PPA to enable the php7.3 package to be installed. Try the below sequence:
+> __Example Usage:__  For example, Ubuntu 2004 installs Python 3.8.x by default and doesn't update the major version until the next Ubuntu release.  But what if you needed to test a newer or older version of Python?  Try the below sequence:
 
 ```bash
+# Check your current Python3 version - 3.8.x on Ubuntu 2004
+python3 -V
+# Lets add the deadsnakes PPA so we can add different Python3 versions
+sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
-sudo apt-get install php7.3
-# What happens after the above command?
-sudo add-apt-repository ppa:ondrej/php
-sudo apt-get update
-sudo apt-get install php7.3
-php -v
+sudo apt-get install python3.6 python3.9
+python3 -V
+python3.9 -V
+python3.6 -V
 ```
 
-> __Example Usage:__ There is an Apache2 repository (PPA) that can be added to get the latest version of Apache2.  Run the command ```apache2 -v```, then add this repository ```sudo add-apt-repository ppa:ondrej/apache2``` and ```sudo apt-get update```. Now execute ```sudo apt-get upgrade``` to upgrade the Apache server.  Now execute ```apache2 -v``` to show the new version.  
+#### Linux-libre PPA
 
 There is also a PPA for Linux-libre.  Linux-libre is a GNU package that is a modified version of the Linux kernel. The aim of the project is to remove from non-free or significantly obfuscated code[^111] from the Linux kernel. The downside of removing proprietary firmware from the kernel is that it will cause lose functionality for certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards.
 
@@ -559,7 +559,7 @@ r/rpmfusion-free-release-7-4.noarch.rpm
 sudo yum localinstall --nogpgcheck \
 http://download1.rpmfusion.org/free/el/updates/8\
 /x86_64/r/rpmfusion-free-release-8-0.1.noarch.rpm
-# Fedora 32
+# Fedora 36
 sudo yum localinstall --nogpgcheck \
 http://download1.rpmfusion.org/free/fedora/\
 rpmfusion-free-release-32.noarch.rpm
@@ -693,15 +693,15 @@ As mentioned prior the GNU make command is used to actually compile the C code a
 Let's compile something to see how this works.  This link is to the Apache webserver version 2.4.x latest source code: [http://httpd.apache.org/docs/2.4/install.html](http://httpd.apache.org/docs/2.4/install.html "Apache Webserver Instructions").  Let's install some pre-requisites:
 
 ```bash
-# Pre-reqs needed first -- assumuing Ubuntu 18.04 or 20.04
+# Pre-reqs needed first -- assumuing Ubuntu 20.04
 sudo apt-get install build-essential libapr1 libapr1-dev libaprutil1 \
 libaprutil1-dev libpcre3 libpcre3-dev
 # Command to retrieve the source code
-wget http://www.gtlib.gatech.edu/pub/apache//httpd/httpd-2.4.43.tar.gz
+wget http://www.gtlib.gatech.edu/pub/apache/httpd/httpd-2.4.54.tar.gz
 # Command to unzip the source code
-tar -xvzf httpd-2.4.43.tar.gz
+tar -xvzf httpd-2.4.54.tar.gz
 # command to change directory to extracted source code
-cd httpd-2.4.43
+cd httpd-2.4.54
 # commands to build
 ./configure
 make
@@ -713,25 +713,27 @@ Now open a web browser and navigate to http://127.0.0.1 and you should see the m
 
 ### Using Python to Install Python Based Programs
 
-Python has its own package installer called [**pip**](https://pypi.org/project/pip/ "Python Packager") which allows for software that is written in Python and independent of any Linux package manager.  The value of this is that you can install newer versions of a Python package without having to wait for package managers to package and host them.
+Python has its own package installer called [**pip**](https://pypi.org/project/pip/ "Python Packager") which allows for software that is written in Python and independent of any Linux package manager to be installed.  Pip allows you to install newer versions of a Python package without having to wait for a Linux distro's package manager.
 
-You can see an example of how to install Python language packages (eggs).  Take for example the packages required to install [dronekit.io](http://dronekit.io "drone kit").  Drone kit is an API for controlling [3D Robotics](https://www.3drobotics.com "drones") drones.  To [install their Python development packages](http://python.dronekit.io/guide/quick_start.html#installation "Python packages") you need to use ```pip``` the Python Package Installer.  All of the Python packages can be searched at [https://pypi.org](https://pypi.org "Python Packaging")
+You can see an example of how to install Python language packages (eggs). A popular package is called [OpenCV](https://pypi.org/project/opencv-python/ "Pypi opencv package webpage"), which allow you to do computer vision, object recognition, and image manipulation. We can install this very useful package via Pip. We can do this by opening the Terminal via the `Activities` tab and run these commands:
 
 ```bash
 # command to install python3 pip
 sudo apt-get install python3-setuptools python3-pip python3-dev
-sudo python3 -m pip install dronekit
-sudo python3 -m pip install dronekit-sitl
-sudo python3 -m pip install pyttsx3
+python3 -m pip install opencv-python
 ```
 
-![*Dronekit.io install*](images/Chapter-03/python-install/python-pip.png "Python PIP")
+There is sample code in the textbook repository. Under the directory `Files` > `Chapter-03` and run the command:
+
+```bash
+python3 show-image.py
+```
 
 ### Using Rust Packages
 
-The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is a new candidate to supplement or replace the C language.  Various people have undertaken to replace the GNU coretools with Rust based versions.   These tutorials will help you download and compile these tools with Rust and the Rust package manager called [Cargo](https://doc.rust-lang.org/cargo/ "Rust package manager website").  
+The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is essentially C language with memory safety. Various people have undertaken to replace the GNU coretools with Rust based versions. These tutorials will help you download and compile these tools with Rust and the Rust package manager called [Cargo](https://doc.rust-lang.org/cargo/ "Rust package manager website").
 
-To install the Rust programming language first:  ```curl https://sh.rustup.rs -sSf | sh``` and then follow the step to build Rust based version of the coreutils here: [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils").  You may need to install the `curl` package first.
+To install the Rust programming language first: ```curl https://sh.rustup.rs -sSf | sh``` and then follow the step to build Rust based version of the coreutils here: [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils"). You may need to install the `curl` package first.
 
 ### Installing VirtualBox Guest Additions Package
 
@@ -782,7 +784,7 @@ sudo reboot
 ```bash
 # Assuming using VirtualBox 6.1.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
-su root
+su - root
 apt-get update
 apt-get install build-essential dkms linux-headers-$(uname -r)
 mkdir -p /mnt/virtualboxga
@@ -792,7 +794,7 @@ cd /mnt/virtualboxga
 /usr/sbin/reboot
 ```
 
-#### Red Hat Fedora 33/34/35
+#### Red Hat Fedora 35/36
 
 ```bash
 # Assuming using VirtualBox 6.1.x and you have inserted 
