@@ -105,11 +105,11 @@ Now that we covered a bit about what a hypervisor is, let us begin the install p
 
 If you do try it, back up your data first, you never know what could go wrong. I created a [quad-boot system](https://forge.sat.iit.edu/2015/05/quad-boot-your-pc-ubuntu-15-04-centos-6-6-fedora-21-windows-10/ "Quad Boot") containing Ubuntu, Fedora, CentOS, and Windows 10.  This processes is beyond the scope of this book but the link is provided for those interested.
 
-You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was 32-bit or 64-bit?  In modern Linux distros, 32-bit distros are mostly a thing of the past due to all CPUs being 64bit.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most specialized or low end chip these days is 64-bit you should be safe with that type of distro.  
+You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was 32-bit or 64-bit?  In modern Linux distros, 32-bit distros are mostly a thing of the past due to all CPUs being 64bit.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most specialized or low end chip these days is 64-bit you should be safe with that type of distro. 
 
-The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture.  The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name.  There is one other type of architecture called ARM or ARMh7, AARCH, AARCH64.  This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi.  There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple will be moving their laptops to be ARM based starting in 2021.  It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.  
+The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture. The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name. There is one other type of architecture called ARM or ARMh7, AARCH, AARCH64. This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi. There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple has moved their laptops to be ARM based, the M1 macs, as of 2021. It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.
 
-Each distro also has a checksum feature provided by the site that issues the download.  A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be.  That way if you download an ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents or perhaps just a corrupted download.  Most distros use the SHA-256 hash, but for legacy purposes you still see md5 hashes.
+Each distro also has a checksum feature provided by the site that issues the download. A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be. That way if you download an ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents or perhaps just a corrupted download. Most distros use the SHA-256 hash, but for legacy purposes you still see md5 hashes.
 
 * [Get Fedora](https://getfedora.org "Get Fedora")
 * [Get Ubuntu](https://ubuntu.com "ubuntu")
@@ -163,9 +163,10 @@ Before beginning there are a series of questions you should ask yourself, "What 
   * Building Android applications?
   * Hacking your neighbor's Wi-Fi?
   * Developer platform for Coding? Audio and Video?
-  * Server edition (no gui)
+  * Server edition (no gui)?
   * Building Clusters, Cloud Computing, Serverless Computing, Virtual Machine farms
-* What processor do I have, 32-bit, 64-bit, ARM?  How much RAM do I have or need?
+* What processor do I have 64-bit (Intel or AMD) or ARM (Raspberry Pi)?
+  * How much RAM do I have or need?
 * Is this an old PC or laptop I am using--does it lack processor extensions that can aid in rendering media efficiently?
   * [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions "SSE")
   * [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions "AVX")
@@ -179,15 +180,15 @@ Upon completion of a fresh install and launching of VirtualBox you should see th
 
 ![*VirtualBox fresh install*](images/Chapter-03/VirtualBox-Install/new-installation.png "Fresh VirtualBox install")
 
-See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.  Unlike some opensource projects this documentation is actually very thorough and useful.  VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
+See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information. Unlike some opensource projects this documentation is actually very thorough and useful. VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
-Let us walk through the initial installation process.  The first step to begin is with the *NEW* button.  The next step is where we give our guest virtual machine a name.  VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version.  If you see the sample below I typed "Ubuntu-20-04-Desktop" and "Fedora-34-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.  
+Let us walk through the initial installation process. The first step to begin is with the *NEW* button. The next step is where we give our guest virtual machine a name. VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version. If you see the sample below I typed "Ubuntu-20-04-Desktop" and "Fedora-34-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.
 
 ![*Create New Ubuntu and Fedora Instance Dialogs*](images/Chapter-03/VirtualBox-Install/name-and-operating-system-two.png "Create New Instance Dialog")
 
-What happens if you choose the wrong type or version?  Two things: __first__, if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it.  You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off.  __Second__, if you select the wrong version, (32-bit instead of 64-bit) you will receive an error from the BIOS as the operating system loads explaining that it cannot continue.
+What happens if you choose the wrong type or version? Two things: __first__, if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it. You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off. __Second__, if you select the wrong version, (32-bit instead of 64-bit) you will receive an error from the BIOS as the operating system loads explaining that it cannot continue.
 
-Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate.  The recommended amount of memory is at least one gigabyte but two gigabytes or more will be better.
+Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate. The recommended amount of memory is at least one gigabyte but two gigabytes or more will be better.
 
 ![*Memory Selection Dialog*](images/Chapter-03/VirtualBox-Install/memory-size.png "Memory Selection Dialog")
 
@@ -195,25 +196,25 @@ The next step is the hard drive creation step. In this step we will choose to cr
 
 ![*Drive Type*](images/Chapter-03/VirtualBox-Install/hard-disk.png "Drive Type")
 
-Next is the hard drive file format.  There are a few competing standards.  If you know you are going to be working in the VirtualBox environment then the default VDI virtual disk type is sufficient.
+Next is the hard drive file format. There are a few competing standards. If you know you are going to be working in the VirtualBox environment then the default VDI virtual disk type is sufficient.
 
 ![*Hard Disk File Type*](images/Chapter-03/VirtualBox-Install/file-type.png "Hard Disk File Type")
 
-You can choose to dynamically allocate your hard drive space or statically allocate it.  The advantage of dynamically allocating is that not all the space will be assigned right away.  The hard drive will grow incrementally as you need space until it hits the maximum you defined.
+You can choose to dynamically allocate your hard drive space or statically allocate it. The advantage of dynamically allocating is that not all the space will be assigned right away. The hard drive will grow incrementally as you need space until it hits the maximum you defined.
 
 ![*Disk Type*](images/Chapter-03/VirtualBox-Install/storage-type.png "Disk Type")
 
-The final option dialog is where you can choose where to store your virtual machine's virtual hard drive and the amount of virtual hard drive you want to allocate.  Here you have a choice of how much hard drive space you will allocate to the guest VM.  This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM. As a rule of thumb, I generally double the space recommended. Usually the default storage location is fine unless you know you need to store the hard drive on a separate partition or disk.
+The final option dialog is where you can choose where to store your virtual machine's virtual hard drive and the amount of virtual hard drive you want to allocate. Here you have a choice of how much hard drive space you will allocate to the guest VM. This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM. As a rule of thumb, I generally double the space recommended. Usually the default storage location is fine unless you know you need to store the hard drive on a separate partition or disk.
 
 ![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/file-location-and-size.png "Harddisk allocation")
 
-Now click *finish* and you should be ready to go.  
+Now click *finish* and you should be ready to go. 
 
 ### Walk Through the Settings
 
 ![*Virtual Machine Settings*](images/Chapter-03/VirtualBox-Install/settings.png "Virtual Machine Settings")
 
-Before we hit the start button - let us select one of our virtual machines and take a look at the content of the SETTINGS button.  Here we will find all the settings possible related to our virtual machine.  Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware.  The most common options you will deal with are described as follows:
+Before we hit the start button - let us select one of our virtual machines and take a look at the content of the SETTINGS button. Here we will find all the settings possible related to our virtual machine. Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware. The most common options you will deal with are described as follows:
 
 General
 
@@ -241,39 +242,39 @@ Hitting the *START* button on your virtual machine for Ubuntu 20.04 Desktop will
 
 ![*Select ISO install media*](images/Chapter-03/ubuntu-install/select-iso.png "Select ISO")
 
-*WELCOME* screen.  Here you will be presented with the option to choose your install language.  As well as presented with two options:  *TRY UBUNTU* or *INSTALL UBUNTU*.  The option *TRY UBUNTU* will load the actual Ubuntu operating system but load it into RAM and not install it on your hard drive.  This is helpful because it gives you the option to use Ubuntu fully without permanently installing it.  Note that all data is stored in memory so nothing will survive a reboot - but this may be a good tool for doing online banking with.  The Live option also has the option to go into an install mode via a desktop icon.
+*WELCOME* screen. Here you will be presented with the option to choose your install language. As well as presented with two options: *TRY UBUNTU* or *INSTALL UBUNTU*. The option *TRY UBUNTU* will load the actual Ubuntu operating system but load it into RAM and not install it on your hard drive. This is helpful because it gives you the option to use Ubuntu fully without permanently installing it. Note that all data is stored in memory so nothing will survive a reboot - but this may be a good tool for doing online banking with. The Live option also has the option to go into an install mode via a desktop icon.
 
 ![*Live or Install Mode*](images/Chapter-03/ubuntu-install/live-install.png "Live Install")
 
-For installation type you will be presented with default options such as *ERASE DISK AND INSTALL UBUNTU*.  In addition there are options for enabling full disk encryption for securing your install data.  The third option listed is to install using the LVM method of partitioning, which will be covered in chapter 12.  The fourth option is for a custom partitioning, which is helpful in cases when you are installing multiple operating systems and create a multi-boot system.  
+For installation type you will be presented with default options such as *ERASE DISK AND INSTALL UBUNTU*. In addition there are options for enabling full disk encryption for securing your install data. The third option listed is to install using the LVM method of partitioning, which will be covered in chapter 12. The fourth option is for a custom partitioning, which is helpful in cases when you are installing multiple operating systems and create a multi-boot system.
 
 ![*Confirm Partitions*](images/Chapter-03/ubuntu-install/installation-type.png "Installation Type")
 
-At the completion of this dialog box you will be asked to confirm the automatically generated partitions created by the system.  A Linux system needs a minimum of 2 partitions to function but 3 are recommended.  Those partitions are / (pronounced root), /boot (where all the files needed to start the OS are located, and swap (which is an on disk based RAM supplement partition.  
+At the completion of this dialog box you will be asked to confirm the automatically generated partitions created by the system. A Linux system needs a minimum of 2 partitions to function but 3 are recommended. Those partitions are / (pronounced root), /boot (where all the files needed to start the OS are located, and swap (which is an on disk based RAM supplement partition.
 
 ![*Installation Type*](images/Chapter-03/ubuntu-install/updates-and-other-software.png "Updates and Other Software")
 
-The next parts of the installation contain pretty straight-forward parts: time zone selection, keyboard layout, and account creation and password setup.  Note that Ubuntu doesn't create any root user by default, which ever user you create first is automatically placed into the **sudo** group, which is a super user.  For a discussion of password strength and strategies [see this cartoon](http://imgs.xkcd.com/comics/password_strength.png "Password Strength Argument"). You can also see the install details by clicking the small white triangle to reveal the verbose output of the process.  
+The next parts of the installation contain pretty straight-forward parts: time zone selection, keyboard layout, and account creation and password setup. Note that Ubuntu doesn't create any root user by default, which ever user you create first is automatically placed into the **sudo** group, which is a super user. For a discussion of password strength and strategies [see this cartoon](http://imgs.xkcd.com/comics/password_strength.png "Password Strength Argument"). You can also see the install details by clicking the small white triangle to reveal the verbose output of the process
 
 ![*Install Details*](images/Chapter-03/ubuntu-install/user-account.png "User Account Details")
 
 ### Installing Fedora
 
-Similarly on Fedora 32 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode.  You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 32 will initially present you with a language screen option.  After choosing your default language the next step is the *installation summary*.
+Similarly on Fedora 32 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode. You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 32 will initially present you with a language screen option. After choosing your default language the next step is the *installation summary*.
 
 ![*Installation Summary*](images/Chapter-03/fedora-install/installation-summary.png "Installation Summary")
 
-You will note 3 categories: keyboard, time and date, and installation destination.  The first three options should all be filled out by default, the last option installation destination will have an orange notification icon next to it.  This means we need to double click on this section and enter a sub-menu before we can continue.  
+You will note 3 categories: keyboard, time and date, and installation destination. The first three options should all be filled out by default, the last option installation destination will have an orange notification icon next to it. This means we need to double click on this section and enter a sub-menu before we can continue.
 
 ![*Device Selection*](images/Chapter-03/fedora-install/device-selection-370-by-200.png "Device Selection")
 
-This warning icon is a forcing mechanism to make you review these settings.  You will see visual icons of all the hard disks available for installation.  The one with a white checkmark is the disk where the __"/"__ (root) partition will be installed. If the default selections are satisfactory then you can click __DONE__ button at the top to the screen and continue.   Otherwise at the bottom of the screen are the detailed installation options, which include encryption, LVM, and external installation drives such as over iSCSI or NFS.
+This warning icon is a forcing mechanism to make you review these settings. You will see visual icons of all the hard disks available for installation. The one with a white checkmark is the disk where the __"/"__ (root) partition will be installed. If the default selections are satisfactory then you can click __DONE__ button at the top to the screen and continue.  Otherwise at the bottom of the screen are the detailed installation options, which include encryption, LVM, and external installation drives such as over iSCSI or NFS.
 
 ![*Specialized Details*](images/Chapter-03/fedora-install/specialized-disks-330-by-200.png "Specialized Details")
 
 Now you can click "*begin installation*".
 
-The installation will finish without prompting you for creating a user.  This will be done on the subsequent reboot as part of the setup process.  You will be prompted with optional dialogs, and then a user creation dialog where you will create a user account that will be given admin privileges and/or the ability to log into a corporate account that is managed by a central LDAP or Active Directory (single sign-on).
+The installation will finish without prompting you for creating a user. This will be done on the subsequent reboot as part of the setup process. You will be prompted with optional dialogs, and then a user creation dialog where you will create a user account that will be given admin privileges and/or the ability to log into a corporate account that is managed by a central LDAP or Active Directory (single sign-on).
 
 ![*Create User With Sudo*](images/Chapter-03/fedora-install/user-account-fedora.png "Create User With Sudo")
 
@@ -283,9 +284,9 @@ The installation will finish without prompting you for creating a user.  This wi
 
 ![*Always check the package dependencies...*](images/Chapter-03/package-managers/debian_main-2.png "Dependencies")
 
-One of the initial claims against using Linux and Unix was that software install was a nightmare.  Software had been distributed in tarballs (\*.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had its own dependencies and those had dependencies too.  You see how this could get ugly quickly.  Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].  
+One of the initial claims against using Linux and Unix was that software install was a nightmare. Software had been distributed in `tarballs` (.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had its own dependencies and those had dependencies too. You see how this could get ugly quickly. Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].
 
-Feldman realized building software was difficult and created the ```make``` build system.  The ```make``` system uses a file named ```makefile``` that includes instructions and ordered steps that can be repeated every time software is built.  This allows software to be portable across systems (in theory).  The utility ```make``` is the binary that automatically builds executable programs and libraries from source code by reading the *makefiles*[^106]. Here is an example makefile:
+Feldman realized building software was difficult and created the ```make``` build system. The ```make``` system uses a file named ```makefile``` that includes instructions and ordered steps that can be repeated every time software is built. This allows software to be portable across systems (in theory). The utility ```make``` is the binary that automatically builds executable programs and libraries from source code by reading the *makefiles*[^106]. Here is an example `makefile`:
 
 ```makefile
      all: helloworld
@@ -305,17 +306,17 @@ Feldman realized building software was difficult and created the ```make``` buil
     .SUFFIXES: .c
 ```
 
-Clear as mud right?  Like many things in the Unix world, the ```makefile``` system has been modified and augmented but still persists as the way software project are built and installed some 30 years later. Makefiles have an arcane syntax that few people enjoy and over the years ```make``` has been often rewritten.   In 1988 the GNU project had released their Free Software version of ```make``` called GNU Make or ```gmake```. GNU make is included in all standard Linux distributions and is even required for compiling the Linux Kernel.  There are other versions of ```make``` including the Unix version, ```pmake``` and ```bmake``` on the BSD Unix variants, there is a cross platform build tool called ```cmake``` and even Microsoft has its own build tool that can be used called ```nmake```.
+Like many things in the Unix world, the ```makefile``` system has been modified and augmented but still persists as the way software project are built and installed some 30 years later. Makefiles have an arcane syntax that few people enjoy and over the years ```make``` has been often rewritten. In 1988 the GNU project had released their Free Software version of ```make``` called GNU Make or ```gmake```. GNU make is included in all standard Linux distributions and is even required for compiling the Linux Kernel. There are other versions of ```make``` including the Unix version, ```pmake``` and ```bmake``` on the BSD Unix variants, there is a cross platform build tool called ```cmake``` and even Microsoft has its own build tool that can be used called ```nmake```.
 
 ### Traditional Package Managers
 
-This style of software installation put a high barrier to who could practically use Unix/Linux.  Linux distributions took to making software installation and distribution easier by introducing something initially called __Package Managers__.  These were meant to eliminate all of the above process by solving two key problems. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed.  Second package managers would solve the dependency issues by keeping track of the dependency trail and be smart enough to follow that trail before installation.
+This style of software installation put a high barrier to who could practically use Unix/Linux. Linux distributions took to making software installation and distribution easier by introducing something initially called __Package Managers__. These were meant to eliminate all of the above process by solving two key problems. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed. Second package managers would solve the dependency issues by keeping track of the dependency trail and be smart enough to follow that trail before installation.
 
 #### .deb
 
-The first package manager was __dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primitive package manager.  The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
+The first package manager was __dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primitive package manager. The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
 
-A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107].  One is the control data which is listed as such:
+A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107]. One is the control data which is listed as such:
 
 ```yaml
      Package: hello
@@ -330,11 +331,11 @@ A Debian package (or ```.deb``` file) is really just made up of two tarballs [^1
      The GNU hello program produces a familiar, friendly greeting.
 ```
 
-The most important line being the __Depends__ option which controls dependencies and can prevent installation if these conditions cannot be met.  The second component includes the binary or pre-compiled portion of the code.  Using ```dpkg``` is a clear step above using tarballs and compiling the code yourself.
+The most important line being the __Depends__ option which controls dependencies and can prevent installation if these conditions cannot be met. The second component includes the binary or pre-compiled portion of the code. Using ```dpkg``` is a clear step above using tarballs and compiling the code yourself.
 
-Recently with Oracle changing the nature of how Java is supported with the transition from Java 8 and 11 and into the future, concerned companies created their own OpenJDK for download that will be supported.  One such instance is [Amazon Corretto](https://aws.amazon.com/corretto/ "Amazon Corretto OpenJDK").  These releases are created in ```.deb``` packages.  Let's download one and install it using a simple command called ```wget``` or you can open a web browser and download the package and install it manually.   Click on the link and save the ```.deb``` file on Ubuntu. Now using the ```dpkg``` command we can install the package manually (note there may be an error message about a missing dependency).
+Recently with Oracle changing the nature of how Java is supported with the transition from Java 8 and 11 and into the future, concerned companies created their own OpenJDK for download that will be supported. One such instance is [Amazon Corretto](https://aws.amazon.com/corretto/ "Amazon Corretto OpenJDK"). These releases are created in ```.deb``` packages. Let's download one and install it using a simple command called ```wget``` or you can open a web browser and download the package and install it manually.  Click on the link and save the ```.deb``` file on Ubuntu. Now using the ```dpkg``` command we can install the package manually (note there may be an error message about a missing dependency).
 
-> __Example Usage:__
+#### DEB package install example
 
 ```bash
 # From the command line terminal after you have downloaded the file
@@ -346,9 +347,9 @@ sudo dpkg -i ./java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
 sudo rpm -iv https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.rpm
 ```
 
-You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser.  The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through dpkg in Ubuntu's case. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
+You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser. The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through dpkg in Ubuntu's case. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
 
-> __Example Usage:__  
+#### RPM Package example
 
 ```bash
 # Download URL at: https://vivaldi.com/download/
@@ -359,7 +360,7 @@ sudo rpm -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.rp
 sudo dpkg -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
 ```
 
-After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why?  You will notice that `dpkg` command found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
+After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why? You will notice that `dpkg` command found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
 
 __Example Usage:__
 
@@ -376,7 +377,7 @@ __Example Usage:__   There are other flags but the most common are these:
 * ```sudo dpkg -l or --list```
 * ```sudo dpkg --status links```
 
-__Example Usage:__ Let's use the ```dpkg``` command to list all kernel versions we have installed and the ```purge``` command to remove those old kernels entirely.  
+__Example Usage:__ Let's use the ```dpkg``` command to list all kernel versions we have installed and the ```purge``` command to remove those old kernels entirely.
 
 ```bash
 sudo apt-get dist-upgrade
@@ -395,7 +396,7 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 
 #### RPM
 
- A few years after dpkg became standard on Debian based distros, the Red Hat Linux created their own package manager out of necessity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.)  It is used across Fedora and RHEL derivatives.  RPM is also used on IBM's AIX Unix distribution.  RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113].
+ A few years after dpkg became standard on Debian based distros, the Red Hat Linux created their own package manager out of necessity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.) It is used across Fedora and RHEL derivatives. RPM is also used on IBM's AIX Unix distribution. RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113].
 
 > __Example Usage:__ List all installed packages:
 ```rpm -qa```
@@ -412,9 +413,9 @@ sudo apt-get remove linux-image-x.x.x-xx-generic
 > __Example Usage:__ Get information about a remote package
 ```rpm -qpi <url>```
 
-Similar to the previous example let us download the Vivaldi RPM and install it locally.  [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com").  After selecting the Vivaldi 64 bit rpm and using the ```-i``` flag to install it, what error message is printed?  
+Similar to the previous example let us download the Vivaldi RPM and install it locally. [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com"). After selecting the Vivaldi 64 bit rpm and using the ```-i``` flag to install it, what error message is printed?
 
-Let's try another rpm.  This one is called "elrepo," it for Enterprise Linux version RHEL and CentOS.  This adds up to date packages and third party repos, adding software that is not part of the stable Enterprise repos.  The rpm is located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "elrepo website").  You need a few pre-reqs to make this work.
+Let's try another rpm. This one is called "elrepo," it for Enterprise Linux version RHEL and CentOS. This adds up to date packages and third party repos, adding software that is not part of the stable Enterprise repos. The rpm is located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "elrepo website"). You need a few pre-reqs to make this work.
 
 ```bash
 # Add the GPG key for the repo to make sure that you are adding the official elrepo
@@ -427,7 +428,7 @@ sudo yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
 
 #### Other Package Managers
 
-As you can see that package managers were a great step forward in making Linux usable. But they don't handle the dependency issue--they don't understand the context of auto-dependency retrieval.  Various solutions were created and new ones seem to pop up with each new Linux distro.  Fedora based distros use yum and now use dnf (as of Fedora 23) and Debian based distros use apt. Others you might encounter are:
+As you can see that package managers were a great step forward in making Linux usable. But they don't handle the dependency issue--they don't understand the context of auto-dependency retrieval. Various solutions were created and new ones seem to pop up with each new Linux distro. Fedora based distros use yum and now use dnf (as of Fedora 23) and Debian based distros use apt. Others you might encounter are:
 
 * [Zypper](https://en.wikipedia.org/wiki/ZYpp "SuSe Zypper web page")
 * [xbps](https://docs.voidlinux.org/xbps/index.html "xbps package manager webpage")
@@ -444,7 +445,7 @@ Apt (for Advanced Package Tool) is a set of core tools inside Debian. Apt makes 
 * Remove applications
 * Keep your applications up to date
 
-The APT installer was released in 1998, the same time that Red Hat released its package manager (giving Debian a leg up and a few years head-start).  APT was the out growth of a research project called *Deity* run by the Debian developers.  It was planned to be a large GUI-like project, but it turns out that the APT CLI was implemented with such finesse and simplicity that all GUI plans were dropped.  APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock considers APT to be one of the best contributions of Linux [^108].  APT stands for the Advanced Packaging Toolkit.  APT will interface with *dpkg* and has many similar commands but extends the functionality of dpkg in a critical way.  
+The APT installer was released in 1998, the same time that Red Hat released its package manager (giving Debian a leg up and a few years head-start). APT was the out growth of a research project called *Deity* run by the Debian developers. It was planned to be a large GUI-like project, but it turns out that the APT CLI was implemented with such finesse and simplicity that all GUI plans were dropped. APT is mentioned as one of the key user based features for Debian based distros and Debian's founder Ian Murdock considers APT to be one of the best contributions of Linux [^108]. APT stands for the Advanced Packaging Toolkit. APT will interface with *dpkg* and has many similar commands but extends the functionality of dpkg in a critical way.
 
 APT, which basically resolves dependency problems and retrieves the requested packages, works with dpkg under the hood. The main commands of APT are as follows:
 
@@ -458,13 +459,13 @@ APT, which basically resolves dependency problems and retrieves the requested pa
 
 #### Repositories
 
-APT relies on the concept of repositories in order to find software and resolve dependencies. For apt, a repository is a directory containing packages along with an index file. This can be specified as a networked or local based location. The Debian project keeps a central repository of over 25,000 software packages ready for download and installation.  This includes ability to add non-free software repositories as well.    You can add additional repositories via the ```add-apt-repository``` command.  This is used to add community maintained PPA's--which stand for *personal package archive.*  These are for packages maintained outside of Debian's rigorous package checking standards and 1 to 2 year release window. Hence the cartoon at the beginning of the chapter.  
+APT relies on the concept of repositories in order to find software and resolve dependencies. For apt, a repository is a directory containing packages along with an index file. This can be specified as a networked or local based location. The Debian project keeps a central repository of over 25,000 software packages ready for download and installation. This includes ability to add non-free software repositories as well. You can add additional repositories via the ```add-apt-repository``` command. This is used to add community maintained PPA's--which stand for *personal package archive.* These are for packages maintained outside of Debian's rigorous package checking standards and 1 to 2 year release window. Hence the cartoon at the beginning of the chapter.
 
-The package system and architecture is on of the reasons for Debian's long standing existence and credibility.  The system just works. Ubuntu is a Debian derivative that utilizes this archive of packages.  Remember that the founder of Ubuntu, Mark Shuttleworth, had been a Debian contributor at one point. Ubuntu builds on top of Debian's 25,000 packages by maintaining additional *downstream* repositories that add additional software and repositories to make up the Ubuntu distribution.  Ubuntu is a little more liberal on including non-free drivers for mainly high-end video cards.  Users can then add additional repositories or PPA's of their own choosing to extend APT functionality and expand that package base.  
+The package system and architecture is on of the reasons for Debian's long standing existence and credibility. The system just works. Ubuntu is a Debian derivative that utilizes this archive of packages. Remember that the founder of Ubuntu, Mark Shuttleworth, had been a Debian contributor at one point. Ubuntu builds on top of Debian's 25,000 packages by maintaining additional *downstream* repositories that add additional software and repositories to make up the Ubuntu distribution. Ubuntu is a little more liberal on including non-free drivers for mainly high-end video cards. Users can then add additional repositories or PPA's of their own choosing to extend APT functionality and expand that package base.
 
-Seeing as you may want to access a more recent build of an application that may not be in the standard Debian/Ubuntu distribution or not even submitted to a repository because the version is moving too fast or the maintainer just didn't want to package it up.  For example if you want to install a newer version of the Python3 language on your system, you have to wait for another version of the OS.
+Seeing as you may want to access a more recent build of an application that may not be in the standard Debian/Ubuntu distribution or not even submitted to a repository because the version is moving too fast or the maintainer just didn't want to package it up. For example if you want to install a newer version of the Python3 language on your system, you have to wait for another version of the OS.
 
-> __Example Usage:__  For example, Ubuntu 2004 installs Python 3.8.x by default and doesn't update the major version until the next Ubuntu release.  But what if you needed to test a newer or older version of Python?  Try the below sequence:
+> __Example Usage:__ For example, Ubuntu 2004 installs Python 3.8.x by default and doesn't update the major version until the next Ubuntu release. But what if you needed to test a newer or older version of Python? Try the below sequence:
 
 ```bash
 # Check your current Python3 version - 3.8.x on Ubuntu 2004
@@ -480,11 +481,11 @@ python3.6 -V
 
 #### Linux-libre PPA
 
-There is also a PPA for Linux-libre.  Linux-libre is a GNU package that is a modified version of the Linux kernel. The aim of the project is to remove from non-free or significantly obfuscated code[^111] from the Linux kernel. The downside of removing proprietary firmware from the kernel is that it will cause lose functionality for certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards.
+There is also a PPA for Linux-libre. Linux-libre is a GNU package that is a modified version of the Linux kernel. The aim of the project is to remove from non-free or significantly obfuscated code[^111] from the Linux kernel. The downside of removing proprietary firmware from the kernel is that it will cause lose functionality for certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards.
 
 The resulting combination of the GNU Operating System and the kernel named Linux is the GNU+Linux operating system, although many (incorrectly) refer to it as ["Linux"](http://www.gnu.org/gnu/linux-and-gnu.html "GNU/Linux")[^112].
 
-> __Example Usage:__ Let's set our kernel free... The full instructions are at this website:  [https://jxself.org/linux-libre/](https://jxself.org/linux-libre/ "Libre-Linux")  Once successful, reboot your system and/while holding down shift - you should see the menu in the image below appear. Choose *Advanced Options For Ubuntu* and you will see your GNU/Libre kernels.  Try to boot from one.
+> __Example Usage:__ Let's set our kernel free... The full instructions are at this website: [https://jxself.org/linux-libre/](https://jxself.org/linux-libre/ "Libre-Linux") Once successful, reboot your system and/while holding down shift - you should see the menu in the image below appear. Choose *Advanced Options For Ubuntu* and you will see your GNU/Libre kernels. Try to boot from one.
 
 These are the short steps:
 
@@ -522,17 +523,17 @@ Here is a list of all the configuration and cache files related to APT and their
 
 ### yum & dnf
 
-Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer.  Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution.  YUM is supported in Fedora 22 but now deprecated and DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003.  An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM.  Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice.  YUM is still available on RHEL and CentOS but as companies move to version 7 and 8, this will begin to change too. Yum will be eventually replaced by DNF.  Both YUM and DNF use repositories that are maintained by Red Hat or CentOS or even their RHEL repos.
+Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer. Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution. YUM is supported in Fedora 22 but now deprecated and DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003. An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM. Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice. YUM is still available on RHEL and CentOS but as companies move to version 7 and 8, this will begin to change too. Yum will be eventually replaced by DNF. Both YUM and DNF use repositories that are maintained by Red Hat or CentOS or even their RHEL repos.
 
-You can find the installed repositories in ```/etc/yum.repos.d```.  Each file listed will contain information about the URL where it retrieves repos.  There is also an ability to set priorities as to which repo is checked first.  As we did in previous chapters, we added RPM repos.  The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge").  Taken directly from their website, *"RPMFusion ships packages that Fedora and Red Hat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.  
+You can find the installed repositories in ```/etc/yum.repos.d```. Each file listed will contain information about the URL where it retrieves repos. There is also an ability to set priorities as to which repo is checked first. As we did in previous chapters, we added RPM repos. The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge"). Taken directly from their website, *"RPMFusion ships packages that Fedora and Red Hat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.
 
 ![*Installed Repositories Fedora 30*](images/Chapter-03/yum/etc-yum.png "YUM")
 
-[FFmpeg](https://en.wikipedia.org/wiki/FFmpeg "FFMpeg") is a free software project, the product of which is a vast software suite of libraries and programs for handling video, audio, and other multimedia files and streams.   If we try to install it via ```sudo dnf install ffmpeg``` we get this message, why?  
+[FFmpeg](https://en.wikipedia.org/wiki/FFmpeg "FFMpeg") is a free software project, the product of which is a vast software suite of libraries and programs for handling video, audio, and other multimedia files and streams. If we try to install it via ```sudo dnf install ffmpeg``` we get this message, why?
 
 ![*Unable to Find a Match*](images/Chapter-03/yum/unable.png "Unable to find a match")
 
-First we want to check if we have the correct RPM name.  We can search through our repos looking for the name by typing the ```sudo dnf search [fF]mpeg*``` command.  This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
+First we want to check if we have the correct RPM name. We can search through our repos looking for the name by typing the ```sudo dnf search [fF]mpeg*``` command. This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
 
 To enable the download the RPMFusion repos for adding additional software of free and non-free type you can type the following commands:
 
@@ -565,11 +566,11 @@ http://download1.rpmfusion.org/free/fedora/\
 rpmfusion-free-release-32.noarch.rpm
 ```
 
-If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora.  No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo").  The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers.  This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.  
+If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora. No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo"). The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers. This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.
 
-Once those RPMFusion repos have been added you can now retry the example above and install, FFMpeg, Denyhosts, and Links.  Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.
+Once those RPMFusion repos have been added you can now retry the example above and install `FFMpeg`, `Denyhosts`, and `Links`. Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.
 
-> __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added.  Try to install links the web browser that failed when we tried to install it.  The command is ```sudo dnf install links```.  The command ```sudo dnf remove links``` will uninstall it.  The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending.  You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well.   These are the series of commands to install the DNF upgrade plugin and then execute the process.
+> __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added. Try to install links the web browser that failed when we tried to install it. The command is ```sudo dnf install links```. The command ```sudo dnf remove links``` will uninstall it. The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending. You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well. These are the series of commands to install the DNF upgrade plugin and then execute the process.
 
 * ```sudo dnf update --refresh```
 * ```sudo dnf install dnf-plugin-system-upgrade```
@@ -578,13 +579,13 @@ Once those RPMFusion repos have been added you can now retry the example above a
 
 ## New Package Managers as App Stores
 
-The one thing that you can say the mobile revolution brought into computing is the concept of an "app store."  Apple obviously came first, Google Play Store, and even the Microsoft Store took root.  The concept of an app store is pretty ubiquitous at this point.  These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store.  On a fundamental level Linux is conceptually not compatible with the concept of an app store.  But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability.  To this end two standardized methods were developed: Flatpak and snaps.  Snaps were created by Ubuntu and is account based across Linux distros that support the snapd library.  Flatpak is the competing standard championed by Red Hat.  
+The one thing that you can say the mobile revolution brought into computing is the concept of an "app store." Apple obviously came first, Google Play Store, and even the Microsoft Store took root. The concept of an app store is pretty ubiquitous at this point. These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store. On a fundamental level Linux is conceptually not compatible with the concept of an app store. But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability. To this end two standardized methods were developed: Flatpak and snaps. Snaps were created by Ubuntu and is account based across Linux distros that support the snapd library. Flatpak is the competing standard championed by Red Hat.
 
 ### Snaps and snapd
 
-In 2019 Canonical, the parent company of Ubuntu, introduced a new package manager architecture called Snaps.  This architecture includes a package manager process called **snapd**, packages called **snaps**.  The technology is housed at a neutral organization site called [snapcraft](https://snapcraft.io/ "Snapcraft").
+In 2019 Canonical, the parent company of Ubuntu, introduced a new package manager architecture called Snaps. This architecture includes a package manager process called **snapd**, packages called **snaps**. The technology is housed at a neutral organization site called [snapcraft](https://snapcraft.io/ "Snapcraft").
 
-Snaps are an attempt to create a similar concept to modern App Stores on mobile devices.  They allow for updating packages in place and the packages contain all needed dependencies.  This is a different focus from simple package managers like APT and RPM. In addition, you can "package" existing applications into Snaps and or distribute them via a Snap account to devices and then instantly download them on another machine that supports snaps.  Currently, Ubuntu distributions are the only Linux distros that have Snappy installed by default.
+Snaps are an attempt to create a similar concept to modern App Stores on mobile devices. They allow for updating packages in place and the packages contain all needed dependencies. This is a different focus from simple package managers like APT and RPM. In addition, you can "package" existing applications into Snaps and or distribute them via a Snap account to devices and then instantly download them on another machine that supports snaps. Currently, Ubuntu distributions are the only Linux distros that have Snappy installed by default.
 
 Snaps, similar to the App Store concept, allows you to:
 
@@ -597,7 +598,7 @@ Snaps, similar to the App Store concept, allows you to:
 
 In Ubuntu 20.04, some packages when installed via apt, have been redirected to use the appropriate Snap package, which has bothered some, and one distro Linux Mint has removed Snaps all together. Snaps can be installed from the commandline or via the Store Icon in the Ubuntu Desktop.
 
-You can open the Ubuntu Software Icon on the Favorites Bar and select some software.  Lets install Notepad++.  You can also install Snaps from the command line.  Open a terminal and issue the below commands to find software package names (since there is no GUI to browse):
+You can open the Ubuntu Software Icon on the Favorites Bar and select some software. Lets install Notepad++. You can also install Snaps from the command line. Open a terminal and issue the below commands to find software package names (since there is no GUI to browse):
 
 ```bash
 # This command will show your installed Notepad++ snap from the store
@@ -605,7 +606,7 @@ sudo snap list
 sudo snap find vscode
 # You will see a list of output and a column with the term "classic" or not.
 # This means that the first version of snap that packages were built for
-# did not have the sandboxing technology of a traditional app.  
+# did not have the sandboxing technology of a traditional app.
 # They are conventional application packages.
 ```
 
@@ -620,9 +621,9 @@ sudo snap list
 
 ### Flatpak
 
-Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command - [Flatpak](https://www.Flatpak.org/ "Flatpak").  You can see software available at [Flathub](https://flathub.org/home "Flathub").
+Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command - [Flatpak](https://www.Flatpak.org/ "Flatpak"). You can see software available at [Flathub](https://flathub.org/home "Flathub").
 
-Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications.  It is installed as standard on Fedora 32, but not other distributions.  Let's install some Flatpak and some applications:  The first thing is to install the Flatpak package. [That is done at the Flatpak repo page](https://www.Flatpak.org/setup/ "Flatpak"). Let's try it with an Ubuntu distribution:
+Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard on Fedora 32, but not other distributions. Let's install some Flatpak and some applications: The first thing is to install the Flatpak package. [That is done at the Flatpak repo page](https://www.Flatpak.org/setup/ "Flatpak"). Let's try it with an Ubuntu distribution:
 
 #### Install Flatpak for Ubuntu
 
@@ -645,7 +646,7 @@ Add the Flathub repository if you don't already have it:
 
 #### Install Flatpak on Fedora/CentOS
 
-Flatpak is installed by default in Fedora 32+ and Centos 7+.  You just need to add the flatpak repo:
+Flatpak is installed by default in Fedora 32+ and Centos 7+. You just need to add the flatpak repo:
 
 ```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
 
@@ -659,7 +660,7 @@ Once that is done here is an example of installing Flatpaks:
 * ```sudo flatpak install flathub org.blender.Blender```
 * ```sudo flatpak install flathub com.obsproject.Studio```
 
-These apps appear on your start menu after a logout and log back in.  They can also be launched via the ```Flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```.  You can find the official Flatpak name by issuing the command: ```Flatpak list```.
+These apps appear on your start menu after a logout and log back in. They can also be launched via the ```Flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```. You can find the official Flatpak name by issuing the command: ```Flatpak list```.
 
 * ```flatpak run flathub org.videolan.VLC```
 * ```flatpak run flathub com.discordapp.Discord```
@@ -669,7 +670,7 @@ These apps appear on your start menu after a logout and log back in.  They can a
 
 ### AppImage
 
-A third new package manager has arisen called [AppImage](https://appimage.org "app image website").  The idea here is for standalone compatibility.  AppImages are larger files because they contain all of the necessary libraries to run, packed with the application.  This is sometimes called a fat-binary.  This eliminates worrying about software library versions as everything is self-contained.  This is also a good way to distribute older software that may not run on newer systems. AppImage should have vendor support, but currently doesn't have wide deployment, but the AppImage is supported across most Linux distros due to third party work.  AppImages are self-contained binaries so there is no main store or tool for updating, you have to find them and keep an eye on them to make sure they are the latest or most up to date versions.
+A third new package manager has arisen called [AppImage](https://appimage.org "app image website"). The idea here is for standalone compatibility. AppImages are larger files because they contain all of the necessary libraries to run, packed with the application. This is sometimes called a fat-binary. This eliminates worrying about software library versions as everything is self-contained. This is also a good way to distribute older software that may not run on newer systems. AppImage should have vendor support, but currently doesn't have wide deployment, but the AppImage is supported across most Linux distros due to third party work. AppImages are self-contained binaries so there is no main store or tool for updating, you have to find them and keep an eye on them to make sure they are the latest or most up to date versions.
 
 [AppImageHub](https://appimage.github.io/)
 
@@ -680,17 +681,17 @@ A third new package manager has arisen called [AppImage](https://appimage.org "a
 
 ## Compiling and Installing source code
 
-In addition to packages you may still want to compile software from source.  This way you can take advantage of the latest compiler optimizations and CPU support.  Or compile older versions that have a feature you need that is no longer supported as a package any more.
+In addition to packages you may still want to compile software from source. This way you can take advantage of the latest compiler optimizations and CPU support. Or compile older versions that have a feature you need that is no longer supported as a package any more.
 
 ### GNU GCC
 
-The main tool needed is the GNU C compiler or GCC for short.  This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software.  There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well.  You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```.  In Fedora you would add these two commands via `yum` or `dnf`: ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```.  You can compile code directly by invoking the gcc or ```g++``` command.
+The main tool needed is the GNU C compiler or GCC for short. This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software. There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well. You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```. In Fedora you would add these two commands via `yum` or `dnf`: ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```. You can compile code directly by invoking the gcc or ```g++``` command.
 
 ### GNU Make
 
-As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file.  That compiled source is then placed into the proper system directories by the ```make install``` command.  This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled Apache2 binaries, it defaults to ```/usr/local/apache2/```.
+As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file. That compiled source is then placed into the proper system directories by the ```make install``` command. This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled Apache2 binaries, it defaults to ```/usr/local/apache2/```.
 
-Let's compile something to see how this works.  This link is to the Apache webserver version 2.4.x latest source code: [http://httpd.apache.org/docs/2.4/install.html](http://httpd.apache.org/docs/2.4/install.html "Apache Webserver Instructions").  Let's install some pre-requisites:
+Let's compile something to see how this works. This link is to the Apache webserver version 2.4.x latest source code: [http://httpd.apache.org/docs/2.4/install.html](http://httpd.apache.org/docs/2.4/install.html "Apache Webserver Instructions"). Let's install some pre-requisites:
 
 ```bash
 # Pre-reqs needed first -- assumuing Ubuntu 20.04
@@ -713,7 +714,7 @@ Now open a web browser and navigate to http://127.0.0.1 and you should see the m
 
 ### Using Python to Install Python Based Programs
 
-Python has its own package installer called [**pip**](https://pypi.org/project/pip/ "Python Packager") which allows for software that is written in Python and independent of any Linux package manager to be installed.  Pip allows you to install newer versions of a Python package without having to wait for a Linux distro's package manager.
+Python has its own package installer called [**pip**](https://pypi.org/project/pip/ "Python Packager") which allows for software that is written in Python and independent of any Linux package manager to be installed. Pip allows you to install newer versions of a Python package without having to wait for a Linux distro's package manager.
 
 You can see an example of how to install Python language packages (eggs). A popular package is called [OpenCV](https://pypi.org/project/opencv-python/ "Pypi opencv package webpage"), which allow you to do computer vision, object recognition, and image manipulation. We can install this very useful package via Pip. We can do this by opening the Terminal via the `Activities` tab and run these commands:
 
@@ -737,9 +738,9 @@ To install the Rust programming language first: ```curl https://sh.rustup.rs -sS
 
 ### Installing VirtualBox Guest Additions Package
 
-You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is.  So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware.  In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system.  These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.
+You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is. So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware. In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system. These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.
 
-VirtualBox Guest Additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image."  For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
+VirtualBox Guest Additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image." For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
 
 > "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html](https://www.virtualbox.org/manual/ch04.html "Source")
 
@@ -824,7 +825,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-If successful you can reboot the Linux guest VM and you will notice the changes take place immediately.  If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:
+If successful you can reboot the Linux guest VM and you will notice the changes take place immediately. If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:
 
 ```Building the main Guest Additions Module[Failed]```
 
@@ -848,7 +849,7 @@ If you are using Windows, Mac, or Linux you need to download the appropriate ver
 
 ## Chapter Conclusions and Review
 
-Through this chapter we gained an understanding of what x86-based virtualization does.  We learned about the purpose of a hypervisor and how opensource tools such as VirtualBox provide these services.  We learned how to install Ubuntu and Fedora based distros in the most common scenarios.  We learned about VirtualBox features and how to install Linux.
+Through this chapter we gained an understanding of what x86-based virtualization does. We learned about the purpose of a hypervisor and how opensource tools such as VirtualBox provide these services. We learned how to install Ubuntu and Fedora based distros in the most common scenarios. We learned about VirtualBox features and how to install Linux.
 
 ### Review Questions
 
@@ -965,9 +966,9 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 
 ### Lab
 
-You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox. You will need to install the latest version of [VirtualBox 6.1.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well.  If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for M1 Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
+You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox. You will need to install the latest version of [VirtualBox 6.1.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well. If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for M1 Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
 
-Complete each install to disk--there should NOT be an INSTALL ICON on the desktop -- your screenshot is taken after a complete install is finished and a reboot has taken place.  Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in.  There are 17 different distributions listed.  If a version number is not listed, assume the latest version unless noted.
+Complete each install to disk--there should NOT be an INSTALL ICON on the desktop -- your screenshot is taken after a complete install is finished and a reboot has taken place. Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in. There are 17 different distributions listed. If a version number is not listed, assume the latest version unless noted.
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
