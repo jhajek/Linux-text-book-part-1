@@ -85,13 +85,62 @@ This step only has to be done once on your computer after installation of `git`.
 
 #### Git Commands
 
-Git has a rich suite of tools and a large number of options. In this tutorial we are going to cover about 5 of the core actions that will make you conversant with git as well as show how to securely setup remote access to your Git repo.
+Git has a rich suite of tools and a large number of options. In this tutorial we are going to cover about seven of the core actions that will make you conversant with git as well as show how to securely setup remote access to your Git repo.  You can always find help for commands by typing: `git --help` or for a specific command: `git add --help`.  Note if you have a GUI a local webpage with the help info will open, if you are on a GUI-less server, then the text will print out to the screen.
 
 * `git add`
+  * Add file contents to the index
 * `git commit`
+  * Record changes to the repository
 * `git status`
+  * Show the working tree status
 * `git push`
+  * Update remote refs (remote repos) along with associated objects
 * `git pull`
+  * Fetch from and integrate with another repository or a local branch
 * `git clone`
+  * Clone a repository into a new directory
 * `git remote`
+  * Manage set of tracked repositories
 
+#### Securing your GitHub authentication
+
+In order to authenticate to your own repo we need to select an authentication method. In the past, GitHub used a username and password combo. This was not considered secure as the password and username had to be passed inside the URL of the request. We are all familiar with username and passwords and they are the easiest but the hardest to secure.
+
+In October of 2021, GitHub realizing how important it is to protect access to code repositories.  Most large companies are using GitHub and if a hacker were able to get into your source code, this would be a valuable prize.
+
+So GitHub removed the password authentication method, no longer possible. They replaced it with something called a PAT, [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token "Web Site for GitHub Personal Access Token"). PATs have advantages over username/password combos.
+
+* PATs can be declared, at creation time, as valid for a limited period
+  * Default duration is 30 days
+  * This cause keys to be cycled
+  * Prevents old keys from having long lives -- say after an employee leaves
+  * Downside is that many keys have to be managed and distributed
+* PATs can also limit the activity a key can do
+  * Can be made read-only for instance
+  * Can give you fine grain control over who can modify code in a repo
+* PATs are actually one large mathematically unique tokens
+  * No username or password that can identify you and your organization
+  * Just a token
+  * Downside - transmitted in your request
+* Tokens are good for automated processes and are far better than usernames and passwords
+
+We though are going to go one layer of security deeper. We will be using [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography "wikipedia public-key cryptography page") key pairs for SSH. We will be using the [Twisted Edwards Curve Cryptography](https://en.wikipedia.org/wiki/Twisted_Edwards_curve "wikipedia link to Twisted Edwards Curve Cryptography") for the encryption.
+
+#### Public-key cryptography key pairs
+
+Some of these terms may be new to you, some may be familiar. In all cases we will walk you through each step regardless of your experience. The idea behind Public-key cryptography involves two keys to use for authentication in place of passwords and usernames. There is a public key, which is distributed widely and there is a private key, which completes the key and needs to be kept private.
+
+> *The generation of such key pairs depends on cryptographic algorithms which are based on mathematical problems termed one-way functions. Effective security requires keeping the private key private; the public key can be openly distributed without compromising security.*
+
+
+We will be using the `ssh-keygen` command to generate a key pair.
+
+
+
+From PowerShell or the Mac Terminal run the following command:
+
+```bash
+ssh-keygen -t ed25519
+```
+
+This will launch an interactive prompt that will ask you a few questions about your keypair.
