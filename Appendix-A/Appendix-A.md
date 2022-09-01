@@ -2,8 +2,6 @@
 
 ![*How standards are made...*](images/Chapter-Header/Appendix-A/standards.png "Git Commit")
 
-![*"ISO 8601 was published on 06/05/88 and most recently amended on 12/01/04."*](images/Chapter-Header/Appendix-A/iso_8601-2.png "Standard Formats")
-
 ## POSIX Standard
 
 The best place I found a short (trust me this is short) summary of what POSIX is and does was from an answer on StackOverflow, I encourage you to read the entire post and see if you can tell me what POSIX is in 3 sentences.  From the discussion I highlighted this one answer that does the best.[http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix](http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix "Attribution").[^48]

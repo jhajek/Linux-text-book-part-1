@@ -6,7 +6,7 @@ This is a tutorial for installing Git and Git-it tutorial on Windows 10 and macO
 
 ## Installing Git
 
-[Git](https://git-scm.org "Gits site") is a piece of software that allows for distributed version control.  Version control is an idea that started with giving a central repository for controlling access to source control. Version control is a way that all source code for a project can be stored in a central place.   With the rise of the internet, the concept of DVCS--distributed version control software, implemented the bring-over, merge, and modify model. Currently the industry standard VCS software is Git.  Git should not be confused with GitHub.  Git is the opensource version control software and GitHub is a commercial implementation of the Git software.
+[Git](https://git-scm.org "Gits site") is a piece of software that allows for distributed version control. Version control is an idea that started with having a central repository for controlling access to source control. Version control is a way that all source code for a project can be stored in a central place. With the rise of the internet, the concept of DVCS--distributed version control software, implemented the bring-over, merge, and modify model. Currently the industry standard VCS software is `Git`. Git should not be confused with `GitHub`. Git is the opensource version control software and GitHub is a commercial implementation of the Git software.
 
 Git can be installed on any operating system via an installer, but I recommend to install it via a third party package manger.
 
