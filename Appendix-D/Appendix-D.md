@@ -64,5 +64,34 @@ You will have previously submitted your GitHub ID and received an invite to an p
 
 Accept this invitation. You will be greeted with a webpage that will show your **repository** or **repo** for short. This site, located on GitHub, will be your **source of truth** for all markdown documents and code. From here we need to make a local copy of the repo so we can begin to interact with your remote repo.
 
+#### Structure of a Git Repo
 
+At first glance, Git and GitHub seem to just be an online file storage system, like Google Docs. The illusion of file storage is just for you to be able to process the contents in a familiar fashion. In reality [Git is not storing individual files](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F "web link Git Book"), it is storing an original copy and then additional deltas or changes to that file, that can be applied to reconstruct your document. If you make 1000 changes to some source code, your Git Repo is only storing the changes from the previous state, not 1000 copies of the file. This allows you to inspect the history of all the code committed to your repo as well as roll back in time to previous states in the history. Online file storage cannot do that.
+
+#### Initial Setup
+
+On your local system we now need to configure a few things. First we need to tell `git` a name and contact email so that every time code is committed to a repo, it is tagged with a name and a contact email. This is not so important when it is just you working on some homework, but is important when you are working on a large team or in a large company and want to know who made what change.
+
+Go ahead and open a shell (PowerShell or Terminal on a Mac) and lets execute [a few setup commands for `git`](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup "Web link to getting started first time Git Setup").
+
+```bash
+# The first command is to set the user.name for each commmit
+git config --global user.name "John Doe"
+# The second command is to set the user.email for each commit
+git config --global user.email johndoe@example.com
+```
+
+This step only has to be done once on your computer after installation of `git`. You can check if the values are set correctly by issuing the command: `git config --list`
+
+#### Git Commands
+
+Git has a rich suite of tools and a large number of options. In this tutorial we are going to cover about 5 of the core actions that will make you conversant with git as well as show how to securely setup remote access to your Git repo.
+
+* `git add`
+* `git commit`
+* `git status`
+* `git push`
+* `git pull`
+* `git clone`
+* `git remote`
 
