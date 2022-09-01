@@ -1,6 +1,6 @@
 # Appendix A - Standards and Licenses
 
-![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-A/standards.png "Git Commit")
+![*How standards are made...*](images/Chapter-Header/Appendix-A/standards.png "Git Commit")
 
 ![*"ISO 8601 was published on 06/05/88 and most recently amended on 12/01/04."*](images/Chapter-Header/Appendix-A/iso_8601-2.png "Standard Formats")
 
