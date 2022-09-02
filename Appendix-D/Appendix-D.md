@@ -2,11 +2,11 @@
 
 ![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-E/git_commit-2.png "Git Commit")
 
-This is a tutorial for installing Git and Git-it tutorial on Windows 10 and macOS.  
+This is a tutorial for installing Git and configuring GitHub on Windows 10/11 and macOS.  
 
 ## Installing Git
 
-[Git](https://git-scm.org "Gits site") is a piece of software that allows for distributed version control. [Version control](https://en.wikipedia.org/wiki/Version_control_system "Wikipedia Article on Version Control") is an idea that starts with having a central repository for controlling access to source code. Version control is a way that all source code, media, documentation, and supporting scripts for a project can be stored in a central place. This is usually a remote location and referred to as the **single source of truth**. With the rise of the internet, the concept of DVCS--**distributed version control software**, implemented the bring-over, merge, and modify model. Currently the industry standard [DVCS](https://en.wikipedia.org/wiki/Distributed_version_control "Wikipedia Article on DCVS") software is `Git`. Git should not be confused with `GitHub`. Git is opensource version control software and GitHub is a commercial implementation with a management portal for Git software, [owned by Microsoft](https://news.microsoft.com/announcement/microsoft-acquires-github/ "Article Microsoft buys GitHub").
+[Git](https://git-scm.org "Gits site") is a piece of software that allows for distributed version control. [Version control](https://en.wikipedia.org/wiki/Version_control_system "Wikipedia Article on Version Control") is an idea that starts with having a central repository for controlling access to source code. Version control is a way that all source code, media, documentation, and supporting scripts for a project can be stored in a central place--with its history and changes all managed and recorded. This is usually a remote location and referred to as the **single source of truth**. With the rise of the internet, the concept of DVCS--**distributed version control software**, implemented the bring-over, merge, and modify model. Currently the industry standard [DVCS](https://en.wikipedia.org/wiki/Distributed_version_control "Wikipedia Article on DCVS") software is `Git`. Git should not be confused with `GitHub`. Git is opensource version control software and GitHub is a commercial implementation with a management portal for Git software, [owned by Microsoft](https://news.microsoft.com/announcement/microsoft-acquires-github/ "Article Microsoft buys GitHub").
 
 Git can be installed on any operating system via an installer, but I recommend to install it via a third party package manger.
 
@@ -58,15 +58,13 @@ There are many Git Tutorials available on the Internet, some paid, and some free
 
 ### Initial Git Setup
 
-Once you have successfully installed the `git` program as well as an editor (VSCode is recommended) that has first part Version Control integration.  We are good to go. Though a good piece of software, we will not be using the GitHub Desktop software for this tutorial--everything can be done via your Shell and your editor.
+Once you have successfully installed the `git` program and an editor (VSCode is recommended) with first party Version Control integration you are ready to begin. As a note, though a good piece of software, we will not be using the GitHub Desktop software for this tutorial--everything can be done via your Shell and your editor.
 
-You will have previously submitted your GitHub ID and received an invite to an private GitHub repo provided by the professor as part of their GitHub Organization. It will be in the form of: https://github.com/illinoistech-itm/HAWKID.
-
-Accept this invitation. You will be greeted with a webpage that will show your **repository** or **repo** for short. This site, located on GitHub, will be your **source of truth** for all markdown documents and code. From here we need to make a local copy of the repo so we can begin to interact with your remote repo.
+You will have previously submitted your GitHub ID and received an invite to an private GitHub repo provided by the professor as part of their GitHub Organization. It will be in the form of: https://github.com/illinoistech-itm/HAWKID: accept this invitation. You will be greeted with a webpage that will show your **repository**, also known as a **repo**. This site, located on GitHub.com, will be your **source of truth** for all your markdown documents and code. From here we need to make a local copy of the repo so we can begin to interact with your remote repo.
 
 #### Structure of a Git Repo
 
-At first glance, Git and GitHub seem to just be an online file storage system, like Google Docs. The illusion of file storage is just for you to be able to process the contents in a familiar fashion. In reality [Git is not storing individual files](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F "web link Git Book"), it is storing an original copy and then additional deltas or changes to that file, that can be applied to reconstruct your document. If you make 1000 changes to some source code, your Git Repo is only storing the changes from the previous state, not 1000 copies of the file. This allows you to inspect the history of all the code committed to your repo as well as roll back in time to previous states in the history. Online file storage cannot do that.
+At first glance, Git and GitHub seem to just be an online file storage system, like Google Docs. The illusion of file storage is just for you to be able to visualize the repo contents in a familiar fashion. In reality [Git is not storing individual files](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F "web link Git Book"), it is storing an original copy and then additional deltas or changes to that file, that can be applied to reconstruct your document. If you make 1000 changes to some source code file, your Git Repo is only storing the changes from the previous state, not 1000 copies of the file. This allows you to inspect the history of all the code committed to your repo as well as roll back in time to previous states in the history. Online file storage cannot do that.
 
 #### Initial Setup
 
@@ -106,7 +104,7 @@ Git has a rich suite of tools and a large number of options. In this tutorial we
 
 In order to authenticate to your own repo we need to select an authentication method. In the past, GitHub used a username and password combo. This was not considered secure as the password and username had to be passed inside the URL of the request. We are all familiar with username and passwords and they are the easiest but the hardest to secure.
 
-In October of 2021, GitHub realizing how important it is to protect access to code repositories.  Most large companies are using GitHub and if a hacker were able to get into your source code, this would be a valuable prize.
+In October of 2021, GitHub, realizing how important it is to protect access to code repositories.  Most large companies are using GitHub and if a hacker were able to get into your source code, this would be a valuable prize.
 
 So GitHub removed the password authentication method, no longer possible. They replaced it with something called a PAT, [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token "Web Site for GitHub Personal Access Token"). PATs have advantages over username/password combos.
 
@@ -132,15 +130,107 @@ Some of these terms may be new to you, some may be familiar. In all cases we wil
 
 > *The generation of such key pairs depends on cryptographic algorithms which are based on mathematical problems termed one-way functions. Effective security requires keeping the private key private; the public key can be openly distributed without compromising security.*
 
+Now lets make a key pair.
 
-We will be using the `ssh-keygen` command to generate a key pair.
+#### Generate a Public-key crypto key pair
 
-
-
-From PowerShell or the Mac Terminal run the following command:
+We will be using the `ssh-keygen` command to generate your key pair. The command is the same on all platforms and will generate two keys for us, a **public key** and a **private key**. From PowerShell or the Mac or Linux Terminal run the following command:
 
 ```bash
 ssh-keygen -t ed25519
 ```
 
-This will launch an interactive prompt that will ask you a few questions about your keypair.
+A few things to watch out for, remember that Windows is **NOT** case sensitive, but Mac and Linux are case sensitive. Meaning of Mac, Git and git are not the same values, but on Windows they are.
+
+```bash
+# Note on Windows the divider: "\" is different than Mac and Linux 
+# Mac and Linux use the "/"
+# This example is on a Windows system
+# The username on Windows in this case is: palad
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (C:\Users\palad/.ssh/id_ed25519):
+# Mac example would look like this
+# The username on the Mac in this case is: palad
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/palad/.ssh/id_ed25519):
+```
+
+The value in the parenthesis is the default value. If you were to hit the "ENTER" key it would place your Public and Private Key files in the directory and name the file accordingly. Lets modify this entry so you can identify each key pair and its purpose later.
+
+At the prompt we will type the following and it will look like this:
+
+```bash
+# Remember, No spaces in the file name!
+# Windows
+Enter file in which to save the key ...: C:\Users\palad/.ssh/id_ed25519_340_github_key
+# Mac\Linux
+Enter file in which to save the key ...: /Users/palad/.ssh/id_ed25519_340_github_key
+```
+
+The next prompt will ask you to enter a **passphrase**, this is an additional password that can be attached to a private key and would be required to use the private key for authentication. This can be a good idea as it is an extra layer of security against physical theft of your private key file. But in the use case we are working we are going to opt not to use it and handle security in a different method. In this case you can hit the "ENTER" key twice and it will not add a passphrase to your private key.
+
+```bash
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+```
+
+You will now see some output similar to this:
+
+```bash
+Your identification has been saved in c:\Users\palad/.ssh/id_ed25519_340_github_key.
+Your public key has been saved in c:\Users\palad/.ssh/id_ed25519_340_github_key.pub.
+The key fingerprint is:
+SHA256:3LR4sEpKQgbA6LT7yOP54QcAUJ5/BaDEY/zgo3YWrOA palad@lenovo-laptop
+The key's randomart image is:
++--[ED25519 256]--+
+|O+o ...          |
+|o**o   .         |
+|+oO+    o .      |
+|.*o+.  o * .     |
+|o.=.+ o S +      |
+|.E * + . .       |
+|o =.o .          |
+| +o...           |
+|.ooo.            |
++----[SHA256]-----+
+```
+
+We are interested in the first two lines of the output. They show the file location of the public and private key. The key fingerprint is not the content of the key. By default all operating systems, Windows, Mac, and Linux store key pairs in a hidden directory in your home directory called: `.ssh`.
+
+```bash
+# Location of private and public keys -- note the public key has a .pub extension
+# The private key has no default extension
+Your identification has been saved in c:\Users\palad/.ssh/id_ed25519_340_github_key.
+Your public key has been saved in c:\Users\palad/.ssh/id_ed25519_340_github_key.pub
+```
+
+In order to make secure connections to GitHub we are going to need to add the content of the .pub Public key into your GitHub account. We can do this via copy and paste:
+
+```bash
+# display the content of the .pub file -- note the location of the file
+# On Windows:
+type c:\Users\palad/.ssh/id_ed25519_340_github_key.pub
+# On Mac/Linux
+cat /Users/palad/.ssh/id_ed25519_340_github_key.pub
+# You will receive output similar to this
+# Don't worry the public key is meant to be openly distributed
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILOgJFa4p2bLzbiqSfin87zzrFC29vULvMXd+MrwHbL0 palad@lenovo-laptop
+```
+
+#### Add Your Public Key to GitHub
+
+Now that we have a public key generated, copy the displayed content. We will now access the private GitHub repo assigned to you. Mine would be: [https://github.com/illinoistech-itm/jhajek](https://github.com/illinoistech-itm/jhajek "jhajek public GitHub repo"). This site is marked public so anyone can view it. Your repo will be a private repo that only you and the instructor can see and requires authentication to access.
+
+Here are the steps to add your Public Key.
+
+![*Log into your GitHub Account*](./images/Appendix-D/output/github-menu.png "Your GitHub account settings")
+
+![*Select the Settings Option*](./images/Appendix-D/output/settings.png "Select the Settings Option")
+
+![*Select the SSH and GPG Keys option*](./images/Appendix-D/output/ssh.png "Select the SSH and GPG Keys option")
+
+![*Select Green New Key Button*](./images/Appendix-D/output/new.png "Select Green New Key Button")
+
+![*Enter a descriptive title for the key*](./images/Appendix-D/output/title.png "Enter a descriptive title for the key")
+
+![*Paste the content of your Public key*](./images/Appendix-D/output/key.png "Paste the content of your Public key")
