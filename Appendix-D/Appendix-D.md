@@ -223,8 +223,10 @@ Now that we have a public key generated, copy the displayed content. We will now
 
 Here are the steps to add your Public Key.
 
+First you need to log into your GitHub account and click the user icon in the upper left-hand corner.
 ![*Log into your GitHub Account*](./images/Appendix-D/output/github-menu.png "Your GitHub account settings")
 
+In the menu look to the very bottom and select the "SETTINGS" option
 ![*Select the Settings Option*](./images/Appendix-D/output/settings.png "Select the Settings Option")
 
 ![*Select the SSH and GPG Keys option*](./images/Appendix-D/output/ssh.png "Select the SSH and GPG Keys option")
