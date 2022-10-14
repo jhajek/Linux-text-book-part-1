@@ -12,7 +12,7 @@ At the completion of this lab you will further your knowledge of shell scripting
 
 1) Create a shell script to cat the content of the roster.txt file into an array named: ROSTERARRAY and echo the 2nd element of the array.
 
-1) Create a shell script that redirects the content of roster.txt into an array, uses a forloop to cycle through the array's contents, and then uses the command to make a directory for each name listed in the array in your home directory, echo a message telling the user the path of the directory just created. Final command of the script is to list the content of the home directory to show the success of the script.
+1) Create a shell script that redirects the content of roster.txt into an array, uses a for loop to cycle through the array's contents, and then uses the command to make a directory for each name listed in the array in your home directory, echo a message telling the user the path of the directory just created. Final command of the script is to list the content of the home directory to show the success of the script.
 
 1) Modify the shell script from the previous question to include an if statement that checks for the existence of a directory.  If the directory exists, echo a message: "Directory $NAME exists".  Then add an else clause that if the directory does not exist, create it and echo a message that the new directory and its path have been created.
 
