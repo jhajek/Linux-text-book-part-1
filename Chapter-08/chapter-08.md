@@ -92,7 +92,7 @@ echo "Finished"
 
 #### Array Support in Bash
 
-Arrays are a datatype that can be used to associate data in an ordered collection.  Bash arrays function similarly to arrays in C and Java.  Arrays in Bash are untyped (all text).  There is no support for ArrayLists, maps, queues, or anything of that nature.  Arrays are used simply to store related data.
+Arrays are a datatype that can be used to associate data into an ordered collection. Arrays in Bash are untyped (all text). There is no support for ArrayLists, maps, queues, or anything of that nature. Bash arrays are used to store related string data. They came about since Bash version 4.0 (2009).
 
 ```bash
 # Create a file of names named: names.txt
@@ -109,7 +109,7 @@ echo ${NAMESARRAY[2]}
 # which is Lincoln
 ```
 
-How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array.  The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered.  Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by an index.  ```echo ${instanceARR[0]}; echo ${instanceARR [1]}; echo ${instanceARR[2]}```.  Remember that arrays like in C and Java are __0 indexed__.
+How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array. The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered. Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by an index. ```echo ${instanceARR[0]}; echo ${instanceARR [1]}; echo ${instanceARR[2]}```. Remember that arrays are __zero indexed__.
 
 ```bash
 # Using the array from the previous example:
