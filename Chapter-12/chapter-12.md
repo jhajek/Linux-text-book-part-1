@@ -51,7 +51,7 @@ Each network interface card or NIC has a 64 bit hardware address assigned to it.
 
 Canonical, that develops Ubuntu, keeps an excellent wiki with this information, [Ubuntu Network Wiki](https://help.ubuntu.com/community/InternetAndNetworking "Ubuntu Network Wiki").
 
-There are multiple ways to discover this information.  There are two suites of tools.  The original is ```net-tools``` the newer group is called the ```iproute2``` tools.  If you have used a computer before, from BSD to Windows (which used the BSD TCP-stack) these commands will be familiar.  But the *net-tools* suite development was actively **ceased** in 2001 in favor of *iproute2*.
+There are multiple ways to discover this information.  There are two suites of tools.  The original is ```net-tools``` the newer group is called the ```iproute2``` tools.  If you have used a computer before, from BSD to Windows (which used the BSD TCP-stack) these commands will be familiar.  But the *net-tools* suite development was actively **ceased** in 2001 in favor of [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2").
 
 ### Comparison of Net-tools and iproute2
 
