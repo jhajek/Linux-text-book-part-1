@@ -224,29 +224,29 @@ Now that we have a public key generated, copy the displayed content. We will now
 
 The steps listed here will help add your Public Key to your GitHub account for authentication. To begin, select the circle icon in the upper right corner to expand the option menu.
 
-![*Log into your GitHub Account*](./images/Appendix-D/output/github-menu.png "Your GitHub account settings")
+![*Log into your GitHub Account*](images/Appendix-D/output/github-menu.png "Your GitHub account settings")
 
 In this new menu near the bottom of the list your will see the **Settings** option.
 
-![*Select the Settings Option*](./images/Appendix-D/output/settings.png "Select the Settings Option")
+![*Select the Settings Option*](images/Appendix-D/output/settings.png "Select the Settings Option")
 
 A new set of settings options will appear, we want to select on the left-hand side middle of the page, **SSH and GPG Keys**.
 
-![*Select the SSH and GPG Keys option*](./images/Appendix-D/output/ssh.png "Select the SSH and GPG Keys option")
+![*Select the SSH and GPG Keys option*](images/Appendix-D/output/ssh.png "Select the SSH and GPG Keys option")
 
 \newpage
 
 On the right hand side of the new page, there will be a green **New SSH Key** button.
 
-![*Select Green New Key Button*](./images/Appendix-D/output/new.png "Select Green New Key Button")
+![*Select Green New Key Button*](images/Appendix-D/output/new.png "Select Green New Key Button")
 
 You will be presented with two text-boxes. The first is a title -- this is a comment that you can enter so you know where this key came from. I would recommend titling it based on two things: where is the key located (your laptop or desktop) and what is it for (the class number). This way you will give yourself a clue to the private keys location if you ever forget.
 
-![*Enter a descriptive title for the key*](./images/Appendix-D/output/title.png "Enter a descriptive title for the key")
+![*Enter a descriptive title for the key*](images/Appendix-D/output/title.png "Enter a descriptive title for the key")
 
 Paste the contents of the *.pub* file into the box labeled **Key** and hit the submit button. Your public key is now associated with your GitHub account to be used for authentication. Submit the key by hitting the green **Add SSH key** button.
 
-![*Paste the content of your Public key*](./images/Appendix-D/output/key.png "Paste the content of your Public key")
+![*Paste the content of your Public key*](images/Appendix-D/output/key.png "Paste the content of your Public key")
 
 \newpage
 
