@@ -44,7 +44,7 @@ User tools include all tooling or commands (executable binaries) needed to funct
 
 ### Ken Thompson, Dennis Ritchie, and Bell Labs
 
-Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix: __Know these names__!
+Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix: **Know these names**!
 
 #### Ken Thompson and Dennis Ritchie
 
