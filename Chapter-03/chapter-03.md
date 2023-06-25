@@ -780,7 +780,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Debian 10 & 11
+#### Debian 10, 11, 12 
 
 ```bash
 # Assuming using VirtualBox 6.1.x and you have inserted 
@@ -788,9 +788,8 @@ sudo reboot
 su - root
 apt-get update
 apt-get install build-essential dkms linux-headers-$(uname -r)
-mkdir -p /mnt/virtualboxga
-mount -r /dev/cdrom /mnt/virtualboxga
-cd /mnt/virtualboxga
+mount -r /dev/cdrom /media/cdrom
+cd /media/cdrom
 ./VBoxLinuxAdditions.run
 /usr/sbin/reboot
 ```
