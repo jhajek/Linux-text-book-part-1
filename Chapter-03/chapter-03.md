@@ -755,10 +755,10 @@ The Guest Additions offer the following features:
 * Shared clipboard
 * Automated logons (credentials passing)
 
-#### Ubuntu 18.04, 20.04, & 22.04 Desktop
+#### Ubuntu 22.04 and 23.04 Desktop
 
 ```bash
-# Assuming using VirtualBox 6.1.x and you have inserted 
+# Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
@@ -767,10 +767,10 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Ubuntu 18.04 and 20.04 Server
+#### Ubuntu 20.04 and 22.04 Server
 
 ```bash
-# Assuming using VirtualBox 6.1.x and you have inserted 
+# Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
@@ -780,10 +780,10 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Debian 10, 11, 12 
+#### Debian 11, 12 
 
 ```bash
-# Assuming using VirtualBox 6.1.x and you have inserted 
+# Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
 su - root
 apt-get update
@@ -791,13 +791,13 @@ apt-get install build-essential dkms linux-headers-$(uname -r)
 mount -r /dev/cdrom /media/cdrom
 cd /media/cdrom
 ./VBoxLinuxAdditions.run
-/usr/sbin/reboot
+reboot
 ```
 
-#### Red Hat Fedora 35/36
+#### Red Hat Fedora 37/38
 
 ```bash
-# Assuming using VirtualBox 6.1.x and you have inserted 
+# Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
 sudo dnf update kernel*
 sudo reboot
@@ -809,10 +809,10 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### CentOS 7 & 8 using yum
+#### RockyLinux and AlmaLinux 
 
 ```bash
-# Assuming using VirtualBox 6.1.x and you have inserted 
+# Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
 sudo yum update kernel*
 sudo reboot
