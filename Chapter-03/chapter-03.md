@@ -625,25 +625,6 @@ Supported on all Linux operating systems and functions like an app store -- wher
 
 Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard on Fedora 32, but not other distributions. Let's install some Flatpak and some applications: The first thing is to install the Flatpak package. [That is done at the Flatpak repo page](https://www.Flatpak.org/setup/ "Flatpak"). Let's try it with an Ubuntu distribution:
 
-#### Install Flatpak for Ubuntu
-
-```bash
-# Flatpak is preinstalled in Fedora 32+
-# Instructions for Ubuntu: https://www.flatpak.org/setup/Ubuntu/
-sudo add-apt-repository ppa:flatpak/stable
-sudo apt update
-sudo apt install flatpak
-flatpak remote-add \
---if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
-
-The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
-
-```sudo apt install gnome-software-plugin-flatpak```
-
-Add the Flathub repository if you don't already have it:
-```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
-
 #### Install Flatpak on Fedora/CentOS
 
 Flatpak is installed by default in Fedora 32+ and Centos 7+. You just need to add the flatpak repo:
