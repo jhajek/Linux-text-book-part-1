@@ -730,15 +730,9 @@ There is sample code in the textbook repository. Under the directory `Files` > `
 python3 show-image.py
 ```
 
-### Using Rust Packages
+### Installing VirtualBox Guest Additions 7.x
 
-The [Rust programming language](https://www.rust-lang.org/ "Rust-lang") is essentially C language with memory safety. Various people have undertaken to replace the GNU coretools with Rust based versions. These tutorials will help you download and compile these tools with Rust and the Rust package manager called [Cargo](https://doc.rust-lang.org/cargo/ "Rust package manager website").
-
-To install the Rust programming language first: ```curl https://sh.rustup.rs -sSf | sh``` and then follow the step to build Rust based version of the coreutils here: [https://github.com/uutils/coreutils](https://github.com/uutils/coreutils "Build Core-utils"). You may need to install the `curl` package first.
-
-### Installing VirtualBox Guest Additions Package
-
-You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host systems underlying hardware is. So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware. In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system. These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.
+You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host system's underlying hardware is. So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware. In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system. These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.
 
 VirtualBox Guest Additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image." For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
 
@@ -750,7 +744,6 @@ The Guest Additions offer the following features:
 * Shared folders
 * Better video support
   * Finally, if the Guest Additions are installed, 3D graphics and 2D video for guest applications can be accelerated; see Section 4.5, “Hardware-accelerated graphics”
-* Seamless windows
 * Time synchronization
 * Shared clipboard
 * Automated logons (credentials passing)
@@ -762,7 +755,8 @@ The Guest Additions offer the following features:
 # the VirtualBox Guest editons iso (under Devices)
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
-cd /media/$USER/VBox_GAs_6.1.X # replace .X with your VBox version number
+sudo mount /dev/sr0 /media
+cd /media
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
@@ -780,7 +774,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Debian 11, 12 
+#### Debian 11 and 12 
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
@@ -801,10 +795,9 @@ reboot
 # the VirtualBox Guest editons iso (under Devices)
 sudo dnf update kernel*
 sudo reboot
-sudo mkdir -p /media/virtualboxga
-sudo mount -r /dev/cdrom /media/virtualboxga
 sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers dkms make bzip2 perl
-cd /media/virtualboxga
+sudo mount -r /dev/cdrom /media
+cd /media
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
@@ -817,9 +810,8 @@ sudo reboot
 sudo yum update kernel*
 sudo reboot
 sudo yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
-sudo mkdir -p /media/virtualboxga
-sudo mount -r /dev/cdrom /media/virtualboxga
-cd /media/virtualboxga
+sudo mount -r /dev/cdrom /media
+cd /media
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
