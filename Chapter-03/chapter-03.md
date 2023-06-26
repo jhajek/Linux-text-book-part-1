@@ -596,7 +596,7 @@ Snaps, similar to the App Store concept, allows you to:
 * Integrate easily with build and CI infrastructure
 * Free for open and closed source projects
 
-In Ubuntu 20.04, some packages when installed via apt, have been redirected to use the appropriate Snap package, which has bothered some, and one distro Linux Mint has removed Snaps all together. Snaps can be installed from the commandline or via the Store Icon in the Ubuntu Desktop.
+Since Ubuntu Desktop 20.04, some packages when installed via apt, have been redirected to use the appropriate `Snap` package, which has bothered some, and one distro, Linux Mint, has removed `Snaps` all together. `Snaps` can be installed from the commandline or via the Store Icon in the Ubuntu Desktop.
 
 You can open the Ubuntu Software Icon on the Favorites Bar and select some software. Lets install Notepad++. You can also install Snaps from the command line. Open a terminal and issue the below commands to find software package names (since there is no GUI to browse):
 
