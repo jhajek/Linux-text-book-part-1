@@ -697,7 +697,7 @@ Now open a web browser and navigate to http://127.0.0.1 and you should see the m
 
 Python has its own package installer called [**pip**](https://pypi.org/project/pip/ "Python Packager") which allows for software that is written in Python and independent of any Linux package manager to be installed. Pip allows you to install newer versions of a Python package without having to wait for a Linux distro's package manager.
 
-You can see an example of how to install Python language packages (eggs). A popular package is called [OpenCV](https://pypi.org/project/opencv-python/ "Pypi opencv package webpage"), which allow you to do computer vision, object recognition, and image manipulation. We can install this very useful package via Pip. We can do this by opening the Terminal via the `Activities` tab and run these commands:
+You can see an example of how to install Python language packages (eggs). A popular package is called [OpenCV](https://pypi.org/project/opencv-python/ "Pypi opencv package webpage"), which allow you to do computer vision, object recognition, and image manipulation. We can install this very useful package via `pip`. We can do this by opening the Terminal via the `Activities` tab and run these commands:
 
 ```bash
 # command to install python3 pip
