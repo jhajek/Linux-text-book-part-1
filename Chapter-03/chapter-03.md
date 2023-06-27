@@ -769,28 +769,14 @@ cd /media/cdrom
 reboot
 ```
 
-#### Red Hat Fedora 37/38
+#### Red Hat based Fedora 37/38, AlmaLinux 9, Rocky Linux 9
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
 sudo dnf update kernel*
 sudo reboot
-sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers dkms make bzip2 perl
-sudo mount -r /dev/cdrom /media
-cd /media
-sudo ./VBoxLinuxAdditions.run
-sudo reboot
-```
-
-#### RockyLinux and AlmaLinux 
-
-```bash
-# Assuming you are using VirtualBox 7.x and you have inserted 
-# the VirtualBox Guest editons iso (under Devices)
-sudo yum update kernel*
-sudo reboot
-sudo yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers make bzip2 perl
 sudo mount -r /dev/cdrom /media
 cd /media
 sudo ./VBoxLinuxAdditions.run
