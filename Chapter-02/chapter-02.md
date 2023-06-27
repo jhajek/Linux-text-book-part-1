@@ -472,7 +472,7 @@ Cybersecurity has come to the forefront of our daily lives, Kali is a vital tool
 
 ![*Raspberry Pi OS*](images\Chapter-02\Linux-logos\RaspberryPiOS\640px-Raspberry_Pi_OS_Logo.png "Logo for Raspberry Pi OS")
 
-https://en.wikipedia.org/wiki/Raspberry_Pi_OS
+[The Raspberry Pi OS](https://en.wikipedia.org/wiki/Raspberry_Pi_OS "Raspberry Pi OS website") is the Debian based operating system for the Raspberry Pi single board computers. The Raspberry Pi project was started in 2011 and Raspberry Pi OS became the official OS as of 2013. The Raspberry Pi project was started to bring the *hacker* ethos back to computing--getting students back to first principles, while being able to run modern Linux operating systems.
 
 #### Other Debian Based Distros
 
@@ -495,7 +495,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 * [KDE Neon](https://neon.kde.org/ "KDE Neon website")
   * KDE based desktop versioned distro based off of Ubuntu
 * [Pure OS](https://pureos.net/ "Link to Website for Purism OS") 
-  * This is a Debian derivative, that has been produced with an FSF based focus on Free Software
+  * This is a Debian derivative, that has been produced with an [FSF](https://www.fsf.org/ "Website for FSF") based focus on Free Software
 
 ### Red Hat Family
 

@@ -705,7 +705,7 @@ sudo apt-get install python3-setuptools python3-pip python3-dev
 python3 -m pip install opencv-python
 ```
 
-There is sample code in the textbook repository. Under the directory `Files` > `Chapter-03` and run the command:
+There is sample code in the textbook repository. Under the directory `files` > `Chapter-03` and run the command:
 
 ```bash
 python3 show-image.py
