@@ -440,8 +440,9 @@ The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the s
 * It is the only major Linux distribution not backed by a corporation.
 * Debian is an all volunteer project and organization--project leader is elected on a rotating basis
 * Dedicated to protecting software rights and freedoms of users
-* First major distribution to come with a [software contract](https://www.debian.org/social_contract "Contract") - stating what rights the project will guarantee to the user
-* Debian supports free and opensource software as superior to closed source but will allow for closed source software/drivers to be installed by the user
+* First major distribution to come with a [software contract](https://www.debian.org/social_contract "Contract")
+  * Stating what rights the project will guarantee to the user
+* Debian supports free and opensource software by default but will allow for closed source software/drivers to be installed by the user
 * Supported at various times 11 different processor types giving it a wide install base
 * The Debian project and its history can be found at:
   * [About the Debian Project](https://www.debian.org/intro/about)
@@ -451,47 +452,50 @@ The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the s
 
 ![*Ubuntu Linux*](images/Chapter-02/Linux-logos/Ubuntu/128px-Ubuntu_logo_copyleft_1.svg.png "Ubuntu Linux")
 
-Ubuntu Linux is a unique distribution [^10]. It is entirely based on Debian.  It is Debian repackaged with a focus on applications that "just work." Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was unnerved that Windows had such a dominant position in the PC market. He had been a Debian developer, but felt that the lack of a corporate sponsor in some ways hindered Debian from catching market share from Windows.  He set out to make a Debian based distro which he called Ubuntu. Shuttleworth is from South Africa and Ubuntu is a Zulu word meaning *"community"*. Shuttleworth wanted his Linux distro to be people friendly and work really well out of the box--like Windows.
+Ubuntu Linux is downstream distribution[^10] based on Debian Linux. Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was concerned that Windows had such a dominant position in the PC market. He had been a Debian developer, but felt that the lack of a corporate sponsor in some ways hindered Debian from catching market share from Windows.  He set out to make a Debian based distro which he called Ubuntu. Shuttleworth is from South Africa and Ubuntu is a Zulu word meaning *"community"*. Shuttleworth wanted his Linux distro to be people friendly and work really well out of the box--like Windows.
 
-In 2004 Red Hat, which had previously owned the desktop Linux market, decided to exit and focus on selling Linux based server operating systems to corporate entities. Red Hat felt there was little money to be made in that market where the code was given away freely. This left a void that Ubuntu rushed to fill and they did it well. By 2006, Mark Shuttleworth who had started the Thawte SSL security company, which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux.  
+In 2004 Red Hat, which had previously owned the desktop Linux market, decided to exit and focus on selling Linux based server operating systems to the enterprise. This left a void that Ubuntu rushed to fill and they did it well. By 2006, Mark Shuttleworth who had started the [Thawte SSL](https://www.thawte.com/ "Thawte SSL cert company") security company, which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux[^11].  
 
 ![*Mark Shuttleworth*](images/Chapter-02/People/Mark-Shuttleworth/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg "Mark Shuttleworth")
 
-What made Ubuntu so successful was that they forked the opensource work of rock-solid Debian and built on top of it by adding closed source code and user centered features that where necessary in order to make the best experience.  They had a business in mind and have indeed captured the desktop Linux market.  But one problem is they haven't found a way to make much money off of their excellent product.  Ubuntu has a 10 million dollar parachute in the form of the Ubuntu Foundation which was seeded by Mark Shuttleworth [^11]. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Canonical") that was formed to handle commercial support and hires the developers who work on Ubuntu.  Ubuntu is commercially backed by Canonical.
+Ubuntu built on top of rock-solid Debian and extended it by adding closed source drivers and user centered features that where necessary in order to make the best experience. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Canonical") that was formed to handle commercial support and the developers who work on Ubuntu.
 
-Ubuntu pioneered the idea of rolling releases - releasing every 6 months. Each distribution is released in late April and late October so there are two distributions per year. Ubuntu also introduced the concept of an *LTS*, Long Term Support - this means that certain releases will have security patches, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and assured system stability.  The LTS releases happen every even year with the April distribution.  So Ubuntu 16.04, 18.04, 20.04, 22.04 and so forth (the first number being the year).
+Ubuntu pioneered the idea of rolling releases - releasing a version of their OS every 6 months. Each distribution is released in late April and late October so there are two distributions per year. Ubuntu also introduced the concept of an *LTS*, Long Term Support - this means that certain releases will have security patches, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and assured system stability.  The LTS releases happen every even year with the April distribution.  So Ubuntu 16.04, 18.04, 20.04, 22.04 and so forth (the first number being the year).
 
-#### PureOS
+#### Kali Linux
 
-![*PureOS*](images/Chapter-02/Linux-logos/PureOS/pureos-logo-small.png "PureOS logo")
+[Kali Linux](https://www.kali.org/ "Website for Kali Linux") is a Debian-derived Linux distribution designed for digital forensics and penetration testing. It is maintained and funded by [Offensive Security](https://en.wikipedia.org/wiki/Offensive_Security "Offensive Security website")[^12].
 
-"*PureOS is a general purpose operating system that is based on the Linux kernel and is focused on being an entirely Free (as in freedom) OS. It is officially endorsed by the Free Software Foundation. We adhere to the Debian Social Contract and the GNU FSDG.*"
+Cybersecurity has come to the forefront of our daily lives, Kali is a vital tool in that battle. This distro gathers up various tools used for network inspection and intrusion detection.
 
-This is a Debian derivative, that has been produced with an FSF based focus on Free Software.  In addition, the PureOS is being developed by [Purism Company](https://puri.sm "Puri.sm website link") which develops Free and Hardware respecting privacy hardware as well as communication and cloud storage apps.
+#### Raspberry Pi OS
 
-#### Devuan
+![*Raspberry Pi OS*](images\Chapter-02\Linux-logos\RaspberryPiOS\640px-Raspberry_Pi_OS_Logo.png "Logo for Raspberry Pi OS")
 
-![*Devuan Linux*](images/Chapter-02/Linux-logos/Devuan/Devuan-logo.png "Devuan")
-
-[Devuan Linux Project](http://www.devuan.org "Devuan") (Pronounced *Dev-one*) is a fork of the entire Debian project - not just a Debian based distro.  This is a result of the "Debian Civil War" of early 2015 where in half of the Debian Project developers left the project to begin work on this distribution.  It is a direct fork of the Debian 8.0 Jessie Code base with one major incompatible change to the core operating system; that cannot be merged back into Debian.  The disagreement stemmed from Debian's decision to implement Red Hat's systemd init system over the old but reliable sysVInit.  To change the core operating system is a monumental task and these volunteers undertook it and succeeded.  The project started in August of 2016 and has now progressed to a stable systemd free [Debian based release, Devuan 3.0](https://devuan.org/os/announce/beowulf-stable-announce-060120 "Devuan website").  We will talk about this more in detail under the topic "Linux Civil War" later in this chapter.
+https://en.wikipedia.org/wiki/Raspberry_Pi_OS
 
 #### Other Debian Based Distros
 
 Some of the other notable Debian/Ubuntu based distros are as follows:
 
 * [Xubuntu](http://xubuntu.org "Xubuntu")
+  * Ubuntu distro with xfce as the default desktop
 * [Lubuntu](http://lubuntu.net "Lubuntu")
-* [Kubuntu](http://www.kubuntu.org/ "Kubuntu") Ubuntu remixed with the KDE desktop Environment
-* [MX Linux](https://mxlinux.org/ "MX Linux Homepage") A midweight distro that is a cooperative venture between the antiX and former MEPIS communities
-* [SteamOS](http://store.steampowered.com/steamos "SteamOS") Steam online gaming company's official Linux distro
-* [Ubuntu Kylin](http://www.ubuntukylin.com/ "Kylin Linux") Ubuntu Distro designed for Mandarin Chinese as opposed to English.
-* [Raspbian/Raspberry Pi OS](https://www.raspberrypi.org/downloads/ "Raspberry Pi OS") This is a Debian based distro that is standard recommended for the Raspberry Pi.
-* [Tails](https://tails.boum.org/ "tails") The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user.
-* [Linux Mint](https://linuxmint.com/ "Linux Mint home page") Full multimedia support out of the box.
-* [elementaryOS](http://elementary.io/ "elementary Linux") elementary OS is an Ubuntu-based desktop distribution, designed to look and feel like MacOS.  It also has an interesting pricing model.
-* [Kali Linux](https://www.kali.org/ "Kali Linux") Security based Debian distro
-* [Trisquel](https://trisquel.info "Tri-skel") GNU/Linux-Libre FSF recommended and Richard Stallman uses this one.
-* [KDE Neon](https://neon.kde.org/ "KDE Neon website") KDE based desktop versioned distro based off of Ubuntu.
+  * Ubuntu distro with lxqt as the default desktop
+* [MX Linux](https://mxlinux.org/ "MX Linux Homepage")
+  * Lightweight distro for older laptops and PCs based on Debian Linux
+* [Ubuntu Kylin](http://www.ubuntukylin.com/ "Kylin Linux")
+  * Ubuntu Distro designed for Mandarin Chinese as opposed to English
+* [Tails](https://tails.boum.org/ "tails") 
+  * The Amnesic Incognito Live System (Tails) is a Debian-based live CD/USB with the goal of providing complete Internet anonymity for the user
+* [Linux Mint](https://linuxmint.com/ "Linux Mint home page")
+  * Full multimedia support out of the box.
+* [Trisquel](https://trisquel.info "Tri-skel")
+  * GNU/Linux-Libre FSF recommended and Richard Stallman uses this one
+* [KDE Neon](https://neon.kde.org/ "KDE Neon website")
+  * KDE based desktop versioned distro based off of Ubuntu
+* [Pure OS](https://pureos.net/ "Link to Website for Purism OS") 
+  * This is a Debian derivative, that has been produced with an FSF based focus on Free Software
 
 ### Red Hat Family
 
@@ -886,8 +890,7 @@ or <a href="http://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, <a 
 [^11]: By Martin Schmitt (cropped by Mary Gardiner) (http://www.flickr.com/photos/foobarbaz/141522112/)
 <a href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File%3AMark_Shuttleworth_by_Martin_Schmitt.jpg">via Wikimedia Commons</a>
 
-[^12]: By Clement Lefebvre <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>
-<a href="https://commons.wikimedia.org/wiki/File%3ALinux_Mint_logo_and_wordmark.svg">via Wikimedia Commons</a>
+[^12]: <a href="https://en.wikipedia.org/wiki/Kali_Linux">Kali Linux Wikipedia Page</a>
 
 [^13]: See page for author [Public domain]
 <a href="https://commons.wikimedia.org/wiki/File%3AFedora_logo_and_wordmark.svg">via Wikimedia Commons</a>
