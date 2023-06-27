@@ -729,14 +729,14 @@ The Guest Additions offer the following features:
 * Shared clipboard
 * Automated logons (credentials passing)
 
-#### Ubuntu 22.04 and 23.04 Desktop
+#### Ubuntu 22.04 and 23.04 Desktop and Server 
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
 sudo apt-get update
 sudo apt-get install build-essential dkms linux-headers-$(uname -r)
-sudo mount /dev/sr0 /media
+sudo mount /dev/cdrom /media
 cd /media
 sudo ./VBoxLinuxAdditions.run
 sudo reboot

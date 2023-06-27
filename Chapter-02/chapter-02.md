@@ -495,7 +495,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
 
 ### Red Hat Family
 
-Red Hat Linux distribution was formed after the Debian project by Marc Ewing and Bob Young.  The company went public August 11th, 1999.  Red Hat source code is currently shared across three main distributions: The Fedora Project, RHEL (Red Hat Enterprise Linux), and CentOS. Currently there are [~25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or as Fedora calls them *"spins"* -- this term is unique to Fedora.
+Red Hat Linux distribution was formed after the Debian project by Marc Ewing and Bob Young. The company had a public IPO on August 11th, 1999.  Red Hat being the largest Linux based company was purchased by [IBM in July of 2019](https://www.redhat.com/en/about/press-releases/ibm-closes-landmark-acquisition-red-hat-34-billion-defines-open-hybrid-cloud-future "Article IBM pruchases Red Hat"), for **34 Billion** US dollars.  Red Hat source code is currently shared across two main distributions: The Fedora Project and RHEL (Red Hat Enterprise Linux). Currently there are [~25 Fedora based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Fedora&notbasedon=None&desktop=All&architecture=All&package=All&status=Active) or as Fedora calls them *"spins"* -- this term is unique to Fedora.
 
 * [About Red Hat](http://www.redhat.com/en/about/company)
 * [Red Hat History](http://www.redhat.com/infographics/corporate/data/ "Red Hat History")
