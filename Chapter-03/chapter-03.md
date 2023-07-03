@@ -783,6 +783,22 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
+#### Manjaro and Arch Linux
+
+```bash
+# Assuming you are using VirtualBox 7.x and you have inserted 
+# the VirtualBox Guest editons iso (under Devices)
+#(find your kernel version)
+sudo mhwd-kernel -li 
+# XX is your kernel version
+sudo sudo pacman -S linuxXX-headers
+sudo mount -r /dev/cdrom /mnt
+cd /mnt
+sudo ./VBoxLinuxAdditions.run
+sudo reboot
+```
+[^22]
+
 If successful you can reboot the Linux guest VM and you will notice the changes take place immediately. If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:
 
 ```Building the main Guest Additions Module[Failed]```
@@ -978,7 +994,7 @@ Complete each install to disk--there should NOT be an INSTALL ICON on the deskto
 
 [^21]: By Scsami (Own work) [CC0], via Wikimedia Commons" <a href="https://commons.wikimedia.org/wiki/File%3AHyperviseur.png">https://commons.wikimedia.org/wiki/File%3AHyperviseur.png</a>
 
-[^22]: By Xander (own work, (not derivative from the movies))  Public domain <a href="https://commons.wikimedia.org/wiki/File%3AUnico_Anello.png">via Wikimedia Commons</a>
+[^22]: <a href="https://techviewleo.com/install-virtualbox-guest-additions-on-manjaro-linux/">How to install Virtual Box Guest Additions on Manjaro Linux</a>
 
 [^105]: [https://en.wikipedia.org/wiki/Stuart_Feldman](https://en.wikipedia.org/wiki/Stuart_Feldman)  
 
