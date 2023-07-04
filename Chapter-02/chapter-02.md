@@ -470,7 +470,7 @@ Cybersecurity has come to the forefront of our daily lives, Kali is a vital tool
 
 #### Raspberry Pi OS
 
-![*Raspberry Pi OS*](images\Chapter-02\Linux-logos\RaspberryPiOS\640px-Raspberry_Pi_OS_Logo.png "Logo for Raspberry Pi OS")
+![*Raspberry Pi OS*](images/Chapter-02/Linux-logos/RaspberryPiOS/640px-Raspberry_Pi_OS_Logo.png "Logo for Raspberry Pi OS")
 
 [The Raspberry Pi OS](https://en.wikipedia.org/wiki/Raspberry_Pi_OS "Raspberry Pi OS website") is the Debian based operating system for the Raspberry Pi single board computers. The Raspberry Pi project was started in 2011 and Raspberry Pi OS became the official OS as of 2013. The Raspberry Pi project was started to bring the *hacker* ethos back to computing--getting students back to first principles, while being able to run modern Linux operating systems.
 
