@@ -107,7 +107,9 @@ If you do try it, back up your data first, you never know what could go wrong. I
 
 You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was 32-bit or 64-bit?  In modern Linux distros, 32-bit distros are mostly a thing of the past due to all CPUs being 64bit.  You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most specialized or low end chip these days is 64-bit you should be safe with that type of distro. 
 
-The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture. The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name. There is one other type of architecture called ARM or ARMh7, AARCH, AARCH64. This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi. There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple has moved their laptops to be ARM based, the M1 macs, as of 2021. It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.
+The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture. The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name. There is one other type of architecture called ARM or ARMh7, AARCH, AARCH64. This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi. 
+
+There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple has moved their laptops to be ARM based, the M1 macs, as of 2021. It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.
 
 Each distro also has a checksum feature provided by the site that issues the download. A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be. That way if you download an ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents or perhaps just a corrupted download. Most distros use the SHA-256 hash, but for legacy purposes you still see md5 hashes.
 
@@ -123,32 +125,20 @@ Each distro also has a checksum feature provided by the site that issues the dow
 Here are the commands to execute in Windows in PowerShell:
 
 ```powershell
-Get-FileHash .\ubuntu-18.04.4-desktop-amd64.iso -Algorithm MD5 | format-list
+Get-FileHash .\ubuntu-22.04.2-desktop-amd64.iso -Algorithm SHA256 | format-list
 ```
 
-Output: ```764056499131C8FE22B27F6DBF52AB7D```
-
-```powershell
-Get-FileHash .\ubuntu-18.04.4-desktop-amd64.iso -Algorithm SHA256 | format-list
-```
-
-Output: ```C0D025E560D54434A925B3707F8686A7F588C42A5FBC609B8EA2447F88847041```
+Output: ```b98dac940a82b110e6265ca78d1320f1f7103861e922aa1a54e4202686e9bbd3```
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
 ```bash
-md5sum ./Fedora-Workstation-Live-x86_64-32-1.6.iso
+sha256sum ./Fedora-Workstation-Live-x86_64-38-1.6.iso
 ```
 
-Output: ```C4413BDA70A4F41EBCCBA447786542F1```
+Output: ```7A444A2E19012023BF0B015AE30135BAFC5FD20F4F333310D42B118745093992```
 
-```bash
-sha256sum ./Fedora-Workstation-Live-x86_64-32-1.6.iso
-```
-
-Output: ```4D0F6653E2E0860C99FFE0EF274A46D875FB85BD2A40CB896DCE1ED013566924```
-
-Can you find the MD5 and SHA-256 of the sample PDF located in the book source code, in the folder ```files -> Chapter-03 -> text-08052020.pdf```?
+Can you find `SHA-256` of the sample PDF located in the book source code, in the folder ```files -> Chapter-03 -> text-08052020.pdf```?
 
 ### Planning Your Install
 
@@ -164,8 +154,8 @@ Before beginning there are a series of questions you should ask yourself, "What 
   * Hacking your neighbor's Wi-Fi?
   * Developer platform for Coding? Audio and Video?
   * Server edition (no gui)?
-  * Building Clusters, Cloud Computing, Serverless Computing, Virtual Machine farms
-* What processor do I have 64-bit (Intel or AMD) or ARM (Raspberry Pi)?
+  * Building home networks, virtual test beds, Virtual Machine farms?
+* What processor do I have 64-bit (Intel or AMD) or ARM (M1 Mac or Raspberry Pi)?
   * How much RAM do I have or need?
 * Is this an old PC or laptop I am using--does it lack processor extensions that can aid in rendering media efficiently?
   * [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions "SSE")
