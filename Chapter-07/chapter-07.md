@@ -362,7 +362,7 @@ As you can see the file is very sparse.  There is a specific header allowing you
 
 ## Chapter Conclusions and Review
 
-In this chapter we learned about the vi editor and mastered its three modes.  We learned how to created a shell script with vi and how to navigate and change modes within vi.  We learned about the basic set of vi commands needed to be productive.  We learned how to create a shell script, the shortcuts to change the file permissions, and how user profiles are loaded and used.
+In this chapter we learned about the vi editor and mastered its three modes.  We learned how to created a shell script with vi and how to navigate and change modes within vi. We learned about the basic set of vi commands needed to be productive.  We learned how to create a shell script, the shortcuts to change the file permissions, and how user profiles are loaded and used.
 
 ### Review Questions
 
