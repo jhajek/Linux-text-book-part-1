@@ -554,14 +554,14 @@ Submit your GitHub URL for your repo to Blackboard.
 
 [^79]: <a href="https://commons.wikimedia.org/wiki/File:Emacs_Dired_buffers.png#/media/File:Emacs_Dired_buffers.png">Emacs Dired buffers</a> by Emacs development team - <a title="User:Ferk (page does not exist)" class="new" href="//commons.wikimedia.org/w/index.php?title=User:Ferk&amp;action=edit&amp;redlink=1">Ferk</a> (user who took this screenshot). Licensed under <a title="Creative Commons Attribution-Share Alike 3.0" href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
 
-[^80]:[https://en.wikipedia.org/wiki/GNU_Emacs](https://en.wikipedia.org/wiki/GNU_Emacs "GNU Emacs")
+[^80]: <a href="https://en.wikipedia.org/wiki/GNU_Emacs](https://en.wikipedia.org/wiki/GNU_Emacs">GNU Emacs</a>
 
-[^81]: "<a href="https://commons.wikimedia.org/wiki/File:KB_Terminal_ADM3A.svg#/media/File:KB_Terminal_ADM3A.svg">KB Terminal ADM3A</a>" by No machine-readable author provided. <a title="User:StuartBrady" href="//commons.wikimedia.org/wiki/User:StuartBrady">StuartBrady</a> assumed (based on copyright claims). - No machine-readable source provided. Own work assumed (based on copyright claims).. Licensed under <a title="Creative Commons Attribution-Share Alike 3.0" href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
+[^81]: <a href="https://commons.wikimedia.org/wiki/File:KB_Terminal_ADM3A.svg#/media/File:KB_Terminal_ADM3A.svg">KB Terminal ADM3A</a> by No machine-readable author provided. <a title="User:StuartBrady" href="//commons.wikimedia.org/wiki/User:StuartBrady">StuartBrady</a> assumed (based on copyright claims). - No machine-readable source provided. Own work assumed (based on copyright claims).. Licensed under <a title="Creative Commons Attribution-Share Alike 3.0" href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
 
 [^82]: [https://en.wikipedia.org/wiki/Vi#Distribution](https://en.wikipedia.org/wiki/Vi#Distribution "vi is ex")
 
 [^83]: [https://en.m.wikipedia.org/wiki/Vi#Ports_and_clones](https://en.m.wikipedia.org/wiki/Vi#Ports_and_clones "VI")
 
-[^84]: [https://en.wikipedia.org/wiki/Elvis_\(text_editor\)](https://en.wikipedia.org/wiki/Elvis_(text_editor) "elvis")
+[^84]: <a href="https://en.wikipedia.org/wiki/Elvis_\(text_editor\)">https://en.wikipedia.org/wiki/Elvis_(text_editor)</a>
 
 [^85]: [https://en.wikipedia.org/wiki/Vi#Ports_and_clones](https://en.wikipedia.org/wiki/Vi#Ports_and_clones "nvi")
