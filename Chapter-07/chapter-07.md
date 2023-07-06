@@ -419,9 +419,9 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
 
 16. Assuming the your pwd is Linux-text-book-part-I and you have loaded Chapter-02 > chapter-02.md into vi, what would be the ex mode command to remove all occurrences of the word Windows?
 
-17. Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give just the owner of the file additional permissions to execute the script?
+17. Assuming a file name `topsecret.sh` has a permission of 644 - what is the shortcut to give just the owner of the file additional permissions to execute the script?
 
-18. Assuming a file named moretopsecret.sh has a permission of 757 - what is the shortcut to remove all permissions from the the **other** group?
+18. Assuming a file named `moretopsecret.sh` has a permission of 757 - what is the shortcut to remove all permissions from the the **other** group?
 
 19. What is the correct command sequence to save or write out a file in GNU Nano?
    a. ^6
