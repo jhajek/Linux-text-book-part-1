@@ -527,6 +527,8 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 wget https://github.com/jgm/pandoc/releases/download/2.15/pandoc-2.15-1-amd64.deb
 sudo dpkg -i pandoc-2.15-1-amd64.deb
 
+# These three lines are one command. The \ character is a line continuation that
+# tells the commandline to treat the next three lines as one single line
 sudo apt-get install -y texlive texlive-latex-recommended texlive-latex-extra \
 texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils \
 librsvg2-bin texlive-science-doc texlive-science
@@ -539,7 +541,6 @@ sudo apt-get -y install fonts-sil-charis
 
 sudo apt-get -y install fonts-inconsolata
 sudo fc-cache -fv
-
 ```
 
 __Deliverable:__  
