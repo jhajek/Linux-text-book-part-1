@@ -360,7 +360,7 @@ Let's try to add to the PATH.  When updating a shell variable we need to use the
 export PATH=$PATH:/usr/local/bin
 ```
 
-> __Example Usage:__ Type ```mkdir ~/Documents/scripts```. Now copy your ```list-ip.sh``` to this directory. Let's add this directory to our PATH in our ```~/.bashrc``` file. Finally before we edit let's print out the content of the PATH system variable so we can see our changes later.  How would you do that? Let us open our ```~/.bashrc``` file in vi.  Now move the cursor position to the bottom of the file.  Type ```ESC shift+o``` to insert a new line.   Now type ```ESC i``` to change to INSERT mode.   Type the line ```PATH=$PATH:~/Documents/scripts``` followed by a new line (vim cheats and will accept the ENTER key in addition to ```ESC SHIFT+o```) and then let's export the new variable content by typing ```export PATH```  now exit __vi__.
+> __Example Usage:__ Type ```mkdir ~/Documents/scripts```. Now copy your ```list-ip.sh``` to this directory. Let's add this directory to our PATH in our ```~/.bashrc``` file. Finally before we edit let's print out the content of the PATH system variable so we can see our changes later.  How would you do that? Let us open our ```~/.bashrc``` file in vi.  Now move the cursor position to the bottom of the file.  Type ```ESC shift+o``` to insert a new line.   Now type ```ESC i``` to change to INSERT mode.   Type the line ```PATH=$PATH:~/Documents/scripts``` followed by a new line (vim cheats and will accept the ENTER key in addition to ```ESC SHIFT+o```) and then let's export the new variable content by typing ```export PATH```  now exit `vi`.
 
 > __Example Usage:__ To make the changes we just made register we can do two things.  We can reboot the system so all the profiles are re-read but that is a little drastic.   A shortcut to re-read and process just the ```~/.bashrc``` file is to add a single-dot separated by a space.  Type ```. ~/.bashrc``` and then display the content of the PATH variable: ```echo $PATH``` and you should see your new addition appended to the PATH variable permanently.
 
@@ -552,8 +552,6 @@ __Deliverable:__
 Submit your GitHub URL for your repo to Blackboard.
 
 #### Footnotes
-
-[^77]: <a href="https://commons.wikimedia.org/wiki/File:Bill_joy.jpg#/media/File:Bill_joy.jpg">Bill joy</a> by Original uploader was <a title="en:User:SqueakBox" class="extiw" href="//en.wikipedia.org/wiki/User:SqueakBox">SqueakBox</a> at <a class="external text" href="http://en.wikipedia.org">en.wikipedia</a> - Transferred from <a class="external text" href="http://en.wikipedia.org">en.wikipedia</a>; Transfer was stated to be made by <a title="User:Jalo" href="//commons.wikimedia.org/wiki/User:Jalo">User:Jalo</a>.. Licensed under <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
 
 [^78]: <a href="http://www.gnu.org/software/emacs/">http://www.gnu.org/software/emacs/</a>
 
