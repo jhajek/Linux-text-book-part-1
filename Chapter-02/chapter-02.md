@@ -753,8 +753,6 @@ But if you look at the foundations they are "pay-to-play" and controlled by the 
 
 As of 2022 a new wrinkle has appeared in the Opensource discussion. With [GitHub](https://github.com "GitHub version control webpage") being one of the largest repositories of public opensource code, there came a new opportunity. Could AI scan the existing code base and make coding suggestions as you develop? GitHub is now offering this via their [Copilot](https://github.com/features/copilot/ "GitHub copilot webpage") paid product.
 
-`GitHub Copilot uses the OpenAI Codex to suggest code and entire functions in real-time, right from your editor.`
-
 The question this presents -- is this legal? How does the existing opensource licenses: MIT, Apache2, GPL3, and the MPL impact this service? Can a third party collect opensource code and sell it to you without creating a derivative work? The [FSF](https://fsf.org "Free Software Foundation webpage") has a lengthy commentary on this.
 
 * [On the Nature of AI Code Copilots](https://www.fsf.org/licensing/copilot/on-the-nature-of-ai-code-copilots "On the Nature of AI Code Copilots article webpage")
