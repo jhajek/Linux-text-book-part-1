@@ -340,7 +340,7 @@ We would go from this ```rw-rw-r--``` to this ```rwxrw-r--```.  We could do that
 
 You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be marked with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script.
 
-![*Execute Permission enabled - turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
+
 
 ## Understanding .bashrc
 
