@@ -350,11 +350,15 @@ Next there is local login profile.  This is additional customization added to yo
 
 Then once logged in upon launching a terminal there is another set of profiles to be processed. The ```~/.bashrc``` file is processed.   The template for this file is generally located in ```/etc/bashrc``` if you want to customize or replace a ```~/.bashrc``` file.  There is one final file that you can use to modify a system environment upon logout and that is the ```~/.bash_logout``` file.
 
-If you wanted to make modification to your $PATH variable to include a directory for the newly made shell scripts you can modify the PATH directly on the command line.  The problem is that this variable will only stay in memory for the duration of the terminal window--as soon as it is closed the PATH reverts to the one it started with.  In order to permanently modify the PATH we need to modify it in one of the profile files.  The best place to make user specific changes is in the ```~/.bashrc``` file.  
+If you wanted to make modification to your $PATH variable to include a directory for the newly made shell scripts you can modify the PATH directly on the command line.  The problem is that this variable will only stay in memory for the duration of the terminal window--as soon as it is closed the PATH reverts to the one it started with.  In order to permanently modify the PATH we need to modify it in one of the profile files.  The best place to make user specific changes is in the ```~/.bashrc``` file from the commandline.  
 
-![*.bashrc*](images/Chapter-07/editors/bash/bashrc.png ".bashrc")
+Let's try to add to the PATH.  When updating a shell variable we need to use the ```export``` command so that the system is aware of the new variable value.  Think of it as a *refresh* command.  In addition to the PATH variable to see all the system variables your distro sets, type ```printenv``` from the shell. Using the command: `vim ~/.bashrc`:
 
-As you can see the file is very sparse.  There is a specific header allowing you to add user logic at the end of the file.   Let's try to add to the PATH.  When updating a shell variable we need to use the ```export``` command so that the system is aware of the new variable value.  Think of it as a *refresh* command.  In addition to the PATH variable to see all the system variables your distro sets, type ```printenv``` from the shell.
+```bash
+# Extending the system path
+# Manually added by the user
+export PATH=$PATH:/usr/local/bin
+```
 
 > __Example Usage:__ Type ```mkdir ~/Documents/scripts```. Now copy your ```list-ip.sh``` to this directory. Let's add this directory to our PATH in our ```~/.bashrc``` file. Finally before we edit let's print out the content of the PATH system variable so we can see our changes later.  How would you do that? Let us open our ```~/.bashrc``` file in vi.  Now move the cursor position to the bottom of the file.  Type ```ESC shift+o``` to insert a new line.   Now type ```ESC i``` to change to INSERT mode.   Type the line ```PATH=$PATH:~/Documents/scripts``` followed by a new line (vim cheats and will accept the ENTER key in addition to ```ESC SHIFT+o```) and then let's export the new variable content by typing ```export PATH```  now exit __vi__.
 
