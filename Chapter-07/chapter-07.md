@@ -294,7 +294,7 @@ tail ~/Linux-text-book-part-1/files/Chapter-07/logs/hosts.deny
 echo "********************************************************"
 ```
 
-Now we need to save the file (w) and quit out of vi (q).  You can move to __ex__ mode by hitting `ESC :wq` to save and quit.   Now let us run our shell script.  Type `list-ip.sh` on the command line.   What happens? Why?
+Now we need to save the file (w) and quit out of vi (q).  You can move to __ex__ mode by hitting `ESC :wq` to save and quit.   Now let us run our shell script.  Type `list-ip.sh` on the command line. What happens? Why?
 
 ![*Command not found*](images/Chapter-07/editors/bash/command-not-found.png "Command Not Found")
 
