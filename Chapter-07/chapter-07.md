@@ -318,8 +318,8 @@ The error message tells us that we have ```permission denied```.  Remember back 
 
 ![*ls -l list-ip.sh*](images/Chapter-07/editors/bash/permissions.png "Permissions")
 
-We can change permissions by using the ```chmod``` command.  What is the current numeric value of the permissions for the file list-ip.sh?  What would we need to change it to at a minimum?  If you said 764 you would be correct?  Why?  The minimum we need to do is add the __execute__ permission to the owner's permission section.
-We would go from this ```rw-rw-r--``` to this ```rwxrw-r--```.  We could do that by typing ```chmod 765 list-ip.sh```.  There is an easier way with group and letter shortcuts.
+We can change permissions by using the `chmod` command.  What is the current numeric value of the permissions for the file list-ip.sh?  What would we need to change it to at a minimum?  If you said 764 you would be correct?  Why?  The minimum we need to do is add the `execute` permission to the owner's permission section.
+We would go from this `rw-rw-r--` to this `rwxrw-r--`.  We could do that by typing `chmod 765 list-ip.sh`. There is an easier way with group and letter shortcuts.
 
 : Permission Shortcuts
 
@@ -342,9 +342,9 @@ We would go from this ```rw-rw-r--``` to this ```rwxrw-r--```.  We could do that
 ```chmod ug+rwx list-ip.sh```         Owner and group are give rwx permissions together.
 ------------------------------   -----------------------------------------------------------
 
-You will notice that in the terminal (where supported) files marked executable will turn green.  If you use the ```ls -lF``` flag you will also see that executable files will be marked with an asterisk.  Now you can finally execute your command ```./list-ip.sh``` and see the last ten lines of output from the shell script.
+You will notice that in the terminal (where supported) files marked executable will turn green. If you use the `ls -lF` flag you will also see that executable files will be marked with an asterisk. Now you can finally execute your command `./list-ip.sh` and see the last ten lines of output from the shell script.
 
-![*Execute Permission enabled turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
+
 
 ## Understanding .bashrc
 
