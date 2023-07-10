@@ -351,15 +351,15 @@ You will notice that in the terminal (where supported) files marked executable w
 
 ## Understanding .bashrc
 
-When your system first boots up how does it know how to define system environment variables and system PATH variables?  Part of the boot process is to read and source the `/etc/profile` file.  This is a system wide profile that all users accounts will inherit from this file.
+When your system first boots up how does it know how to define system environment variables and system PATH variables?  Part of the boot process is to read and source the `/etc/profile` file. This is a system wide profile that all users accounts will inherit from this file.
 
-Next there is local login profile.  This is additional customization added to your account after you log in via username/password.  There could be any number of files from this list in this order: `~/.bash_profile` or `~/.bash_login` or `~/.profile` (.profile is a hold over from the Korn shell--since bash is ksh compatible).
+Next there is local login profile. This is additional customization added to your account after you log in via username/password. There could be any number of files from this list in this order: `~/.bash_profile` or `~/.bash_login` or `~/.profile`. The `.profile` is a hold over from the Korn shell--since bash is ksh compatible.
 
-Then once logged in upon launching a terminal there is another set of profiles to be processed. The `~/.bashrc` file is processed.   The template for this file is generally located in `/etc/bashrc` if you want to customize or replace a `~/.bashrc` file.  There is one final file that you can use to modify a system environment upon logout and that is the `~/.bash_logout` file.
+Then once logged in upon launching a terminal there is another set of profiles to be processed. The `~/.bashrc` file is processed.   The template for this file is generally located in `/etc/bashrc` if you want to customize or replace a `~/.bashrc` file. There is one final file that you can use to modify a system environment upon logout and that is the `~/.bash_logout` file.
 
-If you wanted to make modification to your $PATH variable to include a directory for the newly made shell scripts you can modify the PATH directly on the command line.  The problem is that this variable will only stay in memory for the duration of the terminal window--as soon as it is closed the PATH reverts to the one it started with.  In order to permanently modify the PATH we need to modify it in one of the profile files.  The best place to make user specific changes is in the `~/.bashrc` file from the commandline.  
+If you wanted to make modification to your $PATH variable to include a directory for the newly made shell scripts you can modify the PATH directly on the command line. The problem is that this variable will only stay in memory for the duration of the terminal window--as soon as it is closed the PATH reverts to the one it started with. In order to permanently modify the PATH we need to modify it in one of the profile files.  The best place to make user specific changes is in the `~/.bashrc` file from the commandline.
 
-Let's try to add to the PATH.  When updating a shell variable we need to use the `export` command so that the system is aware of the new variable value.  Think of it as a *refresh* command.  In addition to the PATH variable to see all the system variables your distro sets, type `printenv` from the shell. Using the command: `vim ~/.bashrc`:
+Let's try to add to the PATH.  When updating a shell variable we need to use the `export` command so that the system is aware of the new variable value.  Think of it as a *refresh* command. In addition to the PATH variable to see all the system variables your distro sets, type `printenv` from the shell. Using the command: `vim ~/.bashrc`:
 
 ```bash
 # Extending the system path
