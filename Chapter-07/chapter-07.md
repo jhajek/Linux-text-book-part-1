@@ -310,7 +310,11 @@ echo $PATH
 
 There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary. Note the absolute paths are chained together with colons `:`. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it?   Remember the single-dot operator `./` --that tells the operating system to look here--overriding the system path. Try and type `./list-ip.sh` what happens now?
 
-![*Permission Denied!*](images/Chapter-07/editors/bash/permission-denied.png "Permission Denied")
+```bash
+# Executing the command ls /root on the commandline
+# controller@controller-VirtualBox:~$ ls /root
+# ls: cannot open directory '/root': Permission denied
+```
 
 ### Changing Permissions for Execution
 
