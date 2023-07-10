@@ -308,7 +308,7 @@ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 ```
 
-There is a system variable named $PATH that is constructed upon boot.  It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located.  Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary.  Note the absolute paths are chained together with colons `:`. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name.  In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above.  So how can we reference it?   Remember the single-dot operator `./` --that tells the operating system to look here--overriding the system path.  Try and type `./list-ip.sh` what happens now?
+There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary. Note the absolute paths are chained together with colons `:`. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it?   Remember the single-dot operator `./` --that tells the operating system to look here--overriding the system path. Try and type `./list-ip.sh` what happens now?
 
 ![*Permission Denied!*](images/Chapter-07/editors/bash/permission-denied.png "Permission Denied")
 
@@ -318,8 +318,7 @@ The error message tells us that we have ```permission denied```.  Remember back 
 
 ![*ls -l list-ip.sh*](images/Chapter-07/editors/bash/permissions.png "Permissions")
 
-We can change permissions by using the `chmod` command.  What is the current numeric value of the permissions for the file list-ip.sh?  What would we need to change it to at a minimum?  If you said 764 you would be correct?  Why?  The minimum we need to do is add the `execute` permission to the owner's permission section.
-We would go from this `rw-rw-r--` to this `rwxrw-r--`.  We could do that by typing `chmod 765 list-ip.sh`. There is an easier way with group and letter shortcuts.
+We can change permissions by using the `chmod` command.  What is the current numeric value of the permissions for the file list-ip.sh? What would we need to change it to at a minimum? If you said 764 you would be correct? Why? The minimum we need to do is add the `execute` permission to the owner's permission section. We would go from this `rw-rw-r--` to this `rwxrw-r--`. We could do that by typing `chmod 765 list-ip.sh`. There is an easier way with group and letter shortcuts.
 
 : Permission Shortcuts
 
@@ -344,7 +343,7 @@ We would go from this `rw-rw-r--` to this `rwxrw-r--`.  We could do that by typi
 
 You will notice that in the terminal (where supported) files marked executable will turn green. If you use the `ls -lF` flag you will also see that executable files will be marked with an asterisk. Now you can finally execute your command `./list-ip.sh` and see the last ten lines of output from the shell script.
 
-
+![*Execute Permission enabled turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
 
 ## Understanding .bashrc
 
@@ -364,9 +363,9 @@ Let's try to add to the PATH.  When updating a shell variable we need to use the
 export PATH=$PATH:/usr/local/bin
 ```
 
-> __Example Usage:__ Type ```mkdir ~/Documents/scripts```. Now copy your ```list-ip.sh``` to this directory. Let's add this directory to our PATH in our ```~/.bashrc``` file. Finally before we edit let's print out the content of the PATH system variable so we can see our changes later.  How would you do that? Let us open our ```~/.bashrc``` file in vi.  Now move the cursor position to the bottom of the file.  Type ```ESC shift+o``` to insert a new line.   Now type ```ESC i``` to change to INSERT mode.   Type the line ```PATH=$PATH:~/Documents/scripts``` followed by a new line (vim cheats and will accept the ENTER key in addition to ```ESC SHIFT+o```) and then let's export the new variable content by typing ```export PATH```  now exit `vi`.
+> __Example Usage:__ Type `mkdir ~/Documents/scripts`. Now copy your `list-ip.sh` to this directory. Let's add this directory to our PATH in our `~/.bashrc` file. Finally before we edit let's print out the content of the PATH system variable so we can see our changes later.  How would you do that? Let us open our `~/.bashrc` file in vi.  Now move the cursor position to the bottom of the file.  Type `ESC shift+o` to insert a new line.   Now type `ESC i` to change to INSERT mode.   Type the line `PATH=$PATH:~/Documents/scripts` followed by a new line. Vim cheats and will accept the ENTER key in addition to `ESC SHIFT+o`. Let's export the new variable content by typing `export PATH`  now exit `vi`.
 
-> __Example Usage:__ To make the changes we just made register we can do two things.  We can reboot the system so all the profiles are re-read but that is a little drastic.   A shortcut to re-read and process just the ```~/.bashrc``` file is to add a single-dot separated by a space.  Type ```. ~/.bashrc``` and then display the content of the PATH variable: ```echo $PATH``` and you should see your new addition appended to the PATH variable permanently.
+> __Example Usage:__ To make the changes we just made register we can do two things.  We can reboot the system so all the profiles are re-read but that is a little drastic.   A shortcut to re-read and process just the `~/.bashrc` file is to add a single-dot separated by a space.  Type `. ~/.bashrc` and then display the content of the PATH variable: `echo $PATH` and you should see your new addition appended to the PATH variable permanently.
 
 ## Chapter Conclusions and Review
 
