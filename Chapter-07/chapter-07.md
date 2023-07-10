@@ -294,17 +294,21 @@ tail ~/Linux-text-book-part-1/files/Chapter-07/logs/hosts.deny
 echo "********************************************************"
 ```
 
-Now we need to save the file (w) and quit out of vi (q).  You can move to __ex__ mode by hitting ```ESC :wq``` to save and quit.   Now let us run our shell script.  Type ```list-ip.sh``` on the command line.   What happens? Why?
+Now we need to save the file (w) and quit out of vi (q).  You can move to __ex__ mode by hitting `ESC :wq` to save and quit.   Now let us run our shell script.  Type `list-ip.sh` on the command line.   What happens? Why?
 
 ![*Command not found*](images/Chapter-07/editors/bash/command-not-found.png "Command Not Found")
 
 ### System Path
 
-The file is correctly named but we have a problem.  The system only knows about command binaries in certain locations.  It doesn't know about our user created binaries.  How does the operating system know where to look?  Simple, type ```echo $PATH``` and what do you see?
+The file is correctly named but we have a problem.  The system only knows about command binaries in certain locations.  It doesn't know about our user created binaries.  How does the operating system know where to look?  Simple, type `echo $PATH` and what do you see?
 
-![*echo $PATH*](images/Chapter-07/editors/bash/system-path.png "System Path")
+```bash
+# Show the system path from the commandline
+echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+```
 
-There is a system variable named $PATH that is constructed upon boot.  It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located.  Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary.  Note the absolute paths are chained together with colons ```:```. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name.  In our case the shell script ```list-ip.sh``` is located in ```~/Documents``` which is not in the system path listed in the image above.  So how can we reference it?   Remember the single-dot operator ```./```--that tells the operating system to look here--overriding the system path.  Try and type ```./list-ip.sh``` what happens now?
+There is a system variable named $PATH that is constructed upon boot.  It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located.  Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary.  Note the absolute paths are chained together with colons `:`. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name.  In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above.  So how can we reference it?   Remember the single-dot operator `./` --that tells the operating system to look here--overriding the system path.  Try and type `./list-ip.sh` what happens now?
 
 ![*Permission Denied!*](images/Chapter-07/editors/bash/permission-denied.png "Permission Denied")
 
@@ -552,6 +556,8 @@ __Deliverable:__
 Submit your GitHub URL for your repo to Blackboard.
 
 #### Footnotes
+
+[^77]: <a href="https://commons.wikimedia.org/wiki/File:Bill_joy.jpg#/media/File:Bill_joy.jpg">Bill joy</a> by Original uploader was <a title="en:User:SqueakBox" class="extiw" href="//en.wikipedia.org/wiki/User:SqueakBox">SqueakBox</a> at <a href="http://en.wikipedia.org">en.wikipedia</a> - Transferred from <a href="http://en.wikipedia.org">en.wikipedia</a>; Transfer was stated to be made by <a title="User:Jalo" href="//commons.wikimedia.org/wiki/User:Jalo">User:Jalo</a>.. Licensed under <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
 
 [^78]: <a href="http://www.gnu.org/software/emacs/">http://www.gnu.org/software/emacs/</a>
 
