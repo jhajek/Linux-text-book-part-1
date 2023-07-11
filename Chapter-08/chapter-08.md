@@ -541,8 +541,8 @@ Lets take a look at this statement:[^90]
 
 * \$5 tells AWK to look at the fifth "column".
 * \~ tells AWK to do a RegularExpression match \/....\/ is a Regular expression.
-* Within the RE is the string Linux and the special character \^.
-* \^ causes the RE to match from the start (as opposed to matching anywhere in the line).
+* Within the RE is the string Linux and the special character `^`.
+* `^` causes the RE to match from the start (as opposed to matching anywhere in the line).
 * Seen together: AWK will match a regular expression with "Linux" at the start of the first column.
 
 You can find more information at this IBM tutorial: [AWK by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "AWK by example"). The GNU version of AWK is called [gawk](http://www.gnu.org/software/gawk/ "GNU webpage for gawk") and it performs the same commands and options but is licensed under GPLv3+ as AWK was part of the proprietary UNIX tools and license. Linux systems symlink `awk` command to `gawk`.  
@@ -558,7 +558,7 @@ sed script inputfile
 
 The ```sed``` command uses regular expressesions between the ```/../```[^92]
 
-* \^ Matches the beginning of the line
+* `^` Matches the beginning of the line
 * \$ Matches the end of the line
 * \. Matches any single character
 * \* Will match zero or more occurrences of the previous character
@@ -585,9 +585,9 @@ Through this chapter we learned about how to extend and improve our ability to w
 1) True or False The Bash shell scripting language has traditional language constructs like C or Java?
 
 2) What meta-character do you use to access the content of a shell variable?
-a.  ```$```
-b.  ```#```
-c.  ```!```
+a.  `$`
+b.  `#`
+c.  `!`
 d.  No character - trick questions
 
 3) When assigning the standard output of a command to a variable which of these are valid methods?
@@ -622,7 +622,7 @@ c.  ```echo ROSTER```
 d.  ```echo roster```
 
 8) What is the proper syntax to end an `IF` statement -- what is the very last line?
-a. }
+a. `}`
 b. done
 c. fi
 d. exit
