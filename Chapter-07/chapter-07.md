@@ -435,9 +435,9 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
 18. Assuming a file named `moretopsecret.sh` has a permission of 757 - what is the shortcut to remove all permissions from the the **other** group?
 
 19. What is the correct command sequence to save or write out a file in GNU Nano?
-   a. ^6
-   b. ^X
-   c. ^O
+   a. \^6
+   b. \^X
+   c. \^O
    d. :wq
 
 20. What is the command to display the contents of the PATH system variable on the command line?
