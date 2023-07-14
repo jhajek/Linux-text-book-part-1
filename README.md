@@ -48,7 +48,10 @@ To confirm install from the command line type: ```pandoc -v```
 
 ### Linux Dependencies - On Fedora
 
-This is for installing Pandoc 2.X branch.  You will need to download the Pandoc binary from [pandoc.org](https://github.com/jgm/pandoc/releases/ "Pandoc GitHub release tab"), do not install via dnf or yum as those versions are out of date.  Extract the tarball (tar.gz) and copy the contents of ```./pandoc-2.*/bin/```  to ```/usr/local/bin```.  You will need to use sudo because ```/usr/local/bin/``` is owned by root.  Tested with version 2.15.x.
+This is for installing Pandoc 3.x branch. You will need to download the Pandoc binary from [pandoc.org](https://github.com/jgm/pandoc/releases/ "Pandoc GitHub release tab"), do not install via `dnf` or `yum` as those versions are out of date.  
+
+
+Extract the tarball (tar.gz) and copy the contents of ```./pandoc-3.*/bin/```  to ```/usr/local/bin```. You will need to use `sudo` because ```/usr/local/bin/``` is owned by root. Tested with version 3.x.
 
 * texlive
 * texlive-latex-fonts
@@ -96,7 +99,7 @@ To Install the Inconsolata font:
 
 ## Windows
 
-You need Pandoc > 2.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
+You need Pandoc > 3.x and > MikTex 2.9.x to build this book proper as well as the Charis Sil and Inconsolata fonts.
 
 * [Pandoc Windows](https://github.com/jgm/pandoc/releases "Pandoc MSI")
   * It has been tested on Windows 10 with version 2.0, 2.1.3, and 2.5
