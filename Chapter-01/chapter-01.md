@@ -10,27 +10,13 @@ date: 07/30/2015
 
 ## Objectives of this book
 
-__Dennis Ritchie:__ *"I think the Linux phenomenon is quite delightful, because it draws so strongly on the basis that Unix provided. Linux seems to be the among the healthiest of the direct Unix derivatives, though there are also the various BSD systems as well as the more official offerings from the workstation and mainframe manufacturers."* [Interview with Dennis Ritchie](http://www.linuxfocus.org/English/July1999/article79.html "Dennis Ritchie Quote")
-
-__Richard Stallman:__ *"Free software is a matter of liberty, not price. To understand the concept, you should think of free as in free speech, not as in free beer."* [What is free software?](https://www.gnu.org/philosophy/free-sw.html "Free Software")
-  
-__Linus Torvalds:__ *"To kind of explain what Linux is, you have to explain what an operating system is. And the thing about an operating system is that you're never ever supposed to see it. Because nobody really uses an operating system; people use programs on their computer. And the only mission in life of an operating system is to help those programs run. So an operating system never does anything on its own; it's only waiting for the programs to ask for certain resources, or ask for a certain file on the disk, or ask to connect to the outside world. And then the operating system steps in and tries to make it easy for people to write programs."* [Linus  Torvalds Interview in Revolution OS, documentary, 2001.](https://en.wikiquote.org/wiki/Linus_Torvalds#2000-04 "Interview")
-
-__Steve Ballmer:__ *"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [1 June 2001 Chicago Sun Times](https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html "Steve Ballmer calls Linux a cancer")
-
-__Scott Guthrie__ "*Today I’m excited to announce our plans to bring SQL Server to Linux as well. This will enable SQL Server to deliver a consistent data platform across Windows Server and Linux, as well as on-premises and cloud. We are bringing the core relational database capabilities to preview today, and are targeting availability in mid-2017.*" [March 7, 2016 Scott Guthrie, Executive Vice President, Cloud and Enterprise Group, Microsoft](https://blogs.microsoft.com/blog/2016/03/07/announcing-sql-server-on-linux/#sm.0000164n8bkaqfeawtecf32pv82bz "Microsoft Loves Linux")
-
-__GitHub__ [Microsoft buys GitHub - June 4, 2018](https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/ "Microsoft buys GitHub")
-
-"*Microsoft Corp. on Monday announced it has reached an agreement to acquire [GitHub](https://github.com "GitHub"), the world’s leading software development platform where more than 28 million developers learn, share and collaborate to create the future. Together, the two companies will empower developers to achieve more at every stage of the development lifecycle, accelerate enterprise use of GitHub, and bring Microsoft’s developer tools and services to new audiences.*"
-
-__Android__  "*Android is a Linux distribution according to the Linux Foundation, Google's open-source chief Chris DiBona, and several journalists. Others, such as Google engineer Patrick Brady, say that Android is not Linux in the traditional Unix-like Linux distribution sense; Android does not include the GNU C Library (it uses Bionic as an alternative C library) and some of other components typically found in Linux distributions.*"
-
-When you hear the term *"free and opensource software"* what comes to mind? The quotes listed above state a range of opinions and outlooks. Do you agree with any of these quotes?  Do you disagree? These are the questions to keep in mind as you begin to understand *free and opensource software*.
+This book was designed to give an overview of free and opensource software and how this philosophical reality is represented in midern technology we use everyday in conducting business. Herein contains history, expostition, exercises, quizes and projects.
 
 Everyday people are exposed to free and opensource software without even knowing it. What does this mean?  And what are the advantages/disadvantages with proprietary or closed-source software?  What are the different development paradigms and what do these things mean in relation to privacy, security, and impact on your daily life.  In reading the above quotes it is clear there is more than a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems power our computers and smart phones; they allow us to interact with the hardware contained within and to impact society.
 
 In 1969, the first UNIX operating system was created by Bell Labs employees at AT&T.  AT&T Bell Labs was spun off as part of Lucent Technologies in 1996.  In 2006, Alcatel SA of France, purchased Lucent Technologies and Bell Labs. In 2016, Nokia, with money they received from selling their mobile phone division to Microsoft, absorbed Alcatel SA of France.  After one year, the Nokia name was licensed to a HMD Global to produce Android based phones in 2019, which a distribution of Linux, which is descended from UNIX.  A 50 year cycle with Unix all the way down.
+
+### Ourcomes of this book
 
 This text strives to focus on two areas:
 
@@ -56,6 +42,50 @@ The text of the book is opensource and build instructions are in our GitHub repo
 All source code from this book as well as examples are available on our GitHub page: [https://github.com/jhajek/Linux-text-book-part-1](https://github.com/jhajek/Linux-text-book-part-1 "GitHub repo")
 
 Part of this book was inspired by a quote from my friend in regards to Linux textbooks, he said, *"Most text books move along well, but then out of nowhere introduce unrelated content."*  At the same time, I had the feeling that most Linux Text books out were actually Unix text books with some updated content relating to Linux.
+
+### Quotes
+
+#### Dennis Ritchie
+
+*"I think the Linux phenomenon is quite delightful, because it draws so strongly on the basis that Unix provided. Linux seems to be the among the healthiest of the direct Unix derivatives, though there are also the various BSD systems as well as the more official offerings from the workstation and mainframe manufacturers."* [Interview with Dennis Ritchie](http://www.linuxfocus.org/English/July1999/article79.html "Dennis Ritchie Quote")
+
+#### Richard Stallman
+
+*"Free software is a matter of liberty, not price. To understand the concept, you should think of free as in free speech, not as in free beer."* [What is free software?](https://www.gnu.org/philosophy/free-sw.html "Free Software")
+  
+#### Linus Torvalds
+
+*"To kind of explain what Linux is, you have to explain what an operating system is. And the thing about an operating system is that you're never ever supposed to see it. Because nobody really uses an operating system; people use programs on their computer. And the only mission in life of an operating system is to help those programs run. So an operating system never does anything on its own; it's only waiting for the programs to ask for certain resources, or ask for a certain file on the disk, or ask to connect to the outside world. And then the operating system steps in and tries to make it easy for people to write programs."* [Linus  Torvalds Interview in Revolution OS, documentary, 2001.](https://en.wikiquote.org/wiki/Linus_Torvalds#2000-04 "Interview")
+
+#### Steve Ballmer 
+
+*"Linux is not in the public domain. Linux is a cancer that attaches itself in an intellectual property sense to everything it touches. That's the way that the license works."*  [1 June 2001 Chicago Sun Times](https://web.archive.org/web/20011108013601/http://www.suntimes.com/output/tech/cst-fin-micro01.html "Steve Ballmer calls Linux a cancer")
+
+#### Scott Guthrie 
+
+"*Today I’m excited to announce our plans to bring SQL Server to Linux as well. This will enable SQL Server to deliver a consistent data platform across Windows Server and Linux, as well as on-premises and cloud. We are bringing the core relational database capabilities to preview today, and are targeting availability in mid-2017.*" [March 7, 2016 Scott Guthrie, Executive Vice President, Cloud and Enterprise Group, Microsoft](https://blogs.microsoft.com/blog/2016/03/07/announcing-sql-server-on-linux/#sm.0000164n8bkaqfeawtecf32pv82bz "Microsoft Loves Linux")
+
+#### GitHub 
+
+[Microsoft buys GitHub - June 4, 2018](https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/ "Microsoft buys GitHub")
+
+"*Microsoft Corp. on Monday announced it has reached an agreement to acquire [GitHub](https://github.com "GitHub"), the world’s leading software development platform where more than 28 million developers learn, share and collaborate to create the future. Together, the two companies will empower developers to achieve more at every stage of the development lifecycle, accelerate enterprise use of GitHub, and bring Microsoft’s developer tools and services to new audiences.*"
+
+#### Android  
+
+"*Android is a Linux distribution according to the Linux Foundation, Google's open-source chief Chris DiBona, and several journalists. Others, such as Google engineer Patrick Brady, say that Android is not Linux in the traditional Unix-like Linux distribution sense; Android does not include the GNU C Library (it uses Bionic as an alternative C library) and some of other components typically found in Linux distributions.*"
+
+#### Business Source Licesnse
+
+*[The Business Source License](https://spdx.github.io/license-list-data/BUSL-1.1.html "BUSL 1.1") (this document, or the “License”) is not an Open Source license. However, the Licensed Work will eventually be made available under an Open Source License, as stated in this License.*
+
+#### Linux Foundation Decreases Linux Spending
+
+*On December 8th, 2022, the Linux Foundation [released their annual report for 2022](https://project.linuxfoundation.org/hubfs/LF%20Research/2022%20Linux%20Foundation%20Annual%20Report.pdf?hsLang=en "Linux Foundation Annual Report"). I’m not going to sugar coat this… it is absolutely ridiculous. The highlight? Funding for the Linux kernel, in 2022, dropped to a measly 3.2% of the foundation’s total revenue of $243 Million dollars. Down from the — already absurdly low — 3.4% from 2021.*  - [Lunduke Journal of Technology](https://lunduke.locals.com/post/4408159/linux-foundation-decreased-linux-spending-to-3-2-in-2022 "Lunkduke Journal of Technology article: Linux Foundation decreases spending")
+
+### Summary Question
+
+When you hear the term *"free and opensource software"* what comes to mind? The quotes listed above state a range of opinions and outlooks. Do you agree with any of these quotes? Do you disagree? These are the questions to keep in mind as you begin to understand *free and opensource software*.
 
 ### Chapter Title Images
   
