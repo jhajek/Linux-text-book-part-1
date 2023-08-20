@@ -86,7 +86,7 @@ pandoc --toc -V geometry:margin=.75in -V paperwidth=6.14in -V paperheight=9.25in
 # EPUB - To convert it to EPUB, use this command:               #
 #################################################################
 
-pandoc --toc --number-sections --css=css/epub/book-style.css --epub-cover-image=images/Chapter-Header/Cover/John_Calvin_by_Holbein.png -o ./output/epub/Understanding-Free-and-Opensource-Operating-Systems-Part-I.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Appendix-A/appendix-A.md ./Appendix-B/appendix-B.md ./Appendix-C/appendix-C.md ./Appendix-D/appendix-D.md
+pandoc --toc --number-sections --css=css/epub/book-style.css --epub-cover-image=images/Chapter-Header/Cover/cover.jpg -o ./output/epub/Understanding-Free-and-Opensource-Operating-Systems-Part-I.epub ./Chapter-01/chapter-01.md ./Chapter-02/chapter-02.md ./Chapter-03/chapter-03.md ./Chapter-04/chapter-04.md ./Chapter-05/chapter-05.md ./Chapter-06/chapter-06.md ./Chapter-07/chapter-07.md ./Chapter-08/chapter-08.md ./Chapter-09/chapter-09.md ./Chapter-10/chapter-10.md ./Chapter-11/chapter-11.md ./Chapter-12/chapter-12.md ./Chapter-13/chapter-13.md ./Chapter-14/chapter-14.md ./Appendix-A/appendix-A.md ./Appendix-B/appendix-B.md ./Appendix-C/appendix-C.md ./Appendix-D/appendix-D.md
  
 ##################################################################
 # HTML5 - To convert it to HTML, use this command:              #
