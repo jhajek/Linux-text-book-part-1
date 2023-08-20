@@ -720,20 +720,32 @@ As the story moves into the year of 2019, we begin to see the issue of opensourc
   * [Community License v1](https://www.confluent.io/confluent-community-license "Confluence Community License")
 * Redis
   * [Source Available License](https://redislabs.com/community/licenses/ "Source Available License")
-* CockroachDB
-  * [Community License Agreement](https://www.cockroachlabs.com/cockroachdb-community-license/ "Community License Agreement")
 * Amazon vs Elastic
   * In a bit of irony, after the Elastic company moved some of their products features to an Enterprise Edition and non-opensource offering, Amazon felt the need to make a statement rebuking Elastic for not [keeping Opensource open](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/ "Keeping Opensource Open").  Amazon neglected to mention that they had forked Elastic's code, made a hosted version on the AWS Cloud and was not contributing any code or money back to Elastic.  Mind you this was all legal according to the Apache Public License v2.  
 * [Grafana changes to AGPL3](https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/ "Grafana changes license to AGPL3").
   * Some companies have reacted strongly by changing permissive licensing like Apache2 and MIT to the [AGPL3](https://www.gnu.org/licenses/agpl-3.0.en.html "AGPL3 license web page"), which is within their rights.  
+* OpenTF Foundation
+* [Business Source License 1.1](https://mariadb.com/bsl11/ "MariaDB Introduces BUSL 1.1")
+  * The Licensor hereby grants you the right to copy, modify, create derivative works, redistribute, and make non-production use of the Licensed Work. The Licensor may make an Additional Use Grant, above, permitting limited production use.
+  * Effective on the Change Date, or the fourth anniversary of the first publicly available distribution of a specific version of the Licensed Work under this License, whichever comes first, the Licensor hereby grants you rights under the terms of the Change License, and the rights granted in the paragraph above terminate.
+* [HashiCorp adopts Business Source License](https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license "Article HashiCorp adopts BUSL")
+  * HashiCorp adopts the Business Source License to ensure continued investment in its community and to continue providing open, freely available products.
+* [Open Enterprise Foundation](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "Open Enterprise Foundation") to compete with Red Hat Enterprise Linux
+  * CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future
+  * New trade association brings together open source Enterprise Linux community 
+  * It will provide an open process to access source code that organizations can use to build distributions compatible with RHEL
 
-Some would argue that this is where the GPL with its strong copyleft would prevent this from happening.  Others would argue that this is the fundamental market effect of opensource, and let the two fight it out and the market will determine the winner.  The other solution is to create 503c based foundations to steward projects, which means governance and tight corporate control of a project.  When Amazon essentially forked MongoDB and created a product called DocumentDB, the GPL would have forced Amazon, by its license, to release the changes made to the MongoDB source code--leveling the playing field.  The FSF and GPL people will tell you, the license is not about money or commerce, but freedom.
+Some would argue that this is where the GPL with its strong copyleft would prevent this from happening. Others would argue that this is the fundamental market effect of opensource, and let the two fight it out and the market will determine the winner. The other solution is to create [501c3](https://en.wikipedia.org/wiki/501(c)(3)_organization "Wiki article 5013c") or [501c6](https://en.wikipedia.org/wiki/501(c)_organization#501(c)(6) "Wiki article trade organization") based foundations to steward projects, which means governance and tight corporate control of a project.  When Amazon essentially forked MongoDB and created a product called DocumentDB, the GPL would have forced Amazon, by its license, to release the changes made to the MongoDB source code--leveling the playing field.  The FSF and GPL people will tell you, the license is not about money or commerce, but freedom.
 
-Others will cite the fact that very few successful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception.  Apple, for instance, has removed all GPLv3 based software from its MacOS due to concerns about GPLv3.  
+Others will cite the fact that very few successful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception. Apple, for instance, has removed all GPLv3 based software from its MacOS due to concerns about GPLv3.  
 
-One industry solution has been the formation of foundations that have largely avoided the GPL license for fear of the copyleft clause.  For example, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation") employs Linus Torvalds to continue work on the Linux Kernel.  In addition, the Linux Foundation runs multiple other significant technology foundations--all offspring of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and shepherded by the Linux Foundation is pretty astounding.
+One industry solution has been the formation of foundations that have largely avoided the GPL license for fear of the copyleft clause.  For example, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation") employs Linus Torvalds to continue work on the Linux Kernel. In addition, the Linux Foundation runs multiple other significant technology foundations--all offspring of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and shepherded by the Linux Foundation is pretty astounding.
 
 Other foundations include:
+
+* [Apache Software Foundataion - ASF](https://apache.org/ "Website Apache Software Foundation")
+
+  "*ASF’s open source software is used ubiquitously around the world with more than 8,400 committers contributing to more than 320 active projects.*"
 
 * [Cloud Native Computing Foundation](https://cncf.io "Cloud Native Computing Foundation") (CNCF)
 
@@ -747,11 +759,11 @@ Other foundations include:
 
     "*The Continuous Delivery Foundation (CDF) serves as the vendor-neutral home of many of the fastest-growing projects for continuous delivery, including Jenkins, Jenkins X, Spinnaker, and Tekton. CDF supports DevOps practitioners with an open model, training, industry guidelines, and a portability focus.*"
 
-But if you look at the foundations they are "pay-to-play" and controlled by the largest corporations who don't always have a good track record in relation to respecting free/opensource licensing.  Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out. The large corporations have found and embraced Opensource Software.  The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
+But if you look at the foundations they are "pay-to-play" and controlled by the largest corporations who don't always have a good track record in relation to respecting free/opensource licensing. Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out. The large corporations have found and embraced Opensource Software. Foundations also lead to governance -- which prevents "forking", one of the main ideas of Free and Opensource Software. The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
 
 ### GitHub Copilot - Opensource and AI
 
-As of 2022 a new wrinkle has appeared in the Opensource discussion. With [GitHub](https://github.com "GitHub version control webpage") being one of the largest repositories of public opensource code, there came a new opportunity. Could AI scan the existing code base and make coding suggestions as you develop? GitHub is now offering this via their [Copilot](https://github.com/features/copilot/ "GitHub copilot webpage") paid product.
+As of 2022/23 a new wrinkle has appeared in the Opensource discussion. With [GitHub](https://github.com "GitHub version control webpage") being one of the largest repositories of public opensource code, there came a new opportunity. Could AI scan the existing code base and make coding suggestions as you develop? GitHub is now offering this via their [Copilot](https://github.com/features/copilot/ "GitHub copilot webpage") paid product.
 
 The question this presents -- is this legal? How does the existing opensource licenses: MIT, Apache2, GPL3, and the MPL impact this service? Can a third party collect opensource code and sell it to you without creating a derivative work? The [FSF](https://fsf.org "Free Software Foundation webpage") has a lengthy commentary on this.
 
@@ -765,7 +777,7 @@ In this chapter you were introduced to many names in relation to the history of 
 
 ### Review Questions
 
-Either individually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001.  The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
+Either individually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
 1. Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
 
