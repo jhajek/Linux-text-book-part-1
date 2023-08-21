@@ -1,4 +1,4 @@
-# Appendix D - Git Tutorial
+# Appendix D - Software and Version Control Setup Tutorial
 
 ![*Git commit messages--after developing this book I understand this completely*](images/Chapter-Header/Appendix-D/git_commit-2.png "Git Commit")
 
@@ -162,9 +162,9 @@ At the prompt we will type the following and it will look like this:
 ```bash
 # Remember, No spaces in the file name!
 # Windows
-Enter file in which to save the key ...: C:\Users\palad/.ssh/id_ed25519_356_github_key
+Enter file in which to save the key ...: C:\Users\palad/.ssh/id_ed25519_556_github_key
 # Mac\Linux
-Enter file in which to save the key ...: /Users/palad/.ssh/id_ed25519_356_github_key
+Enter file in which to save the key ...: /Users/palad/.ssh/id_ed25519_556_github_key
 ```
 
 The next prompt will ask you to enter a **passphrase**, this is an additional password that can be attached to a private key and would be required to use the private key for authentication. This can be a good idea as it is an extra layer of security against physical theft of your private key file. But in the use case we are working we are going to opt not to use it and handle security in a different method. In this case you can hit the "ENTER" key twice and it will not add a passphrase to your private key.
@@ -177,8 +177,8 @@ Enter same passphrase again:
 You will now see some output similar to this:
 
 ```bash
-Your identification has been saved in c:\Users\palad/.ssh/id_ed25519_356_github_key.
-Your public key has been saved in c:\Users\palad/.ssh/id_ed25519_356_github_key.pub.
+Your identification has been saved in c:\Users\palad/.ssh/id_ed25519_556_github_key.
+Your public key has been saved in c:\Users\palad/.ssh/id_ed25519_556_github_key.pub.
 The key fingerprint is:
 SHA256:3LR4sEpKQgbA6LT7yOP54QcAUJ5/BaDEY/zgo3YWrOA palad@lenovo-laptop
 The key's randomart image is:
@@ -200,8 +200,8 @@ We are interested in the first two lines of the output. They show the file locat
 ```bash
 # Location of private and public keys -- note the public key has a .pub extension
 # The private key has no default extension
-Your identification has been saved in c:\Users\palad/.ssh/id_ed25519_356_github_key.
-Your public key has been saved in c:\Users\palad/.ssh/id_ed25519_356_github_key.pub
+Your identification has been saved in c:\Users\palad/.ssh/id_ed25519_556_github_key.
+Your public key has been saved in c:\Users\palad/.ssh/id_ed25519_556_github_key.pub
 ```
 
 In order to make secure connections to GitHub we are going to need to add the content of the .pub Public key into your GitHub account. We can do this via copy and paste:
@@ -209,9 +209,9 @@ In order to make secure connections to GitHub we are going to need to add the co
 ```bash
 # display the content of the .pub file -- note the location of the file
 # On Windows:
-type c:\Users\palad/.ssh/id_ed25519_356_github_key.pub
+type c:\Users\palad/.ssh/id_ed25519_556_github_key.pub
 # On Mac/Linux
-cat /Users/palad/.ssh/id_ed25519_356_github_key.pub
+cat /Users/palad/.ssh/id_ed25519_556_github_key.pub
 # You will receive output similar to this
 # Don't worry the public key is meant to be openly distributed
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILOgJFa4p2bLzbiqSfin87zzrFC29vULvMXd+MrwHbL0
@@ -279,7 +279,7 @@ Host github.com
   Hostname github.com
   # This command tells SSH which Private key to use when making an SSH 
   # connection to GitHub
-  IdentityFile ~/.ssh/id_ed25519_356_github_key
+  IdentityFile ~/.ssh/id_ed25519_556_github_key
 ```
 
 #### Cloning via SSH
@@ -291,15 +291,15 @@ Now we are set and ready to clone your remote repository to your local repositor
 1. Try not to use iCloud or OneDrive based disks that are backed up to the cloud as you already have a remote repository
 1. No spaces in filenames or folder names...[ever](https://jeremyhajek.com/2011/07/15/spaces-will-always-kill-you.html "Blog post. Spaces will always kill you")
 
-In my case I will create a new directory named `itmo-356` under my documents directory. You can use the File Explorer or the Finder in Mac to create files, but it is preferable to get comfortable with the commandline or shell. Opening PowerShell (or Terminal on a Mac) you will enter a series of commands:
+In my case I will create a new directory named `itmo-556` under my documents directory. You can use the File Explorer or the Finder in Mac to create files, but it is preferable to get comfortable with the commandline or shell. Opening PowerShell (or Terminal on a Mac) you will enter a series of commands:
 
 ```bash
 # The cd command changes directory -- navigates down the tree
 cd Documents
 # The mkdir command makes a new directory
-mkdir itmo-356
+mkdir itmo-556
 # The cd command moves you into the directory you just created
-cd itmo-356
+cd itmo-556
 # This is the command that we use to make a clone of our remote repository
 # Note: your URL will be different, change accordingly
 git clone git@github.com:illinoistech-itm/sample-student.git
@@ -314,7 +314,7 @@ ls
 
 Git is a commandline tool and it's many commands and features are replicated within the development IDEs such as VS Code, Atom, or Sublime editors. In our case we will be using VS Code. Our first step is to open the repository you just cloned to your system.
 
-Once VS Code is open, click the `File` option and select `Open Folder`. Git doesn't see files, that is a concession to humans, who understand files, Git only sees `repositories` so to work with Git we always need to open a folder. In this case I will navigate to `~/Documents/itmo-356/sample-student` and click the `Select Folder` button. Remember, we are not opening individual files--we are opening a repository.
+Once VS Code is open, click the `File` option and select `Open Folder`. Git doesn't see files, that is a concession to humans, who understand files, Git only sees `repositories` so to work with Git we always need to open a folder. In this case I will navigate to `~/Documents/itmo-556/sample-student` and click the `Select Folder` button. Remember, we are not opening individual files--we are opening a repository.
 
 VS Code will open your just cloned repository, you will see an empty `Readme.md` file in the file manager (upper left) lets select this and begin to edit this file. The tutorial assignment requires you to edit your `Readme.md` to make a markdown document. This Readme.md will contain these elements written in Markdown. This is the [Markdown cheat sheet reference](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet "Markdown cheatsheet").
 
