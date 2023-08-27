@@ -777,7 +777,7 @@ Clearly there is a changing of philosophy in Linux in the year 2023. Many millio
 * [RedHat found a way to get around the GPLv2 license intention with contract law](https://opencoreventures.com/blog/2023-08-redhat-gets-around-gplv2-license-intention-with-contract-law/ "webpage Red hat found a way around GPLv2")
 * [CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future | SUSE](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage forms Open Enterprise Linux Association")
 * [Red Hat’s commitment to open source](https://www.redhat.com/en/blog/red-hats-commitment-open-source-response-gitcentosorg-changes "webpage red hat commitment to open source")
-* [Furthering the evolution of CentOS Stream](https://www.redhat.com/en/blog/furthering-evolution-centos-stream "webpage redhat furthering the evolution of CentOS")
+* [Furthering the evolution of CentOS Stream](https://www.redhat.com/en/blog/furthering-evolution-centos-stream "webpage red hat furthering the evolution of CentOS")
 
 ## Chapter Conclusion and Summary
 
