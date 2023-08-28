@@ -560,7 +560,7 @@ Oracle saw that many of their customers were paying Red Hat for operating system
 
 #### SUSE Linux
 
-Suse Linux (pronounced *soo-suh*) began as a German Slackware Linux port and grew is be its own discrete operating system. It was started as a company in [started in 1994](https://www.suse.com/company/history/ "History of SUSE Linux"), making it one of the oldest Enterprise companies. Suse is an acronym meaning: "*Software und System-Entwicklung*” (software and systems development). Since the early 2000's Suse has been in lock step competition with Red Hat for what was the Unix Enterprise to Linux migration market. In order to do this they needed to have compatability with Red Hat and the two have often shared the same technology (being open source).  Suse had many innovations in the Enterprise space over the years.
+SUSE Linux (pronounced *soo-suh*) began as a German Slackware Linux port and grew is be its own discrete operating system. It was started as a company in [started in 1994](https://www.suse.com/company/history/ "History of SUSE Linux"), making it one of the oldest Enterprise companies. SUSE is an acronym meaning: "*Software und System-Entwicklung*” (software and systems development). Since the early 2000's SUSE has been in lock step competition with Red Hat for what was the Unix Enterprise to Linux migration market. In order to do this they needed to have compatability with Red Hat and the two have often shared the same technology (being open source).  SUSE had many innovations in the Enterprise space over the years.
 
 * SUSE was responsible for working to port the Linux kernel to the 64 bit architecture in 2000
 * [openSUSE Linux](https://www.opensuse.org "openSUSE Linux") is a community-driven version of SUSE and released in 2004.
@@ -777,23 +777,24 @@ The question this presents -- is this legal? How does the existing opensource li
 
 ### Changing of Enterprise Linux
 
-Clearly there is a changing of philosophy in Linux in the year 2023. Many millions of dollars are involved. The questions we now consider are very far from the world in 1983 when Free Software and GNU were making an impact. The question becomes all of that work that went into those systems are now parts of billion dollar companies. Do their ideologies align? What about making money? What is fair? Red Hat is redefining what Linux looks like for everyone including the business models used.
+Clearly there is a changing of philosophy in Linu now that billion dollar companies are involved. The questions we now consider are very far from the world in 1983 when Free Software and GNU were making an impact. The question of does a company have a right to make money? Can they contribute to a community? What are the moral and legal implications that others can make money off of your hardwork due to opensource. How do we synchronize the motivations of induvidual contributers and large enterprises? Are we seeing a market consolidation of Enterprise Linux into essentially RHEL?
 
-* [Why SUSE is forking Red Hat Enterprise Linux | TechCrunch](https://techcrunch.com/2023/07/11/why-suse-is-forking-red-hat-enterprise-linux/ "webpage link to why suse is forking Red Hat Linux")
-* [Red Hat and the Clone Wars IV: Knives Out: Dissociated Press](https://dissociatedpress.net/2023/07/11/red-hat-and-the-clone-wars-iv-knives-out/ "webpage clone wars")
-* [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall")
-* [RedHat found a way to get around the GPLv2 license intention with contract law](https://opencoreventures.com/blog/2023-08-redhat-gets-around-gplv2-license-intention-with-contract-law/ "webpage Red hat found a way around GPLv2")
-* [CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future | SUSE](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage forms Open Enterprise Linux Association")
-* [Red Hat’s commitment to open source](https://www.redhat.com/en/blog/red-hats-commitment-open-source-response-gitcentosorg-changes "webpage red hat commitment to open source")
-* [Furthering the evolution of CentOS Stream](https://www.redhat.com/en/blog/furthering-evolution-centos-stream "webpage red hat furthering the evolution of CentOS")
-
+* Red Hat's announcement of changing the Red Hat license regarding distributing source their code (July 2023)
+  * [Red Hat’s commitment to open source](https://www.redhat.com/en/blog/red-hats-commitment-open-source-response-gitcentosorg-changes "webpage red hat commitment to open source")
+  * [Furthering the evolution of CentOS Stream](https://www.redhat.com/en/blog/furthering-evolution-centos-stream "webpage red hat furthering the evolution of CentOS")
+  * [RedHat found a way to get around the GPLv2 license intention with contract law](https://opencoreventures.com/blog/2023-08-redhat-gets-around-gplv2-license-intention-with-contract-law/ "webpage Red hat found a way around GPLv2")
+  * [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall")
+* SUSE and Oracle's responce in the RHEL based Enterprise market
+  * [Why SUSE is forking Red Hat Enterprise Linux | TechCrunch](https://techcrunch.com/2023/07/11/why-suse-is-forking-red-hat-enterprise-linux/ "webpage link to why SUSE is forking Red Hat Linux")
+  * [Red Hat and the Clone Wars IV: Knives Out: Dissociated Press](https://dissociatedpress.net/2023/07/11/red-hat-and-the-clone-wars-iv-knives-out/ "webpage clone wars")
+  * [CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future | SUSE](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage forms Open Enterprise Linux Association")
+  
 ## Chapter Conclusion and Summary
 
-In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the UNIX operating system and how it led directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software and to the eventual forming of industry foundations.  You were introduced to the major Linux distribution families as well as the BSD derivative distros.  Finally you were introduced to the six phases of UNIX/Linux maturity and how they relate to business and commercial interests.  
+In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the UNIX operating system and how it led directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software. We learned the major Linux distribution families as well as the BSD derivative distros. Finally you we discussed the six phases of UNIX/Linux maturity and how they relate to business and commercial interests of today.  
 
 * [Additional Reading on the history of UNIX and BSD can be found here](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix").
 * [AT&T UNIX Archives: The Unix Operating System - 1982](https://www.youtube.com/watch?v=tc4ROCJYbm0 "AT&T UNIX Archives: The Unix Operating System - 1982")
-
 
 ### Review Questions
 
