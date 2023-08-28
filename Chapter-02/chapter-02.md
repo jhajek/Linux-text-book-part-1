@@ -44,7 +44,7 @@ User tools include all tooling or commands (executable binaries) needed to funct
 
 ### Ken Thompson, Dennis Ritchie, and Bell Labs
 
-Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix: **Know these names**!
+Many people supported and worked on what would become known as the Unix operating system but two names have received most of the credit for the creation, promotion, and use of Unix. [AT&T UNIX Archives: The Unix Operating System - 1982](https://www.youtube.com/watch?v=tc4ROCJYbm0 "AT&T UNIX Archives: The Unix Operating System - 1982")
 
 #### Ken Thompson and Dennis Ritchie
 
@@ -84,7 +84,7 @@ The best demonstration of these tenets was during a coding challenge issued by [
 
 > *Read a file of text, determine the n most frequently used words, and print out a sorted list of those words along with their frequencies.*
 
-There were two answers to the problem.  [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preeminent computer scientist, called the "father of analysis algorithms" tackled the problem by originating an ingenious new programming language, lengthy documentation, and code to solve the problem.  Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Ritchie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his contributions to Unix in chapter 6. Here is his answer:
+There were two answers to the problem. [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth "Donald Knuth") a preeminent computer scientist, called the "father of analysis algorithms" tackled the problem by originating an ingenious new programming language, lengthy documentation, and code to solve the problem. Comparatively, [Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Doug McIlroy"), who was Thompson and Ritchie's manager, wrote a six line Unix shell script to do the same work Knuth did in his massive work. We will talk more about Doug McIlroy and his contributions to Unix in chapter 6. Here is his answer:
 
 ```bash
 tr -cs A-Za-z '\n' |
@@ -103,7 +103,7 @@ Between 1970 and 1974 Unix grew from a pet project into a real product and one o
 
 So what you gain in efficiency you lose in portability.  What good would it have been if Unix could only be used on a PDP-7[^3]? It would have stayed a Bell Labs pet project and become an obscure entry on a Wikipedia page today.
 
-While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system.  These new people contributed additional functionality to solve their work problems.  Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs.  Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped by its use of PDP-7 assembler language.  Today we take for granted high level programming languages like C, C++, Python, and Java.  In the early 1970's none of these languages existed.
+While Thompson was building Unix to solve his own workloads, his fellow engineers at Bell Labs got wind of what he was doing and asked to have access to his system. These new people contributed additional functionality to solve their work problems. Enter Dennis Ritchie, who championed Ken Thompson's Unix in Bell Labs. Ritchie was a computer language creator and saw the utility of Thompson's Unix, but realized it was trapped by its use of PDP-7 assembler language. Today we take for granted high level programming languages like C, C++, Python, and Java. In the early 1970's none of these languages existed.
 
 Ritchie's initial work at Bell Labs was on a high level programming language that could would allow a user to write one piece of code and compile it on different computer architectures. In 1970 this was generally not possible and a radical idea. His initial work was on a [language called "B"](https://en.wikipedia.org/wiki/B_\(programming_language\) "B Language") which was derived from a language called BCPL.  B was designed to execute applications and operating system specific tasks but didn't handle numeric data (a feature designed to save precious hard drive space). B was also missing other features you would expect in a modern programming language.
 
@@ -789,7 +789,11 @@ Clearly there is a changing of philosophy in Linux in the year 2023. Many millio
 
 ## Chapter Conclusion and Summary
 
-In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the UNIX operating system and how it led directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software and to the eventual forming of industry foundations.  You were introduced to the major Linux distribution families as well as the BSD derivative distros.  Finally you were introduced to the six phases of UNIX/Linux maturity and how they relate to business and commercial interests.  [Additional Reading on the history of UNIX and BSD can be found here](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix").
+In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the UNIX operating system and how it led directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software and to the eventual forming of industry foundations.  You were introduced to the major Linux distribution families as well as the BSD derivative distros.  Finally you were introduced to the six phases of UNIX/Linux maturity and how they relate to business and commercial interests.  
+
+* [Additional Reading on the history of UNIX and BSD can be found here](http://www.oreilly.com/openbook/opensources/book/kirkmck.html "History of Unix").
+* [AT&T UNIX Archives: The Unix Operating System - 1982](https://www.youtube.com/watch?v=tc4ROCJYbm0 "AT&T UNIX Archives: The Unix Operating System - 1982")
+
 
 ### Review Questions
 
@@ -797,7 +801,7 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 1. Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
 
-1. When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint?  Why or why not?
+1. When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint? Why or why not?
 
 1. According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
 
