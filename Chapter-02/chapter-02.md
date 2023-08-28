@@ -597,7 +597,7 @@ Suse Linux (pronounced *soo-suh*) began as a German Slackware Linux port and gre
 
 Arch Linux has a different philosophy, Arch Linux defines simplicity as without unnecessary additions or modifications. It ships software as released by the original developers (upstream) with minimal distribution-specific (downstream) changes.  They also have their own package manager called [Pacman](https://en.wikipedia.org/wiki/Arch_Linux#Pacman "Pacman package manager").
 
-The current [Steam Deck](https://www.steamdeck.com/ "Steam Deck webpage") Steam OS is built using [Manjaro Linux](https://manjaro.org/ "manjaro linux webpage") which is based on Arch and different from Ubuntu and Red Hat Oses.
+The current [Steam Deck](https://www.steamdeck.com/ "Steam Deck webpage") Steam OS is built using [Manjaro Linux](https://manjaro.org/ "manjaro linux webpage") which is based on Arch and different from Ubuntu and Red Hat.
 
 ### Unix and the BSD Family Distros
 
