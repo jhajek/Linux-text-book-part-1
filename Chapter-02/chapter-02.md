@@ -345,7 +345,7 @@ The term *opensource* was not a movement away from the principles of *free softw
 
 ![*Christine Peterson*](images/Chapter-02/People/Christine-Peterson/Christine_Peterson_2009.jpg "Christine Peterson")
 
-Christine Peterson[^115] was a technologist who was part of the group that would become the OpenSource Initiative.  She is generally credited with coining the term, *"Opensource,"* as a differentiator from *"Free Software"*.
+Christine Peterson[^115] was a technologist who was part of the group that would become the OpenSource Initiative.  She is generally credited with coining the term, *"Opensource,"* as a differentiator from *"Free Software"*. Though there is evidence that the term *Opensource* was actually [in use 10 to 20 years prior](https://lunduke.substack.com/p/who-really-coined-the-term-open-source "webpage linking to article about opensource").
 
 #### Eric S. Raymond
 
