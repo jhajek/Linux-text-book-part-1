@@ -775,7 +775,7 @@ The question this presents -- is this legal? How does the existing opensource li
 * [Windows Copilot](https://blogs.windows.com/windowsdeveloper/2023/05/23/bringing-the-power-of-ai-to-windows-11-unlocking-a-new-era-of-productivity-for-customers-and-developers-with-windows-copilot-and-dev-home/ "webpage Windows Copilot")
 * [GitHub Copilot](https://resources.github.com/copilot-for-business/?ef_id=_k_d7c8f98d2fbd11f26ffc9d67ea078490_k_&OCID=AIDcmmc3fhtaow_SEM__k_d7c8f98d2fbd11f26ffc9d67ea078490_k_&msclkid=d7c8f98d2fbd11f26ffc9d67ea078490 "webpage GitHub Copilot")
 
-### Changing of Enterprise Linux
+### Changing Landscape of Enterprise Linux
 
 Clearly there is a changing of philosophy in Linu now that billion dollar companies are involved. The questions we now consider are very far from the world in 1983 when Free Software and GNU were making an impact. Red Hat, claiming they are respecting the GPLv2 license have removed the existing upstream source code that had been available for others to download and recompile, and will now only be offering the source code to paying customers -- not all asundry people who want it. The argument is that the GPLv2 only applies to those that enter into the implicit contract with the source provider and that Red Hat can place restrictions on those, who under contract, redistribute the source code of RHEL.
 
