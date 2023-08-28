@@ -550,7 +550,7 @@ Founded in 2020 shortly after the change in CentOS, by Greg Kurtzer. [Rocky Linu
 
 #### AlmaLinux
 
-At the same time as Rocky Linux was forming, another CentOS fork was made by CloudLinux, naming their distribution [AlmaLinux](https://almalinux.org/blog/looking-back-leaping-forward-a-look-back-at-the-first-year-for-almalinux-and-what-the-future-holds/ "webpage almalinux information"). 
+At the same time in 2020,as Rocky Linux was forming, another CentOS fork was made by CloudLinux, naming their distribution [AlmaLinux](https://almalinux.org/blog/looking-back-leaping-forward-a-look-back-at-the-first-year-for-almalinux-and-what-the-future-holds/ "webpage almalinux information"). This gave us a second CentOS replacement and Red Hat Enterprise Clone. The differences between Alma and Rocky were negligible. Until Red Hat changed the source code access to downsteam builders. 
 
 #### Oracle Linux
 
@@ -560,11 +560,11 @@ Oracle saw that many of their customers were paying Red Hat for operating system
 
 #### SUSE Linux
 
-* Originally a German company Linux Distro [started in 1994](https://www.suse.com/company/history/ "History of SUSE Linux")
-  * SUSE is an acronym meaning: "*Software und System-Entwicklung*” (software and systems development)
+Suse Linux (pronounced *soo-suh*) began as a German Slackware Linux port and grew is be its own discrete operating system. It was started as a company in [started in 1994](https://www.suse.com/company/history/ "History of SUSE Linux"), making it one of the oldest Enterprise companies. Suse is an acronym meaning: "*Software und System-Entwicklung*” (software and systems development). Since the early 2000's Suse has been in lock step competition with Red Hat for what was the Unix Enterprise to Linux migration market. In order to do this they needed to have compatability with Red Hat and the two have often shared the same technology (being open source).  Suse had a few unique innovations and large customer itself, not merely a follower of Red Hat.
+
+* SUSE was responsible for working to port the Linux kernel to the 64 bit architecture in 2000
 * [openSUSE Linux](https://www.opensuse.org "openSUSE Linux") is a community-driven version of SUSE and released in 2004.
 * In 2006 Microsoft and SUSE announce an interoperability agreement (Patent Lawsuit Protection)
-* SUSE was responsible for working to port the Linux kernel to 64 bit architecture in 2000
 * Major partner for deploying [SAP](https://www.sap.com "SAP webpage")
 * Owns [RancherOS](https://rancher.com/ "RancherOS webpage") -- an Enterprise Kubernetes Management Platform
 
