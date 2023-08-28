@@ -544,9 +544,17 @@ From the [CentOS Blog, December 2020:](https://blog.centos.org/2020/12/future-is
 
 > *CentOS Stream will also be the centerpiece of a major shift in collaboration among the CentOS Special Interest Groups (SIGs). This ensures SIGs are developing and testing against what becomes the next version of RHEL. This also provides SIGs a clear single goal, rather than having to build and test for two releases. It gives the CentOS contributor community a great deal of influence in the future of RHEL.*
 
+#### Rocky Linux  
+
+Founded in 2020 shortly after the change in CentOS, by Greg Kurtzer. [Rocky Linux](https://rockylinux.org/about/ "webpage Rocky Linux") was a fork of the CentOS code base and an attempt to return to the original vision of CentOS to be the **Community Enterprise Linux**. Rocky Linux was supported by a commercial Company, [CIQ](https://ciq.com/ "webpage for CIQ") for use in their own cloud infrustructure. Rocky aimes to be RHEL compatable, but as of 2023 Red Hat with a licensing change, severly hampered this mission.
+
+#### AlmaLinux
+
+At the same time as Rocky Linux was forming, another CentOS fork was made by CloudLinux, naming their distribution [AlmaLinux](https://almalinux.org/blog/looking-back-leaping-forward-a-look-back-at-the-first-year-for-almalinux-and-what-the-future-holds/ "webpage almalinux information"). 
+
 #### Oracle Linux
 
-Oracle saw that many of their customers were paying Red Hat for operating systems licenses, buying support contracts, and running an Oracle database on top of it.  Oracle wanted a piece of this pie.  Oracle made a fork of RHEL's opensource code as well, adding Oracle product code and services and redistributing it as Oracle Linux.
+Oracle saw that many of their customers were paying Red Hat for operating systems licenses, buying support contracts, and running an Oracle database on top of it.  Oracle wanted a piece of this pie. Oracle made a fork of RHEL's opensource code as well, adding Oracle product codes and services and redistributing it as [Oracle Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/ "Webpage for Oracle Linux").
 
 [Oracle Linux](https://en.wikipedia.org/wiki/Oracle_Linux) was born in 2007 and is a fully GPL compliant OS.  Oracle claims that their *"Unbreakable Enterprise Kernel"* is fully compatible with RHEL, and that Oracle middleware and third-party RHEL-certified applications can be installed and run unchanged. One may ask, isn't this illegal too? Is Oracle breaking the law? Are they stealing RHEL software and reselling it?  Is this piracy? Not according to the GPL - they are fully entitled to do this and thus compete with Red Hat selling support contracts on Red Hat's created software--this is the nature of the GPL license.
 
@@ -724,7 +732,7 @@ As the story moves into the year of 2019, we begin to see the issue of opensourc
   * Effective on the Change Date, or the fourth anniversary of the first publicly available distribution of a specific version of the Licensed Work under this License, whichever comes first, the Licensor hereby grants you rights under the terms of the Change License, and the rights granted in the paragraph above terminate.
 * [HashiCorp adopts Business Source License](https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license "Article HashiCorp adopts BUSL")
   * HashiCorp adopts the Business Source License to ensure continued investment in its community and to continue providing open, freely available products.
-* [Open Enterprise Foundation](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "Open Enterprise Foundation") to compete with Red Hat Enterprise Linux
+* [Open Enterprise Linux Association](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "Open Enterprise Linux Association") to compete with Red Hat Enterprise Linux
   * CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future
   * New trade association brings together open source Enterprise Linux community 
   * It will provide an open process to access source code that organizations can use to build distributions compatible with RHEL
