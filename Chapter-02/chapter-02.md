@@ -777,18 +777,25 @@ The question this presents -- is this legal? How does the existing opensource li
 
 ### Changing of Enterprise Linux
 
-Clearly there is a changing of philosophy in Linu now that billion dollar companies are involved. The questions we now consider are very far from the world in 1983 when Free Software and GNU were making an impact. The question of does a company have a right to make money? Can they contribute to a community? What are the moral and legal implications that others can make money off of your hardwork due to opensource. How do we synchronize the motivations of induvidual contributers and large enterprises? Are we seeing a market consolidation of Enterprise Linux into essentially RHEL?
+Clearly there is a changing of philosophy in Linu now that billion dollar companies are involved. The questions we now consider are very far from the world in 1983 when Free Software and GNU were making an impact. Red Hat, claiming they are respecting the GPLv2 license have removed the existing upstream source code that had been available for others to download and recompile, and will now only be offering the source code to paying customers -- not all asundry people who want it. The argument is that the GPLv2 only applies to those that enter into the implicit contract with the source provider and that Red Hat can place restrictions on those, who under contract, redistribute the source code of RHEL.
+
+The question of does a company have a right to do this? Can they contribute to a community? What are the moral and legal implications that others can make money off of your hardwork due to opensource. How do we synchronize the motivations of induvidual contributers and large enterprises? Are we seeing a market consolidation of Enterprise Linux into essentially RHEL?
 
 * Red Hat's announcement of changing the Red Hat license regarding distributing source their code (July 2023)
   * [Red Hat’s commitment to open source](https://www.redhat.com/en/blog/red-hats-commitment-open-source-response-gitcentosorg-changes "webpage red hat commitment to open source")
   * [Furthering the evolution of CentOS Stream](https://www.redhat.com/en/blog/furthering-evolution-centos-stream "webpage red hat furthering the evolution of CentOS")
   * [RedHat found a way to get around the GPLv2 license intention with contract law](https://opencoreventures.com/blog/2023-08-redhat-gets-around-gplv2-license-intention-with-contract-law/ "webpage Red hat found a way around GPLv2")
   * [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall")
+
+In response Oracle, SUSE, and CIQ have formed a RHEL compatible competitor, [OpenELA](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage for OpenELA"). The plan of attack is to attack Red Hat with a Red Hat compatible OS serviced by these companies with their own software added.
+
 * SUSE and Oracle's responce in the RHEL based Enterprise market
   * [Why SUSE is forking Red Hat Enterprise Linux | TechCrunch](https://techcrunch.com/2023/07/11/why-suse-is-forking-red-hat-enterprise-linux/ "webpage link to why SUSE is forking Red Hat Linux")
   * [Red Hat and the Clone Wars IV: Knives Out: Dissociated Press](https://dissociatedpress.net/2023/07/11/red-hat-and-the-clone-wars-iv-knives-out/ "webpage clone wars")
   * [CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future | SUSE](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage forms Open Enterprise Linux Association")
-  
+
+Does this mean a future consolidation of Enterprise Linux as RHEL? Does POSIX just become RHEL for the enterprise as the Linux Standards Base moving forward? Time will tell, what do you think?
+
 ## Chapter Conclusion and Summary
 
 In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the UNIX operating system and how it led directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software. We learned the major Linux distribution families as well as the BSD derivative distros. Finally you we discussed the six phases of UNIX/Linux maturity and how they relate to business and commercial interests of today.  
