@@ -397,7 +397,7 @@ Open source doesn't just mean access to the source code. According to the [Opens
 
 ### Opensource Licensing
 
-The creators of the Opensource initiative (OSI) took a different approach to market free software not as a moral issue, but as a development improvement and business use case.  This lead to the creation of similar licenses to the GPL, but what was termed as **weak copyleft** or as the Free Software Foundation calls them, *Pushover Copyleft*.   These licenses allow for contributions back to the creators as well as the ability to use, share, and inspect the code.  They provide one key additional feature in that they let you make a copy and keep the changes--making them proprietary.  GitHub has created a site to help you choose a license for your software called, ["Choose a License."](https://choosealicense.com/ "Choose a License").  
+The creators of the Opensource initiative (OSI) took a different approach to market free software not as a moral issue, but as a development improvement and business use case. This lead to the creation of similar licenses to the GPL, but what was termed as **weak copyleft** or as the Free Software Foundation calls them, *Pushover Copyleft*. These licenses allow for contributions back to the creators as well as the ability to use, share, and inspect the code.  They provide one key additional feature in that they let you make a copy and keep the changes--making them proprietary. GitHub has created a site to help you choose a license for your software called, ["Choose a License."](https://choosealicense.com/ "Choose a License").  
 
 * [MIT](https://opensource.org/licenses/MIT "MIT License")
 * [APACHE Public License 2.0](https://opensource.org/licenses/Apache-2.0 "Apache Public License")
@@ -412,7 +412,7 @@ In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Cr
 
 ## Fourth Phase of Unix Maturity - The Rise of Commercial Linux
 
-As the 1990s came to a close we began to see established companies adopting and using opensource projects in the enterprise, such as MySQL for database and GCC as a C/C++ compiler.  Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils") and a GUI interface.  Of all the Linux companies that started by the turn of the century, Red Hat Linux is one of the few remaining and by far the most successful. How successful?  To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
+As the 1990s came to a close we began to see established companies adopting and using opensource projects in the enterprise, such as MySQL for database and GCC as a C/C++ compiler. Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils") and a GUI interface. Of all the Linux companies that started by the turn of the century, Red Hat Linux is one of the few remaining and by far the most successful. How successful? To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
 
 ### Modern Linux Distributions
 
