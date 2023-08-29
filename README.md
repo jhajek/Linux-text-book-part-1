@@ -133,6 +133,10 @@ The way to remediate it to launch the MikTex Package Manager, search for fontspe
 On Windows there are a few less than ideal options for Reading epub files.
 
 * Online cross Platform ePub Reader [Flow OSS](https://www.flowoss.com/ "Flow OSS website")
+* [Mignaway Epub Reader](https://github.com/mignaway/EpubReader "Website Mignaway epub reader")
+  * This is a new one under development but looks really good
+* Browser Extensions and Plugins
+  * [Firefox](https://addons.mozilla.org/en-US/firefox/search/?q=epub "Browser extensions for FireFox")
+  * [Chrome](https://chrome.google.com/webstore/search/epub?utm_source=ext_app_menu "Chrome Webstore extensions")
+  * [Edge](https://microsoftedge.microsoft.com/addons "Website MS Edge browser extensions")
 * [Nook app](https://www.microsoft.com/en-us/p/nook-books-magazines-newspapers-comics/9wzdncrfj33h?activetab=pivot:overviewtab "nook app for Microsoft Store") from Microsoft Store
-* You can use the [FireFox ePub Reader plugin](https://addons.mozilla.org/en-US/firefox/addon/epubreader/ "Plugin to read ePub in FireFox") that lets you read directly from the browser.
-* ~~~[AZARDI](http://azardi.infogridpacific.com/azardi-download.html "AZARDI ebook reader webpage") is cross platform e-book reader recommended by the DAISY Consortium~~~
