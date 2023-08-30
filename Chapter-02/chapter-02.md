@@ -789,7 +789,7 @@ The question of does a company have a right to do this? Can they contribute to a
 
 In response Oracle, SUSE, and CIQ have formed a RHEL compatible competitor, [OpenELA](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage for OpenELA"). The plan of attack is to attack Red Hat with a Red Hat compatible OS serviced by these companies with their own software added.
 
-* SUSE and Oracle's responce in the RHEL based Enterprise market
+* SUSE and Oracle's responce to the RHEL based Enterprise market
   * [Why SUSE is forking Red Hat Enterprise Linux | TechCrunch](https://techcrunch.com/2023/07/11/why-suse-is-forking-red-hat-enterprise-linux/ "webpage link to why SUSE is forking Red Hat Linux")
   * [Red Hat and the Clone Wars IV: Knives Out: Dissociated Press](https://dissociatedpress.net/2023/07/11/red-hat-and-the-clone-wars-iv-knives-out/ "webpage clone wars")
   * [CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future | SUSE](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage forms Open Enterprise Linux Association")
@@ -807,46 +807,41 @@ In this chapter you were introduced to many names in relation to the history of 
 
 Either individually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
-1. Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
-
-1. When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint? Why or why not?
-
-1. According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
-
-1. Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
-
-1. What were the two commercial Linux companies featured in the movie (Note-one does not exist any longer)?
-
-1. What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that company's stock price.)
-
-1. According to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution?
-
-1. What was the first major commercial company to opensource a key product?  What did that product eventually become?
-
-1. How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?  
-
-1. What is the main difference between *"Free Software"* and *"Open Source Software"*?
+* Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
+  * Your answer here
+* When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint? Why or why not?
+  * Your answer here
+* According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
+  * Your answer here
+* Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
+  * Your answer here
+* What were the two commercial Linux companies featured in the movie (Note-one does not exist any longer)?
+  * Your answer here
+* What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that company's stock price.)
+  * Your answer here
+* According to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution?
+  * Your answer here
+* What was the first major commercial company to opensource a key product?  What did that product eventually become?
+  * Your answer here
+* How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?  
+  * Your answer here
+* What is the main difference between *"Free Software"* and *"Open Source Software"*?
+  * Your answer here
 
 ### Podcast Questions
 
-Listen to the Podcast at [https://twit.tv/shows/floss-weekly/episodes/500](https://twit.tv/shows/floss-weekly/episodes/500 "Podcast Interview")
+This week we have an article written in place of an Audio Podcast: [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall") with [John Maddog Hall](https://en.wikipedia.org/wiki/Jon_Hall_(programmer) "wiki article of John Hall")
 
-* 7:21  Who is Vicky Brasseur and what does she do?
-* 8:45 What has changed the most in regards to the term OpenSource in the last 25+ years?
-* 10:00 What is assumed to now be the default development pattern for new software?
-* 13:00 According to Randall, when a company publishes its code as OpenSource, what do they gain?
-* 15:57 What do companies struggle with when they decide to opensource their codebase and core-products and how do they solve it?
-* 19:00 What are some of the OpenSource companies?
-* 19:35 What are the majority of OpenSource companies strategies to make money?
-* 22:40 What do companies need to figure out about Free and OpenSource?
-* 24:25 What is the term "Yak-Shaving" mean?
-* 27:25 Who is Vicky's new book targeting?
-* 28:03 What is the book about?
-* 33:25 What is the mistaken impression about contributing to OpenSource Software?
-* 37:40 What do you need to read before contributing to an OpenSource project?
-* 43:00 What does Vicky believe is important for a project to have and to enforce for a community?
-* 48:01 What is the myth about users of proprietary operating systems (Windows and MacOS)?
-* 49:00 Vicky used Linux for 10 years, what drove her away from it?
+* Who is John Maddog Hall and when did he start to program?
+  * Your answer here
+* Briefly explain the difference between using gratis software and Free or Freedom Respecting Softare.
+  * Your answer here
+* Under the header: "Why would companies pay to use RHEL?" - Briefly explain the reasoning why companies will pay money to use opensource software.
+  * Your answer here
+* Who is Maddog calling "Free Loaders" and why is he calling them this?
+  * Your answer here
+* Breifly explain why or why you do not agree with his conclusion stated in "Tying it all together"
+  * Your answer here
 
 ### Lab
 
@@ -876,24 +871,32 @@ Answer these questions (not all of the Answers are in each case study and might 
 
 #### Activity 2
 
-Read these four articles.  It's a commentary on the Opensource license changes, a response from one of the CEOs, and then a reply to the response.
+Read these five articles. They are commentaries opensource and business.
 
-1) [http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/](http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/ "OpenSource confronts its midlife crisis")
-1) [https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/](https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/ "Quick Comment on Licensing")
-1) [http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/](http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/ "A Eula in FOSS clothing")
-1) [https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494](https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494 "Adam Jacobs article on open core")
-    i) [https://sfosc.org/docs/business-models/free-software-product/](https://sfosc.org/docs/business-models/free-software-product/ "Free software product")
+* [http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/](http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/ "OpenSource confronts its midlife crisis")
+* [https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/](https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/ "Quick Comment on Licensing")
+* [http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/](http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/ "A Eula in FOSS clothing")
+* [https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494](https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494 "Adam Jacobs article on open core")
+* [https://sfosc.org/docs/business-models/free-software-product/](https://sfosc.org/docs/business-models/free-software-product/ "Free software product")
 
 Answer these questions with a few short sentences:
 
 * What is Bryan Cantrill's initial main point in the first article?
+  * Your answer here
 * Do you agree with him, why or why not?
+  * Your answer here
 * What is Jay Kreps response/contention in the second article?
+  * Your answer here
 * Do you agree with him, why or why not?
+  * Your answer here
 * What is the main point of Bryan Cantrill's rejoinder in the third article?
+  * Your answer here
 * Do you agree with him, why or why not?
+  * Your answer here
 * What is Adam Jacob's opinion on running a company with an opensource product?
+  * Your answer here
 * What is the solution in your opinion?
+  * Your answer here
 
 #### Footnotes
 
