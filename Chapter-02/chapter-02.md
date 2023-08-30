@@ -852,20 +852,27 @@ Listen to the Podcast at [https://twit.tv/shows/floss-weekly/episodes/500](https
 
 #### Activity 1
 
-Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 2 case studies from [https://highscalability.com](https://highscalability.com "High Scalability") and write a review of the company's architecture based the listed items.
+Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and write a review of the company's architecture based the listed items. You must do a unique topic - so post in the Class Discord under the `Case-Studies` channel which one you are doing, first come first served.
 
-You can find them at [https://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services.   It's best to find a company that you use or support.
+You can find them at [http://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services. It's best to find a company that you use or support.
 
 Answer these questions (not all of the Answers are in each case study!)
 
-1. What market does that company serve? (What do they do?) And have they always served that market?
-1. What Operating System(s) are used?
-1. What programming languages/frameworks are used?
-1. What storage and what database technologies are used?
-1. What Opensource license is the technology stack licensed under?
-1. What is the current stock price and what was the IPO of the company? (if traded publicly.)
-1. What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
-1. What can you learn from this article relating to technology and infrastructure?
+* What market does that company serve? (What do they do?) And have they always served that market?
+  * Your answer here
+* What Operating System(s) are used?
+  * Your answer here 
+* What programming languages/frameworks are used?
+  * Your answer here
+* What storage and what database technologies are used?
+  * Your answer here
+* What Opensource license is the technology stack licensed under?
+  * Your answer here
+* What is the current stock price and what was the IPO of the company? (if traded publicly.)
+  * Your answer here
+* What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
+  * Your answer here
+* Describe one clear point you took away from this article relating to technology and infrastructure?
 
 #### Activity 2
 
