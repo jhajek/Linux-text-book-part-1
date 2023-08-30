@@ -856,7 +856,7 @@ Most of the popular and functional pieces of software you use everyday involve F
 
 You can find them at [http://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services. It's best to find a company that you use or support.
 
-Answer these questions (not all of the Answers are in each case study!)
+Answer these questions (not all of the Answers are in each case study and might have to do some outside research.)
 
 * What market does that company serve? (What do they do?) And have they always served that market?
   * Your answer here
