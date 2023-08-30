@@ -808,40 +808,25 @@ In this chapter you were introduced to many names in relation to the history of 
 Either individually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
 * Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
-  * Your answer here
 * When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint? Why or why not?
-  * Your answer here
 * According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
-  * Your answer here
 * Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
-  * Your answer here
 * What were the two commercial Linux companies featured in the movie (Note-one does not exist any longer)?
-  * Your answer here
 * What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that company's stock price.)
-  * Your answer here
 * According to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution?
-  * Your answer here
 * What was the first major commercial company to opensource a key product?  What did that product eventually become?
-  * Your answer here
 * How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?  
-  * Your answer here
 * What is the main difference between *"Free Software"* and *"Open Source Software"*?
-  * Your answer here
 
 ### Podcast Questions
 
 This week we have an article written in place of an Audio Podcast: [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall") with [John Maddog Hall](https://en.wikipedia.org/wiki/Jon_Hall_(programmer) "wiki article of John Hall")
 
 * Who is John Maddog Hall and when did he start to program?
-  * Your answer here
 * Briefly explain the difference between using gratis software and Free or Freedom Respecting Softare.
-  * Your answer here
 * Under the header: "Why would companies pay to use RHEL?" - Briefly explain the reasoning why companies will pay money to use opensource software.
-  * Your answer here
 * Who is Maddog calling "Free Loaders" and why is he calling them this?
-  * Your answer here
 * Breifly explain why or why you do not agree with his conclusion stated in "Tying it all together"
-  * Your answer here
 
 ### Lab
 
@@ -854,19 +839,12 @@ You can find them at [http://highscalability.com/blog/category/example](http://h
 Answer these questions (not all of the Answers are in each case study and might have to do some outside research.)
 
 * What market does that company serve? (What do they do?) And have they always served that market?
-  * Your answer here
 * What Operating System(s) are used?
-  * Your answer here 
 * What programming languages/frameworks are used?
-  * Your answer here
 * What storage and what database technologies are used?
-  * Your answer here
 * What Opensource license is the technology stack licensed under?
-  * Your answer here
 * What is the current stock price and what was the IPO of the company? (if traded publicly.)
-  * Your answer here
 * What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
-  * Your answer here
 * Describe one clear point you took away from this article relating to technology and infrastructure?
 
 #### Activity 2
@@ -882,21 +860,13 @@ Read these five articles. They are commentaries opensource and business.
 Answer these questions with a few short sentences:
 
 * What is Bryan Cantrill's initial main point in the first article?
-  * Your answer here
 * Do you agree with him, why or why not?
-  * Your answer here
 * What is Jay Kreps response/contention in the second article?
-  * Your answer here
 * Do you agree with him, why or why not?
-  * Your answer here
 * What is the main point of Bryan Cantrill's rejoinder in the third article?
-  * Your answer here
 * Do you agree with him, why or why not?
-  * Your answer here
 * What is Adam Jacob's opinion on running a company with an opensource product?
-  * Your answer here
 * What is the solution in your opinion?
-  * Your answer here
 
 #### Footnotes
 
