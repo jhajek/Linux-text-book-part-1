@@ -20,7 +20,7 @@ In this chapter the terms **Linux** and **Unix** are generally interchangeable f
 
 ## Zeroith Phase - Where it Began and Why it Matters Now
 
-One could say that computer programming as we would recognize it started in the 1930's with Alan Turing.  Operating Systems that we would recognize such as Unix didn't materialize until the early 1970's.  And desktop and server CPU and hardware architecture we are familiar with started in the 1990's with Intel, and Mobile computing started in late 2000s using ARM based processors.
+One could say that computer programming as we would recognize it started in the 1930's with Alan Turing.  Operating Systems that we would recognize such as Unix didn't materialize until the early 1970's. Desktop and server CPU and hardware architecture we are familiar with started in the 1990's with Intel, and Mobile computing started in late 2000s using ARM based processors.
 
 These modern operating systems such as Windows, MacOS, Ubuntu Linux, Fedora Linux, Android, and others all have a basic architecture in common. At a foundational level all operating systems have three basic components: the kernel, program languages and compiler tools, and user interface and user applications.
 
