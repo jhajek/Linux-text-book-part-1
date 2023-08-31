@@ -189,7 +189,7 @@ Now AT&T had a financial motive to commercialize Unix.  In 1982 AT&T released Un
 
 ## Second Phase of Unix Maturity -- Unix Users, Application Development, and Licensing
 
-The next phase of Unix history revolves around the important work done by developers to create applications and standards around the Unix operating system to increase productivity and accessibility.  There are many people who contributed to this phase but among the names we will discuss there is none more important than Richard Stallman, also known as RMS.
+The next phase of Unix history revolves around the important work done by developers to create applications and standards around the Unix operating system to increase productivity and accessibility.  There are many people who contributed to this phase but among the names we will discuss there is none more important than Richard Stallman, also known as RMS. Many of the other namesm, some have passed on, some are still with us. There is a photographic study called [Faces of OpenSource](https://www.facesofopensource.com/ "Webpage faces of opensource") that can help put a recent photo image to a name.
 
 ### Richard Stallman and GNU
 
