@@ -25,14 +25,14 @@ Complete each install to disk--there should NOT be an INSTALL ICON on the deskto
 * Illumos / Solaris Based
   * OmniOS - Community Edition
 
-* BSD based Utility Oses
+* BSD based
   * FreeBSD
-  * PfSense
 
 * Linux
   * MX Linux
   * Pop!_OS
   * Kali Linux
+  * Manjaro Linux (SteamOS is based on)
 
 * Network Based Install
   * openSUSE Leap
