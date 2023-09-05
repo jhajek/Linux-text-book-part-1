@@ -705,7 +705,7 @@ python3 show-image.py
 
 You may have noticed that when a guest VM is successfully installed the screen resolution may be very small and the mouse integration features are not working. By default VirtualBox doesn't know what your host system's underlying hardware is. So it guesses by providing a lowest common denominator set of hardware drivers, usually for pretty old, but well known set of hardware. In order to install higher quality drivers to enable more features VirtualBox provides something called *"guest additions"* to enable exclusive features that are not normally available in an operating system. These features include things such as shared folders, cut and paste support, and even support for multiple monitors and higher resolutions.
 
-VirtualBox Guest Additions can be installed by selecting an installed virtual machine and selecting the menu item under __DEVICES__ then select the "Insert Guest Additions CD Image." For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
+VirtualBox Guest Additions can be installed by selecting an installed virtual machine and selecting the menu item under `DEVICES` then select the "Insert Guest Additions CD Image." For Windows and Mac as the guest VM OS this is a pretty straight forward install - the attached Guest Additions ISO appears within the VM and you simply double click it and run through the menu, reboot, and new features are added. For Linux you need to compile these extensions into the kernel and some extra tools are needed.
 
 > "The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability." [https://www.virtualbox.org/manual/ch04.html](https://www.virtualbox.org/manual/ch04.html "Source")
 
@@ -935,6 +935,12 @@ You will need to do some research and find the download links for the Linux and 
 
 Complete each install to disk--there should NOT be an INSTALL ICON on the desktop -- your screenshot is taken after a complete install is finished and a reboot has taken place. Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in. There are 20 different distributions listed. If a version number is not listed, assume the latest version unless noted.
 
+#### Paralles and UTM
+
+If you are using `Paralles` or `UTM` complete the neccesary installs and adjust VirtualBox deliverables where appropriate.
+
+#### Screenshots
+
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
 * Debian Based
@@ -967,18 +973,18 @@ Complete each install to disk--there should NOT be an INSTALL ICON on the deskto
 
 * Network Based Install
   * openSUSE Leap
-  * Debian 12.x
+  * Debian 12.x - Bookworm
   
-* Installing Guest Additions in each VirtualMachine
+* Installing Guest Additions in each virtual machine
   * Following the instructions in section 3.9.5, install the VirtualBox Guest Additions Package in the below listed Operating systems, placing a screenshot directly below each bullet point
     * To show the successful install of the guest additions, maximize the screen and take the screenshot showing the installed guest additions. These are the example before and after maximized images:
     * ![Before Guest Additions](images/Chapter-03/guest-additions-install/before-guest-additions.png "Before Guest Additions Install")
     * ![After Guest Additions](images/Chapter-03/guest-additions-install/after-guest-additions.png "After Guest Additions Install")
   * Ubuntu Desktop
   * Fedora Desktop
-  * Debian
-  * Pop!_OS
-  * Ubuntu Server
+  * Debian Desktop
+  * Pop!_OS 
+  * Manjaro Desktop
 
 #### Footnotes
 

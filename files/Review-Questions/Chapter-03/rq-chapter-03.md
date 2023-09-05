@@ -16,7 +16,7 @@
   c. UNetbootin
   d. Image Magick
 4) What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
-
+ 
 5) The operating system that the hypervisor resides on is called the _________ system?
 
 6) Hosted or desktop virtualization is called what type of hypervisor?

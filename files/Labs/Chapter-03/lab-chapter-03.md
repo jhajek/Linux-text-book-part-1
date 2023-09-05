@@ -6,6 +6,14 @@ Complete each install to disk--there should NOT be an INSTALL ICON on the deskto
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
 
+#### Paralles and UTM
+
+If you are using `Paralles` or `UTM` complete the neccesary installs and adjust VirtualBox deliverables where appropriate.
+
+#### Screenshots and Deliverables
+
+Take a screenshot of the fully installed operating system showing the desktop. There is a screenshot feature within VirtualBox and Parallels.
+
 * Debian Based
   * Ubuntu 22.04 Desktop edition
   * Lubuntu 22.04 Desktop edition
@@ -36,17 +44,17 @@ Complete each install to disk--there should NOT be an INSTALL ICON on the deskto
 
 * Network Based Install
   * openSUSE Leap
-  * Debian 12.x
+  * Debian 12.x Bookworm
   
-* Installing Guest Additions in each VirtualMachine
+* Installing Guest Additions in each virtual machine
   * Following the instructions in section 3.9.5, install the VirtualBox Guest Additions Package in the below listed Operating systems, placing a screenshot directly below each bullet point
     * To show the successful install of the guest additions, maximize the screen and take the screenshot showing the installed guest additions. These are the example before and after maximized images:
     * ![Before Guest Additions](images/Chapter-03/guest-additions-install/before-guest-additions.png "Before Guest Additions Install")
     * ![After Guest Additions](images/Chapter-03/guest-additions-install/after-guest-additions.png "After Guest Additions Install")
   * Ubuntu Desktop
   * Fedora Desktop
-  * Debian
+  * Debian Desktop
   * Pop!_OS
-  * Ubuntu Server
+  * Manjaro Desktop
 
   ## Deliverable
