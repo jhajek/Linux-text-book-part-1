@@ -4,15 +4,14 @@
 
 ## Objectives
 
-* Understand and know how to complete the Linux and BSD Operating System Install Process for the major distributions
-* Be able to compare and contrast the two major Linux distribution families' install processes with the BSD install process
-* Understand the term *distribution* and *distro*
-* Understand the standard installation formats, full ISOs, minimal install ISOs, and net-installer ISOs and the different
-* Understand how to use industry standard virtualization platforms for installing distributions
-* Learn the features of dnf, yum, and apt to install packages and dependencies in Linux
-* Understand how to use GNU tools gcc and make for compiling source code
-* Understand how to use the Python language interpreter in order to run Python-based install scripts
-* Compiling code from source
+* Demonstrate how to complete the Linux and BSD Operating System Install Process for each major distributions
+* Compare and contrast the two major Linux distribution families
+* Define the term *distribution* and *distro*
+* Define the standard installation formats, full ISOs, minimal install ISOs, and net-installer ISOs and the different
+* Demonstrate how to use industry standard virtualization platforms for installing distributions
+* Explore the features of dnf, yum, and apt to install packages and dependencies in Linux
+* Demosntrate how to use GNU tools gcc and make for compiling source code
+* Demonstrate how to use the Python language interpreter in order to run Python-based install scripts
 
 ## Outcomes
 
