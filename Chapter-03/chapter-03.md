@@ -781,7 +781,8 @@ sudo reboot
 #(find your kernel version)
 sudo mhwd-kernel -li 
 # XX is your kernel version
-sudo sudo pacman -S linuxXX-headers
+# Current Manjaro Kernel will report: linux61
+sudo pacman -S linuxXX-headers
 sudo mount -r /dev/cdrom /mnt
 cd /mnt
 sudo ./VBoxLinuxAdditions.run
