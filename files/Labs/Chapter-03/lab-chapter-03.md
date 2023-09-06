@@ -57,4 +57,6 @@ Take a screenshot of the fully installed operating system showing the desktop. T
   * Pop!_OS
   * Manjaro Desktop
 
-  ## Deliverable
+## Deliverable
+
+Take a screenshot of each (20) fully installed operating systems showing the desktop after login. There is a screenshot feature within VirtualBox and Parallels. Place screenshot below each bulleted list item.
