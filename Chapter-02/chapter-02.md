@@ -4,7 +4,7 @@
 
 ## Objectives
 
-* Explain the six phases of Unix/Linux maturity and how they encompass each generation's technological changes
+* Explain the seven phases of Unix/Linux maturity and how they encompass each generation's technological changes
 * Explain the contributions of Ken Thompson and Dennis Ritchie to Unix
 * Explain the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and *Free/Libre Software*
 * Explain the contributions of Linus Torvalds to the creation of Linux and the Linux Kernel
