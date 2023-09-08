@@ -219,29 +219,21 @@ Wikipedia has a sample gallery of all these desktop environments and more at [ht
 
 ![*GNOME*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
 
-Everything in [GNOME 3](https://www.gnome.org/gnome-3/ "GNOME 3") starts with the __Activities__ button in the upper left hand corner.  There is no traditional "Start Button."  Just this sense of activities to be launched.  There is also a __Find__ box for searching everything in GNOME 3 from documents to applications to even suggested software. There is also a __favorites bar__ on the left hand side of the screen.  You will see preinstalled icons for FireFox Web Browser, Evolution E-mail client, Rhythm Box music player, Shotwell for picture management, the file manager is named Nautilus, the Software Store application, and finally a grid launcher for everything else.  Note there are no *"categories"* such as system tools or office software.  This is a design feature of GNOME 3.
+Everything in [GNOME](https://www.gnome.org/gnome-3/ "GNOME 3") starts with the `Activities` button in the upper left hand corner. There is no traditional "Start Button."  Just this sense of activities to be launched. There is also a `Find` box for searching everything in GNOME 40+ from documents to applications to even suggested software. There is also a `favorites bar` on the left hand side of the screen. You will see preinstalled icons for FireFox Web Browser, Evolution E-mail client, Rhythm Box music player, Shotwell for picture management, the file manager is named Nautilus, the Software Store application, and finally a grid launcher for everything else. Note there are no *"categories"* such as system tools or office software. This is a design feature of GNOME.
 
 ![firefox](images/Chapter-04/ff.png "FF") ![Evolution](images/Chapter-04/evolution.png "Evolution") ![Rhythm Box](images/Chapter-04/rythembox.png "Rhythem Box") ![Shotwell](images/Chapter-04/shotwell.png "Shotwell") ![Nautilus](images/Chapter-04/files.png "File Manager") ![Software](images/Chapter-04/software.png "Software") ![Application Launcher](images/Chapter-04/application.png "Application")
 
 You will notice a few other system designs or features.  For instance there is no logout button.  The little white triangle in the upper right hand corner next to the battery and sound icon controls poweroff and restart, but by default there is no logout button.  This is a GNOME feature.  
 
-Each application has a preferences and content menu area in GNOME 3.  It is located right next to the Activities button.  You will see the application name with a small white drop down arrow. In order to find the window commands for open, close, resize, tiling, and so forth you just need to right click on the gray toolbar on top of the window that has the focus.
+Each application has a preferences and content menu area in GNOME.  It is located right next to the Activities button.  You will see the application name with a small white drop down arrow. In order to find the window commands for open, close, resize, tiling, and so forth you just need to right click on the gray toolbar on top of the window that has the focus.
 
-![*GNOME 3 Taskbar*](images/Chapter-04/GNOME3/taskbar-and-toolbar.png "Taskbar")
+![*GNOME Taskbar*](images/Chapter-04/GNOME3/taskbar-and-toolbar.png "Taskbar")
 
 #### GNOME Remove and Add Favorites
 
-You can remove default icons from the favorite menu as well as add your own favorite applications in GNOME 3 and GNOME 40. By right-clicking on the icon you have an option to remove it from the Favorites menu.
+You can remove default icons from the favorite menu as well as add your own favorite applications in GNOME. By right-clicking on the icon you have an option to remove it from the Favorites menu.
 
 For example to add a Favorite for the Terminal program click **Activities** > **Search** > type **Terminal** > right click on the icon > **Add to Favorites**.
-
-\newpage
-
-### GNOME 40 Features
-
-![*GNOME 40*](images/Chapter-04/GNOME40/gnome40-desktop.png "GNOME 40 Desktop image")
-
-The major change in GNOME 40, which as of September 2021 only Fedora 34 has adopted, is that the application doc is now located along the bottom of the screen and no longer vertical.  There have been numerous internal app changes as well as cloud service integrations.  There have been changes to active application on the doc.
 
 [There has also been an integration of track pad gestures](https://news.itsfoss.com/gnome-40-release/ "Website itsfoss GNOME 40 what is new").  *"Even if you’re not a laptop user, you can still use these gestures by using the keyboard shortcut: Super+Alt+↑ or ↓ or ← or →. Going up and down on the touchpad takes you in and out of the activities overview and app grid screens, left and right switches you between workspaces. And, if you’re using a mouse, you can navigate using Super + Alt + Scroll."*
 
