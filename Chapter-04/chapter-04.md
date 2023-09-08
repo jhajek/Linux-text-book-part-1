@@ -265,7 +265,7 @@ To access the terminal on a GNOME desktop, click the **Activities** button at th
 
 ![*GNOME Software Store*](images/Chapter-04/software-store.png "Software Store")
 
-This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from.   In the meantime you can use the Software store to install the good old __GNOME Packages__ and __GNOME Update__ package manager and updater which will default to the old style and let you install pretty much everything. The Software store fits a niche need along side the Snap and Flatpak stores, as the GNOME software store focuses on software that integrates with the Desktop, and not so much on standalone applications that the other package managers focus on.
+This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from. The GNOME Software store now is mostly a front for Flatpak or Snap (Ubuntu based distros) package managers.
 
 ## Conclusion
 
