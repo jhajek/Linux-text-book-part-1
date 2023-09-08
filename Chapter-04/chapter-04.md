@@ -171,7 +171,7 @@ In an interesting development Miguel ended up forming the company that became Xa
 
 In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros.  Red Hat and Debian adopted GNOME as well. With the release of Ubuntu 18.04, Ubuntu returned to the Gnome desktop.
 
-GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released March 2021.  Over this 18+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different structure from the traditional Windows desktop--called the GNOME shell.  Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks.  The GNOME naming convention has changed from the previous 2.x and 3.x to just 40.  So there is in a sense no more GNOME 3 or 4, but like a webbrowser just a rolling version starting at the number 40.  
+GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released March 2021.  Over this 18+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different structure from the traditional Windows desktop--called the GNOME shell. Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks. The GNOME naming convention has changed from the previous 2.x and 3.x to just 40. So there is in a sense no more GNOME 3 or 4, but like a webbrowser just a rolling version starting at the number 40.  
 
 #### GNOME Forks: Unity, Mate, Cinnamon, and Pop!_OS
 
@@ -179,7 +179,7 @@ Linus Torvalds was quoted as saying:
 
 > "People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done,"  [^38]
 
-GNOME 3 led to the creation of alternatives in 2012. When GNOME moved from version 2 to version 3 the amount change was seen by some GNOME users as treason. The MATE project (pronounced *"ma-tay"* not *"may-tuh"*) was a fork and continuation of the GNOME 2 code base.  The Cinnamon desktop was a fork of GNOME 3 with an added features set for the Linux Mint distro. Unity was Ubuntu's reimplementation of the GNOME shell with the Unity shell on top of GNOME 3.  These desktops, with the exception of Unity, can be deployed or installed on most Linux distributions. As a final thought Linus Torvalds has since reconciled with GNOME 3 as of 2013 based on some additional 3rd party tools that allow the GNOME 3 experience to be customized to his liking. [^37]
+GNOME 3 led to the creation of alternatives in 2012. When GNOME moved from version 2 to version 3 the amount of change was seen by some GNOME users as treason. The MATE project (pronounced *"ma-tay"* not *"may-tuh"*) was a fork and continuation of the GNOME 2 code base. The Cinnamon desktop was a fork of GNOME 3 with an added features set for the Linux Mint distro. Unity was Ubuntu's reimplementation of the GNOME shell with the Unity shell on top of GNOME 3. These desktops, with the exception of Unity, can be deployed or installed on most Linux distributions. As a final thought Linus Torvalds has since reconciled with GNOME 3 as of 2013 based on some additional 3rd party tools that allow the GNOME 3 experience to be customized to his liking. [^37]
 
 In April of 2021, [Linux open laptop manufacturer, System76](https://system76.com/ "Website for System76 Linux Laptop manufacturer") released a themed GNOME 3 desktop called [Pop!_OS](https://pop.system76.com/ "Website to Pop OS") with a custom windows manager that defaults to a tiling mode rather than a stacking mode.  
 
@@ -191,13 +191,11 @@ Seeing as KDE and GNOME focused on features and usability, many people who were 
 
 ### LXQT
 
-The LXQT project was started as the LXDE project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce but is one step above a window manager. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux.  Recently the lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT.  LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.
+The LXQT project was started as the LXDE project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce but is one step above a window manager. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux. Recently the lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT. LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.
 
-### Enlightenment and Lumina
+### Enlightenment
 
 This project started in 1997 and intended to be a virtual desktop window manager.  This would involve a grid of desktops a user could move windows around and onto.  The initial release was in 1999 called E16.  The second release E17 took 12 years.  But E17 had grown from just a window manager into a full-fledged desktop environment using its own libraries called Enlightenment Foundation Libraries.  Enlightenment can also be a shell that can sit on top of KDE and GNOME.
-
-Lumina is a desktop environment created for a distro of FreeBSD, called TrueOS.  They had previously relied on GNOME and KDE but the amount of work needed to remove the Linux specific parts prevented new research from being done. As of 2019, TrueOS rebased itself to be part of Project Trident and based on Void Linux and became a Linux distro but continues to use the Lumina desktop.
 
 ### Android
 
@@ -212,16 +210,14 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     https://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   https://mate-desktop.org/
 [Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   https://cinnamon.linuxmint.com/
-[Unity](https://unity8.io/ "unity 8 web page")        GTK+ 3                   https://unity8.io/
 [Enlightenment](https://www.enlightenment.org/ "E24") EFL                      https://www.enlightenment.org/
-[Lumina](https://lumina-desktop.org/ "lumina")        C++/Qt5                  https://lumina-desktop.org/
 ----------------------------------------------------- ------------------------ -------------------------------
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
-### Gnome 3.3.x Features
+### Gnome 40+ Features
 
-![*GNOME 3*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
+![*GNOME*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
 
 Everything in [GNOME 3](https://www.gnome.org/gnome-3/ "GNOME 3") starts with the __Activities__ button in the upper left hand corner.  There is no traditional "Start Button."  Just this sense of activities to be launched.  There is also a __Find__ box for searching everything in GNOME 3 from documents to applications to even suggested software. There is also a __favorites bar__ on the left hand side of the screen.  You will see preinstalled icons for FireFox Web Browser, Evolution E-mail client, Rhythm Box music player, Shotwell for picture management, the file manager is named Nautilus, the Software Store application, and finally a grid launcher for everything else.  Note there are no *"categories"* such as system tools or office software.  This is a design feature of GNOME 3.
 
