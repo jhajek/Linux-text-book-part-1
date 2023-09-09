@@ -10,9 +10,9 @@ Complete each install to disk--there should NOT be an INSTALL ICON on the deskto
 
 If you are using `Paralles` or `UTM` complete the neccesary installs and adjust VirtualBox deliverables where appropriate.
 
-#### Screenshots and Deliverables
+#### Screenshots and Deliverables for Intel Windows and Macs
 
-Take a screenshot of the fully installed operating system showing the desktop. There is a screenshot feature within VirtualBox and Parallels.
+For those using x86_64 Intel Windows and Macs
 
 * Debian Based
   * Ubuntu 22.04 Desktop edition
@@ -44,18 +44,39 @@ Take a screenshot of the fully installed operating system showing the desktop. T
 
 * Network Based Install
   * openSUSE Leap
-  * Debian 12.x Bookworm
-  
-* Installing Guest Additions in each virtual machine
-  * Following the instructions in section 3.9.5, install the VirtualBox Guest Additions Package in the below listed Operating systems, placing a screenshot directly below each bullet point
-    * To show the successful install of the guest additions, maximize the screen and take the screenshot showing the installed guest additions. These are the example before and after maximized images:
-    * ![Before Guest Additions](images/Chapter-03/guest-additions-install/before-guest-additions.png "Before Guest Additions Install")
-    * ![After Guest Additions](images/Chapter-03/guest-additions-install/after-guest-additions.png "After Guest Additions Install")
-  * Ubuntu Desktop
-  * Fedora Desktop
-  * Debian Desktop
+  * Debian 12.x - Bookworm
+
+#### Screenshots and Deliverables for M1 Macs using Parallels or UTM
+
+For those using Parallels virtualization or UTM on M1/M2 mac -- look for the `aarch` or `arm` distribution, not `amd_64`.
+
+* Debian Based ARM
+  * Ubuntu 22.04 Desktop edition
+  * Ubuntu 22.04 Server edition
+  * Trisquel Linux
+  * Mageia
+  * Peppermint OS
+  * Ubuntu KDE Neon
+
+* Red Hat Based ARM
+  * Fedora 38 - Workstation edition 
+  * AlmaLinux 9.x 
+  * Rocky Linux
+
+* BSD based ARM
+  * FreeBSD
+
+* Other Linux Distros ARM
+  * MX Linux
   * Pop!_OS
-  * Manjaro Desktop
+  * Kali Linux
+  * Alpine Linux
+  * Manjaro Linux (SteamOS is based on)
+  * Endeavor OS
+
+* Network Based Install ARM
+  * openSUSE Leap
+  * Debian 12.x
 
 ## Deliverable
 
