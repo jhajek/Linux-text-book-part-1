@@ -941,6 +941,7 @@ If you are using `Paralles` or `UTM` complete the neccesary installs and adjust 
 #### Screenshots
 
 ![*Sample Deliverable*](images/Chapter-03/lab-example/virtualbox-ubuntu.png "Sample Deliverable")
+
 For those using x86_64 Intel Windows and Macs
 
 * Debian Based
@@ -1001,7 +1002,7 @@ For those using Parallels virtualization or UTM on M1/M2 mac -- look for the `aa
   * Manjaro Linux (SteamOS is based on)
   * Endeavor OS
 
-* Network Based Install ARm
+* Network Based Install ARM
   * openSUSE Leap
   * Debian 12.x
 
