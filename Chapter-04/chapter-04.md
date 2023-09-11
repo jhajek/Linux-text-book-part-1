@@ -137,7 +137,7 @@ Tiling Window Managers place window next to each other like tiles on the floor a
 
 ## Desktop Environments
 
-About the time that the OSI movement was launching in late 1990s, there was a growing need for more than just window managers too.  x86 Intel and AMD CPUs at that time were gaining in processing power and processor based multimedia extensions began to appear by 1997, [collectively called MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and a window manager? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop environment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM [^32].  On top of that all the elements of the desktop have a changeable but consistent usage pattern and look-and-feel.  Let us look first at the development history of the two main desktop environments followed by a few other desktop environments.
+About the time that the OSI movement was launching in late 1990s, there was a growing need for more than just window managers too.  x86 Intel and AMD CPUs at that time were gaining in processing power and processor based multimedia extensions began to appear by 1997, [collectively called MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and a window manager? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop environment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM.  On top of that all the elements of the desktop have a changeable but consistent usage pattern and look-and-feel.  Let us look first at the development history of the two main desktop environments followed by a few other desktop environments.
 
 ### KDE [^33]
 
@@ -195,6 +195,10 @@ Seeing as KDE and GNOME focused on features and usability, many people who were 
 
 The LXQT project was started as the LXDE project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce but is one step above a window manager. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux. Recently the lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT. LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.
 
+### Budgie
+
+A MacOS inspired desktop, [The Budgie desktop](https://buddiesofbudgie.org/ "Webpage Budgie desktop") is independant of any Linux distro. Its design emphasizes simplicity, minimalism, and elegance, while providing the means to extend or customize the desktop in various ways[^32]. There are Budgie versions available for most Linux distributions.
+
 ### Enlightenment
 
 This project started in 1997 and intended to be a virtual desktop window manager.  This would involve a grid of desktops a user could move windows around and onto.  The initial release was in 1999 called E16.  The second release E17 took 12 years.  But E17 had grown from just a window manager into a full-fledged desktop environment using its own libraries called Enlightenment Foundation Libraries.  Enlightenment can also be a shell that can sit on top of KDE and GNOME.
@@ -213,6 +217,7 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   https://mate-desktop.org/
 [Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   https://cinnamon.linuxmint.com/
 [Enlightenment](https://www.enlightenment.org/ "E24") EFL                      https://www.enlightenment.org/
+[Budgie](https://buddiesofbudgie.org/ "Website Budgie") C, [Vala](https://en.wikipedia.org/wiki/Vala_(programming_language) "webpage for Vala Language") https://buddiesofbudgie.org/ 
 ----------------------------------------------------- ------------------------ -------------------------------
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
@@ -368,21 +373,21 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 
 Using the virtual machines you installed in the previous chapter, Fedora 34 and Ubuntu Desktop 20.04, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.  We will be focusing on package based installs in the first part of the lab.
 
-#### GNOME 3 Extensions
+#### GNOME Extensions
 
 You will need to install the listed GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
 
 1) Caffeine (screenshot of coffee cup icon in upper right corner)
-1) Dash to Dock (move dock to the bottom of the screen)
-1) Screenshot Tool (screenshot of camera icon in upper right corner)
+1) Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)
+1) Exention List (List all extensions and their configs in upper right corner)
 
 #### Snaps Install
 
-To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on any **Ubuntu or Debian** based desktop:
+To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on any **Ubuntu** based desktop:
 
 1) Android Studio
 1) Blender
-1) Slack
+1) OBS-studio
 1) Discord
 1) Visual Studio Code
 
@@ -396,15 +401,6 @@ To install and configure flatpak and flathub, reference chapter 3.  To show thes
 1) Remmina
 1) GtkStressTesting
 
-#### Ubuntu 20.04 Flatpak Install
-
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak:
-
-1) Microsoft Teams
-1) Shotcut
-1) LibrePCB
-1) OpenBoard
-
 #### AppImage Install
 
 Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instructions to install and run these AppImages on both Ubuntu 20.04 and Fedora 34.  Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").
@@ -415,16 +411,19 @@ Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), f
 
 #### Installing Window Managers
 
-You will chose 1 of the window managers from the categories listed earlier in the chapter and install them.  Once installed you need to log out and restart your session.  In order to change the default window manager on GNOME3 desktop environment you need to click on the user name and select the little gear below the password field.  In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
+You will install 3 of the window managers from the categories listed earlier in the chapter. Once installed you need to log out and restart your session. In order to change the default window manager or desktop environment--from the login screen, you need to click on the user name and select the little gear below the password field. In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
 
 ![*Change Window Managers*](images/Chapter-04/GNOME3/window-manager.png "Change")
 
-* Stacking window manager - [Openbox](http://openbox.org/wiki/Main_Page "Openbox")
+* Stacking window manager - [IceWM](http://ice-wm.org/ "webpage for Ice WM")
   * Show 3 Windows stacked (FireFox, Terminal, and the File Manager)
 * Tiling window manager - i3
   * [i3 keyboard command reference](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")
   * Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.
   * Use the link above to learn the key commands to launch windows, remember there is no mouse!
+* Tiling window manager - Sway
+  * [Sway documentation](https://github.com/swaywm/sway/wiki/ "webpage Sway reference")
+  * Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.
 
 **Note:** the names of packages are not always obvious so you can use search features of package managers.  For example, here would be how to search for the i3 package.
 
@@ -435,11 +434,10 @@ You will chose 1 of the window managers from the categories listed earlier in th
 
 Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
 
-1) Install the Xfce Desktop on Fedora 34
-1) Install the Ubuntu Mate Desktop on Ubuntu 20.04
-1) Install the Xfce4 Desktop on Ubuntu 20.04 (the xubuntu-desktop package)
+1) Install the Budgie desktop on Fedora Workstation
+1) Install the Ubuntu Mate Desktop on Ubuntu Desktop
 
-**Deliverable:** Take screenshots of all successful installs of software.  See Blackboard for submission details.
+**Deliverable:** Take screenshots of all successful installs of software.
 
 #### Footnotes
 
@@ -472,8 +470,8 @@ Install these desktops, restart your system and as you login switch your desktop
 
 [^31]: Qt 5 / KDE 5 split into three separate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5</a>
 
-[^32]: KDE Plasma 5 retired KDM as the default display manager in favor of SDDM.  
-  <a href="http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU">http://www.phoronix.com/scan.php?page=news_item&px=MTgyOTU</a>
+[^32]: Wikipedia Buddies of Budgie Article  
+  <a href="https://en.wikipedia.org/wiki/Budgie_(desktop_environment)">https://en.wikipedia.org/wiki/Budgie_(desktop_environment)</a>
 
 [^33]: Comparison of X Windows Desktop Environments
 <a  href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>

@@ -2,7 +2,7 @@
 
 Using the virtual machines you installed in the previous chapter, Fedora 34 and Ubuntu Desktop 20.04, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.  We will be focusing on package based installs in the first part of the lab.
 
-## GNOME 3 Extensions
+## GNOME Extensions
 
 You will need to install the listed GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
 
