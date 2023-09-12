@@ -765,7 +765,7 @@ reboot
 # the VirtualBox Guest editons iso (under Devices)
 sudo dnf update kernel*
 sudo reboot
-sudo dnf install -y gcc gcc-c++ kernel-devel kernel-headers make bzip2 perl
+sudo dnf install -y gcc gcc-c++-x86_64-linux-gnu kernel-devel kernel-headers make bzip2 perl
 sudo mount -r /dev/cdrom /media
 cd /media
 sudo ./VBoxLinuxAdditions.run
@@ -1025,12 +1025,12 @@ You will need to install the Virtualbox, Parallels, or UTM Guest Additions in ea
   * Pop!_OS 
   * Manjaro Desktop
 
+* You may add a screenshot of the execution of the terminal command `lsmod | grep vboxguest`
+  * Which will return blank or no answer without guest additions modules loaded
+  * It will return `vboxguest` and a unique process number after installation
 * To show the successful install of the guest additions, maximize the screen and take the screenshot showing the installed guest additions. These are the example before and after maximized images:
     * ![Before Guest Additions](images/Chapter-03/guest-additions-install/before-guest-additions.png "Before Guest Additions Install")
     * ![After Guest Additions](images/Chapter-03/guest-additions-install/after-guest-additions.png "After Guest Additions Install")
-* You may also add a screenshot of the execution of the terminal command `lsmod | grep vboxguest`
-  * Which will return blank or no answer without guest additions modules loaded
-  * It will return `vboxguest` and a unique process number after installation
 
 #### Footnotes
 
