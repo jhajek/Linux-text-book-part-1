@@ -932,6 +932,14 @@ Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http
 
 This lab has two parts that need to be completed in order.
 
+#### Objectives
+
+* Explore installing multiple industry standard Linux distros
+
+#### Outcomes
+
+At the conclusion of this lab you will have installed ~20 operating Linux based distributions as Virtual Machines. You will explored the major paradigms of the two major Linux distro families. You will have mastered the installation process and been exposed to various Linux distro paradigms.
+
 #### Part One
 
 You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well. If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for M1 Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
@@ -985,8 +993,6 @@ For those using Parallels virtualization or UTM on M1/M2 mac -- look for the `aa
 * Debian Based ARM
   * Ubuntu 22.04 Desktop edition
   * Ubuntu 22.04 Server edition
-  * Trisquel Linux
-  * Mageia
   * Peppermint OS
   * Ubuntu KDE Neon
 
