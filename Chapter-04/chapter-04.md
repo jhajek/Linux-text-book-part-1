@@ -108,7 +108,7 @@ The first compositing window managers came about in 2005/2006 as the necessary e
 
 * [Xfwm](https://en.wikipedia.org/wiki/Xfwm "Xfwm") - Xfce window manager
 * [KWin](https://en.wikipedia.org/wiki/KWin "KWin") - Window manager for the KDE Desktop Environment
-* [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME3 Desktop Environment
+* [Mutter](https://en.wikipedia.org/wiki/Mutter_%28software%29 "Mutter") - Window manager for the GNOME Desktop Environment
 
 ### Stacking
 
@@ -248,7 +248,7 @@ For example to add a Favorite for the Terminal program click **Activities** > **
 
 To extend the functionality of GNOME there is a [GNOME extensions website](https://extensions.gnome.org "GNOME extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? 
 
-A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor"). Most GNOME 3 extensions should work on GNOME 40 but not all have been ported and some are in the prosses as GNOME 40 is still relatively new.
+A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor"). Most GNOME 3 extensions should work on GNOME 40 but not all have been ported.
 
 ![*GNOME Extensions*](images/Chapter-04/extensions.png "Extensions")
 
@@ -270,7 +270,7 @@ To access the terminal on a GNOME desktop, click the **Activities** button at th
 
 ![*GNOME Software Store*](images/Chapter-04/software-store.png "Software Store")
 
-This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manager in GNOME 3. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from. The GNOME Software store now is mostly a front for Flatpak or Snap (Ubuntu based distros) package managers.
+This is a feature added by Red Hat to improve upon Gnome Packages, which is the default package manager in GNOME. The package manager is called **Software**. There is a wide selection of free and opensource software to choose from. The GNOME Software store now is mostly a front for Flatpak or Snap (Ubuntu based distros) package managers.
 
 ## Conclusion
 
@@ -375,7 +375,7 @@ Using the virtual machines you installed in the previous chapter, Fedora 34 and 
 
 #### GNOME Extensions
 
-You will need to install the listed GNOME 3 extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
+You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
 
 1) Caffeine (screenshot of coffee cup icon in upper right corner)
 1) Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)
@@ -383,30 +383,30 @@ You will need to install the listed GNOME 3 extensions from [https://extensions.
 
 #### Snaps Install
 
-To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on any **Ubuntu** based desktop:
+To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on an **Ubuntu** based desktop.
 
-1) Android Studio
-1) Blender
-1) OBS-studio
-1) Discord
-1) Visual Studio Code
+1) From the Software store: KdenLive
+1) From the Software store: code
+1) From the Software store: Search for obs-studio
+1) From Commandline search for and install: arduino
+1) From Commandline search for and install: kicad
 
 #### Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on the **Fedora** virtual machine:
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on s **Fedora** virtual machine:
 
-1) Kdenlive
-1) Visual Studio Code
-1) Discord
-1) Remmina
-1) GtkStressTesting
+1) From the Software store: Gnome Notes
+1) From the Software store: Develop -> Visual Studio Code
+1) From the Software store: Socialize -> Falkon Web Browser
+1) From Commandline search for and install: VLC (video player)
+1) From Commandline search for and install: GtkStressTesting
 
 #### AppImage Install
 
-Find 3 [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instructions to install and run these AppImages on both Ubuntu 20.04 and Fedora 34.  Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").
+Using these three [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instructions to install and run these AppImages on either Ubuntu or Fedora. Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").
 
-1) Poddr
-1) Archipelago
+1) Lagrange ([Gemini client](https://en.wikipedia.org/wiki/Gemini_(protocol) "wiki article for Gemini Protocol"))
+1) LibreWolf (Firefox fork)
 1) LibrePCB
 
 #### Installing Window Managers
@@ -434,8 +434,8 @@ You will install 3 of the window managers from the categories listed earlier in 
 
 Install these desktops, restart your system and as you login switch your desktop environment and take a screenshot of the new environment.
 
-1) Install the Budgie desktop on Fedora Workstation
-1) Install the Ubuntu Mate Desktop on Ubuntu Desktop
+1) Install the Budgie desktop on Fedora Workstation -> `budgie-desktop`
+1) Install the Ubuntu Mate Desktop on Ubuntu Desktop -> `ubuntu-mate-desktop`
 
 **Deliverable:** Take screenshots of all successful installs of software.
 

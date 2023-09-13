@@ -614,15 +614,15 @@ Supported on all Linux operating systems and functions like an app store -- wher
 
 Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard on Fedora 32, but not other distributions. Let's install some Flatpak and some applications: The first thing is to install the Flatpak package. [That is done at the Flatpak repo page](https://www.Flatpak.org/setup/ "Flatpak"). Let's try it with an Ubuntu distribution:
 
-#### Install Flatpak on Fedora/CentOS
+#### Non-Fedora OS Flathub Install
 
-Flatpak is installed by default in Fedora 32+ and Centos 7+. You just need to add the flatpak repo:
+Flatpak and FlatHub are installed by default as of Fedora 32. On other OSes such as Pop!_OS and OpenSuse, support Flatpak out of the box, but the Flathub repo is not installed by default and can be added with this command:
 
 ```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
 
-#### Installing Flatpaks on Fedora/Ubuntu/CentOS
+#### Installing Flatpaks
 
-Once that is done here is an example of installing Flatpaks:
+Once that is done here is an example of installing Flatpaks from the commandline:
 
 * ```sudo flatpak install flathub org.videolan.VLC```
 * ```sudo flatpak install flathub com.discordapp.Discord```
