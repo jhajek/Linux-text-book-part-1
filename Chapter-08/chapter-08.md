@@ -6,15 +6,15 @@
 
 This portion of the book begins Part II. The first 7 chapters focused more on the *philosophy* and basic tenets of how Unix and Linux were created. The remaining 8 chapters now will focus on the application of what we have learned and focus on using the opensource technology of Linux.  The Objectives of this chapter are as follows:
 
-* Understand how to write and use basic shell scripts
-* Understand how to use conditional statements in Bash scripts
-* Understand how to declare system environment variables and their scope of existence
-* Understand how to use positional parameters as variables into shell scripts
-* Understand how to use the scheduling service ```cron``` for managing shell script automation
+* Explain how to write and use basic shell scripts
+* Explain how to use conditional statements in Bash scripts
+* Describe how to declare system environment variables and their scope of existence
+* Describe how to use positional parameters as variables into shell scripts
+* Explain how to use the scheduling service `cron` for managing shell script automation
 
 ## Outcomes
 
-  At the conclusion of this chapter you will have furthered your understanding of the vi editor and be able to demonstrate how to use control structures in shell scripts.  You will also learn about command line variables and how they extend the ability of a shell script to accept dynamic input.  You will be able to schedule a shell script to run at a scheduled time by using ```cron``` service increasing your ability to reduce work by automating repetitive tasks.
+  At the conclusion of this chapter you will have furthered your understanding of the vi editor and be able to demonstrate how to use control structures in shell scripts.  You will also learn about command line variables and how they extend the ability of a shell script to accept dynamic input.  You will be able to schedule a shell script to run at a scheduled time by using `cron` service increasing your ability to reduce work by automating repetitive tasks.
 
 ## Basic Shell Scripts - Part II
 

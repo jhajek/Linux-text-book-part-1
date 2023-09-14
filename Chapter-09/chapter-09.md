@@ -4,11 +4,11 @@
 
 ## Objectives
 
-* Understand the concept of the ```sudo``` command and the root user security implications
-* Understand the basic admin tools and the Linux concept of logging and the systemd concept of logging with journald
-* Understand how to use basic system tools for system monitoring and reporting
-* Understand using standard tools for user administration
-* Understand the 3Ps method of troubleshooting
+* Describe the concept of the `sudo` command and the root user security implications
+* Identify basic administration tools 
+* Explain the concept of system logs
+* Describe how to use basic system tools for system monitoring and reporting
+* Identify the "3Ps" method of troubleshooting
 
 ## Outcomes
 

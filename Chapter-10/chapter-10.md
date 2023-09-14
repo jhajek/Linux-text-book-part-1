@@ -4,15 +4,16 @@
 
 ## Objectives
 
-* Understand the traditional SysVinit system and its relationship to starting system processes
-* Understand the systemd init system
-* Understand the nature of starting, stopping, and service reporting
-* Understand how to use system tools to examine processes
-* Understand the nature of the /proc virtual-filesystem
+* Explain the three phases of the Liunux booting process
+* Describe the concept of an init system
+* Compare and contrast the SysVinit init and systemD init system 
+* Identify the nature of starting, stopping, and service reporting 
+* Describe how to use system tools to examine processes 
+* Identify the function of each Linux target and service level
 
 ## Outcomes
 
-At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work.  You will understand how to examine, start, and stop services in both arenas.  You will learn about the ```/proc``` virtual-filesystem and how it represents running processes as files.  You will be able to use the systemd mechanisms for process reporting and termination.
+At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work. You will understand how to examine, start, and stop services in both arenas. You will learn about the `/proc` virtual-filesystem and how it represents running processes as files. You will be able to use the systemd mechanisms for process reporting and termination.
 
 ## First Phase of the system boot
 

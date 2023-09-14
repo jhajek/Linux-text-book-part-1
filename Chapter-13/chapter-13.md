@@ -4,11 +4,12 @@
 
 ## Objectives
 
-* Linux Orchestration and Automation tools
-  * Vagrant
-  * Packer
-  * Automation tools
-  * Secrets Management
+* Explain the problem that automation tooling for Linux provides
+* Identity Current orchestration and automation tools
+* Explain the role of Hashicorp in the realm of automation tools
+* Describe the process to automate the installation of Linux Operating Systems 
+* Explain the concept of secrets management in automation
+* Identify a solution for deploying complete applications using automation tooling on Linux
   
 ## Outcomes
 

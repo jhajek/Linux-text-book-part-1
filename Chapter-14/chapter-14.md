@@ -13,11 +13,11 @@ The list of final projects that applies all of the learned concepts and puts the
 
 ## Outcomes
 
-At the conclusion of this project, you will have successfully demonstrated the basic installation and system administration concepts talked about in this book.  Congratulations.
+At the conclusion of this project, you will have successfully demonstrated the basic installation and system administration concepts talked about in this book. Congratulations.
 
-### Part 1 - Using Ubuntu 18.04
+### Part 1 - Using Ubuntu 22.04
 
-This project will deploy and customize the existing Ubuntu 1804 packer build template located in the files > Appendix-D directory. You will configure the provisioner file under the **scripts** directory to customize the Packer build script, `post_install_vagrant.sh`. The purpose is to deploy a single node [WordPress install](https://wordpress.org/download/ "Added WordPress installation link").  Upon completion of the build task, you will import the Packer artifact from the build directory, the Vagrant box (virtual machine) that was created, that will have WordPress basic installation configured upon the first `vagrant up` command.  The settings to make WordPress work automatically will be configured in the Packer **provisioner** shell script.
+This project will deploy and customize the an existing Ubuntu 22.04 packer build template located in the files > Appendix-D directory. You will configure the provisioner file under the **scripts** directory to customize the Packer build script, `post_install_vagrant.sh`. The purpose is to deploy a single node [WordPress install](https://wordpress.org/download/ "Added WordPress installation link").  Upon completion of the build task, you will import the Packer artifact from the build directory, the Vagrant box (virtual machine) that was created, that will have WordPress basic installation configured upon the first `vagrant up` command.  The settings to make WordPress work automatically will be configured in the Packer **provisioner** shell script.
 
 #### Packer Provisioner Requirements
 

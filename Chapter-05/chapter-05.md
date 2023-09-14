@@ -4,12 +4,12 @@
 
 ## Objectives
 
-* Understand the structure of the Linux Filesystem
-* Understand the difference between absolute and relative paths
-* Understand the function of the Linux Shell and its relation to the operating system
-* Understand the fundamental shell commands for traversing and modifying the contents of the filesystem
-* Learn the Linux commandline nomenclature
-* Understand the nomenclature describing file permissions and security
+* Describe the structure of the Linux Filesystem
+* Explain the difference between absolute and relative paths
+* Identify the function of the Linux Shell and its relation to the operating system
+* Identify the fundamental shell commands for traversing the filesystem
+* Describe the Linux commandline nomenclature
+* Explain file permissions and file security nomenclature
 
 ## Outcomes
 
@@ -17,7 +17,7 @@ At the completion of this chapter you will understand how to use the Linux shell
 
 ### Chapter Conventions
 
-The terms __commandline__, __terminal__, and __shell__ have been used interchangeably so far to convey the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
+The terms `commandline`, __terminal__, and __shell__ have been used interchangeably so far to convey the method for a user to issue commands to the kernel.  In this chapter we will explore the discrete differences between the terminal and the shell, with the term commandline or CLI being a generic word referring to anything where system commands are entered in text.
 
 The terms __files__, __folders__, and __directories__ can be used interchangeably in regards to this chapter's contents.  Remember from Chapter 2, everything in Unix is a *file*, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in blockquotes throughout the chapter with little exercises that will let you follow along as you read.  
 

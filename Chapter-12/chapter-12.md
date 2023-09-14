@@ -4,11 +4,13 @@
 
 ## Objectives
 
-* Understand how to configure and display basic network settings for the two major Linux distribution families
-* Understand how to use basic network troubleshooting tools
-* Understand how to configure and deploy major webserver platforms for Linux and BSD
+* Explain how to configure and display basic network settings for the two major Linux distribution families
+* Identify basic network troubleshooting tools
+* Explain configuring and deploying major webserver platforms
 * Compare and contrast major opensource webservers and be able to discuss their uses in industry
-* Understand how to install, manage, and configure basic major SQL and NOSQL databases
+* Explain how to install, manage, and configure basic major SQL and NOSQL databases
+* Identify the types of desktop based firewalls 
+* Explain how to configure desktop based firewalls 
 
 ## Outcomes
 

@@ -5,11 +5,10 @@
 ## Objectives
 
 * Compare and contrast different Linux filesystems
-* Understand how to create and attach virtual disks
-* Understand how the `fdisk` command is used to list, modify, and create filesystem partitions
-* Understand Linux tools relating to filesystems, disk utilization, and mounting
-* Understand how Logical Volume Management, extents, and disk based partitions differ
-* Understand compression and archiving tools and their use on the command line
+* Explain how to create and attach virtual disks
+* Identify Linux tools relating to filesystems, disk utilization, and mounting
+* Explain how Logical Volume Management, extents, and disk based partitions differ
+* Identify compression and archiving tools and their use on the command line
 
 ## Outcomes
 
