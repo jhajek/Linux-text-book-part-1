@@ -32,7 +32,7 @@ To install and configure flatpak and flathub, reference chapter 3.  To show thes
 
 ## AppImage Install
 
-Using these three [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instructions to install and run these AppImages on either Ubuntu or Fedora. Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo").
+Using these three [AppImage install packages](https://appimage.org/ "AppImages install"), follow the instructions to install and run these AppImages on either Ubuntu or Fedora. Take a screenshot of the command needed to run the AppImage and the corresponding first screen of that application from the [AppImage GitHub repo](https://appimage.github.io/apps "AppImage GitHub Repo"). You will need to from the terminal execute the command `cd Downloads` and then give execute permission to each of the AppImages: `chmod +x LibreWolf.x86_64.AppImage` for example.
 
 1) Lagrange ([Gemini client](https://en.wikipedia.org/wiki/Gemini_(protocol) "wiki article for Gemini Protocol"))
 1) LibreWolf (Firefox fork)
