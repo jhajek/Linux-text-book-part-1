@@ -248,7 +248,7 @@ For example to add a Favorite for the Terminal program click **Activities** > **
 
 To extend the functionality of GNOME there is a [GNOME extensions website](https://extensions.gnome.org "GNOME extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? 
 
-A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor"). Most GNOME 3 extensions should work on GNOME 40 but not all have been ported.
+A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor"). Most GNOME 3 extensions should work on GNOME 40 but not all have been ported. You can find that some [Linux distros need an additional plugin](https://wiki.gnome.org/action/show/Projects/GnomeShellIntegration/Installation?action=show&redirect=Projects%2FGnomeShellIntegrationForChrome%2FInstallation "webpage for installting gnome extensions browser plugin") to make the extensions work directly from the browser (Ubuntu), some already work by default (Fedora).
 
 ![*GNOME Extensions*](images/Chapter-04/extensions.png "Extensions")
 
@@ -375,7 +375,7 @@ Using the virtual machines you installed in the previous chapter, Fedora Worksta
 
 #### GNOME Extensions
 
-You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser. If you are using Ubuntu Desktop, you first need to install one commandline pre-req via apt. Open a terminal and type the command `sudo apt install gnome-browser-connector` and choose 'Y'.
+You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser. If you are using Ubuntu Desktop, you first need to install one commandline pre-req via apt. Open a terminal and type the command `sudo apt install chrome-gnome-shell` and choose 'Y' on Ubuntu Desktop 22.04. On Ubuntu Desktop 23.04+ type on the terminal: `sudo apt install gnome-browser-connector` and choose 'Y'.
 
 1) Caffeine (screenshot of coffee cup icon in upper right corner)
 1) Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)

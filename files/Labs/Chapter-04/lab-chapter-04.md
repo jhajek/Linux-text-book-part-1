@@ -4,7 +4,7 @@ Using the virtual machines you installed in the previous chapter, Fedora Worksta
 
 ## GNOME Extensions
 
-You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions"). The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser. If you are using Ubuntu Desktop, you first need to install one commandline pre-req via apt. Open a terminal and type the command `sudo apt install gnome-browser-connector` and choose 'Y'.
+You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions"). The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser. Open a terminal and type the command `sudo apt install chrome-gnome-shell` and choose 'Y' on Ubuntu Desktop 22.04. On Ubuntu Desktop 23.04+ type on the terminal: `sudo apt install gnome-browser-connector` and choose 'Y'.
 
 1) Caffeine (screenshot of coffee cup icon in upper right corner)
 1) Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)
