@@ -4,7 +4,7 @@ Using the virtual machines you installed in the previous chapter, Fedora Worksta
 
 ## GNOME Extensions
 
-You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions").  The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
+You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions"). The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser.
 
 1) Caffeine (screenshot of coffee cup icon in upper right corner)
 1) Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)
@@ -12,7 +12,7 @@ You will need to install the listed GNOME extensions from [https://extensions.gn
 
 ## Snaps Install
 
-To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on an **Ubuntu** based desktop.
+To install and configure snaps, reference chapter 3. To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on an **Ubuntu** based desktop.
 
 1) From the Software store: KdenLive
 1) From the Software store: code
