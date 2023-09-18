@@ -105,9 +105,9 @@ __root__        Home directory for the root user - not to be confused with /
 __lib64__       Alternate home for 64 bit libraries
 ----------  ---------------------------------------------------------------------------------------------
 
-![*Ubuntu root full directory listing*](images/Chapter-05/filesystems/ubuntu-15-04-root-listing.png "Ubuntu root directory listing")
+![*Ubuntu root full directory listing*](images/Chapter-05/filesystems/ubuntu-root-listing-long.png "Ubuntu root directory listing")
 
-![*Fedora root full directory listing*](images/Chapter-05/filesystems/fedora-22-root-listing.png "Fedora root directory listing")
+![*Fedora root full directory listing*](images/Chapter-05/filesystems/fedora-30.png "Fedora root directory listing")
 
 #### /usr standard subdirectories
 
