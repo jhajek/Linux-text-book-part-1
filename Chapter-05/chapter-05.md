@@ -612,12 +612,12 @@ In this chapter we covered the basic nature of the Linux Shell and how it allows
 * ~2:05 How does the podcast host define a shell script?
 * ~2:23 Shell scripts are the key to what?
 * ~3:28 When did Ken Thompson release his shell and what was it missing?
-* ~3:45 What year was shell scripting come into existence?
+* ~3:45 What year did shell scripting come into existence?
 * ~4:27 What was the shell that became the AT&T UNIX standard shell?
 * ~5:53 The Bourne Shell was licensed and owned by whom?
 * ~7:59 Why was Brian Fox the perfect person to develop the Bash Shell?
 * ~9:30 How long did it take to create the Bash shell and what was difficult about this?
-* ~12:02 What did Brian accidentally do to the Bash Shell?
+* ~12:02 What did Brian accidentally do to the Bash Shell code?
 * ~14:48 What was the other shell released one month before Bash?
 * ~15:19 When was GNU Bash released?
 * ~18:40 What was the released/intended purpose of GNU Bash?
@@ -627,15 +627,17 @@ In this chapter we covered the basic nature of the Linux Shell and how it allows
 
 ### Lab
 
-The objectives of this lab are to use the shell commands we learned in this chapter and understand their proper usage and form. The outcome will help your ability to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell unless noted.  
+The objectives of this lab are to use the shell commands we learned in this chapter and understand their proper usage and form. The outcome will help your ability to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser. All actions will be done through the shell unless noted.  
 
 **Note:** All work should be done on either Ubuntu desktop or Fedora desktop unless noted and using the Terminal.
 
-The following commands are intentionally out of order as you will be issuing commands to fix the order.
+#### Part 1
 
-1) Opening a terminal, `cd` to the **Documents** directory. Issue the `pwd` command to find your present working directory (or current location)
-1) Still in the **Documents** directory, use the `mkdir` command to create a directory named: **itmo356**
-1) `cd` into the itmo356 directory.  Issue the command to show your present working directory. Create the below hierarchy of sub-directories.  Once created take a screen shot of the output of the `ls` command in the distros directory
+Here we will be creating a number of directories and files in order to navigate our filesystem. Each step can be satisfied with a short line of text or a screenshot.
+
+1) Open a terminal, `cd` to the **Documents** directory. Issue the `pwd` command to find your present working directory (or current location).
+1) In the **Documents** directory, use the `mkdir` command to create a directory named: **class-notes**
+1) `cd` into the `class-notes` directory.  Issue the command to show your present working directory. Create the below hierarchy of sub-directories.  Once created take a screen shot of the output of the `ls` command in the distros directory
 1) distros > BSD
 1) distros > Debian (yes this spelling should be capital)
 1) distros > redhat
