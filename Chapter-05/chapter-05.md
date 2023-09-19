@@ -652,8 +652,9 @@ Here we will be creating a number of directories and files in order to navigate 
 1) Use the `mkdir` command to create a directory in the `distros` directory named: **illumos** and move the omnios.txt file into the **illumos** directory
 1) What would be the command to `cd` from your current location to the relative path of `./distros/BSD` directory using a relative path?
 1) What would be the command to change directory from your current location to the `Redhat` directory using a relative path?
-1) What would be the command to change directory to your home directory using the relative path?
-1) What would be the command to change directory From the debian directory - what would be the command using an absolute path to change your pwd to /etc/ssh/ssh_config.d?
+1) What would be the command to change directory to your **HOME** directory using the relative path?
+1) What would be the command to change directory from your **HOME** directory to the `debian` directory using a relative path? 
+1) What would be the command, using an **absolute** path to change from your current directory to the `/etc/ssh/` directory?
 1) Use the `man` command to figure out how to display the format of the `date` command as month, day, year combined to look like: 10152021
 1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Type the command to display the last 10 lines of this file
 1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Type the command to display the first 10 lines of this file
