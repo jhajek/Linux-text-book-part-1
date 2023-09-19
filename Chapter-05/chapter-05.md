@@ -637,15 +637,15 @@ Here we will be creating a number of directories and files in order to navigate 
 
 1) Open a terminal, `cd` to the **Documents** directory. Issue the `pwd` command to find your present working directory (or current location).
 1) In the **Documents** directory, use the `mkdir` command to create a directory named: **class-notes**
-1) `cd` into the `class-notes` directory.  Issue the command to show your present working directory. Create the below hierarchy of sub-directories.  Once created take a screen shot of the output of the `ls` command in the distros directory
-1) distros > BSD
-1) distros > Debian (yes this spelling should be capital)
-1) distros > redhat
-1) Inside of each of the three directories just created we will need to create some text files.  Take a screenshot of the `ls` listing the contents of each directory showing how to create the files and listing them in the directory.
-1) In the directory BSD use the command to create a file: Create three files names: oracle-linux.txt openbsd.txt netbsd.txt
-1) In the directory Debian use the command to create a file: Create three three names: ubuntu.txt freebsd.txt devuan.txt
-1) In the directory redhat use the command to create a file: Create three files names: fedora.txt rhel.txt debian.txt
-1) At the same level as distro distros level -> omnios.txt
+1) `cd` into the `class-notes` directory. Issue the command to show your present working directory. 
+1) Create the a directory named `distros` in the `class-notes` directory. Once created take a screen shot of the output of the `ls` command in the `distros directory
+1) Under the `distros` directory create a directory named: `BSD`
+1) Under the `distros` directory create a directory named: `Debian`
+1) Under the `distros` directory create a directory named: `redhat`
+1) In the directory `BSD` use the command to create a file: Create three files names: oracle-linux.txt, openbsd.txt, and netbsd.txt
+1) In the directory `Debian` use the command to create a file: Create three three names: ubuntu.txt, freebsd.txt, and xubuntu.txt
+1) In the directory `redhat` use the command to create a file: Create three files names: fedora.txt, rhel.txt, and debian.txt
+1) `cd` to the `distro` directory and create a file named: `omnios.txt
 1) In the text files created you will notice that a few of them are out of place, such as a debian.txt is in the redhat folder.  Issue the command to move the text files to the correct locations and show a directory listing before and after the move command.  (*Hint*: ls mv ls)
 1) Use the `mv` command to rename the Debian directory to have a lowercase "D"
 1) Use the `rm` command to delete oracle-linux.txt file
