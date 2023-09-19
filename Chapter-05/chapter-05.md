@@ -645,15 +645,15 @@ Here we will be creating a number of directories and files in order to navigate 
 1) In the directory `BSD` use the command to create a file: Create three files names: oracle-linux.txt, openbsd.txt, and netbsd.txt
 1) In the directory `Debian` use the command to create a file: Create three three names: ubuntu.txt, freebsd.txt, and xubuntu.txt
 1) In the directory `redhat` use the command to create a file: Create three files names: fedora.txt, rhel.txt, and debian.txt
-1) `cd` to the `distro` directory and create a file named: `omnios.txt
-1) In the text files created you will notice that a few of them are out of place, such as a debian.txt is in the redhat folder.  Issue the command to move the text files to the correct locations and show a directory listing before and after the move command.  (*Hint*: ls mv ls)
-1) Use the `mv` command to rename the Debian directory to have a lowercase "D"
-1) Use the `rm` command to delete oracle-linux.txt file
-1) Use the `mkdir` command to create a directory at the distros level named: **illumos** and move the omnios.txt file into **illumos**
-1) `cd` to the distros BSD directory - what would be the command using a relative path to change your pwd to redhat?
-1) From the redhat directory - what would be the command using the relative path to change your pwd to your home directory?
-1) From your home directory - what would be the command using the relative path to change your pwd to the debian directory created earlier?
-1) From the debian directory - what would be the command using an absolute path to change your pwd to /etc/ssh/ssh_config.d?
+1) `cd` to the `distro` directory and create a file named: `omnios.txt`
+1) In the text files created you will notice that a few of them are out of place, such as `debian.txt` is in the `redhat` folder. Issue the command to move the text files to the correct locations and show a directory listing before and after the move command.  (*Hint*: ls mv ls)
+1) Use the `mv` command to rename the `redhat` directory to have an uppercase "R"
+1) Use the `rm` command to delete the oracle-linux.txt file
+1) Use the `mkdir` command to create a directory in the `distros` directory named: **illumos** and move the omnios.txt file into the **illumos** directory
+1) What would be the command to `cd` from your current location to the relative path of `./distros/BSD` directory using a relative path?
+1) What would be the command to change directory from your current location to the `Redhat` directory using a relative path?
+1) What would be the command to change directory to your home directory using the relative path?
+1) What would be the command to change directory From the debian directory - what would be the command using an absolute path to change your pwd to /etc/ssh/ssh_config.d?
 1) Use the `man` command to figure out how to display the format of the `date` command as month, day, year combined to look like: 10152021
 1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Type the command to display the last 10 lines of this file
 1) Using the file on Ubuntu 20.04: `/var/log/syslog`:  Type the command to display the first 10 lines of this file
