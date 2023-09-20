@@ -655,6 +655,9 @@ Here we will be creating a number of directories and files in order to navigate 
 1) What would be the command to change directory to your **HOME** directory using the relative path?
 1) What would be the command to change directory from your **HOME** directory to the `debian` directory using a relative path? 
 1) What would be the command, using an **absolute** path to change from your current directory to the `/etc/ssh/` directory?
+
+#### Part 2
+
 1) Use the `man` command to figure out how to display the format of the `date` command as month, day, year combined to look like: 10152021
 1) Using the file on Ubuntu: `/var/log/syslog`:  Type the command to display the last 10 lines of this file
 1) Using the file on Ubuntu: `/var/log/syslog`:  Type the command to display the first 10 lines of this file
@@ -674,8 +677,9 @@ Here we will be creating a number of directories and files in order to navigate 
 1) From the cloned textbook sample code under the directory `files` > `Chapter-05` > `sample-textfiles`, issue the command to display the content of the distro-list.txt to the screen
 1) Issue the command using a relative path to copy the file `distro-list.txt`` to the `distros` directory you made under the `class-notes` folder
 1) Issue the command to show the listing of the `distros` directory and show that the file was copied
-1) Use the `wget` command to retrieve a copy of the Packer.io binary for Linux.  Use this URL as the argument for `wget` [https://releases.hashicorp.com/packer/1.7.6/packer_1.7.6_linux_amd64.zip](https://releases.hashicorp.com/packer/1.7.6/packer_1.7.6_linux_amd64.zip "Packer Download URL")
-1) Use the `unzip` command to unzip the binary and extract the packer executable. Issue the move command, `mv` to move the executable to this location: `/usr/local/bin`.  **Hint:** you will need to use `sudo` to get the permission needed for this operation and you may need to install the `unzip` application using your package manager. To show this was succesful take a screenshot of the output of the command `packer -v`.
+1) In the clone class textbook directory, `Linux-text-book-part-1`, issue the command to delete the `Mobi` directory and its contents, under `output`
+1) Issue the command make a cp of the entire directory `Linux-text-book-part-1` and all sub-directories named `textbook-copy` located in your **HOME** directory.
+1) Issue the command to delete the directory `Linux-text-book-part-1` and its sub-directories in one command (recursively).
 
 #### Footnotes
 
