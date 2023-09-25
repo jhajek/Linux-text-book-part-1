@@ -678,7 +678,7 @@ Here we will be creating a number of directories and files in order to navigate 
 1) Issue the command using a relative path to copy the file `distro-list.txt`` to the `distros` directory you made under the `class-notes` folder
 1) Issue the command to show the listing of the `distros` directory and show that the file was copied
 1) In the clone class textbook directory, `Linux-text-book-part-1`, issue the command to delete the `Mobi` directory and its contents, under `output`
-1) Issue the command make a cp of the entire directory `Linux-text-book-part-1` and all sub-directories named `textbook-copy` located in your **HOME** directory.
+1) Issue the command make a cp of the entire directory `Linux-text-book-part-1` and all sub-directories to a directory named `textbook-copy` located in your **HOME** directory.
 1) Issue the command to delete the directory `Linux-text-book-part-1` and its sub-directories in one command (recursively).
 
 #### Footnotes
