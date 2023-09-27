@@ -123,12 +123,11 @@ echo "Buy milks and eggs!" >> ~/Documents/my-shopping-list.txt
 
 \{\}
 
-: Curly braces are expansion braces for declaring variables with variables in them. Note the difference.  The first command executes the content of ```whoami``` command and returns it and passes it to the echo command. The second example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
-```bash
-echo ${username-`whoami`}
-```
+: Curly braces are expansion braces for declaring variables with variables in them. Note the difference. The first command example allows you to use brace expansion to create multiple directories at once chapter-01-09.  __Usage example:__
+
 ```bash
 mkdir chapter-0{1..9}
+rm dir chapter-0{1..9}
 ```
 
 \#
@@ -137,7 +136,7 @@ mkdir chapter-0{1..9}
 
 \^
 
-: The caret (shift+6) is a meta-character used in conjunction with the ```[]``` range brackets in order to tell the shell to negate the range included in the square brackets. ```ls [^r]*``` will find file1-file4, but will not list the files named rfile1-rfile4. __Usage example:__
+: The caret (shift+6) is a meta-character used in conjunction with the `[]` range brackets in order to tell the shell to negate the range included in the square brackets. `ls [^r]*` will find `file1, file2, file3, and file4`, but will not list the files named `rfile1-rfile4`. __Usage example:__
 ```bash
 ls [^r]*
 ```
@@ -183,6 +182,7 @@ echo $PATH
 ```
 
 ```bash
+# Both commands are the same, but the $() is preferred
 DT=`date`; echo $DT
 DT=$(date); echo $DT
 ```
@@ -213,19 +213,19 @@ The original concept behind defining standard input and output devices came from
 
 ### Standard In
 
-The __standard in__ is the default method of getting text input into the terminal.  Currently this happens to be the keyboard.  The __standard in__ from the keyboard can be overridden by using the reversed angle bracket ```<``` to read __standard in__ from a file. You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with. Why might you want to send __standard in__ from anywhere other then the keyboard?  Here are a couple of examples.
+The __standard in__ is the default method of getting text input into the terminal.  Currently this happens to be the keyboard.  The __standard in__ from the keyboard can be overridden by using the reversed angle bracket `<` to read __standard in__ from a file. You can send the content of any file to a command with input redirection only if it accepts input from __standard in__ to begin with. Why might you want to send __standard in__ from anywhere other then the keyboard?  Here are a couple of examples.
 
 ```bash
 wc < state-of-the-union-address.txt
 ```
 
 ```bash
-mail < complete-works-of-shakespere.txt
+./display-env.sh $(< arguments.txt)
 ```
 
 ### Standard Out
 
-When Unix was developed the design decision was made that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more than a file that is located in the `/dev` directory. By having a __standard out__ device this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are referred to as ```tty``` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the ```> and >>``` out redirectors to send the standard output to a file. Be careful, a single ```>``` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double ```>>``` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file.
+When Unix was developed the design decision was made that all devices were files.  In short, the screen, or teletype, or terminal, is nothing more than a file that is located in the `/dev` directory. By having a __standard out__ device this allowed Unix/Linux to exchange standard output devices and not have to modify the output structure of the operating system.  Notice too that the outputs are referred to as `tty` which we learned about in chapter 4.  When you execute a command, the output is returned by default to __standard out__ which in this case is the terminal screen.  You can use the `> and >>` out redirectors to send the standard output to a file. Be careful, a single `>` will create a file if it does not exist, but will also destroy the content of a previous existing file.  A double `>>` will always append, and is non-destructive. When you execute this command you will notice no output comes to the screen.   This is because the angle bracket has redirected the output and written it to a file.
 ```bash
 date > /tmp/todaysdate
 ```
@@ -242,8 +242,8 @@ When you type a command that does not execute successfully it returns an error m
 Each of the standards can be referenced numerically. The first element is ___standard in__ which has the implied value of __0__ or no value at all.   The next element, __standard out__ has the value of __1__.  The final element, __standard error__ can be referenced by the number __2__.  Note in the script below we are redirecting standard out and error to separate file which can be used for debugging our shell script later on.    Standard out and standard error and be redirected together in the bash shell with a single ```&``` in front of an angle bracket.  
 
 ```bash
-sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err
-sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err
+sudo apt update 1>/tmp/01.out 2>/tmp/01.err
+sudo apt -y install nginx 1>/tmp/02.out 2>/tmp/02.err
 sudo systemctl nginx start 1>/tmp/03.out 2>/tmp/03.err
 ```
 
@@ -265,7 +265,7 @@ Douglas McIlroy was the manager of the Bell Labs Computing Techniques Research D
 
 > "Pipes were first suggested by [M. Doug McIlroy](https://en.wikipedia.org/wiki/Douglas_McIlroy "Douglas McIlroy"), when he was a department head in the Computing Science Research Center at Bell Labs, the research arm of AT&T (American Telephone and Telegraph Company), the former U.S. telecommunications monopoly. McIlroy had been working on macros since the latter part of the 1950s, and he was a ceaseless advocate of linking macros together as a more efficient alternative to series of discrete commands. A macro is a series of commands (or keyboard and mouse actions) that is performed automatically when a certain command is entered or key(s) pressed.
 
-> McIlroy's persistence led Ken Thompson, who developed the original UNIX at Bell Labs in 1969, to rewrite portions of his operating system in 1973 to include pipes. This implementation of pipes was not only extremely useful in itself, but it also made possible a central part of the Unix philosophy, the most basic concept of which is modularity (i.e., a whole that is created from independent, replaceable parts that work together efficiently).[^65]"
+> McIlroy's persistence led Ken Thompson, who developed the original UNIX at Bell Labs in 1969, to rewrite portions of his operating system in 1973 to include pipes. This implementation of pipes was not only extremely useful in itself, but it also made possible a central part of the Unix philosophy, the most basic concept of which is modularity (i.e., a whole that is created from independent, replaceable parts that work together efficiently)[^65]."
 
 [2005 audio presentation by Doug McIlroy about the early history of Unix development](http://www.dlslug.org/past_meetings.html "Interview with Doug McIlroy")
 
@@ -367,6 +367,14 @@ tac
 tac hosts.deny
 ```
 
+jq
+
+: The `jq` command isn't part of the default GNU tools, and needs to be installed via a package manager. It is specfically and only geared to work with [JSON](https://www.json.org/json-en.html "webpage for JSON org"). It is a text-based way to transport and parse object and attribute related data. __Usage example:__
+```bash
+sudo apt install jq
+jq -r .'Reservations[].Instances[].InstanceIds' aws-launch-results.json
+```
+
 ### Pipe Usage
 
 Pipes can be used to chain as many commands together as necessary. This is one of the three main design principles of Unix.
@@ -386,7 +394,7 @@ Pipes can be used to chain as many commands together as necessary. This is one o
 
 The ```grep``` command is a powerful pattern matching and searching tool for the shell.  Originally a feature of the ``ed`` line editor program - it stood for g/re/p--global regular expression print.  A grep command will search inside of a given text file or directory looking for lines of text that match the pattern you give it.  You can use shell meta-characters from above or literal text strings as the searching parameters.   There are even more advanced search patterns called *regular expression* which is almost a programming language in itself that allows for complex text queries.  We will not cover *regular expression* in depth in this book but talk about it as it relates to helping us complete our jobs.
 
-The grep command [^69] has many options to modify the returned output. Some of the more common ones are listed here [^70]:
+The grep command[^69] has many options to modify the returned output. Some of the more common ones are listed here[^70]:
 
 * The -i option causes a case-insensitive search.
 * The -w option matches only whole words.
@@ -628,33 +636,54 @@ d. who
 
 ### Podcast Questions
 
-Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
+Watch this video with Professor Brian Kernighan [History of grep](https://www.youtube.com/watch?v=NTfOnGZUZDk&t=1s) and answer the following questions.
 
-* Who is Tim O'Reilly? ~3:00-5:00
-* What is OSCON? ~6:45
-* Who coined the term Web 2.0? ~13:34
-* What did we learn from the IBM PC? ~18:30
-* What is Web 2.0? ~19:30
-* Open Source vs Open Data - what does Tim O'Reilly think is the ultimate destination for computing? ~23:00
-* Where is the money made in open source - software or data? ~ 34:00
-* What prediction did Tim O'Reilly make in this podcast (2009) that is now coming true? ~51:32
-* [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
+* ~0:11 What does the grep program do?
+* ~1:11 What was the first computer that Unix ran on?
+* ~1:40 Why did the original Unix software tend to be "simple and straight forward?"
+* ~2:01 What was the first Unix text editor called?
+* ~2:30 When designing text editors in the early 70's what didn't they have that we have now?
+* ~4:09 What does the "ed" command `1,$p` accomplish?
+* ~4:35 What is a Regular Expression?
+* ~5:26 What does a star or asterik (shift+8) mean in Shell meta-characters?
+* ~7:30 Who wrote the grep command and how long did it take?
+* ~7:42 What is the explantion of what the grep command does?
+* ~8:04 What does the character `g` mean in regular expressions?
+* ~8:33 Why is the program named `grep`?
+* ~9:00 Describe the assignment the Professor Kernighan gave to his students
 
 ### Lab
 
-The objectives of this lab will be to use the shell and understand meta-characters, pipes, search, and tools. The outcome will be that you will be able to successfully use meta-characters for file creation, location, modification, and manipulation.  You will successfully master the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser.  All actions will be done through the shell. You can use either an Ubuntu or a Fedora based OS.  **Deliverable:** Take a screenshot demonstrating the required output of each command.
+#### Lab Objectives
 
-1. Issue the command to clone a copy of the textbook code (if you have already done this in Lab 5 no need to repeat the step). Issue the command to `cd` into the `Linux-Text-Book-Part-I` directory. Type the command that will list every file in this directory that has any number of characters and a ```.sh``` two character file extension of any name
-1. Type the command inside the textbook directory will do a *long listing* of Chapters-02, 04, 06, and 08 only
+The objectives of this lab will be:
+
+* Implement shell meta-characters, pipes, search, and commandline tools 
+* Engage in file creation, traversal, modification, and manipuation
+* Deploy the concepts of Unix pipes in your shell scripts
+
+#### Lab Outcomes
+
+At the outcome of this lab will you will be able to successfully implement meta-characters for file creation, traversal, modification, and manipulation. You will successfully have deployed the concept of pipes and redirection as well.  Resist the temptation to use the GUI file manager and a web browser. 
+
+#### Lab Notes
+
+You can use either an Ubuntu or a Fedora based OS, all you need is a Linux Terminal and to clone the Textbook Github repo into your `Documents` folder.
+
+1. What is the command to clone a copy of the textbook code into your Documents folder (if you have already done this in Lab 5 no need to repeat this step, just answer the question). 
+1. Issue the command to `cd` into the `Linux-Text-Book-Part-I` directory. Type the command that will list every file in this directory that ends with `.sh`
+1. Type the command to do a *long listing* of Chapters-02, 04, 06, and 08 only
 1. Type the command that will copy the file `Chapter-02/chapter-02.md` into the your home directory, then list the content of your home directory. Use the meta-character needed to execute the proceeding commands only if the previous command is true and place all these commands into one single line
-1. In your home directory, using the meta-character, create these two series of files: ubuntu10.txt - ubuntu15.txt and redhat10.txt - redhat15.txt.  Create each series using a single command
+1. In your home directory, using the meta-character, create these two series of files: ubuntu10.txt - ubuntu15.txt and redhat10.txt - redhat15.txt. Create each series using a single command
 1. In your home directory, using the meta-character, issue a command to list only the ubuntu10.txt - ubuntu15.txt files
 1. In your home directory, using the meta-character, create the directories named: debian10, debian11, and debian12 with a single command
 1. In your home directory, using the meta-character, delete the directories named debian10, debian11, and debian12 with a single command
 1. In your home directory redirect the output of the `date` command into a file named: **today.txt**
 1. In your home directory append the output of the `date +%m%d%Y` command to the file **today.txt** and display the content - you should see two formatted date entries
 1. Create a shell variable named `UT`, assign the contents of the command ```uptime``` to `UT` and print a string to the screen with its value and with a string stating, "The system has been up for: " and then the value of UT.
-1. Using an Ubuntu Desktop system, execute the following commands: ```sudo apt-get -y update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` and ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err```. Issue the command to list the contents of the `/tmp` directory.
+1. Using an Ubuntu Desktop system, execute the following commands: ```sudo apt-get update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` and ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err```. Issue the command to list the contents of the `/tmp` directory.
+1. What would be the command to modify the previous questions code to redirect both standard out and standard error to a single file.
+1. Issue the command: `sudo apt install nginx123` redirecting the standard out and standard error to a single file, what is the output of standard error?
 1. Display the contents of the \*.out files using a meta-character in one command and pipe the output to the ```less``` command
 1. Display the contents of the \*.err files using a meta-character in one command and pipe its output to the ```less``` command.  
 1. Type the command ```ls -l /topsecret``` and redirect both standard out and standard error to a file named: `/tmp/out-and-error.txt`
@@ -664,8 +693,8 @@ The objectives of this lab will be to use the shell and understand meta-characte
 1. What command would let you search the file `error.log` for the lines that contain the term **robots.txt**?
 1. What command would let you count the number of lines that have the term "robots.txt" in the file error.log?
 1. Using the hosts.deny file, what command would you type to display the last 10 lines of the file, cut out the field with the IP address and sort them in ascending order?
-1. Use the `grep` tool to search the file error.log for the line "Invalid method in request" and print to the screen the lines found.
-1. Using tools discussed in this chapter and based on the contents of the file **error.log**, type the commands needed to find the following information:  How many unique IPs did the error messages come from?  
+1. Use the `grep` tool to search the file `error.log` for the line "Invalid method in request" and print to the screen the lines found.
+1. Using tools discussed in this chapter and based on the contents of the file **error.log**, type the commands needed to find the following information: How many unique IPs did the error messages come from?  
 1. Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
 1. Using the ```find``` command and starting from the \~ directory what would be the command to find all files with the name .md?
 1. Using the `find` command and starting from your home directory, what would be the command to find all the files that have been modified in the previous hour?

@@ -1,13 +1,31 @@
 # Podcast Questions - Chapter 06
 
-Listen to the FLOSS podcast number 73 with [Tim O'Reilly - http://twit.tv/floss/73](http://twit.tv/floss/73)
+Watch this video with Professor Brian Kernighan [History of grep](https://www.youtube.com/watch?v=NTfOnGZUZDk&t=1s) and answer the following questions.
 
-* Who is Tim O'Reilly? ~3:00-5:00
-* What is OSCON? ~6:45
-* Who coined the term Web 2.0? ~13:34
-* What did we learn from the IBM PC? ~18:30
-* What is Web 2.0? ~19:30
-* Open Source vs Open Data - what does Tim O'Reilly think is the ultimate destination for computing? ~23:00
-* Where is the money made in open source - software or data? ~ 34:00
-* What prediction did Tim O'Reilly make in this podcast (2009) that is now coming true? ~51:32
-* [radar.oreilly.com](http://radar.oreilly.com) What is the lag time from articles on this site to the main stream media? ~55:00
+* ~0:11 What does the grep program do?
+  * Your answer here
+* ~1:11 What was the first computer that Unix ran on?
+  * Your answer here
+* ~1:40 Why did the original Unix software tend to be "simple and straight forward?"
+  * Your answer here
+* ~2:01 What was the first Unix text editor called?
+  * Your answer here
+* ~2:30 When designing text editors in the early 70's what didn't they have that we have now?
+  * Your answer here
+* ~4:09 What does the "ed" command `1,$p` accomplish?
+  * Your answer here
+* ~4:35 What is a Regular Expression?
+  * Your answer here
+* ~5:26 What does a star or asterik (shift+8) mean in Shell meta-characters?
+  * Your answer here
+* ~7:30 Who wrote the grep command and how long did it take?
+  * Your answer here
+* ~7:42 What is the explantion of what the grep command does?
+  * Your answer here
+* ~8:04 What does the character `g` mean in regular expressions?
+  * Your answer here
+* ~8:33 Why is the program named `grep`?
+  * Your answer here
+* ~9:00 Describe the assignment the Professor Kernighan gave to his students
+  * Your answer here
+  
