@@ -318,7 +318,8 @@ cut
 : The ```cut``` command will allow you to *cut* up your output based on a delimiter: space, dash, comma, and so forth. The command will print selected parts of lines from a file to standard output[^68]. The -d option is the delimiter to *cut* on and the -f is the field or column number(s) to retrieve. __Usage example:__
 ```bash
 cut -d' ' -f1,2 ./sample-data/stations-fixed-width.txt
-
+```
+```bash
 uname -a | cut -d" " -f1,3,11,12
 ```
 
@@ -326,7 +327,8 @@ echo
 : This command is used for displaying a line of text.  By using the -e option you can enable escape sequences to be interpreted. The first example will print out a line of text. The second example uses a for loop to print out a single period and then sleep for 1 second. __Usage example:__
 ```bash
 echo "hello world!"
-
+```
+```bash
 for i in {0..10}; do echo -ne '.'; sleep 1; done
 ```
 
