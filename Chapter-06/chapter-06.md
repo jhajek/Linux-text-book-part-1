@@ -351,7 +351,8 @@ tail
 : Capitalizing on the *clever hack* mantra of Richard Stallman, the ```tail``` command produces the same output as the ```cat``` command yet does it so by showing the last line 10 lines (by default) of a file fist. Note the Unix humor as tail is the opposite of head.  Also a cat has a tail...  __Usage example:__
 ```bash
 tail hosts.deny
-
+```
+```bash
 tail -n 35 hosts.deny
 ```
 
@@ -360,7 +361,8 @@ head
 : The ```head``` command is used to show the first 10 lines (by default) of a command.  It is useful for getting a *peek* at what is in a file if you can remember without having to display the entire contents of a file. __Usage example:__
 ```bash
 head error.log
-
+```
+```bash
 head -n 25 error.log
 ```
 
@@ -369,7 +371,8 @@ tac
 : The ```tac``` command is another *clever hack* in that is does the exact same thing as the ```cat``` command except that it does it in reverse (cat backwards). __Usage example:__
 ```bash
 tac error.log
-
+```
+```bash
 tac error.log | less
 ```
 
