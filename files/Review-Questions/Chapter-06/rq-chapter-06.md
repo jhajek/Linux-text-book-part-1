@@ -32,7 +32,7 @@ b. ;
 c. \\+
 d. ||
 
-6. Which meta-character is the wildcard (0 or more matches.?
+6. Which meta-character is the wildcard  for 0 or more matches?
 a. ?
 b. \*\*
 c. &
@@ -50,14 +50,13 @@ b. letters
 c. characters
 d. ranges
 
-9. If you wanted to use brace expansion and create a series of nine files named: file1, file2, file3, etc etc all at once--what command would you use?  (type the full command using touch .
-a. touch file{1..9}
+9. If you wanted to use brace expansion and create a series of nine files named: file1, file2, file3, etc etc all at once--what command would you use?  Type the full command using touch .
 
-10. If you wanted to assign the value of /etc/alternatives/java to a shell variable named JAVA_HOME--what would be the proper syntax?
-a. JAVA_HOME = /etc/alternatives/java
-b. /etc/alternatives/java = JAVA_HOME
-c. JAVA_HOME=/etc/alternatives/java
-d. $JAVA_HOME=/etc/alternatives/java
+10. If you wanted to assign the value of `/etc/alternatives/java` to a shell variable named JAVA_HOME--what would be the proper syntax?
+a. `JAVA_HOME = /etc/alternatives/java`
+b. `/etc/alternatives/java = JAVA_HOME`
+c. `JAVA_HOME=/etc/alternatives/java`
+d. `$JAVA_HOME=/etc/alternatives/java`
 
 11. What would be the proper syntax to display the content of a variable named JAVA_HOME in the shell?
 a. echo JAVA_HOME
@@ -67,7 +66,7 @@ d. echo $JAVA_HOME
 
 12. There are 3 standard I/O devices in a Linux system, standard in, standard out, and ________
 a. standard air
-b. standard I/O
+b. standard io
 c. standard x
 d. standard error
 
@@ -75,7 +74,7 @@ d. standard error
 a. mouse
 b. screen
 c. tty
-d. keyboard
+d. mouse and keyboard
 
 14. Standard Out is what device by default?
 a.  mouse
@@ -83,7 +82,7 @@ b.  screen
 c.  X
 d.  keyboard
 
-15. What meta-character can you use to redirect standard out to a file? (Choose all that apply.
+15. What meta-character can you use to redirect standard out to a file? (Choose all that apply.)
 a. \>
 b. \>\>
 c. \<

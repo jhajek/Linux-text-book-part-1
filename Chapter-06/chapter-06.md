@@ -305,7 +305,7 @@ uniq error.log
 
 wc
 
-: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines,  words,  and  byte  count for a file or for standard in.  You can use ```wc``` as part of a filter to count only specific occurences of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH.  The banned IPs have been placed in the hosts.deny file for which the system will deny a TCP connection from any address listed in that file.  How many have been added?  You can count the lines, words, and bytes by executing the command below or just the number of lines by using the ```-l``` option. __Usage example:__
+: The ```wc``` command stands for and is sometimes pronounces *word count*. It is used for printing out the number of newlines, words, and  byte count for a file or for standard in. You can use ```wc``` as part of a filter to count only specific occurences of a word. The file hosts.deny is a file containing IP addresses of systems attempting to brute force hack a server via SSH. The banned IPs have been placed in the hosts.deny file for which the system will deny a TCP connection from any address listed in that file. How many have been added?  You can count the lines, words, and bytes by executing the command below or just the number of lines by using the ```-l``` option. __Usage example:__
 ```bash
 wc hosts.deny; tail hosts.deny | wc
 ```
@@ -317,7 +317,7 @@ cut
 
 : The ```cut``` command will allow you to *cut* up your output based on a delimiter: space, dash, comma, and so forth. The command will print selected parts of lines from a file to standard output[^68]. The -d option is the delimiter to *cut* on and the -f is the field or column number(s) to retrieve. __Usage example:__
 ```bash
-cut -d ' ' -f1,2 /etc/mtab
+cut -d' ' -f1,2 ./sample-data/stations-fixed-width.txt
 
 uname -a | cut -d" " -f1,3,11,12
 ```
@@ -334,7 +334,7 @@ tee
 
 : The ```tee``` command is used to read from standard input and write to standard output. The command below will sort the output of the hosts.deny file and well as save that sorted output to a file name ./sorted.txt. Then that output will be further passed to a ```wc``` command.  Think of the ```tee``` command as like a t-shaped pipe that lets water flow down as well as across. __Usage example:__
 ```bash
-cat hosts.deny | sort | tee ./sorted.txt | wc
+cut -d' ' -f2 ./hosts.deny | sort | tee ./sorted.txt | wc
 ```
 
 dmesg
@@ -349,20 +349,26 @@ tail
 : Capitalizing on the *clever hack* mantra of Richard Stallman, the ```tail``` command produces the same output as the ```cat``` command yet does it so by showing the last line 10 lines (by default) of a file fist. Note the Unix humor as tail is the opposite of head.  Also a cat has a tail...  __Usage example:__
 ```bash
 tail hosts.deny
+
+tail -n 35 hosts.deny
 ```
 
 head
 
 : The ```head``` command is used to show the first 10 lines (by default) of a command.  It is useful for getting a *peek* at what is in a file if you can remember without having to display the entire contents of a file. __Usage example:__
 ```bash
-head hosts.deny
+head error.log
+
+head -n 25 error.log
 ```
 
 tac
 
 : The ```tac``` command is another *clever hack* in that is does the exact same thing as the ```cat``` command except that it does it in reverse (cat backwards). __Usage example:__
 ```bash
-tac hosts.deny
+tac error.log
+
+tac error.log | less
 ```
 
 jq
@@ -370,27 +376,27 @@ jq
 : The `jq` command isn't part of the default GNU tools, and needs to be installed via a package manager. It is specfically and only geared to work with [JSON](https://www.json.org/json-en.html "webpage for JSON org"). It is a text-based way to transport and parse object and attribute related data. __Usage example:__
 ```bash
 sudo apt install jq
-jq -r .'Reservations[].Instances[].InstanceIds' aws-launch-results.json
+jq -r .'Reservations[].Instances[].InstanceIds' ./aws-launch-results.json
 ```
 
 ### Pipe Usage
 
 Pipes can be used to chain as many commands together as necessary. This is one of the three main design principles of Unix.
 
-> __Exercise:__  In the previous ```cut``` example we see the ```uname``` command which is used to print system information to standard out being piped to the cut command and only certain fields of the information being displayed. Try it.  Type ```uname -a``` and then ```uname -a | cut -d" " -f1,3,11,12```. What is different about the output?
+> __Exercise:__  In the previous ```cut``` example we see the ```uname``` command which is used to print system information to standard out being piped to the cut command and only certain fields of the information being displayed. Lets try it. Type ```uname -a``` and then ```uname -a | cut -d" " -f1,3,11,12```. What is different in the output?
 
-> __Exercise:__ You can also add input redirection to a pipe.  ```dmesg | tail > system-output.txt```  This command will take the tail (or last 10 lines) of the dmesg kernel output buffer and redirect them to a text file for later analysis.  We can also pipe data and redirect as well.  ```cat deny.hosts | uniq -c > deny-results.txt```  Multiple commands can be chained together.  Try this command, ```cat deny.hosts | uniq -c | sort -nr``` and then try it again omitting the ```| sort -nr``` what is the difference?
+> __Exercise:__ You can also add input redirection to a pipe: ```dmesg | tail > current-log.txt```. This command will take the tail (or last 10 lines) of the dmesg kernel output buffer and redirect them to a text file for later analysis. We can also pipe data and redirect as well.  ```cat deny.hosts | uniq -c > deny-results.txt```  Multiple commands can be chained together. Try this command, ```cat deny.hosts | uniq -c | sort -nr``` and then try it again omitting the ```| sort -nr``` what is the difference?
 
-> __Exercise:__ The chaining process can grow pretty extensive.  The ```ps``` command is used to list system processes that are running and will be covered in detail in a later chapter.  This command will look for every running process that has the system+wildcard name in it, sort it, pipe that output to a tee--which saves that formatted output to a file.  Then that sorted text will be passed on as standard in for a cut command to filter out columns via spaces and cut the first column and display this text to standard out.
-```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1```
+> __Exercise:__ The chaining process can grow pretty extensive. The ```ps``` command is used to list system processes that are running and will be covered in detail in a later chapter. This command will look for every running process that has the system+wildcard name in it, sort it, pipe that output to a tee--which saves that formatted output to a file.  Then that sorted text will be passed on as standard in for a cut command to filter out columns via spaces and cut the first column and display this text to standard out.
+```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d' ' -f1```
 
-> __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurrences of the ```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d ' ' -f1  | tee ~/columns.txt | wc```
+> __Exercise:__ A variation on the command above but here there is a second tee command and a final passing to a ```wc``` command that will count the occurrences of the ```system*``` value. ```ps -ef | grep system* | sort | tee ~/processes.txt | cut -d' ' -f1  | tee ~/columns.txt | wc```
 
 ## Commands for Finding, Locating, and Pattern Matching
 
 ### grep
 
-The ```grep``` command is a powerful pattern matching and searching tool for the shell.  Originally a feature of the ``ed`` line editor program - it stood for g/re/p--global regular expression print.  A grep command will search inside of a given text file or directory looking for lines of text that match the pattern you give it.  You can use shell meta-characters from above or literal text strings as the searching parameters.   There are even more advanced search patterns called *regular expression* which is almost a programming language in itself that allows for complex text queries.  We will not cover *regular expression* in depth in this book but talk about it as it relates to helping us complete our jobs.
+The ```grep``` command is a powerful pattern matching and searching tool for the shell. Originally a feature of the ``ed`` line editor program - it stood for g/re/p--global regular expression print. A grep command will search inside of a given text file or directory looking for lines of text that match the pattern you give it.  You can use shell meta-characters from above or literal text strings as the searching parameters. There are even more advanced search patterns called *regular expression* which is almost a programming language in itself that allows for complex text queries.
 
 The grep command[^69] has many options to modify the returned output. Some of the more common ones are listed here[^70]:
 
@@ -408,7 +414,25 @@ The grep command[^69] has many options to modify the returned output. Some of th
 
 > What would happen if you added a ```| less``` command to the end like this?  ```cat hosts.deny | grep "sshd: 210" | less``` ?
 
-> Can we rewrite the above command to be more efficient?  What if we use the ```cut``` command?  ```cat hosts.deny | cut -d ' ' -f2 | grep ^210 | less```  This will cut out the first column, search for all lines starting with 210 (the ^  in this expression tells grep to look only at the beginning of the line), and then pass the results to the ```less``` command.  
+> Can we rewrite the above command to be more efficient?  What if we use the ```cut``` command?  `cat hosts.deny | cut -d' ' -f2 | grep ^210 | less`  This will cut out the first column, search for all lines starting with 210. The `^` in this expression tells `grep` to look only at the beginning of the line and then pass the results to the `less` command.
+
+> Using `grep` can you display all the lines that contain *InstanceId* in the file `aws-launch-results.json`?
+
+> Using `grep` can you display all the lines that contain *1949* in the file `records.txt`
+
+Grep can also be used as an initial command -- saving the trouble of calling a `cat` command. Both of these commands are valid, the second one is preferred.
+
+```bash
+# This will display the full file content to the screen -- adding some overhead
+# in memory requirements to print all the data out then grep it
+cat stations-fixed-width.txt | grep TROMSO
+# This will skip the printing step and commence with the searching and printing
+# of all the weather stations that have TROMSO in the name
+grep "TROMSO" stations-fixed-width.txt
+```
+
+This is just the beginning of `grep` as we will expand upon its powerful usage along with shell meta-characters and text editors in the next chapters.
+
 
 ### find and locate commands
 
@@ -486,13 +510,13 @@ Some of the common categories you can use for find are: file time parameters, fi
 
 #### Locate
 
-An alternative to using ```find``` is the ```locate``` command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your Linux distro by default.  You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```.  The ```locate``` command reads one or more databases prepared by ```updatedb``` and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
+An alternative to using ```find``` is the ```locate``` command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your Linux distro by default. You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```. The ```locate``` command reads one or more databases prepared by ```updatedb``` and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
 
-There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system, thereby making lookups faster.  You simply run the sudo updatedb command to update the index (done every time on reboot).  
+There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system, thereby making lookups faster.  You run the sudo `updatedb` command to update the index (done every time on reboot).  
 
 > __Example usage:__ ```sudo updatedb; locate *.png; locate chapter-05.md```
 
-> __Example usage:__ Compare the output and amount of time this command takes: ```sudo find / -name chapter-05.md``` and ```locate chapter-05.md```--locate is clearly faster because databases are good at looking these kind of things up quickly.  
+> __Example usage:__ Compare the output and amount of time this command takes: ```sudo find / -name chapter-05.md``` and ```locate chapter-05.md```. The `locate` command is quicker to the answer because databases are good at looking things up.  
 
 ## Hidden files and single dot operator
 
@@ -542,7 +566,7 @@ b. ;
 c. \\+
 d. ||
 
-6. Which meta-character is the wildcard (0 or more matches.?
+6. Which meta-character is the wildcard  for 0 or more matches?
 a. ?
 b. \*\*
 c. &
@@ -560,17 +584,13 @@ b. letters
 c. characters
 d. ranges
 
-9. If you wanted to use brace expansion and create a series of nine files named: team1, team2, team3, etc etc all at once--what command would you use?
-a. create file{1..9}
-b. file{1..9}
-c. touch file[1..9]
-d. touch file{1..9}
+9. If you wanted to use brace expansion and create a series of nine files named: file1, file2, file3, etc etc all at once--what command would you use?  Type the full command using touch .
 
-10. If you wanted to assign the value of /etc/alternatives/java to a shell variable named JAVA_HOME--what would be the proper syntax?
-a. JAVA_HOME = /etc/alternatives/java
-b. /etc/alternatives/java = JAVA_HOME
-c. JAVA_HOME=/etc/alternatives/java
-d. $JAVA_HOME=/etc/alternatives/java
+10. If you wanted to assign the value of `/etc/alternatives/java` to a shell variable named JAVA_HOME--what would be the proper syntax?
+a. `JAVA_HOME = /etc/alternatives/java`
+b. `/etc/alternatives/java = JAVA_HOME`
+c. `JAVA_HOME=/etc/alternatives/java`
+d. `$JAVA_HOME=/etc/alternatives/java`
 
 11. What would be the proper syntax to display the content of a variable named JAVA_HOME in the shell?
 a. echo JAVA_HOME
@@ -580,7 +600,7 @@ d. echo $JAVA_HOME
 
 12. There are 3 standard I/O devices in a Linux system, standard in, standard out, and ________
 a. standard air
-b. standard I/O
+b. standard io
 c. standard x
 d. standard error
 
@@ -588,7 +608,7 @@ d. standard error
 a. mouse
 b. screen
 c. tty
-d. keyboard
+d. mouse and keyboard
 
 14. Standard Out is what device by default?
 a.  mouse
@@ -596,7 +616,7 @@ b.  screen
 c.  X
 d.  keyboard
 
-15. What meta-character can you use to redirect standard out to a file? (Choose all that apply.
+15. What meta-character can you use to redirect standard out to a file? (Choose all that apply.)
 a. \>
 b. \>\>
 c. \<
@@ -671,19 +691,18 @@ You can use either an Ubuntu or a Fedora based OS, all you need is a Linux Termi
 1. What is the command to clone a copy of the textbook code into your Documents folder (if you have already done this in Lab 5 no need to repeat this step, just answer the question). 
 1. Issue the command to `cd` into the `Linux-Text-Book-Part-I` directory. Type the command that will list every file in this directory that ends with `.sh`
 1. Type the command to do a *long listing* of Chapters-02, 04, 06, and 08 only
-1. Type the command that will copy the file `Chapter-02/chapter-02.md` into the your home directory, then list the content of your home directory. Use the meta-character needed to execute the proceeding commands only if the previous command is true and place all these commands into one single line
-1. In your home directory, using the meta-character, create these two series of files: ubuntu10.txt - ubuntu15.txt and redhat10.txt - redhat15.txt. Create each series using a single command
-1. In your home directory, using the meta-character, issue a command to list only the ubuntu10.txt - ubuntu15.txt files
+1. Type the command that will copy the file `Chapter-02/chapter-02.md` into the your home directory, then list the content of your home directory. Use the meta-characters needed to execute the proceeding commands only if the previous command is true and place all these commands into one single line
+1. In your home directory, using the meta-character, create these two series of files: homework10.txt - homework15.txt and account10.txt - account15.txt. Create each series using a single command
+1. In your home directory, using the meta-character, issue a command to list only the homework10.txt - homework15.txt files
 1. In your home directory, using the meta-character, create the directories named: debian10, debian11, and debian12 with a single command
 1. In your home directory, using the meta-character, delete the directories named debian10, debian11, and debian12 with a single command
 1. In your home directory redirect the output of the `date` command into a file named: **today.txt**
 1. In your home directory append the output of the `date +%m%d%Y` command to the file **today.txt** and display the content - you should see two formatted date entries
-1. Create a shell variable named `UT`, assign the contents of the command ```uptime``` to `UT` and print a string to the screen with its value and with a string stating, "The system has been up for: " and then the value of UT.
+1. In your home directory, in a single command using **pipes** append the `date +%m%d%Y` and the last ten lines of the error log to the file today.txt
+1. Create a shell variable named `UT`, assign the contents of the command `uptime` to `UT` and print a string to the screen with its value and with a string stating, "The system has been up for: " and then the value of UT.
 1. Using an Ubuntu Desktop system, execute the following commands: ```sudo apt-get update 1>/tmp/01.out 2>/tmp/01.err``` ```sudo apt-get -y install nginx 1>/tmp/02.out 2>/tmp/02.err``` and ```sudo systemctl start nginx 1>/tmp/03.out 2>/tmp/03.err```. Issue the command to list the contents of the `/tmp` directory.
 1. What would be the command to modify the previous questions code to redirect both standard out and standard error to a single file.
 1. Issue the command: `sudo apt install nginx123` redirecting the standard out and standard error to a single file, what is the output of standard error?
-1. Display the contents of the \*.out files using a meta-character in one command and pipe the output to the ```less``` command
-1. Display the contents of the \*.err files using a meta-character in one command and pipe its output to the ```less``` command.  
 1. Type the command ```ls -l /topsecret``` and redirect both standard out and standard error to a file named: `/tmp/out-and-error.txt`
 1. You will find a file named `hosts.deny` located in the directory `files` > `Chapter-06` of the download of the textbook. It contains a list of IP addresses - what command would you use to count ONLY the number of lines in the file?
 1. Using the `error.log` file located in the directory `files` > `Chapter-06` - what command would you use to count only unique lines and to display their count and only if there is more than 1 occurrence?
@@ -696,6 +715,10 @@ You can use either an Ubuntu or a Fedora based OS, all you need is a Linux Termi
 1. Home many unique URLs based errors (last column), and list all of the unique type of errors (second to last column).
 1. Using the ```find``` command and starting from the \~ directory what would be the command to find all files with the name .md?
 1. Using the `find` command and starting from your home directory, what would be the command to find all the files that have been modified in the previous hour?
+
+#### Deliverable
+
+Create a directory named: week-06 in the private repo you were assigned under the itmo-556 folder. Push all you lab, podcast and review questions and submit the URL to the week-06 directory to Blackboard.
 
 #### Footnotes
 
