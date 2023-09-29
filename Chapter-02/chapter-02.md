@@ -177,7 +177,7 @@ Thompson didn't have a name for his project initially, another related figure, B
 
 ![*K&R C*](images/Chapter-02/People/Brian-Kernighan/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
 
-## First Phase of Unix Maturity -- OS Implementation
+## First Phase of Unix Maturity -- Implementating the Unix Operating System
 
 By 1974/75 internal use of Unix at Bell Labs was high amongst engineers.  Word was starting to spread about it as Bell Labs engineers moved on and into academia. Other Bell Labs divisions and universities got wind of this and began to request Unix install *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code.  By law AT&T was prohibited from getting into the computer business so they took a hands-off approach to Unix at the time.  AT&T left it curiously as Thompson and Ritchie's pet project.  Many universities at this time, wanting to teach computing and operating systems, began to request copies of Unix to teach in their Operating Systems classes.  This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a magnetic tape reel within a week or so.  Thompson had no concept of "ownership" and freely shared his project with anyone who was interested.  One could say this was Free Software a decade before the term was coined.
 
