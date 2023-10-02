@@ -809,7 +809,7 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 * Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movie's making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
 * When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint? Why or why not?
-* According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
+* According to Eric Raymond, the adoption curve of Linux and the adoption curve the internet do what [~32:20-32:40](https://youtu.be/jw8K460vx1c?t=1941 "youtube video timestamp Internet Linux tracking")?
 * Why did Bruce Perens help write the Opensource Definition / Debian Social Contract Standard? [~50:00 - 53:00](https://youtu.be/jw8K460vx1c?t=3010 "Youtube video timestamp to Opensource Definition")
 * What were the two commercial Linux companies featured in the movie (Note-one does not exist any longer)?
 * What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that company's stock price.)

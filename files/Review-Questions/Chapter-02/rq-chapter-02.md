@@ -6,7 +6,7 @@ You will need to watch the documentary movie [Revolution OS - https://www.youtub
   * Your Answer Here
 * When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint? Why or why not?
   * Your Answer Here
-* According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
+* According to Eric Raymond, the adoption curve of Linux and the adoption curve the internet do what [~32:20-32:40](https://youtu.be/jw8K460vx1c?t=1941 "youtube video timestamp Internet Linux tracking")?
   * Your Answer Here
 * Why did Bruce Perens help write the Opensource Definition / Debian Social Contract Standard? ~[50:00 - 53:00](https://youtu.be/jw8K460vx1c?t=3010 "Youtube video timestamp to Opensource Definition")
   * Your Answer Here
