@@ -4,12 +4,12 @@
 
 ## Objectives
 
-In this chapter we will be continuing our exploration of the Linux Shell.  We will be introducing editors and examining their use in managing our Linux system.  We will also look at understanding user environments and write our initial shell scripts.
+In this chapter we will be continuing our exploration of the Linux Shell. We will be introducing editors and examining their use in managing our Linux system. We will also look at understanding user environments and write our initial shell scripts.
 
 * Identify the difference between stream editors and text editors
 * Identify the uses of the vi(m) editor
 * Explain how to use shell scripts to automate tasks
-* Explain how to use the system PATH and modify user profile's
+* Explain how to use the system PATH and modify user's profile
 
 ## Outcomes
 
@@ -17,7 +17,7 @@ At the outcome of this chapter a user will be able to use the vi editor for crea
 
 ## History of Unix/Linux Editors
 
-In the previous chapter we continued learning about essential and additional command binaries that can be executed in the shell.  We learned about meta-characters which help expand our abilities to execute repetitive tasks and to simplify searching and file creation.  The next concept to introduce is __shell scripts__.  Shell scripts are a combination of all of the above features that can be placed into a single text file and run on demand or as a scheduled task.  This allows you to have prepared __shell scripts__ that can be copied from system to system allowing administrators to build up a *tool belt* of scripts that help them get common tasks done.  With that in mind, we come to the concept of the __editor__. In Unix/Linux due to the history and different types of standard in and standard out, there are also different types of editors.  The two categories are __stream editors__ and __screen editors__.  Overtime the distinction has blurred but it is safe to think in these two different categories mostly because each group retains artifacts from its development history.
+In the previous chapter we continued learning about essential and additional command binaries that can be executed in the shell.  We learned about meta-characters which help expand our abilities to execute repetitive tasks and to simplify searching and file creation.  The next concept to introduce is __shell scripts__. Shell scripts are a combination of all of the above features that can be placed into a single text file and run on demand or as a scheduled task.  This allows you to have prepared __shell scripts__ that can be copied from system to system allowing administrators to build up a *tool belt* of scripts that help them get common tasks done. With that in mind, we come to the concept of the __editor__. In Unix/Linux due to the history and different types of standard in and standard out, there are also different types of editors.  The two categories are __stream editors__ and __screen editors__. Overtime the distinction has blurred but it is safe to think in these two different categories mostly because each group retains artifacts from its development history.
 
 ### Stream Editors
 
@@ -42,9 +42,9 @@ The other stream editor is the __vi editor__ or just __vi__ (pronounced *vee-eye
    vi                  1979                   Bill Joy
    vim                 1991                   [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar "Vim")
 
-Initially Ken Thompson's editor worked well for what he needed.  But the commands were very cryptic and made using the Thompson editor very difficult.  Ken Thompson's original shell *ed* is still available for [download on Ubuntu and Fedora](http://linuxclues.blogspot.com/2012/09/ed-tutorial-line-editor-unix.html "ed") if you are interested to see what it was like to use Unix back in the early 70's
+Initially Ken Thompson's editor worked well for what he needed. But the commands were very cryptic and made using the Thompson editor very difficult.  Ken Thompson's original shell *ed* is still available for [download on Ubuntu and Fedora](http://linuxclues.blogspot.com/2012/09/ed-tutorial-line-editor-unix.html "ed") if you are interested to see what it was like to use Unix back in the early 70's.
 
-Sometime in 1976 an AT&T co-worker, George Coulouris, while working on sabbatical at Queen Mary's College London, extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have dedicated ram (expensive at the time).  The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor").  Because of slow screens and the high price of memory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
+Sometime in 1976 an AT&T co-worker, George Coulouris, while working on sabbatical at Queen Mary's College London, extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have dedicated ram (expensive at the time). The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor"). Because of slow screens and the high price of memory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
 
 In 1978/89, out at Berkeley, Bill Joy came into the picture.  He helped design an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not really the evolution of ex, vi is ex [^82].
 
@@ -283,7 +283,7 @@ Not all systems store the bash binary in ```/bin/bash```.  You will need to chec
 
 ![*which bash on Fedora*](images/Chapter-07/editors/bash/which-fedora.png "which Fedora")  
 
-Remember the command to insert a new line?  That would be ```ESC shift + o```.  The rest of creating a shell script is the same as you have been doing on the command line.  The shell script will execute lines in sequential order allowing you to chain commands together.  Let's type some commands to display the last 10 lines of the hosts.deny file provided from chapter 6 and add in a message to the user.
+Remember the command to insert a new line?  That would be ```ESC shift + o```.  The rest of creating a shell script is the same as you have been doing on the command line.  The shell script will execute lines in sequential order allowing you to chain commands together.  Let's type some commands to display the last 10 lines of the `hosts.deny` file provided from chapter 7 and add in a message to the user.
 
 ```bash
 #!/usr/bin/bash
@@ -308,7 +308,7 @@ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 ```
 
-There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary. Note the absolute paths are chained together with colons `:`. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it?   Remember the single-dot operator `./` --that tells the operating system to look here--overriding the system path. Try and type `./list-ip.sh` what happens now?
+There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary. Note the absolute paths are chained together with colons `:`. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it?   Remember the single-dot operator `./`? That tells the operating system to look here--overriding the system path. Try and type `./list-ip.sh` what happens now?
 
 ```bash
 # Executing the command ls /root on the commandline
@@ -486,7 +486,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Prerequisites
 
-* You will need an additional virtual machine with Ubuntu Server 20.04 installed for this entire lab
+* You will need an additional virtual machine with Ubuntu Server 22.04 installed for this entire lab
 * You will need to make sure the `vim` program is installed
 * You will need to make sure the the `nano` program is installed
 * You will need to clone the Textbook source code to the Ubuntu Server virtual machine in the home directory
