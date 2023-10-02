@@ -807,7 +807,7 @@ In this chapter you were introduced to many names in relation to the history of 
 
 Either individually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
-* Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movies making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
+* Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movie's making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
 * When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint? Why or why not?
 * According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
 * Why did Bruce Perens help write the Opensource Definition / Debian Social Contract Standard? [~50:00 - 53:00](https://youtu.be/jw8K460vx1c?t=3010 "Youtube video timestamp to Opensource Definition")
