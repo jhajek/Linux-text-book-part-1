@@ -10,7 +10,7 @@ Answer these questions (not all of the Answers are in each case study and might 
 
 * What market does that company serve? (What do they do?) And have they always served that market?
   * Your answer here
-* What Operating System(s) are used?
+* What Operating System(s) are used by this product to run their services?
   * Your answer here
 * What programming languages/frameworks are used?
   * Your answer here

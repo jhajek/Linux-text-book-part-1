@@ -8,13 +8,13 @@ You will need to watch the documentary movie [Revolution OS - https://www.youtub
   * Your Answer Here
 * According to Eric Raymond in the move, the adoption curve of Linux and the adoption curve the internet do what ~32:20?
   * Your Answer Here
-* Why did Bruce Perens help write the Open Source Definition / Debian Social Contract Standard?
+* Why did Bruce Perens help write the Opensource Definition / Debian Social Contract Standard? ~[50:00 - 53:00](https://youtu.be/jw8K460vx1c?t=3010 "Youtube video timestamp to Opensource Definition")
   * Your Answer Here
 * What were the two commercial Linux companies featured in the movie (Note-one does not exist any longer)?
   * Your Answer Here
 * What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that company's stock price.)
   * Your Answer Here
-* According to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution?
+* According to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution? ~[53:10 - 54:15](https://youtu.be/jw8K460vx1c?t=3191 "youtube video timestamp Eric Raymond Database Vendors")
   * Your Answer Here
 * What was the first major commercial company to opensource a key product?  What did that product eventually become?
   * Your Answer Here
