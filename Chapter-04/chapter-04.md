@@ -139,7 +139,6 @@ Tiling Window Managers place window next to each other like tiles on the floor a
 
 There is a sub-category of Tiling Window Managers called [Dynamic Window Managers](https://en.wikipedia.org/wiki/Dynamic_window_manager "webpage for Dynamic Window Managers"), which can combine some of the stacking features with tiling features. But according to an [article by Jerome Belleman](http://jeromebelleman.gitlab.io/posts/productivity/tiling/ "webpage explaining dynamic windows managers are part of tiling") that dynamic is really a part of tiling and not its own category--*However, reading the Dynamic window manager article reveals a Wikipedia definition which describes dynamic as specifically being a tiling window manager paradigm after all – nothing to do with stacking – and which relies on layouts rather than the user's freedom.*
 
-
 ## Desktop Environments
 
 About the time that the OSI movement was launching in late 1990s, there was a growing need for more than just window managers too.  x86 Intel and AMD CPUs at that time were gaining in processing power and processor based multimedia extensions began to appear by 1997, [collectively called MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and a window manager? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop environment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM.  On top of that all the elements of the desktop have a changeable but consistent usage pattern and look-and-feel.  Let us look first at the development history of the two main desktop environments followed by a few other desktop environments.
@@ -214,7 +213,7 @@ This project started in 1997 and intended to be a virtual desktop window manager
 
 ### Android
 
-Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.  [It has a custom rendering layer](https://source.android.com/devices/graphics/ "Image of Android custom rendering layer") that does not use X or Wayland.
+Android can't be installed on a Linux distro, but is a custom desktop created by The Android Project.  Android is considered a Linux distro with a [custom rendering layer](https://source.android.com/devices/graphics/ "Image of Android custom rendering layer") that does not use X or Wayland.
 
 ### Who Uses What
 
