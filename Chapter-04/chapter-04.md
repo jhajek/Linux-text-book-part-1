@@ -121,19 +121,25 @@ These allow for overlapping windows, like Windows or MacOS. The LXQT desktop env
 * [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop
 * [IceWM](https://ice-wm.org/ "ICEWM") - Win95-OS/2-Motif-like window manager
 * [Openbox](http://openbox.org/wiki/Main_Page "Openbox") - Standards compliant, fast, light-weight, extensible window manager
+  * The LXQT Desktop Environment uses Openbox as its default window manager.
 
 ### Tiling
 
-Tiling Window Managers place window next to each other like tiles on the floor and are non-overlapping.  This style is popular with many coders and developers who want to see many windows open at once.
+Tiling Window Managers place window next to each other like tiles on the floor and are non-overlapping. This lets you optimize your work-flow, maximize screen usage and ditch the use of the mouse (saving your wrists!). This style is popular with many coders and developers who want to see many windows open at once.
 
 * [dwm](http://dwm.suckless.org/ "dwm") - Dynamic window manager
   * [dwm tutorial](https://dwm.suckless.org/tutorial/ "Tutorial for dwm")
 * [i3](http://i3wm.org/ "i3") - Good documentation, reasonable defaults, and good multi-monitor support
   * [i3 keyboard command reference](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")
+  * X11 based
 * [Sway](https://github.com/swaywm/sway "Sway tiling window manager")
   * Update for i3 focused on using Wayland
 * [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
   * [Xmonad User Guide](https://xmonad.org/tour.html "Xmonad User Guide")
+* [Qtile](https://qtile.org/ "webpage of qtile")
+
+There is a sub-category of Tiling Window Managers called [Dynamic Window Managers](https://en.wikipedia.org/wiki/Dynamic_window_manager "webpage for Dynamic Window Managers"), which can combine some of the stacking features with tiling features. But according to an [article by Jerome Belleman](http://jeromebelleman.gitlab.io/posts/productivity/tiling/ "webpage explaining dynamic windows managers are part of tiling") that dynamic is really a part of tiling and not its own category--*However, reading the Dynamic window manager article reveals a Wikipedia definition which describes dynamic as specifically being a tiling window manager paradigm after all – nothing to do with stacking – and which relies on layouts rather than the user's freedom.*
+
 
 ## Desktop Environments
 
@@ -159,7 +165,7 @@ Shortly after the initial release of KDE and its licensing confusion, an enterpr
 
 ![*Miguel de Icaza*](images/Chapter-04/People/351px-Miguel_de_Icaza.jpg "Miguel de Icaza")
 
-GNOME initially stood for GNU Network Object Model Environment but the acronym is no longer used[^28].  GNOME was a GNU project directly created under the GPL. The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Tool Kit*, actually stands for the GIMP Tool Kit. [GIMP](https://en.wikipedia.org/wiki/GIMP "GIMP") is the GNU Image Manipulation Program similar to Photoshop or Paint.Net in feature set. GTK or now known as GTK+ is a library useful for creating standalone applications with multiple development language bindings as well.
+GNOME initially stood for GNU Network Object Model Environment but the acronym is no longer used[^28].  GNOME was a GNU project directly created under the GPL. The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Tool Kit*, used to stand for the GIMP Tool Kit. The toolkit is once again known as **GTK**. GTK is a library useful for creating standalone applications with multiple development language bindings as well.
 
 In an interesting development Miguel ended up forming the company that became Xamarin, a cross development mobile platform using C# to develop for Android and iOS--shortly after Microsoft began opensourcing the C# language. Recently Xamarin was purchased by Microsoft and Miguel is now a Microsoft VP. Miguel has always been a software pragmatist - always chasing the best technology and open sourcing it.  He took much criticism because he started the Mono project in bringing Microsoft's C# and .NET platform to Linux, because he saw C# as the best language to develop in cross platform. This brought about the condemnation of Richard Stallman, calling Miguel, "*A traitor to free software.*" [^30]  Miguel's response to Stallman was a beautiful example of how to diffuse an inflammatory situation:
 
@@ -189,11 +195,15 @@ GNOME is considered the Linux default desktop due to its tight integration with 
 
 ### Xfce
 
-Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environments as the resources required were growing.  So a movement to create a lightweight desktop environment sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999.  At one point Debian was considering it as an alternative to GNOME, but dropped it because of adopting systemd--forcing Debian to take GNOME 3 as their default desktop.  Xubuntu is a common derivative distro made up of Ubuntu using Xfce instead of GNOME.  Xfce until recently was using the GTK2 toolkit but is in the process of being rewritten in GTK3 conversion started with version 4.12 in 2015.  As of 2018, most of the major components have been re-written in GTK3.  When version 4.14 is released all major components will be converted to GTK3.
+Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environments as the resources required were growing.  So a movement to create a lightweight desktop environment sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. 
+
+Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999.  At one point Debian was considering it as an alternative to GNOME, but dropped it because of adopting systemd--forcing Debian to take GNOME 3 as their default desktop.  Xubuntu is a common derivative distro made up of Ubuntu using Xfce instead of GNOME.  Xfce until recently was using the GTK2 toolkit but is in the process of being rewritten in GTK3 conversion started with version 4.12 in 2015.  As of 2020, most of the major components have been re-written in GTK3. 
+
+One of the biggest draw backs of Xfce is that it only runs on X11 and not on Wayland compositors.
 
 ### LXQT
 
-The LXQT project was started as the LXDE project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce but is one step above a window manager. LXDE's focus is on making pretty much any laptop or PC made in the last decade still usable for modern Linux. Recently the lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and has made a parallel design port called LXQT. LXQT involved LXDE porting their desktop applications to Qt and merging with a defunct project called Razor-Qt to produce LXQT.
+The LXQT project was started as the LXDE project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merger with another desktop enviroment, razor-qt. This produced a new desktop environemnt called LXQT. The LUbunut distribution uses LQXT as its default desktop environement on top of modern Ubuntu.
 
 ### Budgie
 
@@ -211,7 +221,7 @@ Android runs on the Linux Kernel and is in a sense a custom Linux Distro itself.
 
 ----------------------------------------------------- ------------------------ -------------------------------
 [KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
-[GNOME 40](https://www.GNome.org/ "GNOME")            GTK+ 4                   https://GNome.org/
+[GNOME 40+](https://www.GNome.org/ "GNOME")           GTK+ 4                   https://GNome.org/
 [Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3                   https://www.xfce.org/
 [LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     https://lxqt.org/about/
 [MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   https://mate-desktop.org/
@@ -320,10 +330,10 @@ VT-220 terminals they used prior.
 10) What are the 3 types of Linux window managers?
 
 11) There are 4 major Linux desktop environments in use today: which grouping is correct?
-  a. KDE, GNOME, CDE, LXDE
+  a. KDE, GNOME, CDE, LXQT
   b. KDE, GNOME, E17, GNUSTEP
-  c. KDE, GNOME, X, LXDE
-  d. KDE, GNOME, Xfce, LXDE
+  c. KDE, GNOME, X, LXQT
+  d. KDE, GNOME, Xfce, LXQT
 12) What is the name of the windowing toolkit that KDE uses?
 
 13) What is the name of the windowing toolkit that GNOME uses?
@@ -333,7 +343,7 @@ VT-220 terminals they used prior.
 15) When the GNOME 3 desktop environment was released in early 2012, many people were
 unhappy that many changes were made.  There were 3 major projects started to either preserve
 GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
-  a. Enlightenment, LXDE, Xfce
+  a. Enlightenment, LXQT, Xfce
   b. Mint, Unity, Mate
   c. Unity, Mate, Cinnamon
   d. Cinnamon, Mint, Mate

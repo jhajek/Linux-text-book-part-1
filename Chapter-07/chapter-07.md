@@ -553,7 +553,9 @@ if [ -e ./pandoc-3.1.3-1-amd64.deb ]
     rm ./pandoc-3.1.3-1-amd64.deb
 fi
 
-sudo apt-get install -y texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin texlive-science-doc texlive-science
+sudo apt-get install -y texlive texlive-latex-recommended texlive-latex-extra \
+texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils \
+librsvg2-bin  texlive-science-doc texlive-science
 
 wget http://packages.sil.org/sil.gpg
 sudo apt-key add sil.gpg

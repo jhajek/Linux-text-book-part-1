@@ -44,10 +44,10 @@ VT-220 terminals they used prior.
 10) What are the 3 types of Linux window managers?
 
 11) There are 4 major Linux desktop environments in use today: which grouping is correct?
-  a. KDE, GNOME, CDE, LXDE
+  a. KDE, GNOME, CDE, LXQT
   b. KDE, GNOME, E17, GNUSTEP
-  c. KDE, GNOME, X, LXDE
-  d. KDE, GNOME, Xfce, LXDE
+  c. KDE, GNOME, X, LXQT
+  d. KDE, GNOME, Xfce, LXQT
 12) What is the name of the windowing toolkit that KDE uses?
 
 13) What is the name of the windowing toolkit that GNOME uses?
@@ -57,7 +57,7 @@ VT-220 terminals they used prior.
 15) When the GNOME 3 desktop environment was released in early 2012, many people were
 unhappy that many changes were made.  There were 3 major projects started to either preserve
 GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
-  a. Enlightenment, LXDE, Xfce
+  a. Enlightenment, LXQT, Xfce
   b. Mint, Unity, Mate
   c. Unity, Mate, Cinnamon
   d. Cinnamon, Mint, Mate
