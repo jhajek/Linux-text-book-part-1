@@ -211,10 +211,6 @@ A MacOS inspired desktop, [The Budgie desktop](https://buddiesofbudgie.org/ "Web
 
 This project started in 1997 and intended to be a virtual desktop window manager. This would involve a grid of desktops a user could move windows around and onto.  The initial release was in 1999 called E16. The second release E17 took 12 years. But E17 had grown from just a window manager into a full-fledged desktop environment using its own libraries called Enlightenment Foundation Libraries. Enlightenment can also be a shell that can sit on top of KDE and GNOME.
 
-### Android
-
-Android can't be installed on a Linux distro, but is a custom desktop created by The Android Project.  Android is considered a Linux distro with a [custom rendering layer](https://source.android.com/devices/graphics/ "Image of Android custom rendering layer") that does not use X or Wayland.
-
 ### Who Uses What
 
 ----------------------------------------------------- ------------------------ -------------------------------
