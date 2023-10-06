@@ -115,7 +115,6 @@ The first compositing window managers came about in 2005/2006 as the necessary e
 These allow for overlapping windows, like Windows or MacOS. The LXQT desktop environment uses  [Openbox](http://openbox.org/wiki/Main_Page "Openbox") as it's window manager.
 
 * [Afterstep](http://afterstep.org/ "Afterstep") - NEXTSTEP look and feel
-* [Blackbox](http://blackboxwm.sourceforge.net/ "Blackbox Wiki") - Similar to the NeXT interface and Window Maker
 * [Fluxbox](http://fluxbox.org/ "Fluxbox") - Highly configurable and low resource
 * [FLWM](https://en.wikipedia.org/wiki/FLWM "Fast and Light Window Manager") Fast and Light Window Manager
 * [FVWM](http://www.fvwm.org/ "FVWM") - Minimize memory consumption, provide a 3D look to windows, and a virtual desktop
