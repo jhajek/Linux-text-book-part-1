@@ -675,7 +675,7 @@ Here we will be creating a number of directories and files in order to navigate 
 1) From the textbook sample code > Files > Chapter-05 > sample-scripts > copy the file `date-time-script.sh` to your home directory.  `cd` to your home directory and execute the shell script you just copied (which will print out the current datetime) with the command: `./date-time-script.sh`.  You get an error message stating **permission is denied**: Explain why?
 1) Type the command to grant execute permission for `./date-time-script.sh`
 1) From the cloned textbook sample code under the directory `files` > `Chapter-05` > `sample-textfiles`, issue the command to display the content of the distro-list.txt to the screen
-1) Issue the command using a relative path to copy the file `distro-list.txt`` to the `distros` directory you made under the `class-notes` folder
+1) Issue the command using a relative path to copy the file `distro-list.txt` to the `distros` directory you made under the `class-notes` folder
 1) Issue the command to show the listing of the `distros` directory and show that the file was copied
 1) In the clone class textbook directory, `Linux-text-book-part-1`, issue the command to delete the `Mobi` directory and its contents, under `output`
 1) Issue the command make a cp of the entire directory `Linux-text-book-part-1` and all sub-directories to a directory named `textbook-copy` located in your **HOME** directory.
