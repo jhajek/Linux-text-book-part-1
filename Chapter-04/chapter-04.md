@@ -370,7 +370,8 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
 * ~25:00 What percentage of the Fedora Project is open source?
 * ~35:00 On further inspection is Fedora Project really opened source according to the Free Software Foundation?
 * ~36:20 Does Fedora include proprietary Nvidia drivers? Why or why not?
-* ~44:30 Who is the most famous Fedora user?
+* ~45:00 Does Fedora say "Linux" or "GNU/Linux"?
+* ~46:12 Who is the most famous Fedora user?
 * ~1:01:00 What is the difference between CentOS and RHEL?
 
 ### Lab

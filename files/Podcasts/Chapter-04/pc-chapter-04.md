@@ -16,5 +16,9 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
   * Your answer here
 * ~36:20 Does Fedora include proprietary Nvidia drivers? Why or why not?
   * Your answer here
-* ~44:30 Who is the most famous Fedora user?
+* ~45:00 Does Fedora say "Linux" or "GNU/Linux"?
+  * Your answer here
+* ~46:12 Who is the most famous Fedora user?
+  * Your answer here
+* ~1:01:00 What is the difference between CentOS and RHEL?
   * Your answer here
