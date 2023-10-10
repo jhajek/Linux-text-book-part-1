@@ -16,20 +16,20 @@
     c. 644
     d. 227
 4) What is the name of the command you use to list the contents of a directory?
-    a. ```lst```
-    b. ```less```
-    c. ```cat```
-    d. ```ls```
+    a. `lst`
+    b. `less`
+    c. `cat`
+    d. `ls`
 5) What is the name of the command you use to display the content of a file to the screen?
-    a. ```dg```
-    b. ```tac```
-    c. ```ls```
-    d. ```cat```
+    a. `dg`
+    b. `tac`
+    c. `ls`
+    d. `cat`
 6) What is the name of the command you use to display the content of a file to the screen that allows you to page up and down?
-    a. ```more```
-    b. ```less```
-    c. ```ls```
-    d. ```page```
+    a. `more`
+    b. `less`
+    c. `ls`
+    d. `page`
 7) Every shell command has three components:
     a. Command, arguments, flags
     b. Command, options, arguments
@@ -46,10 +46,10 @@
     c. csh
     d. bash
 10) Based on the ls command, what is the option to do a long listing?
-    a. ```ls --all```
-    b. ```ls -n```
-    c. ```list```
-    d. ```ls –l```
+    a. `ls --all`
+    b. `ls -n`
+    c. `list`
+    d. `ls –l`
 11) What is the command you can use to find out additional usage information about a shell command?
     a. about
     b. man
@@ -66,9 +66,9 @@
     c. tree
     d. mess
 14) What is the character name of the top of the Linux Filesystem tree?
-    a. ```/```
-    b. ```./```
-    c. ```../```
+    a. `/`
+    b. `./`
+    c. `../`
     d. slashdot
 15) Everything (directories, files, devices) in Unix/Linux is a what?
 
