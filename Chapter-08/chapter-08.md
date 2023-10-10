@@ -742,7 +742,7 @@ At the completion of this lab you will further your knowledge of shell scripting
 
 1) Create a shell script that redirects the content of roster.txt into an array, uses a forloop to cycle through the array's contents, and then uses the command to make a directory for each name listed in the array in your home directory, echo a message telling the user the path of the directory just created. Final command of the script is to list the content of the home directory to show the success of the script.
 
-1) Modify the shell script from the previous question to include an if statement that checks for the existence of a directory.  If the directory exists, echo a message: "Directory $NAME exists".  Then add an else clause that if the directory does not exist, create it and echo a message that the new directory and its path have been created.
+1) Modify the shell script from the previous question to include an `if` statement that checks for the existence of a directory. If the directory exists, echo a message: "Directory $NAME exists".  Then add an else clause that if the directory does not exist, create it and echo a message that the new directory and its path have been created.
 
 1) Write a WHILE loop that will read the content of the file names.txt, (located in the files > Chapter-08 > lab folder) and create a directory based on the value on the line in the `/tmp` directory (one per users).  Include an if statement to detect if the directory already exists, if it does exist, write the duplicate name out to a text file named: `duplicates.txt` located in the `/tmp` directory.  
   

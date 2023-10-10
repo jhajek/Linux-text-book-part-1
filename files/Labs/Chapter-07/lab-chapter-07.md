@@ -53,7 +53,11 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i) Edit Line 3 of chapter-01.md to add your name nest to mine
     i) Give the script execute permission and execute it
     i) To test the results, `cd` into the Linux-Text-Book-Part-1 directory (clone it if you have not) and execute the the script: `./build-linux-and-macos.sh` (the script should already have execute permission)
-    i) To test if the textbook built correctly - cd into the directory: **output/pdf**.  Issue the `ls` command and you will see two PDF files. Open one to Chapter 01 to see your name.
+    i) Install the package `poppler-utils` which will give you a PDF to text converter
+    i) In the `output/pdf` directory run the command:
+    
+    `pdftotext -layout Understanding-Free-and-Opensource-Operating-Systems-Part-I.pdf textbook.txt`
+    i) To test if the textbook built correctly, in the directory: **output/pdf**.  Issue the command `head textbook.txt` and you will see the book title with your name appended as an author.
 
 #### Part 4
 
