@@ -13,7 +13,7 @@ Here we will be creating a number of directories and files in order to navigate 
 1) Open a terminal, `cd` to the **Documents** directory. Issue the `pwd` command to find your present working directory (or current location).
 1) In the **Documents** directory, use the `mkdir` command to create a directory named: **class-notes**
 1) `cd` into the `class-notes` directory. Issue the command to show your present working directory. 
-1) Create the a directory named `distros` in the `class-notes` directory. Once created take a screen shot of the output of the `ls` command in the `distros directory
+1) Create the a directory named `distros` in the `class-notes` directory. Once created take a screen shot of the output of the `ls` command in the distros directory
 1) Under the `distros` directory create a directory named: `BSD`
 1) Under the `distros` directory create a directory named: `Debian`
 1) Under the `distros` directory create a directory named: `redhat`
