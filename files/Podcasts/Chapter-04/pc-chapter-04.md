@@ -20,5 +20,3 @@ Please answer these questions from the Fedora Project podcast on [FLOSS - http:/
   * Your answer here
 * ~46:12 Who is the most famous Fedora user?
   * Your answer here
-* ~1:01:00 What is the difference between CentOS and RHEL?
-  * Your answer here
