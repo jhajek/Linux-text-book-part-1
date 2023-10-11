@@ -49,7 +49,7 @@ DIR="monthly-reports-winter-quarter-north-america"
 ls $DIR
 ```
 
-Note that there is no space allowed in variable assignments.  ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.
+Note that there is no space allowed in variable assignments. ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.
 
 > __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.
 
@@ -120,7 +120,7 @@ echo "ARRAY LENGTH IS $LENGTH"
 
 #### Positional Parameters
 
-In the case of the command binary ```ls -l /etc``` the command takes options and arguments.  Shell scripts you create have the same ability to accept and parse input from the commandline.  Note that this is different from ```getopts``` which allows you to make a complicated option and argument passing scheme for shell scripts.  This is for simple variable parameters to be passed into a script: For example:
+In the case of the command binary ```ls -l /etc``` the command takes options and arguments.  Shell scripts you create have the same ability to accept and parse input from the commandline.  Note that this is different from ```getopts``` which allows you to make a complicated option and argument passing scheme for shell scripts.  This is for simple variable parameters to be passed into a script. You indicate the position of the parameter passed to the script and reference that value with a `$` and a number.  The first value is $1, the second is $2, and so on. After $9 you need to add `\$\{\}` around values and should probably add them from the beginning for consistency.
 
 ```bash
 ./delete-directory.sh ~/Documents/text-book Jeremy
@@ -132,11 +132,11 @@ The content of the shell script is as follows:
 #!/bin/bash
 
 echo "***************************"
-echo "The directory to be deleted is: $1"
-rm -rf $1
+echo "The directory to be deleted is: \${1}"
+rm -rf \${1}
 echo "***************************"
-echo "It was deleted by: $2"
-echo $2 > ~/Documents/deletion-log.txt
+echo "It was deleted by: \${2}"
+echo \${2} > ~/Documents/deletion-log.txt
 ```
 
 Note that each positional parameter that is passed in to the shell script is simply accessed by a number prefixed by a ```$```.  What do you think would be the value of ```$0```?  You can similarly access the number of variables that are passed into the command line by using the built-in variable: For example:
@@ -145,11 +145,11 @@ Note that each positional parameter that is passed in to the shell script is sim
 #!/bin/bash
 # posparam.sh
 
-echo "This is \$0: $0"
+echo "This is \$0: \${0}"
 echo "This is the length of the number of items passed in \$# (not counting \$0): $#"
 echo "This is the entire array of items passed in \$@: $@"
-echo "This is the first parameter: $1"
-echo "This is the fourth parameter: $4"
+echo "This is the first parameter: \${1}"
+echo "This is the fourth parameter: \${4}"
 ```
 
 Upon giving the shell script above execution permission and then executing the line below, what will the three lines output?
@@ -157,6 +157,38 @@ Upon giving the shell script above execution permission and then executing the l
 ```bash
 posparam.sh domo origato Mr. Roboto
 ```  
+
+Positional parameters also have the ability to do built in error checking and default value assignment as well. Let us re-examine a previous sample.
+
+```bash
+#!/bin/bash
+
+echo "*********************************************************************"
+# If $1 is blank the below syntax acts as an if statement and will exit the 
+# program at that line. The ? is the if statement 
+echo "The directory to be deleted is: \${1?Error: no file name given!!!}"
+rm -rf \${1}
+# The -Jeremy is the default value if none is given
+echo "It was deleted by: \${2-Jeremy}"
+echo \${2} > ~/Documents/deletion-log.txt
+echo "*********************************************************************"
+```
+
+Positional parameters can also be redirected into a shell script with the `<` operator. Using this command: `listnames.sh $(< roster.txt)` we can take items listed on each line in a text file and they will become positional parameters automatically via the `<` redirection arrow. Let us take a look at how this works. In the `files > Chapter-08 > examples > listnames.sh` you will see the sample roster.txt and the listnames.sh which will read the names from each line and assign the content to a positional paramter. Note what happens if you run the command `./listnames.sh` without redirecting any arguments from roster.txt
+
+```bash
+# This is listnames.sh
+# Assume the contents of roster.txt are as follows:
+# joseph
+# lincoln
+# evelyn
+
+echo "The first name is: \${1-No first name given}"
+echo "The second name is: \${2-No second name given}"
+echo "The third name is: \${3-No third name given}"
+echo "The fourth name is: \${4-No fourth name given}"
+
+```
 
 ### Control Structures
 
@@ -177,10 +209,10 @@ The __IF__ command starts with a test condition or command.  It is followed by a
 # This is a valid IF statement
 
 if [ -r ~/Documents/final-exam-answers.txt ]
-then
-  cat ~/Documents/final-exam-answers.txt
-else
-  echo "File is not readable."
+  then
+    cat ~/Documents/final-exam-answers.txt
+  else
+    echo "File is not readable."
 fi
 ```
 
@@ -609,17 +641,17 @@ c. `sudo sed -i "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
 d. `sudo sed -r "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
 
 6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables)
-a. ```#!/bin/bash```
-b. ```!#/bin/bash```
-c. ```#!/usr/local/bin/bash```
-d. ```#/bin/bash```
-e. ```#!/bin/sh```
+a. `#!/bin/bash`
+b. `!#/bin/bash`
+c. `#!/usr/local/bin/bash`
+d. `#/bin/bash`
+e. `#!/bin/sh`
 
 7) If you stored the output of the command hostname into a variable named *ROSTER*, what would be the command to print the content to the screen?
-a.  ```echo $ROSTER```
-b.  ```echo $roster```
-c.  ```echo ROSTER```
-d.  ```echo roster```
+a.  `echo $ROSTER`
+b.  `echo $roster`
+c.  `echo ROSTER`
+d.  `echo roster`
 
 8) What is the proper syntax to end an `IF` statement -- what is the very last line?
 a. `}`
@@ -634,34 +666,34 @@ c. `if (-e filename)`
 d. `if [ true filename ]`
 
 10) Which of these is a valid command to redirect the standard out of a `cat` command to a shell variable?
-a. ```NAMES = (cat roster.txt)```
-b. ```NAMES << (cat roster.txt)```
-c. ```NAMES=( $(cat roster.txt))```
-d. ```NAMES < (cat roster.txt)```
+a. `NAMES = (cat roster.txt)`
+b. `NAMES << (cat roster.txt)`
+c. `NAMES=( $(cat roster.txt))`
+d. `NAMES < (cat roster.txt)`
 
 11) Which below is a valid command to find the LENGTH of an array?
-a. ```${#SEARCHARRAY[@]}```
-b. ```${SEARCHARRAY[@]}```
-c. ```${SEARACHARRAY[#]}```
-d. ```${@SEARCHARRAY[#]}```
+a. `${#SEARCHARRAY[@]}`
+b. `${SEARCHARRAY[@]}`
+c. `${SEARACHARRAY[#]}`
+d. `${@SEARCHARRAY[#]}`
 
-12) Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? ```./delete-directory.sh ~/Documents/text-book Jeremy```
-a.  ```echo $0```
-b.  ```echo $1```
-c.  ```echo args[1]```
-d.  ```echo {$1}```
+12) Based on this shell script and positional parameters, what would the command be to print out the first positional parameter after the script name? `./delete-directory.sh ~/Documents/text-book Jeremy`
+a.  `echo $0`
+b.  `echo $1`
+c.  `echo args[1]`
+d.  `echo {$1}`
 
-13) Based on this shell script and positional parameters, what would the command be to print out the entire content of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```
-a.  ```echo $#```
-b.  ```echo @!```
-c.  ```echo $0```
-d.  ```echo $@```
+13) Based on this shell script and positional parameters, what would the command be to print out the entire content of the positional parameter array? `./delete-directory.sh ~/Documents/text-book Jeremy`
+a.  `echo $#`
+b.  `echo @!`
+c.  `echo $0`
+d.  `echo $@`
 
-14) Based on this shell script and positional parameters, what would the command be to print out the LENGTH of the positional parameter array? ```./delete-directory.sh ~/Documents/text-book Jeremy```
-a.  ```echo $#```
-b.  ```echo @!```
-c.  ```echo $0```
-d.  ```echo $@```
+14) Based on this shell script and positional parameters, what would the command be to print out the LENGTH of the positional parameter array? `./delete-directory.sh ~/Documents/text-book Jeremy`
+a.  `echo $#`
+b.  `echo @!`
+c.  `echo $0`
+d.  `echo $@`
 
 15) In a Bash IF statement, what is the name for the pre-made test conditions?
 a. Primaries
@@ -676,22 +708,22 @@ c. NULL
 d. CHAR
 
 17) Which of these answers will execute a shell script named ~/backup.sh at 2 am every night of the week?
-a. ```* * * * * ~/backup.sh```
-b. ```2 * * * * ~/backup.sh```
-c. ```* 2 * * * ~/backup.sh```
-d. ```* * * 2 * ~/backup.sh```
+a. `* * * * * ~/backup.sh`
+b. `2 * * * * ~/backup.sh`
+c. `* 2 * * * ~/backup.sh`
+d. `* * * 2 * ~/backup.sh`
 
 18) Which of these answers will execute a shell script named ~/clean-directory.sh every 15 minutes?
-a. ```3/15 * * * * ~/clean-directory.sh```
-b. ```*/15 * * * * ~/clean-directory.sh```
-c. ```* 3/15 * * * ~/clean-directory.sh```
-d. ```* */15 * * * ~/clean-directory.sh```
+a. `3/15 * * * * ~/clean-directory.sh`
+b. `*/15 * * * * ~/clean-directory.sh`
+c. `* 3/15 * * * ~/clean-directory.sh`
+d. `* */15 * * * ~/clean-directory.sh`
 
 19) Which of the crontab builtins would you use to execute a cron job 1 time a year on midnight of January 1st?  The name of the script is /home/controller/homework-is-finished.sh
-a. ```* * * * 1 /home/controller/homework-is-finished.sh```
-b. ```1 * * * * /home/controller/homework-is-finished.sh```
-c. ```1 1 1 1 1 /home/controller/homework-is-finished.sh```
-d. &#64;```yearly /home/controller/homework-is-finished.sh```
+a. `* * * * 1 /home/controller/homework-is-finished.sh`
+b. `1 * * * * /home/controller/homework-is-finished.sh`
+c. `1 1 1 1 1 /home/controller/homework-is-finished.sh`
+d. &#64;`yearly /home/controller/homework-is-finished.sh`
 
 20) What is the name of the control structure that allows you to incrementally through the contents of an array?
 a. IF
