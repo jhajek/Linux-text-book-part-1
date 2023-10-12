@@ -31,8 +31,6 @@ Read this article:
 
 * [https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494](https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494 "Adam Jacobs article on open core")
 
-Answer these questions with a few short sentences:
-
 * Briefly summarize Adam Jacob's opinion on running a company with an opensource product?
   * Your answer here
 * Do you agree or disagree with Adam's conclusion about opensource licensing?
