@@ -16,21 +16,21 @@ At the conclusion of this chapter you will be able to add additional virtual dis
 
 ## Storage Types
 
-In looking at the prices of disk based storage from the Fall of 2015, a single terabyte Western Digital Blue hard drive was selling for ~$50.  In the time since, the price of storage has only decreased. Storage is cheap and with that in mind, adding *storage* or *capacity* to a system is trivial.  In fact the types of storage available since 2015 have changed drastically.
+In looking at the prices of disk based storage from the Fall of 2015, a single terabyte Western Digital Blue hard drive was selling for ~$50.  In the time since, the price of storage has only decreased. Storage is cheap and with that in mind, adding *storage* or *capacity* to a system is trivial. The types of storage available since 2015 have changed drastically.
 
 ### Mechanical Hard Drives HDDs
 
-The original, cheapest, and densest storage type in dollars per megabit is still a mechanical hard drive.  Often referred to as an HDD[^135] or magnetic drive.
+The original, cheapest, and densest storage type in dollars per megabit is still a mechanical hard drive. Often referred to as an HDD[^135] or magnetic drive.
 
 ![*Hard Drive*](images/Chapter-11/hdd/256px-Laptop-hard-drive-exposed.jpg "Hard Drive Internals")
 
-These are made up of spinning platters where bits are stored via magnetic charge.  These systems have down sides in that parts of the surface wear out over time as well as they have mechanical parts (servos) that can fail over time.  They require constant amounts of power and if you scale this over large data centers, these costs can quickly add up.  In addition as the size of storage density has increased, the need to develop new storage mediums has arisen.  What was once a single magnetic platter, became three parallel platters, then became five spinning platters, which then became glass platters, which then became vertical electron based storage (somehow they got electrons to stand up instead of lay flat...), then moving to the latest [helium filled 10 TB disks](https://www.anandtech.com/show/9955/seagate-unveils-10-tb-heliumfilled-hard-disk-drive "Seagate 10TB helium filled disks").
+These are made up of spinning platters where bits are stored via magnetic charge.  These systems have down sides in that parts of the surface wear out over time as well as they have mechanical parts (servos) that can fail over time.  They require constant amounts of power and if you scale this over large data centers, these costs can quickly add up.  In addition as the size of storage density has increased, the need to develop new storage mediums has arisen.  What was once a single magnetic platter, became three parallel platters, then became five spinning platters, which then became glass platters, which then became vertical electron based storage (somehow they got electrons to stand up instead of lay flat...), then moving to  [helium filled 10 TB disks](https://www.anandtech.com/show/9955/seagate-unveils-10-tb-heliumfilled-hard-disk-drive "Seagate 10TB helium filled disks") and as of 2022, [Western Digital 26 TB disks](https://www.westerndigital.com/products/internal-drives/data-center-drives/ultrastar-dc-hc670-hdd?sku=ultrastar-dc-hc670-26-tb "webpage WD 25 TB disks").
 
-As disks became bigger, new patterns for reading and writing data were created: SATA 1, 2, and 3.x bus technology was introduced for transmitting data faster from the disk to the CPU.  On-disk cache memory of 16-64mb was added to the disk for caching frequently accessed data.  On top of that we have [NCQ](https://sata-io.org/developers/sata-ecosystem/native-command-queuing "Native Command Queueing"). Native Command Queueing was introduces which looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make.  All of this is happening at 5400-7200 rpms, revolutions per minute, at a fly height of 8 Pico meters!
+As disks became bigger, new patterns for reading and writing data were created: SATA 1, 2, and 3.x bus technology was introduced for transmitting data faster from the disk to the CPU.  On-disk cache memory of 16-64mb was added to the disk for caching frequently accessed data. On top of that we have [NCQ](https://sata-io.org/developers/sata-ecosystem/native-command-queuing "Native Command Queueing"). Native Command Queueing was introduces which looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make.  All of this is happening at 5400, 7200, 10K, and 15K rpms, revolutions per minute, at a fly-height of 8 Pico meters!
 
 ### Solid State Drives SSDs
 
-In early 2012, a new medium called a Solid State Drive, or SSD was released.  These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data.  The immediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into position to read the correct bits.  This increased speeds dramatically and while the original SSDs storage was low and comparatively today the dollar per megabit ration is not as good as a HDD, the read based access time was orders of magnitude faster.  Version of SATA beyond 3.2 introduced a process called [SATAe](https://en.wikipedia.org/wiki/SATA_Express "SATA Express wikipage"), which focuses on using the PCI Express bus to increase performance, rather than changing the SATA standard.
+In early 2012, a new medium called a Solid State Drive, or SSD was released. These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data. The immediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into position to read the correct bits. This increased speeds dramatically and while the original SSDs storage was low and comparatively today the dollar per megabit ration is not as good as a HDD, the read-based access time was orders of magnitude faster. Version of SATA beyond 3.2 introduced a process called [SATAe](https://en.wikipedia.org/wiki/SATA_Express "SATA Express wikipage"), which focuses on using the PCI Express bus to increase performance.
 
   SATA Version              Throughput
 ---------------------  -----------------------
@@ -60,7 +60,7 @@ The latest incarnation of SSD disk based technology is [NVMe](https://en.wikiped
 
 ![*mini-Sata and M.2*](images/Chapter-11/ssd/M.2_and_mSATA_SSDs_comparison.jpg "mini-Sata and M.2")
 
-The future of disk is something of a hybrid between ram and solid state/flash memory.  Intel launched a trademarked platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane").  The target is cloud based servers running OS Containers and Virtualized platforms.  The idea is to increase the speed of disk to the point that is is close to or equal in speed to RAM (Non-volitile memory), thereby eliminating potential memory bottlenecks.
+The future of disk is something of a hybrid between ram and solid state/flash memory. Intel launched a trademarked platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane"). The target is cloud based servers running OS Containers and Virtualized platforms. The idea is to increase the speed of disk to the point that is is close to or equal in speed to RAM (Non-volitile memory), thereby eliminating potential memory bottlenecks. Though Optane was a technology that was before its time, as Intel [shutdown the Optane division in 2021](https://www.pcworld.com/article/3604093/intel-quietly-kills-its-face-melting-optane-desktop-ssds.html "webpage Intel Optane closure article").
 
 ### Network Harddrives
 
@@ -159,7 +159,7 @@ You can create partitions on a new disk for a fresh OS installation or just crea
 
 The history of the Linux ```fdisk``` command goes way back.  Stemming from the early 1990's hard drives at that time using the standard BIOS of the day were only allowed 4 __primary partitions__ on the operating system.  At those times, hard drives were small, and devices were expensive, and things we take for granted now, like optical drives, didn't really exist, so 4 primary partitions was thought to be more than anyone would ever need.  A primary partition could be broken up into an __extended partition__. Then each __extended partition__ could be further sub-divided into as many __logical partitions__ that fit on the drive.  At that time only one __primary partition__ could be active (or bootable and seeable) at a time, all other primary partitions would be hidden from the currently active operating system.  In this world ```fdisk``` was built, hence its concern with partitioning.  There has been an improvement since 2000 called LVM, which is covered and thankfully used exclusively now by default.
 
-To work/modify a device that has no existing partitions (say ```sdb``` in the image above). From the TLDP documentation regarding how to use ```fdisk```: [^ch11f122].  `fdisk` is started by typing (as root) fdisk device at the command prompt. Device might be something like /dev/hda or /dev/sda (see Section 2.1.1). The basic fdisk commands you need are:
+To work/modify a device that has no existing partitions (`sdb` in the image above). From the TLDP documentation regarding how to use ```fdisk```: [^ch11f122].  `fdisk` is started by typing (as root) fdisk device at the command prompt. Device might be something like /dev/hda or /dev/sda (see Section 2.1.1). The basic fdisk commands you need are:
 
 * p print the partition table
 * n create a new partition
@@ -171,11 +171,11 @@ To successfully create a partition on a new drive, let's select ```sdb``` in the
 
 ![*sudo fdisk /dev/sdb*](images/Chapter-11/fdisk/fdisk.png "fdisk")
 
-  Always type __m__ for menu because the single letter commands are not intuitive.
+Always type __m__ for menu because the single letter commands are not intuitive.
 
 ![*m for menu*](images/Chapter-11/fdisk/m-for-menu.png "Menu")
 
-  If you type the letter __l__ you will see the entire list of possible partitions, we are only interested in the value hex 82 and 83.  The next command to type is __p__ for printing out the current partition table--which will be blank.
+If you type the letter __l__ you will see the entire list of possible partitions, we are only interested in the value hex 82 and 83.  The next command to type is __p__ for printing out the current partition table--which will be blank.
 
 \newpage
 
@@ -205,11 +205,11 @@ Using the ```fdisk``` command does have its drawbacks.  The tool was designed in
 
 ## Logical Volume Manager
 
-In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the ```/var``` directory on a different disk so that system log writing doesn't slow down data stored in the users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
+In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the `/var` directory on a different disk so that system log writing doesn't slow down data stored in the users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
 
-The answer is that under standard partitioning and partitions you don't. You simply backup and reinstall the Operating System on a bigger drive.  This is very time consuming and a risky operation that is not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
+The answer is that under standard partitioning you don't. You simply backup and reinstall the Operating System on a bigger drive. This is very time consuming and a risky operation that is not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
 
-LVM is a different way to look at partitions and file-systems.  Instead of the standard way of partitioning up disks, instead we are dealing with multiple large disks.  As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*
+LVM is a different way to look at partitions and file-systems. Instead of the standard way of partitioning up disks, instead we logical grouping of disks to create partitions that span across physcial media. As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*
 
 ![*LVM diagram*](images/Chapter-11/LVM/LVM.png "LVM")
 
@@ -232,9 +232,15 @@ Once you have added the disks/partitions to the PV, now you need to create a Vol
 
 ### Logical Volumes
 
-From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to linear, but that is an application based decision.  Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command ```lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME``` will extend the LV to become 50 GB in size.  Using ```-L+50G``` will add 50 additional gigabytes to an existing LV's size.
+From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to linear, but that is an application based decision.
 
-Once you have successfully created an LV, now it needs a filesystem installed.  Here you can add XFS, Ext4, Ext2, or any other file-system.   You would use the ```mkfs``` proper tool for your filesystem.  Once you have the filesystem created then you need a mount point.  Each filesystem type has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified.  Not all file-systems have the built in ability to shrink an existing partition.
+Once you have successfully created an LV, now it needs a filesystem installed.  Here you can add XFS, Ext4, Ext2, or any other file-system. You would use the ```mkfs``` proper tool for your filesystem. Once you have the filesystem created then you need a mount point.  Each filesystem type has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified. Not all file-systems have the built in ability to shrink an existing partition.
+
+### Extending Logical Volumes
+
+Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command `lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME` will extend the LV to become 50 GB in size. Using `-L+50G` will add 50 additional gigabytes to an existing LV's size.
+
+
 
 ### LVM Snapshots
 
