@@ -1,6 +1,6 @@
 # Chapter 02 Labs
 
-## Activity 1
+## Part 1
 
 Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and write a review of the company's architecture based the listed items. You must do a unique topic - so post in the Class Discord under the `Case-Studies` channel which one you are doing, first come first served.
 
@@ -25,7 +25,7 @@ Answer these questions (not all of the Answers are in each case study and might 
 * Describe one clear point you took away from this article relating to technology and infrastructure?
   * Your answer here
 
-## Activity 2
+## Part 2
 
 Read this article:
 
