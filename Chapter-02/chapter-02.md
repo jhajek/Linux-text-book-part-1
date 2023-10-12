@@ -1,4 +1,4 @@
-# History of Unix and Linux
+# History of Free and Opensource Maturity
 
 ![*At the end of class if your instructor has done their job, you will find this cartoon funny.  If you already understand this cartoon you get an "A".*](images/Chapter-Header/Chapter-02/open_source.png "A GNU Dawn")
 
@@ -177,7 +177,7 @@ Thompson didn't have a name for his project initially, another related figure, B
 
 ![*K&R C*](images/Chapter-02/People/Brian-Kernighan/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
 
-## First Phase of Unix Maturity -- Implementating the Unix Operating System
+## First Phase -- Implementating the Unix Operating System
 
 By 1974/75 internal use of Unix at Bell Labs was high amongst engineers. Word was starting to spread about it as Bell Labs engineers moved on and into academia. Other Bell Labs divisions and universities got wind of this and began to request Unix install *"tapes"* for their own use.  *Tapes* meant giant mounted magnetic tape reels that contained all the operating system code. By law AT&T was prohibited from getting into the computer business so they took a hands-off approach to Unix at the time. AT&T left it curiously as Thompson and Ritchie's pet project.  Many universities at this time, wanting to teach computing and operating systems, began to request copies of Unix to teach in their Operating Systems classes. This was attractive to universities because Unix was a fully operational and working system but the main draw was that the source code was freely given away by Ken Thompson.  You sent him a letter, paid for shipping, and you got a magnetic tape reel within a week or so. Thompson had no concept of "ownership" and freely shared his project with anyone who was interested. One could say this was Free Software a decade before the term was coined.
 
@@ -187,7 +187,7 @@ By 1980, with many copies of Thompson's Unix now in circulation and nearly a dec
 
 Now AT&T had a financial motive to commercialize Unix. In 1982 AT&T released Unix System III, followed by System V in 1983, as a commercial product for sale to companies, while offering a restrictive derivative license for universities. By the dawn of the 1980s the first phase of Unix maturity was complete. The operating system, its code, and its design philosophy were well proven and in wide use across universities and commercial enterprises. In the 1980s the focus of Unix takes a dramatic shift towards application creation.
 
-## Second Phase of Unix Maturity -- Unix Users, Application Development, and Licensing
+## Second Phase -- Unix Users, Application Development, and Licensing
 
 The next phase of Unix history revolves around the important work done by developers to create applications and standards around the Unix operating system to increase productivity and accessibility.  There are many people who contributed to this phase but among the names we will discuss there is none more important than Richard Stallman, also known as RMS. Many of the other namesm, some have passed on, some are still with us. There is a photographic study called [Faces of OpenSource](https://www.facesofopensource.com/ "Webpage faces of opensource") that can help put a recent photo to a name.
 
@@ -331,7 +331,7 @@ After the BSD and AT&T lawsuit was settled the BSD code base split into three an
 * NetBSD
 * OpenBSD, split from NetBSD
 
-## Third Phase of Unix Maturity - Free and Opensource Software Enters the Enterprise
+## Third Phase -- Free and Opensource Software Enters the Enterprise
 
 ### Free Software vs. Opensource Software
 
@@ -410,7 +410,7 @@ The creators of the Opensource initiative (OSI) took a different approach to mar
 
 In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you can include that allow for remixing and redistribution or no distribution.  There are options that allow for commercial redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "[Commons](https://creativecommons.org/about/cclicenses/ "Creative Commons License Types")."
 
-## Fourth Phase of Unix Maturity - The Rise of Commercial Linux
+## Fourth Phase -- The Rise of Commercial Linux
 
 As the 1990s came to a close we began to see established companies adopting and using opensource projects in the enterprise, such as MySQL for database and GCC as a C/C++ compiler. Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils") and a GUI interface. Of all the Linux companies that started by the turn of the century, Red Hat Linux is one of the few remaining and by far the most successful. How successful? To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
 
@@ -694,7 +694,7 @@ While Android is a Linux based mobile operating system, it is different from a t
 * [postmarketOS](https://postmarketos.org/ "pure longterm linux os for phones")
 * [PureOS from Purism](https://puri.sm/products/librem-5/ "Pure OS mobile")
 
-## Fifth Phase of Unix Maturity - Hard Changes to the Nature of Linux
+## Fifth Phase -- Hard Changes to the Nature of Linux
 
 ![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
@@ -710,9 +710,9 @@ The first company to adopt systemd was Red Hat.  Debian was the last holdout and
 
 In its defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21") of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based system compatibility.  Systemd is entirely Linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros. As od July 2022, Lennart left his developer post at Red Hat and [is now employed at Microsoft](https://www.phoronix.com/news/Systemd-Creator-Microsoft "weblink Lennart leaves Red Hat and goes to Microsoft")
 
-## Sixth Phase of Linux Maturity - OpenSource is not a business model
+## Sixth Phase -- OpenSource is not a business model
 
-As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict.  To complicate this, these companies are wide-spread and heavily used across the industry and these companies happen to be Venture Capital funded. These companies, which had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product.  In some cases the number of developers working on a forked version of a software for the major Cloud providers, vastly out number the original company's developer workforce.  What can these companies do? They decided on a licensing vector of attack against the cloud providers.  
+As the story moves into the year of 2019, we begin to see the issue of opensource software and the nature of commercial companies come into conflict. To complicate this, these companies are wide-spread and heavily used across the industry and these companies happen to be Venture Capital funded. These companies, which had relied on opensource software as their business model, have now come into competition directly with large Cloud vendors, mostly Amazon Web Services. These Cloud companies offer cloud-hosted versions of opensource products (legally and correctly) and because of the opensource licenses chosen, don't need to contribute any code or money back to the original product. In some cases the number of developers working on a forked version of a software for the major Cloud providers, vastly out number the original company's developer workforce.  What can these companies do? They decided on a licensing vector of attack against the cloud providers.  
 
 * MongoDB
   * [Server Side Public License](https://www.mongodb.com/licensing/server-side-public-license "Server Side Public License")
@@ -739,9 +739,15 @@ As the story moves into the year of 2019, we begin to see the issue of opensourc
 
 Some would argue that this is where the GPL with its strong copyleft would prevent this from happening. Others would argue that this is the fundamental market effect of opensource, and let the two fight it out and the market will determine the winner. The other solution is to create [501c3](https://en.wikipedia.org/wiki/501(c)(3)_organization "Wiki article 5013c") or [501c6](https://en.wikipedia.org/wiki/501(c)_organization#501(c)(6) "Wiki article trade organization") based foundations to steward projects, which means governance and tight corporate control of a project.  When Amazon essentially forked MongoDB and created a product called DocumentDB, the GPL would have forced Amazon, by its license, to release the changes made to the MongoDB source code--leveling the playing field.  The FSF and GPL people will tell you, the license is not about money or commerce, but freedom.
 
-Others will cite the fact that very few successful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception. Apple, for instance, has removed all GPLv3 based software from its MacOS due to concerns about GPLv3.  
+Others will cite the fact that very few successful software packages are licensed under GPLv2 or v3, with the Linux Kernel being the major exception. Apple, for instance, has removed all GPLv3 based software from its MacOS due to concerns about GPLv3. You can read a discussion showing the dynamics of this discussion in the articles below.  
 
-One industry solution has been the formation of foundations that have largely avoided the GPL license for fear of the copyleft clause.  For example, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation") employs Linus Torvalds to continue work on the Linux Kernel. In addition, the Linux Foundation runs multiple other significant technology foundations--all offspring of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and shepherded by the Linux Foundation is pretty astounding.
+1) [Opensource Confronts its Midlife Crisis](http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/ "OpenSource confronts its midlife crisis")
+1) [Jay Kreps Quick Comment on Licensing: Response to Bryan Cantrill](https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/ "Quick Comment on Licensing")
+1) [Bryan Cantrill's response, a EULA in FOSS clothing](http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/ "A Eula in FOSS clothing")
+
+#### 5013c and 501c6 Foundations
+
+One industry solution has been the formation of charitable foundations (501c3) or trade organizations (501c6). For example, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation") employs Linus Torvalds to continue work on the Linux Kernel as well as maintaing the Linux kernel source code. In addition, the Linux Foundation runs multiple other significant technology foundations--all offspring of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and shepherded by the Linux Foundation is pretty astounding.
 
 Other foundations include:
 
@@ -761,7 +767,10 @@ Other foundations include:
 
     "*The Continuous Delivery Foundation (CDF) serves as the vendor-neutral home of many of the fastest-growing projects for continuous delivery, including Jenkins, Jenkins X, Spinnaker, and Tekton. CDF supports DevOps practitioners with an open model, training, industry guidelines, and a portability focus.*"
 
-But if you look at the foundations they are "pay-to-play" and controlled by the largest corporations who don't always have a good track record in relation to respecting free/opensource licensing. Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out. The large corporations have found and embraced Opensource Software. Foundations also lead to governance -- which prevents "forking", one of the main ideas of Free and Opensource Software. The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
+* The [Eclipse Foundation](https://eclipse.org "The Eclipse Foundation")
+  * "*Following the announcement that Oracle was seeking to [move Java EE technologies to an open-source](https://www.infoq.com/news/2017/09/JavaEEtoEclipse "webpage eclipse foundation") foundation, the company has now said that they have chosen the Eclipse Foundation as the new custodians of the platform.*"
+
+If you look at the foundations, they are mostly trade organizations (501c6), "pay-to-play" in which large corporations pay to have a seat on the board. These companies don't always have the best track record in relation to respecting free/opensource licensing. Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out. The large corporations have found and embraced Opensource Software. Foundations also lead to governance -- which prevents "forking", one of the main ideas of Free and Opensource Software. The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
 
 ### GitHub Copilot - Opensource and AI
 
@@ -796,6 +805,14 @@ In response Oracle, SUSE, and CIQ have formed a RHEL compatible competitor, [Ope
 
 Does this mean a future consolidation of Enterprise Linux as RHEL? Does POSIX just become RHEL for the enterprise as the Linux Standards Base moving forward? Time will tell, what do you think?
 
+__Exercise:__ Here is an article from the President of the Linux Professional Institute (LPI) and an old Unix/Linux veteran: [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall") with [John Maddog Hall](https://en.wikipedia.org/wiki/Jon_Hall_(programmer) "wiki article of John Hall")
+
+* Who is John Maddog Hall and when did he start to program?
+* Briefly explain the difference between using gratis software and Free or Freedom Respecting Softare.
+* Under the header: "Why would companies pay to use RHEL?" - Briefly explain the reasoning why companies will pay money to use opensource software.
+* Who is Maddog calling "Free Loaders" and why is he calling them this?
+* Breifly explain why or why you do not agree with his conclusion stated in "Tying it all together"
+
 ## Chapter Conclusion and Summary
 
 In this chapter you were introduced to many names in relation to the history of free and opensource software.  We were introduced to the UNIX operating system and how it led directly to the creation of the GNU project, the FSF, Linux, and Free and Opensource software. We learned the major Linux distribution families as well as the BSD derivative distros. Finally you we discussed the six phases of UNIX/Linux maturity and how they relate to business and commercial interests of today.  
@@ -804,6 +821,73 @@ In this chapter you were introduced to many names in relation to the history of 
 * [AT&T UNIX Archives: The Unix Operating System - 1982](https://www.youtube.com/watch?v=tc4ROCJYbm0 "AT&T UNIX Archives: The Unix Operating System - 1982")
 
 ### Review Questions
+
+1) Name the zero phase of Free and Opensource Maturity?
+1) Name the first phase of Free and Opensource Maturity?
+1) Name the second phase of Free and Opensource Maturity?
+1) Name the third phase of Free and Opensource Maturity?
+1) Name the fourth phase of Free and Opensource Maturity?
+1) Name the fifth phase of Free and Opensource Maturity?
+1) Name the sixth phase of Free and Opensource Maturity?
+1) Name the founder of the GNU project
+  a. Ken Thompson
+  b. Dennis Ritchie
+  c. MIT
+  d. Richard Stallman
+1) Name the founder of the Free Software Foundation
+  a. Linus Torvalds
+  b. Dennis Ritchie
+  c. Eric Raymond
+  d. Richard Stallman
+1) Name the creator of the Linux Kernel
+  a. Ken Thompson
+  b. Linus Torvalds
+  c. Brian Kernighan
+  d. Richard Stallman
+1) Name the co-founders of the Opensource Initiative
+  a. Ken Thompson and Dennis Ritchie
+  b. Dennis Ritchie and Brian Kernighan
+  c. Linus Torvalds and Richard Stallman
+  d. Eric S. Raymond and Bruce Perens
+1) What are the three parts of an operating system?
+  a. kernel, GUI, and compilers
+  b. kernel, compilers tools, user tools and applications
+  c. kernel, user tools, and applications
+  d. kernel, code, Firefox
+1) Name the three main design principles Ken Thompson had for UNIX
+  a. Everything is a file, Unix is portable, I/O is redirectable between small executables
+  b. Everything is a file, Unix not portable, I/O is not redirectable between small executables
+  c. Everything is a file, Unix is free, Unix is a kernel
+  d. Unix is opensource, Unix is file based, Unix is all text
+1) What was the name of the programming language created by Dennis Ritchie?
+  a. A
+  b. B
+  c. C
+  d. c++
+1) What is the name of the FSF Copyleft license?
+  a. GPA
+  b. GPL
+  c. CPA
+  d. CCP
+1) Select one opensource license from the list
+  a. GPL
+  b. MPLv2
+  c. GPLv2
+  d. BSL
+1) Name the two major linux families discussed in this chapter
+  a. Red Hat and Ubuntu
+  b. Red Hat and Suse
+  c. Red Hat and Debian
+  d. Debian and Ubuntu
+1) Name the oldest independent (non-enterprise) Linux distro still in use
+  a. Suse
+  b. Red Hat
+  c. Ubuntu
+  d. Debian
+1) Which concept came first: Free Software or Opensource software?
+1) What is the name of the organization that houses the Linux Kernel source code?
+
+### Podcast Questions
 
 Either individually, as a class, or get into groups and watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
 
@@ -818,19 +902,9 @@ Either individually, as a class, or get into groups and watch the documentary mo
 * How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?  
 * What is the main difference between *"Free Software"* and *"Open Source Software"*?
 
-### Podcast Questions
-
-This week we have an article written in place of an Audio Podcast: [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall") with [John Maddog Hall](https://en.wikipedia.org/wiki/Jon_Hall_(programmer) "wiki article of John Hall")
-
-* Who is John Maddog Hall and when did he start to program?
-* Briefly explain the difference between using gratis software and Free or Freedom Respecting Softare.
-* Under the header: "Why would companies pay to use RHEL?" - Briefly explain the reasoning why companies will pay money to use opensource software.
-* Who is Maddog calling "Free Loaders" and why is he calling them this?
-* Breifly explain why or why you do not agree with his conclusion stated in "Tying it all together"
-
 ### Lab
 
-#### Activity 1
+#### Part 1
 
 Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and write a review of the company's architecture based the listed items. You must do a unique topic - so post in the Class Discord under the `Case-Studies` channel which one you are doing, first come first served.
 
@@ -838,8 +912,8 @@ You can find them at [http://highscalability.com/blog/category/example](http://h
 
 Answer these questions (not all of the Answers are in each case study and might have to do some outside research.)
 
-* What market does that company serve? (What do they do?) And have they always served that market?
-* What Operating System(s) are used by this product to run their services?
+* What market does that company serve? (What do they do?)
+* What server based Operating System(s) are used by this product to run their services (not the client apps)?
 * What programming languages/frameworks are used?
 * What storage and what database technologies are used?
 * What Opensource license is the technology stack licensed under?
@@ -847,26 +921,16 @@ Answer these questions (not all of the Answers are in each case study and might 
 * What major obstacle (cost, system performance, QPS, etc, etc) was the company trying to overcome by implementing this technology stack?
 * Describe one clear point you took away from this article relating to technology and infrastructure?
 
-#### Activity 2
+#### Part 2
 
-Read these five articles. They are commentaries opensource and business.
+Read this article
 
-* [http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/](http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/ "OpenSource confronts its midlife crisis")
-* [https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/](https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/ "Quick Comment on Licensing")
-* [http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/](http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/ "A Eula in FOSS clothing")
 * [https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494](https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494 "Adam Jacobs article on open core")
-* [https://sfosc.org/docs/business-models/free-software-product/](https://sfosc.org/docs/business-models/free-software-product/ "Free software product")
 
 Answer these questions with a few short sentences:
 
-* What is Bryan Cantrill's initial main point in the first article?
-* Do you agree with him, why or why not?
-* What is Jay Kreps response/contention in the second article?
-* Do you agree with him, why or why not?
-* What is the main point of Bryan Cantrill's rejoinder in the third article?
-* Do you agree with him, why or why not?
-* What is Adam Jacob's opinion on running a company with an opensource product?
-* What is the solution in your opinion?
+* Briefly summarize Adam Jacob's opinion on running a company with an opensource product?
+* Do you agree or disagree with Adam's conclusion about opensource licensing?
 
 #### Footnotes
 

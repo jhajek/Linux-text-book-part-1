@@ -1,25 +1,66 @@
 # Review Questions - Chapter 02
 
-You will need to watch the documentary movie [Revolution OS - https://www.youtube.com/watch?v=jw8K460vx1c](https://www.youtube.com/watch?v=jw8K460vx1c) made in 2001. The film includes interviews with many of the names that were discussed in this chapter.  Watch this movie and answer the questions below or via the online assignment provided for you by the instructor.
-
-* Based on the movie's tone and rhetoric - why do you think there was an anti-Microsoft tone at the time of the movie's making (~2001)? (You may need to research [Microsoft anti-trust case](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp. "Anti-Trust") ).
-  * Your Answer Here
-* When Bill Gates wrote his 1976 *"Open Letter to Hobbyists"*, was he justified in his complaint? Why or why not?
-  * Your Answer Here
-* According to Eric Raymond, the adoption curve of Linux and the adoption curve the internet do what [~32:20-32:40](https://youtu.be/jw8K460vx1c?t=1941 "youtube video timestamp Internet Linux tracking")?
-  * Your Answer Here
-* Why did Bruce Perens help write the Opensource Definition / Debian Social Contract Standard? ~[50:00 - 53:00](https://youtu.be/jw8K460vx1c?t=3010 "Youtube video timestamp to Opensource Definition")
-  * Your Answer Here
-* What were the two commercial Linux companies featured in the movie (Note-one does not exist any longer)?
-  * Your Answer Here
-* What is Red Hat Linux's stock price today compared to the the price listed in the movie?  What is VA Linux's stock price today compared to the movie? (Hint VA Linux was sold and now belongs to another company, find that company's stock price.)
-  * Your Answer Here
-* According to Eric S. Raymond what was the major application that needed to "flip" for opensource to become a viable enterprise solution? ~[53:10 - 54:15](https://youtu.be/jw8K460vx1c?t=3191 "youtube video timestamp Eric Raymond Database Vendors")
-  * Your Answer Here
-* What was the first major commercial company to opensource a key product?  What did that product eventually become?
-  * Your Answer Here
-* How does Richard Stallman react at the end of the movie to the success of the Linux kernel to the exclusion of the GNU toolchain?
-  * Your Answer Here  
-* What is the main difference between *"Free Software"* and *"Open Source Software"*?
-  * Your Answer Here
-  
+1) Name the zero phase of Free and Opensource Maturity?
+1) Name the first phase of Free and Opensource Maturity?
+1) Name the second phase of Free and Opensource Maturity?
+1) Name the third phase of Free and Opensource Maturity?
+1) Name the fourth phase of Free and Opensource Maturity?
+1) Name the fifth phase of Free and Opensource Maturity?
+1) Name the sixth phase of Free and Opensource Maturity?
+1) Name the founder of the GNU project
+  a. Ken Thompson
+  b. Dennis Ritchie
+  c. MIT
+  d. Richard Stallman
+1) Name the founder of the Free Software Foundation
+  a. Linus Torvalds
+  b. Dennis Ritchie
+  c. Eric Raymond
+  d. Richard Stallman
+1) Name the creator of the Linux Kernel
+  a. Ken Thompson
+  b. Linus Torvalds
+  c. Brian Kernighan
+  d. Richard Stallman
+1) Name the co-founders of the Opensource Initiative
+  a. Ken Thompson and Dennis Ritchie
+  b. Dennis Ritchie and Brian Kernighan
+  c. Linus Torvalds and Richard Stallman
+  d. Eric S. Raymond and Bruce Perens
+1) What are the three parts of an operating system?
+  a. kernel, GUI, and compilers
+  b. kernel, compilers tools, user tools and applications
+  c. kernel, user tools, and applications
+  d. kernel, code, Firefox
+1) Name the three main design principles Ken Thompson had for UNIX
+  a. Everything is a file, Unix is portable, I/O is redirectable between small executables
+  b. Everything is a file, Unix not portable, I/O is not redirectable between small executables
+  c. Everything is a file, Unix is free, Unix is a kernel
+  d. Unix is opensource, Unix is file based, Unix is all text
+1) What was the name of the programming language created by Dennis Ritchie?
+  a. A
+  b. B
+  c. C
+  d. c++
+1) What is the name of the FSF Copyleft license?
+  a. GPA
+  b. GPL
+  c. CPA
+  d. CCP
+1) Select one opensource license from the list
+  a. GPL
+  b. MPLv2
+  c. GPLv2
+  d. BSL
+1) Name the two major linux families discussed in this chapter
+  a. Red Hat and Ubuntu
+  b. Red Hat and Suse
+  c. Red Hat and Debian
+  d. Debian and Ubuntu
+1) Name the oldest independent (non-enterprise) Linux distro still in use
+  a. Suse
+  b. Red Hat
+  c. Ubuntu
+  d. Debian
+1) Which concept came first: Free Software or Opensource software?
+1) What is the name of the organization that houses the Linux Kernel source code?

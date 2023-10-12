@@ -27,22 +27,13 @@ Answer these questions (not all of the Answers are in each case study and might 
 
 ## Activity 2
 
-Read these five articles. They are commentaries opensource and business.
+Read this article:
 
-* [http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/](http://dtrace.org/blogs/bmc/2018/12/14/open-source-confronts-its-midlife-crisis/ "OpenSource confronts its midlife crisis")
-* [https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/](https://medium.com/\@jaykreps/a-quick-comment-on-bryan-cantrills-blog-on-licensing-8dccee41d9e6/ "Quick Comment on Licensing")
-* [http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/](http://dtrace.org/blogs/bmc/2018/12/16/a-eula-in-foss-clothing/ "A Eula in FOSS clothing")
 * [https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494](https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494 "Adam Jacobs article on open core")
-* [https://sfosc.org/docs/business-models/free-software-product/](https://sfosc.org/docs/business-models/free-software-product/ "Free software product")
 
 Answer these questions with a few short sentences:
 
-* What is Bryan Cantrill's initial main point in the first article?
-  * Do you agree with him, why or why not?
-* What is Jay Kreps response/contention in the second article?
-  * Do you agree with him, why or why not?
-* What is the main point of Bryan Cantrill's rejoinder in the third article?
-  * Do you agree with him, why or why not?
-* What is Adam Jacob's opinion on running a company with an opensource product?
+* Briefly summarize Adam Jacob's opinion on running a company with an opensource product?
   * Your answer here
-  * What is the solution in your opinion?
+* Do you agree or disagree with Adam's conclusion about opensource licensing?
+  * Your answer here
