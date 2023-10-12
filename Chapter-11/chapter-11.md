@@ -205,18 +205,18 @@ Using the ```fdisk``` command does have its drawbacks.  The tool was designed in
 
 ## Logical Volume Manager
 
-In order to enhance processing you may in your partitioning decisions want to place certain portions of the file-system on different disks.  For instance you may want to place the `/var` directory on a different disk so that system log writing doesn't slow down data stored in the users home directories.  You may be installing a MySQL database and want to move the default storage to a second disk you just mounted to reduce write ware on your hard disks.  These are good strategies to employ, but what happens as the hard disks in those examples begin to fill up?  How do you migrate or add larger disks?
+Partitioning of disks worked well when you had one disk and needed to create *logical* disks or partitions. But what happens when you have multiple disks or want to create a *logical* disk that spans many *physical* disks. Once a partition has been created it is not easily resized or expanded. Similarly partitions do not have a capacity for taking `filesystem level snaphosts`. Early Linux filesystems, such as ext4 did not handle volume management and left that to the Operating System.
 
-The answer is that under standard partitioning you don't. You simply backup and reinstall the Operating System on a bigger drive. This is very time consuming and a risky operation that is not taken lightly.  What to do?  A solution to this problem and the limitations of traditional disk partitions is called LVM, [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998.  LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
+The first solution to add Volume Management to partitioning was called LVM: [Logical Volume Management](http://tldp.org/HOWTO/LVM-HOWTO/ "LVM"), created in 1998. LVM version 2 is the current full featured version baked in to the [Linux kernel since version 2.6](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux) "LVM 2").
 
-LVM is a different way to look at partitions and file-systems. Instead of the standard way of partitioning up disks, instead we logical grouping of disks to create partitions that span across physcial media. As technology progressed, we took our single large disk that we had split into partitions with __fdisk__ and now we supplemented it with multiple disks in place of those partitions.  The Linux kernel needed a new way to manage those multiple disks, especially in regards to a single file system.  *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*
+Instead of the standard way of partitioning up disks, we have logical groupings of disks to create partitions that span physcial media. LVM takes our single large disk and supplemented it with multiple disks in place of those partitions. *"Logical volume management provides a higher-level view of the disk storage on a computer system than the traditional view of disks and partitions. This gives the system administrator much more flexibility in allocating storage to applications and users[^130]."*
 
 ![*LVM diagram*](images/Chapter-11/LVM/LVM.png "LVM")
 
 This diagram creates three concepts to know when dealing with LVM:
 
-* Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit [^131].
 * Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device) [^132].
+* Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit [^131].
 * Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home) [^133].
   * Physical Extent (PE) - This is the unit of storage (blocks) that a PV is split into
   * Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*. 
@@ -224,23 +224,27 @@ This diagram creates three concepts to know when dealing with LVM:
 
 ### Physical Volumes
 
-The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use.  Note that you can choose to use the entire disk ```/dev/sdb``` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the ```pvcreate``` command to *create* physical volumes, same case with the partition.
+The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use.  Note that you can choose to use the entire disk ```/dev/sdb``` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the ```pvcreate``` command to *create* physical volumes, same case with the partition. You can display the details of your physical volumes with the command: `sudo pvdisplay`.
 
 ### Volume Groups
 
-Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to.  The command to add PVs to an LG is: ```vgcreate VOLUME-GROUP-NAME /dev/sdx /dev/sdy```. You can extend this volume group by simply adding another ```pvcreate /dev/sdx1``` command for example and then using the ```vgextend VOLUME-GROUP-NAME /dev/sdz```.  There is also a ```vgreduce``` command that will remove a PV from a Volume Group.  The volume group allows for a single logical management unit for multiple disk/partitions.  This is useful as well for adding additional storage and removing storage devices that may have failed or are not performing at required parameters.
+Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to.  The command to add PVs to an LG is: ```vgcreate VOLUME-GROUP-NAME /dev/sdx /dev/sdy```. You can extend this volume group by simply adding another `pvcreate /dev/sdx1` command for example and then using the ```vgextend VOLUME-GROUP-NAME /dev/sdz```.  There is also a `vgreduce` command that will remove a PV from a Volume Group.  
+
+The volume group allows for a single logical management unit for multiple disk/partitions.  This is useful as well for adding additional storage and removing storage devices that may have failed or are not performing at required parameters. You can display the details of your volume groups with the command: `sudo vgdisplay`.
 
 ### Logical Volumes
 
-From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command ```lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO```. The ```vgdisplay``` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to linear, but that is an application based decision.
-
-Once you have successfully created an LV, now it needs a filesystem installed.  Here you can add XFS, Ext4, Ext2, or any other file-system. You would use the ```mkfs``` proper tool for your filesystem. Once you have the filesystem created then you need a mount point.  Each filesystem type has tools that allow you to extend the file-system automatically without the need to reformat the entire system, if the underlying LV or traditional partition is modified. Not all file-systems have the built in ability to shrink an existing partition.
+From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command `sudo lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO`. The `vgdisplay` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to linear, but that is an application based decision.
 
 ### Extending Logical Volumes
 
-Since LVs are logical they can also be extended and reduced on the fly--that alone is a better replacement for standard partitioning.  The command `lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME` will extend the LV to become 50 GB in size. Using `-L+50G` will add 50 additional gigabytes to an existing LV's size.
+Since LVs are logical they can also be extended and reduced on the fly.  
 
-
+* The command `sudo lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME` will extend the LV to become 50 GB in size. 
+* Using `-L+50G` will add 50 additional gigabytes to an existing LV's size. Note that you will need to use the 
+* Using the command `sudo lvextend -l +100%FREE /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME` will extend the disk to fill all additional free space
+  * Note you have to run the command `sudo resize2fs /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME`
+  * This will resize the filesystem to the size you extnded your logical volume to
 
 ### LVM Snapshots
 
@@ -280,11 +284,11 @@ ls -l /mnt/disk1
 # What do you see?  Why?
 ```
 
-You can remove the snapshots by unmounting the partition ```umount``` and the using the ```lvremove``` command.  How would you do this same process using ext4 without LVM?
+You can remove the snapshots by unmounting the partition ```umount``` and the using the ```lvremove``` command.
 
 ## Filesystems
 
-To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory.  A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.
+To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory. A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.
 
 If you have used Windows before you are familiar with FAT32 and NTFS filesystems. Since Windows is created and curated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the other-hand supports multiple different filesystems that serve many different purposes.
 
@@ -353,7 +357,7 @@ XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a hi
 
 XFS was ported to Linux in 2001 as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  Red Hat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large sized files.  Red Hat also hired many of the SGI engineers and developers who created this filesystem and brought it back into production quality.  Red Hat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem on the RHEL product.
 
-XFS is notoriously bad at being used by an everyday computer because its strength is build on using a system storing large database files or archiving large files.  You can install the tools needed to make a partition of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command.  We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.
+XFS is notoriously bad at being used by an everyday computer because its strength is built on storing large database files or using large files. You can install the tools needed to make a partition of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command. We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.
 
 ### Next Generation Linux Filesystems
 
@@ -361,22 +365,22 @@ The ext4 filesystem served its purpose well but by 2008 became apparent that ext
 
 ### Btrfs
 
-This project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS filesystem.  By 2013 it was considered stable and included in the Linux Kernel.  Facebook is currently where Chris Mason is employed and they are championing the use of this operating system on [their infrastructure](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
+This project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS filesystem. By 2013 it was considered stable and included in the Linux Kernel.  Facebook is currently where Chris Mason is employed and they are championing the use of this operating system on [their infrastructure](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
 
-Btrfs is a modern copy-on-write (CoW) filesystem for Linux. Copy-on-write is at its core and optimization pattern that uses pointers instead of making multiple copies of data on a disk, therefore reducing write operations.  When the original file is modified then a true on disk copy of the file is made[^ch11f121]. Chris Mason said the goal of Btrfs is, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
+Btrfs is a modern copy-on-write (CoW) filesystem for Linux. Copy-on-write is at its core and optimization pattern that uses pointers instead of making multiple copies of data on a disk, therefore reducing write operations. When the original file is modified then a true on disk copy of the file is made[^ch11f121]. Chris Mason said the goal of Btrfs is, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
 
 Btrfs adds support for resource pooling and using extents to make logical drives across physical devices removing the need for the use of LVM, volume management is now built in. Recently openSUSE and Fedora have adopted Btrfs as a filesystem, but support for Btrfs was remove in RHEL 8 (in favor of XFS and LVM).
 
-In order to format a system using Btrfs you need to install ```btrfs-progs``` on Fedora 32+ and Ubuntu 20.04.  
+In order to format a system using Btrfs you need to install ```btrfs-progs```.  
 
        Install Btrfs tools
 ----------------------------------
 `sudo dnf install btrfs-progs`
 `sudo yum install btrfs-progs`
-`sudo apt-get install btrfs-tools` - Ubuntu 18.04
-`sudo apt-get install btrfs-progs` - Ubuntu 20.04
+`sudo apt install btrfs-tools` - Ubuntu 18.04
+`sudo apt install btrfs-progs` - Ubuntu 20.04 + 22.05
 
-Table:  Demonstration of Btrfs syntax
+Table: Demonstration of Btrfs syntax
 
 ### Btrfs Creation Commands
 

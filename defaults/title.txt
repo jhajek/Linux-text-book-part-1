@@ -1,0 +1,10 @@
+bb---
+title: 
+- type: main
+  text: Understanding the Technology and Philosophy of Free and Opensource Operating Systems - Part I
+- type: subtitle
+  text: Operantem Doctrina et Philosophia Opensource Operating Systems - Parte Unum
+author: Jeremy Hajek
+rights:  Creative Commons Non-Commercial Share Alike 3.0
+language: en-US
+...
