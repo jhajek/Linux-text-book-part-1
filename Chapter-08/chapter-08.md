@@ -769,11 +769,11 @@ At the completion of this lab you will further your knowledge of shell scripting
 
 #### Part 1
 
-1) Create a shell script named: `delete-chapter-05.sh` which will delete the output of Chapter-05 lab if present, otherwise print a message saying that "Chapter 05 lab content is not present"
+1) Create a shell script in your `HOME directory > Documents`, named: `delete-chapter-05.sh` which will delete the output of Chapter-05 lab if present, otherwise print a message saying that "Chapter 05 lab content is not present"
 
-1) Create a shell script using the deliverables from the Chapter-05 lab. Take all of the commands from Chapter-05 Part-1 and combine them into a single shell script named: `chapter-05-lab.sh` and execute them
+1) Create a shell script in your `HOME directory > Documents` using the deliverables from the Chapter-05 lab. Take all of the commands from Chapter-05 Part-1 and combine them into a single shell script named: `chapter-05-lab.sh` and execute them
 
-1) Create a shell script using IF statements and primary expressions to *grade* your `chapter-05-lab.sh` script by checking for the precense of the proper directories and files being created and printing out log messages. Name the file: `grade-chapter-05-lab.sh`
+1) Create a shell script in your `HOME directory > Documents` using IF statements and primary expressions to *grade* your `chapter-05-lab.sh` script by checking for the precense of the proper directories and files being created and printing out log messages. Name the file: `grade-chapter-05-lab.sh`
 
 #### Part 2
 
@@ -799,7 +799,7 @@ At the completion of this lab you will further your knowledge of shell scripting
 
 #### Part 3
 
-The goal of this shell script is to add IF statement logic to prevent errors in our code in case of duplicates in relation to account creations on a server.
+The goal of this shell script is to add IF statement logic to prevent errors in our code in case of duplicates in relation to account creations on a server. Create the shell script in your in your `HOME directory > Documents` and name it `l8ex12.sh`.
 
 * Write a shell script using a while script to read in the content of roster.txt into a variable named $LINE
   * For each user check for the existance of a home directory
