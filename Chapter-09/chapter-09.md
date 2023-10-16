@@ -78,7 +78,7 @@ The first column is either a user account (no %) or preceded by a % sign meaning
 
   Group                    Hosts                    Target User                      Commands
 --------------- -----------------------------    ------------------   -----------------------------------------
-   %sudo             server-1, db-server              bkupuser               /usr/sbin/postfix /usr/sbin/doveadm
+   %sudo             server-1, db-server              bkupuser               /usr/bin/mysqldump /usr/bin/gzip
    %admin                ALL                         dbadmin                              ALL
    %cia                  ALL                           ALL                               ALL
 --------------- -----------------------------    ------------------   -----------------------------------------
@@ -337,11 +337,17 @@ The htop command is an extension to the Linux top command.  It is written in C u
 
 You were probably wondering if systemd had its own system monitoring tool.  And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd.  The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the ```/proc``` filesystem.  You run the command ```systemd-cgtop``` from the commandline with preset flags like top or you run it in interactive mode. In interactive mode you would type ```%``` percent to toggle between CPU time as time or percentage.  You would type p, t, c, m, i to sort by path, number of tasks, CPU load, memory usage, or IO load.  The letter *q* is to quit.  There are other configuration options displayed by typing ```man systemd-cgtop```.
 
-### atop
+### btop
 
-There is one other monitoring tool named ```atop```.  The project is located at [http://www.atoptool.nl/](http://www.atoptool.nl/ "atop") The ```atop``` command can be installed via apt-get or yum/dnf.  The ```atop``` command has a series of features compared to other monitoring tools.
+You can install [btop](https://github.com/aristocratos/btop "webpage for btop") for a smoother looking text-based system resource usage output for processor, memory, disks, network and processes. 
 
-![*atop*](images/Chapter-09/monitoring/top/atop.png "atop")
+### Network Monitoring Tools
+
+These tools are used like the *top commands but monitor network interfaces and their traffic. All can be run on a server based system, textbased and no GUI required.
+
+* iftop
+* nethogs
+* tshark
 
 ### Additional Monitoring Tools
 
@@ -370,10 +376,6 @@ In addition to memory, CPU, and process information.  You can other commands to 
 #### Procmon
 
 [Process Monitor (Procmon)](https://github.com/microsoft/ProcMon-for-Linux "Download site for Procmon") is a Linux reimagining of the classic Procmon tool from the Sysinternals suite of tools for Windows. Procmon provides a convenient and efficient way for Linux developers to trace the syscall activity on the system.
-
-#### iftop
-
-Dynamic real-time view of network connetions.  This can be installed by your package manager.
 
 #### iotop
 

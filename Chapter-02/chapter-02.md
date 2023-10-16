@@ -331,7 +331,7 @@ After the BSD and AT&T lawsuit was settled the BSD code base split into three an
 * NetBSD
 * OpenBSD, split from NetBSD
 
-## Third Phase -- Free and Opensource Software Enters the Enterprise
+## Third Phase -- Opensource Licensing​
 
 ### Free Software vs. Opensource Software
 
@@ -410,7 +410,7 @@ The creators of the Opensource initiative (OSI) took a different approach to mar
 
 In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Creative Commons") which covers works that are not considered code.  Writings and music are covered by Creative Commons, including all of Wikipedia.  Creative Commons has a variety of options you can include that allow for remixing and redistribution or no distribution.  There are options that allow for commercial redistribution or prevent it.  There are provisions to make sure are credited, and others that are permissive.  This way you can choose how your work will be used and contribute to the "[Commons](https://creativecommons.org/about/cclicenses/ "Creative Commons License Types")."
 
-## Fourth Phase -- The Rise of Commercial Linux
+## Fourth Phase -- The Rise of Enterprise Linux
 
 As the 1990s came to a close we began to see established companies adopting and using opensource projects in the enterprise, such as MySQL for database and GCC as a C/C++ compiler. Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils") and a GUI interface. Of all the Linux companies that started by the turn of the century, Red Hat Linux is one of the few remaining and by far the most successful. How successful? To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap") Most of the Linux distributions started pre-2003 no longer exist.
 
