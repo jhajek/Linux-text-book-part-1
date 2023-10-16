@@ -652,7 +652,7 @@ d. sed
 5) What would be the correct syntax to find and replace the value 127.0.0.1 with 0.0.0.0 in a the file `50-server.cnf`?
 a. `sudo sed "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
 b. `sudo sed -s "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
-c. `sudo sed -i "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
+c. `sudo sed -i "s/127.0.0.1/0.0.0.0/g" 50-server.cnf`
 d. `sudo sed -r "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
 
 6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables)
@@ -722,7 +722,7 @@ b. STRING
 c. NULL
 d. CHAR
 
-17) Which of these answers will execute a shell script named ~/backup.sh at 2 am every night of the week?
+17) Which of these answers will execute a shell script named ~/backup.sh at 2 am every day?
 a. `* * * * * ~/backup.sh`
 b. `2 * * * * ~/backup.sh`
 c. `* 2 * * * ~/backup.sh`
