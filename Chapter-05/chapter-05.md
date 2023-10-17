@@ -21,7 +21,7 @@ The terms `commandline`, `terminal`, and `shell` have been used interchangeably 
 
 The terms `files`, `folders`, and `directories` can be used interchangeably in regards to this chapter's contents.  Remember from Chapter 2, everything in Unix is a *file*, meaning that a folder which is also a directory is also a file from the operating systems point of view. You will also notice a tag __Exercise:__ in blockquotes throughout the chapter with little exercises that will let you follow along as you read.  
 
-## What is a Filesystem
+## The Filesystem
 
 A filesystem is a way for the operating system to manage and access files.  It is how data is segregated and the mechanism the operating system uses to retrieve and write data.  The benefit of a filesystem is it will keep track of the locations in memory of your files.  When you double click on a jpg picture in your photo directory, the operating system talks to the filesystem and says, "I want this picture, where is it located?"  The filesystem has an index table of all files location in memory and looks up the address of the file.  That address is given to the kernel which then passes it to the disk controller for the data retrieval portion.  The bits are effectively returned to the operating system from the kernel and the image is rendered to the screen.  
 
@@ -41,7 +41,7 @@ Why are the two filesystem hierarchies different?  The answer goes back to the d
 
 > "This is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems.[^49]"  
 
-In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX ensures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by its Open Group Base Specification Issue number, which is 7 or POSIX 7.   For more details on the specifics of POSIX and what is does see APPENDIX A at the back of the book.
+In this way a single or a small consortium of Unix vendors could not "run away" with the market. POSIX ensures a level of interoperability between software across Unix distros that have declared POSIX compliance.  The first official POSIX standard was released in 1988, a few years ahead of the creation of Linux (1991).  The current version is [POSIX.1-2008](http://pubs.opengroup.org/onlinepubs/9699919799/ "POSIX 7").  It is also referred to by its Open Group Base Specification Issue number, which is 7 or POSIX 7.
 
 It is great to have a standard but what exactly does POSIX do?  Even in that question the answer varies widely, since Unix was already in use at the time for over 15+ years before a standard was in place.  This required the standard to back-define some issues and cave on other issues. POSIX defines at a minimum what a certified Unix based system must support feature and API wise, no more, no less.  It does not restrict extra non-POSIX features from being included.  In reality there is no POSIX Unix version like there is GPL compliant GNU/Linux distros. Most Linux distros are very POSIX compliant by nature, but very few systems are certified POSIX compatible.  For example, POSIX doesn't define a default filesystem other than requiring /, /tmp, and /dev be present.
 
@@ -59,7 +59,7 @@ The dream of a unified Linux standard never really occurred. __No one implements
 
 As we saw in the fifth phase of Unix/Linux maturity, as Linux companies became viable businesses at the turn of the century, there was a fear that a single company could do what Microsoft had done and corner the market and force all other Linux distributions to be incompatable. So in 2002, United Linux was formed. It was a group united to making a single compatible Linux distro that would compete against Red Hat Linux. It consisted of [SUSE](https://www.suse.com/ "webpage for SUSE Linux"), then owned by [Novell](https://en.wikipedia.org/wiki/Novell "wiki for Novell"), Oracle, and Caldera Linux, which was renamed [SCO Group](https://en.wikipedia.org/wiki/SCO_Group "wiki for SCO group"). The effort collapsed in 2004, when the SCO Group turned around and claimed it owned the Unix Trademarks and that Novell/SUSE, along with IBM, were infringing on their patents. It took a decade, but the courts eventually dismissed SCO Groups claim, but United Linux was dead.
 
-Ironically, a second effort at what might be called the "New United Linux" is being formed by the [ELA - Enterprise Linux Association](https://en.wikipedia.org/wiki/Caldera_International "webpage for the ELA announcemnt"). This group is comprised of SUSE, Oracle, and CIQ and is trying to make a standard Enterprise Linux to compete with Red Hat, forked from the Red Hat Enterprise linux code base.
+Ironically, a second effort at what might be called the "New United Linux" is being formed by the [ELA - Enterprise Linux Association](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage for the ELA announcemnt"). This group is comprised of SUSE, Oracle, and CIQ and is trying to make a standard Enterprise Linux to compete with Red Hat, forked from the Red Hat Enterprise linux code base.
 
 ### Lennart Poettering's thoughts on POSIX
 
@@ -73,7 +73,7 @@ Lennart Poettering, the Red Hat engineer and leader of the systemd init system h
 
 #### Linux Filesystem Standard Hierarchy
 
-The one useful thing that came out of the LSB is the __Filesystem Hierarchy Standard__, or *FHS* [^47][^61].  This is a voluntary standard maintained by the [Linux Foundation](http://www.linuxfoundation.org/ "Linux Foundation") that includes a standard hierarchy of directories and optional directories that exists under the __root__ in a standard Linux distro.  You should *memorize* each directory name and its general function [^63].  
+The one useful thing that came out of the LSB is the __Filesystem Hierarchy Standard__, or *FHS* [^47][^61].  This is a voluntary standard maintained by the [Linux Foundation](https://wiki.linuxfoundation.org/lsb/fhs-30 "Linux Foundation") that includes a standard hierarchy of directories and optional directories that exists under the __root__ in a standard Linux distro.  You should *memorize* each directory name and its general function [^63].  
 
 Directory           Function
 ----------  ---------------------------------------------------------------------------------------------
@@ -91,7 +91,7 @@ srv         Data for services provided by this system
 __tmp__         Temporary files - some distros clear this directory upon reboot (pronounced *"temp"*)
 __usr__         Secondary hierarchy - contains X, KDE or GNOME, plus documentation
 __var__         Variable data - used for storing databases, webserver files, and application logs
-*proc*        Virtual filesystem created at runtime providing process and kernel information as files.
+*proc*        Virtual filesystem created at runtime providing process and kernel information as files
 ----------  ---------------------------------------------------------------------------------------------
 
 ![*Linux Filesystem Hierarchy Standard - items not bold from above will not be included*](images/Chapter-05/filesystems/chapter-05-filesystem-hierarchy-diagram.png "Hierarchy")
@@ -109,29 +109,11 @@ __lib64__       Alternate home for 64 bit libraries
 
 ![*Fedora root full directory listing*](images/Chapter-05/filesystems/fedora-30.png "Fedora root directory listing")
 
-#### /usr standard subdirectories
-
-There are a series of standard directory locations that are under /usr that you need to know as well.
-
-/usr
-
-: Secondary hierarchy for read-only user data; contains the majority of (multi-)user utilities and applications.
-
-sub-dir                                      Function
----------  ----------------------------------------------------------------------------------------
-bin              Non-essential command binaries (not needed in single user mode); for all users.
-lib              Libraries for the binaries in /usr/bin/ and /usr/sbin/.
-local             Tertiary hierarchy for local data, specific to this host.
-sbin              Non-essential system binaries, e.g., daemons for various network-services.
-src               Source code, e.g., the kernel source code with its header files.
-X11R6             X Window System, Version 11, Release 6 (up to FHS-2.3, optional).
----------  ----------------------------------------------------------------------------------------
-
 #### Red Hat vs POSIX and LSB
 
-Over the years and by tradition inherited from Unix, this is the generally accepted Linux standard filesystem.  This layout harkens back to Ken Thompson's original Unix design of nearly ~50 years ago. This means that this structure is wide spread and well known.  The downside is a sense of tradition and nostalgia has crept in about this filesystem structure.   Note that Red Hat based distros have made a move to change this arguing that when Unix was designed it was constrained by hardware restrictions that no longer exist and should not be maintained for tradition's sake.
+The traditional file system layout goes back to the original design of Unix 50+ years ago. This means that this structure is wide spread and well known. Modern Linux realized that some of the directories defined are completely arbitrary, such as /bin, /sbin, /lib, and /lib64. There are historic reasons for these being discrete directories and also repeated under the /usr directory.
 
-Red Hat is arguing that this organization is arbitrary anyway and based on a technology model that doesn't exist anymore.  They want to update the filesystem hierarchy but need to maintain backwards compatibility.  They may have a point.  Some of the application splits between ```/bin, /sbin, /lib, and /lib64``` are completely arbitrary. Red Hat maintains this directory hierarchy but uses symlinks (or a shortcut in the Windows parlance) to their actual location now stored in ```/usr``` [^52].  Red Hat also says this makes Linux applications more in-line with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros. By using the command ```ls -l /``` you can see the light blue colored soft links to the actual directories.
+To move things back in line with the original Unix design, Red Hat led the charge in the FSH to merge /bin, /sbin, /lib, and /lib64 to be under /usr[^52] and update the FSH. The discrete directories are left in place as symlinks for backwards compatability. Red Hat also says this makes Linux applications more inline with Unix and Solaris, therefore making it easier for customers and companies using Unix and Solaris to port over their software or migrate to Red Hat based distros. By using the command `ls -l /` you can see the light blue colored soft links to the actual directories.
 
 ## Path
 
