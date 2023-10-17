@@ -76,9 +76,12 @@ The __vi editor__ has 3 modes:
 2) INSERT mode used to insert/delete text
 3) EX mode used to issue commands that edit lines and change the display of the vi editor
 
-To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modification commands will automatically take you to __INSERT__ mode.  You will know you are in INSERT mode because the bottom of the screen will say INSERT.
+When you open a file in vi, you start in Command Mode by default. In this mode, you can navigate through the document and perform various editing tasks using commands. To enter Command Mode at any time, simply press the __ESC__ key (escape key). Hitting escape plus one of the text modification commands will automatically take you to INSERT mode. In Insert Mode, you can freely type and edit the text as you would in any other text editor. You will know you are in INSERT mode because the bottom of the screen will say INSERT.
+
+[Note: The Esc key is used to exit from any editing mode (Insert or Ex) and return to the default Command Mode.]
 
 > __Example usage:__  Let's type a hello world message in the vi editor. Continuing from the example above, to be able to insert text to the file you need to switch modes to INSERT mode.  Hit `ESC` then `i` and then type ```hello world!```  
+
 
 > __Example usage:__ What happens when you hit an arrow key after typing ```hello world!```?  Why is this? Remember we need to switch modes between COMMAND mode and INSERT command.
 
