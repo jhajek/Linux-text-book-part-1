@@ -26,7 +26,7 @@ If you wanted to list the contents of any directory starting with the letters *"
 
 ![*User -> Shell -> Kernel -> Shell -> User*](images/Chapter-06/shells/figure2.png "User -> Shell -> Kernel -> Shell -> User")
 
-In the above diagram, the box labeled *Expansion*, is where the shell *expands* any meta-characters into text that can be interpreted by the shell.  The following is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.
+In the above diagram, the box labeled *Expansion*, is where the shell *expands* any meta-characters into text that can be interpreted by the shell. The following is a list of the major shell meta-characters you need to know.  More information and examples can be found at the [Linux Documentation Project's](http://tldp.org/LDP/abs/html/special-chars.html "TLDP") website.
 
 \&\&
 
@@ -443,7 +443,7 @@ This is just the beginning of `grep` as we will expand upon its powerful usage a
 
 ### find and locate commands
 
-The ```find``` command is used to search for files in a directory hierarchy.  This command has additional parameters that can be used to find files based on time or size criteria.  This is useful searching for files based on when it was created or for finding large files that might be cluttering up the system.   The ```find``` command can also receive shell meta-characters as part of the search pattern. All numeric values can be denoted in this fashion:
+The `find` command is used to search for files in a directory hierarchy. This command has additional parameters that can be used to find files based on time or size criteria. This is useful searching for files based on when it was created or for finding large files that might be cluttering up the system. The `find` command can also receive shell meta-characters as part of the search pattern. All numeric values can be denoted in this fashion:
 
  Character          Value
 -----------  -----------------------
@@ -517,9 +517,7 @@ Some of the common categories you can use for find are: file time parameters, fi
 
 #### Locate
 
-An alternative to using ```find``` is the ```locate``` command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your Linux distro by default. You can install it by typing ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```. The ```locate``` command reads one or more databases prepared by ```updatedb``` and writes file names matching at least one of the PATTERNs to standard output, one per line [^71].
-
-There are actually 3 versions of locate, GNU locate, slocate, and mlocate.  What the ```locate``` command does is make a database of all files on the system, thereby making lookups faster.  You run the sudo `updatedb` command to update the index (done every time on reboot).  
+An alternative to using ```find``` is the ```locate``` command. This command is often quicker and can search the entire file system with ease.  The ```locate``` command is not part of the GNU coretools so it may not be present on your Linux distro by default. You can install GNU locate: ```sudo apt-get install mlocate``` or ```sudo dnf install mlocate```. The ```locate``` command reads one or more databases prepared by ```updatedb``` and writes file names matching at least one of the PATTERNs to standard output, one per line [^71]. What the ```locate``` command does is make a database of all files on the system, thereby making lookups faster. You need to run the `sudo updatedb` command to update the index (done every time on reboot).  
 
 > __Example usage:__ ```sudo updatedb; locate *.png; locate chapter-05.md```
 

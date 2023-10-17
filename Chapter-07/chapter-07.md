@@ -74,7 +74,7 @@ The __vi editor__ has 3 modes:
 
 1) COMMAND mode used to position the cursor
 2) INSERT mode used to insert/delete text
-3) EX mode used to issue commands that edit lines and change the display of the vi editor.
+3) EX mode used to issue commands that edit lines and change the display of the vi editor
 
 To transition from command mode to insert mode you use the __ESC__ key.  Hitting escape plus one of the text modification commands will automatically take you to __INSERT__ mode.  You will know you are in INSERT mode because the bottom of the screen will say INSERT.
 
