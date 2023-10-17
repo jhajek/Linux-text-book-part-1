@@ -205,7 +205,7 @@ __vi__ also has the ability to find and replace via a single line or globally.  
 
 `:s/fall2020/spring2021/g`
 
-:  This command the *s* tells us to substitute the word *fall2020* for the word *spring2021* and the trailing *g* means every occurrence on that line, but NOT every occurence in the file
+:  This command the *s* tells us to substitute the word *fall2020* for the word *spring2021* and the trailing *g* means every occurrence on that line, but NOT every occurrence in the file
 
 `:1,$s/&#47;/\//g`
 
@@ -217,7 +217,7 @@ __vi__ also has the ability to find and replace via a single line or globally.  
   
 `:47,86s/<br \/>//g`
 
-:  This command tells use lines 47-86 and strip out all the extranious ```<br />``` tags. Note the backslash to escape the forward slash.
+:  This command tells use lines 47-86 and strip out all the extraneous ```<br />``` tags. Note the backslash to escape the forward slash.
 
 ### Why vi Key Bindings are as They Are
 
@@ -286,14 +286,14 @@ Not all systems store the bash binary in ```/bin/bash```.  You will need to chec
 
 ![*which bash on Fedora*](images/Chapter-07/editors/bash/which-fedora.png "which Fedora")  
 
-Remember the command to insert a new line?  That would be ```ESC shift + o```.  The rest of creating a shell script is the same as you have been doing on the command line.  The shell script will execute lines in sequential order allowing you to chain commands together.  Let's type some commands to display the last 10 lines of the `hosts.deny` file provided from chapter 7 and add in a message to the user.
+Remember the command to insert a new line?  That would be ```ESC shift + o```.  The rest of creating a shell script is the same as you have been doing on the command line.  The shell script will execute lines in sequential order allowing you to chain commands together.  Let's type some commands to display all the IP address on your host.
 
 ```bash
 #!/usr/bin/bash
 
-echo "Here is the content of the ~/Documents/hosts.deny file"
+echo "Here are the IP addreseses of your host"
 echo "********************************************************"
-tail ~/Linux-text-book-part-1/files/Chapter-07/logs/hosts.deny
+hostname -I
 echo "********************************************************"
 ```
 
@@ -308,7 +308,7 @@ The file is correctly named but we have a problem.  The system only knows about 
 ```bash
 # Show the system path from the commandline
 echo $PATH
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 ```
 
 There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary. Note the absolute paths are chained together with colons `:`. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it?   Remember the single-dot operator `./`? That tells the operating system to look here--overriding the system path. Try and type `./list-ip.sh` what happens now?
