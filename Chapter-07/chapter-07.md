@@ -82,12 +82,11 @@ When you open a file in vi, you start in Command Mode by default. In this mode, 
 
 > __Example usage:__  Let's type a hello world message in the vi editor. Continuing from the example above, to be able to insert text to the file you need to switch modes to INSERT mode.  Hit `ESC` then `i` and then type ```hello world!```  
 
-
 > __Example usage:__ What happens when you hit an arrow key after typing ```hello world!```?  Why is this? Remember we need to switch modes between COMMAND mode and INSERT command.
 
 ## vi Command Cheat Sheet
 
-There are over 150 distinct commands in vi.   But to be proficient you need to memorize *initially* about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger INSERT mode after you execute them.  For instance the ```ESC then a``` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT mode after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard and case matters!
+There are over 150 distinct commands in vi.   But to be proficient you need to memorize *initially* about ~25 key commands.  I have provided those in the charts below.  Some of the commands automatically trigger INSERT mode after you execute them.  For instance the `ESC` then `a` command will append or add text after the end of the current line.  It makes sense that you would want to enter INSERT mode after typing an append command.  Remember to see the true advantage try to keep your fingers on the *home row* of the keyboard and case matters!
 
 : Positional Commands That Trigger Insert Mode
 
