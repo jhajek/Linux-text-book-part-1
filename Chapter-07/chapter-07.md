@@ -100,7 +100,7 @@ There are over 150 distinct commands in vi.   But to be proficient you need to m
     O             add a new blank line above the cursor
 -----------   ---------------------------------------------------
 
-: Line Position Commands That Trigger Insert Mode
+: Line Position Commands Trigger Insert Mode
 
   Command                 Command Description
 -----------   ----------------------------------------------------------
@@ -180,19 +180,20 @@ __EX__ mode also contains the ability to search for occurrences of text patterns
 
 : will search forwards for any lines containing either *Mozilla* or *mozilla* and highlight each occurrence in the file you are editing in __vi__.
 
-#### Search Backwards
+#### Searching
 
 `?Mozilla`
 
-: will search the file backwards for the word *Mozilla*.
+: Prepending the `?` will search the file backwards for the word *Mozilla*.
 
-`/Mozilla\/?\.0`
+`/Mozilla\/5*`
 
-:  This is where we can combine shell meta-characters inside of __vi__ for searching for Mozilla versions
+:  This pattern will search for anything containing `Mozilla/5`. In this case notice the introduction of the escape character __\\__. Normally the __/__ meta-character has a meaning but in our pattern we want it treated
+as text
 
-`?MSIE\\+[6-8]*`
+`/MSIE+[6-8]`
 
-:  This allows for backwards shell meta-character search. In this case notice the introduction of the escape character __\\__. Normally the __+__ sign has meaning but in our pattern we want to find all the old versions of Internet Explorer 6-8 that are visiting our blog.  To do this we pass the line escaping the __+__ because we want it to match as a text character not as a shell meta-character.
+:  We want to find all the old versions of Internet Explorer 6-8 that are visiting our blog. To do this we provide a range that will match `MSIE+6` or `MSIE+7` or `MSIE+8`
 
 ### vi/ex Mode Find and Replace Globally
 
@@ -200,23 +201,23 @@ __vi__ also has the ability to find and replace via a single line or globally.  
 
 `:s/Ubuntu/Fedora`
 
-:  The *s* tells us it is a single find and replace or substitute.  This is a single instance replacement.
+:  The *s* tells us it is a single find and replace or substitute.  This is a single instance replacement and the word needs to be present on the line where the cursor is
 
 `:s/fall2020/spring2021/g`
 
-:  This command the *s* tells us to substitute the word *fall2020* for the word *spring2021* and the trailing *g* means every occurrence on that line.
+:  This command the *s* tells us to substitute the word *fall2020* for the word *spring2021* and the trailing *g* means every occurrence on that line, but NOT every occurence in the file
 
 `:1,$s/&#47;/\//g`
 
-: There is a wildcard option for the line range as well using the `%`
+:  This command has a range prefix, the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
 
 `:%s/&#47;/\//g`
 
-:  This command has a range prefix, the *1* tells the replacement to start from line 1 and continue to line *$* which is the last line of the file, and replace all occurrences (replace all) of ```&#47;``` which is the html code for a ```/``` and note the escapes needed to replace it with a ```/```
-
+:  There is a wildcard option for the line range as well using the `%`
+  
 `:47,86s/<br \/>//g`
 
-:  This command tells us to do the replacement of lines 47-86 and strip out all the extranious ```<br />``` tags.  Note the backslash to escape the forward slash.
+:  This command tells use lines 47-86 and strip out all the extranious ```<br />``` tags. Note the backslash to escape the forward slash.
 
 ### Why vi Key Bindings are as They Are
 
