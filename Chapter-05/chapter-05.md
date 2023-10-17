@@ -441,11 +441,11 @@ The improvements offered by bash over sh, csh, and ksh include:
 
 #### Open Source sh Replacements
 
-Unlike Bash which provided a *"free"* ```sh``` compatible shell for the GNU system, there was much code written in ```sh``` but no opensource version available.   In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and opensourc version of the Bourne shell.  In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional ```/bin/sh```.
+Unlike Bash which provided a *"free"* `sh` compatible shell for the GNU system, there was much code written in `sh` but no opensource version available. In 1989 Kenneth Almquist released the Almquist Shell (ash) which was an updated and opensourc version of the Bourne shell. In 1995/96 Debian maintainers released another improved version of Ash Shell called the Debian Ash Shell (dash) and this is the standard replacement for the traditional `/bin/sh`.
 
 ## File Permissions and Ownership
 
-Seeing that everything in Linux is file, there is a simple security model.  There are three types of permission per file: __read__, __write__, __execute__.  These files give a combination of permissions.  With __read permission__ you can display the content of a file or copy it, but cannot delete or rename it.  For that you need __write permission__.  If a file is a shell script or an executable binary you will need __execute permission__ for it to run.  How can you tell what permissions a file has?  Type ```ls -l``` see the output.  We have seen this output before and now we will explain it.
+Since everything in Linux is file, there is a simple file-based security model. There are three types of permission per file: __read__, __write__, __execute__. These files give a combination of permissions. With __read permission__ you can display the content of a file or copy it, but cannot delete or rename it. For that you need __write permission__. If a file is a shell script or an executable binary you will need __execute permission__ for it to run. How can you tell what permissions a file has?  Type `ls -l` see the output. We have seen this output before and now we will explain it.
 
 ```bash
 $ ls -l
