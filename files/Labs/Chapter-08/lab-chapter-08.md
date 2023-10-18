@@ -37,9 +37,9 @@ At the completion of this lab you will further your knowledge of shell scripting
     
 1) Using `awk` and other tools, how would you find which ip caused the most HTTP 404 errors? Take a screenshot of the command and the output.  Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log, named `l8ex8.sh`
 
-1) Using `awk` and other tools, how would you capture the top 5 offending IPs? Take a screenshot of the command and the output. Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log, , named `l8ex9.sh`
+1) Using `awk` and other tools, how would you capture the top 5 offending IPs? Use these two files in ```files/Chapter-08/logs```: u_ex150721.log, u_ex151002.log, write a shell script named `l8ex9.sh`
 
-1) Using `sed`, type the command to find the line **bind-address** located in the mariadb database server config file (you might need to install mariadb-server). The file locations are: Fedora ```/etc/my.cnf.d/mariadb-server.cnf``` and Ubuntu ```/etc/mysql/mariadb.conf.d/50-server.cnf```. Comment out the value, change the IP value to 0.0.0.0, and write the change back to the original file.  Take a screenshot of the output, named `l8ex10.sh`
+1) Using `sed`, write a shell script to find the line **bind-address** located in the mariadb database server config file (you might need to install mariadb-server). The file locations are: Fedora ```/etc/my.cnf.d/mariadb-server.cnf``` and Ubuntu ```/etc/mysql/mariadb.conf.d/50-server.cnf```. Comment out the value, change the IP value to 0.0.0.0, and write the change back to the original file, named `l8ex10.sh`
 
 ## Part 3
 
