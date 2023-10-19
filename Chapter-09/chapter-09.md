@@ -401,7 +401,7 @@ sudo useradd -c "This is a user for ITMO-356-01 Fall 2023" -d /home/controller \
 -G sudo -s /bin/bash -m controller
 ```
 
-In Debian distributions there is an abstraction layer called ```adduser``` and ```addgroup``` which are interfaces to the useradd and groupadd commands.  It is just a perl script that passes the values you enter in the menu to the useradd command.  On all other non-Debian distros ```adduser``` is a symlink to ```useradd``` command.  The ```adduser``` command prompts you for information to fill out all the values and is recommended on Debian based systems, but if writing a shell script this is not portable to a non-Debian based distro.
+In Debian distributions there is an abstraction layer called ```adduser``` and ```addgroup``` which are interfaces to the useradd and groupadd commands. It is just a perl script that passes the values you enter in the menu to the useradd command. On all other non-Debian distros ```adduser``` is a symlink to ```useradd``` command. The ```adduser``` command prompts you for information to fill out all the values and is recommended on Debian based systems, but if writing a shell script this is not portable to a non-Debian based distro.
 \newpage
 
 ### userdel and usermod
@@ -420,19 +420,28 @@ Sometimes you need to find detailed information about a user and which groups th
 
 ### /etc/passwd
 
-When a new user is created, the information passed into the ```adduser``` or ```useradd``` command is stored in the ```/etc/passwd``` file (yes it is missing the 'or').  This file originally stored user passwords which had been encrypted, but the file had read access and it was realized that it was a security flaw to allow access in this way.  The actual encrypted passwords were moved to a file called ```/etc/shadow``` and linked via the character *x* in the ```/etc/passwd``` file.  You can see this in the image below.  Also notice from the snippet that there are many many usernames that have been created but only two of them are by your hand.  That is because the system upon install creates many additional users that have single or even legacy purposes that the user will not touch.  At the very end of the screenshot below you see a user named controller, vboxadd, and joe.  Two of those I created, the vboxadd was entered when I installed the VirtualBox Guest Additions.
+When a new user is created, the information passed into the `adduser` or `useradd` command is stored in the `/etc/passwd` file (yes it is missing the 'or'). This file originally stored user passwords which had been encrypted, but the file had read access and it was realized that it was a security flaw to allow access in this way. The actual encrypted passwords were moved to a file called `/etc/shadow` and linked via the character *x* in the `/etc/passwd` file. You can see this in the image below.  Also notice from the snippet that there are many many usernames that have been created but only two of them are by your hand.  That is because the system upon install creates many additional users that have single or even legacy purposes that the user will not touch. At the very end of the screenshot below you see users on a system.
 
-![*/etc/passwd*](images/Chapter-09/user-administration/default/etc-passwd.png "/etc/passwd")
+```
+controller:x:1000:1000:controller,,,:/home/controller:/bin/bash
+fwupd-refresh:x:128:136:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+joseph:x:1001:1001::/home/joseph:/bin/sh
+lincoln:x:1002:1002:Student for ITMO 556:/home/lincoln:/bin/bash
+sshd:x:129:65534::/run/sshd:/usr/sbin/nologin
+```
 
-The syntax is as follows:  Username:password:user-id:group-id:comment-field:home-directory:default-shell.    You can see the encrypted and salted password hash if you have root or sudo privileges by typing ```sudo cat /etc/shadow``` on the command line.
+The syntax is as follows: Username:password:user-id:group-id:comment-field:home-directory:default-shell.    You can see the encrypted and salted password hash if you have root or sudo privileges by typing `sudo cat /etc/shadow` on the command line.
+
+### systemd-homed
+
+Systemd is looking to the future and will be fading out support for the Unix `/etc/passwd` user control and brining in a new systemctl named [systemd-homed](https://systemd.io/HOME_DIRECTORY/ "webpage for systemd-homed").
+
+> *systemd-homed.service(8) manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user, so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata. This document describes the format used by these home directories, in the context of the storage mechanism used.*
 
 ### chmod
 
-Pronounced *"chuh-mod"*. This command allows you to change the permissions or mode of a file.  You can use numeric values to change the permissions all at once.  Or you can use short cuts to assign or remove single permissions.  The outputs look like this:
-
-![*Standard file permissions are 644 - very conservative and secure*](images/Chapter-09/user-administration/standard-permission.png "Standard Permissions")
-
-Why would you want to change permissions?  You need to give write or execute permission to a file.  Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.  Or to give a shell script execute permission so it can be run by other.
+Pronounced *"chuh-mod"*. This command allows you to change the permissions or mode of a file. You can use numeric values to change the permissions all at once. Why would you want to change permissions? You need to give write or execute permission to a file. Or to make sure that only users of a certain group can have write access (therefore delete access) to the content of a file.  Or to give a shell script execute permission so it can be run by other.
 
 ![*Same file with write and execute permission enabled*](images/Chapter-09/user-administration/standard-permission-chmod.png "Standard Permissions")
 
