@@ -318,19 +318,20 @@ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 ```
 
-There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary. Note the absolute paths are chained together with colons `:`. 
+There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the shell parses the command name and looks down this path to try to find the corresponding binary. Note the paths are separated colons `:`. 
 
-When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it?   Remember the single-dot operator `./`? That tells the operating system to look here--overriding the system path. Try and type `./list-ip.sh` what happens now?
+When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it? Remember the single-dot operator `./`? That tells the operating system to look in your **present directory**--overriding the system path. Try and type `./list-ip.sh` what happens now?
 
-```bash
-# Executing the command ls /root on the commandline
-# controller@controller-VirtualBox:~$ ls /root
-# ls: cannot open directory '/root': Permission denied
 ```
+controller@controller-VirtualBox:~$ ./list-ip.sh
+bash: ./list-ip.sh: Permission denied
+```
+
+We have a new error, **permission denied**.
 
 ### Changing Permissions for Execution
 
-The error message tells us that we have ```permission denied```.  Remember back to chapter 6 when we dealt with file permissions? In order for a shell script to be executable we need to give it __execute__ permission.
+The error message tells us that we have `permission denied`. Remember back to chapter 6 when we dealt with file permissions? In order for a shell script to be executable we need to give it __execute__ permission.
 
 ![*ls -l list-ip.sh*](images/Chapter-07/editors/bash/permissions.png "Permissions")
 
@@ -357,7 +358,7 @@ We can change permissions by using the `chmod` command.  What is the current num
 ```chmod ug+rwx list-ip.sh```         Owner and group are give rwx permissions together.
 ------------------------------   -----------------------------------------------------------
 
-You will notice that in the terminal (where supported) files marked executable will turn green. If you use the `ls -lF` flag you will also see that executable files will be marked with an asterisk. Now you can finally execute your command `./list-ip.sh` and see the last ten lines of output from the shell script.
+You will notice that in the terminal (where supported) files marked executable will turn green. Now you can finally execute your command `./list-ip.sh` and see the output from the shell script.
 
 ![*Execute Permission enabled turns green*](images/Chapter-07/editors/bash/execute.png "Execute Permission")
 
