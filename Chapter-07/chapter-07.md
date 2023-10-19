@@ -290,7 +290,7 @@ Remember the command to insert a new line? That would be `ESC shift + o`.  The r
 ```bash
 #!/usr/bin/bash
 
-echo "Here are the IP addreseses of your host"
+echo "Here are the IP addresses of your host"
 echo "********************************************************"
 echo "Current date: $(date)"
 echo "Your IPs are: $(hostname -I)"
