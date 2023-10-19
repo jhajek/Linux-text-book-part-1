@@ -292,7 +292,7 @@ Remember the command to insert a new line? That would be `ESC shift + o`.  The r
 
 echo "Here are the IP addreseses of your host"
 echo "********************************************************"
-echo "Todays $(date)"
+echo "Current date: $(date)"
 echo "Your IPs are: $(hostname -I)"
 uptime
 echo "********************************************************"
