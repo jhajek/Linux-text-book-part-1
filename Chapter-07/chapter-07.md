@@ -285,7 +285,7 @@ controller@controller-VirtualBox:~$ which bash
 /usr/bin/bash
 ``` 
 
-Remember the command to insert a new line? That would be `ESC shift + o`.  The rest of creating a shell script is the same as you have been doing on the command line. The shell script will execute lines in sequential order allowing you to chain commands together. Let's type a command to display all the IP address on your host.
+Remember the command to insert a new line? That would be `ESC shift + o`. The rest of creating a shell script is the same as you have been doing on the command line. The shell script will execute lines in sequential order allowing you to chain commands together. Let's type a command to display all the IP address on your host.
 
 ```bash
 #!/usr/bin/bash
@@ -300,9 +300,11 @@ uptime
 echo "************************************************"
 ```
 
-We need to save the file (w) and quit out of vi (q). You can move to __ex__ mode by hitting `ESC :wq` to save and quit. 
+We need to save the file (w) and quit out of vi (q). You can move to __ex__ mode by hitting `ESC :wq` to save and quit.
 
-Now let us run our shell script.  Type `list-ip.sh` on the command line. What happens? Why?
+## Execute Shell Scripts
+
+Now let us run our shell script. Type `list-ip.sh` on the command line. What happens? Why?
 
 ![*Command not found*](images/Chapter-07/editors/bash/command-not-found.png "Command Not Found")
 
