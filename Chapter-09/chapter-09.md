@@ -459,22 +459,24 @@ All my troubleshooting experience in Linux boils down to three things. I have na
 * Permission
   * Every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la or see if you need sudo.
 * dePendencies
-  * Are all the correct software dependencies installed? Perhaps you are missing a library or have an incompatible version that is preventing a tool from running?  For example in the sample above running `runwhen`, you need Python3 installed.  If you typed ```python runwhen.py``` you would receive a strange python error which would take you off on a useless googling experience?  The problem is you needed to type ```python3 runwhen.py``` and if you don't have python3 installed, you will have a dependency problem.
+  * Are all the correct software dependencies installed? Perhaps you are missing a library or have an incompatible version that is preventing a tool from running? 
+  * If you try to run the commmand `btop` or `links 127.0.0.1` and you don't have these packages installed, you will receive error messages. 
+  * If you don't have the `gcc` compiler installed you won't be able to compile and build the VirtualBox Guest Additions, which will be a dependency error.
 * All else fails and you still have a problem, see if it is a full moon outside.
 
 ## Secure Shell
 
-What happens when you need to remotely access a system and it needs to be secure?  The need for security or encryption of data sent over a network was not apparent.  But as the ability to access data grew and the need to remotely access systems across untrusted networks became a reality the ```rsh``` remote shell was no longer viable.   SSH or Secure Shell became a reality in 1999, appearing first in OpenBSD 2.6, introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, Mac, and now even Microsoft Windows.  In fact [Microsoft was the first ever gold-level sponsor of the OpenBSD project](https://undeadly.org/cgi?action=article&sid=20150708134520 "Microsoft was the first ever gold-level sponsor of the OpenBSD project").
+What happens when you need to remotely access a system and it needs to be secure? The need for security or encryption of data sent over a network was not apparent. But as the ability to access data grew and the need to remotely access systems across untrusted networks became a reality the `rsh` remote shell was no longer viable. SSH or Secure Shell became a reality in 1999, appearing first in OpenBSD 2.6, introduced by the security focused OpenBSD project and quickly adopted universally across Unix, Linux, Mac, and Windows. In fact [Microsoft was the first ever gold-level sponsor of the OpenBSD project](https://undeadly.org/cgi?action=article&sid=20150708134520 "Microsoft was the first ever gold-level sponsor of the OpenBSD project").
 
-By default the SSH *client* is installed on all Linux and Unix systems.  This connection is authenticated via a username and password matching an account on the remote system or an RSA key.
+By default the SSH *client* is installed on all Linux, Unix, MacOS, and Windows 10+ systems. You can access SSH from the command line to check if it is installed via typing: `ssh -V`. You can install the OpenSSH server typing `sudo apt install openssh-server` or `sudo dnf install openssh-server`.
 
-> You can access SSH from the command line via typing: ```ssh -V```
+```
+controller@controller-VirtualBox:~$ ssh -V
+OpenSSH_8.9p1 Ubuntu-3ubuntu0.4, OpenSSL 3.0.2 15 Mar 2022
 
-![*Fedora Native ssh -V*](images/Chapter-09/ssh/fedora30-ssl-v.png "Fedors Native ssh -V")
-
-![*Ubuntu Native ssh -V*](images/Chapter-09/ssh/ubuntu18043-ssl-v.png "Ubuntu Native ssh -V")
-
-> ```sudo apt-get install openssh-server``` or ```sudo dnf install openssh-server```
+[controller@fedora ~]$ ssh -V
+OpenSSH_9.0p1, OpenSSL 3.0.9 30 May 2023
+```
 
 ### Public Key Cryptography
 
@@ -515,11 +517,11 @@ The key's randomart image is:
 
 While having SSH give us secure remote tunnels, it does lead to a potential problem.  It means exposing an open port to the external network.   This can and should be mitigated by things such as VPNs and mandating use of RSA keys only.  But there are many systems that are exposed.  This is a serious security vulnerability as hackers are actively scanning the entire IPv4 space looking for SSH systems and they will simply try to brute force the username and password.
 
-One of the tools to alleviate this is called [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban website").  This is a brute force login denial tool.  This tool will scan the connection (or auth) logs looking for failed connection. Fail2ban can use the default syslog location as well as `journalctl` logs. Fail2ban will count the number of occurrences and the distinct IP and after a user defined threshold of failure will ban any network connection from the offending IP.  This can be a time based back-off or can be a permanent ban, configured by the user in the configuration file. Fail2ban can also ban failed MySQL database connections as well if you have an exposed database server.
+One of the tools to alleviate this is called [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban website").  This is a brute force login denial tool.  This tool will scan the connection (or auth) logs looking for failed connection. Fail2ban can use the default syslog location as well as `journalctl` logs. Fail2ban will count the number of occurrences and the distinct IP and after a user defined threshold of failure will ban any network connection from the offending IP. This can be a time based back-off or can be a permanent ban, configured by the user in the configuration file. Fail2ban can also ban failed MySQL database connections as well if you have an exposed database server. You can install fail2ban: `sudo apt install fail2ban` then enable it and start the service, `sudo systemctl enable fail2ban` and then `sudo systemctl start fail2ban`.
 
 #### OpenSSL
 
-OpenSSL is an Opensource Library used for cryptographic key generation by OpenSSH.  In 2016, it suffered an exploit due to the quality of the library maintaining older code from non-existent systems as well as being woefully underfunded and understaffed.  Take note that although Google built its entire business using opensource and OpenSSL, they contributed almost nothing to its development.   After the exploit a huge infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
+OpenSSL is an Opensource Library used for cryptographic key generation by OpenSSH. In 2016, it suffered an exploit due to the quality of the library maintaining older code from non-existent systems as well as being woefully underfunded and understaffed. Take note that although Google built its entire business using opensource and OpenSSL, they contributed almost nothing to its development. After the exploit a huge infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
 
 The heartbleed OpenSSL bug even has its own website to explain the details of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
 
@@ -560,9 +562,11 @@ From the rsync man page:
 
 Rsync is a fast and extraordinarily versatile file copying tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers a large number of options that control every aspect of its behavior and permit very flexible specification of the set of files to be copied. It is famous for its delta-transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source files and the existing files in the destination. Rsync is widely used for backups and mirroring and as an improved copy command for everyday use.
 
+`rsync dir1/* dir2`
+
 ### ssh-copy-id
 
-After generating an SSH keypair with the command ```ssh-keygen```, you now have the two keys located in you ```~/.ssh``` directory.  The file with the .pub extension is the public key, the other is the private key.  __Guard the private key with your life!__  
+After generating an SSH keypair with the command `ssh-keygen`, you now have the two keys located in you `~/.ssh` directory. The file with the .pub extension is the public key, the other is the private key. __Guard the private key with your life!__  
 
 There is a command that will let you securely exchange RSA keys with a server. This requires you first to have an account on the server (host) you are connecting to so that you can place your identity securely onto that remote server.
 
@@ -603,7 +607,7 @@ In the `ssh_config` file you can modify these lines to increase the security of 
 
 ```Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc```
 
-You would uncomment the line and the entries with a more robust list.  You would want to make sure that the coresponsiding SSH server in the ```sshd_config``` file had the same ciphers set other wise negotiation could fail and no connection would take place[^ch9f109].
+You would uncomment the line and the entries with a more robust list.  You would want to make sure that the coresponsiding SSH server in the `sshd_config` file had the same ciphers set other wise negotiation could fail and no connection would take place[^ch9f109].
 
 ```bash
 
