@@ -294,7 +294,7 @@ echo "Here are the IP addresses of your host..."
 echo "************************************************"
 echo "Current date: $(date)"
 echo "Your IPs are: $(hostname -I)"
-# This is a comment. Uptime is a command to print​
+# This is a comment. Uptime is a command to print
 # the amount of time since last system reboot
 uptime
 echo "************************************************"
