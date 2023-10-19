@@ -276,17 +276,16 @@ The [gedit](https://wiki.gnome.org/Apps/Gedit "gedit") program was released in 1
 
 ## Creating Shell Scripts
 
-Let's open up a terminal and create a shell script.  To do this type: ```vi list-ip.sh``` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive or more commonly called, **she-bang**.  Although we are using the *bash* shell you can create scripts that can be run with other shells.  The first line of a shell script overrides the default shell and runs the script with the shell you determine.
+Let's open up a terminal and create a shell script.  To do this type: `vi list-ip.sh` and from here you will see the screenshot we saw earlier--blank.   The first thing we need to type is a shell directive or more commonly called, **she-bang**. Although we are using the `bash` shell you can create scripts that can be run with other shells.
 
-The first line of any bash script should include:  ```#!/bin/bash``` to make sure that our script is executed with the bash shell.  Normally the ```#``` means a comment, but with the ```!``` after it followed by a path, the comment function is overruled.   ```#!``` can also be pronounced *crunch* *bang*.  
+The first line of any bash script should include: `#!/usr/bin/bash` to make sure that our script is executed with the bash shell. You can use the command `which bash` to find the path to the bash executable. Normally the `#` means a comment, but with the `!` after it followed by a path on the firstline the comment function is overruled. `#!` can also be pronounced *crunch bang*.  
 
-Not all systems store the bash binary in ```/bin/bash```.  You will need to check before you hard code that value.  You can use the ```which``` command that will show you the paths to the binaries.  
+```
+controller@controller-VirtualBox:~$ which bash
+/usr/bin/bash
+``` 
 
-![*which bash on Ubuntu*](images/Chapter-07/editors/bash/which-ubuntu.png "which Ubuntu")  
-
-![*which bash on Fedora*](images/Chapter-07/editors/bash/which-fedora.png "which Fedora")  
-
-Remember the command to insert a new line?  That would be ```ESC shift + o```.  The rest of creating a shell script is the same as you have been doing on the command line.  The shell script will execute lines in sequential order allowing you to chain commands together.  Let's type some commands to display all the IP address on your host.
+Remember the command to insert a new line? That would be `ESC shift + o`.  The rest of creating a shell script is the same as you have been doing on the command line. The shell script will execute lines in sequential order allowing you to chain commands together. Let's type a command to display all the IP address on your host.
 
 ```bash
 #!/usr/bin/bash
@@ -311,7 +310,9 @@ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 ```
 
-There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary. Note the absolute paths are chained together with colons `:`. When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it?   Remember the single-dot operator `./`? That tells the operating system to look here--overriding the system path. Try and type `./list-ip.sh` what happens now?
+There is a system variable named $PATH that is constructed upon boot. It includes the default locations that the essential command binaries, additional command binaries, and user install binaries are located. Every time you execute a command, the system parses the command name and looks down this path to try to find the corresponding binary. Note the absolute paths are chained together with colons `:`. 
+
+When the shell parser finds the first occurrence--it passes that location and executes that matching binary name. In our case the shell script `list-ip.sh` is located in `~/Documents` which is not in the system path listed in the image above. So how can we reference it?   Remember the single-dot operator `./`? That tells the operating system to look here--overriding the system path. Try and type `./list-ip.sh` what happens now?
 
 ```bash
 # Executing the command ls /root on the commandline
