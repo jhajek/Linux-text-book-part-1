@@ -290,12 +290,14 @@ Remember the command to insert a new line? That would be `ESC shift + o`.  The r
 ```bash
 #!/usr/bin/bash
 
-echo "Here are the IP addresses of your host"
-echo "********************************************************"
+echo "Here are the IP addresses of your host..."
+echo "************************************************"
 echo "Current date: $(date)"
 echo "Your IPs are: $(hostname -I)"
+# This is a comment. Uptime is a command to print​
+# the amount of time since last system reboot
 uptime
-echo "********************************************************"
+echo "************************************************"
 ```
 
 We need to save the file (w) and quit out of vi (q). You can move to __ex__ mode by hitting `ESC :wq` to save and quit. 
