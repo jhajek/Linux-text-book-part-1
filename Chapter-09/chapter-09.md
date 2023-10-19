@@ -435,7 +435,7 @@ The syntax is as follows: Username:password:user-id:group-id:comment-field:home-
 
 ### systemd-homed
 
-Systemd is looking to the future and will be fading out support for the Unix `/etc/passwd` user control and brining in a new systemctl named [systemd-homed](https://systemd.io/HOME_DIRECTORY/ "webpage for systemd-homed").
+Systemd is looking to the future and will be fading out support for the Unix `/etc/passwd` user control and brining in a new systemctl named [systemd-homed](https://systemd.io/HOME_DIRECTORY/ "webpage for systemd-homed"). As of 2023, systemd-homed is not deployed by any major Linux distros.
 
 > *systemd-homed.service(8) manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user, so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata. This document describes the format used by these home directories, in the context of the storage mechanism used.*
 
