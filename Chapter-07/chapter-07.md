@@ -300,7 +300,7 @@ uptime
 echo "************************************************"
 ```
 
-We need to save the file (w) and quit out of vi (q). You can move to __ex__ mode by hitting `ESC :wq` to save and quit.
+We need to save the file (`:w`) and quit out of vi (`:q`). You can move to __ex__ mode by hitting `ESC :wq` to save and quit.
 
 ## Execute Shell Scripts
 
