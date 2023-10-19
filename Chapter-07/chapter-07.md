@@ -292,11 +292,15 @@ Remember the command to insert a new line? That would be `ESC shift + o`.  The r
 
 echo "Here are the IP addreseses of your host"
 echo "********************************************************"
-hostname -I
+echo "Todays $(date)"
+echo "Your IPs are: $(hostname -I)"
+uptime
 echo "********************************************************"
 ```
 
-Now we need to save the file (w) and quit out of vi (q).  You can move to __ex__ mode by hitting `ESC :wq` to save and quit.   Now let us run our shell script.  Type `list-ip.sh` on the command line. What happens? Why?
+We need to save the file (w) and quit out of vi (q). You can move to __ex__ mode by hitting `ESC :wq` to save and quit. 
+
+Now let us run our shell script.  Type `list-ip.sh` on the command line. What happens? Why?
 
 ![*Command not found*](images/Chapter-07/editors/bash/command-not-found.png "Command Not Found")
 
