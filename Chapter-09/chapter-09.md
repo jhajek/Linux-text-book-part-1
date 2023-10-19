@@ -487,9 +487,29 @@ How do you then exchange data? First you generate a keypair. There is the [defau
 * `ssh-keygen -t rsa -b 4096`
 * `ssh-keygen -t ed25519`
 
-![*ssh-keygen command output*](images/Chapter-09/ssh/ssh-keygen.png "ssh-keygen output")
-
-\newpage
+```
+$ ssh-keygen -t rsa -b 4096
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/vagrant/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/vagrant/.ssh/id_rsa
+Your public key has been saved in /home/vagrant/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:XxObpGsM3QhN04YCnbHDekkg6eKwhp41ojVGdmIhg2w vagrant@bookworm
+The key's randomart image is:
++---[RSA 4096]----+
+|o   ..oo.ooo     |
+|+E. .. o++..o    |
+|.o o    *...o    |
+|. * o  o = = +   |
+|.B +  . S + *    |
+|oo=o   . + o .   |
+|+o+..     =      |
+|.o       .       |
+|                 |
++----[SHA256]-----+
+```
 
 #### SSH Security
 
@@ -526,19 +546,19 @@ Primary development occurs inside the OpenBSD source tree with the usual care th
 
 Secure FTP uses the traditional FTP program but over a secure SSH tunnel. This allows you keep using existing file transfer methodologies but in a secure manner.  FTP (file transfer protocol) is an unencrypted way to transfer files to and from a server. Its usage is discouraged as the protocol was developed at a time when security was not a consideration.  All data, including passwords are transmitted in clear text.  SFTP solves that issue of allowing you to use FTP but over an established SSH connection--there by using an SSH tunnel to provide encryption for the transmitted packets.  Some would argue the rise in using version control such as Git makes SFTP/FTP redundant.  
 
-```sftp [-i identity_file] username@hostname```
+`sftp [-i identity_file] username@hostname`
 
 ### SCP
 
 Secure cp (copy) Allows for using the ```cp``` command to a remote system via SSH, as SFTP should be used for moving multiple files, this command is good for moving a single file quickly via the command line.
 
-```scp [-i identity_file] localfilename username@hostname:filename```
+`scp [-i identity_file] localfilename username@hostname:filename`
 
 ### Rsync
 
 From the rsync man page:
 
-Rsync  is  a  fast and extraordinarily versatile file copying tool.  It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon.  It offers a large number  of  options  that  control every  aspect  of its behavior and permit very flexible specification of the set of files to be copied.  It is famous for its delta-transfer algorithm, which reduces the amount of data sent over  the  network  by  sending only the differences between the source files and the existing files in the destination.  Rsync is widely used for backups and mirroring and as an improved copy command for everyday use.
+Rsync is a fast and extraordinarily versatile file copying tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers a large number of options that control every aspect of its behavior and permit very flexible specification of the set of files to be copied. It is famous for its delta-transfer algorithm, which reduces the amount of data sent over the network by sending only the differences between the source files and the existing files in the destination. Rsync is widely used for backups and mirroring and as an improved copy command for everyday use.
 
 ### ssh-copy-id
 
@@ -556,7 +576,7 @@ ssh-copy-id -i identityname username@hostname
 
 ### SSH config file
 
-The ssh command has a provision for a file named ```config``` located in the ```~/.ssh``` directory.  This is where you can hardcode short cut information per connection.  Items such as:
+The ssh command has a provision for a file named `config` located in the `~/.ssh` directory.  This is where you can hardcode short cut information per connection.  Items such as:
 
 * Turning off strict host key checking
 * predefining hostname
@@ -570,7 +590,7 @@ The format of the file is as such:
 Host github.com
   User jhajek
   Hostname github.com
-  IdentityFile /home/user/.ssh/id_ed25519_sample_student
+  IdentityFile /home/user/.ssh/id_ed25519
 ```
 
 The full range of options for the config file can be found in this Digital Ocean Tutorial located at [https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client](https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client "Digital Ocean Tutorial for ssh config file")
@@ -594,9 +614,18 @@ aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 
 ```
 
-You could also disable password authentication to a remote server and only use RSA key authentication.  Uncomment the line ```#PasswordAuthentication yes``` and change it to ```PasswordAuthentication no```[^ch9f108].  By default Fedora and BSD based operating sysems allow the Root account to connect via SSH using a password.  This is inherantly dangerous, Ubuntu uses the value prohibit-password which would allow RSA but not password based auth. It is generally not a good idea to allow this and uncomment and change this setting from  ```PermitRootLogin yes``` to ```PermitRootLogin no```[^ch9f110].
+#### SSH Server Security Setting to Change
 
-Upon changing any values you need to inform systemd that a config file changed, it will find it and process it: ```sudo systemctl daemon-reload```.
+In the configuration file `/etc/ssh/sshd_config` the default settings are generally very permissive. Here are some suggestions of items to change right away to tighten up your OpenSSH Server. 
+
+* Disable password authentication to a remote server and only use Public key authentication.
+  * Uncomment the line ```#PasswordAuthentication yes``` and change it to ```PasswordAuthentication no```[^ch9f108].  
+* By default Fedora and BSD based operating sysems allow the Root account to connect via SSH using a password.
+  * This is inherantly dangerous, Ubuntu uses the value prohibit-password which would allow RSA but not password based auth. 
+  * Uncomment and change this setting from  ```PermitRootLogin yes``` to ```PermitRootLogin no```[^ch9f110].
+* Now tell systemd that you have changed a config file
+  * ```sudo systemctl daemon-reload```.
+  * Restart the SSH service: `sudo systemctl restart sshd`
 
 ### WireGuard - Linux kernel native VPN
 
