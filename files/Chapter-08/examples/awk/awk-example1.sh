@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
 # What is the difference between 
-cat hosts.deny | head
-awk '{print;}' hosts.deny | head
+cat hosts.deny | tail
+awk '{print;}' hosts.deny | tail
