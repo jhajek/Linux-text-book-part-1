@@ -498,7 +498,7 @@ echo "\n"
 
 ## Scheduling Shell Scripts With Cron
 
-Now that we have sufficiently complex shell scripts the idea of automating their execution come into play. The concept of the __cron__ command and the __crontab__ files first came into use in Unix System V release ~1983.  Each user can set their own scheduled tasks by editing the __crontab__ file by typing ```crontab -e```.  The contents of the crontab file are initially blank.  The language of the crontab is that of 5 columns and then a command to be executed. Multiple commands can be executed using ```; or &&``` And multiple different times can be listed in the crontab.  The five (and sometimes a sixth fields) are as follows:
+Now that we have sufficiently complex shell scripts the idea of automating their execution come into play. The concept of the __cron__ command and the __crontab__ files first came into use in Unix System V release ~1983.  Each user can set their own scheduled tasks by editing the __crontab__ file by typing ```crontab -e```.  The contents of the crontab file are initially blank.  The language of the crontab is that of 5 columns and then a command to be executed. Multiple commands can be executed using ```; or &&``` And multiple different times can be listed in the crontab. The five (and sometimes a sixth fields) are as follows:
 
 Time Unit              Values
 -------------  -----------------------
@@ -518,21 +518,21 @@ The cron service scans for your combination of jobs and if a pattern matches the
 In this case the script above would execute every night of the week at the 20th hour[^87]. The values of cron can be combined to get specific times and dates.  There is also syntax for executing on every 15 minutes.
 
 ```bash
-*/15 * * * * ~/Documents/script.sh
+*/15 * * * * /home/controller/script.sh
 ```
 
 ```bash
-0,15,30,45 * * * *  ~/Documents/script.sh
+0,15,30,45 * * * *  /home/controller/backup-script.sh
 ```
 
-Something unique like this will start at 3 minutes after and then execute every 10 minutes (13,23,33,43,53 minutes)
+This script will run at 3 am on every Sunday
 
 ```bash
-3/10 * * * * ~/Documents/script.sh
+* 3 * * 0 /home/controller/script.sh
 ```
 
 ```bash
-@monthly ~/Documents/backup-data-to-off-site.sh
+@monthly /home/controller/backup-data-to-off-site.sh
 ```
 
 Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line. This also allows for redirection of standard out and standard error as well.
@@ -560,7 +560,7 @@ Entry                                Description                          Equiva
 
 ### AWK
 
-AWK is a programming language designed for text processing and typically used as a data extraction and reporting tool. It is a standard feature of most Unix-like operating systems[^91]. This original program was released in 1977, and was a powerful and focused language.  We take things like Perl, Python, and even databases such as MySQL and SQLite. The ```awk``` language was designed to do all these things because at the time text based files was the universal datatype.  The initial program was developed by [Alfred Aho](https://en.wikipedia.org/wiki/Alfred_Aho "Alfred Aho"), [Peter Weinberger](https://en.wikipedia.org/wiki/Peter_J._Weinberger "Peter J. Weinberger"), and [Brian Kerhnighan](https://en.wikipedia.org/wiki/Brian_Kernighan "Brian Kernighan") at Bell Labs.  
+AWK is a programming language designed for text processing and typically used as a data extraction and reporting tool. It is a standard feature of most Unix-like operating systems[^91]. This original program was released in 1977, and was a powerful and focused language. We take things like Perl, Python, and even databases such as MySQL and SQLite. The ```awk``` language was designed to do all these things because at the time text based files was the universal datatype. The initial program was developed by [Alfred Aho](https://en.wikipedia.org/wiki/Alfred_Aho "Alfred Aho"), [Peter Weinberger](https://en.wikipedia.org/wiki/Peter_J._Weinberger "Peter J. Weinberger"), and [Brian Kerhnighan](https://en.wikipedia.org/wiki/Brian_Kernighan "Brian Kernighan") at Bell Labs.  
 
 An AWK program consists of a sequence of optional directives, pattern-action statements, and optional function definitions.
 
@@ -572,7 +572,7 @@ awk pattern { action statements }
 awk [options] <'program'> [file1] [file2][...]
 ```
 
-Lets compare what ```awk``` can do:
+Lets compare what ```awk```[^90] can do:
 
 * How would you find which ip caused the most HTTP 404 errors? Take these two files in ```files/Chapter-08/logs``` u_ex150721.log u_ex151002.log.
 * How would we capture the top 5 offending IPs? What column number is sc-status?
@@ -584,20 +584,6 @@ Lets compare what ```awk``` can do:
   * ```awk '$0~/^#/' hosts.deny```
 * How would you print out all lines of a file that do not contain a \# as the first character?
   * ```awk '$0!~/^#/' hosts.deny```
-
-The ```awk``` program works very well, but as the standard text based logs migrate to the binary format of ```journalctl``` what happens? The ```journalctl``` command has a --no-pager option to effectively print out all of the journal.  You can use ```awk``` in conjunction.  How would you scan the journal looking for all log entries related to the sshd daemon? How would you do it in grep and cut?  How would you do it in awk?
-
-```bash
-sudo journalctl --no-pager | awk '$5 ~ /^sshd/'
-```
-
-Lets take a look at this statement:[^90]
-
-* \$5 tells AWK to look at the fifth "column".
-* \~ tells AWK to do a RegularExpression match \/....\/ is a Regular expression.
-* Within the RE is the string Linux and the special character `^`.
-* `^` causes the RE to match from the start (as opposed to matching anywhere in the line).
-* Seen together: AWK will match a regular expression with "Linux" at the start of the first column.
 
 You can find more information at this IBM tutorial: [AWK by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "AWK by example"). The GNU version of AWK is called [gawk](http://www.gnu.org/software/gawk/ "GNU webpage for gawk") and it performs the same commands and options but is licensed under GPLv3+ as AWK was part of the proprietary UNIX tools and license. Linux systems symlink `awk` command to `gawk`.  
 
@@ -626,7 +612,7 @@ Looking at this command, using the GNU version of ```sed``` they introduced the 
 
 ```bash
 sudo sed -i "s/bantime = 600/bantime = 10000/g" /etc/fail2ban/jail.conf
-sudo sed -i "s/joseph/Joseph/g" roster.txt
+sudo sed -i "s/joseph/Joseph/g" names.txt
 ```
 
 For more information see this IBM tutorial: [sed by example](https://www.ibm.com/developerworks/library/l-sed1/index.html "sed by example")
