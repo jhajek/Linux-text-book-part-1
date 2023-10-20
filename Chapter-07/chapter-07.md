@@ -350,12 +350,12 @@ We can change permissions by using the `chmod` command.  What is the current num
 
     Group                                            Description
 ------------------------------   -----------------------------------------------------------
-```chmod u+x list-ip.sh```              Gives the owner of the file execute permission
-```chmod g+x list-ip.sh```            Gives the group owner of the file execute permission
-```chmod o+x list-ip.sh```         Gives the other group execute permission (everyone else)
-```chmod u-x list-ip.sh```           Removes file execute permission from the group owner
-```chmod o-wx list-ip.sh```          Removes write and file execute permission from other
-```chmod ug+rwx list-ip.sh```         Owner and group are give rwx permissions together.
+`chmod u+x list-ip.sh`              Gives the owner of the file execute permission
+`chmod g+x list-ip.sh`            Gives the group owner of the file execute permission
+`chmod o+x list-ip.sh`         Gives the other group execute permission (everyone else)
+`chmod u-x list-ip.sh`           Removes file execute permission from the group owner
+`chmod o-wx list-ip.sh`          Removes write and file execute permission from other
+`chmod ug+rwx list-ip.sh`         Owner and group are give rwx permissions together.
 ------------------------------   -----------------------------------------------------------
 
 You will notice that in the terminal (where supported) files marked executable will turn green. Now you can finally execute your command `./list-ip.sh` and see the output from the shell script.

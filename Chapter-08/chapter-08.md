@@ -14,34 +14,33 @@ This portion of the book begins Part II. The first 7 chapters focused more on th
 
 ## Outcomes
 
-  At the conclusion of this chapter you will have furthered your understanding of the vi editor and be able to demonstrate how to use control structures in shell scripts.  You will also learn about command line variables and how they extend the ability of a shell script to accept dynamic input.  You will be able to schedule a shell script to run at a scheduled time by using `cron` service increasing your ability to reduce work by automating repetitive tasks.
+At the conclusion of this chapter you will have furthered your understanding of the vi editor and be able to demonstrate how to use control structures in shell scripts.  You will also learn about command line variables and how they extend the ability of a shell script to accept dynamic input.  You will be able to schedule a shell script to run at a scheduled time by using `cron` service increasing your ability to reduce work by automating repetitive tasks.
 
 ## Basic Shell Scripts - Part II
 
-   In the previous chapter we were introduced to the simplest of shell scripts.  In this chapter we are going to increase the depth of our knowledge.
+In the previous chapter we were introduced to the simplest of shell scripts.  In this chapter we are going to increase the depth of our knowledge.
 
 ### The Bash Shell
 
 Just like any programming language we cannot have complex logic if we don't have control structures.  The two basic ones we want to cover are if statements and for loops.  There are the other traditional control structures but are used less commonly because of the nature of a shell script is a single execution not as a repeated process or system service.
 
-The BASH shell scripting language resembles a traditional programming language.  But it is key to remember that it was not designed to be a complete programming language.  As you push shell scripts to their limits you begin to see the end of what they are capable of.  That is where you see languages like Perl or Python coming in to extend and replace BASH.  (Note if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this.) BASH is a tool to help automate the repetition of commands.
+The BASH shell scripting language resembles a traditional programming language. But it is key to remember that it was not designed to be a complete programming language. As you push shell scripts to their limits you begin to see the end of what they are capable of. That is where you see languages like Perl or Python coming in to extend and replace BASH. (Note if you ever find yourself doing serious arithmetic in BASH something is seriously wrong with your design parameters--check again why you are doing this). BASH is a tool to help automate the repetition of commands.
 
 ### Shell Script Variables
 
-As we learned previously we can define variables in BASH.  These variables are prefixed with a ```$``` when referenced.   In the previous chapter in the ```.bashrc``` file used to modify the system path, we assigned a new value to the ```PATH``` variable like this:
+As we learned previously we can define variables in BASH.  These variables are prefixed with a `$` when referenced.   In the previous chapter in the `.bashrc` file used to modify the system path, we assigned a new value to the `PATH` variable like this:
 
 ```bash
 PATH=$PATH:/home/user/Documents/apps
 
 echo $PATH; echo $path; $PATH=PATH
 
-UT=`uptime`
 UT2=$(uptime)
 ```
 
 ```bash
 # This variable assignment command will, why?
-UT=(`ls -l star[1-3]`)
+UT=$(ls -l file[1-3].txt)
 # This variable assignment will succeed
 USA="United States of America"
 echo $USA
@@ -49,33 +48,38 @@ DIR="monthly-reports-winter-quarter-north-america"
 ls $DIR
 ```
 
-Note that there is no space allowed in variable assignments. ```PATH=$PATH``` is valid, ```PATH = $PATH``` will be interpreted in a different way by the shell parser.
+Note that there is no space allowed in variable assignments. `PATH=$PATH` is valid, `PATH = $PATH` will be interpreted in a different way by the shell parser.
 
 > __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 
-# This is a comment - usually by convention variables are in all caps - no spaces, ever!
-DT=`date`
+# This is a comment - usually by convention variables are in all caps, 
+# no spaces, ever!
+DT=$(date)
 # This command outputs the date in a format of our specifications
-MDY=`date +%m%d%Y`
+MDY=$(date +%m%d%Y)
 echo "****************"
 echo "today's date is: $DT"
 echo "****************"
 echo "Making a folder named MMDDYYYY"
-mkdir ~/Documents/$MDY
+mkdir -p ~/Documents/$MDY
 echo "Finished"
 ```
 
-In this example we see how the value of $MDY is interpreted first and then passed to the argument attached to the ```mkdir``` command.  Note that the ```mkdir``` command did not have any backticks around it like the command to assign the output of ```date``` to the variable ```DT```.  This is because the Shell sees that ```mkdir``` is a command and begins to interpret the line as such (followed by options and arguments).  If you want to encapsulate the output of one command into a shell variable then you need to enclose them in backticks ```\`\```.
-
-Any variables that are declared have a scope of this scripts execution.  This means that once the script has finished executing any variables are tossed from memory.  If I wanted a variables name and value to life after the completion of my shell script I can always add the __export__ command.  The __export__ command will take the content of this variable and move it from the memory space of the script's execution and move it into the memory space of the launching shell.  This way the variable will live only as long as that terminal session is open--once the window closes those variables disappear from memory because the process that was holding them in a piece of memory is gone too.
-
-> __Example Usage:__  Create a shell script with this content below.  Save the file, make it executable, and then execute it.  Upon completion of that execution, type ```echo $DT``` what value do you see and why?
+In this example we see how the value of $MDY is interpreted first and then passed to the argument attached to the `mkdir` command.  Note that the `mkdir` command did not have any backticks around it like the command to assign the output of `date` to the variable `DT`. This is because the Shell sees that `mkdir` is a command and begins to interpret the line followed by options and arguments. If you want to encapsulate the output of one command into a shell variable then you need to enclose them:
 
 ```bash
-#!/bin/bash
+UT2=$(uptime)
+```
+
+Any variables that are declared have a scope of this scripts execution. This means that once the script has finished executing any variables are tossed from memory. If I wanted a variables name and value to life after the completion of my shell script I can always add the __export__ command. The __export__ command will take the content of this variable and move it from the memory space of the script's execution and move it into the memory space of the launching shell. This way the variable will live only as long as that terminal session is open--once the window closes those variables disappear from memory because the process that was holding them in a piece of memory is gone too.
+
+> __Example Usage:__  Create a shell script with this content below. Save the file, make it executable, and then execute it. Upon completion of that execution, type `echo $DT` what value do you see and why?
+
+```bash
+#!/usr/bin/bash
 
 # This is a comment - usually by convention variables are in all caps - no spaces, ever!
 DT=`date`
@@ -109,7 +113,7 @@ echo ${NAMESARRAY[2]}
 # which is Lincoln
 ```
 
-How can we access these variables? We can make use of some meta-characters that have new special meanings here.  First is the *at sign* or ```@``` which allows us to access all of the elements in an array without having to create a loop.  The line below will print out the entire content of the array. The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array.  Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered. Also note the the array elements are encapsulated in ```{ }```--curly braces to prevent the ```[ ]``` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by an index. ```echo ${instanceARR[0]}; echo ${instanceARR [1]}; echo ${instanceARR[2]}```. Remember that arrays are __zero indexed__.
+We can make use of some meta-characters that have new special meanings here. First is the *at sign* or `@` which allows us to access all of the elements in an array without having to create a loop. The line below will print out the entire content of the array. The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array. Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered. Also note the array elements are encapsulated in `{ }`--curly braces to prevent the `[ ]` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by an index. ```echo ${instanceARR[0]}; echo ${instanceARR[1]}; echo ${instanceARR[2]}```. Remember that arrays are __zero indexed__.
 
 ```bash
 # Using the array from the previous example:
@@ -120,7 +124,7 @@ echo "ARRAY LENGTH IS $LENGTH"
 
 #### Positional Parameters
 
-In the case of the command binary ```ls -l /etc``` the command takes options and arguments.  Shell scripts you create have the same ability to accept and parse input from the commandline.  Note that this is different from ```getopts``` which allows you to make a complicated option and argument passing scheme for shell scripts.  This is for simple variable parameters to be passed into a script. You indicate the position of the parameter passed to the script and reference that value with a `$` and a number.  The first value is `$1`, the second is `$2`, and so on. After $9 you need to add **$\{}** around values and should probably add them from the beginning for consistency.
+In the case of the command binary `ls -l /etc` the command takes options and arguments. Shell scripts you create have the same ability to accept and parse input from the commandline. This is for simple variable parameters to be passed into a script. You indicate the position of the parameter passed to the script and reference that value with a `$` and a number.  The first value is `$1`, the second is `$2`, and so on. After $9 you need to add **$\{}** around values and should probably add them from the beginning for consistency.
 
 ```bash
 ./delete-directory.sh ~/Documents/text-book Jeremy
@@ -129,7 +133,7 @@ In the case of the command binary ```ls -l /etc``` the command takes options and
 The content of the shell script is as follows:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 
 echo "***************************"
 echo "The directory to be deleted is: ${1}"
@@ -142,7 +146,7 @@ echo ${2} > ~/Documents/deletion-log.txt
 Note that each positional parameter that is passed in to the shell script is simply accessed by a number prefixed by a ```$```.  What do you think would be the value of ```$0```?  You can similarly access the number of variables that are passed into the command line by using the built-in variable: For example:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 # posparam.sh
 
 echo "This is \$0: ${0}"
@@ -161,7 +165,7 @@ posparam.sh domo origato Mr. Roboto
 Positional parameters also have the ability to do built in error checking and default value assignment as well. Let us re-examine a previous sample.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 
 echo "*********************************************************************"
 # If $1 is blank the below syntax acts as an if statement and will exit the 
@@ -192,7 +196,7 @@ echo "The fourth name is: ${4-No fourth name given}"
 
 ### Control Structures
 
-There are other structures for creating full scale shell scripts that parse user input and create menu like functions.  That is beyond the scope of this book.
+There are other structures for creating full scale shell scripts that parse user input and create menu like functions. That is beyond the scope of this book.
 
 ### IF Statements
 
@@ -202,10 +206,10 @@ The structure of the Bash __IF__ command is as follows:
 if TEST-COMMANDS; then CONSEQUENT-COMMANDS; fi
 ```
 
-The __IF__ command starts with a test condition or command.  It is followed by a ```then``` condition which will execute if the test command is *true*. The entire __IF__ command is closed by the letters ```fi```.  Since the scope of BASH is limited compared to a full programming language, __IF__ statements are mostly used to test for conditions or the existence of a condition.  These common __TEST COMMANDS__ are available as built in to BASH in order to accomplish just that. These are called *primaries* and are placed between square braces--space is important [^86].  Remember that spaces matter in writing __IF__ statements.  Unlike C an Java, the Bash interpreter needs those spaces so it can recognize that there is an __IF__ statement otherwise it gets confused thinking the characters are just a string.  Also the ```[]``` needs to have the space otherwise the commandline parser will interpret the square bracket and the number as a shell meta-characters and not delimiters for the test condition.
+The __IF__ command starts with a test condition or command. It is followed by a `then` condition which will execute if the test command is *true*. The entire __IF__ command is closed by the letters `fi`. Since the scope of BASH is limited compared to a full programming language, __IF__ statements are mostly used to test for conditions or the existence of a condition. These common __TEST COMMANDS__ are available as built in to BASH in order to accomplish just that. These are called *primaries* and are placed between square braces--space is important[^86]. Remember that spaces matter in writing __IF__ statements. Unlike C an Java, the Bash interpreter needs those spaces so it can recognize that there is an __IF__ statement otherwise it gets confused thinking the characters are just a string. Also the `[]` needs to have the space otherwise the commandline parser will interpret the square bracket and the number as a shell meta-characters and not delimiters for the test condition.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 # This is a valid IF statement
 
 if [ -r ~/Documents/final-exam-answers.txt ]
@@ -217,7 +221,7 @@ fi
 ```
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 # This is NOT a valid IF statement because the spaces are improper
 
 if [-r ~/Documents/final-exam-answers.txt]
@@ -293,7 +297,7 @@ fi
 If statements in BASH have support for nested IFs, IF ELSE constructs, and even [CASE](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html "Case Statements") statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book - see the previous link for a good tutorial.  Note at this level of complexity it might be better to try to engineer a CASE statement to re-architect what you are trying to do in to smaller steps to reduce complexity.  Complexity is the enemy of the programmer.  
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 
 if [ -a ~/Documents ]
     then
@@ -304,44 +308,47 @@ fi
 ```
 
 ```bash
-#!/bin/bash
-# You might want a script to exit is a certain condition doesn't exist
+#!/usr/bin/bash
+# You might want a script to exit if a certain condition doesn't exist
 # You can do that with an exit command
 
-if [ -a ~/Documents ]
+if [ -a ~/documents ]
     then
       echo "The documents directory exists"
     else
-     echo "Directory doesn't exist"
+     echo "Directory doesn't exist, exiting program!"
      exit 1
 fi
 ```
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 
 if [ -a ~/Documents ]
     then
       echo "The documents directory exists"
     else
-     # This will fail silently
+     # This will silently log the error to a file
      echo "Directory doesn't exist" &> ~/Documents/script.log
 fi
 ```
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
+# Checking the number of parameters and exiting is postional parameter quantity is wrong
 
-if [ $# -gt 5 ]
+if [ $# -gt 1 ]
     then
-      echo "You need to type only 5 positional parameters - you entered more!"
+      echo "You need to type only 1 positional parameter - you entered more!"
+      exit 1
 else
-   echo "Good job you typed in 5 parameters"
+   echo "Good job you typed in 1 parameter"
 fi
 ```
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
+# Complex decision logic using AND with positional parameters
 
 if [ -a $1 ] && [ -x $1 ]
     then
@@ -354,7 +361,7 @@ fi
 Here is a complex example of nested IF, ELIFs, and ELSE statements.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 
 # This script lets you present different menus to Tux.  He will only be happy
 # when given a fish.  We've also added a dolphin and (presumably) a camel.
@@ -383,7 +390,7 @@ fi
 
 #### CASE Statement
 
-Sometimes called a switch statement in C or Java, a __case statement__ is really just a way to simplify complicated nested IF statements [^89]. \[\]\(\) statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book but I wanted to make you aware of them.
+Sometimes called a switch statement in C or Java, a __case statement__ is really just a way to simplify complicated nested IF statements[^89]. \[\]\(\) statements.  Here is an example of a nested IF statement using Else IFs from the TLDP project. We will not cover the scope of CASE statements in this book but I wanted to make you aware of them.
 
 ```bash
 case "$1" in
@@ -421,7 +428,7 @@ esac
 This while loop will read each line of a text file allow you to operate on each value read.  The file, roster.txt is located in the files > Chapter-08 > lab.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 # Assume the names.txt file exists from previous examples
 
 while read LINE
@@ -431,7 +438,7 @@ done < names.txt
 
 #### FOR Loops
 
-A FOR loop is used to loop incrementally through a list until the end is met.  In Bash the only data structure that you will use loop through are arrays and lists.  Lists are not a datatype like in C and Java but simply a space delimited list of items.  The syntax of a FOR loop is:
+A FOR loop is used to loop incrementally through a list until the end is met. In Bash the only data structure that you will use loop through are arrays and lists. Lists are not a datatype like in C and Java but simply a space delimited list of items. The syntax of a FOR loop is:
 
 ```bash
 for arg in [LIST];
@@ -443,7 +450,7 @@ done
 If the ```do``` portion of the for loop is on the same line as the for loop a single ```;``` is needed between them.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 
 # Assuming the existence of the names.txt file
 # from the previous Bash Array example
@@ -455,7 +462,7 @@ done
 ```
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 # Or you can list elements out manually
 
 for planet in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto
@@ -465,7 +472,7 @@ done
 ```
 
 ```bash
-#!/bin/bash
+#!/usr/bin/bash
 # This is a traditional C based for loop
 
 declare -a planetARRAY
@@ -481,7 +488,9 @@ done
 ```
 
 ```bash
+#!/usr/bin/bash
 # This is a valid 1 line for loop that prints out a single dot indicator
+
 echo -e "\nFinished launching and sleeping 25 seconds"
 for i in {0..25}; do echo -ne '.'; sleep 1;done
 echo "\n"
@@ -506,7 +515,7 @@ The cron service scans for your combination of jobs and if a pattern matches the
 * 20 * * * /home/jeremy/backup.sh
 ```
 
-In this case the script above would execute every night of the week at the 20th hour [^87]. The values of cron can be combined to get specific times and dates.  There is also syntax for executing on every 15 minutes.
+In this case the script above would execute every night of the week at the 20th hour[^87]. The values of cron can be combined to get specific times and dates.  There is also syntax for executing on every 15 minutes.
 
 ```bash
 */15 * * * * ~/Documents/script.sh
@@ -526,7 +535,7 @@ Something unique like this will start at 3 minutes after and then execute every 
 @monthly ~/Documents/backup-data-to-off-site.sh
 ```
 
-Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line.  This also allows for redirection of standard out and standard error as well.
+Any command that is executed obeys general shell meta-characters and variables as if you were typing that command directly on the command line. This also allows for redirection of standard out and standard error as well.
 
 Some cron implementations support the following non-standard macros[^88]:
 
@@ -542,11 +551,10 @@ Entry                                Description                          Equiva
 
 ### Where to find more
 
-  [O'Reilly media](http://shop.oreilly.com/home.do "O\'Reilly Media") has many old but good books about Bash, vi, and shell scripting.
-
-* Bash [http://shop.oreilly.com/product/9780596009656.do](http://shop.oreilly.com/product/9780596009656.do "Bash Book")
-* Bash Cookbook [http://shop.oreilly.com/product/0636920058304.do](http://shop.oreilly.com/product/0636920058304.do "Bash Cookbook")
-* vi and vim [http://shop.oreilly.com/product/9780596529833.do](http://shop.oreilly.com/product/9780596529833.do "vi and vim")
+* [O'Reilly media](http://shop.oreilly.com/home.do "O\'Reilly Media") has many old but good books about Bash, vi, and shell scripting.
+  * Bash [http://shop.oreilly.com/product/9780596009656.do](http://shop.oreilly.com/product/9780596009656.do "Bash Book")
+  * Bash Cookbook [http://shop.oreilly.com/product/0636920058304.do](http://shop.oreilly.com/product/0636920058304.do "Bash Cookbook")
+  * vi and vim [http://shop.oreilly.com/product/9780596529833.do](http://shop.oreilly.com/product/9780596529833.do "vi and vim")
 
 ## Text Processing with Awk and Sed
 
@@ -656,10 +664,10 @@ c. `sudo sed -i "s/127.0.0.1/0.0.0.0/g" 50-server.cnf`
 d. `sudo sed -r "s/0.0.0.0/127.0.0.1/g" 50-server.cnf`
 
 6) Which of these are valid commands in the first line of a shell script?  (Choose any - assume any paths are valid paths to executables)
-a. `#!/bin/bash`
-b. `!#/bin/bash`
-c. `#!/usr/local/bin/bash`
-d. `#/bin/bash`
+a. `#!/usr/bin/bash`
+b. `!#/usr/bin/bash`
+c. `#!/usr/local/usr/bin/bash`
+d. `#/usr/bin/bash`
 e. `#!/bin/sh`
 
 7) If you stored the output of the command hostname into a variable named *ROSTER*, what would be the command to print the content to the screen?
@@ -804,7 +812,7 @@ The goal of this shell script is to add IF statement logic to prevent errors in 
 * Write a shell script using a while script to read in the content of roster.txt into a variable named $LINE
   * For each user check for the existance of a home directory
   * If the directory doesn't exists, use the this command to create a user account on your system
-    * `sudo useradd -c "Account for $NAME" -s /bin/bash -d /home/$NAME -m $NAME`
+    * `sudo useradd -c "Account for $NAME" -s /usr/bin/bash -d /home/$NAME -m $NAME`
     * Write a log message telling us which account was created, redirecting output for standard error and standard out and with a timestamp
       * Name the log `l8ex11-log.sh`
     * Add an `echo` to the screen telling which account has just been created
