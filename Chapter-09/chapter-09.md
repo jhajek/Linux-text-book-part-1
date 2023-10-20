@@ -18,11 +18,11 @@ At the completion of this chapter you will have the ability to administer a Linu
 
 On every Unix system dating back to Thompson's Unix, there has always been a single *superuser* account on every system.  This account is usually called the __root user__ or __root__.   The __root user__ must be used with the utmost care, as that account has all the system privilege and authority to carry out any operation, even the ```rm -rf /*``` command. Root is good for getting things done or overriding users, but is *dangerous.* You should log into that account only sparingly.  Every single admin worth their salt will tell you not to use __root__ in almost any case [^ch9f90].
 
-This concept is *vital* enough that on the Ubuntu distribution there is no __root__ account available. On the BSD distros, Debian, and the Red Hat/Fedora family - there is still a __root__ account, partially because of tradition and partially because of the way system administration always worked.  Remember that Unix was developed in the environment of multiple users accessing a large central Unix server.  So you always had to have a __root__ account to override any activities of the users and to enforce system policies, such as disk quotas, changing network configurations, or even system wide profiles. As a reminder when you are signed in as, or acting as "root", the shell prompt displays __#__ as the last character in bash and as seen in the image below.  You can use the ```whoami``` command to find out what user account you are logged in as well.
+This concept is *vital* enough that on the Ubuntu distribution there is no __root__ account available. On the BSD distros, Debian, and the Red Hat/Fedora family - there is still a __root__ account, partially because of tradition and partially because of the way system administration always worked. Remember that Unix was developed in the environment of multiple users accessing a large central Unix server. So you always had to have a __root__ account to override any activities of the users and to enforce system policies, such as disk quotas, changing network configurations, or even system wide profiles. As a reminder when you are signed in as, or acting as "root", the shell prompt displays __#__ as the last character in bash and as seen in the image below. You can use the ```whoami``` command to find out what user account you are logged in as well.
 
 ![*Root User has the # sign as its shell*](images/Chapter-09/root/root.png "Root User Shell")
 
-In order to change the user you are logged in as, without logging out, you use the ```su``` command.  Known as *superuser* or *switch user*.  By typing ```su root``` on the command line in Fedora Linux, you will be presented with a password prompt to enter the password you created during the install process for the root account.  You still need to type ```exit``` to logout from the user you switched too.  The sudo command on the other hand, only elevates you for a default period of 15 minutes and then returns you to your standard user account.  It is good habit to type ```sudo``` in front of any command that needs elevated privileges.
+In order to change the user you are logged in as, without logging out, you use the ```su``` command. Known as *superuser* or *switch user*. By typing ```su root``` on the command line in Fedora Linux, you will be presented with a password prompt to enter the password you created during the install process for the root account. You still need to type ```exit``` to logout from the user you switched too. The sudo command on the other hand, only elevates you for a default period of 15 minutes and then returns you to your standard user account. It is good habit to type ```sudo``` in front of any command that needs elevated privileges.
 
 ### sudo  
 
@@ -32,20 +32,20 @@ From 1986 to 1991, development of ```sudo``` moved to CU-Boulder in Colorado and
 
 #### Ubuntu
 
-Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo.  They firmly believe not to have a root account as a point of differentiation. They rely on ```sudo``` in place of root. The first user you create (like in Windows and Mac) is automatically added to the __sudo__ usergroup and has sudo privilege. Then any command you need *superuser* privileges you can simply ellevate to that privilege by typing the word ```sudo``` in front on any command. Upon successful entry of your own password you will be elevated up to full system authority.  Some refer to this as *god mode* but I think using that term is a bit presumptuous as you do have absolute power over the system but ```sudo``` doesn't let you create the world in seven days.  
+Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo.  They firmly believe not to have a root account as a point of differentiation. They rely on ```sudo``` in place of root. The first user you create (like in Windows and Mac) is automatically added to the __sudo__ usergroup and has sudo privilege. Then any command you need *superuser* privileges you can simply ellevate to that privilege by typing the word ```sudo``` in front on any command. Upon successful entry of your own password you will be elevated up to full system authority. Some refer to this as *god mode* but I think using that term is a bit presumptuous as you do have absolute power over the system but ```sudo``` doesn't let you create the world in seven days.  
 
-One example is you can assign the permission value of 000 to a file.  Who can access that file now?  According to the permissions, not even the owner can access it.  But the root user can, or a user issuing a ```sudo``` command.    You can find which users on a system have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privilege).  Here is a sample screen shot where you define which users can be in the sudo group.  You may not want to give admin privilege to every user.  The conf file, under the *user* section, allows you to specify root privileges per command.
+One example is you can assign the permission value of 000 to a file. Who can access that file now?  According to the permissions, not even the owner can access it.  But the root user can, or a user issuing a ```sudo``` command. You can find which users on a system have sudo permissions by displaying the /etc/sudoers file: ```cat /etc/sudoers``` (you need sudo privilege).  Here is a sample screen shot where you define which users can be in the sudo group. You may not want to give admin privilege to every user. The conf file, under the *user* section, allows you to specify root privileges per command.
 
 ![*Ubuntu /etc/sudoers*](images/Chapter-09/root/etc-sudoers-1.png)
 
 ![*Ubuntu /etc/sudoers*](images/Chapter-09/root/etc-sudoers-2.png)
 
-Let's look at the contents in more detail.  First to edit the ```/etc/sudoers``` file you do not directly edit the file, but through a special tool called ```visudo```. The ```visudo``` command edits the sudoers file in a safe fashion. The command `visudo` locks the sudoers file against multiple simultaneous edits, provides basic sanity checks, and checks for parse errors.  If the sudoers file is currently being edited you will receive a message to try again later [^ch9f92]. You can invoke `visudo` from anywhere on the system.
+Let's look at the contents in more detail. First to edit the ```/etc/sudoers``` file you do not directly edit the file, but through a special tool called ```visudo```. The ```visudo``` command edits the sudoers file in a safe fashion. The command `visudo` locks the sudoers file against multiple simultaneous edits, provides basic sanity checks, and checks for parse errors. If the sudoers file is currently being edited you will receive a message to try again later [^ch9f92]. You can invoke `visudo` from anywhere on the system.
 
 The first line is where you set the system path a user receives when they become a sudo user.  
  ```Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"```  
 
-> __Example Usage:__  Using either Fedora or Ubuntu as your user account from the commandline type ```echo $PATH``` now type ```sudo sh``` and then ```echo $PATH``` notice what happens to the prompt?  Are the paths different?  Why?  Type ```exit``` to exit back to the normal user.
+> __Example Usage:__  Using either Fedora or Ubuntu as your user account from the commandline type ```echo $PATH``` now type ```sudo sh``` and then ```echo $PATH``` notice what happens to the prompt? Are the paths different? Why?  Type ```exit``` to exit back to the normal user.
 
 The next line of interest is:
 
@@ -72,18 +72,18 @@ This last entry is a catch-all command for backward compatibility.  Ubuntu versi
 
 #### sudoers values
 
-What do the values ```%admin  ALL=(ALL:ALL) ALL```  mean?  This particular command gives every user in the admin group access to execute every command the system.  It essentially turns the root account superuser privileges over temporarily to the user account or group that has that privilege.
+What do the values ```%admin  ALL=(ALL:ALL) ALL``` mean? This particular command gives every user in the admin group access to execute every command the system.  It essentially turns the root account superuser privileges over temporarily to the user account or group that has that privilege.
 
-The first column is either a user account (no %) or preceded by a % sign meaning a user group.  The second column (or the first ALL) is the hostname of the systems that can allow elevation to *superuser*.  Now if this is your only system the value can be left at ALL.  But if you are preparing enterprise-wide /etc/sudoers configurations then you may want to specify *superuser* access only on particular systems.  The third column (second ALL) is the user that you will turn into when you use the *sudo* command.  By default it is __root__ but you may want it to be another specific user.  The fourth column after the : (third all) is the comma separated list of commands that user can execute. The fifth column (fourth ALL) is optional but it is an access control feature allowing only members of certain groups to sudo.
+The first column is either a user account (no %) or preceded by a % sign meaning a user group.  The second column (or the first ALL) is the hostname of the systems that can allow elevation to *superuser*.  Now if this is your only system the value can be left at ALL.  But if you are preparing enterprise-wide /etc/sudoers configurations then you may want to specify *superuser* access only on particular systems.  The third column (second ALL) is the user that you will turn into when you use the *sudo* command.  By default it is __root__ but you may want it to be another specific user.  The fourth column after the : (third all) is the comma separated list of commands that user can execute. The fifth column (fourth ALL) is optional but it is an access control feature allowing only members of [certain groups to sudo](https://www.unixtutorial.org/how-to-use-visudo/ "how to use visudo").
 
   Group                    Hosts                    Target User                      Commands
 --------------- -----------------------------    ------------------   -----------------------------------------
-   %sudo             server-1, db-server              bkupuser               /usr/bin/mysqldump /usr/bin/gzip
+   bkupuser              ALL                           ALL               /usr/bin/mysqldump /usr/bin/gzip
    %admin                ALL                         dbadmin                              ALL
    %cia                  ALL                           ALL                               ALL
 --------------- -----------------------------    ------------------   -----------------------------------------
 
-After the useraccount you can add an additional parameter to remove the password requirement.  This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users.  It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
+After the useraccount you can add an additional parameter to remove the password requirement. This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users.  It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
 
 > __Example Usage:__   The two commands below give the user ```bkupuser``` the ability to become sudo without requiring a password and only the power to execute the copy command.  The second command gives any user who is a member of the admin group the ability to sudo with out any password.
 
@@ -117,9 +117,9 @@ One of the most central functions of an operating system is logging.  Without lo
 
 ### /var/log/\*
 
-The default logging directory on all Linux systems is located in ```/var/log```.  This is the place where the kernel, the operating system, and any default installed services will place its logs. For 30+ years this was the convention and all common knowledge.  But with the recent adoption of systemd on all major Linux platforms, the logging facility that was once simple text, has now been moved into the ```journald``` and into a binary format. Note with the systemd, the logging convention has been changed to a binary format and placed under the ```journalctl``` command which we will cover in chapter 11.
+The default logging directory on all Linux systems is located in ```/var/log```. This is the place where the kernel, the operating system, and any default installed services will place its logs. For 30+ years this was the convention and all common knowledge. But with the recent adoption of systemd on all major Linux platforms, the logging facility that was once simple text, has now been moved into the ```journald``` and into a binary format. Note with the systemd, the logging convention has been changed to a binary format and placed under the ```journalctl``` command which we will cover in chapter 11.
 
-When you install additional packages, those packages too will add a directory for its own logs.  Note in the picture below there is a log called ```httpd``` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files.  You will notice in these screenshots that there is a log entry for VBoxGuestAdditions--telling you that you are using VirtualBox.
+When you install additional packages, those packages too will add a directory for its own logs. Note in the picture below there is a log called ```httpd``` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files.  You will notice in these screenshots that there is a log entry for VBoxGuestAdditions--telling you that you are using VirtualBox.
 
 ![*Fedora contents of /var/log/\**](images/Chapter-09/logs/var-log.png "var log")
 
@@ -127,7 +127,7 @@ When you install additional packages, those packages too will add a directory fo
 
 ### syslog
 
-The operating system needs a convention on how all the logs are transferred and stored.  That method was called syslog.  Until 1980 there were various logging methods and schemes.  The one that caught on was called syslog and was actually part of an email program, Sendmail, initially.  Syslog permits the consolidation of logging data from different types of systems in a central repository.  Syslog logs can also be transmitted remotely and aggregated on a central system.  Originally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS.  Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to ```journalctl```.  The system logs that had been stored in: [^94]
+The operating system needs a convention on how all the logs are transferred and stored.  That method was called syslog. Until 1980 there were various logging methods and schemes. The one that caught on was called syslog and was actually part of an email program, Sendmail, initially. Syslog permits the consolidation of logging data from different types of systems in a central repository. Syslog logs can also be transmitted remotely and aggregated on a central system.  Originally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS.  Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to ```journalctl```. The system logs that had been stored in: [^94]
 
 \newpage
 
@@ -160,7 +160,7 @@ Value    Severity        Keyword   		Description     			 	            Examples
 
 ### rsyslog
 
-By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog.  It made syslog extensible and eventually replaced syslog by default.  Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].
+By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog. It made syslog extensible and eventually replaced syslog by default. Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].
 
 ### journald and systemd
 
@@ -168,9 +168,9 @@ Not to be outdone - `systemd` has replaced syslog with `journald`.  And this has
 
 In Lennart Poeterring's own words, *"If you are wondering what the journal is, here's an explanation in a few words to get you up to speed: the journal is a component of systemd, that captures Syslog messages, Kernel log messages, initial RAM disk and early boot messages as well as messages written to STDOUT/STDERR of all services, indexes them and makes this available to the user. It can be used in parallel, or in place of a traditional syslog daemon, such as rsyslog or syslog-ng."* [^97]
 
-  *"One of the impetuses behind the systemd journal is to centralize the management of logs regardless of where the messages are originating. Since much of the boot process and service management is handled by the systemd process, it makes sense to standardize the way that logs are collected and accessed. The journald daemon collects data from all available sources and stores them in a binary format for easy and dynamic manipulation. [^98]"*
+*"One of the impetuses behind the systemd journal is to centralize the management of logs regardless of where the messages are originating. Since much of the boot process and service management is handled by the systemd process, it makes sense to standardize the way that logs are collected and accessed. The journald daemon collects data from all available sources and stores them in a binary format for easy and dynamic manipulation.[^98]"*
 
-  If you are using a version of RHEL 6, CentOS 6, Ubuntu 14.04, or Debian 7 and prior you will not find the journald or systemd commands and will find the traditional syslog service.   Syslog can be installed along side of journald and run in the traditional sense.  Some argue that this is a violation of the Unix principle of small services doing one thing (systemd is not small and does many things).  Some even claim that the journald logging service is no different than the Windows Event Logger and the way in which Windows does logs.  The traditional ways of using syslog had been modified by journald.
+Syslog runs along side of journald The traditional ways of using syslog had been modified by journald.
 
 * ```cat /var/log/messages``` will now become ```journalctl```
 * ```tail -f /var/log/messages``` will now become ```journalctl -f```
@@ -178,7 +178,7 @@ In Lennart Poeterring's own words, *"If you are wondering what the journal is, h
 
 To use the journal daemon (journald) all its elements are accessed through the `journalctl` command.  All previously sparse logs are now contained in a single binary append only log format. The advantage of that is that the output can be programmatically parsed and queried like a database.
 
-> __Example Usage:__ These examples have been taken from the [systemd website](http://www.freedesktop.org/software/systemd/man/journalctl.html "jounralctl examples"): [^99]
+> __Example Usage:__ These examples have been taken from the [systemd website](http://www.freedesktop.org/software/systemd/man/journalctl.html "jounralctl examples"):[^99]
 
 > Without arguments, all collected logs are shown unfiltered:
 
@@ -186,10 +186,10 @@ To use the journal daemon (journald) all its elements are accessed through the `
 journalctl
 ```
 
-> With one match specified, all entries with a field matching the expression are shown:
+> Shows errors that the current service (-u) is showing:
 
 ```bash
-journalctl -u nginx.service
+journalctl -x -u nginx.service
 ```
 
 > If two matches refer to the same field, all entries matching either expression are shown:
@@ -278,7 +278,7 @@ SystemMaxFiles and RuntimeMaxFiles
 
 ## System Monitoring
 
-The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occurring on our system is a command called `top`.  This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps) [^102].
+The first step in system administration is monitoring.  Just like viewing logs, also knowing what is currently going on resource wise can be very helpful.  The first command we want to look at to help us understand what is occurring on our system is a command called `top`. This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria [^100].  The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps)[^102].
 
 ### top
 
