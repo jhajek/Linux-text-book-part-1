@@ -608,7 +608,7 @@ The command to show all lines that do not start with a '\#' below, how would you
 Looking at this command, using the GNU version of ```sed``` they introduced the -i flag that will make your change and re-write it to the same file.  What is happening in the script below?
 
 ```bash
-sudo sed -i "s/bantime = 600/bantime = 10000/g" /etc/fail2ban/jail.conf
+sudo sed -i "s/bantime      = 1h/bantime      = 10h/g" /etc/fail2ban/jail.conf
 sudo sed -i "s/joseph/Joseph/g" names.txt
 ```
 
