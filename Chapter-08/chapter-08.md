@@ -572,11 +572,8 @@ awk pattern { action statements }
 awk [options] <'program'> [file1] [file2][...]
 ```
 
-Lets compare what ```awk```[^90] can do:
+Lets see what `awk`[^90] can do:
 
-* How would you find which ip caused the most HTTP 404 errors? Take these two files in ```files/Chapter-08/logs``` u_ex150721.log u_ex151002.log.
-* How would we capture the top 5 offending IPs? What column number is sc-status?
-* How could we look for everything that isn't a 404?
 * How would you check for WordPress filesystem hacks by searching for '/' or '..' or /etc or names like passwd .htacess my.cnf?
   * ```awk '$11~/\.\.\//' u_ex150721.log```
 * What is the difference between ```cat hosts.deny``` and ```awk '{print;}' hosts.deny```
