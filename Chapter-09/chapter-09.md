@@ -61,45 +61,48 @@ The next line allows you to add groupnames to receive sudo access.  Any user acc
 
 ```bash
 # Members of the admin group may gain root privileges
+# Ubuntu prior to version 14.04 used the admin group
+# this is left for backwards compatability
 %admin  ALL=(ALL:ALL) ALL
 ```
 
-This last entry is a catch-all command for backward compatibility.  Ubuntu versions previous to 14.04 used the admin group instead of the sudo group.  
+#### Explanation of sudoers Entries
 
-#### sudoers values
+What does the values `%sudo ALL=(ALL:ALL) ALL` mean? This particular command gives every user in the admin group access to execute every command the system. It essentially turns the root account superuser privileges over temporarily to the user account or group that has that privilege.
 
-What do the values `%admin  ALL=(ALL:ALL) ALL` mean? This particular command gives every user in the admin group access to execute every command the system.  It essentially turns the root account superuser privileges over temporarily to the user account or group that has that privilege.
+The first column is either a user account (no %) or preceded by a % sign meaning a user group. The second column (or the first ALL) is the hostname of the systems that can allow elevation to *superuser*. Now if this is your only system the value can be left at ALL. But if you are preparing enterprise-wide /etc/sudoers configurations then you may want to specify *superuser* access only on particular systems. The third column (second ALL) is the user that you will turn into when you use the *sudo* command. By default it is __root__ but you may want it to be another specific user. The fourth column after the : (third all) is the comma separated list of commands that user can execute. The fifth column (fourth ALL) is optional but it is an access control feature allowing only members of [certain groups to sudo](https://www.unixtutorial.org/how-to-use-visudo/ "how to use visudo").
 
-The first column is either a user account (no %) or preceded by a % sign meaning a user group.  The second column (or the first ALL) is the hostname of the systems that can allow elevation to *superuser*.  Now if this is your only system the value can be left at ALL.  But if you are preparing enterprise-wide /etc/sudoers configurations then you may want to specify *superuser* access only on particular systems.  The third column (second ALL) is the user that you will turn into when you use the *sudo* command.  By default it is __root__ but you may want it to be another specific user.  The fourth column after the : (third all) is the comma separated list of commands that user can execute. The fifth column (fourth ALL) is optional but it is an access control feature allowing only members of [certain groups to sudo](https://www.unixtutorial.org/how-to-use-visudo/ "how to use visudo").
-
-  Group                    Hosts                    Target User                      Commands
+  User/Group             Hosts                    Target User                      Commands
 --------------- -----------------------------    ------------------   -----------------------------------------
-   bkupuser              ALL                           ALL               /usr/bin/mysqldump /usr/bin/gzip
-   %admin                ALL                         dbadmin                              ALL
+   bkupuser              dbserver1                      ALL               /usr/bin/mysqldump /usr/bin/gzip
+  %bkupadmins            ALL                         dbadmin                             ALL
    %cia                  ALL                           ALL                               ALL
 --------------- -----------------------------    ------------------   -----------------------------------------
 
-After the useraccount you can add an additional parameter to remove the password requirement. This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users.  It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
+After the useraccount you can add an additional parameter to remove the password requirement. This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users. It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
 
-> __Example Usage:__   The two commands below give the user `bkupuser` the ability to become sudo without requiring a password and only the power to execute the copy command.  The second command gives any user who is a member of the admin group the ability to sudo with out any password.
+> __Example Usage:__  The two commands below give the user `bkupuser` the ability to become sudo without requiring a password and only the power to execute the database backup tool. 
 
 ```bash
-bkupuser ALL=(root) NOPASSWD: /usr/bin/mysqldump
-%vagrant  ALL=(ALL) NOPASSWD:ALL
-%admin  ALL=(ALL) NOPASSWD:ALL
+%bkupusers ALL=(root) NOPASSWD: /usr/bin/mysqldump
+vagrant  ALL=(ALL) NOPASSWD:ALL
 ```
+
+#### /etc/sudoers.d
+
+You would add additional entries into a special file named `/etc/sudoers.d/extensions`. The `.d` convention is on all Unix and Linux systems and means that the original file `/etc/sudoers` should read any file in the directory `/etc/sudoers.d/` and append those values to the original `/etc/sudoers` file. This keeps the original clean, allows the operating system to update it with worrying about conflicting changes, and allows you to automate the creation of additional sudoers rules.
 
 #### Fedora and other Linux
 
-All other Linux distributions have a __root__ account user made at install time. Some minimal distributions or in FreeBSD case may only allow you to create a __root__ user at install time and make additional users your job to create.  In Fedora you can log into an GNOME session using the root account, there might be warnings from the operating system, as it is not expecting you to be logged in as __root__.  The __root__ user has its own home directory located at `/root`.  Even if you are going to use the __root__ account it is still advised to log in as a regular user and then use the `sudo` or `su` commands to elevate and then exit those privileges.
+All other Linux distributions have a __root__ account user made at install time. Some minimal distributions or in FreeBSD case may only allow you to create a __root__ user at install time and make additional users your job to create. In Fedora you can log into an GNOME session using the root account, there might be warnings from the operating system, as it is not expecting you to be logged in as __root__. The __root__ user has its own home directory located at `/root`. Even if you are going to use the __root__ account it is still advised to log in as a regular user and then use the `sudo` or `su` commands to elevate and then exit those privileges.
 
-Fedora and other Linux/Unix/Mac use different groups for sudo and *superuser* access.  That group is called *wheel*.  If you look at the `/etc/sudoers` output below from Fedora system you see the groups and file content is slightly different.
+Fedora and other Linux/Unix/Mac use different groups for sudo and *superuser* access. That group is called *wheel*.  If you look at the `/etc/sudoers` output below from Fedora system you see the groups and file content is slightly different.
 
 ![*Fedora /etc/sudoers*](images/Chapter-09/root/fedora-22-etc-sudoers.png "Fedora sudoers")
 
 #### sudo usage examples and conclusion
 
-> __Example Usage:__ After installing the apache webserver (httpd) on Fedora - the html files are served out of the default directory `/var/www/html`.  Now if you cd to that `/var/www/` what do you notice about group and other ownership of `html`?  How would you write a newfile `support.html` file in that directory?
+> __Example Usage:__ After installing the apache webserver (httpd) on Fedora - the html files are served out of the default directory `/var/www/html`. Now if you cd to that `/var/www/` what do you notice about group and other ownership of `html`? How would you write a newfile `support.html` file in that directory?
 
 > __Example Usage:__ To install a service: `sudo dnf install httpd`, then you need to start the service (on Ubuntu they autostart for you, Fedora family they don't autostart), `sudo systemctl start httpd`.
 
@@ -109,13 +112,13 @@ That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about 
 
 ![*Logging*](images/Chapter-09/logs/640px-PONDEROSA_PINE_LOGS_STACKED_AT_PINE_INDUSTRY_MILL_-_NARA_-_542596.jpg "Logs") [^93]  
 
-One of the most central functions of an operating system is logging.  Without logging facilities it would be difficult to keep track of what the system is doing.  The technical term for this is __introspection__.  In the course of your Linux career you will find the logging system to be of immense help.  Not only can it be used to debug problems and find errors or security issues, but also to monitor and measure that changes made to the operating system are working to prevent issues.  From here on out when there is an application problem in Linux - your first trouble shooting step should be to go to the logs.  
+One of the most central functions of an operating system is logging. Without logging facilities it would be difficult to keep track of what the system is doing. The technical term for this is __introspection__. In the course of your Linux career you will find the logging system to be of immense help.  Not only can it be used to debug problems and find errors or security issues, but also to monitor and measure that changes made to the operating system are working to prevent issues. From here on out when there is an application problem in Linux - your first trouble shooting step should be to go to the logs.  
 
 ### /var/log/\*
 
 The default logging directory on all Linux systems is located in `/var/log`. This is the place where the kernel, the operating system, and any default installed services will place its logs. For 30+ years this was the convention and all common knowledge. But with the recent adoption of systemd on all major Linux platforms, the logging facility that was once simple text, has now been moved into the `journald` and into a binary format. Note with the systemd, the logging convention has been changed to a binary format and placed under the `journalctl` command which we will cover in chapter 11.
 
-When you install additional packages, those packages too will add a directory for its own logs. Note in the picture below there is a log called `httpd` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files.  You will notice in these screenshots that there is a log entry for VBoxGuestAdditions--telling you that you are using VirtualBox.
+When you install additional packages, those packages too will add a directory for its own logs. Note in the picture below there is a log called `httpd` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files. You will notice in these screenshots that there is a log entry for VBoxGuestAdditions--telling you that you are using VirtualBox.
 
 ![*Fedora contents of /var/log/\**](images/Chapter-09/logs/var-log.png "var log")
 
@@ -123,7 +126,7 @@ When you install additional packages, those packages too will add a directory fo
 
 ### syslog
 
-The operating system needs a convention on how all the logs are transferred and stored.  That method was called syslog. Until 1980 there were various logging methods and schemes. The one that caught on was called syslog and was actually part of an email program, Sendmail, initially. Syslog permits the consolidation of logging data from different types of systems in a central repository. Syslog logs can also be transmitted remotely and aggregated on a central system.  Originally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS.  Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to `journalctl`. The system logs that had been stored in: [^94]
+The operating system needs a convention on how all the logs are transferred and stored. That method was called syslog. Until 1980 there were various logging methods and schemes. The one that caught on was called `syslog` and was actually part of an email program, Sendmail, initially. Syslog permits the consolidation of logging data from different types of systems in a central file location. Syslog logs can also be transmitted remotely and aggregated on a central system. Originally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS. Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to `journalctl`[^94].
 
 \newpage
 
@@ -154,9 +157,9 @@ Value    Severity        Keyword   		Description     			 	            Examples
 							                     the application.
 ----- ---------------- ---------- ---------------------------  ----------------------------------
 
-### rsyslog
+### Rsyslog
 
-By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed.  Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog. It made syslog extensible and eventually replaced syslog by default. Most Linux distributions dropped the original syslog application and replaced it with rsyslog by 2010 [^95].
+By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed. Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog. It made syslog extensible and eventually replaced syslog by default. Most Linux distributions dropped the original syslog application and replaced it with Rsyslog by 2008 [^95].
 
 ### journald and systemd
 
@@ -168,9 +171,9 @@ In Lennart Poeterring's own words, *"If you are wondering what the journal is, h
 
 Syslog runs along side of journald The traditional ways of using syslog had been modified by journald.
 
-* `cat /var/log/messages` will now become `journalctl`
-* `tail -f /var/log/messages` will now become `journalctl -f`
-* `grep sshd /var/log/messages` will now become `journalctl -u sshd`
+* `cat /var/log/syslog` will now become `sudo journalctl`
+* `tail -f /var/log/syslog` will now become `sudo journalctl -f`
+* `grep sshd /var/log/syslog` will now become `sudo journalctl -u sshd`
 
 To use the journal daemon (journald) all its elements are accessed through the `journalctl` command.  All previously sparse logs are now contained in a single binary append only log format. The advantage of that is that the output can be programmatically parsed and queried like a database.
 
@@ -278,13 +281,15 @@ The first step in system administration is monitoring. Just like viewing logs, a
 
 ### top
 
+The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at. 
+
 ![*Fedora top screenshot*](images/Chapter-09/monitoring/top/top.png "top")
 
-The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at. The main key you need to know is *q* which will quit and exit the top command (just like the less command.) The image below displays the system average loads over longer rolling periods: 1 minute, 5 minutes, and 15 minute rolling average.
+The image below displays the system average loads over longer rolling periods: 1 minute, 5 minutes, and 15 minute rolling average.
 
 ![*top avg*](images/Chapter-09/monitoring/top/top-avg.png "Top average")
 
-This section tells you the number of processes, how much memory and swap is in use and how much is free.  It also tells you the breakdown between users and system on who is using the CPU percentage wise.
+This section tells you the number of processes, how much memory and swap is in use and how much is free. It also tells you the breakdown between users and system on who is using the CPU percentage wise.
 
 ![*top usage*](images/Chapter-09/monitoring/top/top-usage.png "Top usage")
 
@@ -303,17 +308,18 @@ The `top` command also has the ability to sort and modify its output while runni
    'm'         Same as above but more granular
    'n'         Percentage of memory that a task is using.
 'w' STATE      D=uninterruptible sleep, R=running, S=sleeping, T=traced or stopped, Z=zombie
+  'q'          This will quit the `top` application
 -----------  --------------------------------------------------------------------------------
 
 ### htop
 
-The htop command is an extension to the Linux top command.  It is written in C using the ncurses library for text-based GUIs so it has mouse support.  It also has metered output-and uses all the same interactive commands as `top`.  The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop").  The `htop` command needs to be installed via apt-get or yum/dnf.
+The htop command is an extension to the Linux top command. It is written in C using the ncurses library for text-based GUIs so it has mouse support. It also has metered output-and uses all the same interactive commands as `top`. The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop"). The `htop` command needs to be installed via apt-get or yum/dnf.
 
 ![*htop*](images/Chapter-09/monitoring/top/htop.png "htop")
 
 ### systemd-cgtop
 
-You were probably wondering if systemd had its own system monitoring tool. And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd. The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the `/proc` filesystem. You run the command `systemd-cgtop` from the commandline with preset flags like top or you run it in interactive mode. In interactive mode you would type `%` percent to toggle between CPU time as time or percentage. You would type p, t, c, m, i to sort by path, number of tasks, CPU load, memory usage, or IO load. The letter *q* is to quit.  There are other configuration options displayed by typing `man systemd-cgtop`.
+You were probably wondering if systemd had its own system monitoring tool. And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd. The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the `/proc` filesystem. You run the command `systemd-cgtop` from the commandline with preset flags like top or you run it in interactive mode. In interactive mode you would type `%` percent to toggle between CPU time as time or percentage. You would type p, t, c, m, i to sort by path, number of tasks, CPU load, memory usage, or IO load. The letter *q* is to quit. There are other configuration options displayed by typing `man systemd-cgtop`.
 
 ### btop
 
@@ -323,9 +329,10 @@ You can install [btop](https://github.com/aristocratos/btop "webpage for btop") 
 
 These tools are used like the *top commands but monitor network interfaces and their traffic. All can be run on a server based system, textbased and no GUI required.
 
-* iftop
-* nethogs
-* tshark
+* [bmon](https://en.wikipedia.org/wiki/Bmon "wikipage for Bmon")
+* [iftop](https://en.wikipedia.org/wiki/Iftop "wikipage for iftop")
+* [nethogs](https://github.com/raboof/nethogs "webpage for nethogs")
+* [tshark](https://en.wikipedia.org/wiki/Wireshark#Features "wikipage for tshark")
 
 ### Additional Monitoring Tools
 
@@ -339,15 +346,16 @@ There are many additional standard Linux tools as well as many GitHub projects b
  `vmstat`                  Report virtual memory statistics
    `w`                Report logged in users and what they are doing
   `watch`        Execute a program periodically, showing output fullscreen
+  `df`           This will tell you the percentage of disk usage
 --------------  -------------------------------------------------------------
 
 #### Load Generators
 
 The opposite side of system monitoring is sometime you want to generate a load to see how your system responds.  On modern system that are multi-core with fast memory. There is a tool called `stress` you can install it via The Ubuntu and Fedora software stores or form the commandline using apt-get and yum/dnf.  It is also available for the Mac via the Homebrew package manager. The command `stress --cpu 2 --timeout 60`  will cause two processors to max out for 60 seconds.  You would then be able to see this using an of the above top based commands.  There are some other ways to generate loads in bash as well located here: [http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326](http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326 "Bash load generator ideas")
 
-#### sar and iostat
+#### mpstat and iostat
 
-In addition to memory, CPU, and process information.  You can other commands to measure system I/O. The `sar` command - system activity report -- is something that came from the BSD Unixes and was ported over to Linux. It is used to sample and report various cumulative statistic counters maintained by the operating system.  You can take *n* samples at *t* intervals. Finally the `iostat` command, which in Linux is part of the sysstat package--displays kernel I/O statistics on terminal, device and cpu operations. A common word for this is I/O measurement or throughput.  These reports can then be used to change system configurations to better balance the input/output load between physical disks.  
+In addition to memory, CPU, and process information. You can other commands to measure system I/O. The `iostat` command, which in Linux is part of the sysstat package--displays kernel I/O statistics on terminal, device and cpu operations. The `mpstat` command will give you a per-processor readout. A common word for this is I/O measurement or throughput. These reports can then be used to change system configurations to better balance the input/output load between physical disks.
 
 ![*iostat*](images/Chapter-09/monitoring/io/iostat.png "iostat")
 
@@ -365,15 +373,12 @@ There are a series of commands that can be used to change or augment the owner, 
 
 ### useradd
 
-The useradd command allows you to add a new user to the system.  You can set user defaults by typing the command below.  The -D option will show you what your system `useradd` command defaults are.  You can then add a user with these default values by typing:
+The useradd command allows you to add a new user to the system. There are many options to override system account creation defaults.
 
 ```bash
-useradd name-of-account-to-add
+sudo useradd -c "This is a user for ITMO-356-01 Fall 2023" -d /home/controller \
+-G sudo -s /usr/bin/bash -m controller
 ```
-
-![*useradd*](images/Chapter-09/user-administration/default/etc-default.png "etc-default")
-
-You have the option as well to override the default values and set your own values for a new user.
 
 : useradd command options
 
@@ -388,27 +393,28 @@ You have the option as well to override the default values and set your own valu
 `-s`              Assign the user's shell
 -------------   ----------------------------------------------------
 
-![*adduser*](images/Chapter-09/user-administration/default/adduser.png "adduser")
-
-> __Example Usage:__ What do the options and arguments below do?  Type it in and see what happens.
+There are system defaults that can save time by using only the `useradd` command.
 
 ```bash
-sudo useradd -c "This is a user for ITMO-356-01 Fall 2023" -d /home/controller \
--G sudo -s /bin/bash -m controller
+# You can see the defaults settings with the -D options
+useradd -D
+# Adds an account and taked the system defaults
+useradd name-of-account-to-add
 ```
 
 In Debian distributions there is an abstraction layer called `adduser` and `addgroup` which are interfaces to the useradd and groupadd commands. It is just a perl script that passes the values you enter in the menu to the useradd command. On all other non-Debian distros `adduser` is a symlink to `useradd` command. The `adduser` command prompts you for information to fill out all the values and is recommended on Debian based systems, but if writing a shell script this is not portable to a non-Debian based distro.
-\newpage
+
+![*useradd*](images/Chapter-09/user-administration/default/etc-default.png "etc-default")
 
 ### userdel and usermod
 
-The same as above, the `userdel` command allows you to delete a user.  The `usermod` command allows you to modify a setting for a user without having to delete and re-create a user.  The most common scenario is changing the users supplementary groups so that they can be in the sudo, wheel, or admin group.   By default the system creates a usergroup with the same name as the usergroup and marks that as your users primary group. In this command -a means append and -G means append to the groups list.  For example: `sudo usermod -aG sudo <username>`  is a handy command to remember.
+The same as above, the `userdel` command allows you to delete a user. The `usermod` command allows you to modify a setting for a user without having to delete and re-create a user. The most common scenario is changing the users supplementary groups so that they can be in the sudo, wheel, or admin group. By default the system creates a usergroup with the same name as the usergroup and marks that as your users primary group. In this command `-a` means append and `-G` means append to the groups list. For example: `sudo usermod -aG sudo <username>`  is a handy command to remember.
 
 ### addgroup and groupadd
 
-In the same way as a user is created and there is a Debian based shortcut, there is a similar command to create a new group.  You would want to do this if you needed to create a group that was not in existence.  The syntax is simply `sudo addgroup name-of-group` and that is it.  The opposite command exists as well groupdel and delgroup, with the syntax of `sudo delgroup name-of-group`.
+In the same way as a user is created and there is a Debian based shortcut, there is a similar command to create a new group. You would want to do this if you needed to create a group that was not in existence. The syntax is simply `sudo addgroup name-of-group` and that is it. The opposite command exists as well groupdel and delgroup, with the syntax of `sudo delgroup name-of-group`.
 
-You can list all the groups that exist on your system by executing the `groups` command.  If executed without any arguments it will show the current users group membership.  If you follow it up with a username it will return the group memberships of that user.  You can display the list of all the groups that exist on a system by typing `cat /etc/group` on the commandline.
+You can list all the groups that exist on your system by executing the `groups` command. If executed without any arguments it will show the current users group membership. If you follow it up with a username it will return the group memberships of that user. You can display the list of all the groups that exist on a system by typing `cat /etc/group` on the commandline.
 
 ### The groups command
 
@@ -416,7 +422,7 @@ Sometimes you need to find detailed information about a user and which groups th
 
 ### /etc/passwd
 
-When a new user is created, the information passed into the `adduser` or `useradd` command is stored in the `/etc/passwd` file (yes it is missing the 'or'). This file originally stored user passwords which had been encrypted, but the file had read access and it was realized that it was a security flaw to allow access in this way. The actual encrypted passwords were moved to a file called `/etc/shadow` and linked via the character *x* in the `/etc/passwd` file. You can see this in the image below.  Also notice from the snippet that there are many many usernames that have been created but only two of them are by your hand.  That is because the system upon install creates many additional users that have single or even legacy purposes that the user will not touch. At the very end of the screenshot below you see users on a system.
+When a new user is created, the information passed into the `adduser` or `useradd` command is stored in the `/etc/passwd` file (yes it is missing the 'or'). This file originally stored user passwords which had been encrypted, but the file had read access and it was realized that it was a security flaw to allow access in this way. The actual encrypted passwords were moved to a file called `/etc/shadow` and linked via the character *x* in the `/etc/passwd` file. You can see this in the image below. Also notice from the snippet that there are many many usernames that have been created but only two of them are by your hand.  That is because the system upon install creates many additional users that have single or even legacy purposes that the user will not touch. At the very end of the screenshot below you see users on a system.
 
 ```
 controller:x:1000:1000:controller,,,:/home/controller:/bin/bash
@@ -449,18 +455,18 @@ Pronounced *"chuh-own"*. This command allows you to change the owner of a file. 
 
 ### chgrp
 
-Pronounced *"Chuh-gerp"*. This is the change group command.  It works just like `chown` but instead only changes the group ownership.
+Pronounced *"Chuh-gerp"*. This is the change group command. It works just like `chown` but instead only changes the group ownership.
 
 #### ACLs
 
-If you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions.  These are called ACL's (pronounced "*ack-els*") __Access Control Lists__.  They are not native to the Linux world as they were not part of the original Unix standard.  Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions.  The difficulties of ACL's in Linux is that they are exclusive to RHEL and not portable to other Linux or Unix systems.
+If you have ever worked on Windows OS you will notice that they have much deeper access control and permission system the the basic read, write, execute and owner, group, other permissions. These are called ACL's (pronounced "*ack-els*") __Access Control Lists__. They are not native to the Linux world as they were not part of the original Unix standard. Modern versions of RHEL implement there own layer of Windows like ACLs on top of the regular permissions. The difficulties of ACL's in Linux is that they are exclusive to RHEL and not portable to other Linux or Unix systems.
 
 ### The 3 P's of Troubleshooting Linux Problems
 
 All my troubleshooting experience in Linux boils down to three things. I have named them the 3P's (yes I know that they all don't start with *P*).  If you have an error message or cannot execute a command--run down these three troubleshooting steps:
 
 * Path
-  * If you get an error message telling you that `file not found` or `path does not exist`  double check your path.  It the absolute path correct?  Is it a relative path problem?  Are you on the wrong level?
+  * If you get an error message telling you that `file not found` or `path does not exist`--double check your path.  Is the absolute path correct? Is it a relative path problem?  Are you on the wrong level of the tree?
 * Permission
   * Every file has permission on what is allowed to be done with it based on a simple access control of read write and execute.  Maybe you don't have permission to write and therefore can't delete a file. Perhaps the file is owned by someone else and they didn't give you permission.  Check permissions via ls -la or see if you need sudo.
 * dePendencies
