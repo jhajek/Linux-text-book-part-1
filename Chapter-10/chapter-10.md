@@ -287,7 +287,7 @@ sshd.service - OpenSSH server daemon
      Memory: 7.9M
         CPU: 536ms
      CGroup: /system.slice/sshd.service
-             └─671 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+             ->671 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
 ```
 
 ### Working With Services in systemctl
