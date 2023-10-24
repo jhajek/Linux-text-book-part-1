@@ -48,35 +48,43 @@ BIOS and UEFI are two separate things. When booting with UEFI, there are 3 addit
 1) TSL - Transient System Load
 1) RT - Runtime
 
-#### Major Advantage of UEFI
+#### Advantages of UEFI
+
+* UEFI support is detected on install by all operating systems. 
+  * You can specifically enable it in VirtualBox 7+. 
+* UEFI is needed to boot on drives larger than 2 TB
+  * BIOS cannot overcome that limit
+* The pre-boot UEFI setup environment software is 64-bit and can contain drivers for this mini-operating system
+* UEFI has robust support for Networking and advanced system configuration
+* Modern operating systems require UEFI to be present
+* [UEFI](https://uefi.org/members "UEFI member list website") is controlled by a trade organization 
+  * All the major PC makers and OS vendors purchase a seat in the UEFI consortium
 
 ![*Enable EFI*](images/Chapter-10/UEFI/virtualbox-uefi.png "virtualbox efi support")
-
-UEFI supported is detected on install by all operating systems. You can specifically enable it in VirtualBox 7+. UEFI has one clear advantage, BIOS cannot boot an operating system from a harddisk greater than 2 TB and UEFI can. The pre-boot setup environment software is 64-bit and can contain custom drivers for this mini-operating system. Has robust support for Networking and advanced system configuration. Some modern operating systems require UEFI to be present. [UEFI](https://uefi.org/members "UEFI member list website") is controlled by a trade organization which all the major PC makes and OS vendors purchase a seat in the UEFI consortium.
 
 ## Second Phase of the system boot
 
 ### GNU GRUB Boot Loader
 
-GNU GRUB version 2 or known as just GRUB, has 3 stages of the boot loading process. 
+The GRUB boot loader, has 3 stages of the boot loading process. 
 
-#### Stage One 
+#### Stage 1 - BIOS only
 
-GRUB Stage 1 detects and finds the locations of and discovers various file systems on disk for loading. This is your Volume Boot Record functionality. 
+In the first stage of the GRUB loader, the `boot.img` file, located in sector 0 in the first 440 bytes of the MBR is loaded. The `boot.img` file addresses the `diskboot.img` file via a 64-bit Logical Block Address​ (no filesystem to address); this is the raw disk location. `Diskboot.img` is the first sector of the `core.img` file and its only job is to begin loading `core.img.`
 
-#### Stage 1.5
+#### Stage 1.5 - BIOS only
 
-Now GRUB loads stage. GRUB 1.5 will load file system drivers that are separate from the Operating System so that the file `/boot/grub/grub.cfg` can be read. Fedora stores its grub configuration at `/boot/grub2/grub.cfg`. This file contains details about the path to various kernels for loading and various system configurations.
+The `core.img` is read into memory. This is file is about 32K in length. The purpose of the `core.img` is to begin to load the Grub configuration files.
 
-#### Stage 2
+#### Stage 2 - BIOS and UEFI
 
-Once stage 1.5 is completed, stage 2 is loaded and control is passed. This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
+Now the GRUB menu begin to load at this stage. GRUB 1.5 will load filesystem drivers that are separate from the Operating System so that the file `/boot/grub/grub.cfg` can be read. Fedora stores its grub configuration at `/boot/grub2/grub.cfg`. UEFI loads `/efi/<distro>/grubx64.efi` ​then hands over to `/boot/grub/grub.cfg`. This file contains details about the path to various kernels for loading and various system configurations. In UEFI there is no MBR and stage 1 or 1.5 -- the path to the EFI partition is stored in NVRAM and UEFI will load this directly. This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
 
-By default this User Interface will pop up if you have more than one operating system or kernel version installed in the case of Fedora. If you have a single operating system this screen will be skipped by default, you can hold down the SHIFT key at boot and force this screen to come up. In the case of Ubuntu you can select ADVANCED to see different kernel versions you can load.
+By default this user interface will pop up if you have more than one operating system or kernel version installed in the case of Fedora. If you have a single operating system this screen will be skipped by default, you can hold down the SHIFT key at boot and force this screen to come up. In the case of Ubuntu you can select ADVANCED to see different kernel versions you can load.
 
 ![*Terminal User Interface*](images/Chapter-10/GRUB/tui-large.png "TUI")
 
-Once we select a kernel version, GRUB knows where to go to find that kernel file, read it into memory, decompress it. All kernel images are located in `/boot` or `/efi/boot` and your GRUB configuration file knows this.  
+Once we select a kernel version, GRUB knows where to go to find that kernel file, read it into memory, decompress it. All kernel images are located in `/boot` or `/efi/boot`.
 
 #### initrd img
 
@@ -162,7 +170,7 @@ These additional commands will share more information:
 
 #### kill
 
-In the SysVinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of ```kill```.  
+In the SysVinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of `kill`.  
 
  Level       Name            Function
 -------- ------------ -----------------------------------------------------------------------
@@ -172,11 +180,11 @@ In the SysVinit/Upstart world to terminate a process you would use the ```kill``
   15       SIGTERM      Like a kill 9, but with class, gracefully kills a process
 -------- ------------ -----------------------------------------------------------------------
 
-All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors. All except ```kill -9``` every process has to obey. You can use the ```killall``` command to kill the process and any associated processes that it had launched all in one fell swoop. You and use the ```ptkill``` command to kill a process by name instead of PID.
+All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors. All except `kill -9` every process has to obey. You can use the `killall` command to kill the process and any associated processes that it had launched all in one fell swoop. You and use the `ptkill` command to kill a process by name instead of PID.
 
 #### nice
 
-The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
+The `nice` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at `man nice`.
 
 ```bash
 # increase favorability of this process to the scheduler by 10 on a 
@@ -186,7 +194,7 @@ nice -n 10 my-program-name
 
 ### Upstart
 
-In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called ```upstart```.  Upstart moved all the traditional runlevels and start up scripts to ```/etc/init``` directory and placed the scripts in configuration files. While leaving the ```/etc/rc.d``` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in ```/etc/init/myservice.conf```:  Note the use of the __run level__ concept from SysVinit.  Compare this to (on an Ubuntu system) the contents of any script in ```/etc/rc3.d``` (run level 3).  Upstart exhibits a bit more process control but still being a shell script when you boil it down.
+In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called `upstart`.  Upstart moved all the traditional runlevels and start up scripts to `/etc/init` directory and placed the scripts in configuration files. While leaving the `/etc/rc.d` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in `/etc/init/myservice.conf`:  Note the use of the __run level__ concept from SysVinit.  Compare this to (on an Ubuntu system) the contents of any script in `/etc/rc3.d` (run level 3).  Upstart exhibits a bit more process control but still being a shell script when you boil it down.
 
 ```bash
 myservice - myservice job file
@@ -238,7 +246,7 @@ Init Systems: Comparison of actions
 
 Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at Red Hat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.
 
-From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system[^117]."*  Unlike the SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1. The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too. Systemd includes many other items, 69 different binaries all rolled into PID 1.
+From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system[^117]."* Unlike the SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1. The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too. Systemd includes many other items, ~69 different binaries all rolled into PID 1.
 
 > *"As an integrated software suite, systemd replaces the startup sequences and runlevels controlled by the traditional init daemon, along with the shell scripts executed under its control. systemd also integrates many other services that are common on Linux systems by handling user logins, the system console, device hotplugging (see udev), scheduled execution (replacing cron), logging, hostnames and locales[^121]."*
 
@@ -246,7 +254,7 @@ From Lennart's own website, *"systemd is a suite of basic building blocks for a 
 
 > *"Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions[^116]."*
 
-One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command ```init 3``` was always start at the commandline, and ```init 5``` was GUI.  Systemd introduces __targets__ in their place.  Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the ```/etc/inittab``` [^118].
+One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command `init 3` was always start at the commandline, and `init 5` was GUI.  Systemd introduces __targets__ in their place.  Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the `/etc/inittab`[^118].
 
    Run Level              systemd target               Function
 ---------------- ------------------------------------- -------------------------
@@ -258,25 +266,25 @@ One of the main differences between traditional Upstart/SysVinit based Linux is 
                   emergency.target                      Emergency shell
 ---------------- ------------------------------------- -------------------------  
 
-You can use the command  ```systemctl``` to list all running services and to issue them commands.  If you wanted to change to a graphical mode directly from your GUI mode you would issue ```systemctl isolate graphical.target``` effectively changing run levels or targets.  You can change the default target by issuing this command: ```systemctl set-default <name of target>.target```  ```systemctl get-default``` will print out your current default target.
+If you wanted to change to a graphical mode directly from your GUI mode you would issue `systemctl isolate graphical.target` effectively changing targets. You can change the default target by issuing this command: `systemctl set-default <name of target>.target`. The command `systemctl get-default` will print out your current default target.
 
-> **Exercise:**  Run the ```systemctl get-default``` command, what is the output?
+> **Exercise:**  Run the `systemctl get-default` command, what is the output?
 
-## Processes and Services
+## systemd Processes and Services
 
-Whenever you start a program in Linux, whether that is a service, or something as simple as run a command in the terminal or open a new web-browser tab, that creates a system process.  Each process gets an ID so that it can be accessed or referenced and is assigned memory space and CPU affinity (priority).  In addition to a process--which can be short lived or long lived, there are services--which can be helper items such as the login and authentication service or something focused such as an apache2 web-server. Each process in turn has a PPID--Parent Process ID, which tells you which other process launched that process.  In traditional SysVinit ```/sbin/init``` launches each additional service.  In systemd, instead of having PPIDs and PIDs, you have the concept of cgroups and processes grouped together.
+Whenever you start a program in Linux, whether that is a service, or something as simple as runnig a command in the terminal or opening a new web-browser tab, that creates a system process. Each process gets an ID so that it can be accessed or referenced and is assigned memory space and CPU affinity (priority). In addition to a process--which can be short lived or long lived, there are services--which can be helper items such as the login and authentication service or something focused such as the apache2 web-server. Each process in turn has a PPID--Parent Process ID, which tells you which other process launched that process. In traditional SysVinit `/sbin/init` launches each additional service. In systemd, instead of having PPIDs and PIDs, you have the concept of cgroups and processes grouped together.
 
 ### Working With Services in systemctl
 
-> __Example Usage:__ On a systemd based system, service control is done with ```sudo systemctl <command> <name>.service```.  In the case of Apache2 webserver the command to restart it would look like this:  ```sudo systemctl restart nginx.service```  The ```.service``` can be left off and the system will assume the extension.
+> __Example Usage:__ On a systemd based system, service control is done with `sudo systemctl <command> <name>.service`.  In the case of Apache2 webserver the command to restart it would look like this:  `sudo systemctl restart nginx.service`  The `.service` can be left off and the system will assume the extension.
 
-> __Example Usage:__ The ```systemctl``` command has additional abilities.  It absorbed the ```chkconfig``` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: ```sudo systemctl is-enabled nginx.service```.  Issue that command and what does it report?
+> __Example Usage:__ The `systemctl` command has additional abilities.  It absorbed the `chkconfig` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: `sudo systemctl is-enabled nginx.service`.  Issue that command and what does it report?
 
-> __Example Usage:__ To disable a service at boot type: ```sudo systemctl disable nginx.service``` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.  
+> __Example Usage:__ To disable a service at boot type: `sudo systemctl disable nginx.service` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.  
 
-Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start.  Systemd command ```systemctl show``` will show all details relating to a target or a service.  Let us look at a service definition.  Type this command, ```cd /lib/systemd/system```,  what do you see? Type this command to see the contents of the httpd.serivce file, ```cat nginx.service``` what do you see contained inside?
+Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start.  Systemd command `systemctl show` will show all details relating to a target or a service.  Let us look at a service definition.  Type this command, `cd /lib/systemd/system`,  what do you see? Type this command to see the contents of the httpd.serivce file, `cat nginx.service` what do you see contained inside?
 
-Compared to the make up of a SysVinit service, systemd has a simple design for each of its *service* files.  They are located in ```/lib/systemd/system```.  Upon entering this directory you can launch an ```ls``` command and see the actual service files that you start/stop and enable/disable with ```systemctl```.
+Compared to the make up of a SysVinit service, systemd has a simple design for each of its *service* files.  They are located in `/lib/systemd/system`.  Upon entering this directory you can launch an `ls` command and see the actual service files that you start/stop and enable/disable with `systemctl`.
 
 ```bash
 # /lib/systemd/system/nginx.service file content
