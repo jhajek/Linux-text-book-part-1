@@ -532,20 +532,14 @@ One of the tools to alleviate this is called [fail2ban](https://www.fail2ban.org
 
 #### OpenSSL
 
-OpenSSL is an Opensource Library used for cryptographic key generation by OpenSSH. In 2016, it suffered an exploit due to the quality of the library maintaining older code from non-existent systems as well as being woefully underfunded and understaffed. Take note that although Google built its entire business using opensource and OpenSSL, they contributed almost nothing to its development. After the exploit a huge infusion of cash and adoption by the Linux Foundation of this project as a core infrastructure project has increased the quality of its security and development.
+OpenSSL is an Opensource Library used for cryptographic key generation by OpenSSH. In 2016, it suffered an exploit, named [heartbleed](http://heartbleed.com "Heartbleed.com") due to the critical library maintaining old code from defunct systems and only having one part-time developer. Take note that although Google built its entire business using OpenSSH and OpenSSL, they contributed almost nothing to its development. After the exploit the projects were adopted by the Linux Foundation [Core Infrastructure Initiative](https://www.coreinfrastructure.org/ "website for CII")[^ch9f107] and recently transferred to the [Open Source Security Foundation](https://openssf.org/ "website for Open Source Security Foundation").
 
-The heartbleed OpenSSL bug even has its own website to explain the details of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
+The heartbleed OpenSSL bug has its own website to explain the details of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
 
-> "The Heartbleed Bug is a serious vulnerability in the popular OpenSSL cryptographic software library. This weakness allows stealing the information protected, under normal conditions, by the SSL/TLS encryption used to secure the Internet. SSL/TLS provides communication security and privacy over the Internet for applications such as web, email, instant messaging (IM) and some virtual private networks (VPNs)[^ch9f106]."
-
-> "The Heartbleed bug allows anyone on the Internet to read the memory of the systems protected by the vulnerable versions of the OpenSSL software. This compromises the secret keys used to identify the service providers and to encrypt the traffic, the names and passwords of the users and the actual content. This allows attackers to eavesdrop on communications, steal data directly from the services and users and to impersonate services and users[^ch9f106]."
-
-Links to Security Now Technical Podcast explaining HeartBleed
+Links to "Security Now" Technical Podcast explaining HeartBleed
 
 * [https://twit.tv/shows/security-now/episodes/450 - Part 1](https://twit.tv/shows/security-now/episodes/450 "heartbleed podcast part 1")
 * [https://twit.tv/shows/security-now/episodes/451 - Part 2](https://twit.tv/shows/security-now/episodes/451 "heartbleed podcast part 2")
-
-> "SAN FRANCISCO, April 24, 2014 – The Linux Foundation today announced it has formed a new project to fund and support critical elements of the global information infrastructure. The Core Infrastructure Initiative enables technology companies to collaboratively identify and fund open source projects that are in need of assistance, while allowing the developers to continue their work under the community norms that have made open source so successful. Founding backers of the Initiative include Amazon Web Services, Cisco, Dell, Facebook, Fujitsu, Google, IBM, Intel, Microsoft, NetApp, Rackspace, VMware and The Linux Foundation[^ch9f107]."
 
 #### LibreSSL
 
@@ -612,7 +606,7 @@ The full range of options for the config file can be found in this Digital Ocean
 
 ### SSH Service Daemons and Security
 
-SSH has two configuration files that control its abilities.  Located at `/etc/ssh/ssh_config` and `/etc/ssh/sshd_config`.  The first file contains user information about what options your client will present and use when connecting to a remote SSH server.  
+SSH has two configuration files that control its abilities. Located at `/etc/ssh/ssh_config` and `/etc/ssh/sshd_config`. The first file contains user information about what options your client will present and use when connecting to a remote SSH server.  
 
 In the `ssh_config` file you can modify these lines to increase the security of the encryption ciphers you use.  By default OpenSSH defaults back to an older and weaker set of encryption ciphers such as:
 
@@ -626,7 +620,6 @@ You would uncomment the line and the entries with a more robust list.  You would
 # I made it into two lines so it would display properly.
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,
 aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
-
 ```
 
 #### SSH Server Security Setting to Change

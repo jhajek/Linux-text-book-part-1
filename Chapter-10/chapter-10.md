@@ -13,23 +13,33 @@
 
 ## Outcomes
 
-At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work. You will understand how to examine, start, and stop services in both arenas. You will learn about the `/proc` virtual-filesystem and how it represents running processes as files. You will be able to use the systemd mechanisms for process reporting and termination.
+At the outcome of this chapter you will have an understanding of how the traditional init system and the new systemd init system comparatively work. You will understand how to examine, start, and stop services in both arenas. You will be able to use the systemd mechanisms for process reporting and termination.
 
 ## First Phase of the system boot
 
-### BIOS
+### BIOS - 1983-2015
 
-When you hit the power button, after a short pause, your system begins to whir to life.  Fans spinning and a short POST *beep* sound tells you are on your way.  The next thing you see is some messages flash across the screen, a logo perhaps, some spinning icons, and then the login screen comes to life.  Collectively this is called the *boot* process.  We are interested in the last part--when the operating system is loaded from disk into memory and the init process begins to start launching the components of our operating system.  Before we dive into that part, let's review what goes on before hand.
+When you hit the power button, after a short pause, your computer begins to whir to life. Fans start spinning. The next thing you see is some messages flash across the screen, a logo perhaps, some spinning icons, and then the login screen comes to life. 
 
-How does the system come to life? There is a small chip on your motherboard that has some basic drivers hard coded into it.  This chip loads these basic drivers into memory with just enough access to start to load the operating system from disk. Traditionally this was called the [BIOS](https://en.wikipedia.org/wiki/BIOS "BIOS"), Basic Input Output System. This BIOS stems from the first PC device The IBM PC which developed it back in 1979. When the BIOS boots and successfully receives a positive result from the POST test, which will be a short *beep*, there are hard coded basic I/O device drivers that are loaded into memory to allow the computer to complete basic I/O functions, display information, and read from a hard disk. Immediately the system loads the MBR-Master Boot Record, which is the first sector of the first identified bootable device. This is usually your hard drive but could be a flash drive, SD Card, or even a good old fashioned CD-ROM.  The Master Boot Record points to the VBR or Volume Boot Record.  
+Collectively this is called the `boot` process. The process where the operating system is loaded from disk into memory and the init process begins to start launching the components of your operating system. Before we dive into that part, let's review what goes on before hand.
 
-In modern Linux the VBR is controlled by [GNU GRUB](https://www.gnu.org/software/grub/ "GNU GRUB"). *"Briefly, a boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd or Linux). The kernel, in turn, initializes the rest of the operating system (e.g. GNU)[^ch10f114]."* 
+How does the system come to life? The PC got its start in 1981 and the BIOS chip came along with it. Originally, this small chip was included on your motherboard. It had some basic hardware drivers hard coded into it and enough intelligence to help the computer find your first disk and start to load your kernel and operating system. Traditionally this was called the [BIOS](https://en.wikipedia.org/wiki/BIOS "BIOS"), Basic Input Output System.
 
-### UEFI
+#### Master Boot Record - MBR
 
-The [Unified Extensible Firmware Interface](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface "UEFI Wiki Page") was developed as a successor to the BIOS. The original BIOS spec only supported a 16-bit real-mode and 1 MB of memory, which limited what could be done on a system. The replacement UEFI, does the same job as BIOS but is a modern reimplementation of BIOS's basic functions. Who runs [UEFI](https://uefi.org/members "UEFI member list website")? It is controlled by a trade organization which all the major PC makes and OS vendors purchase a seat in the UEFI consortium.
+This small BIOS immediately loads the `MBR`, the `Master Boot Record` into memory. This is the first sector of the first identified bootable storage or network device. This is a standard location that the BIOS knows to look for and was introduced in 1983. This is usually your hard drive but could be a flash drive, SD Card, virtual drive with a .iso file or even the network. The `MBR` is also referred to as a [boot loader](https://en.wikipedia.org/wiki/Master_boot_record "wiki page for boot loader"). The `MBR` knowns how the disk is partitioned and where to find the Volume Boot Records.
 
-UEFI capabilities include additional features not available in the traditional BIOS.  Most modern Laptops and Servers, since 2015 are using UEFI, some come with a BIOS Compatibility Layer, but BIOS and UEFI are two separate things. When booting with UEFI, at stage 4 the UEFI Boot Manager entry that holds the location of the bootable device is loaded.
+> *"Briefly, a boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd or Linux). The kernel, in turn, initializes the rest of the operating system (e.g. GNU)[^ch10f114]."*
+
+#### Volume Boot Record - VBR
+
+A VBR starts at the first sector of a partitioned drive. In modern Linux the VBR is controlled by [GNU GRUB bootloader](https://www.gnu.org/software/grub/ "GNU GRUB"). Which will begin to load the selected operating system. Or in the case of a dual-booted system will [chainload](https://en.wikipedia.org/wiki/Volume_boot_record "wikipage for chainloading") the next bootloader and begin the process of booting another operating system bootloader (Windows for instance).
+
+### UEFI - 2015 and Beyond
+
+Since 2015, laptops and PCs are not using BIOS. There has been a replacement and evolution of firmware needed to boot a system. The [Unified Extensible Firmware Interface](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface "UEFI Wiki Page"). The original BIOS spec only supported a 16-bit real-mode and 1 MB of memory, which limited what could be done on a system. The replacement UEFI, does the same job as BIOS but is a modern reimplementation of BIOS's basic functions. 
+
+BIOS and UEFI are two separate things. When booting with UEFI, there are 3 additional stages that take place before booting of the operating system. UEFI is different from BIOS as is doesn't use MBR based boot devices, it uses a standard called [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table "wikipage for GPT") for formatting drives. These GPT partitions are stored in the UEFI NVRAM with the location of the files needed for loading the kernel into memory, or booting. The `\efi\boot\bootx64.efi` and `\efi\boot\bootaa64.efi` on ARM64 architecture, so no `MBR` or `VBR` needed.
 
 1) SEC - Security Phase
 1) PEI - Pre-EFI Initialization
@@ -38,52 +48,70 @@ UEFI capabilities include additional features not available in the traditional B
 1) TSL - Transient System Load
 1) RT - Runtime
 
-UEFI supported is detected on install by all operating systems.  You can specifically enable it in VirtualBox 6+:
+#### Major Advantage of UEFI
 
 ![*Enable EFI*](images/Chapter-10/UEFI/virtualbox-uefi.png "virtualbox efi support")
 
+UEFI supported is detected on install by all operating systems. You can specifically enable it in VirtualBox 7+. UEFI has one clear advantage, BIOS cannot boot an operating system from a harddisk greater than 2 TB and UEFI can. The pre-boot setup environment software is 64-bit and can contain custom drivers for this mini-operating system. Has robust support for Networking and advanced system configuration. Some modern operating systems require UEFI to be present. [UEFI](https://uefi.org/members "UEFI member list website") is controlled by a trade organization which all the major PC makes and OS vendors purchase a seat in the UEFI consortium.
+
 ## Second Phase of the system boot
 
-## GNU GRUB Boot Loaders
+### GNU GRUB Boot Loader
 
-GNU GRUB superseded what is now called legacy GRUB (version 0.9x) and begins with version 2 to separate the different tools--though they are both called GRUB.  We will only talk here about GRUB 2 or GNU GRUB when referring to GRUB. GRUB itself has 3 stages in order to get you to stage two which is the loading of your Linux Kernel from disk into memory.  Stage 1 detects and finds the locations of and discovers various file systems on disk for loading at a later time.  Once this is accomplished GRUB loads stage 1.5 and passes control to it.  GRUB 1.5 will load file system drivers that are separate from the Operating System so the file ```/boot/grub/grub.cfg``` can be read, Fedora stores its grub configuration at ```/boot/grub2/grub.cfg```.  This file contains details about the path to various kernels for loading and various system configurations.  Once complete stage 2 is loaded and control is passed.  This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
+GNU GRUB version 2 or known as just GRUB, has 3 stages of the boot loading process. 
 
-By default this User Interface will pop up if you have more than one operating system or kernel version installed in the case of Fedora.  If you have a single operating system this screen will be skipped by default, you can hold down the SHIFT key at boot and force this screen to come up.  In the case of Ubuntu you can select ADVANCED to see different kernel versions you can load.
+#### Stage One 
+
+GRUB Stage 1 detects and finds the locations of and discovers various file systems on disk for loading. This is your Volume Boot Record functionality. 
+
+#### Stage 1.5
+
+Now GRUB loads stage. GRUB 1.5 will load file system drivers that are separate from the Operating System so that the file `/boot/grub/grub.cfg` can be read. Fedora stores its grub configuration at `/boot/grub2/grub.cfg`. This file contains details about the path to various kernels for loading and various system configurations.
+
+#### Stage 2
+
+Once stage 1.5 is completed, stage 2 is loaded and control is passed. This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
+
+By default this User Interface will pop up if you have more than one operating system or kernel version installed in the case of Fedora. If you have a single operating system this screen will be skipped by default, you can hold down the SHIFT key at boot and force this screen to come up. In the case of Ubuntu you can select ADVANCED to see different kernel versions you can load.
 
 ![*Terminal User Interface*](images/Chapter-10/GRUB/tui-large.png "TUI")
 
-Once we select a kernel version, GRUB knows where to go to find that kernel file, read it into memory, decompress it. All kernel images are located in ```/boot``` and your GRUB 2 configuration file knows this.  
+Once we select a kernel version, GRUB knows where to go to find that kernel file, read it into memory, decompress it. All kernel images are located in `/boot` or `/efi/boot` and your GRUB configuration file knows this.  
 
-You will notice that there is a vmlinuz kernel image per each instance that corresponds to the TUI entries in the previous image.   The file that is loaded first is actually the ```initrd.img-X.XX.X-XX``` file.  This is the pre-kernel which contains all the drivers necessary for the kernel to use before the root filesystem has been mounted.  The *initrd* file is gzip compressed and is decompressed on each boot.  Once the *initrd* temporary filesystem is loaded, with its own /etc and own /bin, the *vmlinuz* file which is the actual kernel is now loaded into memory and begins to un-mount and remove the *initrd* from memory as it is no longer needed.  
+#### initrd img
+
+Before the kernel image can be loaded the GRUB stage 2 needs to load the `initrd.img-X.XX.X-XX` file. This is the pre-kernel which contains all the drivers necessary for the kernel to use before the root filesystem has been mounted. The `initrd` file is gzip compressed and is decompressed on each boot. Once the `initrd` temporary filesystem is loaded, with its own `/etc` and own `/bin`, the `vmlinuz*` file, which is the actual kernel, is now loaded into memory and begins to un-mount and remove the `initrd` from memory as they are no longer needed.  
 
 ### GNU GRUB Settings
 
-The GRUB 2 or GNU GRUB bootloader exists in the file ```/boot/grub/grub.cfg``` but this file is auto generated so to edit the settings you would modify the ```/etc/default/grub``` file.  
-The ```/etc/default/grub``` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
+The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` but this file is auto generated so to edit the settings you would modify the `/etc/default/grub` file.  
+The `/etc/default/grub` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
 
-GRUB_DEFAULT=N  -- this value is which entry in your GRUB list is the default operating system to boot.  If you have a single OS installed, this value will be 0.  
+`GRUB_DEFAULT=N` -- this value is which entry in your GRUB list is the default operating system to boot.  If you have a single OS installed, this value will be 0.  
 
-GRUB_TIMEOUT -- this is the setting that tells the system to boot the default command N seconds after the GRUB menu has appeared.  It functions as a countdown.  
+`GRUB_TIMEOUT` -- this is the setting that tells the system to boot the default command N seconds after the GRUB menu has appeared.  It functions as a countdown.  
 
-GRUB_TIMEOUT_STYLE -- this will let the count down appear or silently countdown.  
+`GRUB_TIMEOUT_STYLE` -- this will let the count down appear or silently countdown.  
 
-GRUB_CMDLINE_LINUX_DEFAULT -- this value adds additional key value pairs to the kernel boot parameters.  A common setting here is to change the setting of *splash quiet* which hides and boot time kernel message behind the Ubuntu logo and instead displays them on the screen.  
+`GRUB_CMDLINE_LINUX_DEFAULT` -- this value adds additional key value pairs to the kernel boot parameters.  A common setting here is to change the setting of *splash quiet* which hides and boot time kernel message behind the Ubuntu logo and instead displays them on the screen.  
 
-GRUB_DISABLE_RECOVERY -- this hides the single user/recovery mode from the GRUB menu per kernel entry
+`GRUB_DISABLE_RECOVERY` -- this hides the single user/recovery mode from the GRUB menu per kernel entry
 
-GRUB_GFXMODE=640x480 -- this setting is commented out by default, but you can enable this to hard code a certain boot resolution.
+`GRUB_GFXMODE=640x480` -- this setting is commented out by default, but you can enable this to hard code a certain boot resolution.
 
-GRUB_BACKGROUND -- this option lets you *theme* your GRUB menu by adding a background image.
+`GRUB_BACKGROUND` -- this option lets you *theme* your GRUB menu by adding a background image.
 
-To make these changes permanent you need to execute the ```sudo update-grub``` command after saving the file so the ```/boot/grub/grub.cfg``` will be regenerated and used on the next boot.
+To make these changes permanent you need to execute the `sudo update-grub` command after saving the file so the `/boot/grub/grub.cfg` will be regenerated and used on the next boot.
 
 ## Third Phase of the system boot
 
-### SysVinit
+### System Init Services
 
-I am going to describe the Unix System V init process - this is the basis of all Unix and Linux knowledge since the early 1980s. This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. SysVinit is not in use in Linux as it was replaced by systemd as the init system.
+I am going to describe the classic Unix System V init process first. This is the basis of all knowledge relating to how processes start since the early 1980s. This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. SysVinit is not in use in Linux as it was replaced by systemd in 2015.
 
-Once the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by setting up the system processes. The first task it executes is ```/sbin/init```. This is referred to as the init process.  It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.  The ```/sbin/init/``` looks at the value stored in ```/etc/inittab``` to find the system __run level__.  The **run level** tells us which mode to start in and which associated services are needed.  These levels are general and each Linux distro modifies them as needed. The default run level for a GUI based distro is **5**. The default run level for a server based OS is **3**.
+Once the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by starting up the system processes. The first task that SysVinit executes is `/sbin/init`. This is referred to as the init process. It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.  
+
+The `/sbin/init/` looks at the value stored in `/etc/inittab` to find the system __run level__.  The `run level` tells us which mode to start in and which associated services are needed. These levels are general and each Linux distro modifies them as needed. The default run level for a GUI based distro is `5`. The default run level for a server based OS is `3`.
 
 : Traditional Run Levels
 
@@ -98,21 +126,25 @@ Once the kernel has complete control of the hardware, it begins to execute the "
    6                    Reboot
 -----------  ------------------------------------
 
-Once the run level is determined, there is a directory called ```/etc/rc.d``` which contains what are called __run level specific__ programs to be executed.  Files preceded by an *S* mean to start the service, and files preceded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first. The good thing is that each K or S file is nothing more than a bash script to start or kill a service and do a bit of environment preparation.  As you can see this system has some flaws.  There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs.  Also there is no way for services that start later that depend on a previous service to be started to understand its own state.  The service will happily start itself without its dependencies and go right off a cliff [^115].
+Once the run level is determined, there is a directory called `/etc/rc.d` which contains __run level specific__ programs to be executed. Files preceded by an *S* mean to start the service, and files preceded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first. The good thing is that each K or S file is nothing more than a bash script to start or kill a service and do a bit of environment preparation.
+
+As you can see this system has some flaws. There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs.  Also there is no way for services that start later that depend on a previous service to be started to understand its own state. The service will happily start itself without its dependencies and go right off a cliff [^115].
 
 ![*Classic SysVinit RC files on Ubuntu 14.04*](images/Chapter-10/sysvinit/rc-d.png "rc.d")
 
 ### Working With Services in SysVinit/Upstart  
 
-Under the Upstart methodology you can simply start services and stop them with the ```service``` command.  The syntax is ```sudo service <service-name> start | stop | restart | reload | status```.  This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files.  At initial load the text files information is parsed and placed in memory.  If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance.  The ```service``` commands are still in place but since Ubuntu 15.04 and Fedora 20 they are just symlinks to the systemd command and control ```systemctl```.
+Under the Upstart methodology you can simply start services and stop them with the `service` command.  The syntax is: `sudo service <service-name> start | stop | restart | reload | status`.  
 
-> __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: ```sudo service apache2 restart``` (assuming you had apache2 already installed).
+This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files. At initial load the text files information is parsed and placed in memory. If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance. The `service` commands are still in place but are just links to the systemd command and control `systemctl`.
 
-> __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located.  In this case perhaps ```/etc/init.d/apache2 restart```
+> __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: `sudo service apache2 restart` (assuming you had apache2 already installed).
+
+> __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located. In this case perhaps `/etc/init.d/apache2 restart`
 
 #### ps
 
-The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU.  The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
+The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU. The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
 
 ![*ps command*](images/Chapter-10/processes/ps.png "ps")
 
@@ -140,16 +172,16 @@ In the SysVinit/Upstart world to terminate a process you would use the ```kill``
   15       SIGTERM      Like a kill 9, but with class, gracefully kills a process
 -------- ------------ -----------------------------------------------------------------------
 
-All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors.  All except ```kill -9``` every process has to obey.  You can use the ```killall``` command to kill the process and any associated processes that it had launched all in one fell swoop.  You and use the ```ptkill``` command to kill a process by name instead of PID.
+All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors. All except ```kill -9``` every process has to obey. You can use the ```killall``` command to kill the process and any associated processes that it had launched all in one fell swoop. You and use the ```ptkill``` command to kill a process by name instead of PID.
 
 #### nice
 
 The ```nice``` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at ```man nice```.
 
-> __Example Usage:__  This example will increase favorability of this process to the scheduler by 10 on a scale of -20 to 19--default is 0.
-
 ```bash
-nice -n 10 my-loop
+# increase favorability of this process to the scheduler by 10 on a 
+# scale of -20 to 19--default is 0.
+nice -n 10 my-program-name
 ```
 
 ### Upstart
@@ -181,13 +213,15 @@ end script
 exec myprocess
 ```
 
-Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental replacement in Fedora 9 - until version 18, when systemd was ready. RHEL and CentOS used Upstart as well until RHEL 7, and ChromeOS still does (OS for Chromebooks). Debian considered using Upstart when Debian 8 was being developed but instead decided to jump to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end. Upstart was seen as the compromise between SysVinit and its failings but in the end systemd won out. MacOS uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris and Illumos/SmartOS use [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
+Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental replacement in Fedora 9 - until version 18, when systemd was ready. RHEL and CentOS used Upstart as well until RHEL 7, and ChromeOS still does (OS for Chromebooks). Debian considered using Upstart when Debian 8 was being developed but instead decided to jump to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end. 
 
-### Other SysVinit replacements
+Upstart was seen as the compromise between SysVinit and its failings but in the end systemd won out. MacOS uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris and Illumos/SmartOS use [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
 
-Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage").  OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."*  Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
+### Other SysVinit Linux Replacements
 
-OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used.  These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible.  Here is a comparison table between systemd, sysVinit, and OpenRC:
+Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage"). OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."* Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
+
+OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used. These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible. Here is a comparison table between systemd, sysVinit, and OpenRC:
 
            systemd                         SysVinit                         OpenRC
 ------------------------------  -------------------------------- -------------------------------- 
@@ -202,13 +236,15 @@ Init Systems: Comparison of actions
 
 ### Systemd and Systemctl
 
-Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at Red Hat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.  Systemd is licensed under the LGPL 2.1 or later, [GNU Lesser General Public License](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License "LGPL").  
+Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at Red Hat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.
 
-From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system[^117]."*   Unlike the SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1. The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too. Systemd includes many other items, 69 different binaries all rolled into PID 1.
+From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system[^117]."*  Unlike the SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1. The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too. Systemd includes many other items, 69 different binaries all rolled into PID 1.
 
 > *"As an integrated software suite, systemd replaces the startup sequences and runlevels controlled by the traditional init daemon, along with the shell scripts executed under its control. systemd also integrates many other services that are common on Linux systems by handling user logins, the system console, device hotplugging (see udev), scheduled execution (replacing cron), logging, hostnames and locales[^121]."*
 
-> *"One goal of systemd is to unify the dispersed Linux landscape a bit. We try to get rid of many of the more pointless differences of the various distributions in various areas of the core OS. As part of that we sometimes adopt schemes that were previously used by only one of the distributions and push it to a level where it's the default of systemd, trying to gently push everybody towards the same set of basic configuration. This is never exclusive though, distributions can continue to deviate from that if they wish, however, if they end-up using the well-supported default their work becomes much easier and they might gain a feature or two. Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions[^116]."*
+> *"One goal of systemd is to unify the dispersed Linux landscape a bit. We try to get rid of many of the more pointless differences of the various distributions in various areas of the core OS. As part of that we sometimes adopt schemes that were previously used by only one of the distributions and push it to a level where it's the default of systemd, trying to gently push everybody towards the same set of basic configuration. This is never exclusive though, distributions can continue to deviate from that if they wish, however, if they end-up using the well-supported default their work becomes much easier and they might gain a feature or two."*
+
+> *"Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions[^116]."*
 
 One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command ```init 3``` was always start at the commandline, and ```init 5``` was GUI.  Systemd introduces __targets__ in their place.  Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the ```/etc/inittab``` [^118].
 
@@ -357,7 +393,7 @@ This is a sample of a `.service` file created for a Python user script, called `
 
 [Unit]
 Description=Script that writes a Hello message to the journal
-After=network.target
+ddAfter=network.target
 
 [Service]
 Type=simple
