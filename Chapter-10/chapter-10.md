@@ -152,25 +152,25 @@ This would act upon the appropriate shell script to perform the appropriate acti
 
 #### ps
 
-The ```ps``` command displays information about a selection of the active processes. This is different from the ```top``` command as the information is not updated but just displayed.  The ```ps``` command by itself shows very little useful information.  Overtime three versions of ```ps`` have joined together so there are three sets of options, BSD, Unix, and GNU. The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
+The `ps` command displays information about a selection of the active processes. This is different from the `top` command as the information is not updated but just displayed.  The `ps` command by itself shows very little useful information.  Overtime three versions of `ps`` have joined together so there are three sets of options, BSD, Unix, and GNU. The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
 
 ![*ps command*](images/Chapter-10/processes/ps.png "ps")
 
 These additional commands will share more information:
 
-* ```ps -e```  <-- select all processes (similar to -A)
-* ```ps -ef```  <-- this is one of the more helpful and verbose sets of options with full-formatting
-* ```ps -eF``` <-- Extra full-formatting
-* ```ps -ely```  <-- Long formatting
-* ```ps -eo pif,tid,class,ni,pri,psr...```  <-- the ```o``` option allows you to customize the column arraingment and output.
-* ```ps -C syslogd -o pid=```  <-- this is the same as doing ```ps -ef | grep firefox``` or ```pidof firefox```
-* ```ps xawf -eo pid,user,cgroup,args``` [^119]  Shows cgroup ownership details.
-* systemd version of ```ps``` is called ```systemd-cgls``` which shows a nice hierarchy of process ownership.
-  * cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.)  Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
+* `ps -e`  <-- select all processes (similar to -A)
+* `ps -ef`  <-- this is one of the more helpful and verbose sets of options with full-formatting
+* `ps -eF` <-- Extra full-formatting
+* `ps -ely`  <-- Long formatting
+* `ps -eo pif,tid,class,ni,pri,psr...`  <-- the `o` option allows you to customize the column arraingment and output.
+* `ps -C syslogd -o pid=`  <-- this is the same as doing `ps -ef | grep firefox` or `pidof firefox`
+* `ps xawf -eo pid,user,cgroup,args`[^119]  Shows cgroup ownership details.
+* systemd version of `ps` is called `systemd-cgls` which shows a nice hierarchy of process ownership.
+  * cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.) Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
 
 #### kill
 
-In the SysVinit/Upstart world to terminate a process you would use the ```kill``` command.  There are various levels of `kill`.  
+In the SysVinit/Upstart world to terminate a process you would use the `kill` command.  There are various levels of `kill`.  
 
  Level       Name            Function
 -------- ------------ -----------------------------------------------------------------------
@@ -233,12 +233,12 @@ OpenRC and runit do not use systemd at all and therefore any software that requi
 
            systemd                         SysVinit                         OpenRC
 ------------------------------  -------------------------------- -------------------------------- 
-```systemctl list-units```      ```service --list-all```         ```rc-status```
-```systemctl --failed```        -                                ```rc-status --crashed```
-```systemctl --all```           -                                ```rc-update -v show```
-```systemctl start/stop```      ```service start/stop daemon```  ```rc-service daemon start/stop```
-```systemctl enable/disable```  ```chkconfig on/off daemon```    ```rc-update add/del daemon```
-```systemctl daemon-reload```   ```chkconfig daemon -add```      -
+`systemctl list-units`               `service --list-all`           `rc-status`
+`systemctl --failed`                   -                            `rc-status --crashed`
+`systemctl --all`                      -                            `rc-update -v show`
+`systemctl start/stop`             `service start/stop daemon`      `rc-service daemon start/stop`
+`systemctl enable/disable`          `chkconfig on/off daemon`       `rc-update add/del daemon`
+`systemctl daemon-reload`           `chkconfig daemon -add`                -
 
 Init Systems: Comparison of actions
 
@@ -268,26 +268,44 @@ One of the main differences between traditional Upstart/SysVinit based Linux is 
 
 If you wanted to change to a graphical mode directly from your GUI mode you would issue `systemctl isolate graphical.target` effectively changing targets. You can change the default target by issuing this command: `systemctl set-default <name of target>.target`. The command `systemctl get-default` will print out your current default target.
 
-> **Exercise:**  Run the `systemctl get-default` command, what is the output?
+> **Exercise:**  Run the `sudo systemctl get-default` command, what is the output?
 
 ## systemd Processes and Services
 
-Whenever you start a program in Linux, whether that is a service, or something as simple as runnig a command in the terminal or opening a new web-browser tab, that creates a system process. Each process gets an ID so that it can be accessed or referenced and is assigned memory space and CPU affinity (priority). In addition to a process--which can be short lived or long lived, there are services--which can be helper items such as the login and authentication service or something focused such as the apache2 web-server. Each process in turn has a PPID--Parent Process ID, which tells you which other process launched that process. In traditional SysVinit `/sbin/init` launches each additional service. In systemd, instead of having PPIDs and PIDs, you have the concept of cgroups and processes grouped together.
+Whenever you start a program in Linux, whether that is a service, or something as simple as runnig a command in the terminal or opening a new web-browser tab, that creates a system process. Each process gets an ID so that it can be accessed or referenced and is assigned memory space and CPU affinity (priority). In addition to a process--which can be short lived or long lived, there are services--which can be helper items such as the login and authentication service or something focused such as the apache2 web-server. 
+
+Each process has a Process ID and a CGroup that it is a part of. In systemd, instead of having PPIDs and PIDs, you have the concept of cgroups with processes grouped together. For exmaple: if you run the command, `sudo systemctl status sshd`, (assuming that you have openssh-server installed, enabled, and started on Fedora) you will see similar output:
+
+```
+sshd.service - OpenSSH server daemon
+     Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2023-10-24 12:03:44 UTC; 10h ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 671 (sshd)
+      Tasks: 1 (limit: 5483)
+     Memory: 7.9M
+        CPU: 536ms
+     CGroup: /system.slice/sshd.service
+             └─671 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+```
 
 ### Working With Services in systemctl
 
-> __Example Usage:__ On a systemd based system, service control is done with `sudo systemctl <command> <name>.service`.  In the case of Apache2 webserver the command to restart it would look like this:  `sudo systemctl restart nginx.service`  The `.service` can be left off and the system will assume the extension.
+> __Example Usage:__ In systemd, service control is done with `sudo systemctl <command> <name>.service`. In the case of Apache2 webserver the command to restart it would look like this: `sudo systemctl restart nginx.service`.
 
-> __Example Usage:__ The `systemctl` command has additional abilities.  It absorbed the `chkconfig` command, which was/is used to set services to autostart at boot time.  In Fedora installed services do not automatically start at boot time, you must explicitly add them.  You can check the status of the httpd service by issuing: `sudo systemctl is-enabled nginx.service`.  Issue that command and what does it report?
+> __Example Usage:__ The `systemctl` command has additional abilities. On some server based systems, services do not automatically start at boot time, you must explicitly tell them to start or enable them. You can check the status of the httpd service by issuing: `sudo systemctl is-enabled nginx.service`. Issue that command and what does it report?
 
-> __Example Usage:__ To disable a service at boot type: `sudo systemctl disable nginx.service` and *enable* does the opposite.  The *status* option will tell you what is the current status, start or stopped.  
+> __Example Usage:__ To disable a service at boot type: `sudo systemctl disable nginx.service` and *enable* does the opposite. The *status* option will tell you what is the current status, start or stopped.
 
-Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start.  Systemd command `systemctl show` will show all details relating to a target or a service.  Let us look at a service definition.  Type this command, `cd /lib/systemd/system`,  what do you see? Type this command to see the contents of the httpd.serivce file, `cat nginx.service` what do you see contained inside?
+#### systemd service file locations
 
-Compared to the make up of a SysVinit service, systemd has a simple design for each of its *service* files.  They are located in `/lib/systemd/system`.  Upon entering this directory you can launch an `ls` command and see the actual service files that you start/stop and enable/disable with `systemctl`.
+Let us look at a service definition. Type this command, `cd /usr/lib/systemd/system`,  what do you see? Make sure you have the nginx webserver package installed. Type: `cat nginx.service` what do you see contained inside?
+
+Compared to the make up of a SysVinit service, systemd has a simple design for each of its *service* files. They are located in `/usr/lib/systemd/system`. System specific or user created service files should go in `/etc/systemd/system`. Let's take a look at the `nginx.service` file.
 
 ```bash
-# /lib/systemd/system/nginx.service file content
+# /usr/lib/systemd/system/nginx.service file content
 [Unit]
 Description=A high performance web server and a reverse proxy server
 Documentation=man:nginx(8)
@@ -306,6 +324,8 @@ KillMode=mixed
 [Install]
 WantedBy=multi-user.target
 ```
+
+Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start. Systemd command `systemctl show` will show all details relating to a target or a service.
 
 The `show` and `--property` options allow you to retrieve individual values from any service file without having to display the entire file.
 
@@ -519,9 +539,9 @@ Systemd was designed to bring modern OS principles to desktop and server Linux. 
 
 ### Killing Processes with systemd
 
-Systemd on the other hand has a mechanism for dealing with services directly, ```systemctl kill -s SIGTERM httpd.service``` will kill the Apache2 webserver service.  You can issue the kill commands above within systemd individual services which are wrapped in control groups.
+Systemd on the other hand has a mechanism for dealing with services directly, `systemctl kill -s SIGTERM httpd.service` will kill the Apache2 webserver service.  You can issue the kill commands above within systemd individual services which are wrapped in control groups.
 
-The systemd service using the ```systemd-cgls``` command and the ```systemctl kill``` command have effectively replaced the traditional use of ```ps``` by instead grouping processes into **cgroups**.  Cgroups or Control Groups, allow for child processes to be grouped together, and concpets such as resource quotas or isolation can now be introduced.  This is a more effective manner in killing all the child processes of a parent process.   Cgroups are a Linux specific concept, which ultimately lead to the idea of OS containers and Docker--these are things that BSD and Unix don't have and can't run at the moment--which if OS containers might be the way of the future computing--doesn't bode well for BSD/Unix.
+The systemd service using the `systemd-cgls` command and the `systemctl kill` command have effectively replaced the traditional use of `ps` by instead grouping processes into **cgroups**.  Cgroups or Control Groups, allow for child processes to be grouped together, and concpets such as resource quotas or isolation can now be introduced.  This is a more effective manner in killing all the child processes of a parent process.   Cgroups are a Linux specific concept, which ultimately lead to the idea of OS containers and Docker--these are things that BSD and Unix don't have and can't run at the moment--which if OS containers might be the way of the future computing--doesn't bode well for BSD/Unix.
 
 #### cgroups
 
