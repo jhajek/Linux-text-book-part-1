@@ -302,7 +302,7 @@ sshd.service - OpenSSH server daemon
 
 Let us look at a service definition. Type this command, `cd /usr/lib/systemd/system`,  what do you see? Make sure you have the nginx webserver package installed. Type: `cat nginx.service` what do you see contained inside?
 
-Compared to the make up of a SysVinit service, systemd has a simple design for each of its *service* files. They are located in `/usr/lib/systemd/system`. System specific or user created service files should go in `/etc/systemd/system`. Let's take a look at the `nginx.service` file.
+Compared to the make up of a SysVinit service, systemd has a simple design for each of its *service* files. They are located in `/usr/lib/systemd/system`. OS vendor provided or user created service files should go in `/etc/systemd/system`. Let's take a look at the `nginx.service` file.
 
 ```bash
 # /usr/lib/systemd/system/nginx.service file content
