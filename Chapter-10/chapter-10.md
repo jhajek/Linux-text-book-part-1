@@ -376,7 +376,7 @@ systemd-boot
 
 systemd-homed
 
-: systemd-homed.service manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata[^ch10f124].  This is a brand new paradigm and just released 10/26/20 -- yet to be implemented in any Linux distros.
+: systemd-homed.service manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata[^ch10f124]. This is a brand new paradigm yet to be implemented in any Linux distros.
 
 ### Systemd Service Types
 
