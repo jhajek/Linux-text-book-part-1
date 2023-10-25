@@ -368,7 +368,7 @@ timedated
 
 localed
 
-: Mangage and configure system locale and keyboard settings
+: Manage and configure system locale and keyboard settings
 
 hostnamed
 
@@ -376,15 +376,15 @@ hostnamed
 
 systemd-boot
 
-: systemd-boot is a boot manager, formerly known as gummiboot. Kay Sievers merged it into systemd with systemd 220. The `systemd-boot` tool is designed as a replacement for GNU GRUB and supports UEFI only. Currently `systemd-boot` can be used as your default boot-loader but no systems are actively using is as their default currently. Work is continuing to make this change. 
+: systemd-boot is a boot loader, formerly known as gummiboot. Kay Sievers merged it into systemd with systemd 220. The `systemd-boot` tool is designed as a replacement for GNU GRUB and supports UEFI only. Currently `systemd-boot` can be used as your default boot-loader but no systems are actively using is as their default currently. Work is continuing to make this change. 
 
 homed
 
 : systemd-homed.service manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata[^ch10f124]. This is a brand new paradigm yet to be implemented in any Linux distros.
 
-### Systemd Service Types
+### systemd Unit Types
 
-Let's look at the contents of a systemd unit file. Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The major units that systemd include are `.service`, `.mount`, `.timer`, `.target` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files").
+Let's look at the contents of a systemd unit file. Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script. The major units that systemd include are `.service`, `.mount`, `.timer`, `.target` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files"). The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files"). 
 
 #### Systemd Service file
 
