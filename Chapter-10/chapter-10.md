@@ -325,15 +325,17 @@ KillMode=mixed
 WantedBy=multi-user.target
 ```
 
-Systemd has the capability for targets to show what they "Require" to run, and what they "Want" to be running before they start. Systemd command `systemctl show` will show all details relating to a target or a service.
+The three standard sections of a `.service` file are the `UNIT`, `SERVICE`, and `INSTALL`. The `UNIT` header is for description information relating to the service and a chance to require an `AFTER` target. In nginx's case, this service wants to be started AFTER the network.target has succesfully been started--which makes sense to require network before a web-server starts, otherwise don't start it.
 
-The `show` and `--property` options allow you to retrieve individual values from any service file without having to display the entire file.
+The main section is the `SERVICE` header. This is where the logic defining the executable to start the service is locatd. Finally the last header `INSTALL` tells systemd to start this service only when in the multi-user.target mode (or NON-GUI server mode).
 
-* The command ```sudo systemctl show --property "WantedBy" nginx.service```
+The systemd command `systemctl show` will show all details relating to a target or a service file. Systemd services have the ability to "Require" various parts of an environment to be present and what they "Want" to be running before they start. The `show` and `--property` options allow you to retrieve individual values from any service file without having to display the entire file.
+
+* The command `sudo systemctl show --property "Wants" nginx.service`
   * Will show only the property "WantedBy" from the service file
-* The command ```sudo systemctl show --property "ExecStart" nginx.service```
+* The command `sudo systemctl show --property "ExecStart" nginx.service`
   * Will show only the property "ExecStart" from the service file
-* The command ```sudo systemctl show --property "After" nginx.service```
+* The command `sudo systemctl show --property "After" nginx.service`
   * Will show only the property "ExecStart" from the service file
 
 ### Major systemd Components
