@@ -354,6 +354,10 @@ networkd
 
 : networkd is a daemon to handle the configuration of the network interfaces; in version 209, when it was first integrated, support was limited to statically assigned addresses and basic support for bridging configuration. In July 2014, systemd version 215 was released, adding new features such as a DHCP server for IPv4 hosts, and VXLAN support.
 
+resolved
+
+: Handles DNS resolution - internally for local services
+
 tmpfiles
 
 : systemd-tmpfiles is a utility that takes care of creation and clean-up of temporary files and directories. It is normally run once at startup and then in specified intervals.
@@ -362,19 +366,19 @@ timedated
 
 : systemd-timedated is a daemon that can be used to control time-related settings, such as the system time, system time zone, or selection between UTC and local time zone system clock. It is accessible through D-Bus. It was integrated in systemd version 30.
 
-udevd
+localed
 
-: udev is a device manager for the Linux kernel, which handles the /dev directory and all user space actions when adding/removing devices, including firmware loading. In April 2012, the source tree for udev was merged into the systemd source tree.
+: Mangage and configure system locale and keyboard settings
 
-hostnamectl
+hostnamed
 
 : Manage and modify hostname related information
 
 systemd-boot
 
-: systemd-boot is a boot manager, formerly known as gummiboot. Kay Sievers merged it into systemd with rev 220. The systemd-boot tool is designed for hardware that is moving forward using the UEFI firmware instead of BIOS and is designed to handle Secure Boot as well. You can see a tutorial at [https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/](https://blobfolio.com/2018/06/replace-grub2-with-systemd-boot-on-ubuntu-18-04/ "systemd-boot") here on how to enable it.
+: systemd-boot is a boot manager, formerly known as gummiboot. Kay Sievers merged it into systemd with systemd 220. The `systemd-boot` tool is designed as a replacement for GNU GRUB and supports UEFI only. Currently `systemd-boot` can be used as your default boot-loader but no systems are actively using is as their default currently. Work is continuing to make this change. 
 
-systemd-homed
+homed
 
 : systemd-homed.service manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata[^ch10f124]. This is a brand new paradigm yet to be implemented in any Linux distros.
 
