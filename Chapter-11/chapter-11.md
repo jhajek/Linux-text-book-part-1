@@ -45,13 +45,11 @@ In early 2012, a new medium called a Solid State Drive, or SSD was released. The
 
 ![*Standard SSD connector*](images/Chapter-11/ssd/256px-Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg "Standard SSD connector")[^134]
 
-The original SSD disks were put out by RAM manufacturers and had RAM controller write issues.  The good ones were built by Intel and Samsung.  The other manufactures have caught up and you can get drives in 256, 512, and 1 TB sizes.  Since there are no moving parts the battery or power usage is far reduced from an HDD.  SSDs do have potential issues with wear leveling and block failure, but in the chips controlling these devices the manufacturers have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data transfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitation that HDDs suffered to be overcome.
-
-As a price point marketing creation you might see SSHDs which are called Hybrid Drives.  They contain 4 to 16 GB of flash disk and the rest of the drive is a mechanical 3 to 5 platter disk.  This is supposed to give you the advantage of caching frequent data on the flash data, but the idea never caught on as the price of SSD and HDD both have dropped drastically, making this solution not necessary.
+The original SSD disks were put out by RAM manufacturers and had RAM controller write issues.  The good ones were built by Intel and Samsung.  The other manufactures have caught up and you can get drives in 512, 1 TB, and 2 TB sizes. Since there are no moving parts the battery or power usage is far reduced from an HDD. SSDs do have potential issues with wear leveling and block failure, but in the chips controlling these devices the manufacturers have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data transfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitation that HDDs suffered to be overcome.
 
 ### NVMe
 
-The latest incarnation of SSD disk based technology is [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") which stands for Non-Volatile Memory Express. These are solid state drives, but instead of sending data over the SATA interface, they connect directly to the high-speed PCIe bus, just like your video card does.  The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 4x parallel transfer lanes as opposed to a serial fashion which SATA was designed for.  NVMe comes in expansion card factor and in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137]. The price is high as the technology is still relatively new, but the performance gain is worth the investment.
+The latest incarnation of SSD disk based technology is [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") which stands for Non-Volatile Memory Express. These are solid state drives, but instead of sending data over the SATA interface, they connect directly to the high-speed PCIe bus, just like your video card does. The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 4x parallel transfer lanes as opposed to a serial fashion which SATA was designed for. NVMe comes in expansion card factor and in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137]. The price is high as the technology is still relatively new, but the performance gain is worth the investment.
 
    PCIe Version     Per Lane Throughput        1x        4x          8x        16x
 -----------------  ----------------------  ---------- ---------- ---------- -----------
@@ -78,9 +76,11 @@ With the advent of fast and reliable network we can have our disks separated fro
 
 ### iSCSI
 
-The [iSCSI protocol](https://en.wikipedia.org/wiki/ISCSI "iSCSI") is a reimplemntation of the SCSI disk communication protocol.  SCSI was an alternative that could move data faster than the then ATA (pre-SATA) standard.  Once SATA became available the SCSI based hardware was more expensive and was replaced by cheaper SATA and more standardized USB (for external devices). The SCSI bus was faster than the standardized ATA bus, but required a specialized adapter card and specialized cable to connect devices and external peripherals.  Think of it pre-USB (circa 1998).  This made SCSI desirable but expensive.  Also the SCSI standard continued to improve throughput but at the cost of not being backwards compatabile with older and other versions of SCSI, each had its own cabes and connectors. By the year 2000 the SCSI protocol was well known and heavily invested in for server class hardware.  In that year IBM and Cisco standardized the iSCSI protocol.  iSCSI integrated SCSI commands to external targets over Ethernet/IP.  Allowing you to seperate your disks from storage and access them over a local network via the iSCSI protocol.  Disks were formatted as LVMs or directly as a ZFS, Btrfs, or XFS based drives and then presented as __iSCSI targets__ over the network. iSCSI has two components, the __iSCSI target__ and the __iSCSi initiator__. The system that connects to a target in an __initiator__.   iSCSI devices can replace the need for SAN technology (Storage Area Networks) and work on commodity hardware over basic ethernet cables and switches.
+The [iSCSI protocol](https://en.wikipedia.org/wiki/ISCSI "iSCSI") is a reimplemntation of the SCSI disk communication protocol. SCSI was an alternative that could move data faster than the then ATA (pre-SATA) standard. Once SATA became available the SCSI based hardware was more expensive and was replaced by cheaper SATA and more standardized USB (for external devices). The SCSI bus was faster than the standardized ATA bus, but required a specialized adapter card and specialized cable to connect devices and external peripherals.  Think of it pre-USB (circa 1998). This made SCSI desirable but expensive. The SCSI standard continued to improve throughput but at the cost of not being backwards compatabile with older and other versions of SCSI, each had its own cabes and connectors. 
 
-This allows you top separate your storage and your compute.  You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an initiator.  A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD.
+By the year 2000 the SCSI protocol was well known and heavily invested in for server class hardware. In that year IBM and Cisco standardized the iSCSI protocol. iSCSI integrated SCSI commands to external targets over Ethernet/IP. Allowing you to separate your storage from compute and access storage over a local network via the iSCSI protocol. Disks were formatted as LVMs or directly as a ZFS, Btrfs, or XFS based drives and then presented as __iSCSI targets__ over the network. iSCSI has two components, the __iSCSI target__ and the __iSCSi initiator__. The system that connects to a target in an __initiator__. iSCSI devices can replace the need for SAN technology (Storage Area Networks) and work on commodity hardware over basic ethernet cables and switches.
+
+This allows you top separate your storage and your compute. You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an initiator. A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD.
 
 ### Virtual Hard Drives
 
@@ -88,9 +88,9 @@ When dealing with Virtual Machines, we can attach and detach storage very easily
 
 ### Disk Management in VirtualBox
 
-For this chapter we will assume that you are using VirtualBox 6.x, but these concepts apply to any virtual machine or Hypervisor.  This also assumes you have free space on your computer.  Since the point of this lab is to explore and not production usage, you may want to get an external USB hard drive and use that for this chapter so as not to fill up your hard drive.
+For this chapter we will assume that you are using VirtualBox 7.x, but these concepts apply to any virtual machine or Hypervisor. This also assumes you have free space on your computer. Since the point of this lab is to explore and not production usage, you may want to get an external USB hard drive and use that for this chapter so as not to fill up your hard drive.
 
-With your Ubuntu or Fedora virtual machine powered down, let's add some new disks (virtually) to your Linux system.  The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu.
+With your Ubuntu or Fedora virtual machine powered down, let's add some new disks (virtually) to your Linux system. The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu.
 
 ![*VirtualBox settings panel*](images/Chapter-11/virtual-box/settings.png "Settings")
 
@@ -100,7 +100,7 @@ The next menu to come up will show the *SETTINGS* options and the name of the vi
 
 \newpage
 
-Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in VirtualBox.  In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well.  That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached.
+Select the *STORAGE* option from the menu on the left--this is where you can attach, detach, and modify virtual disks in VirtualBox. In most cases these will be hard drives, but there is the ability to attach ISO images to a virtual cd-rom device as well. That option is in the top half where you see *Controller: IDE*. Under that you might see the term *EMPTY* or you might see a virtualbox-guest-additions.iso attached.
 
 ![*Storage menu*](images/Chapter-11/virtual-box/storage.png "Storage")
 
@@ -116,17 +116,17 @@ Upon completion of that step a new menu will pop out of the HDD icon and give yo
 
 \newpage
 
-Once you have selected *Add Hard Disk* a familiar set of screens come up, these are the same screens you walked through in chapter 2, and the same set of screens you walk through when setting up a new virtual machine.  You are presented first with an option to create a new disk or attach an existing one.  Usually you want to create a new disk.
+Once you have selected *Add Hard Disk* a familiar set of screens come up, these are the same screens you walked through in chapter 2, and the same set of screens you walk through when setting up a new virtual machine. You are presented first with an option to create a new disk or attach an existing one. Usually you want to create a new disk.
 
 ![*Create New Disk*](images/Chapter-11/virtual-box/create-new.png "Create New")
 
-Once that is selected you will be presented with the virtual disk type screen.  Since we will be working with VirtualBox, the default setting of VDI (VirtualBox Disk Image) will be the best selection.  But if you know this VM will be moving to another platform--you may want to choose accordingly.
+Once that is selected you will be presented with the virtual disk type screen. Since we will be working with VirtualBox, the default setting of VDI (VirtualBox Disk Image) will be the best selection. But if you know this VM will be moving to another platform--you may want to choose accordingly.
 
 ![*VDI step-through*](images/Chapter-11/virtual-box/vdi.png "VDI")
 
 \newpage
 
-The next page allows you to choose either a dynamic or static allocated hard drive.  Dynamic is usually the best when you are working on a laptop or other development system, as you will be creating and destroying virtual machine rapidly, and static allocations of multiple gigabytes can become an issue after some time due to your disk filling up.
+The next page allows you to choose either a dynamic or static allocated hard drive. Dynamic is usually the best when you are working on a laptop or other development system, as you will be creating and destroying virtual machine rapidly, and static allocations of multiple gigabytes can become an issue after some time due to your disk filling up.
 
 ![*Dynamic Filesystem*](images/Chapter-11/virtual-box/dynamic.png "Dynamic")
 
@@ -217,22 +217,22 @@ Instead of the standard way of partitioning up disks, we have logical groupings 
 
 This diagram creates three concepts to know when dealing with LVM:
 
-* Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device) [^132].
-* Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit [^131].
-* Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home) [^133].
+* Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device)[^132].
+* Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit[^131].
+* Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home)[^133].
   * Physical Extent (PE) - This is the unit of storage (blocks) that a PV is split into
   * Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*. 
     * The LVM counts how many extents are possible and makes this its *disk* so to speak.
 
 ### Physical Volumes
 
-The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use.  Note that you can choose to use the entire disk ```/dev/sdb``` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the ```pvcreate``` command to *create* physical volumes, same case with the partition. You can display the details of your physical volumes with the command: `sudo pvdisplay`.
+The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use. Note that you can choose to use the entire disk `/dev/sdb` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the `pvcreate` command to *create* physical volumes, same case with the partition. You can display the details of your physical volumes with the command: `sudo pvdisplay`.
 
 ### Volume Groups
 
-Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to.  The command to add PVs to an LG is: ```vgcreate VOLUME-GROUP-NAME /dev/sdx /dev/sdy```. You can extend this volume group by simply adding another `pvcreate /dev/sdx1` command for example and then using the ```vgextend VOLUME-GROUP-NAME /dev/sdz```.  There is also a `vgreduce` command that will remove a PV from a Volume Group.  
+Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to. The command to add PVs to an LG is: `vgcreate VOLUME-GROUP-NAME /dev/sdx /dev/sdy`. You can extend this volume group by simply adding another `pvcreate /dev/sdx1` command for example and then using the `vgextend VOLUME-GROUP-NAME /dev/sdz`. There is also a `vgreduce` command that will remove a PV from a Volume Group.  
 
-The volume group allows for a single logical management unit for multiple disk/partitions.  This is useful as well for adding additional storage and removing storage devices that may have failed or are not performing at required parameters. You can display the details of your volume groups with the command: `sudo vgdisplay`.
+The volume group allows for a single logical management unit for multiple disk/partitions. This is useful as well for adding additional storage and removing storage devices that may have failed or are not performing at required parameters. You can display the details of your volume groups with the command: `sudo vgdisplay`.
 
 ### Logical Volumes
 
@@ -243,20 +243,20 @@ From within our Volume Group (VG) we can now carve out smaller LV (Logical Volum
 Since LVs are logical they can also be extended and reduced on the fly.  
 
 * The command `sudo lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME` will extend the LV to become 50 GB in size. 
-* Using `-L+50G` will add 50 additional gigabytes to an existing LV's size. Note that you will need to use the 
+* Using `-L+50G` will add 50 additional gigabytes to an existing LV's size. 
 * Using the command `sudo lvextend -l +100%FREE /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME` will extend the disk to fill all additional free space
   * Note you have to run the command `sudo resize2fs /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME`
   * This will resize the filesystem to the size you extnded your logical volume to
 
 ### LVM Snapshots
 
-One definite feature not included in traditional partitioning is the concept of **snapshots**.  **Snapshots** exist at the filesystem level in Btrfs and ZFS, but not XFS or ext4 as they are too old.  The command ```sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME``` creates a LV volume that is a snapshot or CoW, Copy-on-Write partition.
+One definite feature not included in traditional partitioning is the concept of **snapshots**. **Snapshots** exist at the filesystem level in Btrfs and ZFS, but not XFS or ext4 as they are too old. The command `sudo lvcreate -s -n NAME-OF-SNAPSHOT -L 5g VOLUME-GROUP-NAME` creates a LV volume that is a snapshot or CoW, Copy-on-Write partition.
 
 ```bash
 sudo lvcreate -L1000M -s -n lv-group-snapshot /dev/vg-group/lv-group
 ```
 
-When dealing with LVM there is an ability to provide a snapshot, that is a point in time exact copy of a logical volume[^139]. The snapshot can be a smaller disk size because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs.  This delta can be merged back in, returning you to a point in time state, via the command:
+When dealing with LVM there is an ability to provide a snapshot, that is a point in time exact copy of a logical volume[^139]. The snapshot can be a smaller disk size because this new LV is only going to copy the changes, or deltas, from the original LV, not duplicating data but sharing it between the two LVs. This delta can be merged back in, returning you to a point in time state, via the command:
 
 ```bash
 sudo lvconvert --merge /dev/vg-group/lv-group-snapshot
@@ -286,17 +286,17 @@ ls -l /mnt/disk1
 # What do you see?  Why?
 ```
 
-You can remove the snapshots by unmounting the partition ```umount``` and the using the ```lvremove``` command.
+You can remove the snapshots by unmounting the partition `umount` and the using the `lvremove` command.
 
 ## Filesystems
 
-To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory. A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk.  It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.
+To extend our analogy of a disk drive being like land, and a partition being like different lots of land sold off to different people, then a filesystem would be the actual building that is built on the property to make use of the land, be it farm land, nature preserve, solar plant, or factory. A __filesystem__ is the way that an operating system addresses, stores, and retrieves data stored on a disk. It is an in-between layer so the operating system can have an addressing scheme for data, without having to know the exact mapping of the particular disk drive in question.
 
-If you have used Windows before you are familiar with FAT32 and NTFS filesystems. Since Windows is created and curated by Microsoft, there has only been two different filesystems in the history of Windows.  Linux on the other-hand supports multiple different filesystems that serve many different purposes.
+If you have used Windows before you are familiar with FAT32 and NTFS filesystems. Since Windows is created and curated by Microsoft, there has only been two different filesystems in the history of Windows. Linux on the other-hand supports multiple different filesystems that serve many different purposes.
 
 ### ext/ext2
 
-The MINIX filesystem was the first Linux based filesystem released in 1991.  It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created. It had severe limitations since MINIX filesystem was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes.  By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesystem.   By January of 1993, __ext2__ had been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written by the operating system[^ch11f123].
+The MINIX filesystem was the first Linux based filesystem released in 1991. It was borrowed conceptually from the Minix operating system that Andrew Tanenbaum had created. It had severe limitations since MINIX filesystem was engineered to be *ultra* backwards compatible--hence had 16 bit offsets and had a maximum partition size of 64 megabytes. By 1992 and Linux 0.96c a new filesystem replacement called __ext__ was created and brought into Linux as the native filesystem. By January of 1993, __ext2__ had been created and additional features added, including future proofing the system by adding unused options that could later on be tested and added as need arose.  Like most operating systems, data is broken up into __blocks__, which is the smallest sized piece of data that can be read or written by the operating system[^ch11f123].
 
 : Limits of ext2
 
@@ -306,13 +306,13 @@ max. file size:          16 GiB 256 GiB  2 TiB   2 TiB
 max. filesystem size:    4 TiB  8 TiB    16 TiB  32 TiB
 ----------------------  ------- ------- ------- -------
 
-Traditionally your ```/boot``` partition is formatted as __ext2__ because it is only used for a short time to load your *initrd* and *kernel image* into memory, so the overhead of __ext4__ is not needed.  You can use the built in ```sudo mkfs``` command to format a partition with __ext2__.
+Traditionally your `/boot` partition is formatted as __ext2__ because it is only used for a short time to load your *initrd* and *kernel image* into memory, so the overhead of __ext4__ is not needed.  You can use the built in `sudo mkfs` command to format a partition with __ext2__.
 
 ### ext3/ext4
 
-By 2001, as filesystems became larger, the amount of data being written increased and the chances for data corruption or disk writes to fail became more evident and critical.  The CPU could now handle to overhead of managing data writes to disk to ensure that those operations actually happened.
+By 2001, as filesystems became larger, the amount of data being written increased and the chances for data corruption or disk writes to fail became more evident and critical. The CPU could now handle to overhead of managing data writes to disk to ensure that those operations actually happened.
 
- *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted[^124][^125]."*
+ *"A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the intentions of such changes in a data structure known as a "journal", which is usually a circular log. In the event of a system crash or power failure, such file systems can be brought back online quicker with lower likelihood of becoming corrupted[^124] [^125]."*
 
 Not to be confused with journald from systemd, the __ext3__ filesystem, introduced to the Linux kernel the journaling feature in 2001. Being an extension basically of __ext2__, __ext3__ began to inherit legacy problems of __ext__ and __ext2__ as they were now over a decade old.
 
@@ -359,21 +359,21 @@ XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a hi
 
 XFS was ported to Linux in 2001 as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  Red Hat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large sized files.  Red Hat also hired many of the SGI engineers and developers who created this filesystem and brought it back into production quality.  Red Hat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem on the RHEL product.
 
-XFS is notoriously bad at being used by an everyday computer because its strength is built on storing large database files or using large files. You can install the tools needed to make a partition of the XFS format by typing ```sudo apt-get install xfsprogs```; the XFS tools are already installed on Fedora and CentOS by default.  You can create an XFS filesystem using the ```sudo mkfs.xfs``` command. We can grow an XFS filesystem with the command ```xfs_growfs /mount/point -D size```.
+XFS is notoriously bad at being used by an everyday computer because its strength is built on storing large database files or using large files. You can install the tools needed to make a partition of the XFS format by typing `sudo apt-get install xfsprogs`; the XFS tools are already installed on Fedora and CentOS by default. You can create an XFS filesystem using the `sudo mkfs.xfs` command. We can grow an XFS filesystem with the command `xfs_growfs /mount/point -D size`.
 
 ### Next Generation Linux Filesystems
 
-The ext4 filesystem served its purpose well but by 2008 became apparent that ext4 was not the right filesystem design for taking full advantage of memory, disk, and processor improvements--as well as the changing use case of computing focusing on large dynamic clusters such as service companies like Google, Facebook, Twitter, and other social media companies. These new generation of filesystems combine  the filesystem, volume management, data compression, volume snapshots, and datafile integrity.  The two main candidates that are opensource and designed to take advantage of this current technological environment are [Btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page "btrfs wiki page") and [OpenZFS](https://openzfs.org/wiki/Main_Page "openZFS wiki page").
+The ext4 filesystem served its purpose well but by 2008 became apparent that ext4 was not the right filesystem design for taking full advantage of memory, disk, and processor improvements--as well as the changing use case of computing focusing on large dynamic clusters such as service companies like Google, Facebook, Twitter, and other social media companies. These new generation of filesystems combine  the filesystem, volume management, data compression, volume snapshots, and datafile integrity. The two main candidates that are opensource and designed to take advantage of this current technological environment are [Btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page "btrfs wiki page") and [OpenZFS](https://openzfs.org/wiki/Main_Page "openZFS wiki page").
 
 ### Btrfs
 
-This project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS filesystem. By 2013 it was considered stable and included in the Linux Kernel.  Facebook is currently where Chris Mason is employed and they are championing the use of this operating system on [their infrastructure](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
+This project was initially created by Chris Mason at Oracle in 2007, for use on their own storage products to compete against SUN Microsystems ZFS filesystem. By 2013 it was considered stable and included in the Linux Kernel. Facebook is currently where Chris Mason is employed and they are championing the use of this filesystem on [their infrastructure](https://facebookmicrosites.github.io/btrfs/docs/btrfs-facebook.html "Facebook use of btrfs website").  
 
 Btrfs is a modern copy-on-write (CoW) filesystem for Linux. Copy-on-write is at its core and optimization pattern that uses pointers instead of making multiple copies of data on a disk, therefore reducing write operations. When the original file is modified then a true on disk copy of the file is made[^ch11f121]. Chris Mason said the goal of Btrfs is, *"to let Linux scale for the storage that will be available. Scaling is not just about addressing the storage but also means being able to administer and to manage it with a clean interface that lets people see what's being used and makes it more reliable[^128]."*
 
 Btrfs adds support for resource pooling and using extents to make logical drives across physical devices removing the need for the use of LVM, volume management is now built in. Recently openSUSE and Fedora have adopted Btrfs as a filesystem, but support for Btrfs was remove in RHEL 8 (in favor of XFS and LVM).
 
-In order to format a system using Btrfs you need to install ```btrfs-progs```.  
+In order to format a system using Btrfs you need to install `btrfs-progs`.  
 
        Install Btrfs tools
 ----------------------------------
@@ -406,7 +406,9 @@ Btrfs extensive documentation can be found at Oracle's website: [https://docs.or
 
 ### ZFS
 
-ZFS is a filesystem originally developed by Sun for their Solaris Unix operating system and in use since 2001.  ZFS was opensourced by SUN in 2005 under the CDDL license (similar to the Mozilla Public License) but incompatible with the GPL. Oracle inherited ZFS when it invaded SUN in 2010. It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowed Sun and Oracle to include proprietary parts of the operating system with opensource code. The CDDL is an opensource license, but not a copy-left license and thus GPL incompatible.  Recently Canonical, Ubuntu's parent company, disagreed with this, and began to offer OpenZFS natively as part of their operating system.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
+ZFS is a filesystem originally developed by Sun for their Solaris Unix operating system and in use since 2001. ZFS was opensourced by SUN in 2005 under the CDDL license (similar to the Mozilla Public License) but incompatible with the GPL. Oracle inherited ZFS when it invaded SUN in 2010. It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowed Sun and Oracle to include proprietary parts of the operating system with opensource code. 
+
+The CDDL is an opensource license, but not a copy-left license and thus GPL incompatible.  Recently Canonical, Ubuntu's parent company, disagreed with this, and began to offer OpenZFS natively as part of their operating system.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
 
 * [GPL Violations Related to Combining ZFS and Linux](https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/ "GPL Violations Related to Combining ZFS and Linux")
 * [Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS](https://www.fsf.org/licensing/zfs-and-linux "Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS")
@@ -414,7 +416,7 @@ ZFS is a filesystem originally developed by Sun for their Solaris Unix operating
 
 FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and ZFS is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module.  Ubuntu now supports the root partition being ZFS as well.  
 
-Development of all ZFS code now lives in the upstream [OpenZFS project](https://openzfs.org/wiki/Main_Page "OpenZFS wikipage").  Since the ZFS code was opensourced, when Oracle tried to "closesource" the code base in 2010, essentially what Oracle did was make a fork of the project and keep their changes proprietary.  The rest of the community took ZFS and made the OpenZFS community, which now consolidates various ZFS code bases into a single repo for MacOS, FreeBSD, and Linux as a loadable kernel module.  RedHat has not participated in the Linux development of OpenZFS as most companies are afraid of potential litigation and lawsuits from Oracle (real or perceived). There is even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), using the latest Windows 10 OS.
+Development of all ZFS code now lives in the upstream [OpenZFS project](https://openzfs.org/wiki/Main_Page "OpenZFS wikipage"). Since the ZFS code was opensourced, when Oracle tried to "closesource" the code base in 2010, essentially what Oracle did was make a fork of the project and keep their changes proprietary. The rest of the community took ZFS and made the OpenZFS community, which now consolidates various ZFS code bases into a single repo for MacOS, FreeBSD, and Linux as a loadable kernel module. Red Hat has not participated in the Linux development of OpenZFS as most companies are afraid of potential litigation and lawsuits from Oracle (real or perceived). There is even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), using the latest Windows OS.
 
 ZFS is an elegantly designed filesystem: *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
 
@@ -500,7 +502,7 @@ ls
 
 ### ZFS Send and Receive
 
-ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments which effectively creates a serialized synchronization feature.  This can be done on the same system as well as over a network connection to a remote computer. To synchronize a ZFS filesystem:
+ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments which effectively creates a serialized synchronization feature. This can be done on the same system as well as over a network connection to a remote computer. To synchronize a ZFS filesystem:
 
 * First create a snapshot of a zpool
 * Using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partition
@@ -510,11 +512,11 @@ ZFS also has a mechanism to send and receive snapshots, which done in a small en
 
 #### Additional ZFS Features
 
-In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a separate SSD based disk and can speed up data access[^141] [^142].  The ZIL and the L2ARC if not defined on separate disks will take a small portion of the each zpool created.  This is fine for low volume disk writes, but puts extra overhead on the system.  If you have fast SSDs that are small in size, say 30 to 80 GB, you can stripe them and place the L2ARC cache and or ZIL on these disks.  ZIL is a write only function and L2ARC cache becomes read predominant.
+In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a separate SSD based disk and can speed up data access[^141] [^142]. The ZIL and the L2ARC if not defined on separate disks will take a small portion of the each zpool created. This is fine for low volume disk writes, but puts extra overhead on the system. If you have fast SSDs that are small in size, say 30 to 80 GB, you can stripe them and place the L2ARC cache and or ZIL on these disks. ZIL is a write only function and L2ARC cache becomes read predominant.
 
 #### ZFS ZIL and SLOG
 
-ZFS shines by creating additional read and write caches, called a ZIL and a SLOG.  These caches enable the disks to reach and write in consistent batches or blocks of data instead of small random amounts of data.   This way the disk can "report" a successful write, but the data is actually momentarily cached -- then flushed to the disk along with block of writes.
+ZFS shines by creating additional read and write caches, called a ZIL and a SLOG. These caches enable the disks to reach and write in consistent batches or blocks of data instead of small random amounts of data.   This way the disk can "report" a successful write, but the data is actually momentarily cached -- then flushed to the disk along with block of writes.
 
 Using an existing zpool, called **datapool**, we can attach two additional disk `/dev/sde` and `/dev/sdf`. You can add the directives for the log and cache after the `zpool create` command:  ```zpool add datapool cache /dev/sde2 /dev/sdf2 log mirror /dev/sde1 /dev/sdf1```.  You can use the /dev/ locations of disks or you can see your UUIDs with the ```blkid``` or `lblkd --fs` command[^141].
 
