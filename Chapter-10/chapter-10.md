@@ -366,9 +366,9 @@ udevd
 
 : udev is a device manager for the Linux kernel, which handles the /dev directory and all user space actions when adding/removing devices, including firmware loading. In April 2012, the source tree for udev was merged into the systemd source tree.
 
-libudev
+hostnamectl
 
-: It is the standard library for utilizing udev, which allows third-party applications to query udev resources.
+: Manage and modify hostname related information
 
 systemd-boot
 
@@ -380,7 +380,7 @@ systemd-homed
 
 ### Systemd Service Types
 
-Let's look at the contents of a systemd unit file.  Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The major units that systemd include are `.service`, `.mount`, `.timer`, `.target` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files").
+Let's look at the contents of a systemd unit file. Note it consists of basic INI style headers and compared to an rc file/script it is not a bash script.  The full options are located at the systemd wiki [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html "systemd wiki for unit files").  The major units that systemd include are `.service`, `.mount`, `.timer`, `.target` and the entire list can be found [https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "understanding systemd unit files").
 
 #### Systemd Service file
 
