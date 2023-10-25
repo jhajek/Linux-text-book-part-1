@@ -388,7 +388,7 @@ Let's look at the contents of a systemd unit file. Note it consists of basic INI
 
 #### Systemd Service file
 
-This is an example of the service file installed in Ubuntu 20.04 for Apache2 Web Server located in `/lib/systemd/system/apache2.service`.  All system services are installed in this location.  The parallel location in `/etc/systemd/system/` will append and override system defined settings.
+This is an example of the service file installed in Ubuntu Desktop for Apache2 Web Server located in `/usr/lib/systemd/system/apache2.service`.
 
 ```bash
 #/lib/systemd/system/apache2.service
@@ -435,6 +435,7 @@ ddAfter=network.target
 [Service]
 Type=simple
 PIDFile=/run/bb.pid
+#Adjust User to your current username
 User=controller
 ExecStart=/usr/bin/python3 /usr/local/bin/write-journal.py
 PrivateTmp=true
