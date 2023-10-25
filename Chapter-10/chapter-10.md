@@ -466,11 +466,11 @@ Alias=syslog.service
 
 #### Creating a .timer script
 
-Systemd is efforting to replace cron jobs with a centralized systemd format called timers.   You can see all the timers set on your system by default by using the `systemctl list-timers` command.  The `.timer` files are named the same as the `.service` file -- this correlates them. Timer files are stored along with service files in the `/lib/systemd/system` directory. Here is a sample `.timer`:
+Systemd `.timer` scripts are an effort to replace crontab with a centralized systemd format called `timers`. You can see all the timers set on your system by default by using the `sudo systemctl list-timers` command. The `.timer` files are named the same as the `.service` file--this correlates them. Timer files are stored along with service files in the `/usr/lib/systemd/system` or `/etc/systemd/system` directory. Here is a sample `.timer`:
 
 ```bash
-# This is the /lib/systemd/system/apt-daily.timer
-# that runs /lib/systemd/system/apt-daily.service
+# This is the /usr/lib/systemd/system/apt-daily.timer
+# that runs /usr/lib/systemd/system/apt-daily.service
 # This does a daily update for packages via apt-get
 [Unit]
 Description=Daily apt download activities
@@ -484,7 +484,7 @@ Persistent=true
 WantedBy=timers.target
 ```
 
-The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency.  It can use various types of time definitions[^ch10f125]. Here is a small list defining the various ways you can state time, even extending the traditional CronTab syntax and adding ranges (seperated by the two dots "..").
+The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency. It can use various types of time definitions[^ch10f125]. Here is a small list defining the various ways you can state time, even extending the traditional CronTab syntax and adding ranges (seperated by the two dots "..").
 
 * Wed 18:00:00
 * Mon..Wed \*-5-27
