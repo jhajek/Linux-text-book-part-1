@@ -65,7 +65,7 @@ One good example on why to use `iproute2` tools is that they have support for IP
 
 #### Replacement Commands Table
 
-  `Net-Tools`                         [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2") Replacement Commands
+  `Net-Tools`                         [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2")
 ---------------------------------   -----------------------------------------
          ```arp```                        ```ip n``` (ip neighbor)
        ```ifconfig```                     ```ip a``` (ip addr)
