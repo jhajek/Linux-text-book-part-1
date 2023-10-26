@@ -18,7 +18,7 @@ At the conclusion of this chapter you will have explored the nature of the netwo
 
 ## Networking
 
-Former CEO of Sun Microsystems, Scott McNealy once famously said, "*The network is the computer.*"  This was in 1990.  He could not have been more correct.  With this in mind, basic networking skills are mandatory.  We will briefly cover topics in this order:
+Former CEO of Sun Microsystems, Scott McNealy once famously said, "*The network is the computer.*" This was in 1990. He could not have been more correct. With this in mind, basic networking skills are mandatory. We will briefly cover topics in this order:
 
 * IP addresses
   * Static and DHCP
@@ -29,39 +29,43 @@ Former CEO of Sun Microsystems, Scott McNealy once famously said, "*The network 
 
 ### IP Addresses
 
-Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: ```192.168.1.100```.  
+Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: `192.168.1.100`.  
 
-> Exercise: Open a command prompt and type this command to find your IP address: ```ip address show```.  This command can be abbreviated ```ip a sh``` as well.
+> Exercise: Open a command prompt and type this command to find your IP address: `ip address show`. This command can be abbreviated `ip a sh` as well.
 
-A static address is one that you assign and configure based on your network.  If you are the system administrator you can and should map each device on your network with its own IP address.  For instance any servers you have, webservers, database servers, load balancers, routing equipment should have statically set IP information.
+A static address is one that you assign and configure based on your network. If you are the system administrator you can and should map each device on your network with its own IP address. For instance any servers you have, webservers, database servers, load balancers, routing equipment should have statically set IP information.
 
-> Exercise: Open a command prompt and type this command to find your MAC address or Ethernet Address ```ip l sh``` which is short for ```ip link show```.  You can find all the options to display by typing ```man ip```.
+> Exercise: Open a command prompt and type this command to find your MAC address or Ethernet Address `ip l sh` which is short for `ip link show`. You can find all the options to display by typing `man ip`.
 
-But what if you have transient or ephemeral nodes (computers) on your network?  Then you need to use the **Dynamic Host Configuration Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address.  This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.  
+But what if you have transient or ephemeral nodes (computers) on your network? Then you need to use the **Dynamic Host Configuration Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address. This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.  
 
-There is a DHCP server (configuring one is beyond the scope of this chapter), that will listen for DHCP broadcasts from your client and answer with an offer of an IP.  Once your system (network card) accepts the offer it gains access to that IP address and all other necessary IP configuration--which is relinquishes upon your physically leaving the network for the most part.  DHCP allows you to pool IPs when you might not have enough and share or allow for the auto-registration to make managing large scale IP deployments easy.  
+There is a DHCP server (configuring one is beyond the scope of this chapter), that will listen for DHCP broadcasts from your client and answer with an offer of an IP. Once your system (network card) accepts the offer it gains access to that IP address and all other necessary IP configuration--which is relinquishes upon your physically leaving the network for the most part. DHCP allows you to pool IPs when you might not have enough and share or allow for the auto-registration to make managing large scale IP deployments easy.  
 
-For instance at a university every student has a laptop and most likely a phone too, you could manually assign each an address but the number of students goes into the thousands and tens of thousands, and it not practical to manage--DHCP makes this scale manageable. Settings these values statically in each operating system is different but the concept is the same.  You need to enter an IP Address, Netmask/CIDR, Network Gateway, and DNS.  Each of these concepts is explained below.
+For instance at a university every student has a laptop and most likely a phone too, you could manually assign each an address but the number of students goes into the thousands and tens of thousands, and it not practical to manage--DHCP makes this scale manageable. Settings these values statically in each operating system is different but the concept is the same. You need to enter an IP Address, Netmask/CIDR, Network Gateway, and DNS.  Each of these concepts is explained below.
 
 ### MAC Address
 
-Each network interface card or NIC has a 64 bit hardware address assigned to it.  This is unique and split into two parts.  The first three octets are the OUI, Organizational Unit Identifier, which is given to a particular company to help identify their products.  The last three octets are random numbers that are chosen by the manufacturer after the OUI is assigned for each device they manufacture.    In some cases MAC addresses can be set via software.   MAC addresses are used by switches to convert the last leg of a TCP/IP connection to an actual physical port and are at the second layer of the TCP/IP model.
+Each network interface card or NIC has a 48 bit hardware address assigned to it. This is unique and split into two parts. The first three octets are the OUI, Organizational Unit Identifier, which is given to a particular company to help identify their products. The last three octets are random numbers that are chosen by the manufacturer after the OUI is assigned for each device they manufacture. In some cases MAC addresses can be set via software. MAC addresses are used by switches to convert the last leg of a TCP/IP connection to an actual physical port and are at the second layer of the TCP/IP model.
 
 ![*Mac Addresses*](images/Chapter-12/mac/mac.png "Mac Addresses")
 
-#### Ubuntu
-
-Canonical, that develops Ubuntu, keeps an excellent wiki with this information, [Ubuntu Network Wiki](https://help.ubuntu.com/community/InternetAndNetworking "Ubuntu Network Wiki").
-
-There are multiple ways to discover this information.  There are two suites of tools.  The original is ```net-tools``` the newer group is called the ```iproute2``` tools.  If you have used a computer before, from BSD to Windows (which used the BSD TCP-stack) these commands will be familiar.  But the *net-tools* suite development was actively **ceased** in 2001 in favor of [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2").
-
 ### Comparison of Net-tools and iproute2
 
-These look familiar don't they? The ```ifconfig``` command is a single command.  To view other details such as the ARP table, RARP command, view or change routes you would have to use additional commands.  As a contrast, the *iproute2* command handles all of that from the *ip* command.  Older Linux (pre-2015) definately have net-tools installed.  That is quickly changing as some distributions are only including the ```iproute2``` package.  One good example why to use the ```iproute2``` tools, is ```net-tools``` was created before IPv6 became a standard. There is a [iproute2 cheatsheet](https://github.com/dmbaturin/iproute2-cheatsheet "iproute2 cheatsheet").
+There are two suites of tools for viewing and configuring network information. The original suite is called `net-tools`. The current standard is called the `iproute2` tools. The *net-tools* suite development was actively **ceased** in 2001 in favor of [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2"). There is alot of information on the web using the `net-tools` but we generally want to depricate the use of `net-tools` on Linux.  
+
+The `iproute2` suite standardized on a the singular `ip` command--unifying a disperate set of tools. Older Linux (pre-2015) definately have `net-tools` installed. Now Linux distributions are only including the `iproute2` package.
+
+* Red Hat Workstation includes `net-tools` and `ip-route2`
+  * Almalinux (RHEL server) includese only `ip-route2`
+* Debian Linux Desktop and Server only includes `ip-route2`
+  * Ubuntu Desktop and Server only includes `ip-route2`
+* openSuse Linux only includes `ip-route2`
+
+One good example on why to use `iproute2` tools is that they have support for IPv6. `Net-tools` was created before IPv6 became a standard. There is a [iproute2 cheatsheet](https://github.com/dmbaturin/iproute2-cheatsheet "iproute2 cheatsheet").
 
 #### Replacement Commands Table
 
-  Net-Tools Deprecated Commands           [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2") Replacement Commands
+  `Net-Tools` Deprecated Commands           [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2") Replacement Commands
 ---------------------------------   -----------------------------------------
          ```arp```                        ```ip n``` (ip neighbor)
        ```ifconfig```                     ```ip a``` (ip addr)
