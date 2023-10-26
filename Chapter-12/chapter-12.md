@@ -56,7 +56,7 @@ There are two suites of tools for viewing and configuring network information. T
 The `iproute2` suite standardized on a the singular `ip` command--unifying a disperate set of tools. Older Linux (pre-2015) definately have `net-tools` installed. Now Linux distributions are only including the `iproute2` package.
 
 * Red Hat Workstation includes `net-tools` and `ip-route2`
-  * Almalinux (RHEL server) includese only `ip-route2`
+  * Almalinux (RHEL server) includes only `ip-route2`
 * Debian Linux Desktop and Server only includes `ip-route2`
   * Ubuntu Desktop and Server only includes `ip-route2`
 * openSuse Linux only includes `ip-route2`
@@ -65,7 +65,7 @@ One good example on why to use `iproute2` tools is that they have support for IP
 
 #### Replacement Commands Table
 
-  `Net-Tools` Deprecated Commands           [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2") Replacement Commands
+  `Net-Tools`                         [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2") Replacement Commands
 ---------------------------------   -----------------------------------------
          ```arp```                        ```ip n``` (ip neighbor)
        ```ifconfig```                     ```ip a``` (ip addr)
