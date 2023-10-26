@@ -65,7 +65,7 @@ One good example on why to use `iproute2` tools is that they have support for IP
 
 #### Replacement Commands Table
 
-  `Net-Tools`                         [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2")
+         Net-Tools                              iproute2
 ---------------------------------   -----------------------------------------
          ```arp```                        ```ip n``` (ip neighbor)
        ```ifconfig```                     ```ip a``` (ip addr)
@@ -79,7 +79,7 @@ One good example on why to use `iproute2` tools is that they have support for IP
                                            ```ip maddr``` (for netstat -g)
          ```route```                       ```ip r``` (ip route)
 
-Table:  [Commands and Their Replacements](https://www.tecmint.com/deprecated-linux-networking-commands-and-their-replacements/ "Networking Commands and their replacements")
+Table:  [Net-Topls Commands and Replacements](https://www.tecmint.com/deprecated-linux-networking-commands-and-their-replacements/ "Networking Commands and their replacements")
 
 ### udev and ethernet naming conventions under systemd
 
