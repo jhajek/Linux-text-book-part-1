@@ -345,10 +345,8 @@ The commands to install webservers:
 
 * Ubuntu and Debian-based distros
   * `sudo apt install apache2`
-  * `sudo apt install nginx`
 * Red Hat-based distros
   * `sudo dnf install httpd`  
-  * `sudo dnf install nginx`
 * After install check to make sure the services have been started properly using `systemctl`
   * Note you can't start two webservers at once -- only one service can listen on port 80 at a time
   * Open FireFox browser inside of the Virtual machine
@@ -358,7 +356,16 @@ Webservers have various configurable components. The basic configuration out of 
 
 ### Nginx
 
-Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique web-serving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K"). Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
+Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique web-serving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K"). Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.
+
+* Ubuntu and Debian-based distros
+  * `sudo apt install nginx`
+* Red Hat-based distros
+  * `sudo dnf install nginx`
+* After install check to make sure the services have been started properly using `systemctl`
+  * Note you can't start two webservers at once -- only one service can listen on port 80 at a time
+  * Open FireFox browser inside of the Virtual machine
+  * Navigate to the URL: `http://127.0.0.1` to see the welcome page
 
 #### Sample HTTP site
 
@@ -492,7 +499,7 @@ Databases come in two types: **Relational databases** and **Non-relational datab
 * [SQLite](https://www.sqlite.org/index.html "webpage for sqlite")
 * [PostgreSQL](https://www.postgresql.org/ "webpage for postgresql")
 
-### MySQL and MariaDB
+### Install MySQL and MariaDB
 
 We will focus on the MySQL and MariaDB instances. They are interchangable and if you learn one of these you will be a way to learning other systems. Installation of a database is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accessing a database remotely, you do not need to install the entire server just the client tools to use the applications.
 
@@ -515,27 +522,16 @@ sudo dnf install mariadb-client
 
 MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql"). The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company. MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
 
-* Log in
-* Enter your password at the prompt
-* Enter commands at the CLI
-* Quit
+#### Common Administrative Commands
 
-```sql
--- On mysql/mariadb 8.x Fedora and Ubuntu
--- sudo mysql -u root
--- Create a database named: records
-CREATE DATABASE records;
-```
+We will now go over some common adminsitrative commands that can be executed from the commandline in relation to a database after installation
 
-```sql
-USE records;
-create table tutorials_tbl(
-   tutorial_id INT NOT NULL AUTO_INCREMENT,
-   tutorial_title VARCHAR(100) NOT NULL,
-   PRIMARY KEY ( tutorial_id )
-  );
--- Type quit to exit from the mysql cli
-```
+* Log in​
+* Create a non-root user​
+* Granting privileges​
+* Creating a database, table, and adding some records​
+* Make an SQL query​
+* Quit 
 
 #### User Accounts and Security Concerns
 
@@ -550,11 +546,15 @@ After you log in to the MySQL command-line using the command: `sudo mysql -u roo
 -- gives permission to all tables in the records database
 -- from only the localhost IP address, 127.0.0.1
 -- The basic permissions are: CREATE, SELECT, UPDATE, DELETE, and INSERT
-GRANT SELECT ON records.* TO worker@'127.0.0.1' IDENTIFIED BY 'password-goes-here'; 
-flush privileges;
+-- As of MySQL 8.0 you can no longer implicitly create a user with a GRANT statement
+CREATE USER 'worker'@'%' IDENTIFIED BY 'password-goes-here';
+GRANT CREATE, SELECT, UPDATE, DELETE, and INSERT ON records.* TO 'worker'@'127.0.0.1'  
+FLUSH PRIVILEGES;
 ```
 
-You can place the previous SQL code that will create a table and enter a record into a single file. You can give it any name but convention says it should explain what the code does and end with *.sql. This code will be place into a file named `create-table.sql` and the sample is located in the files > chapter-12 directory.
+You can place the previous SQL code that will create a table and enter a record into a single file. You can give it any name but convention says it should explain what the code does and end with *.sql. This code will be place into a file named `create-table.sql` and the sample is located in the `files > chapter-12 > sql` directory.
+
+#### Create a Database
 
 ```sql
 CREATE DATABASE records;
@@ -572,6 +572,7 @@ INSERT INTO records(tutorial_title) VALUES('Best Book Ever');
 ```bash
 # You can redirect input by having the create commands placed in a single file
 sudo mysql -u root < ./create-table.sql
+sudo mysql -u root < ./create-table-insert-records.sql
 ```
 
 #### Inline SQL commands
@@ -589,17 +590,17 @@ sudo mysql -e "FLUSH PRIVILEGES;"
 
 ### PostgreSQL
 
-As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different. One of the original RDBMs, Ingress, was a product and a company in the 1980s.  The successor to that project was PostgreSQL (see the pun?). PostgreSQL has the added advantage of being opensource, backed by a commercial company, as well as not being MySQL which is owned by Oracle. Installation is provided in custom repos that need to added to a system before using a package manager.
+As always in technology, product names often have a joke or a story behind them. PostgreSQL is no different. One of the original RDBMs, Ingress, was a product and a company in the 1980s. The successor to that project was PostgreSQL (see the pun?). PostgreSQL has the added advantage of being opensource, backed by a commercial company, as well as not being MySQL which is owned by Oracle.
 
-* [PostgreSQL Downloads for Ubuntu and Fedora/CentOS](https://www.postgresql.org/download/ "PostgreSQL downloads")
+* `sudo apt install postgresql`
+* `sudo dnf install postgresql`
 
 ### SQLite
 
-SQLite skips some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]." It is meant to store and retrieve data and that is about it. This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application. Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3"). You can install SQlite3 via the normal package mechanism and it is usually close to being up to date. Note that SQlite3 doesn't listen on external ports by default it is included as an external library in your application.
+SQLite skips some of the bigger features to be mean and lean. *"SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]."* It is meant to store and retrieve data and that is about it. This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application. Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for SqLite3"). You can install SQLite3 via the normal package mechanism and it is usually close to being up to date. Note that SQLite3 doesn't listen on external ports by default it is included as an external library in your application.
 
-* ```sudo apt-get install sqlite3```
-* ```sudo yum install sqlite```
-* ```sudo dnf install sqlite```
+* `sudo apt install sqlite3`
+* `sudo dnf install sqlite`
 
 ### MongoDB
 
