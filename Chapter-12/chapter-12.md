@@ -617,7 +617,7 @@ MongoDB packages are maintained by MongoDB -- and are released outside of Linux 
 
 ## Firewall
 
-Used to block external communication on you system ports. Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on.  This allows the operating system and applications to communicate as well with multiple programs.  There are 65000 ports available to use.  The first 1024 ports are reserved for well known services.  These numbers are useful to know, but applications have changed.  For instance SMTP is no longer unencrypted and used over port 25,but port 567 or 995.  Also the use of Git over http has replaced the need for FTP/SFTP/SSH and other protocols to send and retrieve data.
+Used to block external communication on you system ports. Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on. This allows the operating system and applications to communicate as well with multiple programs. There are 65000 ports available to use. The first 1024 ports are reserved for well known services. These numbers are useful to know.
 
 * SSH - 22
 * FTP - 21
@@ -628,17 +628,17 @@ Used to block external communication on you system ports. Not unlike plugs in th
 * SMTP over SSL - 990
 * MongoDB - 27017
 * PostgreSQL - 5432
-* MySQL - 3306
+* MySQL/MariaDB - 3306
 * Oracle DB - 1521
 * ExpressJS - 3000
 
-You can use rules to allow or deny traffic based on source IP, source Port, Destination IP, or Destination Port.   Some people urge turning the firewall off because of complexity. I do not recommend this. If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security, privacy, and government regulation.  
+You can use rules to allow or deny traffic based on source IP, source Port, Destination IP, or Destination Port. Some people urge turning the firewall off because of complexity. I do not recommend this. If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security, privacy, and government regulation.  
 
 ### Firewalld
 
-Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface.  There had been previous ways to interface with a firewall and firewalld seeks to abstract these away and present a unified interface to your systems firewall Fedora turns their firewall on by default, CentOS 7 does not.
+Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface. There had been previous ways to interface with a firewall and firewalld seeks to abstract these away and present a unified interface to your systems firewall Fedora turns their firewall on by default, CentOS 7 does not.
 
-Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```  When adding a new rule you need to declare if the rule is permanent or it will be reset when the firewalld service is reloaded.  The firewalld system contains zones such as:
+Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```.  When adding a new rule you need to declare if the rule is permanent or it will be reset when the firewalld service is reloaded. The firewalld system contains zones such as:
 
 * trusted or untrusted
 * drop
@@ -691,7 +691,7 @@ sudo firewall-cmd --reload
 
 #### fail2ban
 
-The main reason to have a firewall is to restrict traffic to your system or server.  Note the commands above do not dictate in anyway who can connect to a system. Firewalld includes a standard interface so third party tools and build integration into your firewall.  [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as MySQL and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. ```Fail2ban``` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
+The main reason to have a firewall is to restrict traffic to your system or server. Firewalld includes a standard interface so third party tools can build integration into your firewall. [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as MySQL and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. `Fail2ban` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
 
 ```bash
 # you may need the epel-release package on Fedora/CentOS
@@ -699,7 +699,7 @@ The main reason to have a firewall is to restrict traffic to your system or serv
 # https://unix.stackexchange.com/questions/268357/
 
 sudo dnf install fail2ban fail2ban-firewalld
-sudo apt-get install fail2ban fail2ban-firewalld
+sudo apt install fail2ban fail2ban-firewalld
 sudo yum install fail2ban fail2ban-firewalld
 
 sudo systemctl enable fail2ban
