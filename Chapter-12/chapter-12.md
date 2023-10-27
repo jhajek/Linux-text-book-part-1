@@ -49,11 +49,36 @@ Each network interface card or NIC has a 48 bit hardware address assigned to it.
 
 ![*Mac Addresses*](images/Chapter-12/mac/mac.png "Mac Addresses")
 
+### Netmask
+
+The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable.  Apple famously has the 16.0.0.0 Class A giving them access to 255*255*255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE.
+
+Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
+
+Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses. For our purposes we won't worry about class D and E in this book.
+
+The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  A business might have a subnet or CIDR block of /23.  This looks like a class B subnet.  Class B in CIDR would be /24.  The /23 gives us control of 192.168.1.110 and 192.168.1.111 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
+
+### Gateway
+
+The gateway value is your networks default router.  This value is literally the gateway in and out of your network. Usually this IP address ends in a .1 or a .254, but does not have to.
+
+### DNS
+
+DNS--Domain Name services  allow you to resolve written domain names.  The sites google.com, web.iit.edu, twit.tv, etc, etc, turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
+
+* Google has two public DNS services, [8.8.8.8 and 8.8.4.4](https://developers.google.com/speed/public-dns/ "Google Public DNS")
+* [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS")
+* [IBM Quad9 9.9.9.9](https://www.quad9.net/ "IBM Quad9")
+* [OpenDNS servers](https://www.opendns.com/ "Opendns")
+
+DNS is set and configured as noted above in the various networking files.  Note that DNS was not an initial part of TCP/IP networking so it was not natively contained in the network service configuration, DNS came later to the internet.
+
 ### Comparison of Net-tools and iproute2
 
-There are two suites of tools for viewing and configuring network information. The original suite is called `net-tools`. The current standard is called the `iproute2` tools. The *net-tools* suite development was actively **ceased** in 2001 in favor of [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2"). There is alot of information on the web using the `net-tools` but we generally want to depricate the use of `net-tools` on Linux.  
+There are two suites of tools for viewing and configuring network information. The original suite is called `net-tools`. The current standard is called the `iproute2` tools. The *net-tools* suite development was actively **ceased** in 2001 in favor of [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2"). There is alot of information on the web using the `net-tools` but we generally want to deprecate the use of `net-tools` on Linux.  
 
-The `iproute2` suite standardized on a the singular `ip` command--unifying a disperate set of tools. Older Linux (pre-2015) definately have `net-tools` installed. Now Linux distributions are only including the `iproute2` package.
+The `iproute2` suite standardized on the singular `ip` command--unifying a disparate set of tools. Older Linux (pre-2015) definitely have `net-tools` installed. Now Linux distributions are only including the `iproute2` package.
 
 * Red Hat Workstation includes `net-tools` and `ip-route2`
   * Almalinux (RHEL server) includes only `ip-route2`
@@ -79,7 +104,7 @@ One good example on why to use `iproute2` tools is that they have support for IP
                                            ```ip maddr``` (for netstat -g)
          ```route```                       ```ip r``` (ip route)
 
-Table:  [Net-Topls Commands and Replacements](https://www.tecmint.com/deprecated-linux-networking-commands-and-their-replacements/ "Networking Commands and their replacements")
+Table:  [Net-Tools Commands and Replacements](https://www.tecmint.com/deprecated-linux-networking-commands-and-their-replacements/ "Networking Commands and their replacements")
 
 ### udev and ethernet naming conventions under systemd
 
@@ -111,7 +136,7 @@ What you gain by using this standard:
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
-What does this mean?  Well let us take a look at the output of the ```ip a sh``` command.  Lets try it on Ubuntu 18.04, 16.04, Fedora 30, CentOS 7, and using ```ifconfig``` on FreeBSD 11 what do you see?  On some of these you see eth0 some you see enp0sX.  Why?  Though all of the these oses are using systemd, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file, which we covered in chapter 10. The way to reset the values is listed below:
+What does this mean?  Well let us take a look at the output of the `ip a sh` command. Lets try it on Ubuntu Desktop, Server, and Fedora Workstation, and using `ifconfig` on FreeBSD what do you see?  On some of these you see eth0 some you see enp0sX. Why? Though all of the these OSes are using `systemd`, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file. The way to reset the values is listed below:
 
 * Edit ```/etc/default/grub```
 * At the end of ```GRUB_CMDLINE_LINUX``` line append ```net.ifnames=0 biosdevname=0```
@@ -125,13 +150,13 @@ What does this mean?  Well let us take a look at the output of the ```ip a sh```
 
 ### Network Configuration Troubles
 
-Here is where things get tricky.  In the future I would like to think this is will all be sorted out, but for now, buckle up.  So networking was always controlled by a service under sysVinit, that was usually ```sudo service networking restart```. This was common across all Linux.  This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc.  That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done.  In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations.  Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service.  Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
+Here is where things get tricky. In the future I would like to think this is will all be sorted out, but for now, buckle up. So networking was always controlled by a service under sysVinit, that was usually `sudo service networking restart`. This was common across all Linux.  This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc. That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done. In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations. Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service. Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
 
-The control of the network has been unified once again in all major Linux distros under **systemd-networkd**, which being part of systemd you assume that it controls the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```.  Files in that directory need to end in a .network extension. The systemd-networkd .network file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
+The control of the network has been unified once again in all major Linux distros under **systemd-networkd**, which being part of systemd you assume that it controls the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```. Files in that directory need to end in a .network extension. The systemd-networkd .network file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
 
 #### Who uses what?
 
-For the desktop Linux, Ubuntu and Fedora/Red Hat based, Network Manger is being used by default as of late 2021, but systemd-networkd can be enabled.  The server edition of Ubuntu 20.04 use systemd-networkd.
+For the desktop Linux, Ubuntu and Fedora/Red Hat based, Network Manger is being used by default as of 2023, but systemd-networkd can be enabled. The server editions of Ubuntu are using `systemd-networkd` by default.
 
 #### Systemd-networkd network config file templates
 
@@ -216,7 +241,7 @@ IPV6_PEERROUTES=yes
 
 #### Netplan.io
 
-To further confuse things, Ubuntu decided to write a YAML based file management abstraction layer for networking that can use the same configuration for either Network Manager or Networkd-Systemd.  It is called [netplan.io](https://netplan.io "netplan").  Netplan reads YAML style files from a network configuration located in ```/etc/netplan/*.yaml```.
+To further confuse things, Ubuntu decided to write a YAML based file management abstraction layer for networking that can use the same configuration for either Network Manager or Networkd-Systemd. It is called [netplan.io](https://netplan.io "netplan").  Netplan reads YAML style files from a network configuration located in ```/etc/netplan/*.yaml```.
 
 Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By default in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allows Network Manager to manage by default unless specifically altered below.
 
@@ -247,42 +272,17 @@ network:
           addresses: [10.10.10.1, 1.1.1.1]
 ```
 
-#### Netmask
-
-The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient.   If you had a subnet of class A, your subnet would be 255.0.0.0.  This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable.  Apple famously has the 16.0.0.0 Class A giving them access to 255*255*255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE.
-
-Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
-
-Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses. For our purposes we won't worry about class D and E in this book.
-
-The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  A business might have a subnet or CIDR block of /23.  This looks like a class B subnet.  Class B in CIDR would be /24.  The /23 gives us control of 192.168.1.110 and 192.168.1.111 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
-
-#### Gateway
-
-The gateway value is your networks default router.  This value is literally the gateway in and out of your network. Usually this IP address ends in a .1 or a .254, but does not have to.
-
-#### DNS
-
-DNS--Domain Name services  allow you to resolve written domain names.  The sites google.com, web.iit.edu, twit.tv, etc, etc, turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
-
-* Google has two public DNS services, [8.8.8.8 and 8.8.4.4](https://developers.google.com/speed/public-dns/ "Google Public DNS")
-* [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS")
-* [IBM Quad9 9.9.9.9](https://www.quad9.net/ "IBM Quad9")
-* [OpenDNS servers](https://www.opendns.com/ "Opendns")
-
-DNS is set and configured as noted above in the various networking files.  Note that DNS was not an initial part of TCP/IP networking so it was not natively contained in the network service configuration, DNS came later to the internet.
-
 ### /etc/hosts
 
-Linux, inheriting from UNIX from a time before DNS existed, has a file for local DNS lookups: ```/etc/hosts```.  This file is owned by root.  You can edit this and place three items: an IP address, a fully qualified domain name, a short name (just the hostname).  This is enabled by default and is the first lookup for your system.  This helps save network based DNS roundtrips and can be accessed by any application or script without needing modification or additional libraries.
+Linux, inheriting from UNIX from a time before DNS existed, has a file for local DNS lookups: ```/etc/hosts```. This file is owned by root. You can edit this and place three items: an IP address, a fully qualified domain name, a short name (just the hostname). This is enabled by default and is the first lookup for your system. This helps save network based DNS roundtrips and can be accessed by any application or script without needing modification or additional libraries.
 
 ```bash
 
 # sample /etc/hosts file from a system setting up a sample network
 
-192.168.33.110 riemanna.example.com riemanna
-192.168.33.120 riemannb.example.com riemannb
-192.168.33.100 riemannmc.example.com riemannmc
+192.168.33.110 webserver1.example.com webserver1
+192.168.33.120 webserver2.example.com webserver2
+192.168.33.100 database1.example.com database1
 
 192.168.33.210 graphitea.example.com graphitea
 192.168.33.220 graphiteb.example.com graphiteb
@@ -300,18 +300,12 @@ Linux, inheriting from UNIX from a time before DNS existed, has a file for local
 
 #### iputils
 
-Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to troubleshoot the problem and identify where the problem is.  Those tools are separate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might not be installed by default.
+Most of the time the network works fine, but when it doesn't you need to be able to use built in system tools to troubleshoot the problem and identify where the problem is. Those tools are separate from the iproute2 suite and are called [iputils](https://github.com/iputils/iputils "iputils"). The tools included are listed here but all of them might not be installed by default.
 
 * arping
 * clockdiff
-* ninfod
 * ping
-* rarpd
-* rdisc
-* tftpd
 * tracepath
-* traceroute
-* traceroute6
 
 The first tool that should be in your tool box is *ping*.
 
@@ -335,67 +329,54 @@ There are additional tools that extend basic troubleshooting features such as:
 
 ## Webservers
 
-August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first webserver.  For history's sake, an early copy of it was found on an old system and [restored](http://info.cern.ch/hypertext/WWW/TheProject.html "First webpage").  He was working at the [CERN](https://en.wikipedia.org/wiki/CERN "CERN") research lab in Switzerland.  He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide.  To do this he created the Hypertext Transfer Protocol -- [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "HTTP Protocol") protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.  
+August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first webserver. For history's sake, an early copy of it was found on an old system and [restored](http://info.cern.ch/hypertext/WWW/TheProject.html "First webpage"). He was working at the [CERN](https://en.wikipedia.org/wiki/CERN "CERN") research lab in Switzerland. He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide. To do this he created the Hypertext Transfer Protocol -- [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "HTTP Protocol") protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.
 
-The first webserver gave rise to a commercial company called Netscape started by the now famous investor Marc Andreeson, with research coming out of the University of Illinois.  Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment.  The Apache webserver came out of this code base and became the name and the first product of the Apache Opensource Foundation.  When we look to two technologies that were used by the dotcom companies that survived the first and second crashes, we find that both the Apache webserver along with the MySQL database made the web possible.  
+The first webserver gave rise to a commercial company called Netscape started by [Marc Andreeson](https://en.wikipedia.org/wiki/Marc_Andreessen "webpage for Marc Andreeson"), with research coming out of the University of Illinois. Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment. The Apache webserver came out of this code base and became the name and the first product of the Apache Opensource Foundation. When we look to two technologies that were used by the dotcom companies that survived the first and second crashes, we find that both the Apache webserver along with the MySQL database made the web possible.  
 
-Applications have grown enormously beyond just serving simple html webpages.  What was once a simple webserver has been exchanged becoming application servers and serving traffic or aggregating traffic directly on a per request basis.  We will cover in detail in the next chapters some of those application servers.  For now let us start with webservers. They listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.  The webserver by default will serve pages out of the ```/var/www/html``` directory on Linux and ```/var/www``` on FreeBSD.
+Applications have grown enormously beyond just serving simple html webpages.  What was once a simple webserver has been exchanged becoming application servers and serving traffic or aggregating traffic directly on a per request basis.  We will cover in detail in the next chapters some of those application servers. For now let us start with webservers. They listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.
 
 ### Apache
 
-Without Apache, companies such as Google, Facebook, Twitter, and many others started upon opensource never would have been able to get started.
+Without Apache, companies such as Google, Facebook, Twitter, and many others started upon opensource never would have been able to get started. Apache has over time grown and had to add new functions while shedding old functionality. The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed. Some may criticize Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
 
-Apache has over time grown and had to add new functions while shedding old functionality.  The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed.  Some may criticize Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
+The Apache webserver can be installed via package managers. There is even a version of it available for Windows. Note that though the same application, Ubuntu refers to the Apache webserver as `apache2` and Red Hat products refer to it as `httpd`.
 
-The Apache webserver can be installed via package managers.  There is even a version of it available for Windows.   Note that though the same application, Ubuntu refers to the Apache webserver as ```apache2``` and Red Hat products refer to it as ```httpd```, which is not to be confused with the OpenBSD custom built webserver also named ```httpd```.
+The commands to install webservers:
 
-> ```sudo apt-get install apache2```
+* Ubuntu and Debian-based distros
+  * `sudo apt install apache2`
+  * `sudo apt install nginx`
+* Red Hat-based distros
+  * `sudo dnf install httpd`  
+  * `sudo dnf install nginx`
+* After install check to make sure the services have been started properly using `systemctl`
+  * Note you can't start two webservers at once -- only one service can listen on port 80 at a time
+  * Open FireFox browser inside of the Virtual machine
+  * Navigate to the URL: `http://127.0.0.1` to see the welcome page
 
-> ```sudo yum install httpd```
+Webservers have various configurable components. The basic configuration out of the box is very conservative about resources and is not much use beyond for testing. You will need to tune the different settings as you go along as no two work loads are the same, unfortunately there is no direct tutorial you can just configure and run a large business with. For our purposes in class the default configurations will suffice, but in the real world you will need to find additional documents or books to guide you along.
 
-```bash
-#FreeBSD 12 using Ports
-sudo portsnap fetch
-sudo portsnap extract
-sudo portsnap update
-cd /usr/ports/www/apache2
-make install
-```
+### Nginx
 
-Webservers have various configurable components.  The basic configuration out of the box is very conservative about resources and is not much use beyond for testing.  You will need to tune the different settings as you go along as no two work loads are the same, unfortunately there is no direct tutorial you can just configure and run a large business with.  For our purposes in class the default configurations will suffice, but in the real world you will need to find additional documents or books to guide you along.
+Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique web-serving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K"). Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
 
-Apache has extendable modules so its base features can be enhanced without needing to recompile the entire program.  Using ```apt-get``` you can add modules that you can use to render the PHP language or modules to enable HTTP/2 capabilities for instance.  
+#### Sample HTTP site
 
-> Let's try installing apache2 and php at the same time and look at the dependency list:
+To help out our brand new webserver -- lets get us some content. On our Ubuntu Desktop system, lets issue these commands from the terminal:
 
-* ```sudo apt-get install apache2 php php-mysql mariadb-server```
-* ```sudo systemctl restart apache2``` -- (as opposed to restart)  just re-reads the configurable
-
-Sample code is shown here for a sample PHP webpage or copy and paste this code in to a file named: index.php located in ```/var/www/html```
-
-```php
-// Two slashes is a comment
-<?php
-
-echo phpinfo();
-
-?>
-
-```
-
-You should be able to load this page in the browser inside your virtual machine by accessing: ```http://localhost/index.php```
-
-#### HTTP/2
-
-"*Websites that are efficient minimize the number of requests required to render an entire page by minifying (reducing the amount of code and packing smaller pieces of code into bundles, without reducing its ability to function) resources such as images and scripts. However, minification is not necessarily convenient nor efficient and may still require separate HTTP connections to get the page and the minified resources. HTTP/2 allows the server to "push" content, that is, to respond with data for more queries than the client requested. This allows the server to supply data it knows a web browser will need to render a web page, without waiting for the browser to examine the first response, and without the overhead of an additional request cycle.*"
-
-"*Additional performance improvements in the first draft of HTTP/2 (which was a copy of SPDY) come from multiplexing of requests and responses to avoid the head-of-line blocking problem in HTTP 1 (even when HTTP pipelining is used), header compression, and prioritization of requests. HTTP/2 no longer supports HTTP 1.1's chunked transfer encoding mechanism, as it provides its own, more efficient, mechanisms for data streaming[^152].*"
-
-The best resource I found was a technical deep-dive on HTTP/2 by [Steve Gibson at Security Now Podcast episode 495](https://twit.tv/shows/security-now/episodes/495 "SN 495")
+* `wget https://github.com/twbs/bootstrap/releases/download/v5.3.2/bootstrap-5.3.2-examples.zip`
+  * To download the latest bootstrap CSS samples. 
+* `unzip bootstrap-5.3.2-examples.zip`
+  * Decompress the samples -- might need to install the zip package
+* Issue the `cd` command into the `bootstrap` directory
+  * Issue the copy command of the `assets` and `heroes` directory
+  * Copy them to the `/var/www/html` directory as this is where Nginx on Ubuntu server its webpages from
+* Open the FireFox browser in that virtual machine
+  * Navigate to the URL: `http://127.0.0.1/heroes` to see the bootstrap sample page
 
 #### TLS Certs
 
-One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix ```https://```.  SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
+One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix `https://`. SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
 
 You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party.  In that they don't have a chain of trust about them.  Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site.  Now you have the option of overriding this and or accepting these self-signed certs into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
 
@@ -408,8 +389,8 @@ There is an [EFF](https://www.eff.org/ "EFF") led initiative called [Let's Encry
 
 Without having a public IP address you can't use Let's Encrypt, but you can generate a self-signed SSL/TLS certificate following these tutorials.  Note that your browser will complain and send you dire warnings, you will have the option to accept the cert anyway and then the warnings will not persist.
 
-* [Digital Ocean Nginx Self-Signed SSL Cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04 "Nginx Self-signed CERT")
-* [Digital Ocean Apache Self-Signed SSL Cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04 "Apache Self-signed CERT")
+* [Digital Ocean Nginx Self-Signed SSL Cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-22-04 "Nginx Self-signed CERT")
+* [Digital Ocean Apache Self-Signed SSL Cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-22-04 "Apache Self-signed CERT")
 
 Just like anything you can, can automate the creation of a self-signed cert:
 
@@ -421,12 +402,6 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
 -subj "/C=US/ST=Illinois/L=Chicago/O=IIT-Company/OU=Org/CN=www.school.com"
 
 ```
-
-### Nginx
-
-Started in 2004 by Igor Sysoev, this product came out of a Russian company who found their unique web-serving needs couldn't be met by Apache.  It is licensed under the [2 Clause BSD license](https://en.wikipedia.org/wiki/Simplified_BSD_License "2 Clause BSD"). Apache had a memory model that was created when serving webpages in the the mid-1990s, and the nature of the web, including serving more dynamically generated pages, and information from multiple streams pushed Apache to the edge of its capability. Nginx was developed to overcome these limitations and solve the [C10K problem](https://en.wikipedia.org/wiki/C10k_problem "C10K").  Nginx has the ability to do load-balancing and reverse-proxying natively.  Nginx achieves its speed increase by sacrificing the flexibility that Apache has.  
-
-CentOS and Fedora will need to add the ```epel-release``` package first, ```sudo yum install epel-release``` or ```sudo dnf install epel-release```.  For Ubuntu use ```apt-get```.
 
 ### OpenBSD httpd Process
 
