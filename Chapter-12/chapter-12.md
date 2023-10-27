@@ -374,13 +374,13 @@ To help out our brand new webserver -- lets get us some content. On our Ubuntu D
 * Open the FireFox browser in that virtual machine
   * Navigate to the URL: `http://127.0.0.1/heroes` to see the bootstrap sample page
 
-#### TLS Certs
+#### TLS/HTTPS Certs
 
-One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology.   This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off.  HTTP connection using SSL have the prefix `https://`. SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
+One of the major innovations Netscape made with their original webserver product was the creation of SSL, secure socket layer technology. This allowed for sensitive data to be encrypted and decrypted securely--which enabled commerce over the internet to take off. HTTP connection using SSL have the prefix `https://`. SSL has long been deprecated and replaced with TLS - (Transport Layer Security) 1.2 and 1.3, but many people still use the phrase *SSL* when they really mean *TLS*.
 
-You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party.  In that they don't have a chain of trust about them.  Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site.  Now you have the option of overriding this and or accepting these self-signed certs into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
+You can configure your system to generate SSL certs, but they will be missing a key component of Certificates you can buy or receive from a third party. In that they don't have a chain of trust about them. Self-signed certs will also trigger a browser to throw a security warning and block entry to that web-site. Now you have the option of overriding this and or accepting these self-signed certs into your operating systems certificate store.  Some companies so this to secure internal traffic that does not go to the outside internet, but stays inside a company network.  
 
-There is an [EFF](https://www.eff.org/ "EFF") led initiative called [Let's Encrypt](https://letsencrypt.org/ "Lets Encrypt") that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via ```apt```, ```yum```, and ```dnf``` to make this experience easy and remove all reasons to not encrypt web traffic.  [You can see the adoption curve](https://letsencrypt.org/stats/ "Lets encrypt stats") of TLS/SSL since Let's Encrypt became widely available.
+There is an [EFF](https://www.eff.org/ "EFF") led initiative called [Let's Encrypt](https://letsencrypt.org/ "Lets Encrypt") that will give you free SSL certs for your public site.  They offer wildcard domains and easy setup via `apt`, `yum`, and `dnf` to make this experience easy and remove all reasons to not encrypt web traffic. [You can see the adoption curve](https://letsencrypt.org/stats/ "Lets encrypt stats") of TLS/SSL since Let's Encrypt became widely available.
 
 * [TLS 1.3 Podcast on Security Now](https://twit.tv/shows/security-now/episodes/656 "TLS 1.3")
 * [Lets Encrypt Explanation Podcast](https://twit.tv/shows/security-now/episodes/483 "Lets encrypt explanation podcast")
@@ -389,17 +389,25 @@ There is an [EFF](https://www.eff.org/ "EFF") led initiative called [Let's Encry
 
 Without having a public IP address you can't use Let's Encrypt, but you can generate a self-signed SSL/TLS certificate following these tutorials.  Note that your browser will complain and send you dire warnings, you will have the option to accept the cert anyway and then the warnings will not persist.
 
-* [Digital Ocean Nginx Self-Signed SSL Cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-22-04 "Nginx Self-signed CERT")
-* [Digital Ocean Apache Self-Signed SSL Cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-22-04 "Apache Self-signed CERT")
+* [Digital Ocean Nginx Self-Signed SSL Cert Tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-22-04 "Nginx Self-signed CERT")
+* [Digital Ocean Apache Self-Signed SSL Cert Tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-22-04 "Apache Self-signed CERT")
+
+#### Generate Self-Signed TLS Cert
 
 Just like anything you can, can automate the creation of a self-signed cert:
 
 ```bash
+# While using OpenSSL, you should also create a strong Diffie-Hellman (DH)
+# group, which is used in negotiating Perfect Forward Secrecy with clients.
+# You can do this by typing:
+sudo openssl dhparam -out /etc/nginx/dhparam.pem 4096
 
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
--keyout /etc/ssl/private/apache-selfsigned.key \
--out /etc/ssl/certs/apache-selfsigned.crt \ 
--subj "/C=US/ST=Illinois/L=Chicago/O=IIT-Company/OU=Org/CN=www.school.com"
+# https://security.stackexchange.com/questions/74345/provide-subjectaltname-to-openssl-directly-on-the-command-line
+# Script to auto answer the key request creation information - self-signed cert good for 365 days
+sudo openssl req -subj "/C=US/ST=Illinois/L=Chicago/O=IIT-Company/OU=Org/CN=www.school.com" \
+-newkey rsa:4096 -x509 -nodes -days 365 \
+-keyout /etc/ssl/private/tls-selfsigned.key \
+-out /etc/ssl/certs/tls-selfsigned.crt
 
 ```
 
@@ -409,35 +417,43 @@ The OpenBSD project which values security and home grown solutions over pure ava
 
 ### NodeJS
 
-In late 2009/2010, a developer from [Joyent](https://www.joyent.com/ "joyent website") (later Samsung/Joyent) wanted to explore the probabilities of JavaScript.  Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity.  He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome browser, added an event loop and I/O functions and made it a standalone server.  Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website").
+In late 2009/2010, a developer from [Joyent](https://www.joyent.com/ "joyent website") (later Samsung/Joyent) wanted to explore the probabilities of JavaScript. Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity. He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome browser, added an event loop and I/O functions and made it a standalone server.  Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website").
 
-The Node.js release cycle is different then most major Linux distro's release cycles, so you need to go to the NodeJS site directly to get a newer version. For the latest 16.x LTS (long term support branch):
+The NodeJS package install information is here: [https://github.com/nodesource/distributions](https://github.com/nodesource/distributions "webpage for NodeJS").
 
 ```bash
-# Using Ubuntu
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
-node -v
+##############################################################################
+# Using Ubuntu and NodeJS 20
+##############################################################################
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 
-# Using Debian, as root
-curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-apt-get install -y nodejs
-node -v
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 
-# Using Fedora/CentOS/Red Hat
-sudo dnf install -y gcc-c++ make
-curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
-sudo dnf install nodejs
-node -v
+sudo apt-get update
+sudo apt-get install nodejs -y
+##############################################################################
+# Using Fedora/RHEL Clones and NodeJS 20 
+##############################################################################
+yum install gcc-c++ make
+sudo yum install https://rpm.nodesource.com/pub_20.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+sudo yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
 ```
 
 Using the NPM package manager, we can install additional plugins that allow our Node.js JavaScript application to have additional features.  For example:
 
 ```bash
+##############################################################################
 # Using NPM to install the ExpressJS JavaScript server
+##############################################################################
 npm install express
-
-# Using NPM to install the Mysql connector to talk to a MySQL or MariaDB database
+##############################################################################
+# Using NPM to install the Mysql connector to talk to a MySQL or MariaDB 
+# database
+##############################################################################
 npm install mysql2
 ```
 
