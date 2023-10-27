@@ -1,0 +1,17 @@
+# Systemd-networkd .network file (not Ubuntu Netplan)
+# Name of the file /etc/systemd/network/20-wired.network
+[Match]
+Name=enp0s9
+
+[Network]
+DHCP=ipv4
+
+# Wired adapter using a static IP
+# /etc/systemd/network/20-wired.network
+[Match]
+Name=enp0s9
+
+[Network]
+Address=10.1.10.9/24
+Gateway=10.1.10.1
+DNS=10.1.10.1

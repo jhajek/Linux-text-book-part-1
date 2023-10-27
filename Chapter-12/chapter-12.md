@@ -424,6 +424,7 @@ The NodeJS package install information is here: [https://github.com/nodesource/d
 ```bash
 ##############################################################################
 # Using Ubuntu and NodeJS 20
+# https://github.com/nodesource/distributions#ubuntu-versions
 ##############################################################################
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
@@ -437,10 +438,12 @@ sudo apt-get update
 sudo apt-get install nodejs -y
 ##############################################################################
 # Using Fedora/RHEL Clones and NodeJS 20 
+# https://github.com/nodesource/distributions#fedora-versions
 ##############################################################################
 yum install gcc-c++ make
 sudo yum install https://rpm.nodesource.com/pub_20.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
 sudo yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
+##############################################################################
 ```
 
 Using the NPM package manager, we can install additional plugins that allow our Node.js JavaScript application to have additional features.  For example:
@@ -449,15 +452,16 @@ Using the NPM package manager, we can install additional plugins that allow our 
 ##############################################################################
 # Using NPM to install the ExpressJS JavaScript server
 ##############################################################################
-npm install express
+sudo npm install express
 ##############################################################################
 # Using NPM to install the Mysql connector to talk to a MySQL or MariaDB 
 # database
 ##############################################################################
-npm install mysql2
+sudo npm install mysql2
+##############################################################################
 ```
 
-Now using vim or nano lets code a sample "Hello World" Node.js program, let's create a directory in the *Documents* directory named: **myapp**. Name the file **app.js**. Then type the code sample below:
+Now using vim or nano lets code a sample "Hello World" Node.js program, let's create a directory in the `Documents` directory named: **myapp**. Name the file **app.js**. Then type the code sample below:
 
 ```javascript
 // Simple sample app from
@@ -481,23 +485,25 @@ app.listen(port, () => {
 
 ## Database and NoSQL
 
-Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The relational database structure uses a query language called SQL, *Structured Query Language* which allows you to make queries on structured data.  Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth.  These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language.
+Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The major commercial databases you are familiar with: Oracle, MS SQL-Server, and IBM DB2 are relational databases but not opensource--they won't be covered here. The relational database structure uses a query language called SQL, *Structured Query Language* which allows you to make queries on structured data. Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth. These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language. There are many opensource relational database systems here are the four major ones:
 
-* SQL example - ```SELECT answers FROM finalexam``` or ```SELECT * FROM EMPLOYEES WHERE ID=6000```
-* NoSQL sample: ```db.inventory.find( { status: { $in: [ "A", "D" ]} })```
+* [MySQL](https://www.mysql.com/ "website for mysql")
+* [MariaDB](https://mariadb.org/ "website for mariadb")
+* [SQLite](https://www.sqlite.org/index.html "webpage for sqlite")
+* [PostgreSQL](https://www.postgresql.org/ "webpage for postgresql")
 
 ### MySQL and MariaDB
 
-Installation of a database is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accessing a database remotely, you do not need to install the entire server just the client tools to use the applications.
+We will focus on the MySQL and MariaDB instances. They are interchangable and if you learn one of these you will be a way to learning other systems. Installation of a database is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accessing a database remotely, you do not need to install the entire server just the client tools to use the applications.
 
 ```bash
 # Using Ubuntu or Debian based distros
 # Install either mysql or mariadb
-sudo apt-get install mariadb  
-sudo apt-get install mysql
+sudo apt install mariadb  
+sudo apt install mysql
 
-sudo apt-get install mariadb-client
-sudo apt-get install mariadb-server
+sudo apt install mariadb-client
+sudo apt install mariadb-server
 
 # Installing on Fedora
 sudo dnf install mariadb mariadb-server
@@ -505,7 +511,9 @@ sudo dnf install mariadb-client
 # make sure to start and enable the maria or mysql service on Fedora/CentOS
 ```
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql").  The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company.  MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
+### Opensource Relational Database History
+
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql"). The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company. MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
 
 * Log in
 * Enter your password at the prompt
@@ -587,7 +595,7 @@ As always in technology, product names often have a joke or a story behind them.
 
 ### SQLite
 
-SQLite skips some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]."  It is meant to store and retrieve data and that is about it.  This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.  Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3").  You can install SQlite3 via the normal package mechanism and it is usually close to being up to date.  Note that SQlite3 doesn't listen on external ports by default it is included as an external library in your application.
+SQLite skips some of the bigger features to be mean and lean. "SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]." It is meant to store and retrieve data and that is about it. This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application. Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for Sqlite3"). You can install SQlite3 via the normal package mechanism and it is usually close to being up to date. Note that SQlite3 doesn't listen on external ports by default it is included as an external library in your application.
 
 * ```sudo apt-get install sqlite3```
 * ```sudo yum install sqlite```
