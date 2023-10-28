@@ -372,16 +372,13 @@ Btrfs is a modern copy-on-write (CoW) filesystem for Linux. Copy-on-write is at 
 
 Btrfs adds support for resource pooling and using extents to make logical drives across physical devices removing the need for the use of LVM, volume management is now built in. Recently openSUSE and Fedora have adopted Btrfs as a filesystem, but support for Btrfs was remove in RHEL 8 (in favor of XFS and LVM).
 
-In order to format a system using Btrfs you need to install `btrfs-progs`.  
-
-       Install Btrfs tools
-----------------------------------
-`sudo dnf install btrfs-progs`
-`sudo yum install btrfs-progs`
-`sudo apt install btrfs-tools` - Ubuntu 18.04
-`sudo apt install btrfs-progs` - Ubuntu 20.04 + 22.05
-
-Table: Demonstration of Btrfs syntax
+| Operating System | Default Filesystem | Filesystem Support |
+| ---------------- | ------------------ | ------------------ |
+| Ubuntu Desktop   |       ext4         |   zfs and btrfs    |
+| Ubuntu Server    |       ext4         |   zfs and btrfs    |
+| Fedora Workstation |    btrfs         |   xfs    |
+| Alma and Rocky Linux   |       xfs         |   -   |  
+| Debian         | ext4  |  zfs, xfs, btrfs |
 
 ### Btrfs Creation Commands
 
