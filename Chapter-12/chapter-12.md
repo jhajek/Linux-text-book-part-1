@@ -268,7 +268,7 @@ network:
       dhcp4: true
 ```
 
-To instead set a static IP address, use the addresses key, which takes a list of (IPv4 or IPv6), addresses along with the subnet prefix length (e.g. /24). Gateway and DNS information can be provided as well:
+To instead set a static IP address, use the addresses key, which takes a list of (IPv4 or IPv6), addresses along with the subnet prefix length (e.g. /16). Gateway and DNS information can be provided as well:
 
 ```yaml
 network:
