@@ -473,7 +473,7 @@ sudo zpool status
 
 # Create a RAIDZ2 - three disk parity fail-over sooftware base RAID 5
 # https://docs.freebsd.org/en/books/handbook/zfs
-sudo zpool create tank raidz2 /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl
+sudo zpool create users raidz2 /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl
 sudo zpool status
 ```
 
@@ -481,8 +481,8 @@ sudo zpool status
 
 ZFS has a feature called `datasets`. Essentially `datasets` are a like a partition but it is a soft partition. You don't define the total space for the partition but they share the pool size. This can be good for mounting snapshots as filesystems in a pool.
 
-* `sudo zfs create datamirror/jeremy`
-* `sudo zfs create datamirror/jospeh`
+* `sudo zfs create users/jeremy`
+* `sudo zfs create users/jospeh`
 
 ### ZFS Snapshots
 
@@ -499,20 +499,23 @@ sudo chown -R controller:controller /datamirror
 ```
 
 ```bash
-# Create a file of 25 mb size
+# Create a file of 1GB size
 cd /datamirror
-truncate -s 25m accounts.txt
-sudo zfs snapshot datamirror@snap-datamirror1
-sudo zfs list -t datamirror@snap-datamirror1
+# Command to create a text file of 1 GB
+dd if=/dev/zero of=test-file.txt bs=1M count=1000
+# Command to take a snaptshot of the filesystem named todaysnap
+sudo zfs snapshot datamirror@todaysnap
+sudo zfs list -t snapshot
 ```
 
 ```bash
 # Lets modify the contents of datamirror and then rollback the snapshot
-truncate -s 50m new-accounts.txt
+# Command to create a text file of 1 GB
+dd if=/dev/zero of=test-file.txt bs=1M count=1000
 touch newer-accounts.txt
 ls
 # Lets rollback the changes to pre-snapshot
-sudo zfs rollback datamirror@snap-datamirror1
+sudo zfs rollback datamirror@todaysnap
 # Issue the ls command and you will see all the additional files gone
 ls 
 ```
@@ -523,9 +526,11 @@ ZFS also has a mechanism to send and receive snapshots, which done in a small en
 
 * First create a snapshot of a zpool
 * Using the `zfs send` and `zfs receive` commands via a pipe you can send your snapshot to become another partition
-  * `zfs send datapool@today | zfs recv backuppool/backup`  
+  * `sudo zfs send users/jeremy@todaysnap | sudo zfs recv users/lincoln`
+  * This promotes my snapshot to a new `dataset` named `lincoln` in the `users` pool  
 * You can pipe the command over `ssh` to restore to a remote system
-  * `zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup`
+  * `zfs send users/jeremy@todaysnap | ssh user@hostname sudo sudo zfs recv users/lincoln`
+  * You will need to allow zfs command or sudo w/o password in the remote host in the `/etc/sudoers` file
 
 ### Additional ZFS Features
 
@@ -533,7 +538,7 @@ In addition there is an L2ARC cache for caching most recent and most frequently 
 
 #### ZFS ZIL and SLOG
 
-ZFS shines by creating additional read and write caches, called a ZIL and a SLOG. These caches enable the disks to reach and write in consistent batches or blocks of data instead of small random amounts of data.   This way the disk can "report" a successful write, but the data is actually momentarily cached -- then flushed to the disk along with block of writes.
+ZFS shines by creating additional read and write caches, called a ZIL and a SLOG. These caches enable the disks to reach and write in consistent batches or blocks of data instead of small random amounts of data. This way the disk can "report" a successful write, but the data is actually momentarily cached -- then flushed to the disk along with block of writes.
 
 Using an existing zpool, called **datapool**, we can attach two additional disk `/dev/sde` and `/dev/sdf`. You can add the directives for the log and cache after the `zpool create` command:  `zpool add datapool cache /dev/sde2 /dev/sdf2 log mirror /dev/sde1 /dev/sdf1`.  You can use the /dev/ locations of disks or you can see your UUIDs with the `blkid` or `lblkd --fs` command[^141].
 
@@ -543,11 +548,11 @@ Using an existing zpool, called **datapool**, we can attach two additional disk 
 
 #### ZFS Disk Scrubbing
 
-ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up any silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  You can check the status of a disk with the command `zpool status datapool` and execute a scrub command `zpool scrub datapool`.
+ZFS supports disk scrubbing. Which will check every block of data against its own checksum meta-data and clean up any silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically. You can check the status of a disk with the command `zpool status datapool` and execute a scrub command `zpool scrub datapool`.
 
 #### ZFS Transparent Disk Compression
 
-ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: `zfs set compression=lz4 datapool`.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables. You can display the current compression level with the command: `sudo zfs get compression mydatapool`.
+ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: `zfs set compression=lz4 datapool`. This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis. If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file. This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables. You can display the current compression level with the command: `sudo zfs get compression mydatapool`.
 
 #### Finding a physical disk
 
