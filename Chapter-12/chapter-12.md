@@ -91,26 +91,26 @@ One good example on why to use `iproute2` tools is that they have support for IP
 #### Replacement Commands Table
 
          Net-Tools                              iproute2
----------------------------------   -----------------------------------------
-         ```arp```                        ```ip n``` (ip neighbor)
-       ```ifconfig```                     ```ip a``` (ip addr)
-                                          ```ip link```
-        ```iptunnel```                    ```ip tunnel```
-        ```iwconfig```                     ```iw```
-        ```nameif```                       ```ip link``` or ```ifrename```
-        ```netstat```                      ```ss```
-                                           ```ip route``` (for netstat -r)
-                                           ```ip -s link``` (for netstat -i)
-                                           ```ip maddr``` (for netstat -g)
-         ```route```                       ```ip r``` (ip route)
+---------------------------------   ----------------------------------
+         `arp`                            `ip n` (ip neighbor)
+        `ifconfig`                        `ip a` (ip addr)
+                                          `ip link`
+        `iptunnel`                        `ip tunnel`
+        `iwconfig`                        `iw`
+        `nameif`                          `ip link` or `ifrename`
+        `netstat`                         `ss`
+        `netstat -r`                      `ip route`
+        `netstat -i`                      `ip -s link`
+        `netstat -g`                      `ip maddr`
+        `route`                           `ip route` (ip r)
 
 Table:  [Net-Tools Commands and Replacements](https://www.tecmint.com/deprecated-linux-networking-commands-and-their-replacements/ "Networking Commands and their replacements")
 
-### udev and ethernet naming conventions under systemd
+### Udev and Ethernet Naming Conventions in Systemd
 
 With the adoption of systemd, the convention for naming network cards changed from a driver based enumeration to [Predictable Network Interface Names](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "Predicatable Network Interface Names").
 
-"*Basic idea is that unlike previous \*nix naming scheme where probing for hardware occurs in no particular order and may change between reboots, here interface name depends on physical location of hardware and can be predicted/guessed by looking at ```lspci``` or ```lshw``` output[^145].*"
+"*Basic idea is that unlike previous \*nix naming scheme where probing for hardware occurs in no particular order and may change between reboots, here interface name depends on physical location of hardware and can be predicted/guessed by looking at `lspci` or `lshw` output[^145].*"
 
 "*The classic naming scheme for network interfaces applied by the kernel is to simply assign names beginning with "eth" to all interfaces as they are probed by the drivers. As the driver probing is generally not predictable for modern technology this means that as soon as multiple network interfaces are available the assignment of the names is generally not fixed anymore and it might very well happen that "eth0" on one boot ends up being "eth1" on the next. This can have serious security implications...[^146]*"
 
@@ -136,13 +136,17 @@ What you gain by using this standard:
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
-What does this mean?  Well let us take a look at the output of the `ip a sh` command. Lets try it on Ubuntu Desktop, Server, and Fedora Workstation, and using `ifconfig` on FreeBSD what do you see?  On some of these you see eth0 some you see enp0sX. Why? Though all of the these OSes are using `systemd`, not FreeBSD, a few of them might have the value ```biosdevname=0``` set in their ```/etc/default/grub``` file. The way to reset the values is listed below:
+What does this mean?  Well let us take a look at the output of the `ip a sh` command. Lets try it on Ubuntu Desktop, Server, and Fedora Workstation, and using `ifconfig` on FreeBSD what do you see?  On some of these you see eth0 some you see enp0sX. Why? Though all of the these OSes are using `systemd`, not FreeBSD, a few of them might have the value `biosdevname=0` set in their `/etc/default/grub` file. 
 
-* Edit ```/etc/default/grub```
-* At the end of ```GRUB_CMDLINE_LINUX``` line append ```net.ifnames=0 biosdevname=0```
+#### Revert Predictable Network Interface Names
+
+The way to reset the values:
+
+* Edit `/etc/default/grub`
+* At the end of `GRUB_CMDLINE_LINUX` line append `net.ifnames=0 biosdevname=0`
 * Save the file
-* Type ```grub2-mkconfig -o /boot/grub2/grub.cfg```
-* or type ```grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg```
+* Type `grub2-mkconfig -o /boot/grub2/grub.cfg`
+* or type `grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg`
 * reboot
 
 [Source](https://unix.stackexchange.com/questions/81834/how-can-i-change-the-default-ens33-network-device-to-old-eth0-on-fedora-19 "how to reset to old names")
@@ -152,15 +156,15 @@ What does this mean?  Well let us take a look at the output of the `ip a sh` com
 
 Here is where things get tricky. In the future I would like to think this is will all be sorted out, but for now, buckle up. So networking was always controlled by a service under sysVinit, that was usually `sudo service networking restart`. This was common across all Linux.  This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc. That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done. In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations. Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service. Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
 
-The control of the network has been unified once again in all major Linux distros under **systemd-networkd**, which being part of systemd you assume that it controls the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in ```/etc/systemd/network```. Files in that directory need to end in a .network extension. The systemd-networkd .network file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
+The control of the network has been unified once again in all major Linux distros under **systemd-networkd**, which being part of systemd you assume that it controls the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in `/etc/systemd/network`. Files in that directory need to end in a .network extension. The systemd-networkd .network file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
 
 #### Who uses what?
 
 For the desktop Linux, Ubuntu and Fedora/Red Hat based, Network Manger is being used by default as of 2023, but systemd-networkd can be enabled. The server editions of Ubuntu are using `systemd-networkd` by default.
 
-#### Systemd-networkd network config file templates
+#### Systemd-networkd .network templates
 
-```bash
+```yaml
 # Systemd-networkd .network file (not Ubuntu Netplan)
 # Name of the file /etc/systemd/network/20-wired.network
 [Match]
@@ -170,7 +174,7 @@ Name=enp1s0
 DHCP=ipv4
 ```
 
-```bash
+```yaml
 # Wired adapter using a static IP
 # /etc/systemd/network/20-wired.network
 [Match]
@@ -183,7 +187,7 @@ DNS=10.1.10.1
 #DNS=8.8.8.8
 ```
 
-### Ubuntu non-netplan Network Manager Config
+### Debian Non-NetworkManager Non-Networkd
 
 This is the structure of the ```/etc/network/interfaces``` file Network Manager based file for Ubuntu and Debian (deprecated):
 
@@ -198,6 +202,11 @@ iface eth0 inet static
 ```
 
 ```bash
+auto enp0s9
+iface enp0s9 inet dhcp
+```
+
+```bash
 auto enp0s8
 iface enp0s8 inet static
      address 192.168.0.42
@@ -207,43 +216,46 @@ iface enp0s8 inet static
      gateway 192.168.0.1
 ```
 
-Here is the basic structure for the Network Manager based Fedora/CentOS systems located at[^148]: ```/etc/sysconfig/network-scripts/ifcfg-eth0``` or ```/etc/sysconfig/network-scripts/ifcfg-enp5s0```
+### Ubuntu and Fedora Using NetworkManager
 
-```bash
-DEVICE="eth0"
-BOOTPROTO="dhcp"
-ONBOOT="yes"
-TYPE="Ethernet"
-PERSISTENT_DHCLIENT="yes"
-```
+NetworkManager now uses NMconnections for its Networking Syntax, which looks similar to the Networkd style INI based syntax[^148]. The network configurations are no longer located in `/etc/sysconfig/network-scripts/ifcfg-eth0`. You would create a file named `*.nmconnections` located under the `/etc/NetworkManager/system-connections/` directory.
 
-```bash
-# Not all of these options are required
-TYPE=Ethernet
-BOOTPROTO=none
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-NAME=p3p1
-UUID=7622e20e-3f2a-4b5c-83d8-f4f6e22ed7ec
-ONBOOT=yes
-DNS1=10.0.0.1
-IPADDR0=10.0.0.2
-PREFIX0=24
-GATEWAY0=10.0.0.1
-HWADDR=00:14:85:BC:1C:63
-IPV6_PEERDNS=yes
-IPV6_PEERROUTES=yes
+```yaml
+[connection]
+id=Wired connection 2
+uuid=8eef1819-764f-3558-813c-460fb96bb33e
+type=ethernet
+autoconnect-priority=-999
+interface-name=enp0s8
+timestamp=1698375734
+
+[ethernet]
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]
+
+[.nmmeta]
+nm-generated=true
 ```
 
 #### Netplan.io
 
-To further confuse things, Ubuntu decided to write a YAML based file management abstraction layer for networking that can use the same configuration for either Network Manager or Networkd-Systemd. It is called [netplan.io](https://netplan.io "netplan").  Netplan reads YAML style files from a network configuration located in ```/etc/netplan/*.yaml```.
+To further confuse things, Ubuntu decided to write a YAML based file management abstraction layer for networking that can use the same configuration for either Network Manager or Networkd-Systemd. It is called [netplan.io](https://netplan.io "netplan").  Netplan reads YAML style files from a network configuration located in `/etc/netplan/*.yaml`.
 
-Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure ```netplan```, save configuration files under ```/etc/netplan/``` with a .yaml extension (e.g. ```/etc/netplan/config.yaml```), then run ```sudo netplan apply```. This command parses and applies the configuration to the system. Configuration written to disk under ```/etc/netplan/``` will persist between reboots.  By default in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allows Network Manager to manage by default unless specifically altered below.
+Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure `netplan`, save configuration files under `/etc/netplan/` with a .yaml extension (e.g. `/etc/netplan/config.yaml`), then run `sudo netplan apply`. This command parses and applies the configuration to the system. Configuration written to disk under `/etc/netplan/` will persist between reboots.  By default in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allows Network Manager to manage by default unless specifically altered below.
+
+```yaml
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+```
 
 ```yaml
 # To let the interface named ‘enp3s0’ get an address
@@ -265,7 +277,7 @@ network:
   ethernets:
     enp3s0:
       addresses:
-        - 10.10.10.2/24
+        - 10.10.10.2/16
       gateway4: 10.10.10.1
       nameservers:
           search: [mydomain, otherdomain]
@@ -278,23 +290,23 @@ Linux, inheriting from UNIX from a time before DNS existed, has a file for local
 
 ```bash
 
-# sample /etc/hosts file from a system setting up a sample network
+# Sample /etc/hosts file from a system setting up a sample network
 
-192.168.33.110 webserver1.example.com webserver1
-192.168.33.120 webserver2.example.com webserver2
-192.168.33.100 database1.example.com database1
+192.168.33.110 webserver1.iltech.edu webserver1
+192.168.33.120 webserver2.iltech.edu webserver2
+192.168.33.100 database1.iltech.edu database1
 
-192.168.33.210 graphitea.example.com graphitea
-192.168.33.220 graphiteb.example.com graphiteb
-192.168.33.200 graphitemc.example.com graphitemc
+192.168.33.210 graphitea.iltech.edu graphitea
+192.168.33.220 graphiteb.iltech.edu graphiteb
+192.168.33.200 graphitemc.iltech.edu graphitemc
 
-192.168.33.10  hosta.example.com hosta
-192.168.33.20  hostb.exampe.com hostb
+192.168.33.10  hosta.iltech.edu hosta
+192.168.33.20  hostb.iltech.edu hostb
 
-192.168.33.50 logstash.example.com logstash
-192.168.33.51 ela1.example.com ela1
-192.168.33.52 ela2.example.com ela2
-192.168.33.53 ela3.example.com ela3
+192.168.33.50 logstash.iltech.edu logstash
+192.168.33.51 ela1.iltech.edu ela1
+192.168.33.52 ela2.iltech.edu ela2
+192.168.33.53 ela3.iltech.edu ela3
 
 ```
 
@@ -305,13 +317,13 @@ Most of the time the network works fine, but when it doesn't you need to be able
 * arping
 * clockdiff
 * ping
-* tracepath
+* tracepath / traceroute
 
 The first tool that should be in your tool box is *ping*.
 
-> ```ping``` example
-```ping www.google.com```  
-```ping 192.168.0.1```
+* `ping` example
+  * `ping www.google.com`  
+  * `ping 192.168.0.1`
 
 Ping, just like the concept of a submarine using sonar to find objects, communicates with another IP address to see if the other system is "alive" and that your system and network are working properly to get the packet from your network to a different network.  There are many tools to enhance the output of ping as well such as [gping](https://github.com/orf/gping "Ping with graph").
 
@@ -671,7 +683,7 @@ sudo firewall-cmd --get-active-zones
 ```bash
 # Firewalld any OS, how to add exceptions for services or ports
 sudo firewall-cmd --zone=public --add-service=http --permanent
-sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=3000/tcp --permanent
 sudo firewall-cmd --zone=public --list-ports
 # Needed to reload the process changes to the firewall
 sudo firewall-cmd --reload
@@ -681,26 +693,23 @@ sudo firewall-cmd --reload
 # specific IPs -- changes the semantics
 # https://serverfault.com/questions/680780/block-all-but-a-few-ips-with-firewalld
 
-firewall-cmd --zone=public --add-service=ssh
-firewall-cmd --zone=public --add-source=192.168.56.105/32
-firewall-cmd --zone=public --add-source=192.168.56.120/32
-firewall-cmd --zone=public --remove-service=ssh
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-source=192.168.56.105/32 --permanent
+firewall-cmd --zone=public --add-source=192.168.56.120/32 --permanent
+firewall-cmd --zone=public --remove-service=ssh --permanent
 # Needed to reload the changed to the firewall
 sudo firewall-cmd --reload
 ```
 
 #### fail2ban
 
-The main reason to have a firewall is to restrict traffic to your system or server. Firewalld includes a standard interface so third party tools can build integration into your firewall. [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is a anti-bruteforce tool for systems that have their connections exposed to the public network, such as MySQL and openssh-server.  It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning. `Fail2ban` has a firewalld integration where you can add firewall rules to block bad IPs automatically.
+The main reason to have a firewall is to restrict traffic to your system or server. Firewalld includes a standard interface so third party tools can build integrations into your firewall. [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page "Fail2ban main documentation") is an anti-bruteforce tool for systems that have their connections exposed to the public network, such as MySQL and openssh-server. It allows you do ban IP addresses that are trying to brute force hack your system. You can do permanent banning or a timeout based banning.
 
 ```bash
 # you may need the epel-release package on Fedora/CentOS
-# https://fedoraproject.org/wiki/Fail2ban_with_FirewallD
-# https://unix.stackexchange.com/questions/268357/
 
-sudo dnf install fail2ban fail2ban-firewalld
-sudo apt install fail2ban fail2ban-firewalld
-sudo yum install fail2ban fail2ban-firewalld
+sudo dnf install fail2ban
+sudo apt install fail2ban
 
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
@@ -708,25 +717,23 @@ sudo systemctl start fail2ban
 
 ### Ubuntu UFW
 
-Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW "Ubuntu UFW"). It is installed but not enabled by default.  You can enable it:  ```sudo ufw enable``` and print out the status via ```sudo ufw status```.  Syntax examples include:
+Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW "Ubuntu UFW"). It is installed but not enabled by default.  You can enable it:  `sudo ufw enable` and print out the status via `sudo ufw status`.  Syntax examples include:
 
 * Allow or deny by port number
-  * ```sudo ufw allow 53```
-  * ```sudo ufw deny 53```
+  * `sudo ufw allow 53`
+  * `sudo ufw deny 53`
 * Allow or deny by service
   * sudo ufw allow ssh
   * sudo ufw deny ssh
 * Allow from IP
-  * ```sudo ufw allow from 207.46.232.182```
+  * `sudo ufw allow from 207.46.232.182`
 * Allow from subnet/CIDR block
-  * ```sudo ufw allow from 192.168.1.0/24```
-  * ```sudo ufw allow from 192.168.0.4 to any port 22```
-  * ```sudo ufw allow from 192.168.0.4 to any port 22 proto tcp```
+  * `sudo ufw allow from 192.168.1.0/24`
+  * `sudo ufw allow from 192.168.0.4 to any port 22`
+  * `sudo ufw allow from 192.168.0.4 to any port 22 proto tcp`
 * Enable/Disable ufw logging
-  * ```sudo ufw logging on```
-  * ```sudo ufw logging off```
-
-```Firewalld``` can be installed on Ubuntu via apt-get and then enabled and started as a service in place of UFW if you want to maintain that service and not use UFW.
+  * `sudo ufw logging on`
+  * `sudo ufw logging off`
 
 ## Chapter Conclusions and Review
 
@@ -904,7 +911,7 @@ Using two virtual machines, while powered off, in the VirtualBox settings, enabl
 
 [^147]: [https://wiki)archlinux.org/index.php/Systemd-networkd](https://wiki)archlinux.org/index.php/Systemd-networkd "systesmd-networkd")
 
-[^148]: [https://superuser.com/questions/645487/static-ip-address-with-networkmanager](https://superuser.com/questions/645487/static-ip-address-with-networkmanager "Static NetMan IP")
+[^148]: [https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/assembly_networkmanager-connection-profiles-in-keyfile-format_configuring-and-managing-networking](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/assembly_networkmanager-connection-profiles-in-keyfile-format_configuring-and-managing-networking "Static NetMan IP")
 
 [^149]: [https://netplan.io/examples](https://netplan.io/examples "netplan examples")
 
