@@ -143,24 +143,24 @@ Adding a virtual disk is only the first step, there are three more steps before 
 1) Partition the disk / create a filesystem
 1) Mount the disk so that it can be used by your operating system.
 
-According to the ```fdisk``` man page, ```fdisk``` is a dialog-driven program for the creation and manipulation of partition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where its partitions are. Each disk can have multiple partitions.  The `fdisk` method here is mentioned for historic reasons but is not used the installation of modern operating systems, but it is good to know where we came from.
+According to the `fdisk` man page, `fdisk` is a dialog-driven program for the creation and manipulation of partition tables.  The term __partition__ in relation to a hard drive is an important concept.   You can think of a brand new hard drive as a large plot of land, multiple acres of land.  The land itself in that form is not very useful, just as a new hard drive added into your system is not very useful.  Just as that land needs to be partitioned up into different uses and functions, a hard drive needs to know where its partitions are. Each disk can have multiple partitions.  The `fdisk` method here is mentioned for historic reasons but is not used the installation of modern operating systems, but it is good to know where we came from.
 
-Linux inherited a way to name each device and reference certain partitions attached to a system.  Windows simply uses the letter C, D, E, and so forth.  Linux and Unix use a device/partition nomenclature.  You can see this currently by typing the ```lsblk``` command, which will print out currently all the block devices, their device name and their partitions in a nice tree based format.
+Linux inherited a way to name each device and reference certain partitions attached to a system.  Windows simply uses the letter C, D, E, and so forth.  Linux and Unix use a device/partition nomenclature.  You can see this currently by typing the `lsblk` command, which will print out currently all the block devices, their device name and their partitions in a nice tree based format.
 
 ![*lsblk output from a virtual machine with 2 additional drives attached*](images/Chapter-11/fdisk/lsblk.png "lsblk")
 
-Here you will note that the drives are references by the prefix __sdx__ with the __x__ being the alphabet letter in incremental order.  Meaning that the first disk drive that your system detects in labeled __sda__, the next one would be __sdb__, and can you guess what the third and fourth system would be?  In the image above you notice that __sda__ has 3 partitions, sda1, sda2, and sda5.  These three partitions were created at installation time by the default Linux installer.  The first partition you can see has the character ```/``` in the far right column.  That is where the __root__ partition is mounted (meaning your entire filesystem). The second partition is where the ```/boot``` partition is mounted, and the final partition says __SWAP__ in the far right meaning this is a Linux SWAP partition--used by the operating system for moving data in and out of RAM in chunks at a time or called *pages*.
+Here you will note that the drives are references by the prefix __sdx__ with the __x__ being the alphabet letter in incremental order.  Meaning that the first disk drive that your system detects in labeled __sda__, the next one would be __sdb__, and can you guess what the third and fourth system would be?  In the image above you notice that __sda__ has 3 partitions, sda1, sda2, and sda5.  These three partitions were created at installation time by the default Linux installer.  The first partition you can see has the character `/` in the far right column.  That is where the __root__ partition is mounted (meaning your entire filesystem). The second partition is where the `/boot` partition is mounted, and the final partition says __SWAP__ in the far right meaning this is a Linux SWAP partition--used by the operating system for moving data in and out of RAM in chunks at a time or called *pages*.
 
-You can create partitions on a new disk for a fresh OS installation or just create a single partition to contain data.  The program mentioned above to create partitions is a program called ```fdisk```.  The ```fdisk``` command is considered an essential and standard Linux tool and is part of the [util-linux](https://en.wikipedia.org/wiki/Util-linux "Util Linux") package.  The best command to get started with when dealing with new disks and creating partitions is ```sudo fdisk -l```.  This command will list the current existing disks and any partitions they may have.  It will also report the undetermined state of any newly attached disks.  See the image below for a sample output.  If you are using Fedora 22/23 you will see a bit of a different output, you will see partitions labeled __LVM__ which will be explained at the end of the chapter.  
+You can create partitions on a new disk for a fresh OS installation or just create a single partition to contain data.  The program mentioned above to create partitions is a program called `fdisk`.  The `fdisk` command is considered an essential and standard Linux tool and is part of the [util-linux](https://en.wikipedia.org/wiki/Util-linux "Util Linux") package.  The best command to get started with when dealing with new disks and creating partitions is `sudo fdisk -l`.  This command will list the current existing disks and any partitions they may have.  It will also report the undetermined state of any newly attached disks.  See the image below for a sample output.  If you are using Fedora 22/23 you will see a bit of a different output, you will see partitions labeled __LVM__ which will be explained at the end of the chapter.  
 \newpage
 
 ![*sudo fdisk -l*](images/Chapter-11/fdisk/valid-partition.png "fdisk")
 
 ![*sudo fdisk -l*](images/Chapter-11/fdisk/not-valid-partition.png "fdisk")
 
-The history of the Linux ```fdisk``` command goes way back.  Stemming from the early 1990's hard drives at that time using the standard BIOS of the day were only allowed 4 __primary partitions__ on the operating system.  At those times, hard drives were small, and devices were expensive, and things we take for granted now, like optical drives, didn't really exist, so 4 primary partitions was thought to be more than anyone would ever need.  A primary partition could be broken up into an __extended partition__. Then each __extended partition__ could be further sub-divided into as many __logical partitions__ that fit on the drive.  At that time only one __primary partition__ could be active (or bootable and seeable) at a time, all other primary partitions would be hidden from the currently active operating system.  In this world ```fdisk``` was built, hence its concern with partitioning.  There has been an improvement since 2000 called LVM, which is covered and thankfully used exclusively now by default.
+The history of the Linux `fdisk` command goes way back.  Stemming from the early 1990's hard drives at that time using the standard BIOS of the day were only allowed 4 __primary partitions__ on the operating system.  At those times, hard drives were small, and devices were expensive, and things we take for granted now, like optical drives, didn't really exist, so 4 primary partitions was thought to be more than anyone would ever need.  A primary partition could be broken up into an __extended partition__. Then each __extended partition__ could be further sub-divided into as many __logical partitions__ that fit on the drive.  At that time only one __primary partition__ could be active (or bootable and seeable) at a time, all other primary partitions would be hidden from the currently active operating system.  In this world `fdisk` was built, hence its concern with partitioning.  There has been an improvement since 2000 called LVM, which is covered and thankfully used exclusively now by default.
 
-To work/modify a device that has no existing partitions (`sdb` in the image above). From the TLDP documentation regarding how to use ```fdisk```: [^ch11f122].  `fdisk` is started by typing (as root) fdisk device at the command prompt. Device might be something like /dev/hda or /dev/sda (see Section 2.1.1). The basic fdisk commands you need are:
+To work/modify a device that has no existing partitions (`sdb` in the image above). From the TLDP documentation regarding how to use `fdisk`[^ch11f122]. `fdisk` is started by typing (as root) fdisk device at the command prompt. Device might be something like /dev/hda or /dev/sda (see Section 2.1.1). The basic fdisk commands you need are:
 
 * p print the partition table
 * n create a new partition
@@ -168,7 +168,7 @@ To work/modify a device that has no existing partitions (`sdb` in the image abov
 * q quit without saving changes
 * w write the new partition table and exit
 
-To successfully create a partition on a new drive, let's select ```sdb``` in the example above.  The command ```sudo fdisk /dev/sdb``` will enter into ```fdisk``` and operate on this device.  Remember all *devices* are accessed through file handles in the ```/dev``` directory. Upon executing this command you are greeted with a status message reporting that the partition type cannot be detected or is not valid.  The error message seems a bit dated because you notice that it mentions DOS, SUN, SGI, and OSF--all outdated or unused partition types.  Similar to different languages or dialects, a partition also has to speak to an Operating system, and each operating system does it a bit different because of how particular filesystems are architected.  Fortunately this is a simple choice for us as we only need a Linux and a Linux SWAP partition for our uses--the rest are just artifacts of the past.
+To successfully create a partition on a new drive, let's select `sdb` in the example above.  The command `sudo fdisk /dev/sdb` will enter into `fdisk` and operate on this device.  Remember all *devices* are accessed through file handles in the `/dev` directory. Upon executing this command you are greeted with a status message reporting that the partition type cannot be detected or is not valid.  The error message seems a bit dated because you notice that it mentions DOS, SUN, SGI, and OSF--all outdated or unused partition types.  Similar to different languages or dialects, a partition also has to speak to an Operating system, and each operating system does it a bit different because of how particular filesystems are architected.  Fortunately this is a simple choice for us as we only need a Linux and a Linux SWAP partition for our uses--the rest are just artifacts of the past.
 
 ![*sudo fdisk /dev/sdb*](images/Chapter-11/fdisk/fdisk.png "fdisk")
 
@@ -196,15 +196,15 @@ Let's see if our partition was created successfully.  You can type __m__ to disp
 
 \newpage
 
-Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes will not be saved, and no partition information will be written.   Now you need to type __w__ to write the new partition data to the disk you are working on. The __w__ command will write and quit out automatically for you. After writing this partition data, you will see if show up in the ```sudo fdisk -l``` command.  After you see your new partition in ```fdisk``` of ```lsblk``` you are ready to move on to the next step of formatting a partition with a filesystem.
+Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes will not be saved, and no partition information will be written.   Now you need to type __w__ to write the new partition data to the disk you are working on. The __w__ command will write and quit out automatically for you. After writing this partition data, you will see if show up in the `sudo fdisk -l` command.  After you see your new partition in `fdisk` of `lsblk` you are ready to move on to the next step of formatting a partition with a filesystem.
 
 ![*Write the Partition table data to disk*](images/Chapter-11/fdisk/w-for-write.png "Write")
 
 ### Drawbacks of disk partitions
 
-Using the ```fdisk``` command does have its drawbacks.  The tool was designed in the day when systems had 1 or 2 hard drives.  Filesystems handled small files and the idea of large files partitions that spanned multiple disks was not possible due to software and processor limitations.  But we see with the cost of disk alone, systems having 24 or more hard drives is not unheard of.  Most filesystems were designed around the limitations of ```fdisk``` and since then new solutions have been designed to overcome the limitations of partitions such as LVM and filesystem extents, which we will cover at the end of this chapter.
+Using the `fdisk` command does have its drawbacks.  The tool was designed in the day when systems had 1 or 2 hard drives.  Filesystems handled small files and the idea of large files partitions that spanned multiple disks was not possible due to software and processor limitations.  But we see with the cost of disk alone, systems having 24 or more hard drives is not unheard of.  Most filesystems were designed around the limitations of `fdisk` and since then new solutions have been designed to overcome the limitations of partitions such as LVM and filesystem extents, which we will cover at the end of this chapter.
 
-## Logical Volume Manager
+## Logical Volume Manager -LVM
 
 Partitioning of disks worked well when you had one disk and needed to create *logical* disks or partitions. But what happens when you have multiple disks or want to create a *logical* disk that spans many *physical* disks. Once a partition has been created it is not easily resized or expanded. Similarly partitions do not have a capacity for taking `filesystem level snaphosts`. Early Linux filesystems, such as ext4 did not handle volume management and left that to the Operating System.
 
@@ -216,12 +216,12 @@ Instead of the standard way of partitioning up disks, we have logical groupings 
 
 This diagram creates three concepts to know when dealing with LVM:
 
-* Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device)[^132].
-* Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit[^131].
-* Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home)[^133].
+* Physical Volume (PV) - A physical volume is typically a hard disk, though it may well just be a device that 'looks' like a hard disk (eg. a software raid device)[^132]
+* Volume Group (VG) - The Volume Group is the highest level abstraction used within the LVM. It gathers together a collection of Logical Volumes and Physical Volumes into one administrative unit[^131]
+* Logical Volume (LV) -  The equivalent of a disk partition in a non-LVM system. The LV is visible as a standard block device; as such the LV can contain a file system (eg. /home)[^133]
   * Physical Extent (PE) - This is the unit of storage (blocks) that a PV is split into
-  * Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*. 
-    * The LVM counts how many extents are possible and makes this its *disk* so to speak.
+  * Logical Extent (LE) - This matches the PE and is used when multiple PVs are added to an LG, to make the *logical disk*
+    * The LVM counts how many extents are possible and makes this its *disk* so to speak
 
 ### Physical Volumes
 
@@ -261,7 +261,7 @@ When dealing with LVM there is an ability to provide a snapshot, that is a point
 sudo lvconvert --merge /dev/vg-group/lv-group-snapshot
 ```
 
-Assuming your have your physical volumes, your volume groups, and logical volumes created, lets now create a snapshot of a logical volume (assume that we formatted the logical volume with ext4 and mounted it to ```/mnt/disk1```).
+Assuming your have your physical volumes, your volume groups, and logical volumes created, lets now create a snapshot of a logical volume (assume that we formatted the logical volume with ext4 and mounted it to `/mnt/disk1`).
 
 ```bash
 # This works with ext4, but XFS requires two additional commands
@@ -417,6 +417,12 @@ FreeBSD didn't have this restriction under the BSD license and they have had nat
 
 Development of all ZFS code now lives in the upstream [OpenZFS project](https://openzfs.org/wiki/Main_Page "OpenZFS wikipage"). Since the ZFS code was opensourced, when Oracle tried to "closesource" the code base in 2010, essentially what Oracle did was make a fork of the project and keep their changes proprietary. The rest of the community took ZFS and made the OpenZFS community, which now consolidates various ZFS code bases into a single repo for MacOS, FreeBSD, and Linux as a loadable kernel module. Red Hat has not participated in the Linux development of OpenZFS as most companies are afraid of potential litigation and lawsuits from Oracle (real or perceived). There is even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), using the latest Windows OS.
 
+#### ZFS Design Philosophy
+
+> "*More than a file system, ZFS is fundamentally different from traditional file systems. Combining the traditionally separate roles of volume manager and file system provides ZFS with unique advantages. The file system is now aware of the underlying structure of the disks. Traditional file systems could exist on a single disk alone at a time. If there were two disks then creating two separate file systems was necessary. A traditional hardware RAID configuration avoided this problem by presenting the operating system with a single logical disk made up of the space provided by physical disks on top of which the operating system placed a file system."*
+
+> *"Even with software RAID solutions like those provided by GEOM, the UFS file system living on top of the RAID believes it’s dealing with a single device. ZFS' combination of the volume manager and the file system solves this and allows the creation of file systems that all share a pool of available storage. One big advantage of ZFS' awareness of the physical disk layout is that existing file systems grow automatically when adding extra disks to the pool. This new space then becomes available to the file systems. ZFS can also apply different properties to each file system. This makes it useful to create separate file systems and datasets instead of a single monolithic file system."*
+
 ZFS is an elegantly designed filesystem: *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
 
 #### ZFS Installation
@@ -464,6 +470,11 @@ sudo zpool status
 # with failover protection
 sudo zpool create sm mirror /dev/sdg /dev/sdh /dev/sdi /dev/sdj
 sudo zpool status
+
+# Create a RAIDZ3 - three disk parity fail-over sooftware base RAID 5
+# https://docs.freebsd.org/en/books/handbook/zfs
+sudo zpool create tank raidz3 /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm /dev/sdn
+sudo zpool status
 ```
 
 ### ZFS Snapshots
@@ -504,10 +515,10 @@ ls
 ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments which effectively creates a serialized synchronization feature. This can be done on the same system as well as over a network connection to a remote computer. To synchronize a ZFS filesystem:
 
 * First create a snapshot of a zpool
-* Using the ```zfs send``` and ```zfs receive``` commands via a pipe you can send your snapshot to become another partition
-  * ```zfs send datapool@today | zfs recv backuppool/backup```  
-* You can pipe the command over ```ssh``` to restore to a remote system
-  * ```zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup```
+* Using the `zfs send` and `zfs receive` commands via a pipe you can send your snapshot to become another partition
+  * `zfs send datapool@today | zfs recv backuppool/backup`  
+* You can pipe the command over `ssh` to restore to a remote system
+  * `zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup`
 
 #### Additional ZFS Features
 
@@ -517,7 +528,7 @@ In addition there is an L2ARC cache for caching most recent and most frequently 
 
 ZFS shines by creating additional read and write caches, called a ZIL and a SLOG. These caches enable the disks to reach and write in consistent batches or blocks of data instead of small random amounts of data.   This way the disk can "report" a successful write, but the data is actually momentarily cached -- then flushed to the disk along with block of writes.
 
-Using an existing zpool, called **datapool**, we can attach two additional disk `/dev/sde` and `/dev/sdf`. You can add the directives for the log and cache after the `zpool create` command:  ```zpool add datapool cache /dev/sde2 /dev/sdf2 log mirror /dev/sde1 /dev/sdf1```.  You can use the /dev/ locations of disks or you can see your UUIDs with the ```blkid``` or `lblkd --fs` command[^141].
+Using an existing zpool, called **datapool**, we can attach two additional disk `/dev/sde` and `/dev/sdf`. You can add the directives for the log and cache after the `zpool create` command:  `zpool add datapool cache /dev/sde2 /dev/sdf2 log mirror /dev/sde1 /dev/sdf1`.  You can use the /dev/ locations of disks or you can see your UUIDs with the `blkid` or `lblkd --fs` command[^141].
 
 "*ZFS Intent Log, or ZIL- A logging mechanism where all of the data to be the written is stored, then later flushed as a transactional write. Similar in function to a journal for journaled filesystems, like ext3 or ext4. Typically stored on platter disk. Consists of a ZIL header, which points to a list of records, ZIL blocks and a ZIL trailer. The ZIL behaves differently for different writes. For writes smaller than 64KB (by default), the ZIL stores the write data. For writes larger, the write is not stored in the ZIL, and the ZIL maintains pointers to the synched data that is stored in the log record[^140]*".
 
@@ -525,17 +536,17 @@ Using an existing zpool, called **datapool**, we can attach two additional disk 
 
 #### ZFS Disk Scrubbing
 
-ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up any silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  You can check the status of a disk with the command ```zpool status datapool``` and execute a scrub command ```zpool scrub datapool```.
+ZFS supports disk scrubbing.  Which will check every block of data against its own checksum meta-data and clean up any silent corruption. ZFS has a known good list of checksums of all blocks of data, and is constantly watching for corruption of data. Scrubs do not happen automatically but can be scheduled to run periodically.  You can check the status of a disk with the command `zpool status datapool` and execute a scrub command `zpool scrub datapool`.
 
 #### ZFS Transparent Disk Compression
 
-ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: ```zfs set compression=lz4 datapool```.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables. You can display the current compression level with the command: `sudo zfs get compression mydatapool`.
+ZFS can enable transparent compression using GZIP or LZ4 with a simple set command: `zfs set compression=lz4 datapool`.  This can help and there is little overhead.  Finally ZFS supports data-deduplication on a file basis.  If enabled each file is hashed with sha-256 and any files that match, only 1 of the files is kept, the others have markers pointing back to this original file.  This saves the overall amount of data you are storing and can reduce costs but the cost is high in amount of ram needed to store the de-dupe tables. You can display the current compression level with the command: `sudo zfs get compression mydatapool`.
 
 #### Finding a physical disk
 
 ![*HP HP EVA4400 storage array*](images/Chapter-11/disk/278px-HP_EVA4400-1.jpg "HP storage array")[^144]
 
-ZFS, Btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but how do you identify which physical disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial number of the disk via the ```hdparm``` tool.  This script would enumerate through all of the disks you have on a system and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive ```/dev/sda``` through ```/dev/sdg```[^143] run the command on your system and see what comes out.
+ZFS, Btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but how do you identify which physical disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial number of the disk via the `hdparm` tool.  This script would enumerate through all of the disks you have on a system and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive `/dev/sda` through `/dev/sdg`[^143] run the command on your system and see what comes out.
 
 ```bash
   for i in a b c d e f g;
@@ -578,19 +589,19 @@ DragonFly BSD developer Matthew Dillion has been spearheading the development of
 
 ## Mounting and Unmounting of disks
 
-Once a disk is partitioned, and formatted with a filesystem, it now needs to be mounted. The concept of mounting came from the UNIX days of carrying a large reel of magnetic tape, and physically mounting it on a tape reader.  You can see all the mount points currently attached to your system by typing ```/etc/mtab```.  A filesystem needs to be mounted to a directory location. Technically your root filesystem is mounted to the ```/``` partition.
+Once a disk is partitioned, and formatted with a filesystem, it now needs to be mounted. The concept of mounting came from the UNIX days of carrying a large reel of magnetic tape, and physically mounting it on a tape reader.  You can see all the mount points currently attached to your system by typing `/etc/mtab`.  A filesystem needs to be mounted to a directory location. Technically your root filesystem is mounted to the `/` partition.
 
-In the previous examples we we have created partitions and filesystem, now let us mount them.  The first step we need to do is provide a mount point.  Traditionally that is done in the ```/mnt``` directory.  You should create your __mountpoints__ here. Let's type ```sudo mkdir -p /mnt/data-drive```. The name *data-drive* is an arbitrary name I have given my newly created __mountpoint__.  The ```-p``` flag will auto-create any subdirectory under ```/mnt``` that doesn't already exist.  Why did I type ```sudo```?  Who owns the ```/mnt``` directory?
+In the previous examples we we have created partitions and filesystem, now let us mount them.  The first step we need to do is provide a mount point.  Traditionally that is done in the `/mnt` directory.  You should create your __mountpoints__ here. Let's type `sudo mkdir -p /mnt/data-drive`. The name *data-drive* is an arbitrary name I have given my newly created __mountpoint__.  The `-p` flag will auto-create any subdirectory under `/mnt` that doesn't already exist.  Why did I type `sudo`?  Who owns the `/mnt` directory?
 
-Once this directory is created, you can use the ```mount``` command like this: ```sudo mount -t ext4 /dev/sdb /mnt/data-drive```.  The ```-t``` flag tells this mount that the filesystem is of type __ext4__ and the operating system needs to know so that it can interface correctly with the filesystem.  Once this is done, the directory will still be owned by root, you probably need to change the ownership of the directory so that you own and can write to it. How would you do that based on last chapter?  You could type ```sudo chown controller:controller /mnt/data-drive```, assuming your username is *controller*.
+Once this directory is created, you can use the `mount` command like this: `sudo mount -t ext4 /dev/sdb /mnt/data-drive`.  The `-t` flag tells this mount that the filesystem is of type __ext4__ and the operating system needs to know so that it can interface correctly with the filesystem.  Once this is done, the directory will still be owned by root, you probably need to change the ownership of the directory so that you own and can write to it. How would you do that based on last chapter?  You could type `sudo chown controller:controller /mnt/data-drive`, assuming your username is *controller*.
 
-The partition can be unmounted by typing the ```umount``` command--yes it is missing the __n__.  Be careful you don't try to unmount the device while your pwd is in a directory on that mount--otherwise you will get a *device is busy error.*
+The partition can be unmounted by typing the `umount` command--yes it is missing the __n__.  Be careful you don't try to unmount the device while your pwd is in a directory on that mount--otherwise you will get a *device is busy error.*
 
 ### /etc/fstab
 
-The ```/etc/fstab``` file controls the automatic mounting of your filesystems at boot.  Every time your system boots, technically each partition is remounted every time too.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The ```/etc/fstab``` file has 6 columns containing values listed here: ```<device> <mount point> <fs type> <options> <dump> <pass>```.
+The `/etc/fstab` file controls the automatic mounting of your filesystems at boot.  Every time your system boots, technically each partition is remounted every time too.  If you create your own filesystem and want it mounted automatically on boot, then you would need to add an entry here. The `/etc/fstab` file has 6 columns containing values listed here: `<device> <mount point> <fs type> <options> <dump> <pass>`.
 
-An example entry could contain these values: ```/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0```.  Devices now are typically listed by their UUID, which can be found by typing ```ls -l /dev/disk/by-uuid``` or `lsblk --fs /dev/sda`.  That is the actual command not a place holder. This is where the long strings you see in the ```/etc/fstab``` file in place of the device name.  
+An example entry could contain these values: `/dev/sdb1 /mnt/data-drive  ext4  defaults  0   0`.  Devices now are typically listed by their UUID, which can be found by typing `ls -l /dev/disk/by-uuid` or `lsblk --fs /dev/sda`.  That is the actual command not a place holder. This is where the long strings you see in the `/etc/fstab` file in place of the device name.  
 
 The use of UUIDs is a better idea as once a UUID is given, even if the device name changes the UUID will not.  Here is a sample `/etc/fstab` file showing UUID based fstab with an additional disk being mounted.
 
@@ -602,7 +613,7 @@ UUID=e720a798-b02c-4e3f-8132-8f67f2be0c2c /           ext4    errors=remount-ro 
 UUID=003e6f67-9d31-4198-b3dd-4447f2337445 /mnt/disk2  btrfs   defaults          0 0
 ```
 
-There are many options that can be set in the place of ```defaults``` or appended via a "," such as:
+There are many options that can be set in the place of `defaults` or appended via a "," such as:
 
 1. sync/async - All I/O to the file system should be done (a)synchronously.
 2. auto - The filesystem can be mounted automatically (at bootup, or when mount is passed the -a option). This is really unnecessary as this is the default action of mount -a anyway.
@@ -619,7 +630,7 @@ There are many options that can be set in the place of ```defaults``` or appende
 
 ### systemd Mounting Units
 
-Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*"   ZFS will take care of automounting its own partitions.  Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the ```blkid``` command.
+Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*"   ZFS will take care of automounting its own partitions.  Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the `blkid` command.
 
 Systemd has absorbed the purpose of the `/etc/fstab` file by creating **.mount** files.  Systemd processes `.mount` files first then processes the `/etc/fstab` file.  Let's look at an example where we have already created a Btrfs filesystem on a new virtual disk.  By using the `lsblk --fs` command we can retrieve the UUID of the disk.  The reason we would want look at using the UUID instead of the `/dev/sdx` is that once assigned the UUID won't change.  The device designation can change.  Say for instance that a hard drive fails, on reboot your system will re-enumerate the devices and now hard drive names will be changed.
 
@@ -655,11 +666,11 @@ WantedBy=multi-user.target
 
 ### Disk related tools
 
-There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The ```df``` command will list the disk usage.   There is an optional ```-H``` and ```-h``` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use ```df``` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: ```/home/controller``` for example.
+There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The `df` command will list the disk usage.   There is an optional `-H` and `-h` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use `df` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: `/home/controller` for example.
 
 ![*df -H /home/controller*](images/Chapter-11/du/df-h.png "df")
 
-The ```du``` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using `ls -l` Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The ```du``` command will do that for you.
+The `du` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using `ls -l` Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The `du` command will do that for you.
 
 These commands might not report completely accurate information when dealing with next generation filesystems like ZFS and Btrfs. use the commands: `sudo btrfs filesystem usage [mountpoint]` or `sudo zfs list [poolname]`
 
@@ -707,13 +718,13 @@ If you remember the history of Unix and history of technology you remember that 
 
 ### tar
 
-By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The ```tar``` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a hierarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
+By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The `tar` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a hierarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
 
 The tar command only does archiving and does not do any compression--only preserving of file structure in the same way that an ISO file preserves structure.  The tar archive by convention is assigned a file extension of __.tar__ but this is not added automatically.
 
-> __Example Usage:__ ```tar -cvf code.tar ./code-directory``` This command will create a ```tar``` archive of the directory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
+> __Example Usage:__ `tar -cvf code.tar ./code-directory` This command will create a `tar` archive of the directory called code-directory. tar \[options\] \[archive name and location\] \[what to archive\]
 
-> __Example Usage:__ ```tar -xvf code.tar``` This command will unpack or extract a ```tar``` archive of the directory called code-directory and place it in the ```pwd```.
+> __Example Usage:__ `tar -xvf code.tar` This command will unpack or extract a `tar` archive of the directory called code-directory and place it in the `pwd`.
 
 ### compress
 
@@ -737,19 +748,19 @@ The [xz](http://tukaani.org/xz/format.html "xz") compression tool is using the [
 
 ### zstd
 
-[Zstandard](https://facebook.github.io/zstd/ "Zstandard compression website") is a real-time compression algorithm, providing high compression ratios created at Facebook in 2015. It offers a very wide range of compression / speed trade-off, while being backed by a very fast decoder (see benchmarks below). It also offers a special mode for small data, called dictionary compression, and can create dictionaries from any sample set. Zstandard library is provided as open source software using a BSD license. It can be installed via the command: ```sudo apt-get install zstd```.
+[Zstandard](https://facebook.github.io/zstd/ "Zstandard compression website") is a real-time compression algorithm, providing high compression ratios created at Facebook in 2015. It offers a very wide range of compression / speed trade-off, while being backed by a very fast decoder (see benchmarks below). It also offers a special mode for small data, called dictionary compression, and can create dictionaries from any sample set. Zstandard library is provided as open source software using a BSD license. It can be installed via the command: `sudo apt-get install zstd`.
 
 ### tarballs
 
 A tape archive that is additionally compressed by another tool is called a __tar ball__ and the compression method is usually appended to the end of the filename.  
 
->  __Example Usage:__ ```tar -cvzf code.tar.gz ./code-directory``` This command will create a ```tar``` archive of the directory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions.
+>  __Example Usage:__ `tar -cvzf code.tar.gz ./code-directory` This command will create a `tar` archive of the directory called code-directory and will compress it using the gzip compression algorithm by default.  *Note the -z option added.   Add a lowercase -j for bzip2 and uppercase -J for xz. Make sure to change the file extensions.
 
-> __Example usage:__ Each one of these tar archives has been further compressed by one of the 4 Unix/Linux compression methods ```file linux-4.3-rc3.tar.Z; file linux-4.3-rc3.tar.gzip; file linux-4.3-rc3.tar.bzip2; file linux-4.3-rc3.tar.xz```
+> __Example usage:__ Each one of these tar archives has been further compressed by one of the 4 Unix/Linux compression methods `file linux-4.3-rc3.tar.Z; file linux-4.3-rc3.tar.gzip; file linux-4.3-rc3.tar.bzip2; file linux-4.3-rc3.tar.xz`
 
-> __Example usage:__  Previously you had to pass a flag to the ```tar``` command to tell it what type of compression algorithm to decompress with but now ```tar``` is smart and will autodetect for you.  The flags you need to simply pass are -x for extract, -v for verbose (optional), and -f for file (optional) ```wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.22.tar.xz; tar -xvJf linux-5.11.22.tar.xz```  
+> __Example usage:__  Previously you had to pass a flag to the `tar` command to tell it what type of compression algorithm to decompress with but now `tar` is smart and will autodetect for you.  The flags you need to simply pass are -x for extract, -v for verbose (optional), and -f for file (optional) `wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.22.tar.xz; tar -xvJf linux-5.11.22.tar.xz`  
 
-As of version > 1.31 of `tar` there is also support for zstd.  Which can be filter and archive via the ```--zstd`` flag.
+As of version > 1.31 of `tar` there is also support for zstd.  Which can be filter and archive via the `--zstd`` flag.
 
 ## Chapter Conclusions and Review
 
@@ -982,7 +993,7 @@ At the conclusion of this lab you will have successfully created a new virtual d
 
 8. On the zpool named `datapool` on Ubuntu 20.04 from question 5:
 
-    a. Execute a ```zpool status``` command
+    a. Execute a `zpool status` command
     b. Enable LZ4 compression on the zpool datapool
     c. Execute a `zfs get all | grep compression` command to display that compression is enabled
 

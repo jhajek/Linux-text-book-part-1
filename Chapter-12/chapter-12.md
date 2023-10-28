@@ -286,7 +286,7 @@ network:
 
 ### /etc/hosts
 
-Linux, inheriting from UNIX from a time before DNS existed, has a file for local DNS lookups: ```/etc/hosts```. This file is owned by root. You can edit this and place three items: an IP address, a fully qualified domain name, a short name (just the hostname). This is enabled by default and is the first lookup for your system. This helps save network based DNS roundtrips and can be accessed by any application or script without needing modification or additional libraries.
+Linux, inheriting from UNIX from a time before DNS existed, has a file for local DNS lookups: `/etc/hosts`. This file is owned by root. You can edit this and place three items: an IP address, a fully qualified domain name, a short name (just the hostname). This is enabled by default and is the first lookup for your system. This helps save network based DNS roundtrips and can be accessed by any application or script without needing modification or additional libraries.
 
 ```bash
 
@@ -448,7 +448,8 @@ The NodeJS package install information is here: [https://github.com/nodesource/d
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
+| sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 
 NODE_MAJOR=20
 echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
@@ -460,7 +461,8 @@ sudo apt-get install nodejs -y
 # https://github.com/nodesource/distributions#fedora-versions
 ##############################################################################
 yum install gcc-c++ make
-sudo yum install https://rpm.nodesource.com/pub_20.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+sudo yum install -y \
+https://rpm.nodesource.com/pub_20.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm
 sudo yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
 ##############################################################################
 ```
@@ -532,7 +534,7 @@ sudo dnf install mariadb-client
 
 ### Opensource Relational Database History
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql"). The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company. MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the ```mysql``` cli)
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql"). The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company. MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the `mysql` cli.
 
 #### Common Administrative Commands
 
@@ -650,7 +652,7 @@ You can use rules to allow or deny traffic based on source IP, source Port, Dest
 
 Distributions using systemd have switched to [firewalld](https://firewalld.org/ "firewalld") as their main firewall interface. There had been previous ways to interface with a firewall and firewalld seeks to abstract these away and present a unified interface to your systems firewall Fedora turns their firewall on by default, CentOS 7 does not.
 
-Firewalld uses the ```firewall-cmd``` command and not firewallctl like you would expect.  It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in ```/usr/lib/firewalld``` or ```/etc/firewalld```.  When adding a new rule you need to declare if the rule is permanent or it will be reset when the firewalld service is reloaded. The firewalld system contains zones such as:
+Firewalld uses the `firewall-cmd` command and not firewallctl like you would expect. It has a concept of *zones* which allow you to predefine a collection of rules that can be applied to different zones. Permanent configuration is loaded from XML files in `/usr/lib/firewalld` or `/etc/firewalld`. When adding a new rule you need to declare if the rule is permanent or it will be reset when the firewalld service is reloaded. The firewalld system contains zones such as:
 
 * trusted or untrusted
 * drop
