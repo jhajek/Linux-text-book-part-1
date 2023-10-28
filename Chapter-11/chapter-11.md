@@ -471,11 +471,18 @@ sudo zpool status
 sudo zpool create sm mirror /dev/sdg /dev/sdh /dev/sdi /dev/sdj
 sudo zpool status
 
-# Create a RAIDZ3 - three disk parity fail-over sooftware base RAID 5
+# Create a RAIDZ2 - three disk parity fail-over sooftware base RAID 5
 # https://docs.freebsd.org/en/books/handbook/zfs
-sudo zpool create tank raidz3 /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm /dev/sdn
+sudo zpool create tank raidz2 /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl
 sudo zpool status
 ```
+
+### ZFS Datasets
+
+ZFS has a feature called `datasets`. Essentially `datasets` are a like a partition but it is a soft partition. You don't define the total space for the partition but they share the pool size. This can be good for mounting snapshots as filesystems in a pool.
+
+* `sudo zfs create datamirror/jeremy`
+* `sudo zfs create datamirror/jospeh`
 
 ### ZFS Snapshots
 
@@ -510,7 +517,7 @@ sudo zfs rollback datamirror@snap-datamirror1
 ls 
 ```
 
-### ZFS Send and Receive
+#### ZFS Send and Receive
 
 ZFS also has a mechanism to send and receive snapshots, which done in a small enough increments which effectively creates a serialized synchronization feature. This can be done on the same system as well as over a network connection to a remote computer. To synchronize a ZFS filesystem:
 
@@ -520,7 +527,7 @@ ZFS also has a mechanism to send and receive snapshots, which done in a small en
 * You can pipe the command over `ssh` to restore to a remote system
   * `zfs send datapool@today | ssh user@hostname sudo zfs recv backuppool/backup`
 
-#### Additional ZFS Features
+### Additional ZFS Features
 
 In addition there is an L2ARC cache for caching most recent and most frequently used data blocks.  This is a separate SSD based disk and can speed up data access[^141] [^142]. The ZIL and the L2ARC if not defined on separate disks will take a small portion of the each zpool created. This is fine for low volume disk writes, but puts extra overhead on the system. If you have fast SSDs that are small in size, say 30 to 80 GB, you can stripe them and place the L2ARC cache and or ZIL on these disks. ZIL is a write only function and L2ARC cache becomes read predominant.
 
