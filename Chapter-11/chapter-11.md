@@ -919,24 +919,31 @@ In this chapter we learned and mastered the concepts of disk based hardware.  We
 
 ### Podcast Questions
 
-[DragonFly BSD](https://dragonflybsd.org "Dragon Fly BSD") - Listen to this podcast: [https://ia802605.us.archive.org/9/items/bsdtalk248/bsdtalk248.mp3](https://ia802605.us.archive.org/9/items/bsdtalk248/bsdtalk248.mp3 "DragonFly BSD")
+Watch this video, *What Is ZFS?: A Brief Primer by Wendell at Level1techs* at [https://www.youtube.com/watch?v=lsFDp-W1Ks0](https://www.youtube.com/watch?v=lsFDp-W1Ks0 "youtube for what is ZFS primer") and answer the following questions.
 
-* ~1:25 What did DragonFly BSD drop with the 4.0 release?
-* ~1:40 What was the other major feature that DragonFly BSD added?
-* ~3:40 What modification did they add to the Packet Filter?
-* ~10:00 What is the largest system DragonFly BSD has access to?
-* ~11:45 What is the difference between DragonFly BSD's network stack compared to BSD and Linux?
-* ~13:25 What is the limitations of the Hammer 1 Filesystem?
-* ~13:45 What features will Hammer 2 Filesystem add?
-* ~15:45 What is the intended use case of Hammer 2 FS?
-* ~18:00 What sub-system is still in the works needed to make DragonFly BSD a stable work station?
-* ~25:00 What is package-ng?
-* ~30:00 How does DragonFly BSD handle suspend and resume functions common to laptops?
-* ~35:50 What is the growing issue about systemd in relation to BSD?
-* ~38:00 Of the 20,000 packages available in DragonFly BSD where are they primarily targeted?
-* ~38:30 Out of FreeBSD, OpenBSD, NetBSD, and DragonFly -- what is each project focusing on?
-* ~40:23 How does GPL based Linux software cross over into BSD distros?
-
+* ~1:10 Which company was the original developers of the ZFS filesystem?
+* ~1:45-2:15 What was Sun's problem with their advanced technology?
+* ~3:00-3:10 What is ZFS "all about"?
+* ~4:45 How is a Mechanical Harddrive described?
+* ~5:30-5:455 What formulaic way does ZFS detect data corruption?
+* ~6:40-7:15 What is the comparison of the increase the CPU power to the increase of disk throughput?
+* ~8:00 What did Sun discover was available while waiting for slower disks?
+* ~8:30 What do most filesystems design have in mind?
+* ~9:01 How is a ZFS designed to operate?
+* ~11:00 How was the original Google Hardware described?
+* ~12:11 The filesystem doesn't know how to deal with multiple physical whats?
+* ~12:30 What is a PCI-e RAID card?
+* ~14:50-16:00 What is a RAID 6 configuration and what does it do for you in regards to disk corruption?
+* ~17:45 Describe how ZFS is philosophically different from RAID controllers (as mentioned in the previous 2-3 minutes)?
+* ~18:28 How is a ZFS volume defined?
+* ~19:25 What does ZFS store with its mirrored data?
+* ~21:57 What are the three attributes of ZFS listed?
+* ~22:16 Where does ZFS work best?
+* ~23:18 How is bit rot defined?
+* ~24:25 How does ZFS compare to Btrfs?
+* ~28:45 What are the host's list of 4 features that ZFS has?
+* ~29:48 What is the host's conclusion about the reliability of ZFS?
+ 
 ### Lab
 
 #### Lab 11 Objectives
