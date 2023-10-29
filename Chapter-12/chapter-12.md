@@ -538,7 +538,7 @@ MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Mich
 
 #### Common Administrative Commands
 
-We will now go over some common adminsitrative commands that can be executed from the commandline in relation to a database after installation
+We will now go over some common adminsitrative commands that can be executed from the commandline in relation to a database after installation.
 
 * Log in​
 * Create a non-root user​
@@ -549,9 +549,13 @@ We will now go over some common adminsitrative commands that can be executed fro
 
 #### User Accounts and Security Concerns
 
-After the installation of MariaDB/MySQL, you can create user accounts with limited privilleges.  This is a good idea as the `root` account doesn't have a password by default and is clearly recommended **NOT** to be used for anything other than administration.  So your application will need to use a non-root account.
+After the installation of MariaDB/MySQL, you can create user accounts with limited privilleges. This is a good idea as the `root` account doesn't have a password by default and is clearly recommended **NOT** to be used for anything other than administration.  So your application will need to use a non-root account. After you log in to the MySQL command-line using the command: `sudo mysql`, and after you have created a database (as in the example above), you can create users and assign access to particular databases and even particular tables. Linux distributions began eliminating a security hole by having the user provide a database root password at installation time. Instead access to the `root` user in a database is controlled by `sudo` access.
 
-After you log in to the MySQL command-line using the command: `sudo mysql -u root`, and after you have created a database (as in the example above), you can create users and assign access to particular databases and even particular tables.
+#### Login to Your Database
+
+`sudo mysql` will log you into MariaDB and MySQL as the root user.
+
+#### Create a User and Grant Permissions
 
 ```sql
 -- This is a comment
