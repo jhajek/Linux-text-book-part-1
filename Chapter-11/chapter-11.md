@@ -664,7 +664,7 @@ Description=Disk that was added to host the storage of our database
 [Mount]
 What=/dev/disk/by-uuid/003e6f67-9d31-4198-b3dd-4447f2337445
 Where=/mnt/databasedisk
-Type=btrfs
+Type=ext4
 Options=defaults
 
 [Install]
