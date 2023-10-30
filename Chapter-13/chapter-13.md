@@ -13,137 +13,59 @@
   
 ## Outcomes
 
-At the conclusion of this chapter you will have a basic understanding of how to use infrastructure automation and orchestration tools.  You will be familiar and able to explain the concept of immutable infrastructure and will be able to use Linux commands for enabling cloud native development technologies.
+At the conclusion of this chapter you will have a basic understanding of how to use infrastructure automation and orchestration tools. You will be familiar and able to explain the concept of immutable infrastructure and will be able to use Linux commands for enabling cloud native development technologies.
 
 ## Automation and HashiCorp
 
-One of the main things that computers are good at is executing repetitive tasks.  One of the things humans seem to dislike is repeating the same task.  Let's give a practical example; there is a divide between the developers (devs) and the operations (ops) people when it comes to software and infrastructure (dev + ops = devops).  Developers need hardware to test their code on and then more hardware to run their code in production.  Operations people have to maintain those systems and the code and the lifecycle of the application.  Developers started to think, could we deploy our infrastructure in the same way we deploy code?  Could we automate the way out of this problem?  A young developer named Mitchell Hashimoto had the same thoughts.  
+One of the main things that computers are good at is executing repetitive tasks. One of the things humans seem to dislike is repeating the same task. Let's give a practical example; there is a divide between the developers (devs) and the operations (ops) people when it comes to software and infrastructure (dev + ops = devops). Developers need hardware to test their code on and then more hardware to run their code in production. Operations people have to maintain those systems and the code and the lifecycle of the application. Developers started to think, could we deploy our infrastructure in the same way we deploy code? Could we automate our way out of this problem? A young developer named Mitchell Hashimoto had the same thoughts.  
 
-![*Mitchell Hashimoto*](images/Chapter-13/people/mh.png "mitchell hashimoto")[^153]
+![*Mitchell Hashimoto*](images/Chapter-13/people/mh.png "mitchell hashimoto")
 
-Mitchell realized that himself and a good majority of developers where using VirtualBox to run and build test systems on their local machines and laptops. He found that he could be productive by keeping copies of the production servers where his code would reside as a local vm on his system.  He realized their were some limitations to what VirtualBox would allow for in the way of access to the system.  VirtualBox just provided an interface to virtualize an operating system, and had no provisions for quickly deploying or automating an OS deployment--it was still a manual process. He and his company set out to solve this problem by developing opensource software.  They developed this stack of software:
+In 2010, Mitchell realized that a good majority of developers where using VirtualBox to run and build test systems on their local machines and laptops[^153]. He found that he could be productive creating copies of the production servers where his code would reside as a local VM on his system. VirtualBox just provided an interface to virtualize an operating system, and had no provisions for quickly deploying or automating an OS deployment--it was still a manual process. He and his company set out to solve this problem by developing opensource software that would automate the creation of virtual machines. They developed this stack of software:
 
 ![*HashiCorp Stack*](images/Chapter-13/hashi/hashistack.png "hashi-stack")
 
 You can learn more about HashiCorp at this [HashiConf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
 
-## Vagrant
+## The Problem Vagrant Solves
 
-### The Problem
+We have high levels of computing available to us yet we are not really using any of it. Our own laptops are high powered but not used completely resource-wise. Yet when it comes to developers writing code, QA testers, Operations and Security people, even students wanting to explore and experiement with production-like environments there is a barrier to deployment. In industry and for your this leads to a fractured development and inconsistent experiences, which often lead to short cuts and compromises that your are forced to pay for later.
 
-The problem is that we have high levels of computing available to us yet we are not really using any of it.  Our own laptops are fully powered and used as primary workstations.  Yet when it comes to developers writing code, QA testers, Operations and Security people, these resources are not being used--we have ad-hoc efforts to gain some hardware, any hardware, for testing.  This leads to a fractured development and inconsistent experiences, which often lead to short cuts and compromises that your are forced to pay later.
+Enter Mitchell Hashimoto and HashiCorp. They started in 2010 with a radical mission to automate everything they could into repeatable steps using single tools that handle abstractions. HashiCorp was platform agnostic and focused on the process of automation. They succeeded and are now considered the industry leaders in the arena. Quite frankly there are no other tools that even compete in this space. [https://www.hashicorp.com/files/DevOps-Defined.pdf](https://www.hashicorp.com/files/DevOps-Defined.pdf "Problem Hashi is solving").
 
-Enter Mitchell Hashimoto and HashiCorp.  They started in 2010 with a radical mission to automate everything they could into repeatable steps using single tools that handle abstractions.   HashiCorp was platform agnostic and focused on the process of automation.   They succeeded and are now considered the industry leaders in the arena.  Quite frankly there are no other tools that even compete in this space.  [https://www.hashicorp.com/files/DevOps-Defined.pdf](https://www.hashicorp.com/files/DevOps-Defined.pdf "Problem Hashi is solving").
+At that time, [HashiCorp](https://hashicorp.com "HashiCorp") was born. This was in 2010 and Mitchell's first task was easing the deployment, connection, and most importantly abstracting the network address translation between host and guest operating systems. He created [Vagrant](https://vagrantup.com "Vagrant") to do just this. Vagrant initially was a VirtualBox only product but has moved to be an abstraction layer now for multiple virtualization and container platforms.
 
-At that time, [HashiCorp](https://hashicorp.com "HashiCorp") was born.  This was in 2010 and Mitchell's first task was easing the deployment, connection, and most importantly abstracting the network address translation between host and guest operating systems.  He created [Vagrant](https://vagrantup.com "Vagrant") to do just this.  Vagrant initially was a VirtualBox only product but has moved to be an abstraction layer now for multiple virtualization and container platforms
+* Hyper-V
+* Parallels 
+* VMware Workstation and Fusion Products
+* KVM
+* And others via a plugin system
 
-### How Vagrant Benefits You[^154]
+### How Vagrant Benefits You
 
-> *If you are a developer, Vagrant will isolate dependencies and their configuration within a single disposable, consistent environment, without sacrificing any of the tools you are used to working with (editors, browsers, debuggers, etc.). Once you or someone else creates a single Vagrantfile, you just need to vagrant up and everything is installed and configured for you to work. Other members of your team create their development environments from the same configuration, so whether you are working on Linux, Mac OS X, or Windows, all your team members are running code in the same environment, against the same dependencies, all configured the same way. Say goodbye to "works on my machine" bugs.*
+> *If you are a developer[^154], Vagrant will isolate dependencies and their configuration within a single disposable, consistent environment, without sacrificing any of the tools you are used to working with (editors, browsers, debuggers, etc.). Once you or someone else creates a single Vagrantfile, you just need to vagrant up and everything is installed and configured for you to work. Other members of your team create their development environments from the same configuration, so whether you are working on Linux, Mac OS X, or Windows, all your team members are running code in the same environment, against the same dependencies, all configured the same way. Say goodbye to "works on my machine" bugs.*
 
 > *If you are an operations engineer, Vagrant gives you a disposable environment and consistent workflow for developing and testing infrastructure management scripts. You can quickly test things like shell scripts, Chef cookbooks, Puppet modules, and more using local virtualization such as VirtualBox or VMware. Then, with the same configuration, you can test these scripts on remote clouds such as AWS or RackSpace with the same workflow. Ditch your custom scripts to recycle EC2 instances, stop juggling SSH prompts to various machines, and start using Vagrant to bring sanity to your life.*
 
 > *If you are a designer, Vagrant will automatically set everything up that is required for that web app in order for you to focus on doing what you do best: design. Once a developer configures Vagrant, you do not need to worry about how to get that app running ever again. No more bothering other developers to help you fix your environment so you can test designs. Just check out the code, vagrant up, and start designing.*
 
-Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Docker, or even VMware desktop.  It is written in the Ruby Language and comes as a self-contained binary that runs across all platforms. For the duration of this chapter I will use VirtualBox as my example.  Vagrant handles this abstraction by using a file concept called a **box** or ```*.box```.  The box file is nothing more than a compressed archive containing a virtual hard drive and a configuration file that tells the Vagrant provider which virtualization software to launch this with. For example a `*.box` file that was made for the VirtualBox provider would contain a `*.vmdk` (hard drive) and an `*.ovf` file (meta-data and Virtual Machine settings file).  Each Vagrant `*.box` file needs a config file called: **Vagrantfile**.  This is an abstraction file to modify settings for the virtual machine at run time.  There is a sample Vagrantfile later in this chapter. These two components are what is needed to run and manage Vagrant boxes.
+#### Vagrant as an Abstraction Layer
 
-#### Obtaining a Vagrant Box
+Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Parallels, or even VMware Workstation. It is written in the Ruby Language and comes as a self-contained binary that runs across all platforms. Vagrant just acts as an interface to your virtualization software.
 
-There are two ways to obtain a Vagrant Box (*.box file).  The first way would be to obtain pre-made images from a site you trust (remember you are running other people's configuration and software in your place of work -- just be aware).   The first place to look is from Vagrantup.com itself - [https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search "Vagrant box search"). Here you can search for boxes of other operating systems and versions even some opensource companies release a pre-configured Vagrant Box all setup for you to test their software all in one place.    Using this facility you can simply run a command from the command line to add this box to your local system. such as: ```vagrant init ubuntu/bionic64``` would automatically construct a `Vagrantfile`, as well as retrieve an Ubuntu Bionic64 box file.  The second way is described later in the chapter; that is to build and add your own box.
+### Obtaining a Vagrant Box
 
-#### Vagrant Box Commands
+There are two ways to obtain a Vagrant Box (*.box file). The first way would be to obtain pre-made images from a site you trust (remember you are running other people's configuration and software in your place of work -- just be aware). The first place to look is from Vagrantup.com itself - [https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search "Vagrant box search"). Here you can search for boxes of other operating systems and versions. Most opensource companies release a pre-configured Vagrant Box all setup for you to test their software in one place.
 
-When executing the `vagrant box` command from the command line (in Windows recommend using PowerShell Core) you will see this list of subcommands below, but we will primarily use just the first three:
+Using this facility you can simply run a command from the terminal: The command `vagrant init ubuntu/jammy64` would automatically construct a `Vagrantfile`, as well as retrieve an Ubuntu Jammy server based operating system box file. The second way is described later in the chapter; that is to build and add your own boxes.
 
-: `vagrant box` commands
+#### Vagrant .box Format
 
------------------
-  ```add```
-  ```list```
-  ```remove```  
-  ```outdated```
-  ```repackage```
-  ```update```
------------------
-
-#### vagrant box add
-
-```bash
-vagrant box add
-```
-
-The first command **add** is the command we will use to add boxes (either of the two methods) from above.  These are all premade systems made with Packer.io and [distributed by HashiCorp](https://app.vagrantup.com/boxes/search "Vagrant Search").  
-
-The tutorial on vagrantup.com will walk you through this but a small example (try any of these especially if you are not familiar with these platforms).
-
-* ```vagrant box add centos/7``` (Official CentOS 7 Vagrant box release)
-* ```vagrant box add centos/8``` (Official CentOS 8 Vagrant box release)
-* ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
-* ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
-* ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
-* ```Vagrant box add generic/Fedora32``` (Fedora 32 server edition)
-* ```vagrant box add freebsd/FreeBSD-12.0-CURRENT``` (official FreeBSD vagrant box)
-* ```vagrant box add maier/alpine-3.4-x86_64```  (user provided alpine Linux distro)
-* ```vagrant box add ubuntu/bionic64``` (Canonical--Ubuntu 18.04 parent company - provided)
-
-You may need to use a full URL in the case of downloading a Vagrant box that is not provided from HashiCorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a [Devuan](https://devuan.org/ "Devuan Home Page") box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
-
-```bash
-# These are Linux/Mac based line continuations '\'  otherwise this
-# code should all go on one line
-vagrant box add \
-http://devuan.ksx4system.net/devuan_beowulf/minimal-live/\
-devuan_beowulf_3.0.0_amd64_minimal-live.iso \
---name devuan-beowulf
-
-vagrant box add ./itmd521-virtualbox-1503930054.box --name itmd-521
-```
-
-Adding a box via URL both ways, requires an additional parameter, ```--name``` (as seen above). The ```--name``` option is something you declare for your use, just don't put any spaces and its best to name the box something related to the actual box;  *"box1"* or *"thebox"* are terrible names.
-
-#### vagrant box list
-
-```vagrant box list```
-
-You can check to see if the vagrant box add command was successful by issuing the command: ```vagrant box list```; looking something like this:  (Note this is my system, yours will vary but the structure will be the same).
-
-```bash
-PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
-centos-vanilla-1908  (virtualbox, 0)
-ubuntu-vanilla-18045 (virtualbox, 0)
-ubuntu/bionic64      (virtualbox, 20200324.0.0)
-ubuntu/xenial64      (virtualbox, 20200326.0.0)
-```
-
-Here you notice that the last two boxes were added directly from the HashiCorp boxes repository (vagrant box add ubuntu/bionic64 and vagrant box add ubuntu/xenial64)
-
-The top two boxes were custom Vagrant boxes I created (we are getting to that part) that are treated as third party boxes.  To add them I issued a command like this:   (The vanilla term is my own convention, it just means this is a default OS install -- no extra packages)
-
-```bash
-vagrant box add ./centos-1908-virtualbox-1485312680.box --name centos-7-vanilla
-vagrant box add ./ubuntu-18045-virtualbox-1598457730.box --name ubuntu-18045-vanilla
-```
-
-#### vagrant box remove
-
-```vagrant box remove```
-
-The same way that you add boxes you can remove them from your list.  You need to know the name of the box that was added, run a vagrant box list command and find the name that way.  The below commands would remove the boxes added in the previous section.
-
-* ```vagrant box remove centos-7-vanilla```
-* ```vagrant box remove ubuntu-18045-vanilla```
+Vagrant handles its abstraction by using a file concept called a **box** or ```*.box```. The box file is nothing more than a compressed archive containing a virtual hard drive and a configuration file that tells the Vagrant provider which virtualization software to launch this with. For example a `*.box` file that was made for the VirtualBox provider would contain a `*.vmdk` (hard drive) and an `*.ovf` file (meta-data and Virtual Machine settings file). Each Vagrant `*.box` file needs a config file called: **Vagrantfile**. This is an abstraction file to modify settings for the virtual machine at run time. There is a sample Vagrantfile later in this chapter. These two components are what is needed to run and manage Vagrant boxes.
 
 #### vagrant init
 
-```vagrant init```
-
-Once your Vagrant boxes have been added to your system and Vagrant has them in a list, you can now create a Vagrantfile.  You have one Vagrantfile per-Vagrant box.  It would make the most sense to create a sub-directory with the same box name to house the Vagrantfile.   Then it would make sense to create a folder named after each of these boxes under the directory vagrant.  In this example I created the directory vagrant under Documents.  Why? It seems to make logical sense.
-
-![*Suggested Folder Hierarchy*](images/Chapter-13/vagrant/directory.png "Suggested Directory Structure")
-
-**Note**--for good measure I added a directory called data which will be used for mounting shared drives. Once you have created these folders, cd into one.  For instance take the trusty64 and xenial64.  You would cd into trusty64 directory and type: `vagrant init ubuntu/bionic64`.  This will create a file called `Vagrantfile` that points and works with the trusty64 vagrant box.  The idea behind the Vagrantfile  is that it has a shorthand syntax that is universally translated by Vagrant into specific virtualization platforms.  The Vagrantfile  handles all the properties that could be set (such as RAM, CPU, shared drives, port forwarding, networking, and so forth).   Make sure you issue the `vagrant init` command from inside of the proper folder you just created.
-
-Here is a sample Vagrantfile, which is available in the book source code [files > Chapter-13 > vagrant-init-files](https://github.com/jhajek/Linux-text-book-part-1/tree/master/files/Chapter-13/vagrant-init-files "Vagrantfile"):
+We need a `.box` file and we need a `Vagrantfile` to run our virtual machines. You have one `Vagrantfile` per-Vagrant box. The `vagrant init` command is how we create a Vagrantfile.  What is a `Vagrantfile`? It is a simple configuration file for a standard set of values that can be reconfigured for virtual machines. By using the `Vagrantfile` abstraction layer you can reuse your configuration across different platforms. Here is a sample Vagrantfile, which is available in the book source code [files > Chapter-13 > vagrant-init-files](https://github.com/jhajek/Linux-text-book-part-1/tree/master/files/Chapter-13/vagrant-init-files "Vagrantfile"):
 
 ```ruby
 
@@ -161,7 +83,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://app.vagrantup.com/boxes/search.
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "ubuntu/jammy64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -175,18 +97,18 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+    config.vm.network "private_network", ip: "192.168.56.10"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-   config.vm.network "public_network"
+  # config.vm.network "public_network"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-   config.vm.synced_folder "./data", "/vagrant_data"
+  # config.vm.synced_folder "./data", "/vagrant_data"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -221,58 +143,140 @@ end
 
 ```
 
+#### Storing Vagrantfiles
+
+Let us start by creating a sub-directory with the same box name to house the Vagrantfile. Then it would make sense to create a folder named after each of these boxes under the directory vagrant. In this example I created the directory vagrant under Documents.
+
+![*Suggested Folder Hierarchy*](images/Chapter-13/vagrant/directory.png "Suggested Directory Structure")
+
+Once you have created these folders, cd into one. For instance take the `jammy64` or `almalinux9` directories. You would cd into `jammy64` directory and type: `vagrant init ubuntu/jammy64`. This will create the `Vagrantfile` that points and works with the jammy64 vagrant box.  The idea behind the `Vagrantfile` is that it has a shorthand syntax that is universally translated by Vagrant into specific virtualization platforms. The Vagrantfile  handles all the properties that could be set (such as RAM, CPU, shared drives, port forwarding, networking, and so forth).
+
+### Vagrant Box Commands
+
+When executing the `vagrant box` command from the command line (in Windows recommend using PowerShell Core) you will see this list of subcommands below, but we will primarily use just the first three:
+
+* `add`
+* `list`
+* `remove`  
+* `outdated`
+* `repackage`
+* `update`
+
+#### vagrant box add
+
+```bash
+vagrant box add
+```
+
+The first command **add** is the command we will use to add boxes (either of the two methods) from above. These are all premade systems made with Packer.io and [distributed by HashiCorp](https://app.vagrantup.com/boxes/search "Vagrant Search").  
+
+The tutorial on vagrantup.com will walk you through this but a small example (try any of these especially if you are not familiar with these platforms).
+
+* ```vagrant box add centos/7``` (Official CentOS 7 Vagrant box release)
+* ```vagrant box add centos/8``` (Official CentOS 8 Vagrant box release)
+* ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
+* ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
+* ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
+* ```Vagrant box add generic/Fedora32``` (Fedora 32 server edition)
+* ```vagrant box add freebsd/FreeBSD-12.0-CURRENT``` (official FreeBSD vagrant box)
+* ```vagrant box add maier/alpine-3.4-x86_64```  (user provided alpine Linux distro)
+* ```vagrant box add ubuntu/bionic64``` (Canonical--Ubuntu 18.04 parent company - provided)
+
+You may need to use a full URL in the case of downloading a Vagrant box that is not provided from HashiCorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a [Devuan](https://devuan.org/ "Devuan Home Page") box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
+
+```bash
+# These are Linux/Mac based line continuations '\'  otherwise this
+# code should all go on one line
+vagrant box add \
+http://devuan.ksx4system.net/devuan_beowulf/minimal-live/\
+devuan_beowulf_3.0.0_amd64_minimal-live.iso \
+--name devuan-beowulf
+
+vagrant box add ./itmd521-virtualbox-1503930054.box --name itmd-521
+```
+
+Adding a box via URL both ways, requires an additional parameter, `--name` (as seen above). The `--name` option is something you declare for your use, just don't put any spaces and its best to name the box something related to the actual box;  *"box1"* or *"thebox"* are terrible names.
+
+#### vagrant box list
+
+**Command:** `vagrant box list`
+
+You can check to see if the vagrant box add command was successful by issuing the command: `vagrant box list`; looking something like this:  (Note this is my system, yours will vary but the structure will be the same).
+
+```bash
+PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
+almalinux/9                (virtualbox, 9.2.20230513)
+debian/bookworm64          (virtualbox, 12.20230615.1)
+debian/bullseye64          (virtualbox, 11.20221219.1)
+generic/freebsd13          (virtualbox, 4.3.2)
+itmd-321                   (virtualbox, 0)
+itmd-521                   (virtualbox, 0)
+itmo-444                   (virtualbox, 0)
+opensuse/Tumbleweed.x86_64 (virtualbox, 1.0.20231026)
+ubuntu/jammy64             (virtualbox, 20230720.0.0)
+```
+
+#### vagrant box remove
+
+**Command:** `vagrant box remove`
+
+The same way that you add boxes you can remove them from your list.  You need to know the name of the box that was added, run a vagrant box list command and find the name that way.  The below commands would remove the boxes added in the previous section.
+
+* `vagrant box remove almalinux/9`
+* `vagrant box remove ubuntu/jammy64`
+
 #### vagrant up
 
-**Command:** ```vagrant up```
+**Command:** `vagrant up`
 
-Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located.  A vagrant up command looks in the local directory for a Vagrantfile to begin parsing.  This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (VirtualBox in our case) will be changed.  On subsequent runs the Vagrantfile will be ignored. **Note** - This command is issued not from inside the virtual machine but from the commandline of the host system.
+Once your Vagrantfile has been created the next step to launch the virtual machine via Vagrant is through the vagrant up command.  You would issue the command from the same directory where the Vagrantfile is located. A vagrant up command looks in the local directory for a Vagrantfile to begin parsing. This command is akin to starting the virtual machine directly.  On the first run the Vagrantfile will be parsed and any settings in the virtual machine platform (VirtualBox in our case) will be changed. On subsequent runs the Vagrantfile will be ignored. **Note** - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
-**Command:**  ```vagrant up --provision```
+**Command:**  `vagrant up --provision`
 
-The ```--provision``` flag tells Vagrant to re-provision and re-read and parse the Vagrantfile and make any additional changes while launching the virtual machine. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
+The `--provision` flag tells Vagrant to re-provision and re-read and parse the Vagrantfile and make any additional changes while launching the virtual machine. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
-**Command:** ```vagrant up --provider virtualbox | hyperv | docker | vmware```
+**Command:** `vagrant up --provider virtualbox | hyperv | docker | vmware`
 
-When using a Vagrant box from HashiCorp or any other it is a good idea to use the --provider flag to tell Vagrant which platform it will be virtualizing.  This is optional but if you experience problems this is a good troubleshooting tip.
+When using a Vagrant box from HashiCorp or any other it is a good idea to use the --provider flag to tell Vagrant which platform it will be virtualizing. This is optional but if you experience problems this is a good troubleshooting tip.
 
 #### vagrant reload
 
-**Command:** ```vagrant reload```
+**Command:** `vagrant reload`
 
 This is akin to a reboot or restart of a virtual machine. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
-**Command:** ```vagrant reload --provision```
+**Command:** `vagrant reload --provision`
 
 Will restart the system as well as re-read and parse the Vagrantfile. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant suspend
 
-**Command:** ```vagrant suspend```
+**Command:** `vagrant suspend`
 
 This will put the virtual machine in suspend or pause move (standby) as opposed to running vagrant halt, which will power the virtual machine off.  Very handy to quickly resume work.  Don't expect the system to automatically put your virtual machine into standby if you are used to just closing the lid of your laptop. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant halt
 
-**Command:**  ```vagrant halt```
+**Command:**  `vagrant halt`
 Full shutdown of the virtual machine (power off). Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant destroy
 
-**Command:** ```vagrant destroy```
+**Command:** `vagrant destroy`
 
 This command is used to destroy the current instance of a virtual machine -- but not remove the source files.  This allows you to issue a vagrant up command and "start from scratch" without rebuilding or reinstalling the Vagrant Box. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant ssh
 
-**Command:** ```vagrant ssh```
+**Command:** `vagrant ssh`
 
 This command is issues after the vagrant up command and allows you to establish an SSH session directly into the vagrant box, with a pre-setup username and password, with NO ASK set in the sudoers file, making for seamless entry.  You should never need to access and username or password in Vagrant as that defeats the purpose of Vagrant.  But for completeness's sake it is vagrant:vagrant. NOTE - the vagrant ssh command works perfectly by default on all Linux, macOS, and Windows 10 hosts.  
 
 #### vagrant plugin install
 
-**Command:** ```vagrant plugin install vagrant-vbguest```
+**Command:** `vagrant plugin install vagrant-vbguest` or `vagrant plugin install vagrant-parallels`
 
-This command specifically enables the automatic installation of the VirtualBox Additions to enable VirtualBox specific features such as shared folders.
+This command specifically enables the automatic installation of the VirtualBox Additions to enable VirtualBox specific features such as shared folders. The second command in needed if using Vagrant on a M1/M2 Mac using Parallels Pro.
 
 ### Vagrant Quick Command Tutorial
 
@@ -290,7 +294,7 @@ Here is a small walk through to install 2 different Vagrant boxes:
 
 ### The Problem Packer Solves
 
-By 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs.  This problem was solved by HashiCorp and called [Packer](https://packer.io "Packer.io").  Packer, much like the name suggests, allows you to automate the installation of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  Unlike installing software, there is no existing operating system when you are installing an operating system, making automatic installation difficult.
+By 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs. This problem was solved by HashiCorp and called [Packer](https://packer.io "Packer.io"). Packer, much like the name suggests, allows you to automate the installation of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  Unlike installing software, there is no existing operating system when you are installing an operating system, making automatic installation difficult.
 
 Packer attacked this problem by creating its own binary which acts as a supervisor and initiates the proper key sequence to turn a manual install into and automated install via a JSON based build template.  This can take place on multiple formats or platforms and does not even focus on physical machines.  Packer uses already existing answer file technology for Linux, such as Kickstart and Preseed to allow for automated and repeatable installs to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]." Network installs have existed for decades, but this method always assumed a physical 1-to-1 infrastructure, which as you have seen in this class is no longer the only reality.  
 
@@ -309,86 +313,79 @@ Packer examples and example build code [https://github.com/jhajek/packer-vagrant
 
 #### Packer - Conventions
 
-HashiCorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using [JSON](https://en.wikipedia.org/wiki/JSON "JSON").   In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation.  On Linux this "answer file" is split between the major Linux distribution families:
+HashiCorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using [JSON](https://en.wikipedia.org/wiki/JSON "JSON"). In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation. On Linux this "answer file" is split between the major Linux distribution families:
 
 #### Packer JSON Build Template
 
-Let us look at an example JSON template file: This source can be retrieved from the source code of the book:
-[files > Chapter-13 > packer-build-templates > ubuntu18045-vanilla.json](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu18045-vanilla.json "Packer Template")
+Let us look at an example JSON template file: This source can be viewed from the source code of the book:
+[files > Chapter-13 > packer-build-templates > ubuntu_22043_vanilla](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu_22043_vanilla/ubuntu22043-vanilla-live-server.pkr.hcl "Packer Template")
 
-```json
-{
-  "builders": [
-  {
-    "name": "ubuntu-vanilla-18045-server",
-    "vm_name": "ubuntu-vanilla-18045-server",
-    "type": "virtualbox-iso",
-    "boot_command": [
-      "<esc><wait>",
-      "<esc><wait>",
-      "<enter><wait>",
-      "/install/vmlinuz<wait>",
-      " auto<wait>",
-      " console-setup/ask_detect=false<wait>",
-      " console-setup/layoutcode=us<wait>",
-      " console-setup/modelcode=pc105<wait>",
-      " debconf/frontend=noninteractive<wait>",
-      " debian-installer=en_US<wait>",
-      " fb=false<wait>",
-      " initrd=/install/initrd.gz<wait>",
-      " kbd-chooser/method=us<wait>",
-      " keyboard-configuration/layout=USA<wait>",
-      " keyboard-configuration/variant=USA<wait>",
-      " locale=en_US<wait>",
-      " netcfg/get_domain=vm<wait>",
-      " netcfg/get_hostname=vagrant<wait>",
-      " grub-installer/bootdev=/dev/sda<wait>",
-      " noapic<wait>",
-      " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed/preseed.cfg<wait>",
-      " -- <wait>",
-      "<enter><wait>"
-    ],
-    "boot_wait": "10s",
-    "disk_size": 20000,
-    "guest_os_type": "Ubuntu_64",
-    "http_directory": ".",
-    "http_port_min": 9001,
-    "http_port_max": 9001,
-    "iso_urls": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso",
-    "iso_checksum": "sha256:8c5fc24894394035402f66f3824beb7234b757dd2b5531379cb310cedfdf0996",
-    "ssh_username": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_port": 22,
-    "ssh_wait_timeout": "10000s",
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "guest_additions_mode": "disable",
-    "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-    "virtualbox_version_file": ".vbox_version",
-    "vboxmanage": [
-      [
-        "modifyvm",
-        "{{.Name}}",
-        "--memory",
-        "2048"
-      ]
-    ]
+```yaml
+##############################################################################
+# Packer Virtualbox-iso documentation: 
+# https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
+##############################################################################
+locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
+
+packer {
+  required_plugins {
+    virtualbox = {
+      source  = "github.com/hashicorp/virtualbox"
+      version = "~> 1"
+    }
   }
-  ],
-  "provisioners": [
-    {
-      "type": "shell",
-      "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-      "script": "../scripts/post_install_vagrant.sh"
-    }
-  ],
-  "post-processors": [
-    {
-      "type": "vagrant",
-      "keep_input_artifact": false,
-      "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"
-    }
-  ]
 }
+
+source "virtualbox-iso" "ubuntu-22043-server" {
+    boot_command = [
+        "e<wait>",
+        "<down><down><down>",
+        "<end><bs><bs><bs><bs><wait>",
+        "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
+        "<f10><wait>"
+      ]
+  boot_wait               = "5s"
+  disk_size               = 35000
+  guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
+  guest_os_type           = "Ubuntu_64"
+  http_directory          = "subiquity/http"
+  http_port_max           = 9200
+  http_port_min           = 9001
+  firmware                = "efi"
+  hard_drive_interface    = "virtio"
+  disk_additional_size    = [15000,15000,15000]
+  rtc_time_base           = "UTC"
+  # https://www.virtualbox.org/manual/ch06.html
+  nic_type                = "virtio"
+  iso_checksum            = "sha256:a4acfda10b18da50e2ec50ccaf860d7f20b389df8765611142305c0e911d16fd"
+  iso_urls                = ["http://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"]  
+  shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
+  ssh_username            = "vagrant"
+  ssh_password            = "${var.user-ssh-password}"
+  ssh_timeout             = "45m"
+  cpus                    = 2
+  memory                  = "${var.memory_amount}"
+  # Change to --nat-localhostreachable1 forced by https://github.com/hashicorp/packer/issues/12118
+  vboxmanage              = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
+  virtualbox_version_file = ".vbox_version"
+  vm_name                 = "jammy-server"
+  headless                = "${var.headless_build}"
+}
+
+build {
+  sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+
+  provisioner "shell" {
+    execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
+  }
+
+  post-processor "vagrant" {
+    keep_input_artifact = false
+    output              = "${var.build_artifact_location}{{ .BuildName }}-${local.timestamp}.box"
+  }
+}
+
 ```
 
 There are 3 sections we are interested in:

@@ -18,25 +18,20 @@ echo "%admin  ALL=NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/init-users
 sudo groupadd admin
 sudo usermod -a -G admin vagrant
 
-# Installing vagrant keys
+# Installing Vagrant keys
 wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
 sudo mkdir -p /home/vagrant/.ssh
 sudo chown -R vagrant:vagrant /home/vagrant/.ssh
 cat ./vagrant.pub >> /home/vagrant/.ssh/authorized_keys
 sudo chown -R vagrant:vagrant /home/vagrant/.ssh/authorized_keys
+sudo chmod 700 /home/vagrant/.ssh
+sudo chmod 600 /home/vagrant/.ssh/authorized_keys
+echo "All Done!"
 
 #########################
 # Add customization here
 #########################
 
-# Install Elrepo - The Community Enterprise Linux Repository (ELRepo)
-# https://wiki.centos.org/AdditionalResources/Repositories
-sudo yum install -y epel-release 
-
-# Install base dependencies -  Centos 7 mininal needs the EPEL repo in the line above and the package daemonize
-sudo yum update -y
-sudo yum install -y wget unzip vim git python-setuptools curl
-# Due to needing a tty to run sudo, this install command adds all the pre-reqs to build the virtualbox additions
 sudo yum install -y kernel-devel-`uname -r` gcc binutils make perl bzip2
 
 
