@@ -27,12 +27,12 @@ variable "iso_url" {
   default = "http://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"
 }
 
-variabe "DBUSER" {
+variabe "db_user" {
     type = string
     default = "worker"
 }
 
-variable "DBPASS" {
+variable "db_pass" {
   type = string
   sensitive = true
   default = "letmein"
