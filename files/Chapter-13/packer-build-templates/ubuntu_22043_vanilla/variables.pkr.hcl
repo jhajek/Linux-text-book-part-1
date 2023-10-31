@@ -10,7 +10,7 @@ variable "memory_amount" {
 
   variable "user-ssh-password" {
   type = string
-  sesitive = true
+  sensitive = true
   default = "vagrant"
 }
   
