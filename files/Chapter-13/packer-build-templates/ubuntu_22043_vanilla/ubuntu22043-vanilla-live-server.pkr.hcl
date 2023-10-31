@@ -55,6 +55,14 @@ build {
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
+ 
+  }
+
+  provisioner "shell" {
+    execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    script          = "../scripts/post_install_ubuntu_2204_vagrant-database.sh"
+    environment_vars = ["DBUSER=${local.db_user}"]
+
   }
 
   post-processor "vagrant" {
