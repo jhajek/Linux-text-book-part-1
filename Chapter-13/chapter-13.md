@@ -17,7 +17,9 @@ At the conclusion of this chapter you will have a basic understanding of how to 
 
 ## Automation and HashiCorp
 
-One of the main things that computers are good at is executing repetitive tasks. One of the things humans seem to dislike is repeating the same task. Let's give a practical example; there is a divide between the developers (devs) and the operations (ops) people when it comes to software and infrastructure (dev + ops = devops). Developers need hardware to test their code on and then more hardware to run their code in production. Operations people have to maintain those systems and the code and the lifecycle of the application. Developers started to think, could we deploy our infrastructure in the same way we deploy code? Could we automate our way out of this problem? A young developer named Mitchell Hashimoto had the same thoughts.  
+One of the main things that computers are good at is executing repetitive tasks. One of the things humans seem to dislike is repeating the same task. Let's give a practical example; there is a divide between the developers (devs) and the operations (ops) people when it comes to software and infrastructure (dev + ops = devops). Developers need hardware to test their code on and then more hardware to run their code in production. Operations people have to maintain those systems and the code and the lifecycle of the application. Developers started to think, could we deploy our infrastructure in the same way we deploy code? Could we automate our way out of this problem?
+
+### Mitchel Hashimoto
 
 ![*Mitchell Hashimoto*](images/Chapter-13/people/mh.png "mitchell hashimoto")
 
@@ -29,29 +31,17 @@ You can learn more about HashiCorp at this [HashiConf 2017 keynote presentation]
 
 ## The Problem Vagrant Solves
 
-We have high levels of computing available to us yet we are not really using any of it. Our own laptops are high powered but not used completely resource-wise. Yet when it comes to developers writing code, QA testers, Operations and Security people, even students wanting to explore and experiement with production-like environments there is a barrier to deployment. In industry and for your this leads to a fractured development and inconsistent experiences, which often lead to short cuts and compromises that your are forced to pay for later.
+At that time, [HashiCorp](https://hashicorp.com "HashiCorp") was born. This was in 2010 and Mitchell's first task was easing the deployment, connection, and most importantly abstracting the network address translation between host and guest operating systems. He created [Vagrant](https://vagrantup.com "Vagrant") to do just this. 
 
-Enter Mitchell Hashimoto and HashiCorp. They started in 2010 with a radical mission to automate everything they could into repeatable steps using single tools that handle abstractions. HashiCorp was platform agnostic and focused on the process of automation. They succeeded and are now considered the industry leaders in the arena. Quite frankly there are no other tools that even compete in this space. [https://www.hashicorp.com/files/DevOps-Defined.pdf](https://www.hashicorp.com/files/DevOps-Defined.pdf "Problem Hashi is solving").
+### Vagrant as an Abstraction Layer
 
-At that time, [HashiCorp](https://hashicorp.com "HashiCorp") was born. This was in 2010 and Mitchell's first task was easing the deployment, connection, and most importantly abstracting the network address translation between host and guest operating systems. He created [Vagrant](https://vagrantup.com "Vagrant") to do just this. Vagrant initially was a VirtualBox only product but has moved to be an abstraction layer now for multiple virtualization and container platforms.
+Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Parallels, or even VMware Workstation. It is written in the Ruby Language and comes as a self-contained binary that runs across all platforms. Vagrant just acts as an interface to your virtualization software. Vagrant initially was a VirtualBox only product but has moved to be an abstraction layer now for multiple virtualization and container platforms.
 
 * Hyper-V
 * Parallels 
 * VMware Workstation and Fusion Products
 * KVM
 * And others via a plugin system
-
-### How Vagrant Benefits You
-
-> *If you are a developer[^154], Vagrant will isolate dependencies and their configuration within a single disposable, consistent environment, without sacrificing any of the tools you are used to working with (editors, browsers, debuggers, etc.). Once you or someone else creates a single Vagrantfile, you just need to vagrant up and everything is installed and configured for you to work. Other members of your team create their development environments from the same configuration, so whether you are working on Linux, Mac OS X, or Windows, all your team members are running code in the same environment, against the same dependencies, all configured the same way. Say goodbye to "works on my machine" bugs.*
-
-> *If you are an operations engineer, Vagrant gives you a disposable environment and consistent workflow for developing and testing infrastructure management scripts. You can quickly test things like shell scripts, Chef cookbooks, Puppet modules, and more using local virtualization such as VirtualBox or VMware. Then, with the same configuration, you can test these scripts on remote clouds such as AWS or RackSpace with the same workflow. Ditch your custom scripts to recycle EC2 instances, stop juggling SSH prompts to various machines, and start using Vagrant to bring sanity to your life.*
-
-> *If you are a designer, Vagrant will automatically set everything up that is required for that web app in order for you to focus on doing what you do best: design. Once a developer configures Vagrant, you do not need to worry about how to get that app running ever again. No more bothering other developers to help you fix your environment so you can test designs. Just check out the code, vagrant up, and start designing.*
-
-#### Vagrant as an Abstraction Layer
-
-Think of Vagrant as an abstraction layer between you and VirtualBox, Hyper-V, Parallels, or even VMware Workstation. It is written in the Ruby Language and comes as a self-contained binary that runs across all platforms. Vagrant just acts as an interface to your virtualization software.
 
 ### Obtaining a Vagrant Box
 
@@ -143,6 +133,14 @@ end
 
 ```
 
+### How Vagrant Benefits You
+
+> *If you are a developer[^154], Vagrant will isolate dependencies and their configuration within a single disposable, consistent environment, without sacrificing any of the tools you are used to working with (editors, browsers, debuggers, etc.). Once you or someone else creates a single Vagrantfile, you just need to vagrant up and everything is installed and configured for you to work. Other members of your team create their development environments from the same configuration, so whether you are working on Linux, Mac OS X, or Windows, all your team members are running code in the same environment, against the same dependencies, all configured the same way. Say goodbye to "works on my machine" bugs.*
+
+> *If you are an operations engineer, Vagrant gives you a disposable environment and consistent workflow for developing and testing infrastructure management scripts. You can quickly test things like shell scripts, Chef cookbooks, Puppet modules, and more using local virtualization such as VirtualBox or VMware. Then, with the same configuration, you can test these scripts on remote clouds such as AWS or RackSpace with the same workflow. Ditch your custom scripts to recycle EC2 instances, stop juggling SSH prompts to various machines, and start using Vagrant to bring sanity to your life.*
+
+> *If you are a designer, Vagrant will automatically set everything up that is required for that web app in order for you to focus on doing what you do best: design. Once a developer configures Vagrant, you do not need to worry about how to get that app running ever again. No more bothering other developers to help you fix your environment so you can test designs. Just check out the code, vagrant up, and start designing.*
+
 #### Storing Vagrantfiles
 
 Let us start by creating a sub-directory with the same box name to house the Vagrantfile. Then it would make sense to create a folder named after each of these boxes under the directory vagrant. In this example I created the directory vagrant under Documents.
@@ -172,15 +170,13 @@ The first command **add** is the command we will use to add boxes (either of the
 
 The tutorial on vagrantup.com will walk you through this but a small example (try any of these especially if you are not familiar with these platforms).
 
-* ```vagrant box add centos/7``` (Official CentOS 7 Vagrant box release)
-* ```vagrant box add centos/8``` (Official CentOS 8 Vagrant box release)
-* ```vagrant box add debian/buster64``` (Debian provided release of Debian 10 x64)
-* ```vagrant box add terrywang/archlinux``` (user provided Arch Linux distro)
-* ```vagrant box add laravel/homestead```   (Preconfigured PHP Laravel framework development box)
-* ```Vagrant box add generic/Fedora32``` (Fedora 32 server edition)
-* ```vagrant box add freebsd/FreeBSD-12.0-CURRENT``` (official FreeBSD vagrant box)
-* ```vagrant box add maier/alpine-3.4-x86_64```  (user provided alpine Linux distro)
-* ```vagrant box add ubuntu/bionic64``` (Canonical--Ubuntu 18.04 parent company - provided)
+* `vagrant box add almalinux/9` (Official Almalinux 9 Red Hat Clone release)
+* `vagrant box add rockylinux/9` (Official Rocky Linux 9 Red Hat Clone release)
+* `vagrant box add terrywang/archlinux` (user provided Arch Linux distro)
+* `Vagrant box add opensuse/Tumbleweed.x86_64` (Suse rolling release official distro)
+* `vagrant box add freebsd/FreeBSD-14.0-CURRENT` (official FreeBSD vagrant box)
+* `vagrant box add ubuntu/jammy64` (Canonical--Ubuntu 22.04 parent company - provided)
+* `vagrant box add debian/bookworm64` (Official Debian Bookworm release)
 
 You may need to use a full URL in the case of downloading a Vagrant box that is not provided from HashiCorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a [Devuan](https://devuan.org/ "Devuan Home Page") box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
 
@@ -283,20 +279,20 @@ This command specifically enables the automatic installation of the VirtualBox A
 Here is a small walk through to install 2 different Vagrant boxes:
 
 1. Create a directory called vagrant on your host system (not in a virtual machine)
-1. In that directory create 2 sub-directories; `bionic64` and `centos7`
-1. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/bionic64`
+1. In that directory create 2 sub-directories; `jammy64` and `almalinux9`
+1. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/jammy64`
 1. Issue the command `vagrant up`
 1. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine - then exit the ssh session
-1. Repeat the above steps in the centos7 directory and replace the init command in step 3 with: `vagrant init centos/7`
+1. Repeat the above steps in the centos7 directory and replace the init command in step 3 with: `vagrant init alamlinux/9`
 1. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
 
 ## Packer
 
 ### The Problem Packer Solves
 
-By 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs. This problem was solved by HashiCorp and called [Packer](https://packer.io "Packer.io"). Packer, much like the name suggests, allows you to automate the installation of operating systems.  or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  Unlike installing software, there is no existing operating system when you are installing an operating system, making automatic installation difficult.
+By 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs. This problem was solved by HashiCorp and called [Packer](https://packer.io "Packer.io"). Packer, much like the name suggests, allows you to automate the installation of operating systems. Or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  Unlike installing software, there is no existing operating system when you are installing an operating system, making automatic installation difficult.
 
-Packer attacked this problem by creating its own binary which acts as a supervisor and initiates the proper key sequence to turn a manual install into and automated install via a JSON based build template.  This can take place on multiple formats or platforms and does not even focus on physical machines.  Packer uses already existing answer file technology for Linux, such as Kickstart and Preseed to allow for automated and repeatable installs to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]." Network installs have existed for decades, but this method always assumed a physical 1-to-1 infrastructure, which as you have seen in this class is no longer the only reality.  
+Packer attacked this problem by creating its own binary which acts as a supervisor and initiates the proper key sequences to turn a manual install into and automated install via a JSON based build template.  This can take place on multiple formats or platforms and does not even focus on physical machines.  Packer uses already existing answer file technology for Linux, such as Kickstart and Preseed to allow for automated and repeatable installs to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]." Network installs have existed for decades, but this method always assumed a physical 1-to-1 infrastructure, which as you have seen in this class is no longer the only reality.
 
 Having a code based automated configuration now lets you track, audit, and centralize your build template in version control. With minor modifications, you can now have centralized machine image construction and export to various hardware platforms.  You could build a VirtualBox VM, which could be exported to Vagrant or Amazon Web Services, or Docker. Now all of your developers, operations, testers, and QA can have access to the same machine on most any platform. As stated on the [Packer.io](https://packer.io "packer webpage") webpage the advantages of using packer are as follows[^156]:
 
@@ -313,12 +309,12 @@ Packer examples and example build code [https://github.com/jhajek/packer-vagrant
 
 #### Packer - Conventions
 
-HashiCorp essentially built a tool that captures each install step.  These steps are placed into a Packer build template or just template for short.  These templates are constructed using [JSON](https://en.wikipedia.org/wiki/JSON "JSON"). In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation. On Linux this "answer file" is split between the major Linux distribution families:
+HashiCorp essentially built a tool that captures each install step. These steps are placed into a Packer build template or just template for short. These templates are constructed using [HCL](https://github.com/hashicorp/hcl "wiki page for HCL"). In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation. Debian uses `pressed` format, Red Hat clones use `kickstart` and Ubuntu has their own called `subiquity`.
 
-#### Packer JSON Build Template
+#### Packer HCL Build Template
 
-Let us look at an example JSON template file: This source can be viewed from the source code of the book:
-[files > Chapter-13 > packer-build-templates > ubuntu_22043_vanilla](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ubuntu_22043_vanilla/ubuntu22043-vanilla-live-server.pkr.hcl "Packer Template")
+Let us look at an example HCL template file: This source can be viewed from the source code of the book:
+[files > Chapter-13 > packer-build-templates](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ "Packer Template")
 
 ```yaml
 ##############################################################################
@@ -357,8 +353,8 @@ source "virtualbox-iso" "ubuntu-22043-server" {
   rtc_time_base           = "UTC"
   # https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
-  iso_checksum            = "sha256:a4acfda10b18da50e2ec50ccaf860d7f20b389df8765611142305c0e911d16fd"
-  iso_urls                = ["http://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/ubuntu-22.04.3-live-server-amd64.iso"]  
+  iso_checksum            = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
+  iso_urls                = "${var.iso_url}"
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
   ssh_password            = "${var.user-ssh-password}"
@@ -388,19 +384,18 @@ build {
 
 ```
 
-There are 3 sections we are interested in:
+There are 3 blocks we are interested in:
 
-1. builders
-1. provisioners
-1. post-processors
+1. source block
+1. build block
+1. post-processor block
 
-#### Builders
+### Builders
 
-The majority of this information is taken from [https://www.packer.io/docs/](https://www.packer.io/docs/ "Packer docs"). Builders are the initial syntax needed to build for a single platform.  This forms the bulk of the JSON Key-Value pairs you see above in the sample template I provided.  The Builder of choice above is for VirtualBox initially, but if my target platform had been something else then I could have switched.  Note the syntax will be different for each builder as some require things others do not (Amazon and Azure require account keys for instance).  The builder in the template above is a VirtualBox ISO builder.  That is defined on line 2: ```"type": "virtualbox-iso"```. Many of these values will change or be different depending on the builder you use. Consult the documentation.
+The majority of this information is taken from [https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox](https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox "Webpage Packer VirtualBox docs"). We are using the `virtualBox-iso` builder. This builder starts from an ISO file, creates a brand new VirtualBox VM, installs an OS, provisions software within the OS, then exports that machine to create an image. This is best for people who want to start from scratch.
 
 [The builders available are:](https://www.packer.io/docs/builders/index.html "Packer builders available")
 
-1. Builders
 1. Alicloud ECS
 1. Amazon EC2
 1. Azure
@@ -433,153 +428,166 @@ The majority of this information is taken from [https://www.packer.io/docs/](htt
 1. VirtualBox
 1. VMware
 1. Yandex.Cloud
-1. Custom
 
 #### How the Operating System gets installed
 
 In the builder, there is an iso_url and iso_checksum values that will retrieve installation media and run a checksum against it to make sure that the file is not damaged or corrupt.
 
-```json
+```yaml
 
-"iso_urls": ["http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.5-server-amd64.iso"],
-"iso_checksum": "8c5fc24894394035402f66f3824beb7234b757dd2b5531379cb310cedfdf0996",
+iso_checksum = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
+iso_urls     = "${var.iso_url}"
 
 ```
 
-This URL is the actual remote location of the install media which will be retrieved and cached into a directory named packer_cache.  The iso file will be renamed with the iso_checksum. Subsequent packer_build commands will use this cached iso media.  You can also copy this cached iso file to other directories as long as it is placed in a local ```packer_cache``` directory--this can be used to speed up downloads.
+This URL is the actual remote location of the install media which will be retrieved and cached into a directory named packer_cache. The iso file will be renamed with the iso_checksum. Subsequent packer_build commands will use this cached iso media. In Windows and MacOS you can define a central Environement variable called `PACKER_CACHE_DIR` to enable centralized iso caching.
+
+### Source Block
+
+The source block takes two options, the type of virtual machine artifact you are making and the name you are giving this block. A build template can include multiple blocks for building multiple vms simultaniously.
+
+```yaml
+source "virtualbox-iso" "ubuntu-22043-server" {
+```
+
+This block contains the code needed to swithc the manual operating install process into an automated process, but providing the key sequences to type through Packer and the URL to an answer file. Packer hosts its own embeded webserver for this purpose that runs for just the duration of the `packer build` command.
+
+```yaml
+boot_command = [
+        "e<wait>",
+        "<down><down><down>",
+        "<end><bs><bs><bs><bs><wait>",
+        "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
+        "<f10><wait>"
+      ]
+```
+
+These remaining values are all the customizable settings you would configure in a manual install or via the Settings menu options. Code such as adding multiple disks or using uefi to book the system.
+
+```yaml
+
+  boot_wait               = "5s"
+  disk_size               = 35000
+  guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
+  guest_os_type           = "Ubuntu_64"
+  # Ubuntu answer file is located in the subiquity/http directory
+  http_directory          = "subiquity/http"
+  http_port_max           = 9200
+  http_port_min           = 9001
+  # Boot with UEFI not BIOS
+  firmware                = "efi"
+  # Use virtio drivers not SATA interface in the VM
+  hard_drive_interface    = "virtio"
+  # Add three additional harddrives at boot of 15GB each
+  disk_additional_size    = [15000,15000,15000]
+  rtc_time_base           = "UTC"
+  # https://www.virtualbox.org/manual/ch06.html
+  nic_type                = "virtio"
+  iso_checksum            = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
+  iso_urls                = "${var.iso_url}"
+  shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
+  # Username and passowrd configured in the subiquity/http/user-data file
+  ssh_username            = "vagrant"
+  ssh_password            = "${var.user-ssh-password}"
+  # Timeout incase the process takes too long or hangs
+  ssh_timeout             = "45m"
+  cpus                    = 2
+  # Defined in the variables.pkr.hcl standard file 
+  memory                  = "${var.memory_amount}"
+  # Change to --nat-localhostreachable1 forced by https://github.com/hashicorp/packer/issues/12118
+  vboxmanage              = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
+  virtualbox_version_file = ".vbox_version"
+  vm_name                 = "jammy-server"
+  headless                = "${var.headless_build}"
+}
+```
+
+### Build Block
+
+The Build block is where you tell Packer what to build. You include the source blocks you want to build by name in the format shown using the artifact format and source block name you defined.
+
+```yaml
+build {
+  sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+
+  provisioner "shell" {
+    execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
+  }
+}
+```
 
 #### Provisioners
 
-Provisioner are tools that you can use to customize your machine image after the base install is finished.  Though tempting to just use the Kickstart or Pressed files to do the custom install--this is not a good idea.  You should leave the "answer files" as clean or basic as possible so that you may reuse them and do your customization here via a provisioner.
+Provisioner are tools that you can use to customize your machine image after the base install is finished. Though tempting to just use the Kickstart or Pressed files to do the custom install--this is not a good idea. You should leave the "answer files" as clean or basic as possible so that you may reuse them and do your customization here via a provisioner. In this example we use a single shell script, but you can have lists of shell scripts as well as integrate with configuration software
 
-```json
-"provisioners": [
-  {
-    "type": "shell",
-    "execute_command" : "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-    "script": "../scripts/post_install_vagrant.sh"
+```yaml
+build {
+sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+
+provisioner "shell" {
+  execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+  script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
   }
-]
+}
 ```
 
-In the sample above I chose to implement an inline shell command, "execute command" and then via a shell script.  Shell scripts are very easy to use and flexible.  Provisioners can also be connected to use Provisioning 3rd party tools such as Puppet, Chef, Salt, Ansible, as well as PowerShell.  These tools are called Orchestration tools and I would recommend checking them out if your interest or job lies in this domain.
-
-If you are using Packer to build Vagrant boxes, this code below is needed to be included in a shell script that is run in the provisioners block via a script key-value pair.  Contents would look like below, and you would add any additional code after these lines.  This is nothing but a shell script so any Linux commands you would normally execute in a shell script can be executed here.
-
-```bash
-
-#!/bin/bash
-set -e
-set -v
-
-# http://superuser.com/questions/196848/how-do-i-create-an-administrator-user-on-ubuntu
-# http://unix.stackexchange.com/questions/1416/redirecting-stdout-to-a-file-you-dont-have-write-permission-on
-# This line assumes the user you created in the preseed directory is vagrant
-echo "vagrant ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/init-users
-sudo cat /etc/sudoers.d/init-users
-
-# Installing vagrant keys
-wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
-sudo mkdir -p /home/vagrant/.ssh
-sudo chown -R vagrant:vagrant /home/vagrant/.ssh
-cat ./vagrant.pub >> /home/vagrant/.ssh/authorized_keys
-sudo chown -R vagrant:vagrant /home/vagrant/.ssh/authorized_keys
-echo "All Done!"
-
-# Add additional code here
-
+```yaml
+# Using multiple shell scripts
+provisioner "shell" {
+  execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+  scripts          = ["../scripts/post_install_ubuntu_2204_vagrant.sh".
+                      " ../scripts/install-webserver.sh",
+                      " ../scripts/install-database.sh",
+                      " ../scripts/create-users.sh]
+  }
+}
 ```
 
-Provisioners allow you to have multiple provision scripts.  Some people like to split functionality over multiple shell scripts or use multiple methods.  The `shell` provisioner also has the capability to execute inline Linux commands, incase you need to setup some internal structure.  Also you can use this method to copy code into the Virtual Machine you are created.  If you clone a Git repo to your local system, you can copy that application code directly into your virtual machine as Packer is building it.
+#### Post-processors
 
-```json
-{
-  "type": "shell",
-  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-  "inline": [
+This final part of the build block is where you can convert your original artifact into 1 of the 30_ other virtualization formats that come built in with Packer. This is one of the cheif benefits that you can build a virtulmachine for VirtulaBox, Paralles, Proxmox, VMware, and Amazon EC2 all from a single source.
+
+Packer has the ability to build a virtual machine or OS Container once and export it to many different types of platforms in a single execution stretch.  The initial artifact can be exported and converted across all of the formats listed below. Therein lies the power of Packer as you can deploy your production environment to any platform for any person: Dev, QA, Test, Ops, Sec, and so forth.
+
+Once the Build step and Provision step are complete the last step (which is optional) is the post-processor step. This is where you can convert your base image you built into various other formats. Note that the directory named "build" is completely arbitrary and was created by me as it made sense.
+
+```yaml
+post-processor "vagrant" {
+  keep_input_artifact = false
+  output = "../build/{{ .BuildName }}-${local.timestamp}.box"
+  }
+```
+
+#### Inline Shell Script Execution
+
+Provisioners allow you to have multiple provision scripts. Some people like to split functionality over multiple shell scripts or use multiple methods. The `shell` provisioner also has the capability to execute inline Linux commands, incase you need to setup some internal structure. Also you can use this method to copy code into the Virtual Machine you are created. If you clone a Git repo to your local system, you can copy that application code directly into your virtual machine as Packer is building it.
+
+```yaml
+# Executing inline shell commands
+provisioner "shell" {
+  execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+"inline" = [
     "mkdir -p /home/vagrant/.ssh",
     "mkdir -p /root/.ssh",
     "chmod 600 /home/vagrant/id_rsa_github_deploy_key",
     "cp -v /home/vagrant/id_rsa_github_deploy_key /home/vagrant/.ssh/",
     "cp -v ./applicaiton-code/html /var/www/html/",
-    "cp -v ./mysql/.my.cnf /home/vagrant",
+    "cp -v ./mysql/.my.cnf /home/vagrant"
   ]
 }
 ```
 
-#### Post-Processors
-
-Packer has the ability to build a virtual machine or OS Container once and export it to many different types of platforms in a single execution stretch.  The initial artifact can be exported and converted across all of the formats listed below.  Therein lies the power of Packer as you can deploy your production environment to any platform for any person: Dev, QA, Test, Ops, Sec, and so forth.
-
-Once the Build step and Provision step are complete the last step (which is optional) is the post-processor step.  This is where you can convert your base image you built into various other formats.  Note that the directory named "build"  is completely arbitrary and was created by me as it made sense.
-
-```json
-"post-processors": [
-  {
-    "type": "vagrant",
-    "keep_input_artifact": true,
-    "output": "../build/{{.BuildName}}-{{.Provider}}-{{timestamp}}.box"  
-  }
-]
-```
-
-Here you see I am converting the VirtualBox `.ovf` file into a Vagrant Box file `.box`.   If you leave off the keep_input_artifact option, the initial artifact will be deleted and only the post-processor result will remain.  If you are concerned about hard drive space - set this value to false.
-
-[Post-Processing includes:](https://www.packer.io/docs/post-processors/index.html "Packer.io post-processing options")
-
-1. Alicloud Import
-1. Amazon Import
-1. Artifice
-1. Compress
-1. Checksum
-1. DigitalOcean Import
-1. Docker Import
-1. Docker Push
-1. Docker Save
-1. Docker Tag
-1. Exoscale Import
-1. Google Compute Export
-1. Google Compute Import
-1. Manifest
-1. Shell (Local)
-1. Vagrant
-1. Vagrant Cloud
-1. vSphere
-1. vSphere Template
-
-You can use multiple post-processors if desired.
-
 #### vboxmanage
 
-This command allows you to issue custom VirtualBox commands from within Packer. This is helpful for modifying hardware, such as number of CPUs and memory allocated during the install.  Also you can modify the number of attached disks programmatically.
+This command allows you to issue custom VirtualBox commands from within Packer.
 
-```json
-"vboxmanage": [
-  [
-    "modifyvm",
-    "{{.Name}}",
-    "--memory",
-    "2048"
-  ]
-]
+```yaml
+# Change forced by https://github.com/hashicorp/packer/issues/12118
+vboxmanage = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
 ```
 
-```json
-"vboxmanage": [
-  [
-    "modifyvm",
-    "{{.Name}}",
-    "--memory",
-    "2048"
-  ],
-  ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk3.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
-  ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk3.vdi"],
-  ["createhd", "--filename", "output-virtualbox/packer-virtualbox-disk4.vdi", "--size", "15000", "--format", "VDI", "--variant", "Standard"],
-  ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "output-virtualbox/packer-virtualbox-disk4.vdi"]
-]
-```
-
-#### Packer, Putting it Together
+### Packer, Putting it Together
 
 There are two key commands to use in Packer, assuming you have added the packer executable to your system path.  First type: packer -v and see if you get version information output.
 
@@ -613,27 +621,28 @@ If any part of the Packer build step fails or generates and error, Packer will r
 
 ### Answer Files
 
-Most operating system installations are designed for a manual install process.  This makes sense as for almost 40 years we have been using PC's (Personal Computers).  A first step in automating the install process is to automate the answering of the installation questions.  This is the most repetitive process of the install, as well as something that is not conducive to the human, as you spend most of your time waiting.  
+Most operating system installations are designed for a manual install process. This makes sense as for almost 40 years we have been using PC's (Personal Computers). A first step in automating the install process is to automate the answering of the installation questions.  This is the most repetitive process of the install, as well as something that is not conducive to the human, as you spend most of your time waiting.  
 
 #### Fedora and Kickstart
 
 The first solution came from Sun in 1994 and was called [Jumpstart](https://en.wikipedia.org/wiki/JumpStart_(Solaris) "jumpstart"). This was used to hold installation information and as a target system was booted, it would communicate to the Jumpstart server and complete the entire install over the network, OS and handle configuration.
 
-The next phase came in Linux with Fedora creating the [Kickstart](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Kickstart Reference") answer file system.  Kickstart does not handle the part of OS install, but the OS configuration and software retrieval/installation.  Kickstart files can be generated from a template or scratch or upon a successful install a default kickstart is located in the location ```/root/anaconda-ks.cfg```. Examples and explanation resources can be found here:
+The next phase came in Linux with Fedora creating the [Kickstart](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Kickstart Reference") answer file system. Kickstart does not handle the part of OS install, but the OS configuration and software retrieval/installation. Kickstart files can be generated from a template or scratch or upon a successful install a default kickstart is located in the location `/root/anaconda-ks.cfg`. Examples and explanation resources can be found here:
 
 * [Fedora Kickstart Reference](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Fedora Kickstart Reference")
 * [CentOS Kickstart Reference](https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html "CentOS Kickstart Reference")
 
-#### Debian, Ubuntu, and Preseed
+#### Debian and Preseed
 
-[Debian/Ubuntu pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed")  Debian created their own answer file system called [preseed].  You can interrupt a manual install and point to a kickstart file, but it needs to be done over the network.  When you are installing an operating system you don't yet have a filesystem to read files from!  
+[Debian pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed") Debian created their own answer file system called [preseed]. You can interrupt a manual install and point to a preseed file, but it needs to be done over the network. When you are installing an operating system you don't yet have a filesystem to read files from!  
 
-Working example of a preseed and a kickstart file can be found in the source code of the book: ```files > Chapter-13 > packer-build-templates > preseed``` and ```files > Chapter-13 > packer-build-templates > ks```
-
-Preseed Used for all Debian and Ubuntu based server installs - example and explanation resources can be found here:
+Preseed Used for all Debian based server installs - example and explanation resources can be found here:
 
 * [Sample Preseed Template](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt "Preseed Template")
-* [Preseed Ubuntu Guide](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed Guide")
+
+#### Ubuntu and Subiquity
+
+Ubuntu has moved off of using preseed and to a tool named `auto-installer` and `subiquity`. It makes use of `cloud-init` which 
 
 ### Putting Vagrant and Packer together
 
