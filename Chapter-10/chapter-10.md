@@ -754,11 +754,11 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 
 #### Lab 10 Outcomes
 
-At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.  After each item take a screenshot and place it below the question to demonstrate the answer (unless specified otherwise).  Edit your screenshots to show just the relevant information.
+At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd. After each item take a screenshot and place it below the question to demonstrate the answer (unless specified otherwise). Edit your screenshots to show just the relevant information.
 
 1) Take a screenshot of the Advanced GRUB boot settings in an Ubuntu virtual Machine (you can access this menu by starting a virtual machine from a cold start, click your mouse into the virtualbox window immediately after the VM starts and hold the **shift** key down until you see the GRUB menu). Select the Advanced option and take the screenshot of the kernels and the recovery options.
 
-1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`.  Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, and now take a screenshot of the same menu that is missing the recovery options.
+1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`. Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, and now take a screenshot of the same menu that is missing the recovery options.
 
 1) Use the `systemd-analyze` tool to print out the most recent boot times for your Fedora virtual machine.
 
@@ -795,7 +795,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Find the sample file located in: files > Chapter-10 > python > iloop.py.  Copy this file to `/usr/local/bin` and then execute the file by typing: `iloop.py`, type Ctrl+C to exit: take a screenshot of the output
 
-1) Copy the sample template file located in: files > Chapter-10 > python > iloop.service to your `/lib/systemd/system` directory. Edit the iloop.service file adding a description, type simple, private tmp true, wantedby multi-user.target, and ExecStart the absolute path to the python3 binary and absolute path to iloop.py.  Take a screenshot of the output of the systemctl start command and then the status command.
+1) Copy the sample template file located in: files > Chapter-10 > python > iloop.service to your `/lib/systemd/system` directory. Edit the iloop.service file adding a description, type simple, private tmp true, wantedby multi-user.target, and ExecStart the absolute path to the python3 binary and absolute path to iloop.py. Take a screenshot of the output of the systemctl start command and then the status command.
 
 1) Using the `systemd-cgls` command find the cgroup ID for the iloop.service and take a screenshot of that entry. After taking the screenshot execute the systemctl stop command for the iloop.service.
 
