@@ -786,7 +786,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Install the package for `systemd-oomd`, using the `man` command explain what `oomctl` does?
 
-1) List the three headers or parts of a `.service` file?
+1) List the three headers or parts of a `.service` file
 
 1) Using the command `timedatectl status`, copy the text output to your answer here. Use the `man` command to find hwo to change your system clock to `UTC`. Run the `timedatectl status` again and copy the output showing the difference--a screen shot is acceptable as well.
 
