@@ -6,7 +6,7 @@ variable "memory_amount" {
 variable "SSHPW" {
   sensitive = true
   type = string
-  default = ""
+  default = "vagrant"
 }
 
 variable "build_artifact_location" {
