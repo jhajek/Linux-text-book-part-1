@@ -6,7 +6,7 @@ How to install;
 
 1. You can just open the markdown (.md) in Visual Studio Code Editor (great free editor with Markdown preview support built in and it is cross platform Windows, Mac and Linux!) [Here is the link](https://code.visualstudio.com/)
 
-2. Use Pandoc to build your output (This README assumes you are using Linux, but these instructions can be adapted to build on Mac and Windows since pandoc has multiple distributions
+2. Use Pandoc to build your output. This README assumes you are using Linux, but these instructions can be adapted to build on Mac and Windows since pandoc has multiple distributions
 
 [Install Instructions](http://pandoc.org/installing.html)
 
@@ -31,7 +31,7 @@ Install these via this command:
 sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin
 ```
 
-Additional Fonts are needed.  To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu can add the repo via these steps:
+Additional Fonts are needed. To add the [Charis Sil font](http://packages.sil.org/ "Charis SIL") to Ubuntu can add the repo via these steps:
 
 * ```wget http://packages.sil.org/sil.gpg```
 * ```sudo apt-key add sil.gpg```

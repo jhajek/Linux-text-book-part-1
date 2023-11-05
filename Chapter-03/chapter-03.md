@@ -17,37 +17,15 @@
 
 At the end of this chapter you will understand how to complete multiple installations of all the major Linux and BSD platforms. You will be comfortable using industry standard virtualization platforms to enable rapid install of operating systems. You will also be familiar with and be able to differentiate between processor architectures. You will be able to install packages and manage dependencies through using standard package managers. Finally, you will also be comfortable compiling software from source using a tar ball and python setup-tools.
 
-## Installation of a Linux Distribution
-
-The byproduct of opensource and free software is that the actual source code is available. Though you can download all of the major Linux and BSD operating systems at no cost due, this is not because of free and opensource software, it is a byproduct of the licenses. We will be downloading and installing 20 plus operating systems in the lab for this chapter. This makes the barrier to entry for using a Linux distro very small. As noted previously, in the early days of Linux, installation was not very user friendly. Over the past two decades, however, the various distros have perfected software packaging and installation has since become very simple and extremely user friendly.
-
-How would one install a Linux distro on a computer?  The first thing you need is an *ISO* file. An [ISO (*"eye-so"*)](https://en.wikipedia.org/wiki/ISO_9660 "ISO 9600 standard") file is actually a standard file type that represents the contents of a CD/DVD-ROM in a single archived file format, like a zip file.  Think of ISOs as carrying mechanisms for the content of a disk based installer. The reason the ISO term and format are tied to the Linux Distro installation process is a historical one. During the mid 90s Linux rose to prominence at the same time as CD-ROM technology began to become affordable and became the method of data distribution that replaced floppy and Zip disks amongst PCs. It made sense to create distributions that were almost the exact size of a CD-ROM because it made distributing and copying very easy Linux very easy. In this way Linux spread rapidly. That limitation has been lifted due to the spread of high-speed internet and the deprecation of CD-ROMS in computers.
-
-ISO files can be burned or written to various types of media. CD-ROMs, DVD-ROMs, and more recently USB drives and SD Cards. As of August 2018 you would be hard pressed to find an optical drive on a laptop, 2-in-1s, or even a desktop PC. Though many older and still usable PCs have optical drives. One of the best tools I have found for creating bootable install media on USB drives or [SD Cards](https://en.wikipedia.org/wiki/SD_card "Wiki page for SD cards") is [etcher.io](https://etcher.io/ "Etcher").
-
-![*Etcher init screen*](images/Chapter-03/etcher/etcher-io.png "Etcher")
-
-The Fedora Project provides its own media writer which can be used with ISOs and has a download feature built into it.  You can download this tool from [the Fedora Project directly](https://getfedora.org/en/workstation/download/ "The Fedora Media Writer").
-
-The RaspberryPi Foundation also has their own media writer, [the RaspberryPi Imager](https://www.raspberrypi.org/downloads/ "RaspberryPi Image Writer website") which makes dealing with SD Card based Operating Systems very convenient.  Their tool also has the auto-download of operating system version feature -- which caches the downloads.
-
-One other tool that is of use is Rufus. [Rufus is](https://rufus.ie/ "Rufus image writer web page"): "A utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc."  Rufus is fast and can be used to create Linux images as well as Windows and even DOS boot disks, should the need arise.
-
-### Importance of ISOs
-
-These tools takes away the difficulty out of making install media. You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source.
-
-While you can burn ISO files to media for installation on a desktop or laptop, ISO files also have utility for installing a Linux distribution into a virtualization platform.
-
 ## Virtual Machines
 
-Every operating system is made up of multiple components as we mentioned in chapter 2. These components are separated by privilege rings. These rings are for process privilege separation and are built in security for the operating system. With the higher numbered rings being the least privileged. Traditionally user applications are in ring 4 (sometimes called ["*userland*" or *"user space"*](https://en.wikipedia.org/wiki/User_space "user space") and the kernel which has the most power is in ring 0.  For instance a program a user writes cannot just talk directly to the video card and write to the video memory for the screen.  The program needs to go through the OS which in turn goes through the kernel allowing or enforcing commands to be executed.  How then does virtualization fit in? Virtualization or called a [hypervisor](https://en.wikipedia.org/wiki/Hypervisor "Hypervisor") is a new ring that inserts itself between the OS and the kernel to intercept commands and is called ring -1.
+Every operating system is made up of multiple components as we mentioned in chapter 2. These components are separated by privilege rings. These rings are for process privilege separation and are built in security for the operating system. With the higher numbered rings being the least privileged. Traditionally user applications are in ring 4 (sometimes called ["*userland*" or *"user space"*](https://en.wikipedia.org/wiki/User_space "user space") and the kernel which has the most power is in ring 0.  For instance a program a user writes cannot just talk directly to the video card and write to the video memory for the screen. The program needs to go through the OS which in turn goes through the kernel allowing or enforcing commands to be executed. How then does virtualization fit in? Virtualization or called a [hypervisor](https://en.wikipedia.org/wiki/Hypervisor "Hypervisor") is a new ring that inserts itself between the OS and the kernel to intercept commands and is called ring -1.
 
 ### One Ring to Rule Them All...Operating System Rings
 
 ![*Operating System Rings*](images/Chapter-03/Hypervisor/500px-Priv_rings.svg.png "One Ring")
 
-Virtualization works because your CPU[^19].  To do this, AMD and Intel introduced extensions, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica), to assist virtualization. Both instruction sets add "nine new machine code instructions that only work at 'Ring -1,' intended to be used by the hypervisor" ([Andy Dorman - Informationweek](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")).  When using virtualization, you are functionally running multiple operating systems at one time.  Technically this is not possible as only one operating system can have control of your hardware at a time - so how does a hypervisor and virtualization make this work?  
+Virtualization works because your CPU[^19]. To do this, AMD and Intel introduced extensions, [VT-x and AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29 "x86 virtualization") (called Pacifica), to assist virtualization. Both instruction sets add "nine new machine code instructions that only work at 'Ring -1,' intended to be used by the hypervisor" ([Andy Dorman - Informationweek](http://web.archive.org/web/20130530214041/http://www.informationweek.com/intel-vt-vs-amd-pacifica/172302134 "x86 extensions")). When using virtualization, you are functionally running multiple operating systems at one time. Technically this is not possible as only one operating system can have control of your hardware at a time - so how does a hypervisor and virtualization make this work?  
 
 ### Virtualization Diagram
 
@@ -97,6 +75,29 @@ TYPE I is used in server environments on hardware utilizing multiple core CPUs, 
 * [XEN](https://xenproject.org/ "Xen Project")
 * [bhyve](https://bhyve.org/ "byhyve virtualixation project")
   * Supported on FreeBSD, macOS, and Illumos
+
+## Installation of a Linux Distribution
+
+The byproduct of opensource and free software is that the actual source code is available. Though you can download all of the major Linux and BSD operating systems at no cost, this is not because of free and opensource software, it is a byproduct of the licenses. We will be downloading and installing 20 plus operating systems in the lab for this chapter. This makes the barrier to entry for using a Linux distro very small. As noted previously, in the early days of Linux, installation was not very user friendly. Over the past two decades, however, the various distros have perfected software packaging and installation has since become very simple and extremely user friendly.
+
+How would one install a Linux distro on a computer?  The first thing you need is an *ISO* file. An [ISO (*"eye-so"*)](https://en.wikipedia.org/wiki/ISO_9660 "ISO 9600 standard") file is actually a standard file type that represents the contents of a CD/DVD-ROM in a single archived file format, like a zip file.  Think of ISOs as carrying mechanisms for the content of a disk based installer. The reason the ISO term and format are tied to the Linux Distro installation process is a historical one. During the mid 90s Linux rose to prominence at the same time as CD-ROM technology began to become affordable and became the method of data distribution that replaced floppy and Zip disks amongst PCs. It made sense to create distributions that were almost the exact size of a CD-ROM because it made distributing and copying very easy Linux very easy. In this way Linux spread rapidly. That limitation has been lifted due to the spread of high-speed internet and the deprecation of CD-ROMS in computers.
+
+ISO files can be burned or written to various types of media. CD-ROMs, DVD-ROMs, and more recently USB drives and SD Cards. As of August 2018 you would be hard pressed to find an optical drive on a laptop, 2-in-1s, or even a desktop PC. Though many older and still usable PCs have optical drives. One of the best tools I have found for creating bootable install media on USB drives or [SD Cards](https://en.wikipedia.org/wiki/SD_card "Wiki page for SD cards") is [etcher.io](https://etcher.io/ "Etcher").
+
+![*Etcher init screen*](images/Chapter-03/etcher/etcher-io.png "Etcher")
+
+The Fedora Project provides its own media writer which can be used with ISOs and has a download feature built into it.  You can download this tool from [the Fedora Project directly](https://getfedora.org/en/workstation/download/ "The Fedora Media Writer").
+
+The RaspberryPi Foundation also has their own media writer, [the RaspberryPi Imager](https://www.raspberrypi.org/downloads/ "RaspberryPi Image Writer website") which makes dealing with SD Card based Operating Systems very convenient.  Their tool also has the auto-download of operating system version feature -- which caches the downloads.
+
+One other tool that is of use is Rufus. [Rufus is](https://rufus.ie/ "Rufus image writer web page"): "A utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc."  Rufus is fast and can be used to create Linux images as well as Windows and even DOS boot disks, should the need arise.
+
+### Importance of ISOs
+
+These tools takes away the difficulty out of making install media. You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source.
+
+While you can burn ISO files to media for installation on a desktop or laptop, ISO files also have utility for installing a Linux distribution into a virtualization platform.
+
 
 ## Installations and ISOs
 
@@ -305,7 +306,7 @@ This style of software installation put a high barrier to who could practically 
 
 The first package manager was __dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primitive package manager. The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
 
-A Debian package (or ```.deb``` file) is really just made up of two tarballs [^107]. One is the control data which is listed as such:
+A Debian package (or ```.deb``` file) is really just made up of two tarballs[^107]. One is the control data which is listed as such:
 
 ```yaml
      Package: hello
