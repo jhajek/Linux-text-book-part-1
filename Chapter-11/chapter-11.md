@@ -244,6 +244,7 @@ Since LVs are logical they can also be extended and reduced on the fly.
 * The command `sudo lvextend -L 50G /dev/VG-NAME/LV-NAME` will extend the LV to become 50 GB in size. 
 * Using `-L+50G` will add 50 additional gigabytes to an existing LV's size. 
 * Using the command `sudo lvextend -l +100%FREE /dev/VG-NAME/LV-NAME` will extend the disk to fill all additional free space
+  * Find the device name, run the command: `df -H`
   * Note you have to run the command `sudo resize2fs /dev/VG-NAME/LV-NAME`
   * This will resize the filesystem to the size you extnded your logical volume to
 
