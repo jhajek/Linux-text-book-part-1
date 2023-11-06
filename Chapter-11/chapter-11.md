@@ -49,18 +49,21 @@ The original SSD disks were put out by RAM manufacturers and had RAM controller 
 
 ### NVMe
 
-The latest incarnation of SSD disk based technology is [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") which stands for Non-Volatile Memory Express. These are solid state drives, but instead of sending data over the SATA interface, they connect directly to the high-speed PCIe bus, just like your video card does. The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 4x parallel transfer lanes as opposed to a serial fashion which SATA was designed for. NVMe comes in expansion card factor and in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137]. The price is high as the technology is still relatively new, but the performance gain is worth the investment.
+The latest incarnation of SSD disk based technology is [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") which stands for Non-Volatile Memory Express. These are solid state drives, but instead of sending data over the SATA interface, they connect directly to the high-speed PCIe bus, just like your video card does. The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 16x parallel transfer lanes as opposed to a serial fashion which SATA was designed for. NVMe comes in expansion card factor and in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137].
 
-   PCIe Version     Per Lane Throughput        1x        4x          8x        16x
------------------  ----------------------  ---------- ---------- ---------- -----------
-     PCIe 1.0       2 Gbit/s (250 MB/s)     2 Gbit/s   8 Gbit/s   16 Gbit/s  32 Gbit/s
-     PCIe 2.0       4 Gbit/s (500 MB/s)     4 Gbit/s   16 Gbit/s  32 Gbit/s  64 Gbit/s
-     PCIe 3.0       7 Gbit/s                7 Gbit/s   28 Gbit/s  56 Gbit/s  112 Gbit/s
-     PCIe 4.0       15 Gbit/s               15 Gbit/s  60 Gbit/s  120 Gbit/s 240 Gbit/s
+   PCIe Version     Per Lane Throughput        1x        4x             8x           16x
+-----------------  ----------------------  ---------- ------------ ------------- -------------
+     PCIe 1.0              2 GT/s            250 MB/s   1 GB/s       2 GB/s         4 GB/s
+     PCIe 2.0              4 GT/s            500 MB/s   2 GB/s       4 GB/s         8 GB/s
+     PCIe 3.0              7 GT/s            985 MB/s   3.9 GB/s     7.8 GB/s      15.75 GB/s
+     PCIe 4.0              15 GT/s           1.97 GB/s  7.88 GB/s    15.6 GB/s     31.5 GB/s
+     PCIe 5.0              25 GT/s           3.94 GB/s  15.76 GB/s   124.8 GB/s    63.8 GB/s
 
-![*mini-Sata and M.2*](images/Chapter-11/ssd/M.2_and_mSATA_SSDs_comparison.jpg "mini-Sata and M.2")
+![*M.2 NVMe SSD Drive[^ch11f145]*](images/Chapter-11/ssd/640px-Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr°0915.jpg "Samsung NVMe SSD Drive")
 
-The future of disk is something of a hybrid between ram and solid state/flash memory. Intel launched a trademarked platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane"). The target is cloud based servers running OS Containers and Virtualized platforms. The idea is to increase the speed of disk to the point that is is close to or equal in speed to RAM (Non-volitile memory), thereby eliminating potential memory bottlenecks. Though Optane was a technology that was before its time, as Intel [shutdown the Optane division in 2021](https://www.pcworld.com/article/3604093/intel-quietly-kills-its-face-melting-optane-desktop-ssds.html "webpage Intel Optane closure article").
+#### The RAM Future That Wouldn't be
+
+Intel had an idea that the future of disk was something of a hybrid between ram and solid state/flash memory. Intel launched a trademarked platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane"). The target is cloud based servers running OS Containers and Virtualized platforms. The idea is to increase the speed of disk to the point that is is close to or equal in speed to RAM (Non-volitile memory), thereby eliminating potential memory bottlenecks. Optane was a technology that was before its time, as Intel [shutdown the Optane division in 2021](https://www.pcworld.com/article/3604093/intel-quietly-kills-its-face-melting-optane-desktop-ssds.html "webpage Intel Optane closure article").
 
 ### Network Harddrives
 
@@ -1083,3 +1086,5 @@ At the conclusion of this lab you will have successfully created a new virtual d
 [^143]: [https://pthree.org/2012/12/11/zfs-administration-part-vi-scrub-and-resilver/](https://pthree.org/2012/12/11/zfs-administration-part-vi-scrub-and-resilver/ "hdparm")
 
 [^144]: <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0 By Redline</a> <a href="https://commons.wikimedia.org/wiki/File:HP_EVA4400-1.jpg">from Wikimedia Commons</a>
+
+[^ch11f145]: By D-Kuru - Own work, CC BY-SA 4.0, [https://commons.wikimedia.org/w/index.php?curid=116485452](https://commons.wikimedia.org/w/index.php?curid=116485452 "By D-Kuru - Own work, CC BY-SA 4.0")
