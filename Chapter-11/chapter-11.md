@@ -229,22 +229,22 @@ The first thing to do in creating an LVM partition is to figure out what kind of
 
 ### Volume Groups
 
-Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to. The command to add PVs to an LG is: `vgcreate VOLUME-GROUP-NAME /dev/sdx /dev/sdy`. You can extend this volume group by simply adding another `pvcreate /dev/sdx1` command for example and then using the `vgextend VOLUME-GROUP-NAME /dev/sdz`. There is also a `vgreduce` command that will remove a PV from a Volume Group.  
+Once you have added the disks/partitions to the PV, now you need to create a Volume Group (VG) to add those PVs to. The command to add PVs to an LG is: `vgcreate VG-NAME /dev/sdx /dev/sdy`. You can extend this volume group by simply adding another `pvcreate /dev/sdx1` command for example and then using the `vgextend VG-NAME /dev/sdz`. There is also a `vgreduce` command that will remove a PV from a Volume Group.  
 
 The volume group allows for a single logical management unit for multiple disk/partitions. This is useful as well for adding additional storage and removing storage devices that may have failed or are not performing at required parameters. You can display the details of your volume groups with the command: `sudo vgdisplay`.
 
 ### Logical Volumes
 
-From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command `sudo lvcreate -n LOGICAL-VOLUME-NAME --size 250G VOLUME-GROUP-TO-ATTACH-TO`. The `vgdisplay` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to linear, but that is an application based decision.
+From within our Volume Group (VG) we can now carve out smaller LV (Logical Volumes).  The nice part here is that the Logical Volumes don't have to match any partition or disk size--since they are logically based on the combined size of the Volume Group which has extents mapped across those disks.  Use the command `sudo lvcreate -n LV-NAME --size 250G VG-NAME`. The `vgdisplay` command will show what had been created and what is attached to where. There are options to make the LV striped extents as opposed to linear, but that is an application based decision.
 
 ### Extending Logical Volumes
 
 Since LVs are logical they can also be extended and reduced on the fly.  
 
-* The command `sudo lvextend -L 50G /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME` will extend the LV to become 50 GB in size. 
+* The command `sudo lvextend -L 50G /dev/VG-NAME/LV-NAME` will extend the LV to become 50 GB in size. 
 * Using `-L+50G` will add 50 additional gigabytes to an existing LV's size. 
-* Using the command `sudo lvextend -l +100%FREE /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME` will extend the disk to fill all additional free space
-  * Note you have to run the command `sudo resize2fs /dev/VOLUME-GROUP-NAME/LOGICAL-VOLUME-NAME`
+* Using the command `sudo lvextend -l +100%FREE /dev/VG-NAME/LV-NAME` will extend the disk to fill all additional free space
+  * Note you have to run the command `sudo resize2fs /dev/VG-NAME/LV-NAME`
   * This will resize the filesystem to the size you extnded your logical volume to
 
 ### LVM Snapshots
