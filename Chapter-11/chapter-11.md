@@ -22,7 +22,7 @@ In looking at the prices of disk based storage from the Fall of 2015, a single t
 
 The original, cheapest, and densest storage type in dollars per megabit is still a mechanical hard drive. Often referred to as an HDD[^135] or magnetic drive.
 
-![*Hard Drive*](images/Chapter-11/hdd/256px-Laptop-hard-drive-exposed.jpg "Hard Drive Internals")
+![*Hard Drive[^ch11f146]*](images/Chapter-11/hdd/427px-Laptop-hard-drive-exposed.jpg "Hard Drive Internals")
 
 These are made up of spinning platters where bits are stored via magnetic charge.  These systems have down sides in that parts of the surface wear out over time as well as they have mechanical parts (servos) that can fail over time. They require constant amounts of power and if you scale this over large data centers, these costs can quickly add up. In addition as the size of storage density has increased, the need to develop new storage mediums has arisen. 
 
@@ -1088,3 +1088,5 @@ At the conclusion of this lab you will have successfully created a new virtual d
 [^144]: <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0 By Redline</a> <a href="https://commons.wikimedia.org/wiki/File:HP_EVA4400-1.jpg">from Wikimedia Commons</a>
 
 [^ch11f145]: By D-Kuru - Own work, CC BY-SA 4.0, [https://commons.wikimedia.org/w/index.php?curid=116485452](https://commons.wikimedia.org/w/index.php?curid=116485452 "By D-Kuru - Own work, CC BY-SA 4.0")
+
+[^ch11f146]: By Evan-Amos - Own work, CC BY-SA 3.0, [https://commons.wikimedia.org/w/index.php?curid=27940250](https://commons.wikimedia.org/w/index.php?curid=27940250 "By Evan-Amos - Own work, CC BY-SA 3.0")
