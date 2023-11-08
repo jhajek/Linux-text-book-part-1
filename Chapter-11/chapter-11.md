@@ -18,7 +18,7 @@ At the conclusion of this chapter you will be able to add additional virtual dis
 
 In looking at the prices of disk based storage from the Fall of 2015, a single terabyte Western Digital Blue hard drive was selling for ~$50. In the time since, the price of storage has only decreased. Storage is cheap and with that in mind, adding *storage* or *capacity* to a system is trivial. The types of storage available since 2015 have changed drastically.
 
-### Mechanical Hard Drives HDDs
+### Mechanical Hard Drives and SATA Connectors
 
 The original, cheapest, and densest storage type in dollars per megabit is still a mechanical hard drive. Often referred to as an HDD[^135] or magnetic drive.
 
@@ -28,28 +28,34 @@ These are made up of spinning platters where bits are stored via magnetic charge
 
 What was once a single magnetic platter, became three parallel platters, then became five spinning platters, which then became glass platters, which then became vertical electron based storage (somehow they got electrons to stand up instead of lay flat...), then moving to [helium filled 10 TB disks](https://www.anandtech.com/show/9955/seagate-unveils-10-tb-heliumfilled-hard-disk-drive "Seagate 10TB helium filled disks") and as of 2022, [Western Digital 26 TB disks](https://www.westerndigital.com/products/internal-drives/data-center-drives/ultrastar-dc-hc670-hdd?sku=ultrastar-dc-hc670-26-tb "webpage WD 25 TB disks").
 
-As disks became bigger, new patterns for reading and writing data were created: SATA 1, 2, and 3.x bus technology was introduced for transmitting data faster from the disk to the CPU. On-disk cache memory of 16-64mb was added to the disk for caching frequently accessed data. On top of that we have [NCQ](https://sata-io.org/developers/sata-ecosystem/native-command-queuing "Native Command Queueing"). Native Command Queueing looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make. All of this is happening at 5400, 7200, 10K, and 15K rpms, revolutions per minute, at a fly-height of 8 Pico meters!
+#### Speed of Mechanical Harddrives Using SATA
 
-### Solid State Drives SSDs
-
-In early 2012, a new medium called a Solid State Drive, or SSD was released. These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data. The immediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into position to read the correct bits. This increased speeds dramatically and while the original SSDs storage was low and comparatively today the dollar per megabit ration is not as good as a HDD, the read-based access time was orders of magnitude faster. Version of SATA beyond 3.2 introduced a process called [SATAe](https://en.wikipedia.org/wiki/SATA_Express "SATA Express wikipage"), which focuses on using the PCI Express bus to increase performance.
+These harddrives used SATA Connecters to the motherboard and the SATA protocol to send and receive data. The SATA protocol had limitations of how fast data could be transferred.
 
   SATA Version              Throughput
 ---------------------  -----------------------
-  SATA revision 3.4      features added
-  SATA revision 3.3      features added
   SATA revision 3.2      16 Gbit/s 1.97 GB/s
   SATA revision 3.0      6 Gbit/s  600 MB/s
   SATA revision 2.0      3 Gbit/s  300 MB/s
   SATA revision 1.0      1.5 Gbit/s 150 MB/s
 
-![*Standard SSD connector*](images/Chapter-11/ssd/256px-Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg "Standard SSD connector")[^134]
+#### Transfer Speed and Latency Problems
 
-The original SSD disks were put out by RAM manufacturers and had RAM controller write issues.  The good ones were built by Intel and Samsung.  The other manufactures have caught up and you can get drives in 512, 1 TB, and 2 TB sizes. Since there are no moving parts the battery or power usage is far reduced from an HDD. SSDs do have potential issues with wear leveling and block failure, but in the chips controlling these devices the manufacturers have built in protection against failing flash memory chips to spread out the disk writes to prolong their lives. These SSD drives use the standard SATA data transfer protocols allowing them to be drop in replacements and allowing the initial bandwidth limitation that HDDs suffered to be overcome.
+As disks became bigger a new problem occured called `latency`. This is the amount of time it takes to fully write or read data from a disk. One of the first tricks to solve the latency issue was [NCQ](https://sata-io.org/developers/sata-ecosystem/native-command-queuing "Native Command Queueing"). Native Command Queueing looks at disk requests on the drive and reorders them to reduce round trips that a disk needs to make. The other solution was to add on-disk cache memory of 16-64mb for caching frequently accessed data. All of this is happening at 5400, 7200, 10K, and 15K rpms, revolutions per minute, at a fly-height of 8 Pico meters! But the mechanical harddrive could only gather data so fast.
 
-### NVMe
+### Solid State Drives SSDs
 
-The latest incarnation of SSD disk based technology is [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") which stands for Non-Volatile Memory Express. These are solid state drives, but instead of sending data over the SATA interface, they connect directly to the high-speed PCIe bus, just like your video card does. The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 16x parallel transfer lanes as opposed to a serial fashion which SATA was designed for. NVMe comes in expansion card factor and in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137].
+In early 2012, a new medium called Solid State Drives, or SSDs, was released. These drives were different than mechanical disks because they relied on Flash Memory (SLC or MLC) and had disk based controllers to address this data. The immediate advantage was that electrons move at the speed of light so the access time of any single bit was identical, compared to a mechanical drive which had to rotate into position to read the correct bits. This increased speeds dramatically and while the original SSDs storage was low and comparatively today the dollar per megabit ration is not as good as a HDD, the read-based access time was orders of magnitude faster.
+
+![*Standard SSD connector[^134]*](images/Chapter-11/ssd/256px-Super_Talent_2.5in_SATA_SSD_SAM64GM25S.jpg "Standard SSD connector")
+
+### SSDs over NVMe
+
+The SSD medium using the SATA protocol had reached its limit. A new trasnfer protocol was needed. [NVMe](https://en.wikipedia.org/wiki/NVM_Express "Wikipedia Article for NVMe") is the lastest incarnation of SSD disk based technology, which stands for Non-Volatile Memory Express. 
+
+![*M.2 NVMe SSD Drive[^ch11f145]*](images/Chapter-11/ssd/640px-Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr°0915.jpg "Samsung NVMe SSD Drive")
+
+These are solid state drives, but instead of sending data over the SATA interface, they connect directly to the high-speed PCIe bus, just like your video card does. The advantage is in using the PCIe bus[^136] you gain the ability to transmit in 1 to 16x parallel transfer lanes as opposed to a serial fashion which SATA was designed for. NVMe comes in expansion card factor and in the smaller [M.2 form factor](https://en.wikipedia.org/wiki/M.2 "M.2 form factor")[^137].
 
    PCIe Version     Per Lane Throughput        1x        4x             8x           16x
 -----------------  ----------------------  ---------- ------------ ------------- -------------
@@ -59,15 +65,13 @@ The latest incarnation of SSD disk based technology is [NVMe](https://en.wikiped
      PCIe 4.0              15 GT/s           1.97 GB/s  7.88 GB/s    15.6 GB/s     31.5 GB/s
      PCIe 5.0              25 GT/s           3.94 GB/s  15.76 GB/s   124.8 GB/s    63.8 GB/s
 
-![*M.2 NVMe SSD Drive[^ch11f145]*](images/Chapter-11/ssd/640px-Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr°0915.jpg "Samsung NVMe SSD Drive")
-
 #### The RAM Future That Wouldn't be
 
 Intel had an idea that the future of disk was something of a hybrid between ram and solid state/flash memory. Intel launched a trademarked platform called [Optane](https://www.howtogeek.com/317294/what-is-intel-optane-memory/ "Intel Optane"). The target is cloud based servers running OS Containers and Virtualized platforms. The idea is to increase the speed of disk to the point that is is close to or equal in speed to RAM (Non-volitile memory), thereby eliminating potential memory bottlenecks. Optane was a technology that was before its time, as Intel [shutdown the Optane division in 2021](https://www.pcworld.com/article/3604093/intel-quietly-kills-its-face-melting-optane-desktop-ssds.html "webpage Intel Optane closure article").
 
 ### Network Harddrives
 
-With the advent of fast and reliable network we can have our disks separated from our compute. Note that NFS and iSCSI are local network protocols -- they won't work over the internet but will on a single network location (your home office and university for instance).
+With the advent of fast and reliable network we can have our disks separated from our compute. Note that NFS and iSCSI are local network protocols -- they won't work over the internet but will on a local network location (your home office and university for instance).
 
 ### Network File System - NFS
 
@@ -82,11 +86,13 @@ The [iSCSI protocol](https://en.wikipedia.org/wiki/ISCSI "iSCSI") is a reimplemn
 
 By the year 2000 the SCSI protocol was well known and heavily invested in for server class hardware. In that year IBM and Cisco standardized the iSCSI protocol. iSCSI integrated SCSI commands to external targets over Ethernet/IP. Allowing you to separate your storage from compute and access storage over a local network via the iSCSI protocol. Disks were formatted as LVMs or directly as a ZFS, Btrfs, or XFS based drives and then presented as __iSCSI targets__ over the network. iSCSI has two components, the __iSCSI target__ and the __iSCSi initiator__. The system that connects to a target in an __initiator__. iSCSI devices can replace the need for SAN technology (Storage Area Networks) and work on commodity hardware over basic ethernet cables and switches.
 
-This allows you top separate your storage and your compute. You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an initiator. A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD.
+This allows you to separate your storage and your compute. You can even use iSCSI disks as your main hard drive and configure this during install time on most major Linux distros. All modern Operating Systems come with support for being either a target or an initiator. A company called [iXsystems](https://www.ixsystems.com/ "iXsystems") has made a business out of providing ZFS based iSCSI storage devices running FreeBSD.
 
-### Virtual Hard Drives
+### Virtual Hard Drives and VirtIO
 
-When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files.  This [interface was standardized](https://lwn.net/Articles/239238/ "virtuio announcement webpage") and opensourced as part of the `virtio` package.  
+When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files. This [interface was standardized](https://lwn.net/Articles/239238/ "virtuio announcement webpage") and opensourced as part of the `virtio` package.
+
+What is Virtio? "*Essentially, it’s an interface that allows a virtual machine to use its host’s devices via minimized virtual devices called VirtIO devices[^ch11f147]."* In VirtualBox you can replace the default SATA devices and use the VirtIO interface directly to your disk devices--saving virtualization overhead.
 
 ### Disk Management in VirtualBox
 
@@ -1090,3 +1096,5 @@ At the conclusion of this lab you will have successfully created a new virtual d
 [^ch11f145]: By D-Kuru - Own work, CC BY-SA 4.0, [https://commons.wikimedia.org/w/index.php?curid=116485452](https://commons.wikimedia.org/w/index.php?curid=116485452 "By D-Kuru - Own work, CC BY-SA 4.0")
 
 [^ch11f146]: By Evan-Amos - Own work, CC BY-SA 3.0, [https://commons.wikimedia.org/w/index.php?curid=27940250](https://commons.wikimedia.org/w/index.php?curid=27940250 "By Evan-Amos - Own work, CC BY-SA 3.0")
+
+[^ch11f147]: [Introduction to VirtIO](https://blogs.oracle.com/linux/post/introduction-to-virtio "webpage Introduction to VirtIO")
