@@ -489,7 +489,7 @@ sudo zpool status
 ZFS has a feature called `datasets`. Essentially `datasets` are a like a partition but it is a soft partition. You don't define the total space for the partition but they share the pool size. This can be good for mounting snapshots as filesystems in a pool.
 
 * `sudo zfs create users/jeremy`
-* `sudo zfs create users/jospeh`
+* `sudo zfs create users/joseph`
 
 ### ZFS Snapshots
 
@@ -649,9 +649,9 @@ There are many options that can be set in the place of `defaults` or appended vi
 
 ### systemd Mounting Units
 
-Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*"   ZFS will take care of automounting its own partitions.  Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the `blkid` command.
+Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*" ZFS will take care of automounting its own partitions. Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the `blkid` command.
 
-Systemd has absorbed the purpose of the `/etc/fstab` file by creating **.mount** files.  Systemd processes `.mount` files first then processes the `/etc/fstab` file.  Let's look at an example where we have already created a Btrfs filesystem on a new virtual disk.  By using the `lsblk --fs` command we can retrieve the UUID of the disk.  The reason we would want look at using the UUID instead of the `/dev/sdx` is that once assigned the UUID won't change.  The device designation can change.  Say for instance that a hard drive fails, on reboot your system will re-enumerate the devices and now hard drive names will be changed.
+Systemd has absorbed the purpose of the `/etc/fstab` file by creating **.mount** files. Systemd processes `.mount` files first then processes the `/etc/fstab` file.  Let's look at an example where we have already created a Btrfs filesystem on a new virtual disk. By using the `lsblk --fs` command we can retrieve the UUID of the disk. The reason we would want look at using the UUID instead of the `/dev/sdx` is that once assigned the UUID won't change. The device designation can change. Say for instance that a hard drive fails, on reboot your system will re-enumerate the devices and now hard drive names will be changed.
 
 In this example the output of the command, `lsblk --fs` will look like this (assuming you have attached the virtual disk and formatted it as Btrfs):
 
@@ -681,15 +681,15 @@ Options=defaults
 WantedBy=multi-user.target
 ```
 
-**Remember!** ZFS handles explicit mounting of volumes/zpools as part of the act of creating zpools and do not need to have `.mount` files created.
+**Remember!** ZFS handles implicit mounting of volumes/zpools as part of the act of creating zpools and do not need to have `.mount` files created.
 
 ### Disk related tools
 
-There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem.  The `df` command will list the disk usage.   There is an optional `-H` and `-h` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi).  When you use `df` without any directories, it will list all file-systems.  The command below lists the file-system that contains the user's home directory: `/home/controller` for example.
+There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem. The `df` command will list the disk usage. There is an optional `-H` and `-h` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi). When you use `df` without any directories, it will list all file-systems. The command below lists the file-system that contains the user's home directory: `/home/controller` for example.
 
 ![*df -H /home/controller*](images/Chapter-11/du/df-h.png "df")
 
-The `du` command is disk usage.  This is a helpful command to show the exact *byte-count* that each file is actually using.  When using `ls -l` Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory.  The `du` command will do that for you.
+The `du` command is disk usage. This is a helpful command to show the exact *byte-count* that each file is actually using. When using `ls -l` Linux reports only 4096 kb for a directories size, this does not actually reflect the size of the content inside the directory. The `du` command will do that for you.
 
 These commands might not report completely accurate information when dealing with next generation filesystems like ZFS and Btrfs. use the commands: `sudo btrfs filesystem usage [mountpoint]` or `sudo zfs list [poolname]`
 
@@ -733,11 +733,11 @@ data1   104K  1.75G       24K  /data1
 
 ## Compression and Archiving tools
 
-If you remember the history of Unix and history of technology you remember that hard drive space was at a premium for many many years.  Also the concept of discrete hard drives did not come about until the early to mid 1980s.  Things we take for granted now--such as zipping a series of folders and attaching them as a single file in email were unthinkable in 1979.
+If you remember the history of Unix and history of technology you remember that hard drive space was at a premium for many many years. Also the concept of discrete hard drives did not come about until the early to mid 1980s. Things we take for granted now--such as zipping a series of folders and attaching them as a single file in email were unthinkable in 1979.
 
 ### tar
 
-By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The `tar` command was created and first included in Unix System 7 release.  The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a hierarchy of directories.  This method also became the preferred way to distribute code that was used to compile applications.  One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
+By 1979 local storage had increased to the point where it was conceivable that a **t**ape **ar**chive or tar file could be taken of a directory structure for backup purposes preserve the directory structure. The `tar` command was created and first included in Unix System 7 release. The added advantage was that the tar file could be transferred as a single file, thereby reducing network overhead and os seek-time but retain a hierarchy of directories. This method also became the preferred way to distribute code that was used to compile applications. One could just un-tar an archive and then compile the code knowing that the directory structure of the included files was correctly preserved.  
 
 The tar command only does archiving and does not do any compression--only preserving of file structure in the same way that an ISO file preserves structure.  The tar archive by convention is assigned a file extension of __.tar__ but this is not added automatically.
 
