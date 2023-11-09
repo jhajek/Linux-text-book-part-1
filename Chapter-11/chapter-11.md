@@ -478,9 +478,12 @@ sudo zpool status
 sudo zpool create sm mirror /dev/sdg /dev/sdh /dev/sdi /dev/sdj
 sudo zpool status
 
-# Create a RAIDZ2 - three disk parity fail-over sooftware base RAID 5
+# Like RAID5, this uses a variable width strip for parity. Allows one to get 
+# the most capacity out of a bunch of disks with parity checking with a 
+# sacrifice to some performance
 # https://docs.freebsd.org/en/books/handbook/zfs
-sudo zpool create users raidz2 /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl
+# https://wiki.ubuntu.com/Kernel/Reference/ZFS
+sudo zpool create example raidz /dev/sdb /dev/sdc /dev/sdd /dev/sde
 sudo zpool status
 ```
 
