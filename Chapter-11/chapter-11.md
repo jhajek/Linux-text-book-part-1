@@ -410,11 +410,17 @@ Btrfs adds support for resource pooling and using extents to make logical drives
 
 Btrfs extensive documentation can be found at Oracle's website: [https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html](https://docs.oracle.com/cd/E37670_01/E37355/html/ol_create_btrfs.html "Oracle's Btrfs website")
 
+#### ZFS and it's Design Philosophy
+
+> "*More than a file system, ZFS is fundamentally different from traditional file systems. Combining the traditionally separate roles of volume manager and file system provides ZFS with unique advantages. The file system is now aware of the underlying structure of the disks. Traditional file systems could exist on a single disk alone at a time. If there were two disks then creating two separate file systems was necessary. A traditional hardware RAID configuration avoided this problem by presenting the operating system with a single logical disk made up of the space provided by physical disks on top of which the operating system placed a file system."*
+
+> *"ZFS is an elegantly designed filesystem: *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
+
 ### ZFS
 
-ZFS is a filesystem originally developed by Sun for their Solaris Unix operating system and in use since 2001. ZFS was opensourced by SUN in 2005 under the CDDL license (similar to the Mozilla Public License) but incompatible with the GPL. Oracle inherited ZFS when it invaded SUN in 2010. It is not licensed under the GPL but under a Sun/Oracle license called [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowed Sun and Oracle to include proprietary parts of the operating system with opensource code. 
+ZFS is a filesystem originally developed by Sun for their Solaris Unix operating system and in use since 2001. ZFS was opensourced by SUN in 2005 under the CDDL license (similar to the Mozilla Public License) but incompatible with the GPL. Oracle inherited ZFS when it purchased Sun Microsystems in 2010. ZFS is not licensed under the GPL but under a CopyLeft license called the [CDDL](https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License "CDDL"), which is similar to the GPL, but allowes the inclusion of proprietary files with opensource code. 
 
-The CDDL is an opensource license, but not a copy-left license and thus GPL incompatible.  Recently Canonical, Ubuntu's parent company, disagreed with this, and began to offer OpenZFS natively as part of their operating system.  The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
+ZFS therefore cannot be part of Linux natively and some arguments would say that it cannot be part of Linux at all. Canonical, Ubuntu's parent company, disagreed with this, and began to offer OpenZFS natively as part of their operating system. The argument of integrating CDDL based ZFS code into GPLv2 Linux Kernel was extensive with the FSF coming down in opposition of Ubuntu's interpretation of the GPL.
 
 * [GPL Violations Related to Combining ZFS and Linux](https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/ "GPL Violations Related to Combining ZFS and Linux")
 * [Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS](https://www.fsf.org/licensing/zfs-and-linux "Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS")
@@ -423,14 +429,6 @@ The CDDL is an opensource license, but not a copy-left license and thus GPL inco
 FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and ZFS is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module.  Ubuntu now supports the root partition being ZFS as well.  
 
 Development of all ZFS code now lives in the upstream [OpenZFS project](https://openzfs.org/wiki/Main_Page "OpenZFS wikipage"). Since the ZFS code was opensourced, when Oracle tried to "closesource" the code base in 2010, essentially what Oracle did was make a fork of the project and keep their changes proprietary. The rest of the community took ZFS and made the OpenZFS community, which now consolidates various ZFS code bases into a single repo for MacOS, FreeBSD, and Linux as a loadable kernel module. Red Hat has not participated in the Linux development of OpenZFS as most companies are afraid of potential litigation and lawsuits from Oracle (real or perceived). There is even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), using the latest Windows OS.
-
-#### ZFS Design Philosophy
-
-> "*More than a file system, ZFS is fundamentally different from traditional file systems. Combining the traditionally separate roles of volume manager and file system provides ZFS with unique advantages. The file system is now aware of the underlying structure of the disks. Traditional file systems could exist on a single disk alone at a time. If there were two disks then creating two separate file systems was necessary. A traditional hardware RAID configuration avoided this problem by presenting the operating system with a single logical disk made up of the space provided by physical disks on top of which the operating system placed a file system."*
-
-> *"Even with software RAID solutions like those provided by GEOM, the UFS file system living on top of the RAID believes it’s dealing with a single device. ZFS' combination of the volume manager and the file system solves this and allows the creation of file systems that all share a pool of available storage. One big advantage of ZFS' awareness of the physical disk layout is that existing file systems grow automatically when adding extra disks to the pool. This new space then becomes available to the file systems. ZFS can also apply different properties to each file system. This makes it useful to create separate file systems and datasets instead of a single monolithic file system."*
-
-ZFS is an elegantly designed filesystem: *"ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include protection against data corruption, support for high storage capacities, efficient data compression, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, Software based RAID, (RAID-Z)[^129]."*
 
 #### ZFS Installation
 
@@ -444,7 +442,15 @@ modprobe zfs
 lsmod | grep zfs
 ```
 
-### ZFS RAID-Z
+### ZFS Concepts
+
+ArsTechnica published an excellent [ZFS primer](https://arstechnica.com/information-technology/2020/05/zfs-101-understanding-zfs-storage-and-performance/ "webpage ZFS primer") and Oracle maintains documentation for their [ZFS distro](https://docs.oracle.com/cd/E26505_01/html/E37384/zfsover-1.html#scrolltoc "webpage for Oracle ZFS"), which is still good for general reference and the OpenZFS also maintains [documentation for OpenZDS](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/index.html "webpage for OpenZFS").
+
+The main convention in ZFS is the `zpool`. A `zpool` is a logical construct that contains `vdevs`, which have physical devices -- very similar to the LVM abstractions. There is the ability to create special `vdevs` for read and write caching to speed up/optimize disk operations on a system using fast SSD drives as these special cache devices. 
+
+Within a `zpool` you can create `datasets` which are *soft partition* that don't have a fixed size. These `datasets` can have individual features such as quotas, file compression, or encryption turned on. ZFS also has the ability to take point-in-time snapshots of these `datasets` that can be promoted to filesystems. All data is written in 128 KiB blocks or data across a zpools contents.
+
+### Advanced ZFS Disks and RAID-Z
 
 ZFS supports creating multiple types of redundant disks that increase speed or increase redundancy, such as:
 
@@ -460,6 +466,9 @@ ZFS supports creating multiple types of redundant disks that increase speed or i
 * ZFS RAID-Z
   * Using multiple disks and redundancy to support multiple disk failure and recovery
   * Also known as a [RAID 5](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_5 "Raid 5 website")
+  * Software based RAID
+  * Supports Hotspare disks
+  * Can support 1, 2, and 3 parity disks
 
 ```bash
 
@@ -568,7 +577,7 @@ ZFS can enable transparent compression using GZIP or LZ4 with a simple set comma
 
 ![*HP HP EVA4400 storage array*](images/Chapter-11/disk/278px-HP_EVA4400-1.jpg "HP storage array")[^144]
 
-ZFS, Btrfs, and LVM have the ability to remove disks from pools and volumes.   The trouble is you can remove the disk logically--but how do you identify which physical disk it is?  Luckily each disk has a serial number printed on the top of it.  When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is.   You can find the serial number of the disk via the `hdparm` tool.  This script would enumerate through all of the disks you have on a system and print the values out.  Note the a, b, c, are a list of the device names.  In this case there is hard drive `/dev/sda` through `/dev/sdg`[^143] run the command on your system and see what comes out.
+ZFS, Btrfs, and LVM have the ability to remove disks from pools and volumes. The trouble is you can remove the disk logically--but how do you identify which physical disk it is? Luckily each disk has a serial number printed on the top of it. When working in these scenarios you should have all of these serial numbers written down as well as the location of where that disk is. You can find the serial number of the disk via the `hdparm` tool. This script would enumerate through all of the disks you have on a system and print the values out.  Note the a, b, c, are a list of the device names. In this case there is hard drive `/dev/sda` through `/dev/sdg`[^143] run the command on your system and see what comes out.
 
 ```bash
   for i in a b c d e f g;
@@ -595,7 +604,7 @@ lsblk --nodeps -o name,serial
 
 The BSD systems has its own filesystem, UFS: [the Unix File System](http://www.ivoras.net/blog/tree/2013-10-24.why-ufs-in-freebsd-is-great.html "Unix Filesystem"). This filesystem was native to Unix going back to the System 7 Unix release.  Though UFS has been updated since and is officially UFS2, which was released around 1994 when BSD split from Unix due to the AT&T lawsuit.  UFS2 is considered similar to ext4 on Linux in capabilities at the current time.  FreeBSD and then other BSDs adopted ZFS to be able to extend the filesystem, capability of UFS.  All Illumos, or OpenSolaris based distros use ZFS natively as well, but [BSD based systems have switched](https://www.phoronix.com/scan.php?page=news_item&px=FreeBSD-ZFS-On-Linux "BSD rebases to ZFS on Linux") their ZFS to be based on the [ZFS on Linux](https://zfsonlinux.org/ "ZFS on Linux") code base due to a larger developer and feature base.
 
-Apple had been using their own filesystem called HFS+ which was introduced in 1998 in MacOS 8.1 in 1998.  Features were added over time and in each release to keep the filesystem with feature parity for ext4.  This was used as the standard file system on all Mac and iOS devices until 2016/2017 when a new Apple designed filesystem was released across devices. Why a new filesystem?  Think about it, by 2016 what was the primary device that Apple was selling compared to 1998?  What type of storage media had HFS+ been designed for?   What type of storage media was running on the new Apple systems, in laptops and mobile?
+Apple had been using their own filesystem called HFS+ which was introduced in 1998 in MacOS 8.1 in 1998.  Features were added over time and in each release to keep the filesystem with feature parity for ext4.  This was used as the standard file system on all Mac and iOS devices until 2016/2017 when a new Apple designed filesystem was released across devices. Why a new filesystem? Think about it, by 2016 what was the primary device that Apple was selling compared to 1998?  What type of storage media had HFS+ been designed for?   What type of storage media was running on the new Apple systems, in laptops and mobile?
 
 Though Apple Was one of the first companies to [port ZFS to MacOS](http://dtrace.org/blogs/ahl/2016/06/15/apple_and_zfs/ "Apple ports ZFS to MacOS"), which is BSD based, eventually they decided to deploy a new filesystem called APFS (apple filesystem) which has a mix of ZFS like features that were home grown by Apple and more importantly not under the control of another company or any particular free or opensource licenses.  The goal for Apple was to use this filesystem across their platform, from MacOS to iOS devices with a focus on Flash bashed (SSD and NVMe) devices that HFS+ wasn't designed for.  The system has a similar feature set to ZFs and Btrfs such as encryption and snapshots, but [is missing data integrity](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1/ "Review of APFS").
 
@@ -970,65 +979,85 @@ Watch this video, *What Is ZFS?: A Brief Primer by Wendell at Level1techs* at [h
 
 #### Lab 11 Outcomes
 
-At the conclusion of this lab you will have successfully created a new virtual disk in VirtualBox, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the `/etc/fstab`.
+At the conclusion of this lab you will have successfully created new virtual disks, formatted partitions using mkfs, XFS, ext4, Btrfs, and ZFS, and have created systemd mount files for those partitions.
 
 #### Lab 11 Activities
 
-1. Create 1 virtual drive in VirtualBox:
+1. Create 2 virtual drives in VirtualBox (10 GB each):
 
-   a. Use fdisk to create a primary partition
-   b. Format it with ext4
-   c. Mount it to /mnt/disk1
-   d. Add it to your fstab
+   a. Use LVM to create 2 Physical Volumes
+   b. Create 1 Volume Group
+   c. Create 3 Logical Volumes of 7 GB each
+   d. Format each LV using ext4
 
-2. Create 2 more virtual drives:
+2. Using Fedora Linux, create 2 virtual drives in VirtualBox (10 GB each):
 
-   a. Create a single volume group named vg-group
-   b. Create 1 logical volume named lv-group using the two drives
-   c. Format it with XFS
-   d. Mount it to /mnt/disk2
-   e. Add the lv-group to your fstab, using the disk path to the logical volume not the UUID
-   f. Reboot the system and `cat` the  `/etc/fstab` and show that your entry is present
+   a. Use LVM to create 2 Physical Volumes
+   b. Create 1 Volume Group
+   c. Create 3 Logical Volumes of 7 GB each
+   d. Format one LV using ext4, xfs, and then btrfs
 
-3. Using the same LVM as before:
+3. Using the same Fedora Linux from questions two extend the ext4 partition to be 10 GB
 
-   a. Add an additional VirtualBox disk and the create a LVM physical disk
-   b. Grow the volume group and logical volume
-   c. Grow the XFS file system
+   a. Use the `lvextend` command to extend the LV 
+   b. Use the `resize2fs` command to extend the filesystem size
 
-4. Using section 11.7.4 you will create a ZFS snapshot and roll back to it
+4. Using the same Fedora Linux from questions two extend the xfs partition to be 10 GB
 
-   a. Create a two disk ZFS stripe named `memorycache`
-   b. Change the ownership on the `/memorychace` volume to `controller:controller`
-   c. Change directory to `/memorycache` and display your `pwd`
-   d. Issue the command: `truncate -s 500m accounts.csv` to create a 500 mb file named accounts.csv
-   e. Create a ZFS snapshot of the memorycache volume named: `mc-snap1`
-   f. Using the `truncate` command create two more files: ubunut-distros.csv and fedora-distros.csv of 100 mb on the `/memorycache` volume
-   g. Issue the `ls -lh` command on the `/memorycache` volume to show that the new files have been created
-   h. Using the zfs list command list the current snapshots
-   i. Using the zfs rollback command the `mc-snap1` snapshot
-   j. Issue the `ls -lh` command on the `/memorycache` volume to show that the snapshot has been rolled back
+   a. Use the `lvextend` command to extend the LV 
+   b. Use the `grow_xfs` command to extend the filesystem size
 
-5. Using Ubuntu 20.04 and ZFS, attach four 1 GB disks and create RAID 10 (a mirrored stripe). Name the pool: `datapool`. Display the `zpool status` and take a screenshot of the output.
+5. Using Fedora Linux create 4 additional virtual disks (can be of 5-10 GB)
 
-6. Using Ubuntu 20.04, attach 4 virtual disks of 1 GB each. Create two Btrfs mirrored drives named disk1 and disk2.  Take a screenshot of the output of the `btrfs filesystem show` command for each disk.
+   a. Using Btrfs create a stripped mirror named `datastorage`
+   b. Use Btrfs to print out status of Btrfs disks: `btrfs filesystem show`
+   c. use the command: `btrfs filesystem df` to show filesystem use compare the results to `df -H`
 
-7. Using Fedora, attach 4 1 GB disks in a Btrfs stripe.  
+6. Create a `.mount` file to mount the Btrfs disk created in previous question
 
-    a. Take a screenshot of the `btrfs filesystem df` command for this volume.  
-    b. Then remove one of the virtual disks from the stripe.  Take a screenshot of the `btrfs filesystem df` command for this volume.
-    c. Attach an additional 2 gb disk to the Btrfs stripe. Take a screenshot of the `btrfs filesystem df` command for this volume.  
-    d. Extend the Btrfs filesystem to encompass using all of the new disk space. Take a screenshot of the `btrfs filesystem df` command for this volume.
+   a. Run the `df -H` before creating the `.mount` file and after reboot to show the disk has been mounted
+   b. You will need the UUID from the `lsblk -fs` command
+   b. Remember like systemd, you will have to enable and start the `.mount` file
+   c. Change ownership of the mount directory to your user
+   d. Write a file named `helloworld.txt` to the newly mounted directory
 
-8. On the zpool named `datapool` on Ubuntu 20.04 from question 5:
+7. Using Ubuntu Server, enable an additional host-only network interface and SSH from your Host OS into this system
 
-    a. Execute a `zpool status` command
+    a. Create 3 virtual disks to attach to the virtual machine in VirtualBox
+    b. Install the `zfsutils-linux` package for the zfs tools
+    c. Create a 3 disk zfs stripe named: `datadisk`
+    d. Change ownership of the mountpoint to your user
+    e. Write a file named: `helloworld.txt` to the new mountpoint
+
+8. Using Ubuntu Server, SSH from your Host OS into this system
+
+    b. Attach 4 additional virtual disks to the virtual machine in VirtualBox
+    c. Create a 4 disk RaidZ named: `customers`
+    d. Change ownership of the mountpoint to your user
+    e. Write a file named: `helloworld.txt` to the new mountpoint
+    f. Display the `zpool status` and take a screenshot of the output
+ 
+9. Using Ubuntu Server, SSH from your Host OS into this system
+
+    b. Inside of zfspool named `customers`, create 2 `datasets` named: `customers/joseph` and `customers/evelyn`
+    c. List the `datasets`
+    d. Issue the command: `truncate -s 500m accounts.csv` to create a 500 mb file named accounts.csv in each dataset
+    e. Create a ZFS snapshot of the volume named `customers/joseph` naming it: `customer-snap1`
+    f. Using the `truncate` command create two more files: `ubuntu-distros.csv` and `fedora-distros.csv` of 100 mb on the `customers/joseph` volume
+    g. Issue the `ls -lh` command on the `customers/joseph` volume to show that the new files have been created
+    h. Using the `zfs list` command list the current snapshots
+    i. Using the `zfs rollback` command the `customer-snap1` snapshot
+    j. Issue the `ls -lh` command on the `customers/joseph` volume to show that the snapshot has been rolled back
+
+10. Using Ubuntu Server, SSH from your Host OS
+
+    a. Execute a `zpool status customers/evelyn` command
     b. Enable LZ4 compression on the zpool datapool
     c. Execute a `zfs get all | grep compression` command to display that compression is enabled
 
-9. On your Fedora system execute, any of the commands listed to print out the disk serial numbers.
+11. Execute any of the commands listed in the text to print out the disk serial numbers
 
-10. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created.  Add an entry for this disk to the `/etc/fstab` file with the following values:
+12. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created.  Add an entry for this disk to the `/etc/fstab` file with the following values:
 
     a. file system is UUID=
     b. mount point is `/mnt/disk100` (create this partition if it doesn't exist)
@@ -1038,7 +1067,7 @@ At the conclusion of this lab you will have successfully created a new virtual d
     f. Change owner and group to your username for `/mnt/disk100` (using `chmod`)
     g. Reboot your system. Change directory to `/mnt/disk100` and take a screenshot to demonstrate that the disk is in read-only mode by trying to create a file via this command:  `touch demo.txt`
 
-11. Using `wget`, retrieve this URL: https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.19.tar.xz
+13. Using `wget`, retrieve this URL: https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.11.19.tar.xz
 
    a. Untar/uncompress this archive.
    b. Tar the directory and compress it using bzip2, make sure to keep the original input
