@@ -64,7 +64,7 @@ echo "****************"
 echo "today's date is: $DT"
 echo "****************"
 echo "Making a folder named MMDDYYYY"
-mkdir -p ~/Documents/$MDY
+mkdir -p /home/joseph/Documents/$MDY
 echo "Finished"
 ```
 
@@ -82,14 +82,14 @@ Any variables that are declared have a scope of this scripts execution. This mea
 #!/usr/bin/bash
 
 # This is a comment - usually by convention variables are in all caps - no spaces, ever!
-DT=`date`
+DT=$(date)
 # This command outputs the date in a format of our specifications
-MDY=`date +%m%d%Y`
+MDY=$(date +%m%d%Y)
 echo "****************"
 echo "today's date is: $DT"
 echo "****************"
 echo "Making a folder named MMDDYYYY"
-mkdir ~/Documents/$MDY
+mkdir /home/joseph/Documents/$MDY
 export DT
 echo "Finished"
 ```
