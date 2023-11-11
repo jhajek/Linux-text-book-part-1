@@ -124,7 +124,7 @@ echo "ARRAY LENGTH IS $LENGTH"
 
 #### Positional Parameters
 
-In the case of the command binary `ls -l /etc` the command takes options and arguments. Shell scripts you create have the same ability to accept and parse input from the commandline. This is for simple variable parameters to be passed into a script. You indicate the position of the parameter passed to the script and reference that value with a `$` and a number.  The first value is `$1`, the second is `$2`, and so on. After $9 you need to add **$\{}** around values and should probably add them from the beginning for consistency.
+In the case of the command binary `ls -l /etc` the command takes options and arguments. Shell scripts you create have the same ability to accept and parse input from the commandline. This is for simple variable parameters to be passed into a script. You indicate the position of the parameter passed to the script and reference that value with a `$` and a number.  The first value is `$1`, the second is `$2`, and so on. After `$9` you need to add `{}` around values and should probably add them from the beginning for consistency.
 
 ```bash
 ./delete-directory.sh ~/Documents/text-book Jeremy
@@ -140,10 +140,10 @@ echo "The directory to be deleted is: ${1}"
 rm -rf ${1}
 echo "***************************"
 echo "It was deleted by: ${2}"
-echo ${2} > ~/Documents/deletion-log.txt
+echo ${2} > /home/joseph/Documents/deletion-log.txt
 ```
 
-Note that each positional parameter that is passed in to the shell script is simply accessed by a number prefixed by a ```$```.  What do you think would be the value of ```$0```?  You can similarly access the number of variables that are passed into the command line by using the built-in variable: For example:
+Note that each positional parameter that is passed in to the shell script is simply accessed by a number prefixed by a `$`.  What do you think would be the value of `$0`?  You can similarly access the number of variables that are passed into the command line by using the built-in variable: For example:
 
 ```bash
 #!/usr/bin/bash
@@ -174,7 +174,7 @@ echo "The directory to be deleted is: ${1?Error: no file name given!!!}"
 rm -rf ${1}
 # The -Jeremy is the default value if none is given
 echo "It was deleted by: ${2-Jeremy}"
-echo ${2} > ~/Documents/deletion-log.txt
+echo ${2} > /home/joseph/Documents/deletion-log.txt
 echo "*********************************************************************"
 ```
 
