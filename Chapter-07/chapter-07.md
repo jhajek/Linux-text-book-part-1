@@ -372,6 +372,8 @@ Then once logged in upon launching a terminal there is another set of profiles t
 
 If you wanted to make modification to your $PATH variable to include a directory for the newly made shell scripts you can modify the PATH directly on the command line. The problem is that this variable will only stay in memory for the duration of the terminal window--as soon as it is closed the PATH reverts to the one it started with. In order to permanently modify the PATH we need to modify it in one of the profile files.  The best place to make user specific changes is in the `~/.bashrc` file from the commandline.
 
+### Extending Your System PATH
+
 Let's try to add to the PATH.  When updating a shell variable we need to use the `export` command so that the system is aware of the new variable value.  Think of it as a *refresh* command. In addition to the PATH variable to see all the system variables your distro sets, type `printenv` from the shell. Using the command: `vim ~/.bashrc`:
 
 ```bash
