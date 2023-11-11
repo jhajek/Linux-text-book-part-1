@@ -749,7 +749,7 @@ Watch this short video and answer these three questions relating to the shell sc
 
 #### Lab Objectives
 
-* Explore creating shell scripts  
+* Explore creating shell scripts
 * Explore the use of positional parameters in shell scripts
 * Describe the fundamental use of control structures in shell scripts
 * Explore task automation using `cron` for shell scripts
