@@ -254,7 +254,13 @@ From Lennart's own website, *"systemd is a suite of basic building blocks for a 
 
 > *"Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions[^116]."*
 
-One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command `init 3` was always start at the commandline, and `init 5` was GUI.  Systemd introduces __targets__ in their place.  Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the `/etc/inittab`[^118].
+One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command `init 3` was always start at the commandline, and `init 5` was GUI. 
+
+#### systemd Target 
+
+Systemd introduces __targets__ in their place.  Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the `/etc/inittab`[^118]. From the man page of `systemd.target`:
+
+>  *"Targets exist merely to group units via dependencies, and to establish standardized names for synchronization points used in dependencies between units. Among other things, target units are a more flexible replacement for SysV runlevels in the classic SysV init system"*
 
    Run Level              systemd target               Function
 ---------------- ------------------------------------- -------------------------
