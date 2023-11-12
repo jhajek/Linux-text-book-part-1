@@ -593,13 +593,13 @@ of editors.
 sed script inputfile
 ```
 
-The ```sed``` command uses regular expressesions between the ```/../```[^92]
+The `sed` command uses regular expressesions between the `/../`[^92]
 
 * `^` Matches the beginning of the line
 * \$ Matches the end of the line
 * \. Matches any single character
 * \* Will match zero or more occurrences of the previous character
-* \[ \] Matches all the characters inside the \[ \]
+* The \[ \] Matches all the characters inside the \[ \]
 
 The command to show all lines that do not start with a '\#' below, how would you make the command print all the lines that do start with a '\#'?
 
