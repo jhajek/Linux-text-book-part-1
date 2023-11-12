@@ -631,6 +631,69 @@ Preseed Used for all Debian based server installs - example and explanation reso
 
 Ubuntu has moved off of using preseed and to a tool named `auto-installer` and `subiquity`. It makes use of `cloud-init` which 
 
+### Ubuntu Subiquity Autoinstaller
+
+```yaml
+#cloud-config - https://raw.githubusercontent.com/nickcharlton/packer-ubuntu-2004/master/http/user-data
+autoinstall:
+  version: 1
+  identity:
+    hostname: ubuntu-server
+    # Generate a new hashed password on the Linux Command Line: 
+    # https://askubuntu.com/questions/1261451/how-to-generate-crypted-password-for-auto-install
+    # printf 'vagrant' | openssl passwd -6 -salt 'qoazpFv0h6' -stdin
+    # The above command will generate the salted password of "vagrant"
+    # Output shortened for print 
+    password: '$6$qoazpFv0h6$1i0uxiM32aszgrgyYjv/2FLq73.TV2DCHOGi6nuiZoa......'
+    username: vagrant
+  early-commands:
+  # If we install the SSH server using the subiquity `ssh` configuration then 
+  # port 22 gets opened up to packer _before the requisite configuration has 
+  # been done to allow Packer to SSH on to the guest O/S. This results in a
+  # failed build as Packer exceeds its SSH permitted number of SSH handshake
+  # attempts.
+  #
+  # To ensure this doesn't happen we stop the SSH service until right at the
+  # end when we re-enable it
+  # using a late-command.
+    - sudo systemctl stop ssh    
+  # Create the default harddrive as LVM so we can extend it later
+  storage:
+    layout:
+      name: lvm
+  # Default set of packages to install    
+  packages:
+    - ubuntu-server-minimal
+    - bc
+    - curl
+    - wget
+    - uuid
+    - git
+    - build-essential
+  # How to configure the network
+  network:
+    network:
+      version: 2
+      ethernets:
+        enp0s3:
+          dhcp4: true
+          dhcp-identifier: mac
+  # Automatically enable the openssh-server and disable password authentication
+  ssh:
+    allow-pw: false
+    install-server: true
+    # Adding the Vagrant initial insecure public key - that will be replaced, 
+    # new key pair generated, upon launch
+    authorized-keys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key'    
+  late-commands:
+    - sed -i 's/^#*\(send dhcp-client-identifier\).*$/\1 = hardware;/' /target/etc/dhcp/dhclient.conf
+    - "echo 'Defaults:vagrant !requiretty' > /target/etc/sudoers.d/vagrant"
+    - "echo 'vagrant ALL=(ALL) NOPASSWD: ALL' >> /target/etc/sudoers.d/vagrant"
+    - "chmod 440 /target/etc/sudoers.d/vagrant"
+    - sudo systemctl start ssh
+```
+
 ### Putting Vagrant and Packer together
 
 How then do we build our own artifacts with Packer to manage them? Here is an end-to-end example using some sample code provided in the source code repo of the book. This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then `ssh` into the box via Vagrant.
