@@ -639,21 +639,29 @@ How then do we build our own artifacts with Packer to manage them? Here is an en
 
 # clone the source code from the book to get the sample files
 # git clone https://github.com/jhajek/Linux-text-book-part-1.git
-cd Linux-text-book-part-1/files/Chapter-13/packer-build-templates
-packer build ubuntu18045-vanilla.json
+cd Linux-text-book-part-1/files/Chapter-13/packer-build-templates/ubuntu_22043_vanilla
+packer init .
+packer validate .
+packer build .
 
 # Upon completion of the Packer build...
 # Each build has a string representation of the day, month, year to make each
 # filename unique, called epoch (your *.box name will be different)
-vagrant box add ../build/ubuntu18045-vanilla-1574788560.box --name ubuntu-18045-vanilla
+vagrant box add ../build/ubuntu-22043-server-20231103191942.box --name vanilla-ubuntu-server
 cd ../build
-mkdir ubuntu-18045-vanilla
-vagrant init ubuntu-18045-vanilla
+# Good idea to name the directory the same as your Vagrant Box -- so you
+# don't lose track of it!
+mkdir vanilla-ubuntu-server
+# This command will create a Vagrantfile that is associated with the Vagrant Box vanilla-ubuntu-server
+vagrant init vanilla-ubuntu-server
 # this command will show the *.box files that Vagrant knows about
 vagrant box list
 vagrant up
 vagrant ssh
-# exit the ssh session
+# Display the OS information and exit the ssh session
+cat /etc/lsb-release
+exit
+# Power down the Vagrant box
 vagrant halt
 ```
 
