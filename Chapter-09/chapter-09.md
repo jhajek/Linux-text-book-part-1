@@ -659,7 +659,7 @@ b. `sudo`
 c. `su -`
 d. `root`
 
-3) How can you display the content of a file named topsecret.txt that has permissions 000 and is owned by another user?
+3) How can you display the content of a file named topsecret.txt that has permissions 600 and is owned by another user?
 a.  You can't do that
 b.  `root cat topsecret.txt`
 c.  `sudo cat topsecret.txt`
@@ -677,7 +677,7 @@ b. Ubuntu
 c. All Debian based distros
 d. Fedora
 
-6) What is the name of the file where sudo privilege are kept?
+6) What is the name of the file where sudo privileges are kept?
 a. /etc/sudo
 b. visudo
 c. /etc/allow
