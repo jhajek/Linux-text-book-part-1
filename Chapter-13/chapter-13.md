@@ -23,15 +23,13 @@ One of the main things that computers are good at is executing repetitive tasks.
 
 ![*Mitchell Hashimoto*](images/Chapter-13/people/mh.png "mitchell hashimoto")
 
-In 2010, Mitchell realized that a good majority of developers where using VirtualBox to run and build test systems on their local machines and laptops[^153]. He found that he could be productive creating copies of the production servers where his code would reside as a local VM on his system. VirtualBox just provided an interface to virtualize an operating system, and had no provisions for quickly deploying or automating an OS deployment--it was still a manual process. He and his company set out to solve this problem by developing opensource software that would automate the creation of virtual machines. They developed this stack of software:
-
-![*HashiCorp Stack*](images/Chapter-13/hashi/hashistack.png "hashi-stack")
-
-You can learn more about HashiCorp at this [HashiConf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
+In 2010, Mitchell realized that a good majority of developers where using VirtualBox to run and build test systems on their local machines and laptops[^153]. He found that he could be productive creating copies of the production servers where his code would reside as a local VM on his system. VirtualBox just provided an interface to virtualize an operating system, and had no provisions for quickly deploying or automating an OS deployment--it was still a manual process. He and his company set out to solve this problem by developing opensource software that would automate the creation of virtual machines. You can learn more about HashiCorp at this [HashiConf 2017 keynote presentation](https://www.youtube.com/watch?v=b6nn7vLdjo8&list=PL81sUbsFNc5Y-jbEC1y5BWenDoYscVv4t&t=0s&index=2 "Keynote presentation from Mitchell Hashimoto") from Mitchell Hashimoto.
 
 ## The Problem Vagrant Solves
 
 At that time, [HashiCorp](https://hashicorp.com "HashiCorp") was born. This was in 2010 and Mitchell's first task was easing the deployment, connection, and most importantly abstracting the network address translation between host and guest operating systems. He created [Vagrant](https://vagrantup.com "Vagrant") to do just this. 
+
+![*HashiCorp Stack*](images/Chapter-13/hashi/hashistack.png "hashi-stack")
 
 ### Vagrant as an Abstraction Layer
 
