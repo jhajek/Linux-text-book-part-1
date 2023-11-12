@@ -300,10 +300,10 @@ Let us look at an example HCL template file: This source can be viewed from the 
 [files > Chapter-13 > packer-build-templates](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ "Packer Template")
 
 ```json
-##############################################################################
-# Packer Virtualbox-iso documentation: 
-# https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-##############################################################################
+//############################################################################
+//# Packer Virtualbox-iso documentation: 
+//# https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
+//############################################################################
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
 packer {
@@ -332,11 +332,10 @@ source "virtualbox-iso" "ubuntu-22043-server" {
   http_port_min           = 9001
   firmware                = "efi"
   hard_drive_interface    = "virtio"
-  disk_additional_size    = [15000,15000,15000]
   rtc_time_base           = "UTC"
-  # https://www.virtualbox.org/manual/ch06.html
+  // https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
-  iso_checksum            = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
+  iso_checksum  = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
   iso_urls                = "${var.iso_url}"
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
@@ -344,7 +343,8 @@ source "virtualbox-iso" "ubuntu-22043-server" {
   ssh_timeout             = "45m"
   cpus                    = 2
   memory                  = "${var.memory_amount}"
-  # Change to --nat-localhostreachable1 forced by https://github.com/hashicorp/packer/issues/12118
+  // Change to --nat-localhostreachable1 forced by 
+  // https://github.com/hashicorp/packer/issues/12118
   vboxmanage              = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
   virtualbox_version_file = ".vbox_version"
   vm_name                 = "jammy-server"
@@ -361,10 +361,12 @@ build {
 
   post-processor "vagrant" {
     keep_input_artifact = false
-    output              = "${var.build_artifact_location}{{ .BuildName }}-${local.timestamp}.box"
+    output = "${var.build_artifact_location}{{ .BuildName }}-${local.timestamp}.box"
   }
 }
 ```
+
+#### Important Packer Blocks
 
 There are 3 blocks we are interested in:
 
@@ -428,7 +430,7 @@ The source block takes two options, the type of virtual machine artifact you are
 
 ```json
 {
-source "virtualbox-iso" "ubuntu-22043-server" {}
+source "virtualbox-iso" "ubuntu-22043-server"
 }
 ```
 
@@ -458,27 +460,28 @@ These remaining values are all the customizable settings you would configure in 
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  # Boot with UEFI not BIOS
+  // Boot with UEFI not BIOS
   firmware                = "efi"
-  # Use virtio drivers not SATA interface in the VM
+  // Use virtio drivers not SATA interface in the VM
   hard_drive_interface    = "virtio"
-  # Add three additional harddrives at boot of 15GB each
+  // Add three additional harddrives at boot of 15GB each
   disk_additional_size    = [15000,15000,15000]
   rtc_time_base           = "UTC"
-  # https://www.virtualbox.org/manual/ch06.html
+  // https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
-  iso_checksum            = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
+  iso_checksum = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
   iso_urls                = "${var.iso_url}"
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
-  # Username and passowrd configured in the subiquity/http/user-data file
+  // Username and passowrd configured in the subiquity/http/user-data file
   ssh_username            = "vagrant"
   ssh_password            = "${var.user-ssh-password}"
-  # Timeout incase the process takes too long or hangs
+  // Timeout incase the process takes too long or hangs
   ssh_timeout             = "45m"
   cpus                    = 2
-  # Defined in the variables.pkr.hcl standard file 
+  // Defined in the variables.pkr.hcl standard file 
   memory                  = "${var.memory_amount}"
-  # Change to --nat-localhostreachable1 forced by https://github.com/hashicorp/packer/issues/12118
+  // Change to --nat-localhostreachable1 
+  // forced by https://github.com/hashicorp/packer/issues/12118
   vboxmanage              = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
   virtualbox_version_file = ".vbox_version"
   vm_name                 = "jammy-server"
@@ -490,7 +493,7 @@ These remaining values are all the customizable settings you would configure in 
 
 The Build block is where you tell Packer what to build. You include the source blocks you want to build by name in the format shown using the artifact format and source block name you defined.
 
-```yaml
+```json
 build {
   sources = ["source.virtualbox-iso.ubuntu-22043-server"]
 
@@ -505,7 +508,7 @@ build {
 
 Provisioner are tools that you can use to customize your machine image after the base install is finished. Though tempting to just use the Kickstart or Pressed files to do the custom install--this is not a good idea. You should leave the "answer files" as clean or basic as possible so that you may reuse them and do your customization here via a provisioner. In this example we use a single shell script, but you can have lists of shell scripts as well as integrate with configuration software
 
-```yaml
+```json
 build {
 sources = ["source.virtualbox-iso.ubuntu-22043-server"]
 
@@ -516,7 +519,7 @@ provisioner "shell" {
 }
 ```
 
-```yaml
+```json
 # Using multiple shell scripts
 provisioner "shell" {
   execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
@@ -536,7 +539,7 @@ Packer has the ability to build a virtual machine or OS Container once and expor
 
 Once the Build step and Provision step are complete the last step (which is optional) is the post-processor step. This is where you can convert your base image you built into various other formats. Note that the directory named "build" is completely arbitrary and was created by me as it made sense.
 
-```yaml
+```json
 post-processor "vagrant" {
   keep_input_artifact = false
   output = "../build/{{ .BuildName }}-${local.timestamp}.box"
@@ -547,8 +550,8 @@ post-processor "vagrant" {
 
 Provisioners allow you to have multiple provision scripts. Some people like to split functionality over multiple shell scripts or use multiple methods. The `shell` provisioner also has the capability to execute inline Linux commands, incase you need to setup some internal structure. Also you can use this method to copy code into the Virtual Machine you are created. If you clone a Git repo to your local system, you can copy that application code directly into your virtual machine as Packer is building it.
 
-```yaml
-# Executing inline shell commands
+```json
+// Executing inline shell commands
 provisioner "shell" {
   execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
 "inline" = [
@@ -566,8 +569,8 @@ provisioner "shell" {
 
 This command allows you to issue custom VirtualBox commands from within Packer.
 
-```yaml
-# Change forced by https://github.com/hashicorp/packer/issues/12118
+```json
+// Change forced by https://github.com/hashicorp/packer/issues/12118
 vboxmanage = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
 ```
 
@@ -575,29 +578,29 @@ vboxmanage = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
 
 There are two key commands to use in Packer, assuming you have added the packer executable to your system path.  First type: packer -v and see if you get version information output.
 
-**Command:** ```packer -v```
+**Command:** `packer -v`
 
 Execute this command to see if you get a version output.  If this command throws an error -- go back and check the PATH & INSTALL section and make sure you have closed and reopened your shell.  
 
 ![*Output of packer -v*](images/Chapter-13/packer/version.png "Output of packer -v")
 
-**Command:**  ```packer validate```
+**Command:**  `packer validate`
 
 This command will check the syntax of your `*.json` packer template for syntax errors or missing brackets.  It will not check logic but just syntax.  Good idea to run it to make sure everything is in order.  Using the samples provided in the GitHub repo you can validate the *.JSON template with this command:
 
 ![*Output of packer validate*](images/Chapter-13/packer/validate.png "Output of packer validate")
 
-**Command:**  ```packer build```
+**Command:**  `packer build`
 
 This command will be what is used to execute and run the packer *.json template.
 
 ![*Output of packer build*](images/Chapter-13/packer/build.png "Output of packer build")
 
-**Packer Environment Variables:** ```PACKER_CACHE_DIR```
+**Packer Environment Variables:** `PACKER_CACHE_DIR`
 
 ![*Packer Cache Directory on Windows*](images/Chapter-13/packer/cache.png "Packer Cache Directory on Windows")
 
-When running ```packer build``` Packer will cache the the install media--the iso.  You can set this location to a central directory as this will save time downloading the same media over and over. On Windows you can configure the ```PACKER_CACHE_DIR``` by setting a file location in your user account environment variables.  In Linux and Mac you can set an environment variable in your user profile.
+When running `packer build` Packer will cache the the install media--the iso.  You can set this location to a central directory as this will save time downloading the same media over and over. On Windows you can configure the `PACKER_CACHE_DIR` by setting a file location in your user account environment variables.  In Linux and Mac you can set an environment variable in your user profile.
 
 #### When Packer Fails
 
@@ -630,7 +633,7 @@ Ubuntu has moved off of using preseed and to a tool named `auto-installer` and `
 
 ### Putting Vagrant and Packer together
 
-How then do we build our own artifacts with Packer to manage them?  Here is an end-to-end example using some sample code provided in the source code repo of the book.  This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server 1804-5.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then `ssh` into the box via Vagrant.
+How then do we build our own artifacts with Packer to manage them? Here is an end-to-end example using some sample code provided in the source code repo of the book. This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then `ssh` into the box via Vagrant.
 
 ```bash
 
