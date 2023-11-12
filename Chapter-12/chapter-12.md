@@ -154,9 +154,11 @@ The way to reset the values:
 
 ### Network Configuration Troubles
 
-Here is where things get tricky. In the future I would like to think this is will all be sorted out, but for now, buckle up. So networking was always controlled by a service under sysVinit, that was usually `sudo service networking restart`. This was common across all Linux.  This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc. That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done. In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations. Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service. Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
+Here is where things get tricky. In the future I would like to think this is will all be sorted out, but for now, buckle up. So networking was always controlled by a service under sysVinit, that was usually `sudo service networking restart`. This was common across all Linux.  This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc. That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done. 
 
-The control of the network has been unified once again in all major Linux distros under **systemd-networkd**, which being part of systemd you assume that it controls the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in `/etc/systemd/network`. Files in that directory need to end in a .network extension. The systemd-networkd .network file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
+In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations. Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service. Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
+
+The control of the network has been unified once again in Linux distros under **systemd-networkd**, which controls the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in `/etc/systemd/network`. Files in that directory need to end in a .network extension. The systemd-networkd .network file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
 
 #### Who uses what?
 
@@ -594,8 +596,8 @@ INSERT INTO records(tutorial_title) VALUES('Best Book Ever');
 
 ```bash
 # You can redirect input by having the create commands placed in a single file
-sudo mysql -u root < ./create-table.sql
-sudo mysql -u root < ./create-table-insert-records.sql
+sudo mysql < ./create-table.sql
+sudo mysql < ./create-table-insert-records.sql
 ```
 
 #### Inline SQL commands
