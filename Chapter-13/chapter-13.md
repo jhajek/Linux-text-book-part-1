@@ -55,7 +55,7 @@ Vagrant handles its abstraction by using a file concept called a **box** or ```*
 
 #### vagrant init
 
-We need a `.box` file and we need a `Vagrantfile` to run our virtual machines. You have one `Vagrantfile` per-Vagrant box. The `vagrant init` command is how we create a Vagrantfile.  What is a `Vagrantfile`? It is a simple configuration file for a standard set of values that can be reconfigured for virtual machines. By using the `Vagrantfile` abstraction layer you can reuse your configuration across different platforms. Here is a sample Vagrantfile, which is available in the book source code [files > Chapter-13 > vagrant-init-files](https://github.com/jhajek/Linux-text-book-part-1/tree/master/files/Chapter-13/vagrant-init-files "Vagrantfile"):
+We need a `.box` file and we need a `Vagrantfile` to run our virtual machines. You have one `Vagrantfile` per-Vagrant box. The `vagrant init` command is how we create a Vagrantfile. What is a `Vagrantfile`? It is a simple configuration file for a standard set of values that can be reconfigured for virtual machines. By using the `Vagrantfile` abstraction layer you can reuse your configuration across different platforms. Here is a sample Vagrantfile, which is available in the book source code [files > Chapter-13 > vagrant-init-files](https://github.com/jhajek/Linux-text-book-part-1/tree/master/files/Chapter-13/vagrant-init-files "Vagrantfile"):
 
 ```ruby
 
@@ -83,7 +83,7 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-   config.vm.network "forwarded_port", guest: 8080, host: 8080
+  # config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -178,26 +178,13 @@ The tutorial on vagrantup.com will walk you through this but a small example (tr
 * `vagrant box add ubuntu/jammy64` (Canonical--Ubuntu 22.04 parent company - provided)
 * `vagrant box add debian/bookworm64` (Official Debian Bookworm release)
 
-You may need to use a full URL in the case of downloading a Vagrant box that is not provided from HashiCorp box repositories.  This goes for 3rd party and for the boxes your create on your own. We will learn how to make our own in the Packer.io section of this document, but for all purposes the artifacts are the same; a *.box file.  For installing a [Devuan](https://devuan.org/ "Devuan Home Page") box (the distro that resulted from the Debian Civil War/systemd split) here are two ways to execute the commands:
-
-```bash
-# These are Linux/Mac based line continuations '\'  otherwise this
-# code should all go on one line
-vagrant box add \
-http://devuan.ksx4system.net/devuan_beowulf/minimal-live/\
-devuan_beowulf_3.0.0_amd64_minimal-live.iso \
---name devuan-beowulf
-
-vagrant box add ./itmd521-virtualbox-1503930054.box --name itmd-521
-```
-
-Adding a box via URL both ways, requires an additional parameter, `--name` (as seen above). The `--name` option is something you declare for your use, just don't put any spaces and its best to name the box something related to the actual box;  *"box1"* or *"thebox"* are terrible names.
+### Vagrant commands
 
 #### vagrant box list
 
 **Command:** `vagrant box list`
 
-You can check to see if the vagrant box add command was successful by issuing the command: `vagrant box list`; looking something like this:  (Note this is my system, yours will vary but the structure will be the same).
+You can check to see if the vagrant box add command was successful by issuing the command: `vagrant box list`; looking something like this: (Note this is my system, yours will vary but the structure will be the same).
 
 ```bash
 PS C:\Users\Jeremy\Documents\vagrant> vagrant box list
@@ -282,7 +269,7 @@ Here is a small walk through to install 2 different Vagrant boxes:
 1. In that directory create 2 sub-directories; `jammy64` and `almalinux9`
 1. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/jammy64`
 1. Issue the command `vagrant up`
-1. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine - then exit the ssh session
+1. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine - then `exit` the ssh session
 1. Repeat the above steps in the centos7 directory and replace the init command in step 3 with: `vagrant init alamlinux/9`
 1. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
 
@@ -305,9 +292,7 @@ Having a code based automated configuration now lets you track, audit, and centr
 * **Greater testability**
   * After a machine image is built, that machine image can be quickly launched and smoke tested to verify that things appear to be working. If they are, you can be confident that any other machines launched from that image will function properly.
 
-Packer examples and example build code [https://github.com/jhajek/packer-vagrant-build-scripts.git](https://github.com/jhajek/packer-vagrant-build-scripts.git "sample packer code repo")
-
-#### Packer - Conventions
+#### Packer Conventions
 
 HashiCorp essentially built a tool that captures each install step. These steps are placed into a Packer build template or just template for short. These templates are constructed using [HCL](https://github.com/hashicorp/hcl "wiki page for HCL"). In addition these templates rely on an "Answer File" for completing all of the installation choices and automating the installation. Debian uses `pressed` format, Red Hat clones use `kickstart` and Ubuntu has their own called `subiquity`.
 
@@ -316,7 +301,7 @@ HashiCorp essentially built a tool that captures each install step. These steps 
 Let us look at an example HCL template file: This source can be viewed from the source code of the book:
 [files > Chapter-13 > packer-build-templates](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ "Packer Template")
 
-```yaml
+```json
 ##############################################################################
 # Packer Virtualbox-iso documentation: 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
@@ -381,7 +366,6 @@ build {
     output              = "${var.build_artifact_location}{{ .BuildName }}-${local.timestamp}.box"
   }
 }
-
 ```
 
 There are 3 blocks we are interested in:
@@ -392,9 +376,7 @@ There are 3 blocks we are interested in:
 
 ### Builders
 
-The majority of this information is taken from [https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox](https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox "Webpage Packer VirtualBox docs"). We are using the `virtualBox-iso` builder. This builder starts from an ISO file, creates a brand new VirtualBox VM, installs an OS, provisions software within the OS, then exports that machine to create an image. This is best for people who want to start from scratch.
-
-[The builders available are:](https://www.packer.io/docs/builders/index.html "Packer builders available")
+The majority of this information is taken from [https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox](https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox "Webpage Packer VirtualBox docs"). We are using the `virtualBox-iso` builder. This builder starts from an ISO file, creates a brand new VirtualBox VM, installs an OS, provisions software within the OS, then exports that machine to create an image. This is best for people who want to start from scratch.  Currently there are ~49 different builders all maintained as external plugins. You download the plugins you need as part of your build template. [The builders available are:](https://developer.hashicorp.com/packer/integrations "Packer builders available")
 
 1. Alicloud ECS
 1. Amazon EC2
@@ -433,11 +415,11 @@ The majority of this information is taken from [https://developer.hashicorp.com/
 
 In the builder, there is an iso_url and iso_checksum values that will retrieve installation media and run a checksum against it to make sure that the file is not damaged or corrupt.
 
-```yaml
-
+```json
+{
 iso_checksum = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
 iso_urls     = "${var.iso_url}"
-
+}
 ```
 
 This URL is the actual remote location of the install media which will be retrieved and cached into a directory named packer_cache. The iso file will be renamed with the iso_checksum. Subsequent packer_build commands will use this cached iso media. In Windows and MacOS you can define a central Environement variable called `PACKER_CACHE_DIR` to enable centralized iso caching.
@@ -446,13 +428,16 @@ This URL is the actual remote location of the install media which will be retrie
 
 The source block takes two options, the type of virtual machine artifact you are making and the name you are giving this block. A build template can include multiple blocks for building multiple vms simultaniously.
 
-```yaml
-source "virtualbox-iso" "ubuntu-22043-server" {
+```json
+{
+source "virtualbox-iso" "ubuntu-22043-server" {}
+}
 ```
 
 This block contains the code needed to swithc the manual operating install process into an automated process, but providing the key sequences to type through Packer and the URL to an answer file. Packer hosts its own embeded webserver for this purpose that runs for just the duration of the `packer build` command.
 
-```yaml
+```json
+{
 boot_command = [
         "e<wait>",
         "<down><down><down>",
@@ -460,12 +445,13 @@ boot_command = [
         "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
         "<f10><wait>"
       ]
+}
 ```
 
 These remaining values are all the customizable settings you would configure in a manual install or via the Settings menu options. Code such as adding multiple disks or using uefi to book the system.
 
-```yaml
-
+```json
+{
   boot_wait               = "5s"
   disk_size               = 35000
   guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
