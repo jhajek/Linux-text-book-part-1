@@ -603,7 +603,7 @@ The `sed` command uses regular expressesions between the `/../`[^92]
 
 The command to show all lines that do not start with a '\#' below, how would you make the command print all the lines that do start with a '\#'?
 
-```sed -e '/^#/d' hosts.deny | head```
+`sed -e '/^#/d' hosts.deny | head`
 
 Looking at this command, using the GNU version of ```sed``` they introduced the -i flag that will make your change and re-write it to the same file.  What is happening in the script below?
 
