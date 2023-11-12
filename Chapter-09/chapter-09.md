@@ -707,7 +707,7 @@ b.  exit
 c.  stop
 d.  sudo reboot
 
-11) What command would you use to edit the file at this location:  /var/www/html/index.html?
+11) What command would you use to edit the file at this location: `/var/www/html/index.html`?
 a.  vi /var/www/html/index.html
 b.  sudo vim /var/www/html/index.html
 c.  vim /var/www/html/index.html
@@ -746,7 +746,7 @@ d. /etc/systemd/journald.conf
 17) What command provides a dynamic real-time view of a running system?
 a.  top
 b.  iostat
-c.  systmed-top
+c.  ranwhen
 d.  journalctl
 
 18) Debian based distros have an additional command to abstract the process to add users to the system - what is it?
@@ -755,7 +755,7 @@ b.  usermod
 c.  adduser
 d.  add
 
-19) What command would be used to modify a user account settings and add them to the sudo users group on an Ub untu distro (user is named controller)?
+19) What command would be used to modify a user account settings and add them to the sudo users group on an Ubuntu distro (user is named controller)?
 a.  `sudo useradd -aG sudo controller`
 b.  `sudo usermod -aG sudo controller`
 c.  `sudo usermod -G sudo controller`
