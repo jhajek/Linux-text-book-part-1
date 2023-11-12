@@ -153,7 +153,7 @@ When executing the `vagrant box` command from the command line (in Windows recom
 
 * `add`
 * `list`
-* `remove`  
+* `remove`
 * `outdated`
 * `repackage`
 * `update`
@@ -238,7 +238,7 @@ This will put the virtual machine in suspend or pause move (standby) as opposed 
 
 #### vagrant halt
 
-**Command:**  `vagrant halt`
+**Command:** `vagrant halt`
 Full shutdown of the virtual machine (power off). Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
 #### vagrant destroy
@@ -267,7 +267,7 @@ Here is a small walk through to install 2 different Vagrant boxes:
 1. In that directory create 2 sub-directories; `jammy64` and `almalinux9`
 1. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/jammy64`
 1. Issue the command `vagrant up`
-1. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine - then `exit` the ssh session
+1. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine, then `exit` the ssh session
 1. Repeat the above steps in the centos7 directory and replace the init command in step 3 with: `vagrant init alamlinux/9`
 1. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
 
