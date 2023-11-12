@@ -256,7 +256,7 @@ From Lennart's own website, *"systemd is a suite of basic building blocks for a 
 
 One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command `init 3` was always start at the commandline, and `init 5` was GUI. 
 
-#### systemd Target 
+#### systemd.target
 
 Systemd introduces __targets__ in their place.  Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the `/etc/inittab`[^118]. From the man page of `systemd.target`:
 
