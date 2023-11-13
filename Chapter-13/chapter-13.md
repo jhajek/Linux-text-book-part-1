@@ -869,7 +869,14 @@ sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install vault
 ```
 
+#### Configuring the Vault-Server
 
+We will need to add two lines to the `.bashrc` file in order to define the Vault listening port internally. Vault only accepts requests via HTTP -- to access the contents of the vault the commands we execute will take place over HTTP locally. Make sure to source the changes to the `~/.bashrc` file after the changes are made so that your terminal can access these values. Use the command: `. ~/.bashrc`.
+
+```bash
+export VAULT_ADDR='https://127.0.0.1:8200'
+export VAULT_SKIP_VERIFY="true"
+```
 
 ### Vault Setup Windows
 
