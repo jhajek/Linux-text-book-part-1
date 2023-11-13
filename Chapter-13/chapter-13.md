@@ -969,7 +969,28 @@ export VAULT_TOKEN="hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2"
 
 ### Using the Vault Template
 
-Now we should be ready to go and use the secrets we added to Vault. There is an additional Packer Template located in the book sample code under `files` > `Chapter-13` > `packer-build-templates` > `ubuntu_22043_vanilla-vault-example`. You can test to see if you Vault integration works, by issuing the command: `packer validate .` to see the results.
+Now we should be ready to go and use the secrets we added to Vault. There is an additional Packer Template located in the book sample code under `files` > `Chapter-13` > `packer-build-templates` > `ubuntu_22043_vanilla-vault-example`. You can test to see if you Vault integration works, by issuing the command: `packer validate .` to see the results. If you receive a timeout or connection denied a few things might be happening. You Vault could be sealed or perhaps you have not entered your secrets yet, or you may have not reloaded your terminal variables based on the Vault IP and token settings from the previous section.
+
+To fully test and see the results, let us go ahead and execute the `packer build .` command.  You will notice that we can access the secrets set in the Vault from the `variables.pkr.hcl` file by providing the PATH that was defined and then giving the KEY value.
+
+```json
+// Syntax
+// https://developer.hashicorp.com/packer/docs/templates/hcl_templates/functions/contextual/vault
+locals {
+  user-ssh-password = vault("/secret/data/team00-ssh","SSHPASS")
+}
+
+// Syntax
+// https://developer.hashicorp.com/packer/docs/templates/hcl_templates/functions/contextual/vault
+locals {
+  db_user = vault("/secret/data/team00-db", "DBUSER")
+}
+
+```
+
+We can then define these values our main build template as a way to pass secrets securely into our Packer Virtual Machine building process.
+
+`ssh_password            = "${local.user-ssh-password}"`
 
 ### IT Orchestration
 
