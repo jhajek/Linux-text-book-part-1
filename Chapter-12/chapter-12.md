@@ -886,7 +886,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 #### Pre-reqs and Assumptions
 
-Using two virtual machines, while powered off, in the VirtualBox settings, enable a second bridged network interface and set the type to **Bridged Adapter** (details are in last chapter and the VirtualBox networking details are in chapter 03).
+Using two virtual machines, while powered off, in the VirtualBox settings, enable a second bridged network interface and set the type to **Host-Only Adapter**, VirtualBox will automatically set a DHCP address and create an internal host-only network for you.
 
 1) Use the command to identify the IP address of each of the two systems
 
