@@ -141,11 +141,17 @@ end
 
 #### Storing Vagrantfiles
 
-Let us start by creating a sub-directory with the same box name to house the Vagrantfile. Then it would make sense to create a folder named after each of these boxes under the directory vagrant. In this example I created the directory vagrant under Documents.
+Let us start by creating a sub-directory with the same box name to house the Vagrantfile.
+
+> *"The primary function of the Vagrantfile is to describe the type of machine required for a project, and how to configure and provision these machines. Vagrantfiles are called Vagrantfiles because the actual literal filename for the file is Vagrantfile."*
+
+> *"Vagrant is meant to run with one Vagrantfile per project, and the Vagrantfile is supposed to be committed to version control. This allows other developers involved in the project to check out the code, run vagrant up, and be on their way. Vagrantfiles are portable across every platform Vagrant supports."*
+
+> "*The syntax of Vagrantfiles is Ruby, but knowledge of the Ruby programming language is not necessary to make modifications to the Vagrantfile, since it is mostly simple variable assignment. In fact, Ruby is not even the most popular community Vagrant is used within, which should help show you that despite not having Ruby knowledge, people are very successful with Vagrant.*"
 
 ![*Suggested Folder Hierarchy*](images/Chapter-13/vagrant/directory.png "Suggested Directory Structure")
 
-Once you have created these folders, cd into one. For instance take the `jammy64` or `almalinux9` directories. You would cd into `jammy64` directory and type: `vagrant init ubuntu/jammy64`. This will create the `Vagrantfile` that points and works with the jammy64 vagrant box.  The idea behind the `Vagrantfile` is that it has a shorthand syntax that is universally translated by Vagrant into specific virtualization platforms. The Vagrantfile  handles all the properties that could be set (such as RAM, CPU, shared drives, port forwarding, networking, and so forth).
+In this example I created the directory `vagrant` under `Documents`. Once you have created these folders, `cd` into one. For instance take the `jammy64` or `almalinux9` directories. You would `cd` into `jammy64` directory and type: `vagrant init ubuntu/jammy64`. This will create the `Vagrantfile` that points and works with the jammy64 vagrant box. The idea behind the `Vagrantfile` is that it has a shorthand syntax that is universally translated by Vagrant into specific virtualization platforms. The Vagrantfile handles all the properties that could be set (such as RAM, CPU, shared drives, port forwarding, networking, and so forth).
 
 ### Vagrant Box Commands
 

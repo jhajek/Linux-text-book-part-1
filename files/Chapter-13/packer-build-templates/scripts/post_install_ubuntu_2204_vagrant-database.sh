@@ -12,7 +12,9 @@ sudo apt install -y mysql-server
 sudo systemctl enable mysql.service
 sudo systemctl start mysql.service
 
+# https://dev.mysql.com/doc/refman/8.0/en/create-user.html
 sudo mysql -e "CREATE USER '$DBUSER'@'localhost' IDENTIFIED BY '$DBPASS';"
 sudo mysql -e "CREATE DATABASE records;"
-sudo mysql -e "GRANT CREATE, SELECT, UPDATE, DELETE, and INSERT ON records.* TO '$DBUSER'@'localhost'"  
+# https://dev.mysql.com/doc/refman/8.0/en/grant.html
+sudo mysql -e "GRANT CREATE, SELECT, UPDATE, DELETE, INSERT ON records.* TO '$DBUSER'@'localhost'"  
 sudo mysql -e "FLUSH PRIVILEGES;"
