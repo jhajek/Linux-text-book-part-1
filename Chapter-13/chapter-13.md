@@ -771,7 +771,7 @@ vagrant box list
 vagrant up
 vagrant ssh
 # Display the OS information and exit the ssh session
-cat /etc/lsb-release
+cat /etc/os-release
 exit
 # Power down the Vagrant box
 vagrant halt
