@@ -3,15 +3,14 @@
 ## Lab 11 Objectives
 
 * Creating virtual disks in VirtualBox
-* Creating new partitions in fdisk
+* Creating new logical disks using LVM
 * Creating new filesystems with mkfs
 * Creating new filesystems in ZFS and Btrfs
-* Mounting new filesystems
-* Editing `/etc/fstab` and using systemd .mount files to make our mounts permanent
+* Mounting new filesystems using the systemd `.mount` unit
 
 ## Lab 11 Outcomes
 
-At the conclusion of this lab you will have successfully created a new virtual disk in VirtualBox, created new partitions using fdisk, formatted those partitions using mkfs, XFS, and ZFS, and mounted all those partitions manually and automatically using the `/etc/fstab`.
+At the conclusion of this lab you will have successfully created new virtual disks in VirtualBox. You will have succesfully created logical volumes using LVM. Finally you will have created next-generation filesystems (Btrfs and ZFS) along with systemd `.mount` unit files.
 
 ## Lab 11 Activities
 
@@ -19,14 +18,14 @@ At the conclusion of this lab you will have successfully created a new virtual d
 
    a. Use LVM to create 2 Physical Volumes
    b. Create 1 Volume Group
-   c. Create 3 Logical Volumes of 7 GB each
+   c. Create 3 Logical Volumes of 5 GB each
    d. Format each LV using ext4
 
 2. Using Fedora Linux, create 2 virtual drives in VirtualBox (10 GB each):
 
    a. Use LVM to create 2 Physical Volumes
    b. Create 1 Volume Group
-   c. Create 3 Logical Volumes of 7 GB each
+   c. Create 3 Logical Volumes of 5 GB each
    d. Format one LV using ext4, xfs, and then btrfs
 
 3. Using the same Fedora Linux from questions two extend the ext4 partition to be 10 GB
@@ -37,7 +36,7 @@ At the conclusion of this lab you will have successfully created a new virtual d
 4. Using the same Fedora Linux from questions two extend the xfs partition to be 10 GB
 
    a. Use the `lvextend` command to extend the LV 
-   b. Use the `grow_xfs` command to extend the filesystem size
+   b. Use the `xfs_growfs` command to extend the filesystem size
 
 5. Using Fedora Linux create 4 additional virtual disks (can be of 5-10 GB)
 

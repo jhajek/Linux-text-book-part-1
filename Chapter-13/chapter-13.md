@@ -785,7 +785,7 @@ One of the hardest parts of building software applications is managing **secrets
 
 In Linux distros as well as Packer, there are methods for dealing with secrets. One of the first tasks will be setting passwords for users. This sample will be a simplistic overview as there are dedicated secret managers for public cloud platforms, will be working on a local network and using opensource tooling. 
 
-The tool we want to introduce is [Hashicorp Vault](https://www.hashicorp.com/products/vault "webpage for Vault"). Vault's job is to manage access to secrets and protect sensitive data with identity-based security. Vault is no longer distributed as opensource, recently moving to the BUSL license, but is still worth using.
+The tool we want to introduce is [Hashicorp Vault](https://www.hashicorp.com/products/vault "webpage for Vault"). Vault's job is to manage access to secrets and protect sensitive data with identity-based security. Vault is no longer distributed as opensource, recently moving to the [BUSL license](https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license "Article HashiCorp adopts BUSL"), but is still worth using.
 
 ### How to Manage Secrets
 

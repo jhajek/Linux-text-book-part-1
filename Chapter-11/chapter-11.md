@@ -966,20 +966,19 @@ Watch this video, *What Is ZFS?: A Brief Primer by Wendell at Level1techs* at [h
 * ~28:45 What are the host's list of 4 features that ZFS has?
 * ~29:48 What is the host's conclusion about the reliability of ZFS?
  
-### Lab
+### Lab - Chapter 11
 
 #### Lab 11 Objectives
 
 * Creating virtual disks in VirtualBox
-* Creating new partitions in fdisk
+* Creating new logical disks using LVM
 * Creating new filesystems with mkfs
 * Creating new filesystems in ZFS and Btrfs
-* Mounting new filesystems
-* Editing `/etc/fstab` and using systemd .mount files to make our mounts permanent
+* Mounting new filesystems using the systemd `.mount` unit
 
 #### Lab 11 Outcomes
 
-At the conclusion of this lab you will have successfully created new virtual disks, formatted partitions using mkfs, XFS, ext4, Btrfs, and ZFS, and have created systemd mount files for those partitions.
+At the conclusion of this lab you will have successfully created new virtual disks in VirtualBox. You will have succesfully created logical volumes using LVM. Finally you will have created next-generation filesystems (Btrfs and ZFS) along with systemd `.mount` unit files.
 
 #### Lab 11 Activities
 
@@ -987,14 +986,14 @@ At the conclusion of this lab you will have successfully created new virtual dis
 
    a. Use LVM to create 2 Physical Volumes
    b. Create 1 Volume Group
-   c. Create 3 Logical Volumes of 7 GB each
+   c. Create 3 Logical Volumes of 5 GB each
    d. Format each LV using ext4
 
 2. Using Fedora Linux, create 2 virtual drives in VirtualBox (10 GB each):
 
    a. Use LVM to create 2 Physical Volumes
    b. Create 1 Volume Group
-   c. Create 3 Logical Volumes of 7 GB each
+   c. Create 3 Logical Volumes of 5 GB each
    d. Format one LV using ext4, xfs, and then btrfs
 
 3. Using the same Fedora Linux from questions two extend the ext4 partition to be 10 GB
@@ -1005,7 +1004,7 @@ At the conclusion of this lab you will have successfully created new virtual dis
 4. Using the same Fedora Linux from questions two extend the xfs partition to be 10 GB
 
    a. Use the `lvextend` command to extend the LV 
-   b. Use the `grow_xfs` command to extend the filesystem size
+   b. Use the `xfs_growfs` command to extend the filesystem size
 
 5. Using Fedora Linux create 4 additional virtual disks (can be of 5-10 GB)
 
@@ -1057,7 +1056,7 @@ At the conclusion of this lab you will have successfully created new virtual dis
 
 11. Execute any of the commands listed in the text to print out the disk serial numbers
 
-12. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created.  Add an entry for this disk to the `/etc/fstab` file with the following values:
+12. Attach an additional 2 GB virtual disk and format it with Btrfs and we will mount is in read-only mode. Using the command `lsblk --fs /dev/sdX` determine the UUID of the newest virtual disk you just created. Add an entry for this disk to the `/etc/fstab` file with the following values:
 
     a. file system is UUID=
     b. mount point is `/mnt/disk100` (create this partition if it doesn't exist)
