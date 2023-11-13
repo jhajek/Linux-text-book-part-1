@@ -864,9 +864,11 @@ export VAULT_SKIP_VERIFY = "true"
 export VAULT_TOKEN="hvs.CAESIJGG7..................."
 ```
 
-### Vault Setup
+### Building the Vault
 
-For this example you will use the Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_22043_vanilla` or `ubuntu_22043_m1_mac` to build a new virtual machine.
+To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_22043_vanilla` or `ubuntu_22043_m1_mac` to build a new virtual machine. Refer to the Packer section on how to build this Vagrant Box and how to add the Box to Vagrant's control.
+
+
 
 ### IT Orchestration
 
@@ -880,8 +882,8 @@ In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to 
   * [Podcast](https://twit.tv/shows/floss-weekly/episodes/93 "Puppet")
 * [Ansible](https://www.ansible.com/ "Ansible")
   * [Podcast](https://twit.tv/shows/floss-weekly/episodes/257 "Ansible Podcast")
-* [CfEngine](https://cfengine.com/ "CFengine")
-  * [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFengine Podcast")
+* [CFEngine](https://cfengine.com/ "CFEngine")
+  * [Podcast](https://twit.tv/shows/floss-weekly/episodes/106 "CFEngine Podcast")
   * [Dr. Mark Burgess](https://en.wikipedia.org/wiki/Mark_Burgess_(computer_scientist) "Dr Mark Burgess") wrote a book about his research in IT called [In Search of Certainty](http://markburgess.org/certainty.html "In search of certainty the book")
 * [Cobbler](https://cobbler.github.io/ "Cobblerd website")
 * [Terraform](https://www.hashicorp.com/products/terraform "Terraform")

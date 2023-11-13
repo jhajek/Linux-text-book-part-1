@@ -30,7 +30,7 @@ source "virtualbox-iso" "ubuntu-22043-server" {
   http_port_min           = 9001
   firmware                = "efi"
   hard_drive_interface    = "virtio"
-  disk_additional_size    = [5000,5000,5000]
+  # disk_additional_size    = [5000,5000,5000]
   rtc_time_base           = "UTC"
   # https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
