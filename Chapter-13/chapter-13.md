@@ -881,27 +881,95 @@ export VAULT_ADDR='https://127.0.0.1:8200'
 export VAULT_SKIP_VERIFY="true"
 ```
 
+#### Initialize and Unseal the Vault
 
+The first command to now execute is `sudo systemctl start vault`. Run the systemctl status command and make sure that Vault has begun properly. Now we can begin to create our Vault. The first step is to execute the command: `vault operator init` -- note without any sudo. This will initialize the Vault. The output will be **CRITICAL** as you will see 5 unseal keys and an Initial Root Token, like this:
 
-### Vault Setup Windows
+```
+Unseal Key 1: 6R9A28GJ0QLi6DwFZqMzjNNSjq+NxRJFKGKM2saO5555
+Unseal Key 2: rdsc3qh85kjQdLy3b7yl+ERz11+BEVUVAvXYZUNw5555
+Unseal Key 3: hJ+oShvibUuVgQBT3BIIPxTasKJTfrLXffBZgP8G5555
+Unseal Key 4: YUI+GM69hHPm+XD5/YEy4zaKFeS2ZAmdetyijSnm5555
+Unseal Key 5: ll4Z2huWIMIT2N6hOLcYsiY2YI2q+64vjXNabAut5555
 
-From your terminal you will need to execute the command `notepad $profile` to open your user profile and we will need to add some variables. This is the Windows equivilent of adding variables to the linux .bashrc file. These three values will need to added and will be determined as part of the Vault setup. Make sure you close all your terminals and open them up again to reprocess these new values in each terminal window.
-
-```powershell
-$Env:VAULT_ADDR = 'https://192.168.56.99:8200'
-$Env:VAULT_SKIP_VERIFY = "true"
-$Env:VAULT_TOKEN="hvs.CAESIJGG7..................."
+Initial Root Token: hvs.SVYlCKNg3awUeiZ3xbsV5555
 ```
 
-### Vault Setup MacOS
+You need a threshold of 3 keys to unseal access to the secrets. You should spread these keys amongst administrators if you can. That way no single person can hold all of your companies secrets hostage in case they leave or are unavailable/incapacitated. Save these keys for now in a safe place. The Vault by default is **sealed** and cannot be opened unless 3 of th 5 unseal keys are presented.
+
+Lets now unseal the vault. Execute the command: `vault operator unseal`. You need to execute this command three times and you will be prompted for one of the unseal keys. Copy and paste the key into commandline prompt, note that by default the output will be blank (for security) be careful cutting and pasting.
+
+#### Vault Login
+
+Now that we have unsealed the Vault (the sealed value will have gone from True to False) we can login with the Initial Root token. This is used to initially log in an generate subsequent login tokens. The `vault login` command will prompt you for a Token -- which is the `Initial Root Token` value.
+
+Now that we are logged in, the next step is to initialize a secret storage engine. This defines how the secrets are stored and mapped. We are going to enable a standard engine called `kv` (This stands for Key Value pair storage). Our secrets will be mapped into a mini-file system hierarchy inside the Vault starting at the path `secret/`. This is an arbitrary name that we chose when defining the `-path`.
+
+`vault secrets enable -version=2 -path=secret kv`
+
+#### Vault Policies
+
+The next step is to create a policy that grants permissions for our secrets. We can have many paths defined. In this case we will grant a very libral permission swath to our secret data. Lets create a file named: `ssh-secrets.hcl` in our home directory.
+
+```bash
+# Dev servers have version 2 of KV secrets engine mounted by default, so will
+# need these paths to grant permissions:
+path "secret/data/*" {
+  capabilities = ["read","create", "update","delete"]
+}
+```
+
+Now we must upload our policy file from our local system into the Vault and give it a name for reference inside of the Vault.
+
+`vault policy write ssh-secret-policy ./ssh-secret.hcl`
+
+Next we need to create user access tokens and expiration time for the secrets. This is a fine grained way to give access in short amounts of time. 
+
+```bash
+# This will create Access tokens that will be valid for only 
+# 15 days or 21600 hours
+vault token create -ttl=21600m -policy=ssh-scret-policy
+```
+
+This will generate a set of Key/Values. You will want to pay attention to the `token` value. It will look like the Initial Root Token, but will be a longer string similar to: `hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2`.  Copy this down as well. We will need this value to be configured on our host systems so that we can now remotely access our Vault over our local network.
+
+#### Adding Secrets
+
+```bash
+# Commands to store the secrets
+vault kv put -mount=secret team00-db DBPASS=letmein DBUSER=controller DATABASENAME=foo
+vault kv put -mount=secret team00-ssh SSHPASS=vagrant
+```
+
+Now we can finally add our secrets. The command has a strict format. The `vault kv` tells us that this is a Key Value pair. The next part tells us that we want to mount the path `secret/` that we defined earlier in the `vault secrets enable` -path command. The next part, in this example is for a database called `team00-db` that name is the container for all the secrets you want to store or access. The following pieces are series of KV pairs of secrets. We will be accessing these secrets in another Vagrant Box we will be building.
+
+### Setting Vault Environment Variables on Your Host Windows System
+
+From your terminal you will need to execute the command `notepad $profile` to open your user profile and we will need to add some variables. This is the Windows equivilent of adding variables to the linux `.bashrc` file. If the `$profile` doesn't already exist you can create it with this command: `new-item -type file -path $profile`. These three values will need to added and will be determined as part of the Vault setup. Make sure you close all your terminals and open them up again to reprocess these new values in each terminal window.
+
+```powershell
+# The 192.168.56.99 is the value we set on line 35 of the 
+# Vault-Server Vagrantfile
+$Env:VAULT_ADDR = 'https://192.168.56.99:8200'
+$Env:VAULT_SKIP_VERIFY = "true"
+$Env:VAULT_TOKEN="hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2"
+```
+
+### Setting Vault Environment Variables on Your Host MacOS System
 
 Using MacOS (Intel or M1) edit the `~/.zprofile` for the `Z shell` and add these values. Remember to source the changes `. ~/.zprofile` after making the changes
 
 ```bash
+# The 192.168.56.99 is the value we set on line 35 of the 
+# Vault-Server Vagrantfile
 export VAULT_ADDR = 'https://192.168.56.99:8200'
 export VAULT_SKIP_VERIFY = "true"
-export VAULT_TOKEN="hvs.CAESIJGG7..................."
+export VAULT_TOKEN="hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2"
 ```
+
+### Using the Vault Template
+
+Now we should be ready to go and use the secrets we added to Vault. There is an additional Packer Template located in the book sample code under `files` > `Chapter-13` > `packer-build-templates` > `ubuntu_22043_vanilla-vault-example`. You can test to see if you Vault integration works, by issuing the command: `packer validate .` to see the results.
 
 ### IT Orchestration
 
