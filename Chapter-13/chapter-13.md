@@ -576,31 +576,66 @@ vboxmanage = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
 
 ### Packer, Putting it Together
 
-There are two key commands to use in Packer, assuming you have added the packer executable to your system path.  First type: packer -v and see if you get version information output.
+There are two key commands to use in Packer, assuming you have added the packer executable to your system path. First type: packer -v and see if you get version information output.
 
 **Command:** `packer -v`
 
-Execute this command to see if you get a version output.  If this command throws an error -- go back and check the PATH & INSTALL section and make sure you have closed and reopened your shell.  
+Execute this command to see if you get a version output. If this command throws an error -- go back and check the PATH & INSTALL section and make sure you have closed and reopened your shell.
 
-![*Output of packer -v*](images/Chapter-13/packer/version.png "Output of packer -v")
+```bash
+packer --version
+```
 
-**Command:**  `packer validate`
+**Command:** `packer init .`
 
-This command will check the syntax of your `*.json` packer template for syntax errors or missing brackets.  It will not check logic but just syntax.  Good idea to run it to make sure everything is in order.  Using the samples provided in the GitHub repo you can validate the *.JSON template with this command:
+This command only needs to be run once, the first time before you use a builder. This command will retrieve the plugin needed for your particular builder. Here are two examples using VirtualBox and Parallels.
 
-![*Output of packer validate*](images/Chapter-13/packer/validate.png "Output of packer validate")
+```json
+// https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox
+// maintained by HashiCorp
+packer {
+  required_plugins {
+    virtualbox = {
+      source  = "github.com/hashicorp/virtualbox"
+      version = ">= 1.0.5"
+    }
+  }
+}
+// https://github.com/Parallels/packer-plugin-parallels
+// Mainted by Parallels
+packer {
+  required_plugins {
+    parallels = {
+      version = ">= 1.1.0"
+      source  = "github.com/Parallels/parallels"
+    }
+  }
+}
+```
 
-**Command:**  `packer build`
+**Command:**  `packer validate .`
 
-This command will be what is used to execute and run the packer *.json template.
+This command will check the syntax of your `*.hcl` packer template for syntax errors or missing brackets. It will not check logic but just syntax. Good idea to run it to make sure everything is in order. Using the samples provided in the GitHub repo you can validate the `*.hcl` templates. If all is correct your will receive a message stating: *The configuration is valid*.
 
-![*Output of packer build*](images/Chapter-13/packer/build.png "Output of packer build")
+```bash
+# Assume you are in the directory that has your variables.pkr.hcl file and
+# your .pkr.hcl build template
+packer validate .
+```
+
+**Command:**  `packer build .`
+
+This command will build the `source` blocks mentioned in the `build` block. There are commandline options you can use for building portions of the `build` block and for debugging using the `only` and `except` option.
+
+```bash
+packer build .
+```
 
 **Packer Environment Variables:** `PACKER_CACHE_DIR`
 
 ![*Packer Cache Directory on Windows*](images/Chapter-13/packer/cache.png "Packer Cache Directory on Windows")
 
-When running `packer build` Packer will cache the the install media--the iso.  You can set this location to a central directory as this will save time downloading the same media over and over. On Windows you can configure the `PACKER_CACHE_DIR` by setting a file location in your user account environment variables.  In Linux and Mac you can set an environment variable in your user profile.
+When running `packer build` command Packer will cache the the install media--the iso. You can set this location to a central directory as this will save time downloading the same media over and over. On Windows you can configure the `PACKER_CACHE_DIR` by setting a file location in your user account environment variables. In Linux and Mac you can set an environment variable in your user profile.
 
 #### When Packer Fails
 
@@ -617,30 +652,35 @@ The first solution came from Sun in 1994 and was called [Jumpstart](https://en.w
 The next phase came in Linux with Fedora creating the [Kickstart](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Kickstart Reference") answer file system. Kickstart does not handle the part of OS install, but the OS configuration and software retrieval/installation. Kickstart files can be generated from a template or scratch or upon a successful install a default kickstart is located in the location `/root/anaconda-ks.cfg`. Examples and explanation resources can be found here:
 
 * [Fedora Kickstart Reference](https://docs.fedoraproject.org/en-US/fedora/f28/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference "Fedora Kickstart Reference")
-* [CentOS Kickstart Reference](https://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html "CentOS Kickstart Reference")
+* [AlmaLinux Kickstart Guide](https://onezeroone.dev/example-almalinux-kickstart/ "CentOS Kickstart Reference")
 
 #### Debian and Preseed
 
-[Debian pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed") Debian created their own answer file system called [preseed]. You can interrupt a manual install and point to a preseed file, but it needs to be done over the network. When you are installing an operating system you don't yet have a filesystem to read files from!  
-
-Preseed Used for all Debian based server installs - example and explanation resources can be found here:
+[Debian pressed template](https://help.ubuntu.com/lts/installation-guide/amd64/apb.html "Preseed") Debian created their own answer file system called [preseed]. You can interrupt a manual install and point to a preseed file, but it needs to be done over the network. When you are installing an operating system you don't yet have a filesystem to read files from! Preseed Used for all Debian based server installs - example and explanation resources can be found here:
 
 * [Sample Preseed Template](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt "Preseed Template")
 
 #### Ubuntu and Subiquity
 
-Ubuntu has moved off of using preseed and to a tool named `auto-installer` and `subiquity`. It makes use of `cloud-init` which 
+Ubuntu has moved off of using preseed and to a tool named `autoinstall` which is part of the installer named `Subiquity`. [Autoinstalls](https://ubuntu.com/server/docs/install/autoinstall "webpage for autoinstalls") for the new server installer differ from preseeds in the following main ways:
+
+* The format is completely different (cloud-init config, usually YAML, vs. debconf-set-selections format)
+* When the answer to a question is not present in a preseed, d-i stops and asks the user for input
+  * Autoinstalls are not like this
+  * By default, if there is any autoinstall config at all the installer takes the default for any unanswered question (and fails if there is no default).
+* You can designate particular sections in the config as “interactive”, which means the installer will still stop and ask about those.
+
+Subiquity installer makes use of `cloud-init` and its Cloud-config can be used to deliver the autoinstall data to the installation environment.
 
 ### Ubuntu Subiquity Autoinstaller
 
 ```yaml
-#cloud-config - https://raw.githubusercontent.com/nickcharlton/packer-ubuntu-2004/master/http/user-data
 autoinstall:
   version: 1
+  # https://askubuntu.com/questions/1261451/how-to-generate-crypted-password-for-auto-install
   identity:
     hostname: ubuntu-server
     # Generate a new hashed password on the Linux Command Line: 
-    # https://askubuntu.com/questions/1261451/how-to-generate-crypted-password-for-auto-install
     # printf 'vagrant' | openssl passwd -6 -salt 'qoazpFv0h6' -stdin
     # The above command will generate the salted password of "vagrant"
     # Output shortened for print 
@@ -684,6 +724,8 @@ autoinstall:
     install-server: true
     # Adding the Vagrant initial insecure public key - that will be replaced, 
     # new key pair generated, upon launch
+    # Key retrieved from
+    # https://github.com/hashicorp/vagrant/blob/master/keys/vagrant.pub
     authorized-keys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key'    
   late-commands:
@@ -696,7 +738,7 @@ autoinstall:
 
 ### Putting Vagrant and Packer together
 
-How then do we build our own artifacts with Packer to manage them? Here is an end-to-end example using some sample code provided in the source code repo of the book. This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server.  Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then `ssh` into the box via Vagrant.
+How then do we build our own artifacts with Packer to manage them? Here is an end-to-end example using some sample code provided in the source code repo of the book. This example will use a prepared Packer build template to install and configure a Vanilla version of Ubuntu Server. Then add the prepared Vagrant Box file to Vagrant, create a Vagrantfile and then start the virtual machine and then `ssh` into the box via Vagrant.
 
 ```bash
 
@@ -715,7 +757,8 @@ cd ../build
 # Good idea to name the directory the same as your Vagrant Box -- so you
 # don't lose track of it!
 mkdir vanilla-ubuntu-server
-# This command will create a Vagrantfile that is associated with the Vagrant Box vanilla-ubuntu-server
+# This command will create a Vagrantfile that is associated with the 
+# Vagrant Box vanilla-ubuntu-server
 vagrant init vanilla-ubuntu-server
 # this command will show the *.box files that Vagrant knows about
 vagrant box list
@@ -730,128 +773,100 @@ vagrant halt
 
 ## Secrets Management
 
-One of the hardest parts of building software applications is managing **secrets**.  Secrets can be anything from a username and a password, a token, or even keys from cloud services.  The important part is that they are important.  If you loose these secrets it could mean the end to a company.  You also have to worry about invalidating them.  If a person leaves, or rotates job, you don't want credentials to walk out the door with you.  Also managing these secrets not just for security but for automation is also a critical part of the infrastructure.
+One of the hardest parts of building software applications is managing **secrets**. Secrets can be anything from a username and a password, a token, or even keys from cloud services. The important part is that they are important. If you loose these secrets it could mean the end to a company. You also have to worry about invalidating them. If a person leaves, or rotates job, you don't want credentials to walk out the door with you. Also managing these secrets not just for security but for automation is also a critical part of the infrastructure.
 
-In Linux distros as well as Packer, there are methods for dealing with secrets.  The first obvious example how to we *seed* a root password for a MySQL server?  If you install it, there is always a password prompt?  This precludes you from automating the install.
+### Hashicorp Vault
 
-All Debian based distros have a configuration database called `DEBCONF`.  This can be used to preseed and answers you may have to installation questions that come via `apt-get`.  Here is an example:
+In Linux distros as well as Packer, there are methods for dealing with secrets. One of the first tasks will be setting passwords for users. This sample will be a simplistic overview as there are dedicated secret managers for public cloud platforms, will be working on a local network and using opensource tooling. 
 
-```bash
-# This is sample code to add to a provisioner
-# script that will pre-seed the password for a database.
-export DEBIAN_FRONTEND=noninteractive
-FIRSTPASS="mariadb-server mysql-server/root_password password ilovebunnies"
-SECONDPASS="mariadb-server mysql-server/root_password_again password ilovebunnies"
-echo $FIRSTPASS | sudo debconf-set-selections
-echo $SECONDPASS | sudo debconf-set-selections
-```
-
-This example will set the answer to the root password prompt for MariaDB and or MySQL.  In the above code the password is *ilovebunnies*.  This is an automation improvement, but a security nightmare, as now our **root** password is hardcoded into our code and will then be placed in our GitHub repo for all to see.  We can mitigate this by using ENV variables like this:
-
-```bash
-# run this on the command line and the value will be exported to all shells (or set this in your .bashrc)
-export $DBPASS="ilovebunnies"
-# run this in a shell script
-export DEBIAN_FRONTEND=noninteractive
-FIRSTPASS="mariadb-server mysql-server/root_password password $DBPASS"
-SECONDPASS="mariadb-server mysql-server/root_password_again password $DBPASS"
-
-echo $FIRSTPASS | sudo debconf-set-selections
-echo $SECONDPASS | sudo debconf-set-selections
-```
-
-This is better but not the best as others on the system or any code that can read ENV variables can now read the password.  Packer has a way to pass ENV variables from a config file.  This is similar to how WordPress is configured.   Adding these lines of code to your Provisioner in your Packer build template allows this:
-
-```json
-{
-  "type": "shell",
-  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-  "script": "../scripts/post_install_itmt430-github-db.sh",
-  "environment_vars": [
-    "DBPASS={{user `database-root-password`}}",
-    "USERPASS={{user `database-user-password`}}",
-    "ACCESSFROMIP={{user `database-access-from-ip`}}",
-    "DATABASEIP={{user `database-ip`}}",
-    "DATABASENAME={{user `database-name`}}",
-    "DATABASEUSERNAME={{user `database-user-name`}}"
-  ]
-}
-```
-
-Packer has the ability to set ENV variables upon install.  From the command line you pass an additional `--var-file=` command and Packer will load values from that file.
-
-```bash
-
-packer build --var-file=./variables.json ubuntu18045-vanilla-multi-drives.json
-
-```
-
-```json
-{
-  "database-root-password": "foo",
-  "database-user-password": "bar",
-  "database-access-from-ip": "127.0.0.1",
-  "database-ip": "127.0.0.1",
-  "webserver-ip": "127.0.0.1",
-  "database-name": "namegoeshere",
-  "database-user-name": "database-username-goes-here"
-}
-```
-
-There is a consideration here, if you add values to `variables.json` they will still be pushed to your Git repo and you will have the same problem.  When you need to do is create a template.  Essentially the file, `variables-sample.json` is just that a template to show you what values you can enter.  You can copy the file, change the name to `variables.json` for instance.  Then in your Git repo, add an entry to the `.gitignore`.  This file in the root of your Git repo will ignore all files you tell it to.  This way you can distribute your template for secrets and passwords, but now you can retain a local copy that will be exposed via Git. Sample files are provided in the files > Appendix-D > packer-scripts folder.
+The tool we want to introduce is [Hashicorp Vault](https://www.hashicorp.com/products/vault "webpage for Vault"). Vaults job is to manage access to secrets and protect sensitive data with identity-based security. Vault is no longer distributed as opensource, recently moving to the BUSL license, but is still worth using.
 
 ### How to Manage Secrets
 
-But what happens when your secrets need to be managed by multiple people across a large enterprise, or even a large cloud enterprise?  There is an opensource and enterprise grade product from [HashiCorp called Vault](https://www.vaultproject.io/ "HashiCorp Vault webpage").  It does what is says, essentially cryptographically storing all the secrets you enter into a *vault*, then delegating access to these secrets via API (over HTTP) allowing for the implementation of policy and identity relating to accessing these secrets.  The *vault* can then be attached or mounted into any system and each developer can access their secrets. Vaults use cases are as follows"
+Vault can manage secrets needed by multiple people across a large enterprise, or even a large cloud enterprise. Vault does what is says, essentially cryptographically storing all the secrets you enter into a *vault*, then delegating access to these secrets via API (over HTTP) allowing for the implementation of policy and identity relating to accessing these secrets. The *vault* can then be attached or mounted into any system and each developer can access their secrets. Vaults use cases are as follows"
 
 Vault tightly controls access to secrets and encryption keys by authenticating against trusted sources of identity such as Active Directory, LDAP, Kubernetes, CloudFoundry, and cloud platforms. Vault enables fine grained authorization of which users and applications are permitted access to secrets and keys.  Vault can be integrated with other platforms as well, Active Directory, AWS IAM profile management, and other platforms.
 
 #### Vault Integration With Packer
 
-For our convenience, Packer has direct integration with Vault.  Once Vault is installed an setup on your [local system](https://www.vaultproject.io/docs/install/index.html "Install Vault") for instance by running the Vault agent you can simply read your secrets in the Packer Build Template, without the secret ever being seen by a person.  There is more to say on this, but the reason we introduce it here is so that you can be exposed to safe practices from the beginning as well as deal with one of the major problems in IT, which is Secrets Management.
+For our convenience, Packer has direct integration with Vault. Once Vault is installed an setup on your [local system](https://www.vaultproject.io/docs/install/index.html "Install Vault") for instance by running the Vault agent you can simply read your secrets in the Packer Build Template, without the secret ever being seen by a person. There is more to say on this, but the reason we introduce it here is so that you can be exposed to safe practices from the beginning as well as deal with one of the major problems in IT, which is Secrets Management.
 
 ```json
-{
-  "variables": {
-    "database-root-password": "{{ vault `secrets/database-root-password` `database-root-password`}}",
-    "database-user-password": "{{ vault `secrets/database-user-password` `database-user-password`}}",
-    "database-access-from-ip": "{{ vault `secrets/database-access-from-ip` `database-access-from-ip`}}",
-    "database-ip": "{{ vault `secrets/database-ip` `database-ip`}}",
-    "webserver-ip": "{{ vault `secrets/webserver-ip` `webserver-ip`}}",
-    "databaseslave-ip": "{{ vault `secrets/databaseslave-ip` `databaseslave-ip`}}",
-    "cache-ip": "{{ vault `secrets/cache-ip` `cache-ip`}}",
-    "salt": "{{ vault `secrets/salt` `salt`}}"
+source "virtualbox-iso" "ubuntu-22043-server" {
+    boot_command = [
+        "e<wait>",
+        "<down><down><down>",
+        "<end><bs><bs><bs><bs><wait>",
+        "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
+        "<f10><wait>"
+      ]
+  boot_wait               = "5s"
+  disk_size               = 15000
+  guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
+  guest_os_type           = "Ubuntu_64"
+  http_directory          = "subiquity/http"
+  http_port_max           = 9200
+  http_port_min           = 9001
+  iso_checksum  = "sha256:a4acfda10b18da50e2ec50ccaf860d7f20b389df8765611142305c0e911d16fd"
+  iso_urls                = ["${var.iso_urls}"]
+  shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
+  ssh_username            = "vagrant"
+  // Note the use of ${local} as the way to reference vault variables
+  ssh_password            = "${local.user-ssh-password}"
+  ssh_timeout             = "45m"
+  cpus                    = 2
+  memory                  = "${var.memory_amount}"
+  vboxmanage              = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
+  virtualbox_version_file = ".vbox_version"
+  vm_name                 = "jammy-server"
+  headless                = "${var.headless_build}"
+}
+
+build {
+  sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+
+  provisioner "shell" {
+    execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
   }
-  
-  {
-    "type": "shell",
-    "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-    "script": "../scripts/post_install_itmt430-github-db.sh",
-    "environment_vars": [
-      "DBPASS={{user `database-root-password`}}",
-      "USERPASS={{user `database-user-password`}}",
-      "ACCESSFROMIP={{user `database-access-from-ip`}}",
-      "DATABASEIP={{user `database-ip`}}",
-      "DATABASENAME={{user `database-name`}}",
-      "DATABASEUSERNAME={{user `database-user-name`}}"
-    ]
+
+  // As an example the value for the shell variable is being written to a 
+  // textfile -- the value id coming from Vault -- user never sees the value
+  provisioner "shell" {
+    inline = ["echo $DBUSER", "echo $DBUSER > /home/vagrant/TEST"]
+    environment_vars = ["DBUSER=${local.db_user}"]
+  }
+
+  post-processor "vagrant" {
+    keep_input_artifact = false
+    output              = "${var.build_artifact_location}{{ .BuildName }}-${local.timestamp}.box"
   }
 }
 ```
 
-Packer provides the ability to execute inline Linux commands.  This would be useful for instance in copying code from a Git repo into a Virtual Machine via making an SCP (Secure Copy) connection.
+### Vault Setup Windows
 
-```json
-{
-  "type": "shell",
-  "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-  "inline": [
-    "mkdir -p /var/www/html",
-    "cp -v ../github-repo/php /var/www/html",
-    "cp -v ../github-repo/sql /home/vagrant/",
-  ]
-}
+From your terminal you will need to execute the command `notepad $profile` to open your user profile and we will need to add some variables. This is the Windows equivilent of adding variables to the linux .bashrc file. These three values will need to added and will be determined as part of the Vault setup. Make sure you close all your terminals and open them up again to reprocess these new values in each terminal window.
+
+```powershell
+$Env:VAULT_ADDR = 'https://192.168.56.99:8200'
+$Env:VAULT_SKIP_VERIFY = "true"
+$Env:VAULT_TOKEN="hvs.CAESIJGG7..................."
 ```
+
+### Vault Setup MacOS
+
+Using MacOS (Intel or M1) edit the `~/.zprofile` for the `Z shell` and add these values. Remember to source the changes `. ~/.zprofile` after making the changes
+
+```bash
+export VAULT_ADDR = 'https://192.168.56.99:8200'
+export VAULT_SKIP_VERIFY = "true"
+export VAULT_TOKEN="hvs.CAESIJGG7..................."
+```
+
+### Vault Setup
+
+For this example you will use the Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_22043_vanilla` or `ubuntu_22043_m1_mac` to build a new virtual machine.
 
 ### IT Orchestration
 
