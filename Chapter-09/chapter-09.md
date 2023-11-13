@@ -532,11 +532,9 @@ One of the tools to alleviate this is called [fail2ban](https://www.fail2ban.org
 
 #### OpenSSL
 
-OpenSSL is an Opensource Library used for cryptographic key generation by OpenSSH. In 2016, it suffered an exploit, named [heartbleed](http://heartbleed.com "Heartbleed.com") due to the critical library maintaining old code from defunct systems and only having one part-time developer. Take note that although Google built its entire business using OpenSSH and OpenSSL, they contributed almost nothing to its development. After the exploit the projects were adopted by the Linux Foundation [Core Infrastructure Initiative](https://www.coreinfrastructure.org/ "website for CII")[^ch9f107] and recently transferred to the [Open Source Security Foundation](https://openssf.org/ "website for Open Source Security Foundation").
+OpenSSL is an Opensource Library used for cryptographic key generation by OpenSSH. In 2016, it suffered an exploit, named [heartbleed](http://heartbleed.com "Heartbleed.com")[^ch9f106] due to the critical library maintaining old code from defunct systems and only having one part-time developer. Take note that although Google built its entire business using OpenSSH and OpenSSL, they contributed almost nothing to its development. After the exploit the projects were adopted by the Linux Foundation [Core Infrastructure Initiative](https://www.coreinfrastructure.org/ "website for CII")[^ch9f107] and recently transferred to the [Open Source Security Foundation](https://openssf.org/ "website for Open Source Security Foundation").
 
-The heartbleed OpenSSL bug has its own website to explain the details of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com").
-
-Links to "Security Now" Technical Podcast explaining HeartBleed
+The heartbleed OpenSSL bug has its own website to explain the details of it, located at [http://heartbleed.com](http://heartbleed.com "Heartbleed.com"). Links to "Security Now" Technical Podcast explaining HeartBleed
 
 * [https://twit.tv/shows/security-now/episodes/450 - Part 1](https://twit.tv/shows/security-now/episodes/450 "heartbleed podcast part 1")
 * [https://twit.tv/shows/security-now/episodes/451 - Part 2](https://twit.tv/shows/security-now/episodes/451 "heartbleed podcast part 2")
