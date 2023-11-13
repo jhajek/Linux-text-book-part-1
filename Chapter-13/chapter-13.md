@@ -281,11 +281,11 @@ Here is a small walk through to install 2 different Vagrant boxes:
 
 ### The Problem Packer Solves
 
-By 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs. This problem was solved by HashiCorp and called [Packer](https://packer.io "Packer.io"). Packer, much like the name suggests, allows you to automate the installation of operating systems. Or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]."  Operating systems from Windows to Linux to BSD were all designed to be installed manually.  Unlike installing software, there is no existing operating system when you are installing an operating system, making automatic installation difficult.
+By 2010 Vagrant was being used to manage VMs, there was no tool that could be used to quickly and reliably create VMs. This problem was solved by HashiCorp and called [Packer](https://packer.io "Packer.io"). Packer, much like the name suggests, allows you to automate the installation of operating systems. Or better said, "Packer is a tool for creating machine and container images for multiple platforms from a single source configuration[^155]." Operating systems from Windows to Linux to BSD were all designed to be installed manually.  Unlike installing software, there is no existing operating system when you are installing an operating system, making automatic installation difficult.
 
-Packer attacked this problem by creating its own binary which acts as a supervisor and initiates the proper key sequences to turn a manual install into and automated install via a JSON based build template.  This can take place on multiple formats or platforms and does not even focus on physical machines.  Packer uses already existing answer file technology for Linux, such as Kickstart and Preseed to allow for automated and repeatable installs to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]." Network installs have existed for decades, but this method always assumed a physical 1-to-1 infrastructure, which as you have seen in this class is no longer the only reality.
+Packer attacked this problem by creating its own binary which acts as a supervisor and initiates the proper key sequences to turn a manual install into and automated install via a JSON based build template. This can take place on multiple formats or platforms and does not even focus on physical machines. Packer uses already existing answer file technology for Linux, such as Kickstart and Preseed to allow for automated and repeatable installs to create machine images. "A machine image is a single static unit that contains a pre-configured operating system and installed software which is used to quickly create new running machines. Machine image formats change for each platform. Some examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports for VirtualBox, and others[^155]." Network installs have existed for decades, but this method always assumed a physical 1-to-1 infrastructure, which as you have seen in this class is no longer the only reality.
 
-Having a code based automated configuration now lets you track, audit, and centralize your build template in version control. With minor modifications, you can now have centralized machine image construction and export to various hardware platforms.  You could build a VirtualBox VM, which could be exported to Vagrant or Amazon Web Services, or Docker. Now all of your developers, operations, testers, and QA can have access to the same machine on most any platform. As stated on the [Packer.io](https://packer.io "packer webpage") webpage the advantages of using packer are as follows[^156]:
+Having a code based automated configuration now lets you track, audit, and centralize your build template in version control. With minor modifications, you can now have centralized machine image construction and export to various hardware platforms. You could build a VirtualBox VM, which could be exported to Vagrant or Amazon Web Services, or Docker. Now all of your developers, operations, testers, and QA can have access to the same machine on most any platform. As stated on the [Packer.io](https://packer.io "packer webpage") webpage the advantages of using packer are as follows[^156]:
 
 * **Super fast infrastructure deployment**
   * Packer images allow you to launch completely provisioned and configured machines in seconds rather than several minutes or hours. This benefits not only production, but development as well, since development virtual machines can also be launched in seconds, without waiting for a typically much longer provisioning time.
@@ -316,7 +316,7 @@ packer {
   required_plugins {
     virtualbox = {
       source  = "github.com/hashicorp/virtualbox"
-      version = "~> 1"
+      version = ">= 1.0.5"
     }
   }
 }
@@ -785,13 +785,13 @@ One of the hardest parts of building software applications is managing **secrets
 
 In Linux distros as well as Packer, there are methods for dealing with secrets. One of the first tasks will be setting passwords for users. This sample will be a simplistic overview as there are dedicated secret managers for public cloud platforms, will be working on a local network and using opensource tooling. 
 
-The tool we want to introduce is [Hashicorp Vault](https://www.hashicorp.com/products/vault "webpage for Vault"). Vaults job is to manage access to secrets and protect sensitive data with identity-based security. Vault is no longer distributed as opensource, recently moving to the BUSL license, but is still worth using.
+The tool we want to introduce is [Hashicorp Vault](https://www.hashicorp.com/products/vault "webpage for Vault"). Vault's job is to manage access to secrets and protect sensitive data with identity-based security. Vault is no longer distributed as opensource, recently moving to the BUSL license, but is still worth using.
 
 ### How to Manage Secrets
 
 Vault can manage secrets needed by multiple people across a large enterprise, or even a large cloud enterprise. Vault does what is says, essentially cryptographically storing all the secrets you enter into a *vault*, then delegating access to these secrets via API (over HTTP) allowing for the implementation of policy and identity relating to accessing these secrets. The *vault* can then be attached or mounted into any system and each developer can access their secrets. Vaults use cases are as follows"
 
-Vault tightly controls access to secrets and encryption keys by authenticating against trusted sources of identity such as Active Directory, LDAP, Kubernetes, CloudFoundry, and cloud platforms. Vault enables fine grained authorization of which users and applications are permitted access to secrets and keys.  Vault can be integrated with other platforms as well, Active Directory, AWS IAM profile management, and other platforms.
+Vault tightly controls access to secrets and encryption keys by authenticating against trusted sources of identity such as Active Directory, LDAP, Kubernetes, CloudFoundry, and cloud platforms. Vault enables fine grained authorization of which users and applications are permitted access to secrets and keys. Vault can be integrated with other platforms as well, Active Directory, AWS IAM profile management, and other platforms.
 
 #### Vault Integration With Packer
 
@@ -850,6 +850,27 @@ build {
 }
 ```
 
+### Building the Vault
+
+To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_22043_vanilla` or `ubuntu_22043_m1_mac` to build a new virtual machine. Refer to the Packer section on how to build this Vagrant Box and how to add the Box to Vagrant's control.
+
+#### Vagrantfile and Vault Install
+
+Before we start the Vagrant box, we need to edit line 35 of the `Vagrantfile` to read: `config.vm.network "private_network", ip: "192.168.56.99"`. This will add a second network interface to our host-only network and subsequent virtual machines will be able to connect to our Vault Server.
+
+Once the vault-server has been built and initialized in Vagrant, we need to Vagrant SSH into our system and [install Vault for Linux Debian/Ubuntu](https://developer.hashicorp.com/vault/install "webpage install Vault for Ubuntu"). Check to make sure the Vault service has started properly and is enabled.
+
+```bash
+wget -O- https://apt.releases.hashicorp.com/gpg | 
+sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] 
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" | 
+sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install vault
+```
+
+
+
 ### Vault Setup Windows
 
 From your terminal you will need to execute the command `notepad $profile` to open your user profile and we will need to add some variables. This is the Windows equivilent of adding variables to the linux .bashrc file. These three values will need to added and will be determined as part of the Vault setup. Make sure you close all your terminals and open them up again to reprocess these new values in each terminal window.
@@ -869,12 +890,6 @@ export VAULT_ADDR = 'https://192.168.56.99:8200'
 export VAULT_SKIP_VERIFY = "true"
 export VAULT_TOKEN="hvs.CAESIJGG7..................."
 ```
-
-### Building the Vault
-
-To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_22043_vanilla` or `ubuntu_22043_m1_mac` to build a new virtual machine. Refer to the Packer section on how to build this Vagrant Box and how to add the Box to Vagrant's control.
-
-
 
 ### IT Orchestration
 
