@@ -874,9 +874,14 @@ sudo apt update && sudo apt install vault
 We will need to add two lines to the `.bashrc` file in order to define the Vault listening port internally. Vault only accepts requests via HTTP -- to access the contents of the vault the commands we execute will take place over HTTP locally. Make sure to source the changes to the `~/.bashrc` file after the changes are made so that your terminal can access these values. Use the command: `. ~/.bashrc`.
 
 ```bash
+# Tells Vault to listen for connections on Local Host
 export VAULT_ADDR='https://127.0.0.1:8200'
+# Tells vault to skip third part verification of TLS cert
+# Accept the self-signed TLS cert
 export VAULT_SKIP_VERIFY="true"
 ```
+
+
 
 ### Vault Setup Windows
 
