@@ -695,6 +695,8 @@ WantedBy=multi-user.target
 
 **Remember!** ZFS handles implicit mounting of volumes/zpools as part of the act of creating zpools and do not need to have `.mount` files created.
 
+**Remember!** Just like `.service` files, via systemctl you need to start and enable your `.mount` files
+
 ### Disk related tools
 
 There are two useful commands to use in regards to understanding the disk resource use in regards to the filesystem. The `df` command will list the disk usage. There is an optional `-H` and `-h` which presents the file-system usage in Gigabytes (-H is metric: giga, -h is binary, gibi). When you use `df` without any directories, it will list all file-systems. The command below lists the file-system that contains the user's home directory: `/home/controller` for example.
