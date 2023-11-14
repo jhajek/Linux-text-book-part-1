@@ -695,7 +695,7 @@ WantedBy=multi-user.target
 
 **Remember!** ZFS handles implicit mounting of volumes/zpools as part of the act of creating zpools and do not need to have `.mount` files created.
 
-**Remember!** Just like `.service` files, via systemctl you need to start and enable your `.mount` files
+**Remember!** Just like `.service` and `.timer` files, via systemctl you need to start and enable your `.mount` files
 
 ### Disk related tools
 
