@@ -387,7 +387,7 @@ You will need to install the listed GNOME extensions from [https://extensions.gn
 
 #### Snaps Install
 
-To install and configure snaps, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on an **Ubuntu** based desktop.
+To install and configure snaps, reference chapter 3. To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on an **Ubuntu** based desktop.
 
 1) From the Software store: KdenLive
 1) From the Software store: code

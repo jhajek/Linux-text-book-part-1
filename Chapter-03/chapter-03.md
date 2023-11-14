@@ -613,31 +613,27 @@ sudo snap list
 
 Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command - [Flatpak](https://www.Flatpak.org/ "Flatpak"). You can see software available at [Flathub](https://flathub.org/home "Flathub").
 
-Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard on Fedora 32, but not other distributions. Let's install some Flatpak and some applications: The first thing is to install the Flatpak package. [That is done at the Flatpak repo page](https://www.Flatpak.org/setup/ "Flatpak"). Let's try it with an Ubuntu distribution:
+Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard since Fedora 32. Let's install some applicataions via Flatpaks. The first thing is to install the FlatHub repository. You can browse the [Flathub website](https://flathub.org "website for Flathub") On other OSes such as Pop!_OS and OpenSuse, support Flatpak out of the box, but the Flathub repo is not installed by default and can be added with this command:
 
-#### Non-Fedora OS Flathub Install
-
-Flatpak and FlatHub are installed by default as of Fedora 32. On other OSes such as Pop!_OS and OpenSuse, support Flatpak out of the box, but the Flathub repo is not installed by default and can be added with this command:
-
-```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
+`sudo flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo`
 
 #### Installing Flatpaks
 
 Once that is done here is an example of installing Flatpaks from the commandline:
 
-* ```sudo flatpak install flathub org.videolan.VLC```
-* ```sudo flatpak install flathub com.discordapp.Discord```
-* ```sudo flatpak install flathub io.atom.Atom```
-* ```sudo flatpak install flathub org.blender.Blender```
-* ```sudo flatpak install flathub com.obsproject.Studio```
+* `sudo flatpak install flathub org.videolan.VLC`
+* `sudo flatpak install flathub com.discordapp.Discord`
+* `sudo flatpak install flathub io.atom.Atom`
+* `sudo flatpak install flathub org.blender.Blender`
+* `sudo flatpak install flathub com.obsproject.Studio`
 
-These apps appear on your start menu after a logout and log back in. They can also be launched via the ```Flatpak``` command from the commandline. Note that from the command line you don't run these as ```sudo```. You can find the official Flatpak name by issuing the command: ```Flatpak list```.
+These apps appear on your start menu after a logout and log back in. They can also be launched via the `Flatpak` command from the commandline. Note that from the command line you don't run these as `sudo`. You can find the official Flatpak name by issuing the command: `Flatpak list`.
 
-* ```flatpak run flathub org.videolan.VLC```
-* ```flatpak run flathub com.discordapp.Discord```
-* ```flatpak run flathub io.atom.Atom```
-* ```flatpak run flathub org.blender.Blender```
-* ```flatpak run flathub com.obsproject.Studio```
+* `flatpak run flathub org.videolan.VLC`
+* `flatpak run flathub com.discordapp.Discord`
+* `flatpak run flathub io.atom.Atom`
+* `flatpak run flathub org.blender.Blender`
+* `flatpak run flathub com.obsproject.Studio`
 
 ### AppImage
 
