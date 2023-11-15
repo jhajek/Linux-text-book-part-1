@@ -73,3 +73,6 @@ pandoc -f markdown -t plain -V templates/defaults.txt --toc --number-sections -o
 
 # ODT demo http://pandoc.org/demos.html
 #pandoc ./Chapter-Table-of-Contents/chapter-toc.md ./Introduction/introduction.md ./Chapter-01/chapter-01.md -o ./output/Linux-Technology-and-Philosophy-Part-II.odt
+
+echo "Success! You have built a copy of the book. =)"
+ 
