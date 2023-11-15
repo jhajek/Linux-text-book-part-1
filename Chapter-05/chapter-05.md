@@ -650,7 +650,7 @@ Here we will be creating a number of directories and files in order to navigate 
 1) Issue the `cd` command to change directory into Linux-text-book-part-1 and then issue the command to display what type of file `./title/metadata.yaml` is.
 1) Issue that same command to display what type of file `Appendix-A` is.
 1) Using in the book source code, under files > chapter-05 > sample-script: copy the file `sample-command` to your home directory. Use the command to the give the script execute permission `+x`.  Issue the `ls -l sample-script/sample-command` command to show the permissions of just the `sample-command` file
-1) Move the file `sample-command` to the location `/usr/local/bin` (**Note:** you will need to add the `sudo` command in front to give yourself root privilleges to move a file to this location)
+1) Move the file `sample-command` to the location `/usr/local/bin` (**Note:** you will need to add the `sudo` command in front to give yourself root privileges to move a file to this location)
 1) From the command line (any location) execute the command: `sample-command`, and if succesful you will receive a message of success
 1) Execute the `ssh-keygen` command on the command line (from any location) and accept all the default values (just hit enter for now, we will cover RSA in depth later in the text). This command generates two files that are part of an RSA keypair, located in `~/.ssh`
 1) `cd` into the directory `~/.ssh` and type the command to show the long listing of the directory.
@@ -659,7 +659,7 @@ Here we will be creating a number of directories and files in order to navigate 
 1) From the cloned textbook sample code under the directory `files` > `Chapter-05` > `sample-textfiles`, issue the command to display the content of the distro-list.txt to the screen
 1) Issue the command using a relative path to copy the file `distro-list.txt` to the `distros` directory you made under the `class-notes` folder
 1) Issue the command to show the listing of the `distros` directory and show that the file was copied
-1) In the clone class textbook directory, `Linux-text-book-part-1`, issue the command to delete the `Mobi` directory and its contents, under `output`
+1) In the cloned class textbook directory, `Linux-text-book-part-1`, issue the command to delete the `Mobi` directory and its contents, under `output`
 1) Issue the command make a cp of the entire directory `Linux-text-book-part-1` and all sub-directories to a directory named `textbook-copy` located in your **HOME** directory.
 1) Issue the command to delete the directory `Linux-text-book-part-1` and its sub-directories in one command (recursively).
 
