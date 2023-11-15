@@ -22,3 +22,5 @@ sudo apt-get -y install fonts-sil-charis
 
 sudo apt-get -y install fonts-inconsolata
 sudo fc-cache -fv
+
+echo "Pandoc has been installed. +)"
