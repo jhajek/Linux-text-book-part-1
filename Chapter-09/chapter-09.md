@@ -179,65 +179,67 @@ To use the journal daemon (journald) all its elements are accessed through the `
 
 > __Example Usage:__ These examples have been taken from the [systemd website](http://www.freedesktop.org/software/systemd/man/journalctl.html "jounralctl examples"):[^99]
 
-> Without arguments, all collected logs are shown unfiltered:
-
 ```bash
 journalctl
 ```
 
-> Shows errors that the current service (-u) is showing:
+> Without arguments, all collected logs are shown unfiltered:
 
 ```bash
 journalctl -x -u nginx.service
 ```
 
-> If two matches refer to the same field, all entries matching either expression are shown:
+> Shows errors that the current service (-u) is showing:
 
 ```bash
 journalctl -u sshd.service -u nginx.service
 ```
 
-> Show all kernel logs from previous boot:
+> If two matches refer to the same field, all entries matching either expression are shown:
 
 ```bash
 journalctl -k -b -1
 ```
 
-> Show a live log display from a system service apache2.service:
+> Show all kernel logs from previous boot:
 
 ```bash
 journalctl -f -u apache2.service
 ```
 
-> This will show you only the logs of the current boot:
+> Show a live log display from a system service apache2.service:
 
 ```bash
 journalctl -b
 ```
 
-> List all messages of priority levels ERROR and worse, from the current boot:
+> This will show you only the logs of the current boot:
 
 ```bash
 journalctl -b -p err
 ```
 
-> Filtering based on time
+> List all messages of priority levels ERROR and worse, from the current boot:
 
 ```bash
 journalctl --since=yesterday -u nginx.service
 ```
 
-> Filter based on time range - note how difficult this would be with using grep, sort, and awk because everything is text. But since journald can be thought of a similar to a SQL database, then these types of queries are possible.
+> Filtering based on time and service
 
 ```bash
 journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
 ```
 
-> See log entries created only by the SSH service
+> Filter based on time range - note how difficult this would be with using grep, sort, and awk because everything is text. But since journald can be thought of a similar to a SQL database, then these types of queries are possible.
 
 ```bash
 journalctl -u ssh.service
 ```
+
+> See log entries created only by the SSH service
+
+
 
 ### Log rotation
 
@@ -641,7 +643,7 @@ A [VPN](https://en.wikipedia.org/wiki/Virtual_private_network "VPN Wikipedia pag
 
 ## Chapter Conclusions and Review
 
-Through this chapter we learned about the su, sudo, and root user account paradigms.  We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored.  We learned about a newer logging format in the journald service from systemd.  Finally we learned about system monitoring tools for visual display of system resources being used.  Finally we learned about the 3Ps of Linux troubleshooting.
+Through this chapter we learned about the su, sudo, and root user account paradigms. We learned when to use them and how they were designed. We learned about the nature of traditional logging (non-systemd) and how they are stored. We learned about a newer logging format in the journald service from systemd. Finally we learned about system monitoring tools for visual display of system resources being used. Finally we learned about the 3Ps of Linux troubleshooting.
 
 ### Review Questions
 
@@ -798,7 +800,7 @@ Assumptions:
 
 * Assignments can be done using Ubuntu or Fedora desktop unless stated
 * If a command asks you to work on a user that doesn't exist, it is assumed that you have to create it
-* The `mysqldump` application requires the `mysql-client` package to be installed: [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump)
+* The `mysqldump` application requires the `mysql-client` package to be installed: [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump "webpage for mysqldump")
 
 1) Write a shell script that issues the command to add a user named "controller" to your system, using the system default values and display the content of the `/etc/passwd` file to show that the user has been created
 
