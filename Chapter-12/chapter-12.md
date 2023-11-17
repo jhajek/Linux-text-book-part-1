@@ -607,10 +607,13 @@ SQL commands can also be executed inline as well.
 ```bash
 sudo mysql -e "CREATE DATABASE wordpress_db;"
 sudo mysql -e "CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';"
+
+# https://wordpress.stackexchange.com/questions/6424/
+sudo mysql -e "GRANT SELECT INSERT UPDATE DELETE DROP ALTER ON wordpress_db.* TO 'wp_user'@'localhost' IDENTIFIED BY 'password';"
+
 # You can assign long commands to variables and execute them too
-COMMAND="GRANT ALL ON wordpress_db.* TO 'wp_user'@'localhost' IDENTIFIED BY 'password';"
-sudo mysql -e "$COMMAND"
-sudo mysql -e "FLUSH PRIVILEGES;"
+COMMAND="FLUSH PRIVILEGES;"
+sudo mysql -e "$COMMAND" 
 ```
 
 ### PostgreSQL
