@@ -607,17 +607,17 @@ If you have a system with an issue--or damage that needs to be repaired.  Perhap
 
 ## Chapter Conclusions and Review
 
-Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands.  We learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes.  You learned about the ps command for managing processes under SysVinit.  Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in a file format dynamically on boot and during a system's use.
+Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands. We learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes. You learned about the ps command for managing processes under SysVinit. Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in a file format dynamically on boot and during a system's use.
 
 ### Review Questions
 
-1) What is the name of the firmware that since 2015 has replaced BIOS on essenitally all computers?
+1) What is the name of the firmware that since 2015 has replaced BIOS on essentially all computers?
 a) BIOS
 b) POST
 c) GRUB
 d) UEFI
 
-2) What is the name of the GNU software that is the first software program that runs when a computer with Linux installed starts?
+2) What is the name of the GNU software that runs at the start of stage 2?
 a) BIOS
 b) LILO
 c) GRUB
