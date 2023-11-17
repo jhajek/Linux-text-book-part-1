@@ -1024,7 +1024,7 @@ In this chapter we learned how a spread in technology led to a desire to automat
    c) devops
    d) ops
 
-2. What would describe Mitchell Hashimoto's design goals in created Vagrant?
+2. What would describe Mitchell Hashimoto's design goals in creating Vagrant?
 
    a) Automation
    b) Separation of Duties
