@@ -511,6 +511,10 @@ app.listen(port, () => {
 })
 ```
 
+### Staring the sample Express JS APP
+
+With all the pre-reqs installed you are ready to start the ExpressJS server and begin serving our "Hello World!" app. Using the app.js file in our sample code located at `files > Chapter-12 > javascript > app.js` execute the commmand: `node app.js` and your application will begin to server.
+
 ## Database and NoSQL
 
 Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The major commercial databases you are familiar with: Oracle, MS SQL-Server, and IBM DB2 are relational databases but not opensource--they won't be covered here. The relational database structure uses a query language called SQL, *Structured Query Language* which allows you to make queries on structured data. Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth. These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language. There are many opensource relational database systems here are the four major ones:
