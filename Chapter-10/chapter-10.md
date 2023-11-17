@@ -92,8 +92,7 @@ Before the kernel image can be loaded the GRUB stage 2 needs to load the `initrd
 
 ### GNU GRUB Settings
 
-The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` but this file is auto generated so to edit the settings you would modify the `/etc/default/grub` file.  
-The `/etc/default/grub` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
+The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` but this file is auto generated so to edit the settings you would modify the `/etc/default/grub` file. The `/etc/default/grub` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
 
 `GRUB_DEFAULT=N` -- this value is which entry in your GRUB list is the default operating system to boot.  If you have a single OS installed, this value will be 0.  
 

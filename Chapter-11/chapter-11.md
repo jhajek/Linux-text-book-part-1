@@ -659,7 +659,7 @@ There are many options that can be set in the place of `defaults` or appended vi
 11. defaults - Use default settings. Equivalent to rw, suid, dev, exec, auto, nouser, async.
 12. netdev - this is a network device, mount it after bringing up the network. Only valid with fstype nfs.
 
-### systemd Mounting Units
+### systemd Mounting Unit Files
 
 Usually systemd will strive to absorb functions, but according to the man page for systemd.mount, *"Mounts listed in /etc/fstab will be converted into native units dynamically at boot and when the configuration of the system manager is reloaded. In general, configuring mount points through /etc/fstab is the preferred approach. See systemd-fstab-generator(8) for details about the conversion.*" ZFS will take care of automounting its own partitions. Btrfs you will need to add an entry using the UUID instead of the dev name which you can find via the `blkid` command.
 
