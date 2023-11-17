@@ -815,7 +815,7 @@ In this chapter we learned and mastered the concepts of disk based hardware.  We
    c) COW
    d) VDD
 
-3) After attaching a new virtual disk, what is the next step?
+3) After attaching a new virtual disk, what is the next step assuming that you are using a single disk, ext4, an no LVM?
 
    a) partitioning
    b) make a filesystem

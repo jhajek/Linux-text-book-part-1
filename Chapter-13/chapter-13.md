@@ -1038,7 +1038,7 @@ In this chapter we learned how a spread in technology led to a desire to automat
    c) Terraform
    d) Vagrant
 
-4. What is the name of the tool originally built as a way to automate the installation of any operating system into an artifact?
+4. What is the name of the tool originally built as a way to automate the installation of any operating system?
 
    a) Packer
    b) VirtualBox
