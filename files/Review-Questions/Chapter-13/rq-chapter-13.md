@@ -14,17 +14,17 @@
    c) Profit
    d) Inspection
 
-3. What is the name of the tool originally built as an abstraction layer on top of VirtualBox to deploy virtual machines?
+3. What is the name of the tool built as an abstraction layer on top of VirtualBox and Parallels to deploy virtual machines?
 
    a) Packer
-   b) VirtualBox
+   b) Vault
    c) Terraform
    d) Vagrant
 
-4. What is the name of the tool originally built as a way to automate the installation of any operating system?
+4. What is the name of the tool originally built as a way to automate the installation of any Linux operating system?
 
    a) Packer
-   b) VirtualBox
+   b) Vault
    c) Terraform
    d) Vagrant
 
@@ -46,12 +46,12 @@
 
 8. Name the file that contains the configuration file for each Vagrant box file.
 
-9. What is the correct command to add the Vagrant Box `centos/7`?
+9. What is the correct command to add the Vagrant Box `almalinux/9`?
 
-   a) `vagrant add box centos/7`
-   b) `vagrant box add centos/7`
-   c) `vagrant init centos/7`
-   d) `vagrant add centos/7`
+   a) `vagrant add box almalinux/9`
+   b) `vagrant box add almalinux/9`
+   c) `vagrant init almalinux/9`
+   d) `vagrant add almalinux/9`
 
 10. What is the command used to list all Vagrant Boxes being managed by Vagrant?
 
@@ -73,25 +73,25 @@
 
 14. What is the Vagrant command to shutdown or poweroff a Vagrant Box?
 
-15. For Packer.io, what is the descriptive name of the json file used for building artifacts?
+15. For Packer, select the default name of the .hcl file used for containing variables used in the build template
 
-    a) image template
-    b) machine.json
-    c) build template
-    d) provisioner
+    a) template.pkr.hcl
+    b) variables.json
+    c) variables.pkr.hcl
+    d) variables.pkr
 
-16. What is the name of the stage that runs after the builder portion of a build template?
+16. Select the name of the stage that runs after the build block in a build template
 
-    a) imager
+    a) source block 
     b) provisioner
-    c) vboxmanage
+    c) init-block
     d) post-processor
 
 17. What is the name of the stage that runs after building and provisioning of Packer artifacts is complete?
 
-    a) imager
+    a) source block 
     b) provisioner
-    c) vboxmanage
+    c) init-block
     d) post-processor
 
 18. If there is an error in any part of the Packer build command what will happen?
@@ -101,16 +101,16 @@
     c) the command will terminate and any artifacts will be deleted
     d) the user will be prompted
 
-19. What is the generic name of the file that is provided to Packer to help it complete the manual question part of the install?
+19. Select the Hashicorp software that allows us to securely store and retrieve secrets via HTTP 
 
-    a) secret file
-    b) answer file
-    c) question file
-    d) pxe file
+    a) Vagrant 
+    b) Terraform 
+    c) Packer 
+    d) Vault 
 
-20. What are the respective names of the Red Hat and Debian based answer files?
+20. Select the first operation you need to start interacting with your Vault
 
-    a) jumpstart and preseed
-    b) kickstart and jumpstart
-    c) kickstart and preseed
-    d) Chef and Puppet
+    a) `vault operator unseal`
+    b) `vaul operator init`
+    c) `vault init`
+    d) `vault secrets enable -version=2 -path=secret kv`
