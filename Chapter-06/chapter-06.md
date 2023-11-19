@@ -748,5 +748,3 @@ Create a directory named: week-06 in the private repo you were assigned under th
 [^73]: [https://en.wikipedia.org/wiki/Gzip](https://en.wikipedia.org/wiki/Gzip "gzip")
 
 [^74]: [https://en.wikipedia.org/wiki/Bzip2](https://en.wikipedia.org/wiki/Bzip2 "bzip2")
-
-[^75]: ["<a href="https://commons.wikimedia.org/wiki/File:Targzip.svg#/media/File:Targzip.svg">Targzip</a>" by <a href="//commons.wikimedia.org/w/index.php?title=User:Th0msn80&amp;action=edit&amp;redlink=1" class="new" title="User:Th0msn80 (page does not exist)">Th0msn80</a> - <span class="int-own-work" xml:lang="en" lang="en">Own work</span>. Licensed under <a title="Creative Commons Attribution 3.0" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.

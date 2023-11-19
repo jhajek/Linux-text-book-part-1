@@ -32,7 +32,7 @@ Emacs was originated in 1976 from the AI Labs at MIT, the same place Richard Sta
 
 ### The vi Editor
 
-The other stream editor is the __vi editor__ or just __vi__ (pronounced *vee-eye*).  The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in the C language but you don't code it in C, Unlike emacs which exposes it's LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  The chart below shows the history of the __vi editor__.
+The other stream editor is the __vi editor__ or just __vi__ (pronounced *vee-eye*). The creator of the __vi editor__ was [Bill Joy](https://en.wikipedia.org/wiki/Bill_Joy "Bill Joy") at UC Berkeley.  His intent was to extend the original ideas behind Ken Thompson's editor which was named *ed*.  The __vi__ editor is written in the C language but you don't code it in C, Unlike emacs which exposes it's LISP interpreter to the user.  The history of __vi__ varies widely from that of Emacs because __vi__ is not a GNU project.  The chart below shows the history of the __vi editor__.
 
   Editor           Year Released              Originator
 ------------     ------------------------   -------------------------------------
@@ -46,7 +46,7 @@ Initially Ken Thompson's editor worked well for what he needed. But the commands
 
 Sometime in 1976 an AT&T co-worker, George Coulouris, while working on sabbatical at Queen Mary's College London, extended Thompson's editor and added some usability features.  Continuing the clever hack, he named the editor __em__ meaning *ed for mortals*. Editors at this time were designed for display terminals that did not have dedicated ram (expensive at the time). The editors only modified a line at a time and were called [Line Editors](https://en.wikipedia.org/wiki/Line_editor "Line Editor"). Because of slow screens and the high price of memory you had the choice of using line editors or displaying the content of a file. Not until the 1980's did the concept of visual editing really catch on as technology made it possible.
 
-In 1978/89, out at Berkeley, Bill Joy came into the picture.  He helped design an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not really the evolution of ex, vi is ex [^82].
+In 1978/89, out at Berkeley, [^77] came into the picture.  He helped design an improved __em__ called __ex__, *em extended*.  This introduced a new visual mode in edition to the line editor features that everyone was used to.  This extension to __ex__ was called __visual mode__ or __vi__.  After one year and the changes in technology __ex__ shifted from being a *line editor* to a *visual editor* primarily.  Hence in 1979 by the time of the second BSD Unix release, __ex__ was hard linked to permanently launch in __vi__ mode. Thus, vi is not really the evolution of ex, vi is ex [^82].
 
 ### Relationship of vi and vim
 
