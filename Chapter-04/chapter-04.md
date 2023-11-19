@@ -39,9 +39,9 @@ With the X system the idea of having discrete terminals went away. Now you could
 
 ## Along Comes an X
 
-Beyond the simple green screen terminals by the mid 1980s we began to see proprietary primitive UNIX GUIs from commercial vendors, especially from Sun. These GUI interfaces were placed on high-end workstations sold at premium prices for the day. One may wonder why you would even bother to create a GUI in the first place. Computing at that time was beginning to take less of an iterative/batch processing approach to computing and a more of an interactive approach. GUIs were in the hand of the privileged few vendors but not of anyone else.  By 1985 MIT opensourced a project called X.  This project was after Richard Stallman had left the school but continued in his spirit.  X was a continuation of a primitive GUI called "*W*". As Unix originally had no concept of a GUI, one had to be bolted on.  But the spirit of X was not to enforce any standards on the user.
+Beyond the simple green screen terminals by the mid 1980s we began to see proprietary primitive UNIX GUIs from commercial vendors, especially from Sun. These GUI interfaces were placed on high-end workstations sold at premium prices for the day. One may wonder why you would even bother to create a GUI in the first place. Computing at that time was beginning to take less of an iterative/batch processing approach to computing and a more of an interactive approach. GUIs were in the hand of the privileged few vendors but not of anyone else. By 1985 MIT opensourced a project called X. This project was after Richard Stallman had left the school but continued in his spirit. X was a continuation of a primitive GUI called "*W*". As Unix originally had no concept of a GUI, one had to be bolted on. But the spirit of X was not to enforce any standards on the user.
 
-X uses a client–server model: an X server communicates with various client programs. The server accepts requests for graphical output (windows) and sends back user input (from keyboard, mouse, or touchscreen). The server may function as:
+X uses a client–server model[^24]: an X server communicates with various client programs. The server accepts requests for graphical output (windows) and sends back user input (from keyboard, mouse, or touchscreen). The server may function as:
 
 * An application displaying to a window of another display system
 * A system program controlling the video output of a PC
@@ -73,9 +73,9 @@ X has a definite advantage in that it is very mature and very stable for better 
 
 ### Project Wayland
 
-In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began to reimagine the nature of the Linux GUI compositor with a simpler desktop driven protocol.  With the help of other senior X.Org developers they began to create a successor project to the X project.  By 2012 they had their first code release usable for beta testing. This project was called [Wayland](http://wayland.freedesktop.org "Wayland").  The famous architect of the City of Chicago Daniel Burnham once said, *"Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized."*  Every single desktop environment and window manager runs on X--this means rewriting or extending every single graphical toolkit and graphical development environment out there. The Wayland project had that just in mind. What is Wayland then?
+In the late part of the 2000s, then Red Hat engineer Kristian Høgsberg, began to reimagine the nature of the Linux GUI compositor with a simpler desktop driven protocol. With the help of other senior X.Org developers they began to create a successor project to the X project.  By 2012 they had their first code release usable for beta testing. This project was called [Wayland](http://wayland.freedesktop.org "Wayland").  The famous architect of the City of Chicago Daniel Burnham once said, *"Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized."*  Every single desktop environment and window manager runs on X--this means rewriting or extending every single graphical toolkit and graphical development environment out there. The Wayland project had that just in mind. What is Wayland then?
 
-> *"Wayland is a protocol for a compositor to talk to its clients as well as a C library implementation of that protocol. The compositor can be a standalone display server running on Linux kernel modesetting and evdev input devices, an X application, or a wayland client itself. The clients can be traditional applications, X servers (rootless or fullscreen) or other display servers."* [Wayland Project](http://wayland.freedesktop.org/ "Wayland Project")
+> *"Wayland[^26] is a protocol for a compositor to talk to its clients as well as a C library implementation of that protocol. The compositor can be a standalone display server running on Linux kernel modesetting and evdev input devices, an X application, or a wayland client itself. The clients can be traditional applications, X servers (rootless or fullscreen) or other display servers."* [Wayland Project](http://wayland.freedesktop.org/ "Wayland Project")
 
 ![*Wayland Rendering Model*](images/Chapter-04/wayland-architecture.png "Wayland Architecture")
 
@@ -96,7 +96,7 @@ Ubuntu is the only Linux operating system to support Mir and development has bee
 
 > *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
 
-As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.  But the Mir Project and Unity lives on in the Ubuntu Touch port maintained for phones and tablets by the [Ubuntu-Touch.io](https://ubuntu-touch.io/ "Ubuntu Touch webpage") project.  The Mir display server is now gaining popularity running Ubuntu Touch on the [Librem 5](https://fossbytes.com/librem-5-ubuntu-touch-support/ "librem 5 ubuntu touch web page") and the [Pinephone](https://devices.ubuntu-touch.io/device/pinephone/ "pinephone running ubuntu touch") Linux based cell phones.
+As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY[^40] interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.  But the Mir Project and Unity lives on in the Ubuntu Touch port maintained for phones and tablets by the [Ubuntu-Touch.io](https://ubuntu-touch.io/ "Ubuntu Touch webpage") project.  The Mir display server is now gaining popularity running Ubuntu Touch on the [Librem 5](https://fossbytes.com/librem-5-ubuntu-touch-support/ "librem 5 ubuntu touch web page") and the [Pinephone](https://devices.ubuntu-touch.io/device/pinephone/ "pinephone running ubuntu touch") Linux based cell phones.
 
 ## Window Managers
 
@@ -183,9 +183,9 @@ GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--n
 
 Linus Torvalds was quoted as saying:
 
-> "People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done,"  [^38]
+> "People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done[^38]..."  
 
-GNOME 3 led to the creation of alternatives in 2012. When GNOME moved from version 2 to version 3 the amount of change was seen by some GNOME users as treason. The MATE project (pronounced *"ma-tay"* not *"may-tuh"*) was a fork and continuation of the GNOME 2 code base. The Cinnamon desktop was a fork of GNOME 3 with an added features set for the Linux Mint distro. Unity was Ubuntu's reimplementation of the GNOME shell with the Unity shell on top of GNOME 3. These desktops, with the exception of Unity, can be deployed or installed on most Linux distributions. As a final thought Linus Torvalds has since reconciled with GNOME 3 as of 2013 based on some additional 3rd party tools that allow the GNOME 3 experience to be customized to his liking. [^37]
+GNOME 3 led to the creation of alternatives in 2012. When GNOME moved from version 2 to version 3 the amount of change was seen by some GNOME users as treason. The MATE project (pronounced *"ma-tay"* not *"may-tuh"*) was a fork and continuation of the GNOME 2 code base. The Cinnamon desktop was a fork of GNOME 3 with an added features set for the Linux Mint distro. Unity was Ubuntu's reimplementation of the GNOME shell with the Unity shell on top of GNOME 3. These desktops, with the exception of Unity, can be deployed or installed on most Linux distributions. As a final thought Linus Torvalds has since reconciled with GNOME 3 as of 2013 based on some additional 3rd party tools that allow the GNOME 3 experience to be customized to his liking[^37]. 
 
 In April of 2021, [Linux open laptop manufacturer, System76](https://system76.com/ "Website for System76 Linux Laptop manufacturer") released a themed GNOME 3 desktop called [Pop!_OS](https://pop.system76.com/ "Website to Pop OS") with a custom windows manager that defaults to a tiling mode rather than a stacking mode.  
 
@@ -201,7 +201,7 @@ One of the biggest draw backs of Xfce is that it only runs on X11 and not on Way
 
 ### LXQT
 
-The LXQT project was started as the LXDE project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merger with another desktop enviroment, razor-qt. This produced a new desktop environemnt called LXQT. The LUbunut distribution uses LQXT as its default desktop environement on top of modern Ubuntu.
+The LXQT project was started as the LXDE[^39] project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merger with another desktop enviroment, razor-qt. This produced a new desktop environemnt called LXQT. The LUbunut distribution uses LQXT as its default desktop environement on top of modern Ubuntu.
 
 ### Budgie
 
@@ -493,11 +493,3 @@ Install these desktops, restart your system and as you login switch your desktop
 [^39]: <a href="http://lxde.org/lxde/index.html">http://lxde.org/lxde/index.html</a>
 
 [^40]: <a href="http://unity.ubuntu.com/projects/unity">http://unity.ubuntu.com/projects/unity</a>
-
-[^41]: <a href="https://wiki.ubuntu.com/UnityNextSpec">https://wiki.ubuntu.com/UnityNextSpec</a>
-
-[^42]: <a href="http://unity.ubuntu.com/projects/appindicators">http://unity.ubuntu.com/projects/appindicators</a>
-
-[^43]: <a href="http://unity.ubuntu.com/projects/system-indicators/">http://unity.ubuntu.com/projects/system-indicators/</a>
-
-[^44]: <a href="http://unity.ubuntu.com/projects/notifyosd">http://unity.ubuntu.com/projects/notifyosd</a>

@@ -939,6 +939,4 @@ Using two virtual machines, while powered off, in the VirtualBox settings, enabl
 
 [^151]: [https://en.wikipedia.org/wiki/NoSQL](https://en.wikipedia.org/wiki/NoSQL "NoSQL")
 
-[^152]: [https://en.wikipedia.org/wiki/HTTP/2](https://en.wikipedia.org/wiki/HTTP/2 "HTTP/2")
-
 [^157]: [https://tldp.org/LDP/nag/node140.html](https://tldp.org/LDP/nag/node140.html NFS description")
