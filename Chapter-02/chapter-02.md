@@ -811,7 +811,7 @@ __Exercise:__ Here is an article from the President of the Linux Professional In
 * Briefly explain the difference between using gratis software and Free or Freedom Respecting Software.
 * Under the header: "Why would companies pay to use RHEL?" - Briefly explain the reasoning why companies will pay money to use opensource software.
 * Who is Maddog calling "Free Loaders" and why is he calling them this?
-* Breifly explain why or why you do not agree with his conclusion stated in "Tying it all together"
+* Briefly explain why or why you do not agree with his conclusion stated in "Tying it all together"
 
 ## Chapter Conclusion and Summary
 

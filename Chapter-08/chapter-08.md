@@ -162,6 +162,8 @@ Upon giving the shell script above execution permission and then executing the l
 posparam.sh domo origato Mr. Roboto
 ```  
 
+#### Positional Parameters Error Checking and Default Values
+
 Positional parameters also have the ability to do built in error checking and default value assignment as well. Let us re-examine a previous sample.
 
 ```bash
