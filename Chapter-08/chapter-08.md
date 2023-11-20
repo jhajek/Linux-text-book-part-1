@@ -595,7 +595,7 @@ of editors.
 sed script inputfile
 ```
 
-The `sed` command uses regular expressesions between the `/../`[^92]
+The `sed` command uses regular expressions between the `/../`[^92]
 
 * `^` Matches the beginning of the line
 * \$ Matches the end of the line
@@ -607,18 +607,23 @@ The command to show all lines that do not start with a '\#' below, how would you
 
 `sed -e '/^#/d' hosts.deny | head`
 
+#### sed infile find and replace using -i
+
 Looking at this command, using the GNU version of ```sed``` they introduced the -i flag that will make your change and re-write it to the same file.  What is happening in the script below?
 
 ```bash
 sudo sed -i "s/bantime      = 1h/bantime      = 10h/g" /etc/fail2ban/jail.conf
 sudo sed -i "s/joseph/Joseph/g" names.txt
+sudo sed -i "s/database_name_here/wp-database/g" /var/www/html/wordpress
 ```
+
+The template is that `s` will search a file, the first value in between the `/  /` is the find portion, and the value in the second `/  /` is the replace value. The final `/g` means do it globally across the entire file named.
 
 For more information see this IBM tutorial: [sed by example](https://www.ibm.com/developerworks/library/l-sed1/index.html "sed by example")
 
 ## Chapter Conclusions and Review
 
-Through this chapter we learned about how to extend and improve our ability to write shell scripts.  We learned about system variables and their scope.  We also learned about positional paramteres and how to pass values into a shell script.  We learned about basic Bash control structures IF and FOR, and finally concluded learning about automating shell script launches using the cron service via cron tab.
+Through this chapter we learned about how to extend and improve our ability to write shell scripts.  We learned about system variables and their scope.  We also learned about positional parameters and how to pass values into a shell script.  We learned about basic Bash control structures IF and FOR, and finally concluded learning about automating shell script launches using the cron service via cron tab.
 
 ### Review Questions
 
