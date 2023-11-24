@@ -903,35 +903,38 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 #### Pre-reqs and Assumptions
 
-Using two virtual machines, while powered off, in the VirtualBox settings, enable a second bridged network interface and set the type to **Host-Only Adapter**, VirtualBox will automatically set a DHCP address and create an internal host-only network for you.
+Structure of Assessment: For this assessment you will need to execute various setup steps and capture those commands as part of the final deliverable 
 
-1) Use the command to identify the IP address of each of the two systems
+### Outcomes: In this assessment you will using Linux shell scripting to create a WordPress Blog on an Ubuntu Server 22.04 LTS 
 
-   a. Capture a screenshot of both system's IP addresses
-   b. Use the `ping` tool to ping the each others IP and its results (ctrl +C to quit), take a screenshot of the results
-   b. Modify the `/etc/hosts` file and add an entry for both system in both systems give them the hostname host1 and host2
-   c. Execute the `ping` command again this time using the hostname declared in the `/etc/hosts` file and capture a screenshot of the results
+### Lab Pre-requisites 
 
-2) Use the command to display you MAC address of the network connection used in question 1, and in your screenshot highlight the MAC address
+* You will need to create a fresh Ubuntu 22.04 LTS server virtual machine.
+  * You will need to enable an additional host-only network interface 
+  * (before first installation boot) and install and enable openssh-server.   
+* You can execute the setup commands remotely from a newly created Fedora 39 Workstation virtual machine 
+  * that also has an additional host-only network enabled.   
+* For the next set of questions, you will need to SSH into the Ubuntu 22.04 LTS from your Fedora install 
+  * Then configure various pieces of software then answer questions based on those installs on the Ubuntu Server 22.04 LTS remotely  
 
-3) Use the command to display your IP address of the network connection used in question 1, and in your screenshot highlight the Netmask/CIDR block
+#### Deliverable: 
 
-4) On Ubuntu Desktop, Fedora Desktop, and Ubuntu Server -- determine if you are running Systemd-Networkd or Network-Manager. On each system run these commands and take a screenshot of each results:
+Submit a screenshot of the final blog post and the shell script that scripts the following: 
 
-   a. `sudo systemctl status systemd-networkd`
-   b. `sudo systemctl status NetworkManager`
-
-5) On Ubuntu and Fedora Desktop, use the command: `sudo systemctl status firewalld` check to see if firewalld is enabled, if its not installed, use the package manager to install the package `firewalld`
-
-6) Using firewalld, open port 22 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --zone=public --list-all` to show the port is open
-
-7) Using firewalld, open port 80 permanently to allow SSH connections to your Fedora system, take a screenshot of the command `sudo firewalld-cmd --zone=public --list-all` to show the port is open
-
-8) If needed, install Nginx Webserver, and enable the proper firewall port (443) to serve pages over **https** following [this Digital Ocean configuration tutorial to create a self-signed cert](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1 "Digital Ocean Self-signed Nginx cert config").  Take a screenshot of the webbrowser showing the [https://127.0.0.1](https://127.0.0.1 "https example")
-
-9) On an OS of your choice, install Node.js version 16.x and use NPM to install the `express` package.  Using the sample, "Hello World" code provided in the chapter, take a screenshot of the output of opening a browser on your Virtual Machine at the URL: http://127.0.0.1:3000 -- **Note** - from the directory where your app.js file is you will need to run `node app.js` to start the server and make sure that port 3000 is open in the firewall
-
-10) Going to [Wordpress.org](https://wordpress.org "Wordpress install") and download the latest tar.gz file.  Follow the 5 minute setup to configure a working WordPress blog -- installing all the needed dependencies, initialize the WordPress system and create a simple blog post named: "Hello World" as the screenshot to prove the work was done on the OS of your choice
+* Install all needed WordPress pre-reqs via the apt package manager (including vim and unzip) 
+* Use the MySQL inline option (-e) to create a database named: `wp`
+* Use the MySQL inline option (-e) to create a non-root user named: `wp-user`
+* Use the MySQL inline option (-e) to grant the user, wp-user, the proper permissions needed for WordPress (section 12.5.2.6)
+* Retrieve the WordPress Installer Zip file 
+* Extract the WordPress code 
+* Move the extracted wordpress directory to /var/www/html/ 
+* Rename the file wp-config-sample.php to wp-config.php in the /var/www/html directory 
+* Using the sed command find and replace in /var/www/html/wp-config.php the place holders on line 23, 26, and 29 
+* Install firewalld via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone 
+* From your Fedora system, open a web browser and navigate to http://IP-of-ubuntu-server/wordpress 
+  * Complete the manual portion to setup a WordPress User, login to your new WordPress installation. 
+  * Create a single new blog post that posts a picture of you and the University Logo at the bottom of your post 
+    * The image in located in the textbook sample code: files > Chapter-14 > logos > illinois-tech-logo.jpg 
 
 #### Footnotes
 
