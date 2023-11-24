@@ -905,7 +905,9 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 Structure of Assessment: For this assessment you will need to execute various setup steps and capture those commands as part of the final deliverable 
 
-### Outcomes: In this assessment you will using Linux shell scripting to create a WordPress Blog on an Ubuntu Server 22.04 LTS 
+### Outcomes
+
+In this assessment you will using Linux shell scripting to create a WordPress Blog on an Ubuntu Server 22.04 LTS 
 
 ### Lab Pre-requisites 
 
@@ -919,7 +921,7 @@ Structure of Assessment: For this assessment you will need to execute various se
 
 #### Deliverable: 
 
-Submit a screenshot of the final blog post and the shell script that scripts the following: 
+Submit a screenshot of the final blog post and the shell script that scripts the following to your week-14 folder in your private GitHub repo:
 
 * Install all needed WordPress pre-reqs via the apt package manager (including vim and unzip) 
 * Use the MySQL inline option (-e) to create a database named: `wp`
