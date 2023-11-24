@@ -601,7 +601,10 @@ INSERT INTO records(tutorial_title) VALUES('Best Book Ever');
 ```bash
 # You can redirect input by having the create commands placed in a single file
 sudo mysql < ./create-table.sql
-sudo mysql < ./create-table-insert-records.sql
+# or
+sudo mysql < ./create-table-and-insert-records.sql
+# or 
+sudo mysql < ./insert-single-record.sql
 ```
 
 #### Inline SQL commands
@@ -613,7 +616,14 @@ sudo mysql -e "CREATE DATABASE wordpress_db;"
 sudo mysql -e "CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';"
 
 # https://wordpress.stackexchange.com/questions/6424/
-sudo mysql -e "GRANT SELECT INSERT UPDATE DELETE DROP ALTER ON wordpress_db.* TO 'wp_user'@'localhost' IDENTIFIED BY 'password';"
+# I am splitting the long command up into two parts to fit it on the screen
+# It should look like this:
+# sudo mysql -e "GRANT SELECT INSERT UPDATE DELETE DROP ALTER ON wordpress_db.*
+# TO 'wp_user'@'localhost'"
+
+COMMAND1="GRANT SELECT INSERT UPDATE DELETE DROP ALTER ON wordpress_db.*"
+COMMAND2=" TO 'wp_user'@'localhost'"
+sudo mysql -e $COMMAND1$COMMAND2
 
 # You can assign long commands to variables and execute them too
 COMMAND="FLUSH PRIVILEGES;"
@@ -814,12 +824,12 @@ In this chapter we learned about the basic components of networking. We learned 
    c. 8080
    d. 443
 
-10) Using Network Manager, what tool is used to release a DHCP address from the command line?
+10) What is the name of the protocol that automatically discovers and gives you an IP address on the network upon boot/resume?
 
-    a. `rhclient`
-    b. `ipconfig /release`
-    c. `dhclient -r`
-    d. `xclient -r`
+    a. `dns`
+    b. `ipconfig`
+    c. `dhcp`
+    d. `networkctl`
 
 11) Using the ip2 suite, what command can be used to monitor and examine all current local ports and TCP/IP connections?
 
@@ -828,11 +838,11 @@ In this chapter we learned about the basic components of networking. We learned 
     c.  `wireshark`
     d.  `netstat`
 
-12) Where are your network card settings located on Ubuntu while using Network Manager?
+12) Where is the name of the network layer abstraction software created by Canonical and used by Ubuntu?
 
-13) Where are your network card settings located on Fedora using Network Manager?
+13) What is the default service for managing your network in Fedora Workstation?
 
-14) Where are your network card settings located on Ubuntu using Netplan?
+14) What is the default service for managing your network in Ubuntu Server?
 
 15) What are the two major opensource webservers?
 

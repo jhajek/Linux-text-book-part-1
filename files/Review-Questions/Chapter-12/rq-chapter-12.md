@@ -53,12 +53,12 @@
    c. 8080
    d. 443
 
-10) Using Network Manager, what tool is used to release a DHCP address from the command line?
+10) What is the name of the protocol that automatically discovers and gives you an IP address on the network upon boot/resume?
 
-    a. `rhclient`
-    b. `ipconfig /release`
-    c. `dhclient -r`
-    d. `xclient -r`
+    a. `dns`
+    b. `ipconfig`
+    c. `dhcp`
+    d. `networkctl`
 
 11) Using the ip2 suite, what command can be used to monitor and examine all current local ports and TCP/IP connections?
 
@@ -67,11 +67,11 @@
     c.  `wireshark`
     d.  `netstat`
 
-12) Where are your network card settings located on Ubuntu while using Network Manager?
+12) Where is the name of the network layer abstraction software created by Canonical and used by Ubuntu?
 
-13) Where are your network card settings located on Fedora using Network Manager?
+13) What is the default service for managing your network in Fedora Workstation?
 
-14) Where are your network card settings located on Ubuntu using Netplan?
+14) What is the default service for managing your network in Ubuntu Server?
 
 15) What are the two major opensource webservers?
 
