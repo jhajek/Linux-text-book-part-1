@@ -9,4 +9,4 @@ CREATE TABLE tutorials_tbl(
   );
 
 -- This code inserts a single record into the table for test purposes
-INSERT INTO records(tutorial_title,turotial_author,submission_status) VALUES('Best Book Ever',"Joseph Hajek",0);
+INSERT INTO tutorials_tbl(tutorial_title,turotial_author,submission_status) VALUES('Best Book Ever',"Joseph Hajek",0);
