@@ -544,7 +544,7 @@ sudo dnf install mariadb-client
 sudo dnf install mysql-server
 sudo dnf install mysql-client
 
-# make sure to start and enable the maria or mysql service on Fedora/CentOS
+# Make sure to start and enable the maria or mysql service!!!
 ```
 
 ### Opensource Relational Database History
