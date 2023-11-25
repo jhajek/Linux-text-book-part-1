@@ -20,7 +20,7 @@ In this assessment you will using Linux shell scripting to create a WordPress Bl
 
 Submit a screenshot of the final blog post and the shell script that scripts the following to your week-14 folder in your private GitHub repo: 
 
-* Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, php-mysqli).
+* Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, php-mysqli, and libapache2-mod-php).
   *  You won't need all of these but you can see here which ones WordPress requires -- [Server Dependencies list](https://make.wordpress.org/hosting/handbook/server-environment/ "website link for extra dependencies")
 * Use the MySQL inline option (-e) to create a database named: `wp`
 * Use the MySQL inline option (-e) to create a non-root user named: `wp-user`
