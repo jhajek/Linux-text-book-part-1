@@ -719,6 +719,10 @@ sudo firewall-cmd --get-active-zones
 sudo firewall-cmd --zone=public --add-service=http --permanent
 sudo firewall-cmd --zone=public --add-port=3000/tcp --permanent
 sudo firewall-cmd --zone=public --list-ports
+
+# How to list all the ports that are open in your firewalld zone
+sudo firewall-cmd --zone=public --list-all
+
 # Needed to reload the process changes to the firewall
 sudo firewall-cmd --reload
 ```
