@@ -627,7 +627,7 @@ sudo mysql -e "CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';"
 
 COMMAND1="GRANT SELECT, INSERT, UPDATE, DELETE, DROP, ALTER ON wordpress_db.*"
 COMMAND2=" TO 'wp_user'@'localhost';"
-sudo mysql -e $COMMAND1$COMMAND2
+sudo mysql -e "$COMMAND1$COMMAND2"
 
 # You can assign long commands to variables and execute them too
 COMMAND="FLUSH PRIVILEGES;"
