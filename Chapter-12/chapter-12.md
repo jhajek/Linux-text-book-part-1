@@ -531,15 +531,19 @@ We will focus on the MySQL and MariaDB instances. They are interchangable and if
 ```bash
 # Using Ubuntu or Debian based distros
 # Install either mysql or mariadb
-sudo apt install mariadb  
-sudo apt install mysql
+# Ubuntu 
+sudo apt install mariadb-server
+sudo apt install mysql-server
 
 sudo apt install mariadb-client
-sudo apt install mariadb-server
+sudo apt install mysql-client
 
 # Installing on Fedora
-sudo dnf install mariadb mariadb-server
+sudo dnf install mariadb-server
 sudo dnf install mariadb-client
+sudo dnf install mysql-server
+sudo dnf install mysql-client
+
 # make sure to start and enable the maria or mysql service on Fedora/CentOS
 ```
 
