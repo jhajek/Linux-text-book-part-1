@@ -27,8 +27,8 @@ Submit a screenshot of the final blog post and the shell script that scripts the
 * Retrieve the WordPress Installer Zip file 
 * Extract the WordPress code 
 * Move the extracted wordpress directory to /var/www/html/ 
-* Rename the file wp-config-sample.php to wp-config.php in the /var/www/html directory 
-* Using the sed command find and replace in /var/www/html/wp-config.php the place holders on line 23, 26, and 29 
+* Rename the file wp-config-sample.php to wp-config.php in the `/var/www/html/wordpress` directory 
+* Using the sed command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29 
 * Install firewalld via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone 
 * From your Fedora system, open a web browser and navigate to http://IP-of-ubuntu-server/wordpress 
   * Complete the manual portion to setup a WordPress User, login to your new WordPress installation. 
