@@ -42,4 +42,3 @@ Submit a screenshot of the final blog post and the shell script that scripts the
   * Complete the manual portion to setup a WordPress User, login to your new WordPress installation. 
   * Create a single new blog post that posts a picture of you and the University Logo at the bottom of your post 
     * The image in located in the textbook sample code: files > Chapter-14 > logos > illinois-tech-logo.jpg
-
