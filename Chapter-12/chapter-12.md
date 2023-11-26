@@ -929,7 +929,9 @@ In this assessment you will using Linux shell scripting to create a WordPress Bl
 
 #### Deliverable: 
 
-Submit a screenshot of the final blog post and the shell script that scripts the following to your week-14 folder in your private GitHub repo:
+Submit a screenshot of the final blog post and the shell script that scripts the following to your week-14 folder in your private GitHub repo.  These 11 steps need to be in your final shell script.
+
+#### Part One - Shell Script
 
 * Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, libapache2-mod-php, and php-mysqli).
   *  You won't need all of these but you can see here which ones WordPress requires -- [Server Dependencies list](https://make.wordpress.org/hosting/handbook/server-environment/ "website link for extra dependencies")
@@ -941,7 +943,12 @@ Submit a screenshot of the final blog post and the shell script that scripts the
 * Move the extracted wordpress directory to /var/www/html/ 
 * Rename the file wp-config-sample.php to wp-config.php in the `/var/www/html/wordpress` directory 
 * Using the sed command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29 
-* Install `firewalld` via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone 
+* Install `firewalld` via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone
+* Using the `chown` command change the ownership of the directory `/var/www/html/wordpress` to have owner and group be `www-data`
+  * Make sure to use the `-R` flag to recursively change the ownership in all sub-directories as well
+
+#### Part Two - Manual Configuration Steps
+
 * From your Fedora system, open a web browser and navigate to http://IP-of-ubuntu-server/wordpress 
   * Complete the manual portion to setup a WordPress User, login to your new WordPress installation. 
   * Create a single new blog post that posts a picture of you and the University Logo at the bottom of your post 
