@@ -1187,7 +1187,7 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 
 ### Lab - Chapter 13
 
-### Vagrant Commands
+### Part One - Vagrant
 
 Assuming that the command `vagrant --version` gives us output, lets begin by installing our first Vagrant Box.  Open your terminal application and let us `cd` to the Documents directory
 
@@ -1238,7 +1238,7 @@ From our jammy64 directory, let us start our first Vagrant Box.  From the Termin
 
 Once this step is successful, we need to establish a connection to the virtual machine via SSH (secure shell). We do this by the command: ```vagrant ssh```, and we are faced with an Ubuntu Server command prompt. What was the password?  What was the IP address?  You don't know and don't need to know as Vagrant has abstracted all of this away and allowed you to get to the focus of all of this -- installing and running software. Open a new Terminal window and repeat the steps above for the AlmaLinux box.
 
-## Lab Steps
+### Part One - Lab Steps
 
 * Using the `vagrant init ubuntu/jammy64` command, initialize a Vagrant Box (only has to be done once on a system)
   * Or comparable Vagrant Box on an M1 Mac
@@ -1254,6 +1254,8 @@ Once this step is successful, we need to establish a connection to the virtual m
 * Issue the `vagrant up` and `vagrant ssh` command and use the command in the Vagrant Box: `sudo systemctl status nginx` to show that the webserver is not installed.
   * Exit the SSH session
 * Issue the command: `vagrant box list` to show that you have successfully gone through the tutorial
+
+### Part Two - Packer Commands
 
 #### Footnotes
 
