@@ -1,1 +1,0 @@
-This directory contains the artifacts that will be built by Packer

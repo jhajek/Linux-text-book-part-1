@@ -17,7 +17,6 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 1. ~21:45 When did the world figure out containers and what was this product?
 1. ~22:57 Why did the container revolution start with Docker?
 1. ~24:07 Containers allow developers to do what?
-1. ~26:00 What is Triton and what does it do?
 1. ~31:42 What are the two approaches to the container ecosystem, and what is the difference?
 1. ~33:25 What is the "Hashi" ethos?
 1. ~37:00 What was the mistake that happened with the pilot-operated relief valve at 3 Mile Island?

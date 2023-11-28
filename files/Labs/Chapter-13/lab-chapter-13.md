@@ -1,10 +1,12 @@
 # Lab - Chapter 13
 
-## Vagrant Commands
+## Part One Prerequisites
 
 Assuming that the command `vagrant --version` gives us output, lets begin by installing our first Vagrant Box.  Open your terminal application and let us `cd` to the Documents directory
 
 ```cd Documents```
+
+### Windows and Intel Based Macs
 
 Here we are going to create a directory to manage our artifact.  It is a good idea to create a directory per virtual machine that we will administer via Vagrant.  You can create a class directory and then sub-directories and or you can place this on a different disk. This I will leave up to you as it is your filesystem and your data--you are the one in charge.
 
@@ -21,7 +23,7 @@ We will now use Vagrant to retrieve and Ubuntu 22.04 known as Jammy and a AlmaLi
 1. `cd almalinux9` 
 1. `vagrant init almalinux/9` 
 
-#### M1 Macs Only
+### M1 Macs Only
 
 For those using M1 Macs and Parallels you will need to replace the names of the Boxes in the demos with these two that have been prepared for M1 macs and parallels
 
@@ -51,7 +53,7 @@ From our jammy64 directory, let us start our first Vagrant Box.  From the Termin
 
 Once this step is successful, we need to establish a connection to the virtual machine via SSH (secure shell). We do this by the command: ```vagrant ssh```, and we are faced with an Ubuntu Server command prompt. What was the password?  What was the IP address?  You don't know and don't need to know as Vagrant has abstracted all of this away and allowed you to get to the focus of all of this -- installing and running software. Open a new Terminal window and repeat the steps above for the AlmaLinux box.
 
-## Lab Steps
+## Part One - Vagrant Commands
 
 * Using the `vagrant init ubuntu/jammy64` command, initialize a Vagrant Box (only has to be done once on a system)
   * Or comparable Vagrant Box on an M1 Mac
@@ -67,3 +69,13 @@ Once this step is successful, we need to establish a connection to the virtual m
 * Issue the `vagrant up` and `vagrant ssh` command and use the command in the Vagrant Box: `sudo systemctl status nginx` to show that the webserver is not installed.
   * Exit the SSH session
 * Issue the command: `vagrant box list` to show that you have successfully gone through the tutorial
+
+## Part Two - Packer Commands
+
+Using the sample code from the text book in: files > Chapter-13 > packer-build-templates, init, validate and build the ubuntu_22043_vanilla if you are on Windows or an Intel Mac or the ubuntu_22043_m1_mac if you are using Apple Silicon.
+
+One the `.box` file has been successfully built, use the Vagrant commands from this chapter to `add` the box file and to `init` a Vagrantfile. Bring the Vagrant box up and then exit your ssh session and halt the Vagrant box.
+
+## Part Three - Vault Commands
+
+Using the Vagrant Box you built in step two, with in that box -- follow the instructions to install and configure a Vault Server from this chapter with passwords for your SSH and database username and password. In addition create another virtual machine -- this time in the provisioner block shell script run your mysql install script from chapter 12 to install and configure Wordpress (all 11 steps) to create a secure WordPress installation.
