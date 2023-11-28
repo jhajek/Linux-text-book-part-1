@@ -1257,6 +1257,8 @@ Once this step is successful, we need to establish a connection to the virtual m
 
 ### Part Two - Packer Commands
 
+### Part Three - Vault Commands
+
 #### Footnotes
 
 [^153]: [http://d13pix9kaak6wt.cloudfront.net/background/users/m/i/t/mitchellh_1370739801_5.jpg](http://d13pix9kaak6wt.cloudfront.net/background/users/m/i/t/mitchellh_1370739801_5.jpg "Mitchell Hashimoto")
