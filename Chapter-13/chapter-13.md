@@ -47,6 +47,21 @@ There are two ways to obtain a Vagrant Box (*.box file). The first way would be 
 
 Using this facility you can simply run a command from the terminal: The command `vagrant init ubuntu/jammy64` would automatically construct a `Vagrantfile`, as well as retrieve an Ubuntu Jammy server based operating system box file. The second way is described later in the chapter; that is to build and add your own boxes.
 
+#### Intel vs Apple Silicon
+
+This tutorial assumes you are using a Windows PC or an Intel based Mac PC. For those using the new Apple Silicon or M1 Macs you will need to see special inserts along the way and will be looking for arm64, arm, or aarch64 based Vagrant boxes. The reason is that the Apple architecture is completely different from the Intel Architecture and you need an Operating system compiled for your own architecture.
+
+### Parallels Pro, M1, and Vagrant
+
+* For M1 Macs you will need to make a purchase of a copy of Parallels Pro or Enterprise edition
+  * [https://www.parallels.com/products/desktop/pro/](https://www.parallels.com/products/desktop/pro/ "Parallels Pro Edition")
+* [50% off for students and educators Link](https://www.parallels.com/landingpage/pd/education/ "webpage for discount for student and educators")
+  * The standard and education edition doesn't contain the commandline interface needed for automation.
+* Once Vagrant and Parallels Pro Edition is installed you need to also install the Parallels SDK from the Download Tab in your parallels.com account
+  * From the Terminal run the command: `vagrant plugin install vagrant-parallels`
+    * This will add the needed plugin to allow you to use Parallels as a default provider for Vagrant
+    * This will also work if you have Parallels Pro Edition on an Intel Mac
+
 #### Vagrant .box Format
 
 Vagrant handles its abstraction by using a file concept called a **box** or ```*.box```. The box file is nothing more than a compressed archive containing a virtual hard drive and a configuration file that tells the Vagrant provider which virtualization software to launch this with. For example a `*.box` file that was made for the VirtualBox provider would contain a `*.vmdk` (hard drive) and an `*.ovf` file (meta-data and Virtual Machine settings file). Each Vagrant `*.box` file needs a config file called: **Vagrantfile**. This is an abstraction file to modify settings for the virtual machine at run time. There is a sample Vagrantfile later in this chapter. These two components are what is needed to run and manage Vagrant boxes.
@@ -182,6 +197,19 @@ The tutorial on vagrantup.com will walk you through this but a small example (tr
 * `vagrant box add ubuntu/jammy64` (Canonical--Ubuntu 22.04 parent company - provided)
 * `vagrant box add debian/bookworm64` (Official Debian Bookworm release)
 
+For those using M1 Macs and Parallels you will need to replace the names of the Boxes in the demos with these two that have been prepared for M1 macs and parallels
+
+* `bento/ubuntu-22.04-arm64`
+* `almalinux/9.aarch64`
+
+1. `mkdir jammy64-arm`
+1. `cd jammy64-arm`
+1. `bento/ubuntu-22.04-arm64` 
+  
+1. `mkdir almalinux9-arm`
+1. `cd almalinux9-arm` 
+1. `vagrant init almalinux/9.aarch64`
+
 ### Vagrant commands
 
 #### vagrant box list
@@ -222,7 +250,7 @@ Once your Vagrantfile has been created the next step to launch the virtual machi
 
 The `--provision` flag tells Vagrant to re-provision and re-read and parse the Vagrantfile and make any additional changes while launching the virtual machine. Note - This command is issued not from inside the virtual machine but from the commandline of the host system.
 
-**Command:** `vagrant up --provider virtualbox | hyperv | docker | vmware`
+**Command:** `vagrant up --provider virtualbox | hyperv | docker | vmware | parallels`
 
 When using a Vagrant box from HashiCorp or any other it is a good idea to use the --provider flag to tell Vagrant which platform it will be virtualizing. This is optional but if you experience problems this is a good troubleshooting tip.
 
@@ -911,7 +939,7 @@ Now that we are logged in, the next step is to initialize a secret storage engin
 
 The next step is to create a policy that grants permissions for our secrets. We can have many paths defined. In this case we will grant a very libral permission swath to our secret data. Lets create a file named: `ssh-secrets.hcl` in our home directory.
 
-```bash
+```json
 # Dev servers have version 2 of KV secrets engine mounted by default, so will
 # need these paths to grant permissions:
 path "secret/data/*" {
@@ -985,7 +1013,6 @@ locals {
 locals {
   db_user = vault("/secret/data/team00-db", "DBUSER")
 }
-
 ```
 
 We can then define these values our main build template as a way to pass secrets securely into our Packer Virtual Machine building process.
@@ -994,7 +1021,7 @@ We can then define these values our main build template as a way to pass secrets
 
 ### IT Orchestration
 
-In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to see a world of automation opening up to us.  In a sense these technologies are the culmination of the Unix concepts of small tools doing one things--or shell scripts on steroids, so to speak.  Each of these technologies is beyond the scope of this book, but here are some podcasts and links to learn more about them.  Some relate to installing traditional virtual machines, some to bare metal installs, others assume cloud platforms.
+In looking at these tools, Vagrant, Packer, Preseed, and Kickstart, we begin to see a world of automation opening up to us. In a sense these technologies are the culmination of the Unix concepts of small tools doing one things--or shell scripts on steroids, so to speak. Each of these technologies is beyond the scope of this book, but here are some podcasts and links to learn more about them. Some relate to installing traditional virtual machines, some to bare metal installs, others assume cloud platforms.
 
 * [SaltStack](https://www.saltstack.com/ "Saltstack")
   * [Podcast](https://twit.tv/shows/floss-weekly/episodes/262 "SaltStack Podcast")
@@ -1151,7 +1178,6 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 1. ~21:45 When did the world figure out containers and what was this product?
 1. ~22:57 Why did the container revolution start with Docker?
 1. ~24:07 Containers allow developers to do what?
-1. ~26:00 What is Triton and what does it do?
 1. ~31:42 What are the two approaches to the container ecosystem, and what is the difference?
 1. ~33:25 What is the "Hashi" ethos?
 1. ~37:00 What was the mistake that happened with the pilot-operated relief valve at 3 Mile Island?
@@ -1159,30 +1185,75 @@ See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://w
 1. ~40:00 Why is scheduling containers inside of Virtual Machines a bad idea?
 1. ~What are Joyent's thoughts regarding Virtual Machines in the application stack?
 
-### Lab
+### Lab - Chapter 13
 
-#### Part 1
+### Vagrant Commands
 
-Create a folder structure for 1 Ubuntu Bionic64 vagrant box and 1 CentOS 7 vagrant box.  In each of these folders use the ```vagrant init``` command to create a ```Vagrantfile```.  Upon succesfully executing the `vagrant up` command in both directories, take a screenshot of the output of the ```vagrant box list``` command.
+Assuming that the command `vagrant --version` gives us output, lets begin by installing our first Vagrant Box.  Open your terminal application and let us `cd` to the Documents directory
 
-#### Part 2
+```cd Documents```
 
-Run the packer json build templates for CentOS 7 and Ubuntu 18.04 from the textbook source code located in ```files > Chapter 13 > packer-build-tempates```, for each template execute ```packer build centos-7-vanilla-json``` and ```packer build ubuntu18045-vanilla.json```.  Once these Vagrant boxes are built, use the ```vagrant box add``` command to add them to your Vagrant system.  Run the ```vagrant init``` command with the proper options to create a Vagrantfile and then run the ```vagrant up``` command to instantiate the box. Issue the command ```vagrant ssh``` and once logged in take a screenshot of the output of the command ```free --giga``` to list the amount of memory in the virtual machine.
+Here we are going to create a directory to manage our artifact.  It is a good idea to create a directory per virtual machine that we will administer via Vagrant.  You can create a class directory and then sub-directories and or you can place this on a different disk. This I will leave up to you as it is your filesystem and your data--you are the one in charge.
 
-Upon completion take a screenshot of the output of the ```vagrant box list``` command to show that these steps completed successfully.
+* `mkdir itmt-430-2022` 
+* `cd itmt-430-2022`
 
-#### Part 3
+We will now use Vagrant to retrieve and Ubuntu 22.04 known as Jammy and a AlmaLinux 9 Virtual Machine:
 
-Edit the Vagrantfile for both Vagrant boxes to run at 3072 RAM (3 GB) each.  Issue the command to reload and re-provision the virtual machines.  Upon successfully issuing this command, issue the ```vagrant ssh``` command and again execute the ```free --giga``` command to show that the memory adjustment actually took place. Take a screenshot of the results.
+1. `mkdir jammy64`
+1. `cd jammy64`
+1. `vagrant init ubuntu/jammy64` 
+  
+1. `mkdir almalinux9`
+1. `cd almalinux9` 
+1. `vagrant init almalinux/9` 
 
-#### Part 4
+#### M1 Macs Only
 
-Utilize the ```vagrant destroy``` command.  On each of the four Vagrant boxes that have been created in the previous steps, execute the command to install the Apache2 webserver:
+For those using M1 Macs and Parallels you will need to replace the names of the Boxes in the demos with these two that have been prepared for M1 macs and parallels
 
-* ```sudo apt-get install apache2```
-* ```sudo yum install httpd```
+* `bento/ubuntu-22.04-arm64`
+* `almalinux/9.aarch64`
 
-Take a screenshot of the output of the ```sudo systemctl status apache2``` or ```sudo systemctl status httpd``` command. Exit the Vagrant box.  Issue a ```vagrant destroy``` command, then a ```vagrant up``` command.  Issue the ```vagrant ssh``` command and reissue the above systemctl commands to show that all 4 boxes have been destroyed and rebuilt.  Take a screenshot of the results.
+1. `mkdir jammy64-arm`
+1. `cd jammy64-arm`
+1. `bento/ubuntu-22.04-arm64` 
+  
+1. `mkdir almalinux9-arm`
+1. `cd almalinux9-arm` 
+1. `vagrant init almalinux/9.aarch64`
+
+### Editing Your Vagrantfile
+
+Once these commands are executed -- both under the `jammy64` and `almalinux` directory, you will see a `Vagrantfile` that has been created. Let us take a look at this file.  You can do so via using the commands on MacOS or Windows from the Terminal:
+
+* `code Vagrantfile`
+* `vim Vagrantfile`
+
+Line 15 you will see the setting that tells Vagrant which **box** this Vagrantfile manages: `config.vm.box = "ubuntu/jammy64"`.  This value came from the `vagrant init` command typed above. Line 35, which is commented out, will let us configure a **host-only** network between out host system and any guest (virtual) OSes we install. Line 52, 57, and 58 are a loop that allows us to increase the default memory from 1Gb to 2 Gb or 4 Gb.
+
+### Start a Vagrant Box
+
+From our jammy64 directory, let us start our first Vagrant Box.  From the Terminal type: ```vagrant up```.  What you will see is the Box file with the VirtualBox (or Parallels) vm being extracted and registered with your virtualization software.  Next the system will begin to boot.  The first install will take a bit longer as some additional drivers are being installed.  This only happens on first boot.  
+
+Once this step is successful, we need to establish a connection to the virtual machine via SSH (secure shell). We do this by the command: ```vagrant ssh```, and we are faced with an Ubuntu Server command prompt. What was the password?  What was the IP address?  You don't know and don't need to know as Vagrant has abstracted all of this away and allowed you to get to the focus of all of this -- installing and running software. Open a new Terminal window and repeat the steps above for the AlmaLinux box.
+
+## Lab Steps
+
+* Using the `vagrant init ubuntu/jammy64` command, initialize a Vagrant Box (only has to be done once on a system)
+  * Or comparable Vagrant Box on an M1 Mac
+* Using the `vagrant up` command, start the virtual machine
+* Using the `vagrant ssh` command, connect to the virtual machine via SSH
+* Using the `sudo apt-get update` and `sudo apt-get install nginx` command, install the Nginx webserver (pronounced Engine X)
+  * Exit the ssh session.
+  * Edit the corresponding `Vagrantfile` to enable line 35 a private network interface at 192.168.56.100
+  * Edit the corresponding `Vagrantfile` to uncomment line 52, 57, and 58 changing line 57 to 2048 or 4096
+* Using the command `vagrant reload --provision` restart the virtual machine
+* After the reload command has succeeded, without using the `vagrant ssh` command, open a web-browser on your Host OS to `http://192.168.56.100` to see the **Welcome to Nginx!** message being served from Nginx in your Vagrant Box
+* Using the `vagrant halt` to power off the virtual machine, then issue the `vagrant destroy` command to reset the Vagrant Box to its initial state (pre-webserver install)
+* Issue the `vagrant up` and `vagrant ssh` command and use the command in the Vagrant Box: `sudo systemctl status nginx` to show that the webserver is not installed.
+  * Exit the SSH session
+* Issue the command: `vagrant box list` to show that you have successfully gone through the tutorial
 
 #### Footnotes
 
