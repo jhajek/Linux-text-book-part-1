@@ -51,13 +51,13 @@ Each network interface card or NIC has a 48 bit hardware address assigned to it.
 
 ### Netmask
 
-The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address.  Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient. If you had a subnet of class A, your subnet would be 255.0.0.0. This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable. Apple famously has the 16.0.0.0 Class A giving them access to 255x255x255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE.
+The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address. Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient. If you had a subnet of class A, your subnet would be 255.0.0.0. This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable. Apple famously has the 16.0.0.0 Class A giving them access to 255x255x255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE.
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
 
 Class C address has 1 octet available and 3 octets preset.  A common class C subnet you see mostly in home routing devices is 192.168.1.x which gives you 254 addresses. For our purposes we won't worry about class D and E in this book.
 
-The problem is those division of IP octets are very clean, unfortunately leads to many wasted addresses.  So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking.  CIDR lets you split blocks.  A business might have a subnet or CIDR block of /23.  This looks like a class B subnet.  Class B in CIDR would be /24.  The /23 gives us control of 192.168.1.110 and 192.168.1.111 for 512 addresses.  /23 can be written as 255.255.254.0 as well.
+The problem is classes (A, B, C) unfortunately leads to many wasted addresses. So a new way to divide blocks into smaller parts came along called [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "CIDR Blocks") or blocking. CIDR lets you split the classes into arbitrary blocks. A business might have a subnet or CIDR block of /23. This looks almost like a class C subnet, but its not. Class C in CIDR would be /24. The /23 gives us control of two 256 block of IP addresses. /23 can be written as 255.255.254.0 as well.
 
 ### Gateway
 
