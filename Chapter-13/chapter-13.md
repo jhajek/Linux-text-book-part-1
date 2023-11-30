@@ -942,6 +942,7 @@ The next step is to create a policy that grants permissions for our secrets. We 
 ```json
 # Dev servers have version 2 of KV secrets engine mounted by default, so will
 # need these paths to grant permissions:
+
 path "secret/data/*" {
   capabilities = ["read","create", "update","delete"]
 }
