@@ -204,7 +204,7 @@ For those using M1 Macs and Parallels you will need to replace the names of the 
 
 1. `mkdir jammy64-arm`
 1. `cd jammy64-arm`
-1. `bento/ubuntu-22.04-arm64` 
+1. `vagrant init bento/ubuntu-22.04-arm64` 
   
 1. `mkdir almalinux9-arm`
 1. `cd almalinux9-arm` 
