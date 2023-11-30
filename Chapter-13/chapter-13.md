@@ -957,7 +957,7 @@ Next we need to create user access tokens and expiration time for the secrets. T
 ```bash
 # This will create Access tokens that will be valid for only 
 # 15 days or 21600 hours
-vault token create -ttl=21600m -policy=ssh-scret-policy
+vault token create -ttl=21600m -policy=ssh-secret-policy
 ```
 
 This will generate a set of Key/Values. You will want to pay attention to the `token` value. It will look like the Initial Root Token, but will be a longer string similar to: `hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2`.  Copy this down as well. We will need this value to be configured on our host systems so that we can now remotely access our Vault over our local network.
@@ -991,8 +991,8 @@ Using MacOS (Intel or M1) edit the `~/.zprofile` for the `Z shell` and add these
 ```bash
 # The 192.168.56.99 is the value we set on line 35 of the 
 # Vault-Server Vagrantfile
-export VAULT_ADDR = 'https://192.168.56.99:8200'
-export VAULT_SKIP_VERIFY = "true"
+export VAULT_ADDR='https://192.168.56.99:8200'
+export VAULT_SKIP_VERIFY="true"
 export VAULT_TOKEN="hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2"
 ```
 
