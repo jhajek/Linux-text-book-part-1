@@ -31,7 +31,7 @@ source "parallels-iso" "vault-client" {
   iso_urls                = ["https://cdimage.ubuntu.com/releases/22.04.3/release/ubuntu-22.04.3-live-server-arm64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
-  ssh_password            = "${var.SSHPW}"
+  ssh_password            = "${local.user-ssh-password}"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
