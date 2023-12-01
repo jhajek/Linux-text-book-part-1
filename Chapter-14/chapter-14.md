@@ -7,69 +7,84 @@ The list of final projects that applies all of the learned concepts and puts the
 ## Objectives
 
 * Demonstrate the advantages of automation by building and deploying servers
+* Demonstrate your usage of automation tools: Vagrant and Packer
 * Demonstrate how to install software via a shell script
-* Demonstrate how to preseed values for using MySQL database
-* Display knowledge to create filesystems
+* Demonstrate how to apply Secrets values configuring MySQL database
+* Demonstrate understanding of how to use Secrets Management
 
 ## Outcomes
 
 At the conclusion of this project, you will have successfully demonstrated the basic installation and system administration concepts talked about in this book. Congratulations.
 
-### Part 1 - Using Ubuntu 22.04
+### Part One - Building the Vault Server
 
-This project will deploy and customize the an existing Ubuntu 22.04 packer build template located in the files > Appendix-D directory. You will configure the provisioner file under the **scripts** directory to customize the Packer build script, `post_install_vagrant.sh`. The purpose is to deploy a single node [WordPress install](https://wordpress.org/download/ "Added WordPress installation link").  Upon completion of the build task, you will import the Packer artifact from the build directory, the Vagrant box (virtual machine) that was created, that will have WordPress basic installation configured upon the first `vagrant up` command.  The settings to make WordPress work automatically will be configured in the Packer **provisioner** shell script.
+The purpose of this step is to use the Packer and Vagrant tools to build a vanilla Ubuntu Server 22.04.3 system and then install and configure Hashicorp Vault. Vault will be used to store and manage our secrets in a central location via http. Access will be over the network and authenticated by generated tokens.
 
-#### Packer Provisioner Requirements
+Using the sample code provided in the textbook: `files > Chapter-13 > packer-build-templates` you need to complete the following steps (select your appropriate processor architecture): 
 
-The following software will be installed and configured in the provisioner script of Packer:
+* Using the Packer build template (`ubuntu_22043_m1_mac` or `ubuntu_22043_vanilla`) to build a vagrant box
+  * Using Vagrant, add and initialize this vagrant box naming it: `vault-server`
+  * Using the command: `vagrant ssh` connect to the `vault-server`
+  * Using the `hostnamectl` commmand rename the Vault Server to be named XYZ-vault-server, where XYZ is your initials
+  * Exit the ssh session and then reconnect with `vagrant ssh` to initialize the change
+* Following the examples starting in Chapter 13.6-13.6.5, install and configure Hashicorp Vault
+  * Create a secret named: `team00-db DBPASS=XXXXXXXX DBUSER=XXXXXXXX DATABASENAME=XXXXXXXX`
+    * Replace the `XXXXXXX` values with appropriate and proper values (don't make `DBPASS` as password)
+  * Create another secret named: `team00-ssh SSHPASS=vagrant`
 
-1) Using deb-conf pre-seed the root database password (yes you can hardcode the root password: ilovebunnies)
-1) Install Apache2 webserver and MySQL server
-1) From the WordPress.org tutorial, using `wget` retrieve the latest install zip file, install it, along with any needed pre-req software
-1) Using `sed` and/or other tools, modify user variables in the WordPress configuration file to allow for WordPress to work without the need for a user to manually configure WordPress
-1) Change the hostname to **wp-host-xyz**: xyz are your initials.
-1) Change the timezone to UTC
-1) During the Packer build, a second hard drive was attached. Install btrfs-progs and format that device.
+### Part Two - Building the WordPress System
 
-#### Vagrant Requirements
+This step is where will will use the additional provided template from `files > Chapter-13 > packer-build-templates`, to connect to and demonstrate secrets management using out Vault Server. You need to complete the following steps (select your appropriate processor architecture): 
 
-The following actions need to take place to configure the Vagrant box:
+* Using the Packer build template (`ubuntu_22043_m1_mac-vault-example` or `ubuntu_22043_vanilla-vault-example`) to build a vagrant box, this will be your WordPress Server
+  * You will add your Chapter 12 shell script to the the `scripts` directory located in the `packer-build-templates` directory
+  * You will add one additional block `provisioner` to the `Build` block in the Packer Build Template (.pkr.hcl) using the below syntax
 
-1) Using Vagrant add the artifact generated from the output of the Packer command, name the box **wp**
-1) Initialize the vagrant box using the name value as: `--name wp`
-1) Modify the `Vagrantfile`, configure the system to use a *Private Network* with the IP: 192.168.33.100
+  ```json
+    provisioner "shell" {
+    execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    script          = "../scripts/Your-Chapter-Twelve-Shell-Script.sh"
+  }
+  ```
 
-#### Video Demonstration Requirements
+* You will need to modify your chapter 12 shell script to **REMOVE** all hard coded Database Username, Password, and Database name fields.
+  * These values will be defined in your Packer Build Template in your `Provisioner` Block using an `environment_vars = ["DBUSER=${local.db_user}"]` tag.
+  * You can then access your `environment_vars` in your shell script
+  * You will change approximately 6 values
+* Using the Packer build template (`ubuntu_22043_m1_mac-vault-example` or `ubuntu_22043_vanilla-vault-example`) build a vagrant box
+  * Using Vagrant, add and initialize this vagrant box naming it: `wordpress-server`
+  * Edit the Vagrantfile (line 35) to give the Vagrant Box a private-network (host-only)
+  * Use the `vagrant up` command to start the server (no need to SSH into the system)
 
-The following actions need to be captured in a short video:
+### Part Three - WordPress Configuration
 
-1) Use the command `vagrant up` command to launch the Vagrant box (this command may take a few minutes to run that is fine you can just let the video run)
-1) Open a Web Browser and navigate to the IP address set in the Vagrantfile
-1) Display the working WordPress "hello world" message
-1) Log into WordPress and create a simple post entitled, "Final" with content that says "done." Post it and return to the Welcome Screen showing the newly made post.
-1) Close the browser tab
-1) Issue the command `vagrant ssh` to ssh into the **wp** box
-1) Display the changed hostname
-1) Using the `timedatectl` command, display the timezone
-1) Exit the ssh session
-1) Issue a `vagrant halt` command -- this is last command to capture -- after end the video
-1) Push all code used to construct this deliverable to GitHub (not the video) under the **final-project** folder
+* From a web browser on your host machine open the URL http://YOUR-wordpress-server-IP/wordpress
+  * Complete the Wordpress registration and repeat the process you accomplished at the end of the week Chapter 12 lab by making the required blog post
+
+#### Troubleshooting Tips
+
+* Sometimes Packer hangs -- its ok to hit Control+C to break and kill the build, wait a minute, and build again
+* Don't be afraid to use the `vagrant destroy` command to role back to a fresh install
+* If the http://YOUR-wordpress-server-IP/wordpress step fails you will have to go back and check your Packer provisioner script, vagrant box remove and rebuild via Packer
 
 ## Deliverable
 
-Create a folder in your private GitHub repo named **final-project** submit:
+* Create a folder in your private GitHub repo named **final-project**
+* All Packer folders, build scripts, and shell scripts needed to build the Vault Server and the WordPress Server  
+* Create a Blog post that has a screenshot of the command `vagrant box list` showing the two built Vagrant Boxes
+* To blackboard submit the URL to your GitHub repo and if needed a URL to the video recording
 
-* All Packer build scripts, preseed/kickstarts, and provisioner shell scripts needed to run and build this application.  
-* Include all Vagrant files needed to start the Vagrant box
-* To blackboard submit the URL to your GitHub repo as well as a URL to the video recording (preferably uploaded to your Google Drive account)
+### Online Course Section
 
-I recommend using the [OBS Studio project](https://obsproject.com/ "OBS Studio Project") for screen capture.  It is a cross platform OpenSource solution used for major podcast production, but is simple enough that can be used for screen recordings.  Deliver the Recording format using your school Google Drive account and enable access for me to retrieve it.
+You will be required to submit a video recording (showing your face) of the final blog post and a live typing of the `vagrant box list command`. I recommend using the [OBS Studio project](https://obsproject.com/ "OBS Studio Project") for screen capture, though FaceTime, Loom.com, or ClipCham works well too. It is a cross platform OpenSource solution used for major podcast production, but is simple enough that can be used for screen recordings. Deliver the Recording format using the school Microsoft One Drive Link -- make sure the link is accessible.
+
+### In Person Course Section
+
+You will demonstrate the final deliverables by showing a live typing of the command: `vagrant box list` and showing the final required Blog Post. In addition you will be asked one or two questions about the setup of your application with Vault, Vagrant, and Packer.
 
 ### Points breakdown
 
 Total point is 100.
 
-* 80 points for the code
-  * 10 points for the each of the 7 items required in Packer Provisioner Script Requirements
-  * 10 points for completing all of the Vagrant Requirements
-* 20 points for the video demonstrating the successful working code and the demonstration of a successful blog post
+* 30 points per completion of each part
+* 10 points for the video demonstrating the successful working code and the demonstration of a successful blog post
