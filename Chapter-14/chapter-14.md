@@ -84,7 +84,7 @@ You will demonstrate the final deliverables by showing a live typing of the comm
 
 ### Points breakdown
 
-Total point is 100.
+Total points are 100.
 
 * 30 points per completion of each part
 * 10 points for the video demonstrating the successful working code and the demonstration of a successful blog post
