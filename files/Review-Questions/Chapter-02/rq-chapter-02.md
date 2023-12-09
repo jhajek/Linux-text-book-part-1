@@ -1,66 +1,139 @@
 # Review Questions - Chapter 02
 
-1) Name the zero phase of Free and Opensource Maturity?
-1) Name the first phase of Free and Opensource Maturity?
-1) Name the second phase of Free and Opensource Maturity?
-1) Name the third phase of Free and Opensource Maturity?
-1) Name the fourth phase of Free and Opensource Maturity?
-1) Name the fifth phase of Free and Opensource Maturity?
-1) Name the sixth phase of Free and Opensource Maturity?
-1) Name the founder of the GNU project
-  a. Ken Thompson
-  b. Dennis Ritchie
-  c. MIT
-  d. Richard Stallman
-1) Name the founder of the Free Software Foundation
-  a. Linus Torvalds
-  b. Dennis Ritchie
-  c. Eric Raymond
-  d. Richard Stallman
-1) Name the creator of the Linux Kernel
-  a. Ken Thompson
-  b. Linus Torvalds
-  c. Brian Kernighan
-  d. Richard Stallman
-1) Name the co-founders of the Opensource Initiative
-  a. Ken Thompson and Dennis Ritchie
-  b. Dennis Ritchie and Brian Kernighan
-  c. Linus Torvalds and Richard Stallman
-  d. Eric S. Raymond and Bruce Perens
-1) What are the three parts of an operating system?
-  a. kernel, GUI, and compilers
-  b. kernel, compilers tools, user tools and applications
-  c. kernel, user tools, and applications
-  d. kernel, code, Firefox
-1) Name the three main design principles Ken Thompson had for UNIX
-  a. Everything is a file, Unix is portable, I/O is redirectable between small executables
-  b. Everything is a file, Unix not portable, I/O is not redirectable between small executables
-  c. Everything is a file, Unix is free, Unix is a kernel
-  d. Unix is opensource, Unix is file based, Unix is all text
-1) What was the name of the programming language created by Dennis Ritchie and used to program Unix?
-  a. A
-  b. B
-  c. C
-  d. c++
-1) What is the name of the FSF Copyleft license?
-  a. GPA
-  b. GPL
-  c. CPA
-  d. CCP
-1) Select one opensource license from the list
-  a. GPL
-  b. MPLv2
-  c. GPLv2
-  d. BSL
-1) Name the two major linux families discussed in this chapter
-  a. Red Hat and Ubuntu
-  b. Red Hat and Suse
-  c. Red Hat and Debian
-  d. Debian and Ubuntu
-1) Name the oldest independent, not corporate backed, Linux distro discussed in this chapter? 
-  a. Suse
-  b. Red Hat
-  c. Ubuntu
-  d. Debian
-1) Which concept came first: Free Software or Opensource software?
-1) What is the name of the organization that houses the Linux Kernel source code?
+1. Name the zero phase of Free and Opensource Maturity?
+a) Bell Labs and Unix Development
+b) Implementating the Unix Operating System
+c) Unix Users, Application Development, and Licensing
+d) Opensource Licensing
+
+1. Name the first phase of Free and Opensource Maturity?
+a) Bell Labs and Unix Development
+b) Implementating the Unix Operating System
+c) Unix Users, Application Development, and Licensing
+d) Opensource Licensing
+
+1. Name the second phase of Free and Opensource Maturity?
+a) Bell Labs and Unix Development
+b) Implementating the Unix Operating System
+c) Unix Users, Application Development, and Licensing
+d) Opensource Licensing
+
+1. Name the third phase of Free and Opensource Maturity?
+a) Bell Labs and Unix Development
+b) Implementating the Unix Operating System
+c) Unix Users, Application Development, and Licensing
+d) Opensource Licensing
+
+1. Name the fourth phase of Free and Opensource Maturity?
+a) Unix Users, Application Development, and Licensing
+b) Opensource Licensing
+c) The Rise of Enterprise Linux
+d) Hard Changes to the Nature of Linux
+
+1. Name the fifth phase of Free and Opensource Maturity?
+a) Unix Users, Application Development, and Licensing
+b) Opensource Licensing
+c) The Rise of Enterprise Linux
+d) Hard Changes to the Nature of Linux
+
+1. Name the sixth phase of Free and Opensource Maturity?
+a) Unix Users, Application Development, and Licensing
+b) Opensource Licensing
+c) The Rise of Enterprise Linux
+d) OpenSource is not a business model
+
+1. Name the founder of the GNU project
+a) Ken Thompson
+b) Dennis Ritchie
+c) MIT
+d) Richard Stallman
+
+1. Name the founder of the Free Software Foundation
+a) Linus Torvalds
+b) Dennis Ritchie
+c) Eric Raymond
+d) Richard Stallman
+
+1. Name the creator of the Linux Kernel
+a) Ken Thompson
+b) Linus Torvalds
+c) Brian Kernighan
+d) Richard Stallman
+
+1. Name the co-founders of the Opensource Initiative
+a) Ken Thompson and Dennis Ritchie
+b) Dennis Ritchie and Brian Kernighan
+c) Linus Torvalds and Richard Stallman
+d) Eric S. Raymond and Bruce Perens
+
+1. What are the three parts of an operating system?
+a) kernel, GUI, and compilers
+b) kernel, compilers tools, user tools and applications
+c) kernel, user tools, and applications
+d) kernel, code, Firefox
+
+1. Name the three main design principles Ken Thompson had for UNIX
+a) Everything is a file, Unix is portable, I/O is redirectable between small executables
+b) Everything is a file, Unix not portable, I/O is not redirectable between small executables
+c) Everything is a file, Unix is free, Unix is a kernel
+d) Unix is opensource, Unix is file based, Unix is all text
+
+1. What was the name of the programming language created by Dennis Ritchie and used to program Unix?
+a) A
+b) B
+c) C
+d) c++
+
+1. What is the name of the FSF Copyleft license?
+a) GPA
+b) GPL
+c) CPA
+d) CCP
+
+1. Select one opensource license from the list
+a) GPL
+b) MPLv2
+c) GPLv2
+d) BSL
+
+1. Name the two major linux families discussed in this chapter
+a) Red Hat and Ubuntu
+b) Red Hat and Suse
+c) Red Hat and Debian
+d) Debian and Ubuntu
+
+1. Name the oldest independent, not corporate backed, Linux distro discussed in this chapter?
+a) Suse
+b) Red Hat
+c) Ubuntu
+d) Debian
+
+1. Which concept came first as a foundation: Free Software or Opensource software
+a) Free Software Foundation
+b) Opensource Initiative
+c) GNU
+d) Linux Foundation
+
+1. What is the name of the organization that houses the Linux Kernel source code?
+a) Free Software Foundation
+b) Red Hat
+c) OSI
+d) Linux Foundation
+
+1. What change did Lennart Poettering bring to Linux in 2015?
+a) He created the Wayland compositor
+b) He created Debian Linux
+c) He created the Windows Subsystem for Linux
+d) He crated the systemd init system
+
+1. What is the license that Hashicorp has switched their license over to?
+a) MPL
+b) BSL
+c) GPL
+d) AGPL
+
+1. What is the name of the joint foundation created by Oracle, SuSE, and Rocky Linux
+a) Linux Foundation
+b) OpenTF
+c) OpenELA
+d) RHEL
