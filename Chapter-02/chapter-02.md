@@ -725,13 +725,13 @@ As the story moves into the year of 2019, we begin to see the issue of opensourc
 * Amazon vs Elastic
   * In a bit of irony, after the Elastic company moved some of their products features to an Enterprise Edition and non-opensource offering, Amazon felt the need to make a statement rebuking Elastic for not [keeping Opensource open](https://aws.amazon.com/blogs/opensource/keeping-open-source-open-open-distro-for-elasticsearch/ "Keeping Opensource Open").  Amazon neglected to mention that they had forked Elastic's code, made a hosted version on the AWS Cloud and was not contributing any code or money back to Elastic.  Mind you this was all legal according to the Apache Public License v2.  
 * [Grafana changes to AGPL3](https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/ "Grafana changes license to AGPL3").
-  * Some companies have reacted strongly by changing permissive licensing like Apache2 and MIT to the [AGPL3](https://www.gnu.org/licenses/agpl-3.0.en.html "AGPL3 license web page"), which is within their rights.  
-* OpenTF Foundation
+  * Some companies have reacted strongly by changing permissive licensing like Apache2 and MIT to the [AGPL3](https://www.gnu.org/licenses/agpl-3.0.en.html "AGPL3 license web page"), which is within their rights.
 * [Business Source License 1.1](https://mariadb.com/bsl11/ "MariaDB Introduces BUSL 1.1")
   * The Licensor hereby grants you the right to copy, modify, create derivative works, redistribute, and make non-production use of the Licensed Work. The Licensor may make an Additional Use Grant, above, permitting limited production use.
   * Effective on the Change Date, or the fourth anniversary of the first publicly available distribution of a specific version of the Licensed Work under this License, whichever comes first, the Licensor hereby grants you rights under the terms of the Change License, and the rights granted in the paragraph above terminate.
 * [HashiCorp adopts Business Source License](https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license "Article HashiCorp adopts BUSL")
   * HashiCorp adopts the Business Source License to ensure continued investment in its community and to continue providing open, freely available products.
+  * [OpenTofu Foundation](https://opentofu.org/ "webpage for OpenTofu")
 * [Open Enterprise Linux Association](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "Open Enterprise Linux Association") to compete with Red Hat Enterprise Linux
   * CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future
   * New trade association brings together open source Enterprise Linux community 

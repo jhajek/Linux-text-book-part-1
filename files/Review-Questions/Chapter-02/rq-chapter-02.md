@@ -37,7 +37,7 @@
   b. Everything is a file, Unix not portable, I/O is not redirectable between small executables
   c. Everything is a file, Unix is free, Unix is a kernel
   d. Unix is opensource, Unix is file based, Unix is all text
-1) What was the name of the programming language created by Dennis Ritchie?
+1) What was the name of the programming language created by Dennis Ritchie and used to program Unix?
   a. A
   b. B
   c. C
@@ -57,7 +57,7 @@
   b. Red Hat and Suse
   c. Red Hat and Debian
   d. Debian and Ubuntu
-1) Name the oldest independent (non-enterprise) Linux distro still in use
+1) Name the oldest independent, not corporate backed, Linux distro discussed in this chapter? 
   a. Suse
   b. Red Hat
   c. Ubuntu
