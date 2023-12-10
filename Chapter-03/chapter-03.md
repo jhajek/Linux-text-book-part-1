@@ -867,11 +867,6 @@ Through this chapter we gained an understanding of what x86-based virtualization
     b.  Installing dependencies
     c.  Versioning
     d.  Author Information
-1.  What is the APT command to add an additional software repository in Ubuntu/Debian, named: `ppa:linux-libre/ppa`, to your APT system?
-    a.  `sudo add-repository ppa:linux-libre/ppa`
-    b.  `sudo add-apt-repository ppa:linux-libre/ppa`
-    c.  `sudo apt-add-repository ppa:linux-libre/ppa`
-    d.  `sudo apt-add ppa:linux-libre/ppa`  
 1.  Which distro supports the .deb package?
     a.  Ubuntu only
     b.  Debian Family
@@ -881,11 +876,6 @@ Through this chapter we gained an understanding of what x86-based virtualization
     a.  Red Hat Clones
     b.  Red Hat Family
     c.  Debian and Red Hat
-    d.  None of the above
-1.  We talked about using GCC to compile and install software, what was the other language/package manager discussed in the chapter?
-    a.  G++
-    b.  APT
-    c.  Python
     d.  None of the above
 1.  Describe the purpose of VirtualBox Guest Additions?
     a.  They optimize the host operating system for better performance and usability
@@ -937,6 +927,16 @@ Through this chapter we gained an understanding of what x86-based virtualization
     b.  Guest OS
     c.  Virtual machine
     d.  Linux machine
+1.  What is the name of the package repository most often used with Flatpaks?
+    a.  GitHub
+    b.  Flathub
+    c.  RPM
+    d.  APT    
+1. What is the name of the third party packge system that allows for standalone package management?
+    a. Flatpaks
+    b. Zips
+    c. Snaps
+    d. AppImage
 
 ### Podcast Questions
 

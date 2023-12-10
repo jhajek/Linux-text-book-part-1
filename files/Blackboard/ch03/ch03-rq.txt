@@ -1,0 +1,143 @@
+1.  What is the term for the industry standard file format that is used to install a Linux distro?
+*a.  ISO
+b.  ZIP
+c.  Disk-ISO
+d.  Distro
+
+1.  What is the name of recommended tool used to create bootable Linux install media?
+a.  Pendrive Linux
+*b.  etcher.io
+c.  UNetbootin
+d.  Image Magick
+
+1.  What is the technology that is inserted between ring 1 and ring 0 that enables virtualization?
+a.  Linux
+b.  Windows Subsystem for Linux
+c.  Rings
+*d.  Hypervisor
+
+1.  What is the operating system that the hypervisor resides on called?
+*a.  Host OS
+b.  Guest OS
+c.  HyperOS
+d.  Linux
+
+1.  Hosted or desktop virtualization is called what type of hypervisor?
+a.  Type I
+*b.  Type II
+c.  vt-x
+d.  amd-v
+
+1.  Bare Metal or Native Virtualization is called what type of hypervisor?
+*a.  Type I
+b.  Type II
+c.  vt-x
+d.  amd-v
+
+1.  Each Linux installation distro provides a mechanism to compare what you downloaded with what you expected to download, what is that called?
+a.  mount point
+*b.  checksum
+c.  receipt
+d.  mdsum
+
+1.  What is the name of the driver package you can install in VirtualBox in order to enable features such as shared clipboard, larger screen resolution, and mouse pointer integration?
+a.  Kernel modules
+b.  Kernel drivers
+*c.  VirtualBox guest additions
+d.  ISO extensions
+
+1.  What is the name for a Linux distribution that runs in memory?
+a.  Rapid CD
+*b.  Live ISO
+c.  Install Disk
+d.  Trick question
+
+1.  What feature doesn't dpkg handle/support?
+a.  Removing software
+*b.  Installing dependencies
+c.  Versioning
+d.  Author Information 
+
+1.  Which distro supports the .deb package?
+a.  Ubuntu only
+*b.  Debian Family
+c.  Debian and Red Hat
+d.  None of the above
+
+1.  Which distro supports RPM packages?
+*a.  Red Hat Clones
+*b.  Red Hat Family
+c.  Debian and Red Hat
+d.  None of the above
+
+1.  Describe the purpose of VirtualBox Guest Additions?
+a.  They optimize the host operating system for better performance and usability
+*b.  They optimize the guest operating system for better performance and usability
+c.  They optimize the Linux operating system for better performance and usability
+d.  They optimize the Windows operating system for better performance and usability
+
+1.  What is the RPM command to install a package from the command line?
+a.  rpm -qa *.rpm
+*b.  rpm install *.rpm
+c.  rpm -q *.rpm
+*d.  rpm -i *.rpm
+
+1.  After building software from source and running the ./configure command, what is the next step?
+a.  Run the make install command
+b.  Run the sudo make install command
+c.  Run the install command
+*d.  Run the make command
+
+1.  What is the name of the new package managers developed by Canonical, makers of Ubuntu?
+a.  flatpak
+*b.  snap
+c.  snapcraft
+d.  dnf
+
+1.  What is the name of the new package managers developed by Red Hat?
+*a.  flatpak
+b.  snap
+c.  flatter
+d.  apt
+
+1.  What is the name of the Python package manager?
+a.  apt
+b.  pipe
+*c.  pip
+d.  dnf
+
+1.  Ubuntu Linux is part of which of the two main Linux families discussed in the chapter?
+a.  Red Hat
+b.  Suse
+c.  Linux
+*d.  Debian
+
+1.  Approximately which year was the Debian distribution started?
+a.  1991
+*b.  1994
+c.  2004
+d.  2000
+
+1.  What is the name of the location where package managers retrieve software packages from?
+a.  URLs
+b.  Links
+*c.  repositories
+d.  snaps
+
+1.  When you install an operating system using Virtualbox, how is that operating system referred to?
+a.  Host machine
+b.  Guest OS
+*c.  Virtual machine
+d.  Linux machine
+
+1.  What is the name of the package repository most often used with Flatpaks?
+a.  GitHub
+*b.  Flathub
+c.  RPM
+d.  APT
+
+1. What is the name of the third party packge system that allows for standalone package management?
+a. Flatpaks
+b. Zips
+c. Snaps
+*d. AppImage
