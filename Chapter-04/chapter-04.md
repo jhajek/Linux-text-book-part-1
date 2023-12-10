@@ -143,11 +143,11 @@ There is a sub-category of Tiling Window Managers called [Dynamic Window Manager
 
 About the time that the OSI movement was launching in late 1990s, there was a growing need for more than just window managers too.  x86 Intel and AMD CPUs at that time were gaining in processing power and processor based multimedia extensions began to appear by 1997, [collectively called MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and a window manager? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop environment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM.  On top of that all the elements of the desktop have a changeable but consistent usage pattern and look-and-feel. Let us look first at the development history of the two main desktop environments followed by a few other desktop environments.
 
-### KDE [^33]
+### KDE
 
-The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project. Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the `Kool Desktop Environment` was in 1998 and the name was a *"clever hack"* of the CDE--`Common Desktop Environment`--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in CDE. You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window managers and independent applications. At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux. One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech.
+The KDE project[^33] was the first opensource Linux desktop environment project. Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the `Kool Desktop Environment` was in 1998 and the name was a *"clever hack"* of the CDE--`Common Desktop Environment`--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in CDE. You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window managers and independent applications. At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux. One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech.
 
-In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2010.
+In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license[^34]. Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2010.
 
 KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro. Distros such as [openSUSE](opensuse.org "opensuse"), [Mageia](mageia.org "Mageia"), [Chakra](www.chakralinux.org "Chakra Linux"), [KDE Neon Ubuntu](https://neon.kde.org "KDE Neon Ubuntu webpage"), [PCLinuxOS](www.pclinuxos.com "PC Linux OS") and even FreeBSD are using KDE by default or have it available in software repositories. The Steam Deck portable hand-held gaming system [uses KDE as its desktop](https://arstechnica.com/gaming/2022/02/linux-on-steam-deck-what-you-need-to-know-what-currently-works/ "webpage article about KDE use on Steam Deck").
 
@@ -155,7 +155,7 @@ KDE is unique because although Qt has vendor input to the project, KDE itself is
 
 The KDE desktop runs an environment called [Plasma](https://kde.org/plasma-desktop/ "website for KDE Plasma"). This desktop includes controls all the software, notifications, launcher activity, and system tray integrations for you. KDE version 5 supports Plasma and KDE 6 will shortly be released in 2024. There is a [mobile Plasma](https://plasma-mobile.org/ "webpage for mobile Plasma") framework available for Linux based phones and tablets.
 
-### GNOME [^33]
+### GNOME
 
 Shortly after the initial release of KDE and its licensing confusion, an enterprising opensource advocate saw the need for a truly open and free desktop environment. His name was [Miguel De Icaza](https://en.wikipedia.org/wiki/Miguel_de_Icaza "Miguel").
 
@@ -163,7 +163,7 @@ Shortly after the initial release of KDE and its licensing confusion, an enterpr
 
 ![*Miguel de Icaza*](images/Chapter-04/People/351px-Miguel_de_Icaza.jpg "Miguel de Icaza")
 
-GNOME initially stood for GNU Network Object Model Environment but the acronym is no longer used[^28].  GNOME was a GNU project directly created under the GPL. The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Tool Kit*, used to stand for the GIMP Tool Kit. The toolkit is once again known as **GTK**. GTK is a library useful for creating standalone applications with multiple development language bindings as well.
+GNOME[^33] initially stood for GNU Network Object Model Environment but the acronym is no longer used[^28].  GNOME was a GNU project directly created under the GPL. The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Tool Kit*, used to stand for the GIMP Tool Kit. The toolkit is once again known as **GTK**. GTK is a library useful for creating standalone applications with multiple development language bindings as well.
 
 In an interesting development Miguel ended up forming the company that became Xamarin, a cross development mobile platform using C# to develop for Android and iOS--shortly after Microsoft began opensourcing the C# language. Recently Xamarin was purchased by Microsoft and Miguel is now a Microsoft VP. Miguel has always been a software pragmatist - always chasing the best technology and open sourcing it.  He took much criticism because he started the Mono project in bringing Microsoft's C# and .NET platform to Linux, because he saw C# as the best language to develop in cross platform. This brought about the condemnation of Richard Stallman, calling Miguel, "*A traitor to free software.*" [^30]  Miguel's response to Stallman was a beautiful example of how to diffuse an inflammatory situation:
 
@@ -189,7 +189,7 @@ GNOME 3 led to the creation of alternatives in 2012. When GNOME moved from versi
 
 In April of 2021, [Linux open laptop manufacturer, System76](https://system76.com/ "Website for System76 Linux Laptop manufacturer") released a themed GNOME 3 desktop called [Pop!_OS](https://pop.system76.com/ "Website to Pop OS") with a custom windows manager that defaults to a tiling mode rather than a stacking mode.  
 
-GNOME is considered the Linux default desktop due to its tight integration with systemd. So much so that GNOME community contributed development has begun to wane [^29]. Which is better GNOME or KDE? With all major Linux systems that are using systemd you now have no choice but to adopt GNOME as the default desktop.  Both have had great set backs and great feature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer. Try them both and choose the best one for your needs.
+GNOME is considered the Linux default desktop due to its tight integration with systemd. So much so that GNOME community contributed development has begun to wane[^29]. Which is better GNOME or KDE? With all major Linux systems that are using systemd you now have no choice but to adopt GNOME as the default desktop.  Both have had great set backs and great feature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer. Try them both and choose the best one for your needs.
 
 ### Xfce
 
@@ -214,7 +214,7 @@ This project started in 1997 and intended to be a virtual desktop window manager
 ### Who Uses What
 
 -------------------------------------------------------- ------------------------ ------------------------------------
-[KDE](https://www.kde.org/ "KDE") [^31]                     Qt 5 & 6                    https://www.kde.org/
+[KDE](https://www.kde.org/ "KDE")[^31]                     Qt 5 & 6                    https://www.kde.org/
 [GNOME 40+](https://www.GNome.org/ "GNOME")                   GTK+ 4                  https://GNome.org/
 [Xfce](http://www.xfce.org/ "Xfce")                           GTK+ 3                  https://www.xfce.org/
 [LXQT](http://lxqt.org/about/ "LXQT")                         Qt 5                    https://lxqt.org/about/
@@ -524,12 +524,11 @@ Install these desktops, restart your system and as you login switch your desktop
 
 [^31]: Qt 5 / KDE 5 split into three separate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5</a>
 
-[^32]: Wikipedia Buddies of Budgie Article  
-  <a href="https://en.wikipedia.org/wiki/Budgie_(desktop_environment)">https://en.wikipedia.org/wiki/Budgie_(desktop_environment)</a>
+[^32]: Wikipedia Buddies of Budgie Article<a href="https://en.wikipedia.org/wiki/Budgie_(desktop_environment)">https://en.wikipedia.org/wiki/Budgie_(desktop_environment)</a>
 
 [^33]: Comparison of X Windows Desktop Environments<a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
 
-[^34]: [http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/](http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/)
+[^34]: Nokia buys Trolltech<a href=http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/>Nokia buys Trolltech</a>
 
 [^35]: Miguel's response to Stallman's accusation <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
 
