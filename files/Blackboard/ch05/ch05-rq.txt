@@ -1,117 +1,137 @@
-# Review Questions - Chapter 05
-
 1.  What is the numeric value of a file with the permissions rwxr--r--?
-    a.  777
-    b.  700
-    c.  766
-    d.  744
+a.  777
+b.  700
+c.  766
+*d.  744
+
 1.  What is the numeric value of a file with the permissions rw-----?
-    a.  700
-    b.  400
-    c.  600
-    d.  007
+a.  700
+b.  400
+*c.  600
+d.  007
+
 1.  What is the numeric value of a file with the permission rwxr-xr-x?
-    a.  711
-    b.  755
-    c.  644
-    d.  227
+a.  711
+*b.  755
+c.  644
+d.  227
+
 1.  What is the name of the command you use to list the contents of a directory?
-    a.  `lst`
-    b.  `less`
-    c.  `cat`
-    d.  `ls`
+a.  lst
+b.  less
+c.  cat
+*d.  ls
+
 1.  What is the name of the command you use to display the content of a file to the screen?
-    a.  `dg`
-    b.  `tac`
-    c.  `ls`
-    d.  `cat`
+a.  dg
+b.  tac
+c.  ls
+*d.  cat
+
 1.  What is the name of the command you use to display the content of a file to the screen that allows you to page up and down?
-    a.  `more`
-    b.  `less`
-    c.  `ls`
-    d.  `page`
+a.  more
+b.  less
+c.  ls
+*d.  page
+
 1.  Every shell command has three components:
-    a.  Command, arguments, flags
-    b.  Command, options, arguments
-    c.  Commands, arguments, options
-    d.  Commands, flags, options
+a.  Command, arguments, flags
+*b.  Command, options, arguments
+c.  Commands, arguments, options
+d.  Commands, flags, options
+
 1.  What does the user use to issue commands to the kernel?
-    a.  Terminal
-    b.  Commandline
-    c.  Magic
-    d.  Shell
-1.  What is the name of the GNU shell that is standard across all Linux Distros
-    a.  ksh
-    b.  sh
-    c.  csh
-    d.  bash
+a.  Terminal
+b.  Commandline
+c.  Magic
+*d.  Shell
+
+1.  What is the name of the GNU shell that is standard across all Linux distros
+a.  ksh
+b.  sh
+c.  csh
+*d.  bash
+
 1.  Based on the ls command, what is the option to do a long listing?
-    a.  `ls --all`
-    b.  `ls -n`
-    c.  `list`
-    d.  `ls –l`
+a.  ls --all
+b.  ls -n
+c.  list
+*d.  ls –l
+
 1.  What is the command you can use to find out additional usage information about a shell command?
-    a.  about
-    b.  man
-    c.  F1
-    d.  /?
+a.  about
+*b.  man
+c.  F1
+d.  /?
+
 1.  Which of these directories is not part of the LSB LFH?
-    a.  bin
-    b.  media
-    c.  temp
-    d.  opt
+a.  bin
+b.  media
+*c.  temp
+d.  opt
+
 1.  The Linux Filesystem is an upside down what?
-    a.  root
-    b.  object
-    c.  tree
-    d.  mess
+a.  root
+b.  object
+*c.  tree
+d.  mess
+
 1.  What is the character name of the top of the Linux Filesystem tree?
-    a.  `/`
-    b.  `./`
-    c.  `../`
-    d.  slashdot
+*a.  /
+b.  ./
+c.  ../
+d.  slashdot
+
 1.  Everything (directories, files, devices) in Unix/Linux is a what?
-    a. state
-    b. idea
-    c. node
-    d. file
+a. state
+b. idea
+c. node
+*d. file
+
 1.  What is the name of the Unix system standard developed in ~1985 that defines at a minimum what a certified Unix based system must support?
-    a.  Xenix
-    b.  LSB
-    c.  POSIX
-    d.  Linux
+a.  Xenix
+b.  LSB
+*c.  POSIX
+d.  Linux
+
 1.  What is the absolute path of a user's home directory, assuming the user is named controller?
-    a.  /home/user/controller
-    b.  /home
-    c.  /user/controller
-    d.  /home/controller
+a.  /home/user/controller
+b.  /home
+c.  /user/controller
+*d.  /home/controller
+
 1.  What is the command line short cut to represent the home directory?
-    a.  `~-`
-    b.  `$`
-    c.  `#`
-    d.  `~`
+a.  ~-
+b.  $
+c.  #
+*d.  ~
+
 1.  In the Linux Filesystem Hierarchy which directory usually holds system configuration files?
-    a. `/usr`
-    b. `/etc`
-    c. `/conf`
-    d. `/opt`
+a. /usr
+*b. /etc
+c. /conf
+d. /opt
+
 1.  In the Linux Filesystem Hierarchy which directory usually holds essential command binaries?
-    a. `/bin`
-    b. `/etc`
-    c. `/conf`
-    d. `/opt`
+*a. /bin
+b. /etc
+c. /conf
+d. /opt
+
 1.  In the Linux Filesystem Hierarchy which directory usually holds a mount point for mounting a filesystem?
-    a. `/opt`
-    b. `/etc`
-    c. `/conf`
-    d. `/mnt`
-1.  What is term used to describe this system path: `/usr/sbin/`?
-    a. relative
-    b. hybrid
-    c. normal
-    d. absolute
-1.  What is term used to describe this system path: `../`?
-    a. relative
-    b. hybrid
-    c. normal
-    d. absolute
+a. /opt
+b. /etc
+c. /conf
+*d. /mnt
+
+1.  What is term used to describe this system path: /usr/sbin/?
+a. relative
+b. hybrid
+c. normal
+*d. absolute
+
+1.  What is term used to describe this system path: ../?
+*a. relative
+b. hybrid
+c. normal
+d. absolute
