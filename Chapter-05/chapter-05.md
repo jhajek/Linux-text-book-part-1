@@ -615,7 +615,7 @@ In this chapter we covered the basic nature of the Linux Shell and how it allows
 [Command Line Heroes: Bash](https://www.redhat.com/en/command-line-heroes/season-3/heroes-in-a-bash-shell "Command Line Heroes: bash")
 
 * ~0:20 Who is the creator of the Bash Shell?
-* ~0:43 Which organization did the creator of the Bash Shell write the shell for?  
+* ~0:43 Which organization did the creator of the Bash Shell write the shell for?
 * ~2:05 How does the podcast host define a shell script?
 * ~2:23 Shell scripts are the key to what?
 * ~3:28 When did Ken Thompson release his shell and what was it missing?
