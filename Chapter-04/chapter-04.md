@@ -481,8 +481,8 @@ You will install 3 of the window managers from the categories listed earlier in 
 
 **Note:** the names of packages are not always obvious so you can use search features of package managers.  For example, here would be how to search for the i3 package.
 
-* ```sudo apt-cache search i3```
-* ```sudo dnf search i3```
+* `sudo apt-cache search i3`
+* `sudo dnf search i3`
 
 #### Desktop Environment Installs
 
