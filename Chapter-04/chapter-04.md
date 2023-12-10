@@ -141,19 +141,19 @@ There is a sub-category of Tiling Window Managers called [Dynamic Window Manager
 
 ## Desktop Environments
 
-About the time that the OSI movement was launching in late 1990s, there was a growing need for more than just window managers too.  x86 Intel and AMD CPUs at that time were gaining in processing power and processor based multimedia extensions began to appear by 1997, [collectively called MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and a window manager? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop environment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM.  On top of that all the elements of the desktop have a changeable but consistent usage pattern and look-and-feel.  Let us look first at the development history of the two main desktop environments followed by a few other desktop environments.
+About the time that the OSI movement was launching in late 1990s, there was a growing need for more than just window managers too.  x86 Intel and AMD CPUs at that time were gaining in processing power and processor based multimedia extensions began to appear by 1997, [collectively called MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set) "MMX"). What is the difference between a desktop environment and a window manager? Simple things that you may take for granted such as as a clock, or a text editor, office suite or an email client, even a web browser.  Also a desktop environment provides an IPC method for inter-window communication.  Most important, a desktop environment includes a file manager application, a start or action menu feature and a login manager (display manager) such as GDM, KDM, or SDDM.  On top of that all the elements of the desktop have a changeable but consistent usage pattern and look-and-feel. Let us look first at the development history of the two main desktop environments followed by a few other desktop environments.
 
 ### KDE [^33]
 
-The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project.  Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the `Kool Desktop Environment` was in 1998 and the name was a *"clever hack"* of the CDE--`Common Desktop Environment`--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in CDE. You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window managers and independent applications. At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux. One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech.
+The KDE project (originally the K Desktop Environment) was the first opensource Linux desktop environment project. Started by Matthias Ettrich at the university of Tübingen in Germany in 1996. The first release of the `Kool Desktop Environment` was in 1998 and the name was a *"clever hack"* of the CDE--`Common Desktop Environment`--developed for Unix by Sun, HP, and IBM. KDE focused on the lack of perceived usability in CDE. You and I may take desktop environments for granted based on our experience with Mac and Windows respectively. Unix and Linux in 1998, did not have the same capabilities--just a mix of window managers and independent applications. At the time of development there were only a few toolkits available that could be used for creating desktop environments in Linux. One of them was [Qt](https://www.qt.io/ "Qt"), pronounced *"cute-ee"*. Qt was a good choice for developers because at the time was the only toolkit that had C++ language bindings. GTK was C only at this point. Matthias Ettrich chose the best technology at the time for developing GUIs. Qt was initially developed by a company called Trolltech.
 
 In 1998 Qt was not available under a completely *"free software"* license. It had a modified license called the QPL, stating that non-commercial software projects for Unix/Linux were allowable. By 2000 Trolltech relicensed Qt to be GPL compliant. This fact still upset Richard Stallman who never forgave KDE for initially using a non-GPL compatible license. As an aside, Nokia bought Trolltech in 2008 but Qt remained under GPL license. [^34] Qt was used by Nokia to power their Symbian OS which dominated the cellular market as the predominant OS until Android unseated it by 2010.
 
 KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro. Distros such as [openSUSE](opensuse.org "opensuse"), [Mageia](mageia.org "Mageia"), [Chakra](www.chakralinux.org "Chakra Linux"), [KDE Neon Ubuntu](https://neon.kde.org "KDE Neon Ubuntu webpage"), [PCLinuxOS](www.pclinuxos.com "PC Linux OS") and even FreeBSD are using KDE by default or have it available in software repositories. The Steam Deck portable hand-held gaming system [uses KDE as its desktop](https://arstechnica.com/gaming/2022/02/linux-on-steam-deck-what-you-need-to-know-what-currently-works/ "webpage article about KDE use on Steam Deck").
 
-#### Plasma Mobile
+#### Plasma
 
-There is a [mobile Plasma](https://plasma-mobile.org/ "webpage for mobile Plasma") framework available for Linux based phones and tablets.
+The KDE desktop runs an environment called [Plasma](https://kde.org/plasma-desktop/ "website for KDE Plasma"). This desktop includes controls all the software, notifications, launcher activity, and system tray integrations for you. KDE version 5 supports Plasma and KDE 6 will shortly be released in 2024. There is a [mobile Plasma](https://plasma-mobile.org/ "webpage for mobile Plasma") framework available for Linux based phones and tablets.
 
 ### GNOME [^33]
 
@@ -173,7 +173,7 @@ In an interesting development Miguel ended up forming the company that became Xa
 >
 > Love, Miguel."* [^35]
 
-In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros.  Red Hat and Debian adopted GNOME as well. With the release of Ubuntu 18.04, Ubuntu returned to the Gnome desktop.
+In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros. Red Hat and Debian adopted GNOME as well. With the release of Ubuntu 18.04, Ubuntu returned to the Gnome desktop.
 
 GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released March 2021.  Over this 18+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different structure from the traditional Windows desktop--called the GNOME shell. Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks. The GNOME naming convention has changed from the previous 2.x and 3.x to just 40. So there is in a sense no more GNOME 3 or 4, but like a webbrowser just a rolling version starting at the number 40.  
 
@@ -201,11 +201,11 @@ One of the biggest draw backs of Xfce is that it only runs on X11 and not on Way
 
 ### LXQT
 
-The LXQT project was started as the LXDE[^39] project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merger with another desktop enviroment, razor-qt. This produced a new desktop environemnt called LXQT. The LUbunut distribution uses LQXT as its default desktop environement on top of modern Ubuntu.
+The LXQT project was started as the LXDE[^39] project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merger with another desktop environment, razor-qt. This produced a new desktop environment called LXQT. The Lubuntu distribution uses LQXT as its default desktop environment on top of modern Ubuntu.
 
 ### Budgie
 
-A MacOS inspired desktop, [The Budgie desktop](https://buddiesofbudgie.org/ "Webpage Budgie desktop") is independant of any Linux distro. Its design emphasizes simplicity, minimalism, and elegance, while providing the means to extend or customize the desktop in various ways[^32]. There are Budgie versions available for most Linux distributions. There design has a very Windows-esque design.
+A MacOS inspired desktop, [The Budgie desktop](https://buddiesofbudgie.org/ "Webpage Budgie desktop") is independant of any Linux distro. Its design emphasizes simplicity, minimalism, and elegance, while providing the means to extend or customize the desktop in various ways[^32]. Their are Budgie versions available for most Linux distributions. There design has a very Windows-esque design.
 
 ### Enlightenment
 
@@ -213,16 +213,16 @@ This project started in 1997 and intended to be a virtual desktop window manager
 
 ### Who Uses What
 
------------------------------------------------------ ------------------------ -------------------------------
-[KDE 5](https://www.kde.org/ "KDE") [^31]             Qt 5                     https://www.kde.org/
-[GNOME 40+](https://www.GNome.org/ "GNOME")           GTK+ 4                   https://GNome.org/
-[Xfce](http://www.xfce.org/ "Xfce")                   GTK+ 3                   https://www.xfce.org/
-[LXQT](http://lxqt.org/about/ "LXQT")                 Qt 5                     https://lxqt.org/about/
-[MATE](http://mate-desktop.org/ "Ma-tay")             GTK+ 3                   https://mate-desktop.org/
-[Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon") GTK+ 3                   https://cinnamon.linuxmint.com/
-[Enlightenment](https://www.enlightenment.org/ "E24") EFL                      https://www.enlightenment.org/
-[Budgie](https://buddiesofbudgie.org/ "Website Budgie") C, [Vala](https://en.wikipedia.org/wiki/Vala_(programming_language) "webpage for Vala Language") https://buddiesofbudgie.org/ 
------------------------------------------------------ ------------------------ -------------------------------
+-------------------------------------------------------- ------------------------ ------------------------------------
+[KDE](https://www.kde.org/ "KDE") [^31]                     Qt 5 & 6                    https://www.kde.org/
+[GNOME 40+](https://www.GNome.org/ "GNOME")                   GTK+ 4                  https://GNome.org/
+[Xfce](http://www.xfce.org/ "Xfce")                           GTK+ 3                  https://www.xfce.org/
+[LXQT](http://lxqt.org/about/ "LXQT")                         Qt 5                    https://lxqt.org/about/
+[MATE](http://mate-desktop.org/ "Ma-tay")                     GTK+ 3                  https://mate-desktop.org/
+[Cinnamon](http://cinnamon.linuxmint.com/ "Cinnamon")         GTK+ 3                  https://cinnamon.linuxmint.com/
+[Enlightenment](https://www.enlightenment.org/ "E24")         EFL                     https://www.enlightenment.org/
+[Budgie](https://buddiesofbudgie.org/ "Website Budgie")       C, Vala                 https://buddiesofbudgie.org/ 
+-------------------------------------------------------- ------------------------- -----------------------------------
 
 Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
@@ -282,82 +282,132 @@ In this chapter we learned about the creation and evolution of the desktop GUI. 
 
 ### Review Questions
 
-1) What was the original and most popular Unix “Smart Terminal?”
-  a. VIC-100
-  b. VT-100
-  c. VT-220
-  d. VC-100
-2) What is the three letter abbreviation still in use today in modern Linux to refer to “terminal
-devices?”
-  a. TCY
-  b. TTY
-  c. VT-100
-  d. Virtual Terminal
-3) Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by
-default?
-  a. The technology cannot process any larger size
-  b. The technology doesn’t need to have any larger screen size
-  c. The developers of these technologies were seeking to emulate the popular VT-100 and
-VT-220 terminals they used prior.
-  d. Hey it's Windows, do they need a reason?
-4) What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
-  a. Alt + Ctrl + Del
-  b. Alt + Ctrl + F1 - F7
-  c. Right Ctrl
-  d. Shift 5 times
-5) What is the name of the original Unix based GUI that came out of MIT in ~1984?
-  a. W
-  b. X
-  c. Y
-  d. Z
-6) True or False – X was originally not opensourced by MIT in 1984
-
-7) What is the model that the X server uses to render screens?
-
-8) What is the name of the successor GUI compositor to X being created by the X.org foundation?
-  a. KDE
-  b. Y
-  c. Wayland Project
-  d. Jennings Project
-9) What is the name of Ubuntu’s, now deprecated, GUI compositor replacement for X?
-
-10) What are the 3 types of Linux window managers?
-
-11) There are 4 major Linux desktop environments in use today: which grouping is correct?
-  a. KDE, GNOME, CDE, LXQT
-  b. KDE, GNOME, E17, GNUSTEP
-  c. KDE, GNOME, X, LXQT
-  d. KDE, GNOME, Xfce, LXQT
-12) What is the name of the windowing toolkit that KDE uses?
-
-13) What is the name of the windowing toolkit that GNOME uses?
-
-14) What is the name of the founder of the GNOME project?
-
-15) When the GNOME 3 desktop environment was released in early 2012, many people were
-unhappy that many changes were made.  There were 3 major projects started to either preserve
-GNOME 2 or to modify GNOME 3 significantly – what are the names of those projects?
-  a. Enlightenment, LXQT, Xfce
-  b. Mint, Unity, Mate
-  c. Unity, Mate, Cinnamon
-  d. Cinnamon, Mint, Mate
-16) When released in 2006, what was the main development goal of the LXDE desktop environment?
-  a. GUI desktop features
-  b. Multi-desktop paradigm
-  c. Energy saving and extremely fast
-  d. Made for high end gaming systems
-17) Which of these statements are true in regards to Linux desktop environments? (choose all that
-apply)
-  a. Desktop environments have a File Manager
-  b. Desktop Environments have start or action buttons and task and notification bars
-  c. Desktop environments have a changeable but consistent look-and-feel
-  d. Desktop environments have system configuration tools and user applications built in
-  e. Desktop environments have lower memory requirements than window managers
-18) What is the default desktop environment and version for the latest Fedora desktop (Name and version)?
-
-19) What is the name of the button on the upper left hand corner of the GNOME desktop that you use to “launch applications?”
-
-20) What is the name of the desktop environment used in Xubuntu?
+1.  What was the original and most popular Unix “Smart Terminal?”
+    a.  VIC-100
+    b.  VT-100
+    c.  VT-220
+    d.  VC-100
+1.  What is the three letter abbreviation still in use today in modern Linux to refer to “terminal devices?”
+    a.  TCY
+    b.  TTY
+    c.  VT-100
+    d.  Virtual Terminal
+1.  Why is the GNOME terminal and Windows cmd.exe terminal emulator screens 80 by 25 by default?
+    a.  The technology cannot process any larger size
+    b.  The technology doesn’t need to have any larger screen size
+    c.  The developers of these technologies were seeking to emulate the popular VT-100 and VT-220 terminals they used prior.
+    d.  Hey it's Windows, do they need a reason?
+1.  What is the key combo sequence you can hit to switch to a new virtual terminal in Linux?
+    a.  Alt + Ctrl + Del
+    b.  Alt + Ctrl + F1 - F7
+    c.  Right Ctrl
+    d.  Shift 5 times
+1.  What is the name of the original Unix based GUI that came out of MIT in ~1984?
+    a.  W
+    b.  X
+    c.  Y
+    d.  Z
+1.  Most modern Linux distros using GNOME use which compositor by default?
+    a.  X
+    b.  Y
+    c.  Wayland
+    d.  XWayland
+1.  What is the name of the successor GUI compositor to X being created by the X.org foundation?
+    a.  KDE
+    b.  Y
+    c.  Wayland Project
+    d.  Jennings Project
+1.  What is the name of Ubuntu’s, now deprecated, GUI compositor replacement for X?
+    a.  soyez
+    b.  cosmo
+    c.  aero
+    d.  mir
+1.  What are the 3 types of Linux window managers?
+    a.  stacking, tiling, compositing
+    b.  stacking, tiling, hybrid
+    c.  hybrid, tiling, compositing
+    d.  stacking, hybrid, compositing
+1.  There are 4 major Linux desktop environments in use today: which grouping is correct?
+    a.  KDE, GNOME, CDE, LXQT
+    b.  KDE, GNOME, E17, GNUSTEP
+    c.  KDE, GNOME, X, LXQT
+    d.  KDE, GNOME, Xfce, LXQT
+1.  What is the name of the windowing toolkit that KDE uses?
+    a.  Nokia
+    b.  Gtk
+    c.  Gnome
+    d.  Qt
+1.  What is the name of the windowing toolkit that GNOME uses?
+    a.  Nokia
+    b.  Gtk
+    c.  Gnome
+    d.  Qt
+1.  What is the name of the founder of the GNOME project?
+    a.  Miguel De Icaza
+    b.  Richard Stallman
+    c.  Matthias Ettrich
+    d.  Linus Torvalds
+1.  What are the 3 major Linux desktop environment projects started to preserve GNOME 2?
+    a.  Enlightenment, LXQT, Xfce
+    b.  Mint, Unity, Mate
+    c.  Unity, Mate, Cinnamon
+    d.  Cinnamon, Mint, Mate
+1.  When released in 2006, what was the main development goal of the LXDE desktop environment?
+    a.  GUI desktop features
+    b.  Multi-desktop paradigm
+    c.  Energy saving and extremely fast
+    d.  Made for high end gaming systems
+1.  Which of these statements are true in regards to Linux desktop environments? (choose all that apply)
+    a.  Desktop environments have a File Manager
+    b.  Desktop Environments have start or action buttons and task and notification bars
+    c.  Desktop environments have a changeable but consistent look-and-feel
+    d.  Desktop environments have system configuration tools and user applications built in
+    e.  Desktop environments have lower memory requirements than window managers
+1.  What is the name of the default desktop environment and version for the latest Fedora desktop?
+    a.  Qt
+    b.  Xfce
+    c.  Gnome
+    d.  KDE
+1.  What is the name of the button on the upper left hand corner of the GNOME desktop that you use to “launch applications?”
+    a.  Launcher
+    b.  Spotlight
+    c.  Activities
+    d.  Start
+1.  What is the name of the desktop environment used in Xubuntu?
+    a.  LXQT
+    b.  Qt
+    c.  Gnome
+    d.  Xfce
+1.  Choose the two Tiling window managers
+    a.  IceWM
+    b.  Openbox
+    c.  Sway
+    d.  i3
+1.  Choose the two Stacking window managers
+    a.  IceWM
+    b.  dwm
+    c.  Fluxbox
+    d.  i3
+1.  The Sway window manager requires which compositor?
+    a.  mir
+    b.  Y
+    c.  X11
+    d.  Wayland
+1.  The i3 window manager requires which compositor?
+    a.  mir
+    b.  Y
+    c.  X11
+    d.  Wayland
+1.  What is the current version of the X window project?
+    a.  x86
+    b.  10
+    c.  2023
+    d.  11
+1.  What is the name of the current KDE desktop?
+    a.  Qt
+    b.  Liquid
+    c.  Plasma
+    d.  Mosh
 
 ### Podcast Questions
 
