@@ -522,15 +522,15 @@ Install these desktops, restart your system and as you login switch your desktop
 
 [^30]: <a href="http://www.osnews.com/story/22225/RMS_De_Icaza_Traitor_to_Free_Software_Community/">http://www.osnews.com/story/22225/RMS_De_Icaza_Traitor_to_Free_Software_Community/</a>
 
-[^31]: Qt 5 / KDE 5 split into three separate components <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5</a>
+[^31]: <a href="https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5">https://en.wikipedia.org/wiki/Qt_%28software%29#Qt_5</a>
 
-[^32]: Wikipedia Buddies of Budgie Article<a href="https://en.wikipedia.org/wiki/Budgie_(desktop_environment)">https://en.wikipedia.org/wiki/Budgie_(desktop_environment)</a>
+[^32]: <a href="https://en.wikipedia.org/wiki/Budgie_(desktop_environment)">https://en.wikipedia.org/wiki/Budgie_(desktop_environment)</a>
 
-[^33]: Comparison of X Windows Desktop Environments<a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
+[^33]: <a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
 
-[^34]: Nokia buys Trolltech<a href=http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/>Nokia buys Trolltech</a>
+[^34]: <a href=http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde>Nokia buys Trolltech</a>
 
-[^35]: Miguel's response to Stallman's accusation <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
+[^35]: <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
 
 [^36]: <a href="http://www.zdnet.com/article/linus-torvalds-finds-gnome-3-4-to-be-a-total-user-experience-design-failure/#!">http://www.zdnet.com/article/linus-torvalds-finds-gnome-3-4-to-be-a-total-user-experience-design-failure/#!</a>
 
