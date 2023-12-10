@@ -136,7 +136,7 @@ a.  GitHub
 c.  RPM
 d.  APT
 
-1. What is the name of the third party packge system that allows for standalone package management?
+1. What is the name of the third party package system that allows for standalone package management?
 a. Flatpaks
 b. Zips
 c. Snaps

@@ -110,7 +110,7 @@
     b.  Guest OS
     c.  Virtual machine
     d.  Linux machine
-1. What is the name of the third party packge system that allows for standalone package management?
+1. What is the name of the third party package system that allows for standalone package management?
     a. Flatpaks
     b. Zips
     c. Snaps

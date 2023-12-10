@@ -931,8 +931,8 @@ Through this chapter we gained an understanding of what x86-based virtualization
     a.  GitHub
     b.  Flathub
     c.  RPM
-    d.  APT    
-1. What is the name of the third party packge system that allows for standalone package management?
+    d.  APT
+1. What is the name of the third party package system that allows for standalone package management?
     a. Flatpaks
     b. Zips
     c. Snaps
