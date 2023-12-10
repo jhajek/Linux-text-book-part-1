@@ -527,10 +527,9 @@ Install these desktops, restart your system and as you login switch your desktop
 [^32]: Wikipedia Buddies of Budgie Article  
   <a href="https://en.wikipedia.org/wiki/Budgie_(desktop_environment)">https://en.wikipedia.org/wiki/Budgie_(desktop_environment)</a>
 
-[^33]: Comparison of X Windows Desktop Environments
-<a  href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
+[^33]: Comparison of X Windows Desktop Environments<a href="https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments">https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments</a>
 
-[^34]:  [http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/](http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/)
+[^34]: [http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/](http://arstechnica.com/information-technology/2008/01/nokia-buys-trolltech-will-become-a-patron-of-kde/)
 
 [^35]: Miguel's response to Stallman's accusation <a href="http://tirania.org/blog/archive/2009/Sep-23.html">http://tirania.org/blog/archive/2009/Sep-23.html</a>
 
