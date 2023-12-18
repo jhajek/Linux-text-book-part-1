@@ -758,7 +758,7 @@ cd /media/cdrom
 reboot
 ```
 
-#### Red Hat based Fedora 37/38, AlmaLinux 9, Rocky Linux 9
+#### Red Hat based Fedora 38/39, AlmaLinux 9, Rocky Linux 9
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
