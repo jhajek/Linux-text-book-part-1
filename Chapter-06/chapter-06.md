@@ -620,7 +620,7 @@ Chapter 06 review questions
     a.  ->
     b.  &&
     c.  ||
-    d.  |
+    d.  \|
 1.  Which command is used to search within files using textual filter patterns?
     a.  find
     b.  locate
