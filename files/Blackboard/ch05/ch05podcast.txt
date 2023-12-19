@@ -1,0 +1,17 @@
+﻿ESS	~0:20 Who is the creator of the Bash Shell?
+ESS	~0:43 Which organization did the creator of the Bash Shell write the shell for?
+ESS	~2:05 How does the podcast host define a shell script?
+ESS	~2:23 Shell scripts are the key to what?
+ESS	~3:28 When did Ken Thompson release his shell and what was it missing?
+ESS	~3:45 What year did shell scripting come into existence?
+ESS	~4:27 What was the shell that became the AT&T UNIX standard shell?
+ESS	~5:53 The Bourne Shell was licensed and owned by whom?
+ESS	~7:59 Why was Brian Fox the perfect person to develop the Bash Shell?
+ESS	~9:30 How long did it take to create the Bash shell and what was difficult about this?
+ESS	~12:02 What did Brian accidentally do to the Bash Shell code?
+ESS	~14:48 What was the other shell released one month before Bash?
+ESS	~15:19 When was GNU Bash released?
+ESS	~18:40 What was the released/intended purpose of GNU Bash?
+ESS	~19:25 What words and terms are now in use in everyday English?
+ESS	~20:46 Was Steven Bourne "cool" with the Bash Shell?
+ESS	~22:52 What prepares you to be more of a long-term thinker?

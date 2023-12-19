@@ -1,0 +1,9 @@
+﻿ESS	~9:11 What is the Fedora Project?
+ESS	~11:35 How does Red Hat make money on Fedora if it is free?
+ESS	~12:30 What is the Fedora release cycle and can businesses use this release cycle?
+ESS	~13:30 What is the relationship between Fedora and Red Hat Enterprise Linux (RHEL)?
+ESS	~25:00 What percentage of the Fedora Project is open source?
+ESS	~35:00 On further inspection is Fedora Project really opened source according to the Free Software Foundation?
+ESS	~36:20 Does Fedora include proprietary Nvidia drivers? Why or why not?
+ESS	~45:00 Does Fedora say "Linux" or "GNU/Linux"?
+ESS	~46:12 Who is the most famous Fedora user?
