@@ -1,0 +1,13 @@
+﻿ESS	~0:11 What does the grep program do?
+ESS	~1:11 What was the first computer that Unix ran on?
+ESS	~1:40 Why did the original Unix software tend to be "simple and straight forward?"
+ESS	~2:01 What was the first Unix text editor called?
+ESS	~2:30 When designing text editors in the early 70's what didn't they have that we have now?
+ESS	~4:09 What does the "ed" command 1,$p accomplish?
+ESS	~4:35 What is a Regular Expression?
+ESS	~5:26 What does a star or asterisk (shift+8) mean in Shell meta-characters?
+ESS	~7:30 Who wrote the grep command and how long did it take?
+ESS	~7:42 What is the explanation of what the grep command does?
+ESS	~8:04 What does the character g mean in regular expressions?
+ESS	~8:33 Why is the program named grep?
+ESS	~9:00 Describe the assignment the Professor Kernighan gave to his students

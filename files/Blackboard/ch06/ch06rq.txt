@@ -1,0 +1,25 @@
+﻿MC	What is the name for characters that have special meanings in the Linux shell?	special chars	Incorrect	marked characters	Incorrect	shell characters	Incorrect	shell meta-characters	Correct
+MC	Assume your pwd is ~.  If you wanted to list every directory that started with the letters "Do" what would be the command?	ls -l	Incorrect	ls -la [Dd]o	Incorrect	ls -l Do	Incorrect	ls -l Do*	Correct
+MC	In figure 6.2 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?	Lexical analysis and parse	Incorrect	Execution	Incorrect	Builtins	Incorrect	Expansion	Correct
+MC	Which meta-character allows you to string commands together regardless of the successful execution of the previous command?	&&	Incorrect	;	Correct	+	Incorrect	||	Incorrect
+MC	Which meta-character allows you to string commands together but will exit if the first command fails?	&&	Correct	;	Incorrect	+	Incorrect	||	Incorrect
+MC	Which meta-character is the wildcard for 0 or more matches?	?	Incorrect	**	Incorrect	&	Incorrect	*	Correct
+MC	Which meta-character is the single character wildcard?	?	Correct	'	Incorrect	&	Incorrect	*	Incorrect
+MC	Square braces [] indicate sets or ______ of characters to be processed	numbers	Incorrect	letters	Incorrect	characters	Incorrect	ranges	Correct
+MC	If you wanted to use brace expansion and create a series of nine files named: file1 - file9, all at once--what command would you use?	touch file[1-9]	Incorrect	touch file(1-9)	Incorrect	touch file{1..9}	Correct	touch file[1..9]	Incorrect
+MC	If you wanted to assign the value of /etc/alternatives/java to a shell variable named JAVA_HOME--what would be the proper syntax?	JAVA_HOME = /etc/alternatives/java	Incorrect	/etc/alternatives/java = JAVA_HOME	Incorrect	JAVA_HOME=/etc/alternatives/java	Correct	$JAVA_HOME=/etc/alternatives/java	Incorrect
+MC	What would be the proper syntax to display the content of a variable named JAVA_HOME in the shell?	echo JAVA_HOME	Incorrect	cat JAVA_HOME	Incorrect	print JAVA_HOME	Incorrect	echo $JAVA_HOME	Correct
+MC	There are 3 standard I/O devices in a Linux system, standard in, standard out, and ________	standard air	Incorrect	standard io	Incorrect	standard x	Incorrect	standard error	Correct
+MC	Standard In is what device by default?	mouse	Incorrect	screen	Incorrect	tty	Incorrect	mouse and keyboard	Correct
+MC	Standard Out is what device by default?	mouse	Incorrect	screen	Correct	X	Incorrect	keyboard	Incorrect
+MA	What meta-character can you use to redirect standard out to a file? (Choose all that apply.)	>	Correct	>>	Correct	<	Incorrect	>>>	Incorrect
+MC	What meta-character is used to redirect the standard output of one command as the standard input of another command?	->	Incorrect	&&	Incorrect	||	Incorrect	|	Correct
+MC	Which command is used to search within files using textual filter patterns?	find	Incorrect	locate	Incorrect	slocate	Incorrect	grep	Correct
+MC	Which command can be used to count lines that are in a text file?	count	Incorrect	wc	Correct	lines	Incorrect	uniq	Incorrect
+MC	Which command can be used to find unique line occurrences in a text file?	sort	Incorrect	uniq	Correct	wc	Incorrect	who	Incorrect
+MC	Which command can be used to sort the content of a text file>	sort	Correct	uniq	Incorrect	wc	Incorrect	who	Incorrect
+MC	Which command would assign the output of the date command to a variable named DT?	DT = date	Incorrect	DT=date	Incorrect	DT=$(date)	Correct	DT = $(date)	Incorrect
+MC	What would be the correct command to redirect the standard out and standard error of a command to files?	sudo apt install nginx 1>/tmp/02.out 2>/tmp/02.err	Correct	sudo apt install nginx 0>/tmp/02.out 1>/tmp/02.err	Incorrect	sudo apt install nginx >/tmp/02.out >/tmp/02.err	Incorrect	sudo apt install nginx &>/tmp/02.out &>/tmp/02.err	Incorrect
+MC	What is the command that will print the last 10 lines of a text file?	head	Incorrect	tail	Correct	tac	Incorrect	cat	Incorrect
+MC	What is the command that will print the first 10 lines of a text file?	head	Correct	tail	Incorrect	tac	Incorrect	cat	Incorrect
+MC	What is the command to display the content of a text file backwards (last line first)?	head	Incorrect	tail	Incorrect	tac	Correct	cat	Incorrect

@@ -16,11 +16,11 @@ Watch this video with Professor Brian Kernighan [History of grep](https://www.yo
   * Your answer here
 * ~4:35 What is a Regular Expression?
   * Your answer here
-* ~5:26 What does a star or asterik (shift+8) mean in Shell meta-characters?
+* ~5:26 What does a star or asterisk (shift+8) mean in Shell meta-characters?
   * Your answer here
 * ~7:30 Who wrote the grep command and how long did it take?
   * Your answer here
-* ~7:42 What is the explantion of what the grep command does?
+* ~7:42 What is the explanation of what the grep command does?
   * Your answer here
 * ~8:04 What does the character `g` mean in regular expressions?
   * Your answer here

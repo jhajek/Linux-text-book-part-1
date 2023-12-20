@@ -1,0 +1,27 @@
+﻿MC	What are the two main representatives of stream editors?	gedit and kate	Incorrect	Nano and Joe	Incorrect	vi and Nano	Incorrect	vi and Emacs	Correct
+MC	Which family of editors came first?	Screen editors	Incorrect	Butterfly editors	Incorrect	GUI editors	Incorrect	Stream Editors	Correct
+MC	What type of editor is GNU Nano?	stream	Incorrect	text	Correct	free	Incorrect	file	Incorrect
+MC	Who created the vi editor?	Richard Stallman, 1984	Incorrect	Brian Fox, 1989	Incorrect	Bill Joy, 1979	Correct	Bill Joy, 1983	Incorrect	Brian Fox, 1979	Incorrect
+MC	Which of the following sequences of the history of vi is correct?	Emacs -> ed -> ex -> vi	Incorrect	ed -> em -> ex -> vi -> vim	Correct	em -> ex -> vi	Incorrect	em -> ed -> vi -> vim	Incorrect
+MC	What are the three modes in vi?	command, insert, output	Incorrect	command, output, ex	Incorrect	command, insert, ex	Correct	command, insert, vi	Incorrect
+MC	What is the key you use in vi to transition between COMMAND MODE and INSERT mode?	delete	Incorrect	alt	Incorrect	escape	Correct	F1	Incorrect
+MC	What command sequence (key) in vi will add text to the right of the current cursor position?	a	Correct	i	Incorrect	o	Incorrect	w	Incorrect
+MC	What command sequence (key) in vi will move you to the beginning of the next word?	w	Correct	b	Incorrect	i	Incorrect	o	Incorrect
+MC	What command sequence in vi will delete a single line based on the current cursor position?	ddd	Incorrect	d	Incorrect	dd	Correct	del	Incorrect
+MC	What command sequence in vi will delete 10 lines from the current cursor position?	10d	Incorrect	10dd	Correct	dd10	Incorrect	d10	Incorrect
+MC	Which command in ex mode (vi) will save the current file you are working on and exit the vi editor?	:sq	Incorrect	:q	Incorrect	:w	Incorrect	:wq	Correct
+MC	In vim what would be the ex command to search forward for occurrences of GoogleBot?	/GoogleBot	Correct	GoogleBot	Incorrect	?GoogleBot	Incorrect	GoogleBot/	Incorrect
+MC	In vim what would be the command in ex mode to replace all occurrences of linux with Linux in a document?	:1,$s/linux/Linux/g	Correct	:s/linux/Linux/g	Incorrect	:s/linux/Linux/	Incorrect	:1,$s/Linux/linux/g	Incorrect
+MC	In vim what would be the command in ex mode to replace all occurrences of Linux with GNU/Linux?	:1,$s/linux/GNU/Linux/g	Incorrect	:1,$s/linux/GNU\/Linux/g	Correct	:s/linux/GNU/Linux/g	Incorrect	:s/linux/GNU\/Linux/g	Incorrect
+MC	In vim what would be the command in ex mode to replace all occurrences of the word Windows?	:1,$s/Windows//g	Incorrect	:1,$s//Windows/	Incorrect	:1,$s/Windows//	Correct	:s/Windows//g	Incorrect
+MC	Assuming a file name topsecret.sh has a permission of 644 - what is the shortcut to give just the owner of the file additional permissions to execute the script?	chmod +x topsecret.sh	Incorrect	chmod o+x topsecret.sh	Incorrect	chmod g+x topsecret.sh	Incorrect	chmod u+x topsecret.sh	Correct
+MC	Assuming a file named moretopsecret.sh has a permission of 755 - what is the command to change the permission to have only read and write permission for the owner?	chmod 700 moretopsecret.sh	Incorrect	chmod 600 moretopsecret.sh	Correct	chmod 744 moretopsecret.sh	Incorrect	chmod 755 moretopsecret.sh	Incorrect
+MC	What is the correct command sequence to save or write out a file in GNU Nano?	^6	Incorrect	^X	Correct	^O	Incorrect	:wq	Incorrect
+MC	What is the command to display the contents of the PATH system variable on the command line?	echo PATH	Incorrect	echo $PATH	Correct	echo path	Incorrect	$PATH	Incorrect
+MC	Using vim what is the ex mode command to move your curser to line 25 of a text file?	:m25	Incorrect	25	Incorrect	^25:	Incorrect	:25	Correct
+MC	Using vim what is the ex mode command to move your curser to the last line of a text file?	$	Incorrect	G	Incorrect	:$	Correct	ESC G	Incorrect
+MC	Using vim what is the ex more command to find and replace the word Ubuntu with Fedora only the first occurance on a line	:s/ubuntu/fedora	Incorrect	:s/Ubuntu/Fedora	Correct	:1,$s/Ubuntu/Fedora	Incorrect	:s/Ubuntu/Fedora/g	Incorrect
+MC	In every bash shell script what are the required first two characters?	#	Incorrect	//	Incorrect	#!	Correct	!#	Incorrect
+MC	In a Bash script what is the default path of the bash executable?	/bin/bash	Correct	/bin/sh	Incorrect	/bin/ash	Incorrect	/sbin/bash	Incorrect
+MC	If you execute the command ./list-ip.sh and you recieved the error message Permission denied. What is the solution to the problem?	You need to give the owner of the file read permission	Incorrect	You need to give the owner of the file write permission	Incorrect	You need to give the owner of the file open permission	Incorrect	You need to give the owner of the file execute permission	Correct
+MC	Upon login which file, in the users home directory is read to extend the system path?	.profile	Incorrect	.bash-logout	Incorrect	.bashrc	Correct	bashrtc	Incorrect

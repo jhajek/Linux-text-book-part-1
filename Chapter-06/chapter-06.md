@@ -559,12 +559,12 @@ Chapter 06 review questions
 1.  Which meta-character allows you to string commands together regardless of the successful execution of the previous command?
     a.  &&
     b.  ;
-    c.  +
+    c.  \+
     d.  ||
 1.  Which meta-character allows you to string commands together but will exit if the first command fails?
     a.  &&
     b.  ;
-    c.  +
+    c.  \+
     d.  ||
 1.  Which meta-character is the wildcard for 0 or more matches?
     a.  ?
@@ -612,10 +612,10 @@ Chapter 06 review questions
     c.   X
     d.   keyboard
 1.  What meta-character can you use to redirect standard out to a file? (Choose all that apply.)
-    a.  >
-    b.  >>
-    c.  <
-    d.  >>>
+    a.  \>
+    b.  \>\>
+    c.  \<
+    d.  \>\>\>
 1.  What meta-character is used to redirect the standard output of one command as the standard input of another command?
     a.  ->
     b.  &&
@@ -678,9 +678,9 @@ Watch this video with Professor Brian Kernighan [History of grep](https://www.yo
 * ~2:30 When designing text editors in the early 70's what didn't they have that we have now?
 * ~4:09 What does the "ed" command `1,$p` accomplish?
 * ~4:35 What is a Regular Expression?
-* ~5:26 What does a star or asterik (shift+8) mean in Shell meta-characters?
+* ~5:26 What does a star or asterisk (shift+8) mean in Shell meta-characters?
 * ~7:30 Who wrote the grep command and how long did it take?
-* ~7:42 What is the explantion of what the grep command does?
+* ~7:42 What is the explanation of what the grep command does?
 * ~8:04 What does the character `g` mean in regular expressions?
 * ~8:33 Why is the program named `grep`?
 * ~9:00 Describe the assignment the Professor Kernighan gave to his students

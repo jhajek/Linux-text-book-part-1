@@ -20,12 +20,12 @@ Shell Meta-Characters, Pipes, Search, and Tools
 1.  Which meta-character allows you to string commands together regardless of the successful execution of the previous command?
     a.  &&
     b.  ;
-    c.  +
+    c.  \+
     d.  ||
 1.  Which meta-character allows you to string commands together but will exit if the first command fails?
     a.  &&
     b.  ;
-    c.  +
+    c.  \+
     d.  ||
 1.  Which meta-character is the wildcard for 0 or more matches?
     a.  ?
@@ -73,15 +73,15 @@ Shell Meta-Characters, Pipes, Search, and Tools
     c.   X
     d.   keyboard
 1.  What meta-character can you use to redirect standard out to a file? (Choose all that apply.)
-    a.  >
-    b.  >>
-    c.  <
-    d.  >>>
+    a.  \>
+    b.  \>\>
+    c.  \<
+    d.  \>\>\>
 1.  What meta-character is used to redirect the standard output of one command as the standard input of another command?
     a.  ->
     b.  &&
     c.  ||
-    d.  |
+    d.  \|
 1.  Which command is used to search within files using textual filter patterns?
     a.  find
     b.  locate

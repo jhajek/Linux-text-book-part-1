@@ -1,0 +1,17 @@
+﻿ESS	~7:40 What is pip and how is it related to the Python language?
+ESS	~9:31 What are some of the utilities that a developer who is making a Python package are going to use?
+ESS	~11:15 If someone is getting started with Python what is the right way to install packages?
+ESS	~12:39 Is the number of different package managers and methods of installing Python packages a benefit to the new user?
+ESS	~13:43 Does (did) Pradyun agree with the first speaker?
+ESS	~14:34 Where does the overview of packaging for Python live (URL)?
+ESS	~17:52 Where has Pradyun and pip secured opensource funding from?
+ESS	~19:00 What did Sumana do with the funding received from various companies and organizations?
+ESS	~30:30 How does Sumana explain "DevOps"?
+ESS	~31:37 What happens when you release software more often?
+ESS	~36:10 What is the Hollywood portrayal of those who develop and make software and how is it different from reality of developing software?
+ESS	~39:10 What can a short-term Project Maintainer do for a software project?
+ESS	~43:20 How many maintainers did the pip project have in 2017? How many do they have now in 2020? Are they paid developers?
+ESS	~44:44 If pip is one of the most important tool chains in the industry -- who funds its development/maintenance?
+ESS	~46:40 What is the programing language that Python is written in?
+ESS	~53:10 What is the tip for what not to do with pip on Linux?
+ESS	~55:15 What is the website (URL) to keep up with Python language announcements?
