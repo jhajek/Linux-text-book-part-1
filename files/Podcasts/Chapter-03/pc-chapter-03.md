@@ -1,36 +1,22 @@
 # Chapter-03 - Podcast Questions
 
-Listen/watch the FLOSS podcast number 130 with the [VirtualBox Developers - http://twit.tv/floss/130](http://twit.tv/floss/130)
+Watch the YouTube video [Virtual Machines explained in 15 Mins](https://www.youtube.com/watch?v=mQP0wqNT_DI "Virtual Machines explained in 15 Mins by Nana") and answer these questions below.
 
-* ~2:35 Who is Andy Hall and Achim Hasenmuller?
-  * Your answer here
-* ~3:00 What is Simon Phipps relationship to the VirtualBox project?
-  * Your answer here
-* ~4:45 What does VirtualBox do in Andy Hall's words?
-  * Your answer here
-* ~6:00 About what year did the product that became VirtualBox start?
-  * Your answer here
-* ~11:20 According to Simon, what is the definition of open core?
-  * Your answer here
-* ~14:17 How does VirtualBox fit into Oracle's business model?
-  * Your answer here
-* ~16:15 As of the time of the podcast (2010) how many downloads did VirtualBox have?
-  * Your answer here
-* ~20:25 How does VirtualBox handle virtualized I/O?
-  * Your answer here
-* ~22:40 What did Intel and AMD introduce to help ease virtualization in VirtualBox?
-  * Your answer here
-* ~26:00 What two models of network card did VirtualBox choose to represent their virtual hardware and why?
-  * Your answer here
-* ~27:40 What does VirtualBox almost get native performance on?
-  * Your answer here
-* ~29:29 How does VirtualBox treat USB devices in Guest OSes?
-  * Your answer here
-* ~31:00 What are 4 virtual networking modes in VirtualBox?
-  * Your answer here
-* ~32:30 What is the difference between NAT and Bridged networking?
-  * Your answer here
-* ~39:30 What Type of hypervisor is VirtualBox?
-  * Your answer here
-* ~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
-  * Your answer here
+* ~0:34 - Who is Nana?
+* ~2:19 - What is the thing that allows hosting multiple virtual computers on a single physical computer?
+* ~2:31 - What is one of the most popular Hypervisors?
+* ~2:33 - Who owns this software?
+* ~2:40 - Which operating systems does Virtualbox work on?
+* ~3:41 - Hardware resources between host and guest operating systems are what?
+* ~4:05 - Due to virtualization, the virtual machine thinks that it is a what?
+* ~4:56 -6:08 - Briefly describe the two uses of virtual machines mentioned.
+* ~7:00 - Describe a Type II hypervisor
+* ~7:50 - Describe a Type I hypervisor
+* ~8:13 - What is another name for a Type I hypervisor
+* ~8:32 - What are two examples of a Type I hypervisor
+* ~9:25 - When you create a Virtual Machine on a cloud provider, what type of hypervisor are you using?
+* ~11:33 - Why are companies adopting Virtualization?
+* ~12:24 - Without virtualization an OS is what?
+* ~14:10 - What is a virtual machine snapshot?
+* ~14:40 - What are the three advantages listed in the video about using virtualization?
+* ~15:08 - What are the four jobs listed that will be working with virtual machines?
