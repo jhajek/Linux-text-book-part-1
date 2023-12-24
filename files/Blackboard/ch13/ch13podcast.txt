@@ -1,0 +1,6 @@
+﻿ESS	~0:28 What are the three virtualization platforms listed?
+ESS	~1:18 Where does Vagrant sit?
+ESS	~1:45 What is a Vagrant provider?
+ESS	~2:23 What is the vagrant template file called?
+ESS	~2:30 What are the three advantages to using a text-based Vagrantfile?
+ESS	~4:35 List the core concepts summarized at the end of the video (just the major items)

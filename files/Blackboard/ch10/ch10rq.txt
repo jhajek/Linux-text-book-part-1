@@ -1,0 +1,22 @@
+﻿MC	What is the name of the firmware that since 2015 has replaced BIOS on essentially all computers?	BIOS	Incorrect	POST	Incorrect	GRUB	Incorrect	UEFI	Correct
+MC	What is the name of the GNU software that runs at the start of stage 2?	BIOS	Incorrect	LILO	Incorrect	GRUB	Correct	GLOADER	Incorrect
+MC	In what Linux directory are the kernel and initrd image stored?	/root	Incorrect	/root/kernel	Incorrect	/boot	Correct	/boot/vmlinux	Incorrect
+MC	What is the name of the pre-kernel gzip file located in /boot that helps the kernel load?	vmlinuz	Incorrect	initrd	Correct	initram	Incorrect	init	Incorrect
+MC	Where is the file location where the GNU Grub configuration is stored (on Ubuntu) that a user would edit?	/boot/grub/grub.cfg	Incorrect	/etc/default/grub	Correct	/etc/grub/grub.cfg	Incorrect	/boot/kernel/conf	Incorrect
+MC	In the /etc/default/grub file, which of these options below would you edit to dispaly the *splash* screen on boot so kernel messages are displayed?	GRUB_CMDLINE_LINUX_DEFAULT	Incorrect	GRUB_BACKGROUND	Correct	GRUB_GFXMODE	Incorrect	GRUB_TIMEOUT	Incorrect
+MC	What is the command to make changes to /etc/default/grub permanent?	No special command just edit and save /etc/default/grub	Incorrect	sudo apt-get update	Incorrect	sudo update-grub	Correct	sudo updatedb	Incorrect
+MC	Under SysVinit - what is the ancestor process that launches first and every other process is started by it?	root	Incorrect	sbin	Incorrect	init	Correct	systemd	Incorrect
+MC	Under SysVinit - what runlevel is considered multi-user command-line only?	1	Incorrect	m	Incorrect	3	Correct	5	Incorrect
+MC	Which Operating System is still using the Upstart init system?	Ubuntu	Incorrect	MX Linux	Incorrect	Fedora	Incorrect	ChromeOS	Correct
+MC	What is the name of the init system that has replaced SysVinit in every single major Linux distribution (not including Devuan and Gentoo Linux.?	systemX	Incorrect	systemd	Correct	systemV	Incorrect	initrd	Incorrect
+MC	What is the name of the command you use in systemd to inspect, start, stop, and modify process states?	systemd	Incorrect	systemd-init	Incorrect	service	Incorrect	systemctl	Correct
+MC	How would you start the nginx.service on an Ubuntu system using systemd?	sudo system start nginx	Incorrect	sudo service start nginx	Incorrect	sudo systemctl nginx start	Incorrect	sudo systemctl start nginx	Correct
+MC	What would be the command to disable (make the service not start at boot time) the httpd service on Fedora using systemd?	sudo service httpd stop	Incorrect	sudo systemctl disable apache2.service	Incorrect	sudo systemctl stop httpd.service	Incorrect	sudo systemctl disable httpd.service	Correct
+MC	What is the Linux command to inspect processes (not part of systemd)?	p	Incorrect	ps	Correct	proc	Incorrect	meminfo	Incorrect
+MC	SysVinit used the concept of PIDs and PPIDs--what did systemd replace these with?	proc-groups	Incorrect	sys-groups	Incorrect	cgroups	Correct	xgroups	Incorrect
+MC	The /proc filesystem provides you what?  (choose all that apply)	Provides you a file based interface to the processes that are running on your system	Correct	It can be regarded as a control and information center for the kernel	Incorrect	Shows up to the second process usage--updated in real time	Incorrect	Is a replacement for the top command	Incorrect
+MC	What command can be used to list all the pci devices attached to your system?	ls --pci	Incorrect	ls -p	Incorrect	lsusb	Incorrect	lspci	Correct
+MC	What is the systemd runlevel target that has a single user only as root, using no password: commonly called single-user or rescue mode?	runlevel3.target	Incorrect	runlevel5.target	Incorrect	runlevel0.target	Incorrect	runlevel1.target	Correct
+MC	What is the systemd replacement for cron jobs?	.service	Incorrect	.timer	Correct	.mount	Incorrect	.unit	Incorrect
+MC	What is the systemd service used to change the timezone of the system?	/etc/timezones	Incorrect	cron	Incorrect	NTP	Incorrect	timedatectl	Correct
+MC	What is the systemd service used to change the name of the system?	hosts	Incorrect	hostnamectl	Correct	hostnamed	Incorrect	timedatectl	Incorrect

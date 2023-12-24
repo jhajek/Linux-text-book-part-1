@@ -1,0 +1,13 @@
+﻿ESS	~2:02 What is Nginx?
+ESS	~3:22 What percentage of the world's websites are served with Nginx (as of 2014)?
+ESS	~4:57 What was the challenge that led to the creation of Nginx?
+ESS	~5:33 What is the main architectural difference between Nginx and Apache webservers?
+ESS	~8:32 What are some of the main use cases for Nginx?
+ESS	~11:00 When did Sarah get involved in Nginx?
+ESS	~16:23 How do you pronounce "Nginx"?
+ESS	~17:41 What is "caching" in relation to websites?
+ESS	~19:45 What is "proxying" in relation to websites?
+ESS	~29:36 What was the founder's motive to opensource Nginx?
+ESS	~34:00 What is the difference in the opensource Nginx and the commercial version? (Freemium?)
+ESS	~40:19 Are there Linux distro packages for Nginx?
+ESS	~53:10 Can Apache and Nginx co-exist or is it a winner take all?

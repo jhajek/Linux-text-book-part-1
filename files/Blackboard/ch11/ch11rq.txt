@@ -1,0 +1,25 @@
+﻿MC	Which drive type replaced Mechanical drives?	hdd	Incorrect	Western Difital	Incorrect	sata	Incorrect	SSD	Correct
+MC	What do the letters ssd stand for?	Serial server disk	Incorrect	Solid State disk	Correct	Sata State disk	Incorrect	Serial Sata disk	Incorrect
+MC	What is the protocol for hard disks that replaced SATA?	Super SSD	Incorrect	IDE	Incorrect	PCIe	Incorrect	NVMe	Correct
+MC	What is the name of the system bus that NVMe drives transfer data over?	SATA	Incorrect	PCI	Incorrect	PCIe	Correct	IDE	Incorrect
+MC	What is the fdisk program?	a dialog-driven program for the creation and manipulation of partition tables.	Correct	a filesystem creation tool	Incorrect	a tool for formatting floppy disks	Incorrect	a tool for removing disks from a system	Incorrect
+MC	What is the default VirtualBox disk type?	VDI	Correct	HDD	Incorrect	COW	Incorrect	VDD	Incorrect
+MC	After attaching a new virtual disk, what is the next step assuming that you are using a single disk, ext4, an no LVM?	partitioning	Correct	make a filesystem	Incorrect	mount a filesystem	Incorrect	add an extent	Incorrect
+MC	Which command will print out currently all the block devices, their device name, and their partitions in a nice tree based format?	lspci	Incorrect	lsblk	Correct	lsusb	Incorrect	lstree	Incorrect
+MC	fdisk is part of what package?	utils	Incorrect	GNU	Incorrect	utils-linux	Correct	utils-unix	Incorrect
+MC	What would be the name of the second SATA disk attached to your system?	sda	Incorrect	sdb	Correct	sdc	Incorrect	sdd	Incorrect
+MC	What is the name of the first native Linux filesystem released in 1992?	ext2	Incorrect	minix	Incorrect	ext4	Incorrect	ext	Correct
+MC	What is the name of the current default Linux Filesystem?	ext	Incorrect	btrfs	Incorrect	ext3	Incorrect	ext4	Correct
+MC	Ext4 breaks up data into __________, which is the smallest sized piece of data that can be read or written?	sectors	Incorrect	tracks	Incorrect	blocks	Correct	clusters	Incorrect
+MC	What is the name of the filesystem created at Oracle as a competitor to ZFS, that is also a next generation filesystem?	UFS	Incorrect	ZFS	Incorrect	BTRFS	Correct	GFS	Incorrect
+MC	What is the name of the maintainer of the ext4 filesystem?	Brian Kernighan	Incorrect	Theodore Ts'o	Correct	Andrew Tanenbaum	Incorrect	Google	Incorrect
+MC	What is the name of the filesystem that the ext4 maintainer, Theodore Ts'o, is recommending to replace ext4?	XFS	Incorrect	Btrfs	Correct	ZFS	Incorrect	HAMMER	Incorrect
+MC	What is the name of the filesystem that Red Hat adopted on their RHEL platform to replace ext4 and support better performance on large filesystems?	ZFS	Incorrect	XFS	Correct	Btrfs	Incorrect	HAMMER	Incorrect
+MC	What is the name of the combined filesystem and logical volume manager designed by Sun Microsystems?	XFS	Incorrect	SunFS	Incorrect	ZFS	Correct	Btrfs	Incorrect
+MC	Which is the correct command for making an ext4 filesystem on a partition /dev/sdb1?	sudo mkfs.ext4 /dev/sdb	Incorrect	sudo mkfs.ext4 /dev/sdb1	Correct	sudo mkfs /dev/sdb1	Incorrect	sudo makefs	Incorrect
+MC	Which is the correct command to mount an ext4 filesystem, /dev/sdb1 on a mount point /mnt/data-drive-2?	sudo mnt /dev/sdb1 /mnt/data-drive-2	Incorrect	sudo mnt -t ext4 /dev/sdb1 /mnt/data-drive-2	Incorrect	sudo mount -t ext4 /dev/sdb1 /mnt/data-drive-2	Correct	sudo mount /dev/sdb1 /mnt/data-drive-2	Incorrect
+MC	Which file contains the mountpoints that will be mounted automatically at boot?	/etc/mtab	Incorrect	/etc/default/grub.conf	Incorrect	/etc/fstab	Correct	/etc/tab	Incorrect
+MC	What is the command used to create a LVM physical volume?	pvcreate	Correct	pvck	Incorrect	pvadd	Incorrect	pvscan	Incorrect
+MC	The ZFS filesystem differs from the ext4 filesystem because ZFS does what?	Data Integrity, Filesystem and Logical Volume Management	Correct	Filesystem and Logical Volume Management	Incorrect	Disk Compression	Incorrect	Data Integrity	Incorrect
+MC	What is the command used to create a LVM volume group?	vgcreate	Correct	vgck	Incorrect	vgdisplay	Incorrect	vgmknodes	Incorrect
+MC	What is the command used to create a LVM logical volume?	vgcreate	Incorrect	lvck	Incorrect	lvdisplay	Incorrect	lvcreate	Correct

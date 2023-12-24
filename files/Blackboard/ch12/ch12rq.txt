@@ -1,0 +1,24 @@
+﻿MA	Using the ip2 suite of tools, which commands would show your IP address?	ifconfig	Incorrect	ipconfig	Incorrect	ip address show	Correct	ip a sh	Correct
+MC	Using the ip2 suite of tools, which command would show your routing table?	ss	Incorrect	route	Incorrect	ip route show	Incorrect	ip -r	Correct
+MC	What tool could you use to establish if a server is responding to requests?	pong	Incorrect	ping	Correct	google	Incorrect	traceroute	Incorrect
+MC	What is the purpose of a subnet mask?	Creates a logical subdivision of an IP network. The practice of dividing a network into two or more networks	Correct	To store the value of your network's default router	Incorrect	Allows you to resolve domain names to IP addresses	Incorrect	To store your network cards 48-bit hardware address	Incorrect
+MC	What is the purpose of DNS?	Creates a logical subdivision of an IP network. The practice of dividing a network into two or more networks	Incorrect	To store the value of your network's default router	Incorrect	Allows you to resolve domain names to IP addresses	Correct	To store your network cards 48-bit hardware address	Incorrect
+MC	What is the name of the systemd firewall?	systemd-firewalld	Correct	systemd-firewall	Incorrect	firewalld-cmd	Incorrect	ufw	Incorrect
+MC	What would be the command to list all of the firewalld public zone ports in use?	sudo systemctl status firewalld	Incorrect	sudo firewalld-cmd --zone=public --list-all	Incorrect	sudo firewall-cmd --zone=public --list-all	Correct	sudo firewall-cmd --list-all	Incorrect
+MC	If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?	10	Incorrect	0	Incorrect	24	Incorrect	256	Correct
+MC	What is the default port for HTTPS (TLS/SSL)?	80	Incorrect	3000	Incorrect	8080	Incorrect	443	Correct
+MC	What is the name of the protocol that automatically discovers and gives you an IP address on the network upon boot/resume?	dns	Incorrect	ipconfig	Incorrect	dhcp	Correct	networkctl	Incorrect
+MC	Using the ip2 suite, what command can be used to monitor and examine all current local ports and TCP/IP connections?	ss	Correct	net	Incorrect	wireshark	Incorrect	netstat	Incorrect
+MC	Where is the name of the network layer abstraction software created by Canonical and used by Ubuntu?	NetworkManager	Incorrect	netman	Incorrect	netplan	Correct	nmcli	Incorrect
+MC	What is the default service for managing your network in Fedora Workstation?	NetworkManager	Correct	netman	Incorrect	netplan	Incorrect	nmcli	Incorrect
+MC	What is the default service for managing your network in Ubuntu Server?	NetworkManager	Incorrect	netman	Incorrect	systemd-networkd	Correct	nmcli	Incorrect
+MC	What are the two major opensource webservers?	Apache, Nginx	Correct	openhttpd, Nginx	Incorrect	Apache, IIS	Incorrect	Apache, Tomcat	Incorrect
+MC	What are two related and major opensource relational databases?	SQL and MySQL	Incorrect	MariaDB and MySQL	Correct	MySQL and Oracle DB	Incorrect	Nginx and MySQL	Incorrect
+MC	What command would you type to get to the MySQL command line prompt as the root user?	sudo mysql -u root	Incorrect	sudo mysql	Correct	sudo mysql root	Incorrect	mysql	Incorrect
+MC	What is the file location that the system uses as a *local DNS* for resolving IP?	etc/systemd/hostd	Incorrect	/etc/hosts	Correct	/etc/allow	Incorrect	/etc/etc/etc	Incorrect
+MC	What flag would you add to this command to make it survive a reboot: sudo firewall-cmd --zone=public --add-port=22/tcp	--peppermint	Incorrect	--permenant	Correct	--allow	Incorrect	--list-all	Incorrect
+MC	Before systemd, NIC interface naming schemes depended on a driver based enumeration process. They switched to a predictable network interface naming process that depends on what for the interface names?	driver loading order	Incorrect	interface names depend on physical location of hardware (PCIe bus enumeration)	Correct	kernel version	Incorrect	What ever Lennart Poettering feels like naming them	Incorrect
+MC	What is the iproute2 suite replacement for netstat?	ip -r	Incorrect	ip -n	Incorrect	net	Incorrect	ss	Correct
+MC	What is the iproute2 suite replacement for the route command?	ip -r	Correct	ip -n	Incorrect	net	Incorrect	ss	Incorrect
+MC	What is the default port that HTTPS (TLS) operates on?	80	Incorrect	22	Incorrect	443	Correct	3000	Incorrect
+MC	What is the default port that MySQL operates over?	80	Incorrect	3309	Incorrect	3306	Correct	1024	Incorrect

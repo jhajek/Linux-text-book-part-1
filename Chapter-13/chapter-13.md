@@ -1045,146 +1045,117 @@ In this chapter we learned how a spread in technology led to a desire to automat
 
 ### Review Questions
 
-1. What is a common title given to IT workers who are responsible for the ongoing operations of applications and their environments?
-
-   a) saints
-   b) devs
-   c) devops
-   d) ops
-
-2. What would describe Mitchell Hashimoto's design goals in creating Vagrant?
-
-   a) Automation
-   b) Separation of Duties
-   c) Profit
-   d) Inspection
-
-3. What is the name of the tool built as an abstraction layer on top of VirtualBox and Parallels to deploy virtual machines?
-
-   a) Packer
-   b) Vault
-   c) Terraform
-   d) Vagrant
-
-4. What is the name of the tool built as a way to automate the installation of any Linux operating system?
-
-   a) Packer
-   b) Vault
-   c) Terraform
-   d) Vagrant
-
-5. What year approximately was Vagrant introduced?
-
-   a) 2019
-   b) 2001
-   c) 2010
-   d) 2015
-
-6. Fill in the blank. Think of Vagrant as _______________ between you and VirtualBox, Hyper-V, Docker, or even VMware desktop.
-
-7. What is the name of the file type Vagrant uses that contains an `vmdk` and and `ovf`?
-
-   a) `*.vdi`
-   b) `*.vhd`
-   c) `*.box`
-   d) `*.zip`
-
-8. Name the file that contains the configuration file for each Vagrant box file.
-
-9. What is the correct command to add the Vagrant Box `almalinux/9`?
-
-   a) `vagrant add box almalinux/9`
-   b) `vagrant box add almalinux/9`
-   c) `vagrant init almalinux/9`
-   d) `vagrant add almalinux/9`
-
-10. What is the command used to list all Vagrant Boxes being managed by Vagrant?
-
-    a) `vagrant list box`
-    b) `vagrant boxes list`
-    c) `vagrant box list`
-    d) `vagrant list`
-
-11. What is the correct command to initialize a Vagrant file for Vagrant Box named `centos/7` that has already been added to the system?
-
-    a) `vagrant init`
-    b) `vagrant init centos/7`
-    c) `vagrant box add centos/7`
-    d) `vagrant init 7`
-
-12. What is the Vagrant command to start or turn on a Vagrant Box?
-
-13. What is the Vagrant command to restart a Vagrant Box?
-
-14. What is the Vagrant command to shutdown or poweroff a Vagrant Box?
-
-15. For Packer, select the default name of the .hcl file used for containing variables used in the build template
-
-    a) template.pkr.hcl
-    b) variables.json
-    c) variables.pkr.hcl
-    d) variables.pkr
-
-16. Select the name of the stage that runs after the build block in a build template
-
-    a) source block 
-    b) provisioner
-    c) init-block
-    d) post-processor
-
-17. What is the name of the stage that runs after building and provisioning of Packer artifacts is complete?
-
-    a) source block 
-    b) provisioner
-    c) init-block
-    d) post-processor
-
-18. If there is an error in any part of the Packer build command what will happen?
-
-    a) nothing
-    b) an error will be logged but the process will continue
-    c) the command will terminate and any artifacts will be deleted
-    d) the user will be prompted
-
-19. Select the Hashicorp software that allows us to securely store and retrieve secrets via HTTP 
-
-    a) Vagrant 
-    b) Terraform 
-    c) Packer 
-    d) Vault 
-
-20. Select the first operation you need to start interacting with your Vault
-
-    a) `vault operator unseal`
-    b) `vaul operator init`
-    c) `vault init`
-    d) `vault secrets enable -version=2 -path=secret kv`
+1.  What is a common title given to IT workers who are responsible for the ongoing operations of applications and their environments?
+    a.  saints
+    b.  devs
+    c.  devops
+    d.  ops
+1.  What would describe Mitchell Hashimoto's design goals in creating Vagrant?
+    a.  Automation
+    b.  Separation of Duties
+    c.  Profit
+    d.  Inspection
+1.  What is the name of the tool built as an abstraction layer on top of VirtualBox and Parallels to deploy virtual machines?
+    a.  Packer
+    b.  Vault
+    c.  Terraform
+    d.  Vagrant
+1.  What is the name of the tool built as a way to automate the installation of any Linux operating system?
+    a.  Packer
+    b.  Vault
+    c.  Terraform
+    d.  Vagrant
+1.  Approximately what year approximately was Vagrant introduced?
+    a.  2019
+    b.  2001
+    c.  2010
+    d.  2015
+1.  Fill in the blank. Think of Vagrant as an _______________ between you and VirtualBox, Hyper-V, Docker, or Parallels desktop.
+    a.  `replacement`
+    b.  `suppliment`
+    c.  `extension`
+    d.  `abstraction`
+1.  What is the name of the file type Vagrant uses that contains an `vmdk` and and `ovf`?
+    a.  `.vdi`
+    b.  `.vhd`
+    c.  `.box`
+    d.  `.zip`
+1.  Name the file that contains the configuration file for each Vagrant box file.
+    a.  `vagrantfile`
+    b.  `Vagrantfile`
+    c.  `config`
+    d.  `vagrant.hcl`
+1.  What is the correct command to add the Vagrant Box `almalinux/9`?
+    a.  `vagrant add box almalinux/9`
+    b.  `vagrant box add almalinux/9`
+    c.  `vagrant init almalinux/9`
+    d.  `vagrant add almalinux/9`
+1.  What is the command used to list all Vagrant Boxes being managed by Vagrant?
+    a.  `vagrant list box`
+    b.  `vagrant boxes list`
+    c.  `vagrant box list`
+    d.  `vagrant list`
+1.  What is the correct command to initialize a Vagrant file for Vagrant Box named `ubuntu/jammy64` as already been added to the system?
+    a.  `vagrant init`
+    b.  `vagrant init ubuntu/jammy64`
+    c.  `vagrant box add ubuntu/jammy64`
+    d.  `vagrant init jammy64`
+1.  What is the Vagrant command to start or turn on a Vagrant Box?
+    a.  `vagrant up`
+    b.  `vagrant halt`
+    c.  `vagrant status`
+    d.  `vagrant on`
+1.  What is the Vagrant command to restart a Vagrant Box?
+    a.  `vagrant up`
+    b.  `vagrant halt`
+    c.  `vagrant status`
+    d.  `vagrant reload`
+1.  What is the Vagrant command to shutdown or poweroff a Vagrant Box?
+    a.  `vagrant up`
+    b.  `vagrant halt`
+    c.  `vagrant status`
+    d.  `vagrant reload`
+1.  For Packer, select the default name of the .hcl file used for containing variables used in the build template
+    a.  template.pkr.hcl
+    b.  variables.json
+    c.  variables.pkr.hcl
+    d.  variables.pkr
+1.  Select the name of the stage that runs after the build block in a build template
+    a.  source block 
+    b.  provisioner
+    c.  init-block
+    d.  post-processor
+1.  What is the name of the stage that runs after building and provisioning of Packer artifacts is complete?
+    a.  source block 
+    b.  provisioner
+    c.  init-block
+    d.  post-processor
+1.  If there is an error in any part of the Packer build command what will happen?
+    a.  nothing
+    b.  an error will be logged but the process will continue
+    c.  the command will terminate and any broken artifacts will be deleted
+    d.  the user will be prompted
+1.  Select the Hashicorp software that allows us to securely store and retrieve secrets via HTTP 
+    a.  Vagrant 
+    b.  Terraform 
+    c.  Packer 
+    d.  Vault 
+1.  Select the first command you need to start interacting with your Vault
+    a.  `vault operator unseal`
+    b.  `vaul operator init`
+    c.  `vault init`
+    d.  `vault secrets enable -version=2 -path=secret kv`
 
 ### Podcast Questions
 
-See the presentation at: [https://www.youtube.com/watch?v=xXWaECk9XqM](https://www.youtube.com/watch?v=xXWaECk9XqM "Bryan Cantrill HashiConf 2017 Presentation"): The Container Revolution: Reflections After the First Decade by Bryan Cantrill.
+See the presentation at: [Vagrant in Five Minutes](https://www.youtube.com/watch?v=wlogPKBEuUM "Youtube This video is a 5 minutes introduction to Vagrant, a tool to automate provisioning of virtual machines."): This video is a 5 minutes introduction to Vagrant, a tool to automate provisioning of virtual machines.
 
-1. ~0:30 Where does/did Bryan work, who recently bought that company, and what do they do?
-1. ~1:33 What is the birth date of containers?
-1. ~3:25 What was the next iteration of containers?
-1. ~3:49 What is the purpose of a Jail?
-1. ~5:10 What did Sun call their full application environment they created in 2002?
-1. ~6:13 What is every application running on?
-1. ~8:43 What did Amazon announce in 2006?
-1. ~9:00 In 2006 what technology was Joyent using to run its Public Cloud? In 2006 what technology was Amazon using to run its Public Cloud?
-1. ~9:25 What became de facto for the cloud?
-1. ~11:18 What happens to the RAM when you give it to an operating system?
-1. ~14:40 What does Joyent's Manta service allow you to do with containers and objects?
-1. ~18:58 What command hadn't been created in 1986?
-1. ~21:45 When did the world figure out containers and what was this product?
-1. ~22:57 Why did the container revolution start with Docker?
-1. ~24:07 Containers allow developers to do what?
-1. ~31:42 What are the two approaches to the container ecosystem, and what is the difference?
-1. ~33:25 What is the "Hashi" ethos?
-1. ~37:00 What was the mistake that happened with the pilot-operated relief valve at 3 Mile Island?
-1. ~39:05 According to the speaker, with container based systems, in what terms must we think in?
-1. ~40:00 Why is scheduling containers inside of Virtual Machines a bad idea?
-1. ~What are Joyent's thoughts regarding Virtual Machines in the application stack?
+* ~0:28 What are the three virtualization platforms listed?
+* ~1:18 Where does Vagrant sit?
+* ~1:45 What is a Vagrant provider?
+* ~2:23 What is the vagrant template file called?
+* ~2:30 What are the three advatages to using a text-based Vagrantfile?
+* ~4:35 List the core concepts summarized at the end of the video (just the major items)
 
 ### Lab - Chapter 13
 

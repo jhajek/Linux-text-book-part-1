@@ -51,7 +51,7 @@ Each network interface card or NIC has a 48 bit hardware address assigned to it.
 
 ### Netmask
 
-The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address. Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient. If you had a subnet of class A, your subnet would be 255.0.0.0. This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable. Apple famously has the 16.0.0.0 Class A giving them access to 255x255x255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE.
+*A subnetwork or subnet is a logical subdivision of an IP network. The practice of dividing a network into two or more networks is called subnetting[^ch12f158].* The netmask value or subnet of your network is actually a part of you IP address. So that routers know how to route packets to your network the netmask or network mask effectively blocks off a portion of your IP address. Traditionally netmasks were blocked into simple Class A, B, C, and D blocks, each one representing one of the IP octets.  But this turned out to be highly inefficient. If you had a subnet of class A, your subnet would be 255.0.0.0. This means that you would be assigned a fixed value from 1-254 in your first IP octet and the remaining three octets would be variable. Apple famously has the 16.0.0.0 Class A giving them access to 255x255x255 IP addresses and Amazon recently received control of the 3.0.0.0 address block from GE.
 
 Class B subnet is 255.255.0.0 and gives you access to 16,000 IP addresses (254*254) with the first two octets set.  An example would be 172.24.x.y.
 
@@ -65,7 +65,9 @@ The gateway value is your networks default router.  This value is literally the 
 
 ### DNS
 
-DNS--Domain Name services  allow you to resolve written domain names.  The sites google.com, web.iit.edu, twit.tv, etc, etc, turn those values via lookup into IP addresses that can then route packets to and from.   DNS is very important.  Without it you would have to remember the IP address of every single site your wanted to visit.  Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s.  DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide.   The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium.   We will not configure DNS servers in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
+DNS--Domain Name services allows you to resolve domain names to IP addresses. The sites, google.com, web.iit.edu, twit.tv, etc, etc, turn those values via lookup into IP addresses that can then route packets to and from. DNS is very important. Without it you would have to remember the IP address of every single site your wanted to visit. Very quickly this wouldn't scale and in fact this idea of domain names lead to the initial founding of Yahoo as the personal index of its founder Jerry Wang in 1990s. DNS is now a native part of the internet and is maintained by core DNS servers that are scattered world wide. 
+
+The predominant software being used for DNS is called BIND9 form the ISC, Internet Software Consortium. We will not configure DNS servers in this book, but focus on client configuration. Your ISP provides DNS for you, those come with some gray area of allowing ISPs to sell advertising on HTTP 404 error pages, or even inject advertising code into non-https based connections.  There is a small list of alternative DNS services that give you free DNS in exchange for analyzing certain data in aggregate--beware before using them.
 
 * Google has two public DNS services, [8.8.8.8 and 8.8.4.4](https://developers.google.com/speed/public-dns/ "Google Public DNS")
 * [Cloud Flare 1.1.1.1](https://1.1.1.1 "CloudFlare DNS")
@@ -779,115 +781,126 @@ In this chapter we learned about the basic components of networking. We learned 
 
 ### Review Questions
 
-1) Using the ip2 suite of tools, which command(s) would show your IP address?
-
-   a. `ifconfig`
-   b. `ipconfig`
-   c. `ip address show`
-   d. `ip a sh`
-
-2) Using the ip2 suite of tools, which command would show your routing table?
-
-   a. `ss`
-   b. `route`
-   c. `ip route show`
-   d. `ip -r`
-
-3) What tool could you use to establish if a server is responding to requests?
-
-   a. `pong`
-   b. `ping`
-   c. `google`
-   d. `traceroute`
-
-4) What is the purpose of a netmask?
-
-5) What is the purpose of DNS?
-
-6) What is the name of the systemd firewall?
-
-   a. systemd-firewalld
-   b. systemd-firewall
-   c. firewalld-cmd
-   d. ufw
-
-7) What would be the command to list all of the firewalld public zone ports in use?
-
-   a. `sudo systemctl status firewalld`
-   b. `sudo firewalld-cmd --zone=public --list-all`
-   c. `sudo firewall-cmd --zone=public --list-all`
-   d. `sudo firewall-cmd --list-all`
-
-8) If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
-
-   a. 10
-   b. 0
-   c. 24
-   d. 256
-
-9) What is the default port for HTTPS (TLS/SSL)?
-
-   a. 80
-   b. 3000
-   c. 8080
-   d. 443
-
-10) What is the name of the protocol that automatically discovers and gives you an IP address on the network upon boot/resume?
-
-    a. `dns`
-    b. `ipconfig`
-    c. `dhcp`
-    d. `networkctl`
-
-11) Using the ip2 suite, what command can be used to monitor and examine all current local ports and TCP/IP connections?
-
+1.  Using the ip2 suite of tools, which commands would show your IP address?
+    a.  `ifconfig`
+    b.  `ipconfig`
+    c.  `ip address show`
+    d.  `ip a sh`
+1.  Using the ip2 suite of tools, which command would show your routing table?
     a.  `ss`
-    b.  `net`
-    c.  `wireshark`
-    d.  `netstat`
-
-12) Where is the name of the network layer abstraction software created by Canonical and used by Ubuntu?
-
-13) What is the default service for managing your network in Fedora Workstation?
-
-14) What is the default service for managing your network in Ubuntu Server?
-
-15) What are the two major opensource webservers?
-
-    a. Apache, Nginx
-    b. openhttpd, Nginx
-    c. Apache, IIS
-    d. Apache, Tomcat
-
-16) What are two related and major opensource relational databases?
-
-    a. SQL and MySQL
-    b. MariaDB and MySQL
-    c. MySQL and Oracle DB
-    d. Nginx and MySQL
-
-17) What command would you type to get to the MySQL command line prompt as the root user?
-
-18) What is the file location that the system uses as a *local DNS* for resolving IP?
-
-    a. `etc/systemd/hostd`
-    b. `/etc/hosts`
-    c. `/etc/allow`
-    d. `/etc/etc/etc`
-
-19) What flag would you add to this command to make it survive a reboot: `sudo firewall-cmd --zone=public --add-port=22/tcp`
-
-    a. `--peppermint`
-    b. `--permenant`
-    c. `--allow`
-    d. `--list-all`
-
-20) Before systemd, NIC interface naming schemes depended on a driver based enumeration process. They switched to a predictable network interface naming process that depends on what for the interface names?
-
-    a. driver loading order
-    b. interface names depend on physical location of hardware (bus enumeration)
-    c. kernel version
-    d. What ever Lennart Poettering feels like naming them
+    b.  `route`
+    c.  `ip route show`
+    d.  `ip -r`
+1.  What tool could you use to establish if a server is responding to requests?
+    a.  `pong`
+    b.  `ping`
+    c.  `google`
+    d.  `traceroute`
+1.  What is the purpose of a subnet mask?
+    a.  Creates a logical subdivision of an IP network. The practice of dividing a network into two or more networks
+    b.  To store the value of your network's default router
+    c.  Allows you to resolve domain names to IP addresses
+    d.  To store your network cards 48-bit hardware address
+1.  What is the purpose of DNS?
+    a.  Creates a logical subdivision of an IP network. The practice of dividing a network into two or more networks
+    b.  To store the value of your network's default router
+    c.  Allows you to resolve domain names to IP addresses
+    d.  To store your network cards 48-bit hardware address
+1.  What is the name of the systemd firewall?
+    a.  systemd-firewalld
+    b.  systemd-firewall
+    c.  firewalld-cmd
+    d.  ufw
+1.  What would be the command to list all of the firewalld public zone ports in use?
+    a.  `sudo systemctl status firewalld`
+    b.  `sudo firewalld-cmd --zone=public --list-all`
+    c.  `sudo firewall-cmd --zone=public --list-all`
+    d.  `sudo firewall-cmd --list-all`
+1.  If you had a CIDR block of /24 and a network address of 192.168.1.0, how many IP addresses would you have?
+    a.  10
+    b.  0
+    c.  24
+    d.  256
+1.  What is the default port for HTTPS (TLS/SSL)?
+    a.  80
+    b.  3000
+    c.  8080
+    d.  443
+1.  What is the name of the protocol that automatically discovers and gives you an IP address on the network upon boot/resume?
+    a.  `dns`
+    b.  `ipconfig`
+    c.  `dhcp`
+    d.  `networkctl`
+1.  Using the ip2 suite, what command can be used to monitor and examine all current local ports and TCP/IP connections?
+    a.   `ss`
+    b.   `net`
+    c.   `wireshark`
+    d.   `netstat`
+1.  Where is the name of the network layer abstraction software created by Canonical and used by Ubuntu?
+    a.  NetworkManager
+    b.  netman
+    c.  netplan
+    d.  nmcli
+1.  What is the default service for managing your network in Fedora Workstation?
+    a.  NetworkManager
+    b.  netman
+    c.  netplan
+    d.  nmcli
+1.  What is the default service for managing your network in Ubuntu Server?
+    a.  NetworkManager
+    b.  netman
+    c.  systemd-networkd
+    d.  nmcli
+1.  What are the two major opensource webservers?
+    a.  Apache, Nginx
+    b.  openhttpd, Nginx
+    c.  Apache, IIS
+    d.  Apache, Tomcat
+1.  What are two related and major opensource relational databases?
+    a.  SQL and MySQL
+    b.  MariaDB and MySQL
+    c.  MySQL and Oracle DB
+    d.  Nginx and MySQL
+1.  What command would you type to get to the MySQL command line prompt as the root user?
+    a.  `sudo mysql -u root`
+    b.  `sudo mysql`
+    c.  `sudo mysql root`
+    d.  `mysql`
+1.  What is the file location that the system uses as a local DNS for resolving IP?
+    a.  `etc/systemd/hostd`
+    b.  `/etc/hosts`
+    c.  `/etc/allow`
+    d.  `/etc/etc/etc`
+1.  What flag would you add to this command to make it survive a reboot: `sudo firewall-cmd --zone=public --add-port=22/tcp`
+    a.  `--peppermint`
+    b.  `--permenant`
+    c.  `--allow`
+    d.  `--list-all`
+1.  Before systemd, NIC interface naming schemes depended on a driver based enumeration process. They switched to a predictable network interface naming process that depends on what for the interface names?
+    a.  driver loading order
+    b.  interface names depend on physical location of hardware (PCIe bus enumeration)
+    c.  kernel version
+    d.  What ever Lennart Poettering feels like naming them
+1.  What is the iproute2 suite replacement for `netstat`?
+    a.  `ip -r`
+    b.  `ip -n`
+    c.  `net`
+    d.  `ss`
+1.  What is the iproute2 suite replacement for the `route` command?
+    a.  `ip -r`
+    b.  `ip -n`
+    c.  `net`
+    d.  `ss`
+1.  What is the default port that HTTPS (TLS) operates on?
+    a.  80
+    b.  22
+    c.  443
+    d.  3000
+1.  What is the default port that MySQL operates over?
+    a.  80
+    b.  3309
+    c.  3306
+    d.  1024
 
 ### Podcast Questions
 
@@ -955,6 +968,8 @@ Submit a screenshot of the final blog post and the shell script that scripts the
     * The image in located in the textbook sample code: files > Chapter-14 > logos > illinois-tech-logo.jpg
 
 #### Footnotes
+
+[^ch12f158]: [https://www.gnu.org/software/grub/](https://www.gnu.org/software/grub/)
 
 [^145]: [https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1](https://askubuntu.com/questions/704361/why-is-my-network-interface-named-enp0s25-instead-of-eth0?rq=1 "why-is-my-network-interface-named-enp0s25-instead-of-eth0?")
 

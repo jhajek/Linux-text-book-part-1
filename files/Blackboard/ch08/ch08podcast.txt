@@ -1,0 +1,3 @@
+﻿ESS	What did Maria write as the first line of Shell script and why did she write it that way?
+ESS	In the video, Maria types NAME=${1?Error: no name given} in her shell script. Briefly explain what this line means and what happens when `$1` has a value and when $1 doesn't have a value.
+ESS	In the video, Maria types NAME2=${2:-friend} in her shell script. Briefly explain what this line means and what happens if $2 has a value and when $2 doesn't have a value.

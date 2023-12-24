@@ -1,0 +1,20 @@
+﻿MC	What is a common title given to IT workers who are responsible for the ongoing operations of applications and their environments?	saints	Incorrect	devs	Incorrect	devops	Correct	ops	Incorrect
+MC	What would describe Mitchell Hashimoto's design goals in creating Vagrant?	Automation	Correct	Separation of Duties	Incorrect	Profit	Incorrect	Inspection	Incorrect
+MC	What is the name of the tool built as an abstraction layer on top of VirtualBox and Parallels to deploy virtual machines?	Packer	Incorrect	Vault	Incorrect	Terraform	Incorrect	Vagrant	Correct
+MC	What is the name of the tool built as a way to automate the installation of any Linux operating system?	Packer	Correct	Vault	Incorrect	Terraform	Incorrect	Vagrant	Incorrect
+MC	Approximately what year approximately was Vagrant introduced?	2019	Incorrect	2001	Incorrect	2010	Correct	2015	Incorrect
+MC	Fill in the blank. Think of Vagrant as an _______________ between you and VirtualBox, Hyper-V, Docker, or Parallels desktop.	replacement	Incorrect	suppliment	Incorrect	extension	Incorrect	abstraction	Correct
+MC	What is the name of the file type Vagrant uses that contains an vmdk and and ovf?	.vdi	Incorrect	.vhd	Incorrect	.box	Correct	.zip	Incorrect
+MC	Name the file that contains the configuration file for each Vagrant box file.	vagrantfile	Incorrect	Vagrantfile	Correct	config	Incorrect	vagrant.hcl	Incorrect
+MC	What is the correct command to add the Vagrant Box almalinux/9?	vagrant add box almalinux/9	Incorrect	vagrant box add almalinux/9	Correct	vagrant init almalinux/9	Incorrect	vagrant add almalinux/9	Incorrect
+MC	What is the command used to list all Vagrant Boxes being managed by Vagrant?	vagrant list box	Incorrect	vagrant boxes list	Incorrect	vagrant box list	Correct	vagrant list	Incorrect
+MC	What is the correct command to initialize a Vagrant file for Vagrant Box named ubuntu/jammy64 as already been added to the system?	vagrant init	Incorrect	vagrant init ubuntu/jammy64	Correct	vagrant box add ubuntu/jammy64	Incorrect	vagrant init jammy64	Incorrect
+MC	What is the Vagrant command to start or turn on a Vagrant Box?	vagrant up	Correct	vagrant halt	Incorrect	vagrant status	Incorrect	vagrant on	Incorrect
+MC	What is the Vagrant command to restart a Vagrant Box?	vagrant up	Incorrect	vagrant halt	Incorrect	vagrant status	Incorrect	vagrant reload	Correct
+MC	What is the Vagrant command to shutdown or poweroff a Vagrant Box?	vagrant up	Incorrect	vagrant halt	Correct	vagrant status	Incorrect	vagrant reload	Incorrect
+MC	For Packer, select the default name of the .hcl file used for containing variables used in the build template	template.pkr.hcl	Incorrect	variables.json	Incorrect	variables.pkr.hcl	Correct	variables.pkr	Incorrect
+MC	Select the name of the stage that runs after the build block in a build template	source block	Incorrect	provisioner	Correct	init-block	Incorrect	post-processor	Incorrect
+MC	What is the name of the stage that runs after building and provisioning of Packer artifacts is complete?	source block	Incorrect	provisioner	Incorrect	init-block	Incorrect	post-processor	Correct
+MC	If there is an error in any part of the Packer build command what will happen?	nothing	Incorrect	an error will be logged but the process will continue	Incorrect	the command will terminate and any broken artifacts will be deleted	Correct	the user will be prompted	Incorrect
+MC	Select the Hashicorp software that allows us to securely store and retrieve secrets via HTTP	Vagrant	Incorrect	Terraform	Incorrect	Packer	Incorrect	Vault	Correct
+MC	Select the first command you need to start interacting with your Vault	vault operator unseal	Correct	vaul operator init	Incorrect	vault init	Incorrect	vault secrets enable -version=2 -path=secret kv	Incorrect

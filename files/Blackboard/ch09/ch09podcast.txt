@@ -1,0 +1,7 @@
+﻿ESS	~0:12 What does SSH stand for and when did it first appear?
+ESS	~0:30 What was the security problem with the predecessors of SSH?
+ESS	~1:19 Who wrote the first version of SSH and why?
+ESS	~1:50 What is the first thing that happens when a machine makes a connection via SSH to another machine?
+ESS	~2:45 How does the SSH protocol encrypt the payload and how does padding impact the encryption
+ESS	~3:41 How do the server and the client in an SSH connection know which encryption algorithm to use?
+ESS	~6:18 When connecting to an SSH server using the -v option, explain the output printed to the screen?

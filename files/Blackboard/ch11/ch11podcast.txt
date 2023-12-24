@@ -1,0 +1,22 @@
+﻿ESS	~1:10 Which company was the original developers of the ZFS filesystem?
+ESS	~1:45-2:15 What was Sun's problem with their advanced technology?
+ESS	~3:00-3:10 What is ZFS "all about"?
+ESS	~4:45 How is a Mechanical Harddrive described?
+ESS	~5:30-5:455 What formulaic way does ZFS detect data corruption?
+ESS	~6:40-7:15 What is the comparison of the increase the CPU power to the increase of disk throughput?
+ESS	~8:00 What did Sun discover was available while waiting for slower disks?
+ESS	~8:30 What do most filesystems design have in mind?
+ESS	~9:01 How is a ZFS designed to operate?
+ESS	~11:00 How was the original Google Hardware described?
+ESS	~12:11 The filesystem doesn't know how to deal with multiple physical whats?
+ESS	~12:30 What is a PCI-e RAID card?
+ESS	~14:50-16:00 What is a RAID 6 configuration and what does it do for you in regards to disk corruption?
+ESS	~17:45 Describe how ZFS is philosophically different from RAID controllers (as mentioned in the previous 2-3 minutes)?
+ESS	~18:28 How is a ZFS volume defined?
+ESS	~19:25 What does ZFS store with its mirrored data?
+ESS	~21:57 What are the three attributes of ZFS listed?
+ESS	~22:16 Where does ZFS work best?
+ESS	~23:18 How is bit rot defined?
+ESS	~24:25 How does ZFS compare to Btrfs?
+ESS	~28:45 What are the host's list of 4 features that ZFS has?
+ESS	~29:48 What is the host's conclusion about the reliability of ZFS?

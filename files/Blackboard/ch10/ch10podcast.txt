@@ -1,0 +1,16 @@
+﻿ESS	~1:00 Who is Benno Rice?
+ESS	~1:31 What is Contempt Culture?
+ESS	~3:21 What is inits job?
+ESS	~6:11 What led to the concept of a service?
+ESS	~8:35 What does the traditional rc system not do?
+ESS	~9:27 What OS had a strong initial concept of services from the beginning?
+ESS	~10:00 On MacOS what did launchd replace?
+ESS	~11:53 In 2010 What was Lennart Poettering looking at?
+ESS	~13:48 What other service did Lennart say he was heavily borrowing from?
+ESS	~14:01 What does Lennart say that systemd is about?
+ESS	~14:43 What is the layer in-between the kernel and the userspace created by systemd?
+ESS	~17:11 Does systemd violate the UNIX philosophy?
+ESS	~20:33 What does Benno think is incredible about what Lennart accomplished?
+ESS	~25:26 Why is using systemd as a recruiting tool for BSD (which doesn't have it) a bad idea?
+ESS	~28:20 What are a few features that BSD could gain from systemd?
+ESS	~28:20 Why can't BSD run containers?
