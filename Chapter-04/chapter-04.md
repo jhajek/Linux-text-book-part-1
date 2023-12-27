@@ -265,7 +265,7 @@ To access the terminal on a GNOME desktop, click the **Activities** button at th
 #### Ubuntu
 
 > `sudo apt-get update`  then `sudo apt-get install i3 icewm fvwm flwm evilwm fluxbox dwm xmonad mwm xfce4`
-  
+
 #### Fedora
 
 > `sudo dnf install i3 icewm xmonad mwm @xfce`
