@@ -1000,7 +1000,7 @@ For those using x86_64 Intel Windows and Macs
   * Ubuntu KDE Neon
 
 * Red Hat Based
-  * Fedora 38 - Workstation edition
+  * Fedora 39 - Workstation edition
   * AlmaLinux 9.x
   * UltraMarine OS
   * Microsoft MarinerCBL
@@ -1030,7 +1030,7 @@ For those using Parallels virtualization or UTM on M1/M2 mac -- look for the `aa
   * Ubuntu KDE Neon
 
 * Red Hat Based ARM
-  * Fedora 38 - Workstation edition 
+  * Fedora 39 - Workstation edition 
   * AlmaLinux 9.x 
   * Rocky Linux
 
