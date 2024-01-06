@@ -949,7 +949,7 @@ Watch the YouTube video [Virtual Machines explained in 15 Mins](https://www.yout
 * ~2:40 - Which operating systems does Virtualbox work on?
 * ~3:41 - Hardware resources between host and guest operating systems are what?
 * ~4:05 - Due to virtualization, the virtual machine thinks that it is a what?
-* ~4:56 -6:08 - Briefly describe the two uses of virtual machines mentioned.
+* ~4:56 - 6:08 - Briefly describe the two uses of virtual machines mentioned.
 * ~7:00 - Describe a Type II hypervisor
 * ~7:50 - Describe a Type I hypervisor
 * ~8:13 - What is another name for a Type I hypervisor
@@ -981,7 +981,7 @@ Complete each install to disk--there should NOT be an INSTALL ICON on the deskto
 
 #### Paralles and UTM
 
-If you are using `Parallels` or `UTM` complete the neccesary installs and adjust VirtualBox deliverables where appropriate.
+If you are using `Parallels` complete the neccesary installs and adjust VirtualBox deliverables where appropriate.
 
 #### Screenshots
 
@@ -1019,8 +1019,7 @@ For those using x86_64 Intel Windows and Macs install the following ISOs:
   * openSUSE Leap
   * Debian 12.x
 
----
-For those using Parallels virtualization or UTM on M1/M2 mac -- look for the `aarch` or `arm` distribution, not `amd_64`.
+For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or `arm` distribution, not `amd_64`.
 
 * Debian Based ARM
   * Ubuntu 22.04 Desktop edition
@@ -1047,26 +1046,6 @@ For those using Parallels virtualization or UTM on M1/M2 mac -- look for the `aa
 * Network Based Install ARM
   * openSUSE Leap
   * Debian 12.x
-
-#### Part 2
-
-You will need to install the Virtualbox, Parallels, or UTM Guest Additions in each virtual machine listed below following the instructions in section 3.9.4. For the deliverable you will be placing a screenshot directly below each bullet point:
-
-* Ubuntu Desktop
-* Fedora Desktop
-* Debian Desktop
-* Pop!_OS 
-* Manjaro Desktop
-
-* You may add a screenshot of the execution of the terminal command `lsmod | grep vboxguest`
-  * Which will return blank or no answer without guest additions modules loaded
-  * It will return `vboxguest` and a unique process number after installation
-* To show the successful install of the guest additions, maximize the screen and take the screenshot showing the installed guest additions. These are the example before and after maximized images
-
-\newpage
-
-![Before Guest Additions](images/Chapter-03/guest-additions-install/before-guest-additions.png "Before Guest Additions Install")
-![After Guest Additions](images/Chapter-03/guest-additions-install/after-guest-additions.png "After Guest Additions Install")
 
 #### Footnotes
 

@@ -1,16 +1,18 @@
-﻿ESS	~2:35 Who is Andy Hall and Achim Hasenmuller?
-ESS	~3:00 What is Simon Phipps relationship to the VirtualBox project?
-ESS	~4:45 What does VirtualBox do in Andy Hall's words?
-ESS	~6:00 About what year did the product that became VirtualBox start?
-ESS	~11:20 According to Simon, what is the definition of open core?
-ESS	~14:17 How does VirtualBox fit into Oracle's business model?
-ESS	~16:15 As of the time of the podcast (2010) how many downloads did VirtualBox have?
-ESS	~20:25 How does VirtualBox handle virtualized I/O?
-ESS	~22:40 What did Intel and AMD introduce to help ease virtualization in VirtualBox?
-ESS	~26:00 What two models of network card did VirtualBox choose to represent their virtual hardware and why?
-ESS	~27:40 What does VirtualBox almost get native performance on?
-ESS	~29:29 How does VirtualBox treat USB devices in Guest OSes?
-ESS	~31:00 What are 4 virtual networking modes in VirtualBox?
-ESS	~32:30 What is the difference between NAT and Bridged networking?
-ESS	~39:30 What Type of hypervisor is VirtualBox?
-ESS	~51:30 Why can't you virtualize Mac OSX on VirtualBox (as of 2014)?
+﻿ESS	~0:34 - Who is Nana?
+ESS	~2:19 - What is the thing that allows hosting multiple virtual computers on a single physical computer?
+ESS	~2:31 - What is one of the most popular Hypervisors?
+ESS	~2:33 - Who owns this software?
+ESS	~2:40 - Which operating systems does VirtualBox work on?
+ESS	~3:41 - Hardware resources between host and guest operating systems are what?
+ESS	~4:05 - Due to virtualization, the virtual machine thinks that it is a what?
+ESS	~4:56 - 6:08 - Briefly describe the two uses of virtual machines mentioned.
+ESS	~7:00 - Describe a Type II hypervisor
+ESS	~7:50 - Describe a Type I hypervisor
+ESS	~8:13 - What is another name for a Type I hypervisor
+ESS	~8:32 - What are two examples of a Type I hypervisor
+ESS	~9:25 - When you create a Virtual Machine on a cloud provider, what type of hypervisor are you using?
+ESS	~11:33 - Why are companies adopting Virtualization?
+ESS	~12:24 - Without virtualization an OS is what?
+ESS	~14:10 - What is a virtual machine snapshot?
+ESS	~14:40 - What are the three advantages listed in the video about using virtualization?
+ESS	~15:08 - What are the four jobs listed that will be working with virtual machines?
