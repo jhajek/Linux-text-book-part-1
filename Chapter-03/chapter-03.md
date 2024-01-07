@@ -765,7 +765,8 @@ reboot
 # the VirtualBox Guest editons iso (under Devices)
 sudo dnf update kernel*
 sudo reboot
-sudo dnf install -y gcc gcc-c++-x86_64-linux-gnu kernel-devel kernel-headers make bzip2 perl
+sudo dnf install -y gcc gcc-c++-x86_64-linux-gnu kernel-devel kernel-headers make bzip2
+sudo dnf install -y perl
 sudo mount -r /dev/cdrom /media
 cd /media
 sudo ./VBoxLinuxAdditions.run
