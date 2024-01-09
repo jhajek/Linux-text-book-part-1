@@ -1169,8 +1169,8 @@ Assuming that the command `vagrant --version` gives us output, lets begin by ins
 
 Here we are going to create a directory to manage our artifact.  It is a good idea to create a directory per virtual machine that we will administer via Vagrant.  You can create a class directory and then sub-directories and or you can place this on a different disk. This I will leave up to you as it is your filesystem and your data--you are the one in charge.
 
-* `mkdir itmt-430-2022` 
-* `cd itmt-430-2022`
+* `mkdir itmo-556` 
+* `cd itmo-556`
 
 We will now use Vagrant to retrieve and Ubuntu 22.04 known as Jammy and a AlmaLinux 9 Virtual Machine:
 

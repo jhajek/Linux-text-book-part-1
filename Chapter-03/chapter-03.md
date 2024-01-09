@@ -980,7 +980,7 @@ You will need to do some research and find the download links for the Linux and 
 
 Complete each install to disk--there should NOT be an INSTALL ICON on the desktop -- your screenshot is taken after a complete install is finished and a reboot has taken place. Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in. There are 20 different distributions listed. If a version number is not listed, assume the latest version unless noted.
 
-#### Paralles and UTM
+#### Parallels
 
 If you are using `Parallels` complete the neccesary installs and adjust VirtualBox deliverables where appropriate.
 
