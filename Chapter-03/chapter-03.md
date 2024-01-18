@@ -240,7 +240,7 @@ For installation type you will be presented with default options such as *ERASE 
 
 ![*Confirm Partitions*](images/Chapter-03/ubuntu-install/installation-type.png "Installation Type")
 
-At the completion of this dialog box you will be asked to confirm the automatically generated partitions created by the system. A Linux system needs a minimum of 2 partitions to function but 3 are recommended. Those partitions are / (pronounced root), /boot (where all the files needed to start the OS are located, and swap (which is an on disk based RAM supplement partition.
+At the completion of this dialog box you will be asked to confirm the automatically generated partitions created by the system. A Linux system needs a minimum of 2 partitions to function but 3 are recommended. Those partitions are / (pronounced root), /boot where all the files needed to start the OS are located, and swap which is an on disk based RAM supplement partition.
 
 ![*Installation Type*](images/Chapter-03/ubuntu-install/updates-and-other-software.png "Updates and Other Software")
 
@@ -250,7 +250,7 @@ The next parts of the installation contain pretty straight-forward parts: time z
 
 ### Installing Fedora
 
-Similarly on Fedora 32 you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode. You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 32 will initially present you with a language screen option. After choosing your default language the next step is the *installation summary*.
+Similarly on Fedora you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode. You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 32 will initially present you with a language screen option. After choosing your default language the next step is the *installation summary*.
 
 ![*Installation Summary*](images/Chapter-03/fedora-install/installation-summary.png "Installation Summary")
 
@@ -274,7 +274,7 @@ The installation will finish without prompting you for creating a user. This wil
 
 ![*Always check the package dependencies...*](images/Chapter-03/package-managers/debian_main-2.png "Dependencies")
 
-One of the initial claims against using Linux and Unix was that software install was a nightmare. Software had been distributed in `tarballs` (.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had its own dependencies and those had dependencies too. You see how this could get ugly quickly. Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time [^105].
+One of the initial claims against using Linux and Unix was that software install was a nightmare. Software had been distributed in `tarballs` (.tar.gz) that were convenient but lacked any knowledge of system state. So you could compile source code but the code had no idea ahead of time if the proper software libraries were installed in the correct locations or if the proper versions of those libraries were installed. And each additional library had its own dependencies and those had dependencies too. You see how this could get ugly quickly. Initially there was a build system developed by a companion of Thompson and Ritchie's named Stuart Feldman; named ```make```. He was also an author of the first Fortran 77 compiler, and he was part of the original group at Bell Labs that created the Unix operating system. Feldman was the Vice President of Computer Science at IBM Research. He was also Vice President, Engineering, East Coast, at Google for a time[^105].
 
 Feldman realized building software was difficult and created the ```make``` build system. The ```make``` system uses a file named ```makefile``` that includes instructions and ordered steps that can be repeated every time software is built. This allows software to be portable across systems (in theory). The utility ```make``` is the binary that automatically builds executable programs and libraries from source code by reading the *makefiles*[^106]. Here is an example `makefile`:
 
@@ -300,7 +300,7 @@ Like many things in the Unix world, the ```makefile``` system has been modified 
 
 ### Traditional Package Managers
 
-This style of software installation put a high barrier to who could practically use Unix/Linux. Linux distributions took to making software installation and distribution easier by introducing something initially called __Package Managers__. These were meant to eliminate all of the above process by solving two key problems. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed. Second package managers would solve the dependency issues by keeping track of the dependency trail and be smart enough to follow that trail before installation.
+This style of software installation put a high barrier to who could practically use Unix/Linux. Linux distributions took to making software installation and distribution easier by introducing something initially called `Package Managers`. These were meant to eliminate all of the above process by solving two key problems. First it would solve the re-compilation of code and supporting of make and build tools--you technically wouldn't even need any C compiler or build tools installed. Second package managers would solve the dependency issues by keeping track of the dependency trail and be smart enough to follow that trail before installation.
 
 #### .deb
 
@@ -409,22 +409,24 @@ Let's try another rpm. This one is called "elrepo," it for Enterprise Linux vers
 
 ```bash
 # Add the GPG key for the repo to make sure that you are adding the official elrepo
-# This works on Fedora 32+ and CentOS 8
 sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-sudo yum install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
-# If you are using CentOS 7 use this URL
-sudo yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
+sudo dnf install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm
 ```
 
 #### Other Package Managers
 
-As you can see that package managers were a great step forward in making Linux usable. But they don't handle the dependency issue--they don't understand the context of auto-dependency retrieval. Various solutions were created and new ones seem to pop up with each new Linux distro. Fedora based distros use yum and now use dnf (as of Fedora 23) and Debian based distros use apt. Others you might encounter are:
+As you can see that package managers were a great step forward in making Linux usable. But they don't handle the dependency issue--they don't understand the context of auto-dependency retrieval. Various solutions were created and new ones seem to pop up with each new Linux distro. Fedora based distros use yum and now use dnf (as of Fedora 23) and Debian based distros use apt. Others you might encounter:
 
-* [Zypper](https://en.wikipedia.org/wiki/ZYpp "SuSe Zypper web page")
-* [xbps](https://docs.voidlinux.org/xbps/index.html "xbps package manager webpage")
-* [Pkg for BSD](https://www.freebsd.org/doc/handbook/pkgng-intro.html "pkg for BSD")
-* [Portage](https://en.wikipedia.org/wiki/Portage_(software) "Portage web page")
+* [Zypper](https://en.wikipedia.org/wiki/ZYpp "SUSE Zypper web page")
+  * `sudo zypper install neofetch`
+* [pkg for BSD](https://www.freebsd.org/doc/handbook/pkgng-intro.html "pkg for BSD")
+  * `pkg install nginx`
 * [Pacman](https://www.archlinux.org/pacman/ "Pacman web page")
+  * To update your systems: `sudo pacman -Syu`
+  * To install packages: `sudo pacman -S neofetch`  
+* [Yum](https://en.wikipedia.org/wiki/Yum_(software) "Wikipage for YUM")
+  * Previous installer for Red Hat based systems
+  * Functions identical to `dnf`
 * [GNU GUIX](https://en.wikipedia.org/wiki/GNU_Guix_System "GNU GUIX webpage")
 
 ### APT
@@ -439,17 +441,24 @@ The APT installer was released in 1998, the same time that Red Hat released its 
 
 APT, which basically resolves dependency problems and retrieves the requested packages, works with dpkg under the hood. The main commands of APT are as follows:
 
-* ```apt-get update``` -- used to make sure your system is pointed to the latest repository versions. You should always run this before taking any other actions.
-* ```apt-get install``` -- used to install the application of choice
-* ```apt-get remove``` -- used to remove the application of choice
-* ```apt-cache search [pattern]``` -- used to search all your repositories for an app matching the given pattern
-* ```apt-get upgrade``` -- used to perform an upgrade of all current packages that have updates available (note in Yum this is the command update)
-* ```apt-get dist-upgrade``` -- this performs the same as the upgrade but will also update the kernel version and headers as well
-* ```do-release-upgrade``` -- this will update the entire distribution and move it to the next incremental version (Ubuntu 18.04 to 18.10)
+* ```apt-get update```
+  * Used to make sure your system is pointed to the latest repository versions. You should always run this before taking any other actions.
+* ```apt-get install```
+  * Used to install the application of choice
+* ```apt-get remove```
+  * Used to remove the application of choice
+* ```apt-cache search [pattern]```
+  * Used to search all your repositories for an app matching the given pattern
+* ```apt-get upgrade```
+  * Used to perform an upgrade of all current packages that have updates available (note in Yum this is the command update)
+* ```apt-get dist-upgrade```
+  * This performs the same as the upgrade but will also update the kernel version and headers as well
+* ```do-release-upgrade```
+  * This will update the entire distribution and move it to the next incremental version (Ubuntu 18.04 to 18.10)
 
 #### Repositories
 
-APT relies on the concept of repositories in order to find software and resolve dependencies. For apt, a repository is a directory containing packages along with an index file. This can be specified as a networked or local based location. The Debian project keeps a central repository of over 25,000 software packages ready for download and installation. This includes ability to add non-free software repositories as well. You can add additional repositories via the ```add-apt-repository```[^109] [^110] command. This is used to add community maintained PPA's--which stand for *personal package archive.* These are for packages maintained outside of Debian's rigorous package checking standards and 1 to 2 year release window. Hence the cartoon at the beginning of the chapter.
+APT relies on the concept of repositories in order to find software and resolve dependencies. For apt, a repository is a directory containing packages along with an index file. This can be specified as a networked or local based location. The Debian project keeps a central repository of over 25,000 software packages ready for download and installation. This includes ability to add non-free software repositories as well. You can add additional repositories via the `add-apt-repository`[^109] [^110] command. This is used to add community maintained PPA's--which stand for *personal package archive.* These are for packages maintained outside of Debian's rigorous package checking standards and 1 to 2 year release window. Hence the cartoon at the beginning of the chapter.
 
 The package system and architecture is on of the reasons for Debian's long standing existence and credibility. The system just works. Ubuntu is a Debian derivative that utilizes this archive of packages. Remember that the founder of Ubuntu, Mark Shuttleworth, had been a Debian contributor at one point. Ubuntu builds on top of Debian's 25,000 packages by maintaining additional *downstream* repositories that add additional software and repositories to make up the Ubuntu distribution. Ubuntu is a little more liberal on including non-free drivers for mainly high-end video cards. Users can then add additional repositories or PPA's of their own choosing to extend APT functionality and expand that package base.
 
@@ -513,7 +522,9 @@ Here is a list of all the configuration and cache files related to APT and their
 
 ### yum & dnf
 
-Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer. Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution. YUM is supported in Fedora 22 but now deprecated and DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003. An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM. Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice. YUM is still available on RHEL and CentOS but as companies move to version 7 and 8, this will begin to change too. Yum will be eventually replaced by DNF. Both YUM and DNF use repositories that are maintained by Red Hat or CentOS or even their RHEL repos.
+Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer. Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution. YUM support came in Fedora 22 but is now deprecated. DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003. An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM. 
+
+Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice. YUM is still available on RHEL and CentOS but as companies move to version 7 and 8, this will begin to change too. Yum will be eventually replaced by DNF. Both YUM and DNF use repositories that are maintained by Red Hat or CentOS or even their RHEL repos.
 
 You can find the installed repositories in ```/etc/yum.repos.d```. Each file listed will contain information about the URL where it retrieves repos. There is also an ability to set priorities as to which repo is checked first. As we did in previous chapters, we added RPM repos. The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge"). Taken directly from their website, *"RPMFusion ships packages that Fedora and Red Hat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.
 
@@ -525,46 +536,26 @@ You can find the installed repositories in ```/etc/yum.repos.d```. Each file lis
 
 First we want to check if we have the correct RPM name. We can search through our repos looking for the name by typing the ```sudo dnf search [fF]mpeg*``` command. This will return two results--the package and a related dependency and watch out, RPM also tends to be case-sensitive.
 
-To enable the download the RPMFusion repos for adding additional software of free and non-free type you can type the following commands:
+#### Additional Packages for Enterprise Linux - RPM
 
-```bash
-sudo dnf install http://download1.rpmfusion.org/free/fedora/\
-rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-```
+Since the Red Hat source code was geared for long term enterprise support the number of packages and availability of packages differs from a unified Debian or Ubuntu Distro. There are two additional package repos you can add to a Rocky Linux, Fedora Linux, or AlmaLinux system.
 
-```bash
-sudo dnf install http://download1.rpmfusion.org/nonfree/fedora/\
-rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
+* [Extra Packages for Enterprise Linux (EPEL)](https://docs.fedoraproject.org/en-US/epel/ "webpage for EPEL")
+  * Developed by the and included by the Fedora Project
+  * `sudo dnf install epel-release`
+  * `sudo dnf install neofetch`
+* [ELRepo](https://elrepo.org/ "Website Enterprise Linux Repos")
+  * Ships software that Fedora won't or can't
+  * `rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org`
+  * `sudo dnf install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm`
 
-Note for RHEL/CentOS the installation URL is slightly different:
+#### Upgrade Packages With DNF
 
-```bash
-# the "\" is a line continuation character to extend a single line beyond for
-# readability purposes
-# For CentOS 7
-sudo yum localinstall --nogpgcheck \
-http://download1.rpmfusion.org/free/el/updates/7/x86_64/\
-r/rpmfusion-free-release-7-4.noarch.rpm
-# For CentOS 8
-sudo yum localinstall --nogpgcheck \
-http://download1.rpmfusion.org/free/el/updates/8\
-/x86_64/r/rpmfusion-free-release-8-0.1.noarch.rpm
-# Fedora 36
-sudo yum localinstall --nogpgcheck \
-http://download1.rpmfusion.org/free/fedora/\
-rpmfusion-free-release-32.noarch.rpm
-```
-
-If you are using CentOS or RHEL you need to first install the **EL-Repo** before the RPMFusion, but not for Fedora. No it isn't Spanish for *"the repo"*, but stands for Enterprise Linux Repo--located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "El-repo"). The ELRepo Project focuses on hardware related packages to enhance your experience with Enterprise Linux. This includes filesystem drivers, graphics drivers, network drivers, sound drivers, webcam and video drivers. This book will not focus on the RHEL update and RPM repos but I wanted to make you aware of it.
-
-Once those RPMFusion repos have been added you can now retry the example above and install `FFMpeg`, `Denyhosts`, and `Links`. Unlike Ubuntu and Debian where we need to update the repositories - DNF and YUM will auto handle that.
-
-> __Example Usage:__ You can install additional packages now that you have the RPMFusion repos added. Try to install links the web browser that failed when we tried to install it. The command is ```sudo dnf install links```. The command ```sudo dnf remove links``` will uninstall it. The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending. You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well. These are the series of commands to install the DNF upgrade plugin and then execute the process.
+The command ```sudo dnf upgrade``` will upgrade all packages that have updates pending. You can now use DNF to [upgrade your system](http://fedoraproject.org/wiki/DNF_system_upgrade "upgrade") as well. These are the series of commands to install the DNF upgrade plugin and then execute the process.
 
 * ```sudo dnf update --refresh```
 * ```sudo dnf install dnf-plugin-system-upgrade```
-* ```sudo dnf system-upgrade download --releasever=32```
+* ```sudo dnf system-upgrade download --releasever=39```
 * ```sudo dnf system-upgrade reboot```
 
 ## New Package Managers as App Stores
@@ -974,11 +965,11 @@ This lab has two parts that need to be completed in order.
 
 At the conclusion of this lab you will have installed ~20 operating Linux based distributions as Virtual Machines. You will explored the major paradigms of the two major Linux distro families. You will have mastered the installation process and been exposed to various Linux distro paradigms.
 
-#### Part One
+#### Virtual Machine Creation
 
-You will need to do some research and find the download links for the Linux and BSD based distros below and install them in VirtualBox. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well. If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for M1 Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
+Following the demonstrations in section 3.6.3 and the installation information in section 3.6.1, you will need to find the download links for the Linux and BSD ISOs listed. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well. If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for M1 Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
 
-Complete each install to disk--there should NOT be an INSTALL ICON on the desktop -- your screenshot is taken after a complete install is finished and a reboot has taken place. Assume each instance listed below is 64-bit version. Take a screen shot of each desktop after logging in. There are 20 different distributions listed. If a version number is not listed, assume the latest version unless noted.
+Complete each install fully and then using the correct package manager install the program `neofetch` and take a screenshot of the results. There are 20 different distributions listed for Intel based x86 Windows and Macs. There are 13 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version unless noted.
 
 #### Parallels
 
@@ -986,7 +977,7 @@ If you are using `Parallels` complete the neccesary installs and adjust VirtualB
 
 #### Screenshots
 
-For those using x86_64 Intel Windows and Macs install the following ISOs:
+For those using x86_64 Intel Windows and Macs install the following ISOs, install `neofetch` and take a screenshot of the results.
 
 * Debian Based
   * Ubuntu 22.04 Desktop edition
@@ -1040,9 +1031,7 @@ For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or
   * MX Linux
   * Pop!_OS
   * Kali Linux
-  * Alpine Linux
   * Manjaro Linux (SteamOS is based on)
-  * Endeavor OS
 
 * Network Based Install ARM
   * openSUSE Leap

@@ -2,7 +2,7 @@
 
 ## Part 1
 
-Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and write a review of the company's architecture based the listed items. You must do a unique topic - so post in the Class Discord under the `Case-Studies` channel which one you are doing, first come first served.
+Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and write a review of the company's architecture based the listed items. Try to choose a company you use.
 
 You can find them at [http://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services. It's best to find a company that you use or support.
 
@@ -10,7 +10,7 @@ Answer these questions (not all of the Answers are in each case study and might 
 
 * What market does that company serve? (What do they do?) And have they always served that market?
   * Your answer here
-* What Operating System(s) are used by this product to run their services?
+* What Operating System(s) are used by this product to run their servers and services?
   * Your answer here
 * What programming languages/frameworks are used?
   * Your answer here
