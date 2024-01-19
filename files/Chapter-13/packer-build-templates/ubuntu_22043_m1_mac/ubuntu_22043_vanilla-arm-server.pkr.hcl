@@ -9,6 +9,10 @@ packer {
       version = ">= 1.1.0"
       source  = "github.com/Parallels/parallels"
     }
+    vagrant = {
+      version = ">= 1.1.0"
+      source  = "github.com/hashicorp/vagrant"
+    }
   }
 }
 
