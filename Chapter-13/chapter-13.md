@@ -950,7 +950,7 @@ path "secret/data/*" {
 
 Now we must upload our policy file from our local system into the Vault and give it a name for reference inside of the Vault.
 
-`vault policy write ssh-secret-policy ./ssh-secret.hcl`
+`vault policy write ssh-secret-policy ./ssh-secrets.hcl`
 
 Next we need to create user access tokens and expiration time for the secrets. This is a fine grained way to give access in short amounts of time. 
 
