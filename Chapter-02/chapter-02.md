@@ -1,6 +1,6 @@
 # History of Free and Opensource Maturity
 
-![*At the end of class if your instructor has done their job, you will find this cartoon funny.  If you already understand this cartoon you get an "A".*](images/Chapter-Header/Chapter-02/open_source.png "A GNU Dawn")
+![*At the end of class if your instructor has done their job, you will find this cartoon funny.  If you already understand this cartoon you get an "A".*](../images/Chapter-Header/Chapter-02/open_source.png "A GNU Dawn")
 
 ## Objectives
 
@@ -26,7 +26,7 @@ These modern operating systems such as Windows, MacOS, Ubuntu Linux, Fedora Linu
 
 ### The Kernel  [^1]
 
-![*Kernel_Layout.svg*](images/Chapter-02/Kernel/Kernel_Layout.svg.png "Kernel Layout")
+![*Kernel_Layout.svg*](../images/Chapter-02/Kernel/Kernel_Layout.svg.png "Kernel Layout")
 
 In the same way all plants require a seed or a kernel to grow, any computer operating system must contain a kernel. This is a small piece of code that forms the core of your operating system. You the user will not interact with the kernel, but devices you use, like a keyboard, mouse, touchscreen, or a Wi-Fi network card will do so when you take any action on the system. How do the devices talk to the kernel? They speak to the kernel via *device drivers*. The figure above describes a two way flow of data; the user interacts with the operating system and the operating system interacts with the kernel. The kernel is the hardware abstraction layer that handles all interfaces from the operating system to the hardware. Without the concept of device drivers and a kernel, each operating system would have to be custom built to communicate with the CPU. The majority of operating system code and drivers are built in the C language.
 
@@ -48,7 +48,7 @@ Many people supported and worked on what would become known as the Unix operatin
 
 #### Ken Thompson and Dennis Ritchie
 
-![*Ken Thompson and Dennis Ritchie*](images/Chapter-02/People/Ken-Thompson/Ken_n_dennis.jpg "Ken and Dennis")
+![*Ken Thompson and Dennis Ritchie*](../images/Chapter-02/People/Ken-Thompson/Ken_n_dennis.jpg "Ken and Dennis")
 
 Without Thompson and Ritchie[^2], there would be no Unix and most likely no Linux today.  Until recently both were employed as Distinguished Engineers at Google.  Dennis Ritchie passed away in 2011 (same year as Steve Jobs). Ken Thompson is still working and recently helped produce the [Go programming language](http://golang.org/ "Golang")  while at Google.
 
@@ -97,7 +97,7 @@ sed ${1}q
 
 #### PDP-7
 
-![*PDP-7 restored and running*](images/Chapter-02/PDP-7/320px-Pdp7-oslo-2005.jpg "Restored PDP-7")
+![*PDP-7 restored and running*](../images/Chapter-02/PDP-7/320px-Pdp7-oslo-2005.jpg "Restored PDP-7")
 
 Between 1970 and 1974 Unix grew from a pet project into a real product and one of its crowning achievements--its portability across hardware came to life. Unix was originally written in assembly language for the PDP-7. Its code needed to be as low level as possible because disk storage space was a *HUGE* problem in those days. The code was good and highly optimized, but the problem with writing in low level assembly is that the code is optimized to only run on a PDP-7 system in this instance.  Not on a PDP-11 or a DEC VAX, or an IBM 360, etc, etc.
 
@@ -171,11 +171,11 @@ Since Ritchie had created "C" to solve all the problems Unix had, it became the 
 
 #### Brian Kernighan
 
-![*Brian Kernighan in 2012 at Bell Labs*](images/Chapter-02/People/Brian-Kernighan/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs")
+![*Brian Kernighan in 2012 at Bell Labs*](../images/Chapter-02/People/Brian-Kernighan/320px-Brian_Kernighan_in_2012_at_Bell_Labs_2-2.jpg "Brian Kernighan in 2012 at Bell Labs")
 
 Thompson didn't have a name for his project initially, another related figure, Brian Kernighan[^4], can be credited with giving it the name UNIX.  This was a play on words--MULTI vs UNI in the name. Kernighan also helped write the original C language textbook along with Dennis Ritchie (Published in 1978, called K&R C which some of you might have used when in school).
 
-![*K&R C*](images/Chapter-02/People/Brian-Kernighan/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
+![*K&R C*](../images/Chapter-02/People/Brian-Kernighan/The_C_Programming_Language_First_Edition_Cover.svg.png "K&R C book cover")
 
 ## First Phase -- Implementating the Unix Operating System
 
@@ -193,7 +193,7 @@ The next phase of Unix history revolves around the important work done by develo
 
 ### Richard Stallman and GNU
 
-![*Richard Stallman*](images/Chapter-02/People/Richard-Stallman/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG "Richard Stallman")
+![*Richard Stallman*](../images/Chapter-02/People/Richard-Stallman/Richard_Stallman_at_CommonsFest_Athens_2015_2.JPG "Richard Stallman")
 
 Richard Stallman[^5] was a researcher at MIT in the early 1980's. He was part of what you would call today a *"hacker culture"* that was constantly researching and developing new tools and applications. They were explorers eager to solve problems and this lab had a strong culture of sharing software and ideas amongst its students, faculty, and employees. By 1984 a number of small events began to erode this free environment.  One such issue was the introduction of account passwords for every computer user. We take passwords for granted these days, but in the early 1980s they weren't standard issue and the implementation of them seemed draconian to users who had always used computers without passwords--freely.
 
@@ -256,7 +256,7 @@ The GNU project instead recommends using the Linux kernel instead and joining th
 
 Before we talk about the Linux kernel, we need to talk about the state of other free and opensource operating systems at this time.  One in particular is worth mentioning: the Minix operating system. With the closing off of the AT&T Unix source code in 1984, academics and university researchers were left without source code to show as examples in classes.  
 
-![*Professor Andrew S. Tanenbaum*](images/Chapter-02/People/Andrew-Tanenbaum/AndrewTanenbaum2-2.png "Professor Andrew S. Tanenbaum")
+![*Professor Andrew S. Tanenbaum*](../images/Chapter-02/People/Andrew-Tanenbaum/AndrewTanenbaum2-2.png "Professor Andrew S. Tanenbaum")
 
 [Professor Tanenbaum](http://www.cs.vu.nl/~ast/ "Tanenbaum's website")  [^6] was teaching at Vrije Universiteit in Amsterdam - and began to write and implement his own *free* Unix-like operating system initially for teaching and research purposes. It was 12,000 lines of C code and system call compatible with commercial Unix.  The name [Minix](http://www.minix3.org/ "Minix 3 website")  was a combination of "minimal" and "Unix." Minix 1.0 and 1.5 were released in 1987 and 1991 respectively. Minix 1.0 and 1.5 were freely available to anyone as the source code came in the appendix to a [textbook about operating systems](https://en.wikibooks.org/wiki/Minix_3 "Minix")  written by Tanenbaum in 1987.  Minix was designed to run on older x86 Intel processors (286 and 386 systems)  and in version Minix 1.5 a port was included for Sun SPARC processors.
 
@@ -264,7 +264,7 @@ SPARC workstations were common desktop stations used by students and researchers
 
 ### Linus Torvalds and Linux
 
-![*Linus Torvalds*](images/Chapter-02/People/Linus-Torvalds/320px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
+![*Linus Torvalds*](../images/Chapter-02/People/Linus-Torvalds/320px-LinuxCon_Europe_Linus_Torvalds_03.jpg "LinuxCon Europe Linus Torvalds 03")
 
 In 1991, Linus Torvalds was a graduate student at the University of Helsinki in Finland.  As a student Torvalds was using Unix for his courses on the university's [Sun SPARCstations](https://en.wikipedia.org/wiki/SPARCstation "SPARCstations").  He was not pleased with Sun's Unix, called SunOS, but felt it was the best of the commercial Unix available.  His real dream was to run his own Unix-like operating system on his own personal PC.  He had recently purchased an Intel 386 processor based desktop PC. Linus tried using Minix, but was put off by its minimalist approach and realized it had some good design concepts but was not a complete Unix replacement. In a fashion not unlike Ken Thompson, Torvalds set out in the early part of 1991 to see if he could build his own kernel for his own operating system for his own use and purpose that was Unix-like but wasn't Minix.
 
@@ -343,13 +343,13 @@ The term *opensource* was not a movement away from the principles of *free softw
 
 #### Christine Peterson
 
-![*Christine Peterson*](images/Chapter-02/People/Christine-Peterson/Christine_Peterson_2009.jpg "Christine Peterson")
+![*Christine Peterson*](../images/Chapter-02/People/Christine-Peterson/Christine_Peterson_2009.jpg "Christine Peterson")
 
 Christine Peterson[^115] was a technologist who was part of the group that would become the OpenSource Initiative.  She is generally credited with coining the term, *"Opensource,"* as a differentiator from *"Free Software"*. Though there is evidence that the term *Opensource* was actually [in use 10 to 20 years prior](https://lunduke.locals.com/post/4408440/who-really-coined-the-term-open-source "webpage linking to article about opensource").
 
 #### Eric S. Raymond
 
-![*Eric S. Raymond*](images/Chapter-02/People/Eric-Raymond/256px-Eric_S_Raymond_portrait.jpg "Eric S. Raymond")
+![*Eric S. Raymond*](../images/Chapter-02/People/Eric-Raymond/256px-Eric_S_Raymond_portrait.jpg "Eric S. Raymond")
 
 Eric S. Raymond[^8] had long been a free software developer and part of the hacker community. Raymond's most famous contribution to opensource is writing a seminal paper that was later reprinted in book form called, ["The Cathedral and the Bazaar"](http://www.catb.org/~esr/writings/cathedral-bazaar/introduction/ "The Cathedral and the Bazaar")   
 
@@ -424,7 +424,7 @@ As of 2020, we have almost 28 years of Linux Kernel and Linux distribution work.
 
 ### The Debian-based Family
 
-![*Ian Murdock - founder of The Debian Project*](images/Chapter-02/People/Ian-Murdock/256px-IanMurdock.jpg "Ian Murdock")   
+![*Ian Murdock - founder of The Debian Project*](../images/Chapter-02/People/Ian-Murdock/256px-IanMurdock.jpg "Ian Murdock")   
 
 > *"I founded Debian in 1993. Debian was one of the first Linux distributions and also one of the most successful and influential open source projects ever launched. Debian pioneered a number of ideas commonplace today, including employing an open community that allowed (and encouraged!)  anyone to contribute (much like how Wikipedia would later operate). And, with its integrated software repositories anyone could contribute to, Debian arguably had the industry’s first (albeit primitive)  “App Store”. Today, more than 1,000 people are involved in Debian development, and there are millions of Debian users worldwide."* - [http://ianmurdock.com](https://web.archive.org/web/20151230195404/http://ianmurdock.com/)
 
@@ -432,7 +432,7 @@ Unfortunately on December 31st, 2015, Ian Murdock took his own brilliant life. B
 
 #### Debian
 
-![*Debian*](images/Chapter-02/Linux-logos/Debian/109px-Debian-OpenLogo.svg.png "Debian Logo")
+![*Debian*](../images/Chapter-02/Linux-logos/Debian/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
 The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*)  was founded in 1993 By Ian Murdock and is unique for being one of the major non-commercially backed Linux distro still in existence.  The current release is Debian 10. The Debian project has unique characteristics that were designed into the project from the very beginning. Many believe these features are the key to their long term success and usage across the Linux landscape as there are [currently 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros")  in existence according to distrowatch.com.
 
@@ -450,13 +450,13 @@ The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the s
 
 #### Ubuntu
 
-![*Ubuntu Linux*](images/Chapter-02/Linux-logos/Ubuntu/128px-Ubuntu_logo_copyleft_1.svg.png "Ubuntu Linux")
+![*Ubuntu Linux*](../images/Chapter-02/Linux-logos/Ubuntu/128px-Ubuntu_logo_copyleft_1.svg.png "Ubuntu Linux")
 
 Ubuntu Linux is downstream distribution[^10] based on Debian Linux. Around 2004, [Mark Shuttleworth](https://en.wikipedia.org/wiki/Mark_Shuttleworth), the founder of Ubuntu, was concerned that Windows had such a dominant position in the PC market. He had been a Debian developer, but felt that the lack of a corporate sponsor in some ways hindered Debian from catching market share from Windows.  He set out to make a Debian based distro which he called Ubuntu. Shuttleworth is from South Africa and Ubuntu is a Zulu word meaning *"community"*. Shuttleworth wanted his Linux distro to be people friendly and work really well out of the box--like Windows.
 
 In 2004 Red Hat, which had previously owned the desktop Linux market, decided to exit and focus on selling Linux based server operating systems to the enterprise. This left a void that Ubuntu rushed to fill and they did it well. By 2006, Mark Shuttleworth who had started the [Thawte SSL](https://www.thawte.com/ "Thawte SSL cert company")  security company, which was bought out by Verisign, took his money and invested 10 million dollars in the Ubuntu Foundation to subsidize the creation and maintenance of Ubuntu Linux[^11].  
 
-![*Mark Shuttleworth*](images/Chapter-02/People/Mark-Shuttleworth/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg "Mark Shuttleworth")
+![*Mark Shuttleworth*](../images/Chapter-02/People/Mark-Shuttleworth/128px-Mark_Shuttleworth_by_Martin_Schmitt.jpg "Mark Shuttleworth")
 
 Ubuntu built on top of rock-solid Debian and extended it by adding closed source drivers and user centered features that where necessary in order to make the best experience. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Canonical")  that was formed to handle commercial support and the developers who work on Ubuntu.
 
@@ -470,7 +470,7 @@ Cybersecurity has come to the forefront of our daily lives, Kali is a vital tool
 
 #### Raspberry Pi OS
 
-![*Raspberry Pi OS*](images/Chapter-02/Linux-logos/RaspberryPiOS/640px-Raspberry_Pi_OS_Logo.png "Logo for Raspberry Pi OS")
+![*Raspberry Pi OS*](../images/Chapter-02/Linux-logos/RaspberryPiOS/640px-Raspberry_Pi_OS_Logo.png "Logo for Raspberry Pi OS")
 
 [The Raspberry Pi OS](https://en.wikipedia.org/wiki/Raspberry_Pi_OS "Raspberry Pi OS website")  is the Debian based operating system for the Raspberry Pi single board computers. The Raspberry Pi project was started in 2011 and Raspberry Pi OS became the official OS as of 2013. The Raspberry Pi project was started to bring the *hacker* ethos back to computing--getting students back to first principles, while being able to run modern Linux operating systems.
 
@@ -506,7 +506,7 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 #### Fedora Project
 
-![*Fedora Project*](images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
+![*Fedora Project*](../images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
 
 The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project")  was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13]. The [Fedora Project's](https://getfedora.org/ "Get Fedora")  focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, a cloud instance, as well as a container based edition `Red Hat CoreOS Edition` for use on Kubernetes.
 
@@ -520,7 +520,7 @@ Fedora version less that 37 are no longer supported anymore! Why is the Fedora P
 
 #### Red Hat Enterprise Linux--RHEL
 
-![*RHEL*](images/Chapter-02/Linux-logos/RHEL/RedHat.png "Red Hat logo")
+![*RHEL*](../images/Chapter-02/Linux-logos/RHEL/RedHat.png "Red Hat logo")
 
 Red Hat's founder Mark Ewing had been an IBM employee prior to forming Red Hat. He knew something about enterprise software and more importantly enterprise profits.  Red Hat began its life as a desktop Linux company. They quickly shifted their focus to compete not with Microsoft and Apple, but to take on the Unix enterprise giants of IBM, HP, Sun and AT&T. There is irony as Red Hat would be purchased by IBM 20 years later. These companies had one thing in common: they were all Unix vendors. Red Hat's vector was to dislodge the established Unix vendors with Red Hat Enterprise Linux (RHEL). They would successfully attack this market with entirely opensource products and running on commodity Intel x86 based processors. With Oracle also sensing a chance to capture market share along with RHEL, it announced it would port its database products to RHEL and this platform became to the go to choice for using Oracle as a database.
 
@@ -530,7 +530,7 @@ How successful is this strategy? By 2012 Red Hat had become the first Linux base
 
 #### CentOS
 
-![*CentOS*](images/Chapter-02/Linux-logos/CentOS/CentOS_Logotype.png "CentOS logo")
+![*CentOS*](../images/Chapter-02/Linux-logos/CentOS/CentOS_Logotype.png "CentOS logo")
 
 By 2010 RHEL was firmly entrenched as a viable enterprise based server platform. Many customers loved the reliability of RHEL, but the two year technology freeze was too long for some people. They wanted to use RHEL but with the opportunity to update libraries and applications much quicker. The CentOS (*Community ENTerprise Operating System*)  emerged[^14]. The goal of this project is to use the freely available GPLv2 code of RHEL and redistribute it with their own custom modifications. Some would argue that CentOS was succeeding based on RHEL's hard work. Until about 2014, Red Hat had a very frosty relationship with the CentOS developers--even taking them to court numerous times over trademarked Red Hat logos that had not been properly removed by CentOS developers. Their developers, like Debian, were entirely volunteer based and not backed by a company.
 
@@ -593,7 +593,7 @@ SUSE Linux (pronounced *soo-suh*)  began as a German Slackware Linux port and gr
 
 #### Arch Linux
 
-![*Arch Linux*](images/Chapter-02/Linux-logos/Arch/200px-Arch_Linux_logo.svg.png "Arch Linux Logo")
+![*Arch Linux*](../images/Chapter-02/Linux-logos/Arch/200px-Arch_Linux_logo.svg.png "Arch Linux Logo")
 
 Arch Linux has a different philosophy, Arch Linux defines simplicity as without unnecessary additions or modifications. It ships software as released by the original developers (upstream)  with minimal distribution-specific (downstream)  changes.  They also have their own package manager called [Pacman](https://en.wikipedia.org/wiki/Arch_Linux#Pacman "Pacman package manager").
 
@@ -605,7 +605,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 
 #### FreeBSD
 
-![*FreeBSD*](images/Chapter-02/Linux-logos/FreeBSD/128px-Freebsd_logo.svg.png "FreeBSD")
+![*FreeBSD*](../images/Chapter-02/Linux-logos/FreeBSD/128px-Freebsd_logo.svg.png "FreeBSD")
 
 * Released in November 1994
 * Essentially the inheritor of the BSD Unix code base
@@ -616,7 +616,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 
 #### DragonFly BSD
 
-![*DragonFly BSD*](images/Chapter-02/Linux-logos/DragonFlyBSD/dragonflybsd_small_logo.png)
+![*DragonFly BSD*](../images/Chapter-02/Linux-logos/DragonFlyBSD/dragonflybsd_small_logo.png)
 
 * Fork of FreeBSD in April of 2005 by Matthew Dillon.
 * Has significantly diverged from the original FreeBSD code base.
@@ -631,7 +631,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 
 #### OpenBSD
 
-![*OpenBSD*](images/Chapter-02/Linux-logos/OpenBSD/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png "OpenBSD")
+![*OpenBSD*](../images/Chapter-02/Linux-logos/OpenBSD/128px-OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg.png "OpenBSD")
 
 * [Theo de Raadt](https://en.wikipedia.org/wiki/Theo_de_Raadt "Theo de Raadt")  was banned/left from the NetBSD project in 1994.
   * He complained that they were developing too slow and not focusing on security.
@@ -642,7 +642,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 
 #### NetBSD
 
-![*NetBSD*](images/Chapter-02/Linux-logos/NetBSD/128px-NetBSD.svg.png "NetBSD")
+![*NetBSD*](../images/Chapter-02/Linux-logos/NetBSD/128px-NetBSD.svg.png "NetBSD")
 
 * Released October of 1994 as another version of the BSD code after the lawsuit.
 * Focuses on portability to run this OS on nearly every platform you can think of.
@@ -675,7 +675,7 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 
 #### Illumos
 
-![*Open Indiana*](images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
+![*Open Indiana*](../images/Chapter-02/Linux-logos/OpenSolaris/128px-OpenIndiana_logo_large-2.svg.png "Open Indiana")
 
 * After the OpenSolaris project was shut down and Oracle fired most of the Solaris developers,  the last version of OpenSolaris was forked into a project called Illumos[^15].
 * Illumos is not a distro, but a reference implementation in which other OSes are based.
@@ -696,7 +696,7 @@ While Android is a Linux based mobile operating system, it is different from a t
 
 ## Fifth Phase -- Hard Changes to the Nature of Linux
 
-![*Lennart Poettering*](images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
+![*Lennart Poettering*](../images/Chapter-02/People/Lennart-Poettering/640px-Lennart_poettering-2.jpg "Lennart Poettering")
 
 Not since Linux Torvalds has a single developer been influential in the Linux community. Lennart Poettering is currently a developer for Red Hat[^18], and had previously developed [PulseAudio](https://en.wikipedia.org/wiki/PulseAudio "pulse")  and [Avahi](https://en.wikipedia.org/wiki/Avahi_(software)  "Avahi")--network discovery demon.  Lennart is mostly known for *systemd*.  Systemd was designed as a modern replacement for SysVinit, the initial program responsible for starting all other system processes in Unix/Linux and systemd was started around 2010 and by 2015 was widely deployed amongst Linux Distros.
 
