@@ -420,7 +420,7 @@ As you can see that package managers were a great step forward in making Linux u
 * [Zypper](https://en.wikipedia.org/wiki/ZYpp "SUSE Zypper web page")
   * `sudo zypper install neofetch`
 * [pkg for BSD](https://www.freebsd.org/doc/handbook/pkgng-intro.html "pkg for BSD")
-  * `pkg install nginx`
+  * `sudo pkg install neofetch`
 * [Pacman](https://www.archlinux.org/pacman/ "Pacman web page")
   * To update your systems: `sudo pacman -Syu`
   * To install packages: `sudo pacman -S neofetch`  
