@@ -888,14 +888,7 @@ Before we start the Vagrant box, we need to edit line 35 of the `Vagrantfile` to
 
 Once the vault-server has been built and initialized in Vagrant, we need to Vagrant SSH into our system and [install Vault for Linux Debian/Ubuntu](https://developer.hashicorp.com/vault/install "webpage install Vault for Ubuntu"). Check to make sure the Vault service has started properly and is enabled.
 
-```bash
-wget -O- https://apt.releases.hashicorp.com/gpg | 
-sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] 
-https://apt.releases.hashicorp.com $(lsb_release -cs) main" | 
-sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt install vault
-```
+See this link for the proper Ubuntu Linux installation instructions: [https://developer.hashicorp.com/vault/install#Linux](https://developer.hashicorp.com/vault/install#Linux "webpage for vault Linux install")
 
 #### Configuring the Vault-Server
 
