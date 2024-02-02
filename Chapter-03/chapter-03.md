@@ -1017,7 +1017,7 @@ For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or
   * Ubuntu 22.04 Desktop edition
   * Ubuntu 22.04 Server edition
   * Peppermint OS
-  * Ubuntu KDE Neon
+  * ~~Ubuntu KDE Neon~~
 
 * Red Hat Based ARM
   * Fedora 39 - Workstation edition 
@@ -1028,8 +1028,8 @@ For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or
   * FreeBSD
 
 * Other Linux Distros ARM
-  * MX Linux
-  * Pop!_OS
+  * ~~MX Linux~~
+  * ~~Pop!_OS~~
   * Kali Linux
   * Manjaro Linux (SteamOS is based on)
 
