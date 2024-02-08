@@ -10,7 +10,7 @@ The objectives of this lab are to use the shell commands we learned in this chap
 
 Here we will be creating a number of directories and files in order to navigate our filesystem. Each step can be satisfied with a short line of text or a screenshot.
 
-1) Open a terminal, `cd` to the **Documents** directory. Issue the `pwd` command to find your present working directory (or current location).
+1) Open a terminal, `cd` to your **Documents** directory. Issue the `pwd` command to find your present working directory (or current location).
 1) In the **Documents** directory, use the `mkdir` command to create a directory named: **class-notes**
 1) `cd` into the `class-notes` directory. Issue the command to show your present working directory. 
 1) Create the a directory named `distros` in the `class-notes` directory. Once created take a screen shot of the output of the `ls` command in the distros directory
