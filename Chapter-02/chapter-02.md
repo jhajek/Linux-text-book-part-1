@@ -18,6 +18,18 @@ At the completion of this chapter a student will understand and be able to expla
 
 In this chapter the terms **Linux** and **Unix** are generally interchangeable from a conceptual standpoint. For a large part of this book the conventions are the same - their history is intertwined. Though this book focuses on Linux we would be depriving you of the spectrum of free and opensource software if we left Unix and BSD out. If you are curious, the name is pronounced *"Lin-ucks;"* [link to audio pronunciation,](https://upload.wikimedia.org/wikipedia/commons/0/03/Linus-linux.ogg "Pronunciation of Linux")  and Unix; *"Yoo-nix."*
 
+## The Seven Phases of Free and Opensource Maturity
+
+0. Bell Labs and Unix Development
+1. Implementing the Unix Operating System
+2. Unix Users, Application Development, and Licensing
+3. Opensource Licensing
+4. The Rise of Enterprise Linux
+5. Hard Changes to the Nature of Linux
+6. Opensource is not a Business Model
+
+**Note:** that as hackers we start counting at 0 and not 1.
+
 ## Zeroith Phase - Bell Labs and Unix Development
 
 One could say that computer programming as we would recognize it started in the 1930's with Alan Turing.  Operating Systems that we would recognize didn't materialize until the early 1970's. Desktop and server CPU and hardware architecture we are familiar with started in the 1990's with Intel, and Mobile computing started in late 2000s using ARM based processors. Our journey begins in 1968 in Murray Hill, New Jersey USA at Bell Labs.
