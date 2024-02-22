@@ -40,55 +40,26 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i) Add two lines of space
     i) Store the output of the command ```date``` into the shell variable named **DT**
     i) Add the command that will print out the text: "#############"
-    i) Add the command that will print out the text: "Shell successfully execute at: $DT"
+    i) Add the command that will print out the text: "Script execution began at: $DT"
     i) Add the command that will print out the text: "#############"
     i) Save the file and quit the vim editor
-    i) Execute the command to give first-shell.sh execute permission
-    i) Take a screenshot of the output executing first-shell.sh
-    i) Take a screenshot of the command used to print the content of the file: first-shell.sh
+    i) Execute the command to give `first-shell.sh` execute permission
+    i) Take a screenshot of the output executing `first-shell.sh`
+    i) Take a screenshot of the command used to print the content of the file: `first-shell.sh`
 1) Using vim:
-    i) Create a shell script named **install-textbook-dependencies.sh** in your home directory.
+    i) Create a shell script named **install-textbook-dependencies.sh** in your home directory. You will need to add commands to do the following:
     i) Add the proper *shebang* on the first line, then two lines of space
-    i) Type the lines below into your shell script
-    i) Edit Line 3 of chapter-01.md to add your name nest to mine
-    i) Give the script execute permission and execute it
-    i) To test the results, `cd` into the Linux-Text-Book-Part-1 directory (clone it if you have not) and execute the the script: `./build-linux-and-macos.sh` (the script should already have execute permission)
-    i) Install the package `poppler-utils` which will give you a PDF to text converter
-    i) In the `output/pdf` directory run the command:
-    
-    `pdftotext -layout Understanding-Free-and-Opensource-Operating-Systems-Part-I.pdf textbook.txt`
-    i) To test if the textbook built correctly, in the directory: **output/pdf**.  Issue the command `head textbook.txt` and you will see the book title with your name appended as an author.
+    i) Issue the command to retrieve the `.deb` package: `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
+    i) Write the command to install this `.deb` package
+    i) Write the command to update the `apt` repos
+    i) Write the command to install these dependencies using the `-y` flag: `texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin  texlive-science-doc texlive-science`
+    i) Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
+1) Compile your version of the textbook
+    i) Edit Line 8 of `chapter-01.md` from the textbook source code to now say: `# New Introduction by YOURNAME` 
+    i) To test the results, `cd` into the Linux-Text-Book-Part-1 directory
+    i) In the `output/txt` directory run a command to display the first 20 lines of the generated file: `Understanding-Free-and-Opensource-Operating-Systems-Part-I.txt`
 
 #### Part 4
 
-1) In Ubunut Server, using the `sudo mv` command, move your shell-script: `first-shell.sh` to `/usr/local/bin`.  Exeecute the command `first-shell.sh` and take a screenshot of all the previous commands and output
-1) In Ubunut Server, inside the Textbook sample code > files > Chaper-07 > logs > u_ex151002.log write a `grep` command to find each line that has `*.php` in it
-  i) Pipe the output of that command to another grep command to find all the lines that have `.php` and NOT `xmlrpc.php`
-
-```bash
-
-#!/bin/bash
-
-sudo apt-get -y update
-sudo apt-get install wget git
-if [ -e ./pandoc-3.1.3-1-amd64.deb ]
-  then
-    sudo dpkg -i pandoc-3.1.3-1-amd64.deb
-    rm ./pandoc-3.1.3-1-amd64.deb
-  else
-    wget https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb
-    sudo dpkg -i pandoc-3.1.3-1-amd64.deb
-    rm ./pandoc-3.1.3-1-amd64.deb
-fi
-
-sudo apt-get install -y texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin texlive-science-doc texlive-science
-
-wget http://packages.sil.org/sil.gpg
-sudo apt-key add sil.gpg
-sudo apt-add-repository -y "deb http://packages.sil.org/ubuntu/ $(lsb_release -sc) main"
-sudo apt-get update
-sudo apt-get -y install fonts-sil-charis
-
-sudo apt-get -y install fonts-inconsolata
-sudo fc-cache -fv
-```
+1) In Ubuntu Server, using the `mv` command, move your shell-script: `first-shell.sh` to `/home/vagrant/.local/bin` (replace `vagrant` with your system username).  Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
+1) In Ubuntu Server, inside the Textbook sample code: `files > Chapter-07 > logs > u_ex151002.log` write a `grep` command to find each line that has `.php` in it
