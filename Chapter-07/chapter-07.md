@@ -615,7 +615,8 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     i) Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
 1) Compile your version of the textbook
     i) Edit Line 8 of `chapter-01.md` from the textbook source code to now say: `# New Introduction by YOURNAME` 
-    i) To test the results, `cd` into the Linux-Text-Book-Part-1 directory
+    i) To test the results, `cd` into the Linux-Text-Book-Part-1 directory  
+    i) Execute the script named: `build-linux-and-macos.sh` to build the textbook using the dependencies you installed
     i) In the `output/txt` directory run a command to display the first 20 lines of the generated file: `Understanding-Free-and-Opensource-Operating-Systems-Part-I.txt`
 
 #### Part 4
