@@ -302,7 +302,7 @@ Here is a small walk through to install 2 different Vagrant boxes:
 1. `cd` to the bionic64 directory and issue this command: `vagrant init ubuntu/jammy64`
 1. Issue the command `vagrant up`
 1. Upon successful boot, issue the command: `vagrant ssh` to connect to bionic64 virtual machine, then `exit` the ssh session
-1. Repeat the above steps in the centos7 directory and replace the init command in step 3 with: `vagrant init alamlinux/9`
+1. Repeat the above steps in the centos7 directory and replace the init command in step 3 with: `vagrant init almalinux/9`
 1. In each directory issue the command `vagrant halt` or `vagrant suspend` to power down the VMs
 
 ## Packer
@@ -369,7 +369,7 @@ source "virtualbox-iso" "ubuntu-22043-server" {
   rtc_time_base           = "UTC"
   // https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
-  iso_checksum  = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
+  iso_checksum  = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.4/SHA256SUMS"
   iso_urls                = "${var.iso_url}"
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
@@ -456,11 +456,11 @@ iso_urls     = "${var.iso_url}"
 }
 ```
 
-This URL is the actual remote location of the install media which will be retrieved and cached into a directory named packer_cache. The iso file will be renamed with the iso_checksum. Subsequent packer_build commands will use this cached iso media. In Windows and MacOS you can define a central Environement variable called `PACKER_CACHE_DIR` to enable centralized iso caching.
+This URL is the actual remote location of the install media which will be retrieved and cached into a directory named packer_cache. The iso file will be renamed with the iso_checksum. Subsequent packer_build commands will use this cached iso media. In Windows and MacOS you can define a central Environment variable called `PACKER_CACHE_DIR` to enable centralized iso caching.
 
 ### Source Block
 
-The source block takes two options, the type of virtual machine artifact you are making and the name you are giving this block. A build template can include multiple blocks for building multiple vms simultaniously.
+The source block takes two options, the type of virtual machine artifact you are making and the name you are giving this block. A build template can include multiple blocks for building multiple vms simultaneously.
 
 ```json
 {
@@ -468,7 +468,7 @@ source "virtualbox-iso" "ubuntu-22043-server"
 }
 ```
 
-This block contains the code needed to swithc the manual operating install process into an automated process, but providing the key sequences to type through Packer and the URL to an answer file. Packer hosts its own embeded webserver for this purpose that runs for just the duration of the `packer build` command.
+This block contains the code needed to switch the manual operating install process into an automated process, but providing the key sequences to type through Packer and the URL to an answer file. Packer hosts its own embedded webserver for this purpose that runs for just the duration of the `packer build` command.
 
 ```json
 {
@@ -503,7 +503,7 @@ These remaining values are all the customizable settings you would configure in 
   rtc_time_base           = "UTC"
   // https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
-  iso_checksum = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.3/SHA256SUMS"
+  iso_checksum = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.4/SHA256SUMS"
   iso_urls                = "${var.iso_url}"
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   // Username and passowrd configured in the subiquity/http/user-data file
@@ -567,7 +567,7 @@ provisioner "shell" {
 
 #### Post-processors
 
-This final part of the build block is where you can convert your original artifact into 1 of the 30_ other virtualization formats that come built in with Packer. This is one of the cheif benefits that you can build a virtulmachine for VirtulaBox, Paralles, Proxmox, VMware, and Amazon EC2 all from a single source.
+This final part of the build block is where you can convert your original artifact into 1 of the 30_ other virtualization formats that come built in with Packer. This is one of the chief benefits that you can build a virtual machine for VirtualBox, Parallels, Proxmox, VMware, and Amazon EC2 all from a single source.
 
 Packer has the ability to build a virtual machine or OS Container once and export it to many different types of platforms in a single execution stretch.  The initial artifact can be exported and converted across all of the formats listed below. Therein lies the power of Packer as you can deploy your production environment to any platform for any person: Dev, QA, Test, Ops, Sec, and so forth.
 
@@ -593,7 +593,7 @@ provisioner "shell" {
     "mkdir -p /root/.ssh",
     "chmod 600 /home/vagrant/id_rsa_github_deploy_key",
     "cp -v /home/vagrant/id_rsa_github_deploy_key /home/vagrant/.ssh/",
-    "cp -v ./applicaiton-code/html /var/www/html/",
+    "cp -v ./application-code/html /var/www/html/",
     "cp -v ./mysql/.my.cnf /home/vagrant"
   ]
 }
