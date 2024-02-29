@@ -131,7 +131,7 @@
     b.  You need to give the owner of the file write permission
     c.  You need to give the owner of the file open permission
     d.  You need to give the owner of the file execute permission
-1.  Upon login which file, in the users home directory is read to extend the system path?
+1.  Upon opening a new terminal which file is processed, in your home directory, to extend a user's environment variables?
     a.  `.profile`
     b.  `.bash-logout`
     c.  `.bashrc`

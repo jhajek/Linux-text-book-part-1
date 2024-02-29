@@ -503,7 +503,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     b.  `G`
     c.  `:$`
     d.  `ESC G`
-1.  Using `vim` what is the `ex` more command to find and replace the word `Ubuntu` with `Fedora` only the first occurance on a line
+1.  Using `vim` what is the `ex` more command to find and replace the word `Ubuntu` with `Fedora` only the first occurrence on a line
     a.  `:s/ubuntu/fedora`
     b.  `:s/Ubuntu/Fedora`
     c.  `:1,$s/Ubuntu/Fedora`
@@ -523,7 +523,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     b.  You need to give the owner of the file write permission
     c.  You need to give the owner of the file open permission
     d.  You need to give the owner of the file execute permission
-1.  Upon login which file, in the users home directory is read to extend the system path?
+1.  Upon opening a new terminal which file is processed, in your home directory, to extend a user's environment variables?
     a.  `.profile`
     b.  `.bash-logout`
     c.  `.bashrc`
@@ -549,7 +549,7 @@ PIP AND THE PYTHON PACKAGE INDEX
 * ~39:10 What can a short term Project Maintainer do for a software project?
 * ~43:20 How many maintainers did the pip project have in 2017? How many do they have now in 2020? Are they paid developers?
 * ~44:44 If pip is one of the most important tool chains in the industry -- who funds its development/maintenance?
-* ~46:40 What is the programing language that Python is written in?
+* ~46:40 What is the programming language that Python is written in?
 * ~53:10 What is the tip for what not to do with pip on Linux?
 * ~55:15 What is the website (URL) to keep up with Python language announcements?
 
