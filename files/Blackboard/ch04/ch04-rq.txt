@@ -1,7 +1,7 @@
 1.  What was the most popular Unix “Smart Terminal?”
 a.  VIC-100
-b.  VT-100
-*c.  VT-220
+*b.  VT-100
+c.  VT-220
 d.  VC-100
 
 1.  What is the three letter abbreviation still in use today in modern Linux to refer to “terminal devices?”

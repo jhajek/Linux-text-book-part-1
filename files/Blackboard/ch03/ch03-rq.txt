@@ -126,8 +126,8 @@ d.  snaps
 
 1.  When you install an operating system using Virtualbox, how is that operating system referred to?
 a.  Host machine
-b.  Guest OS
-*c.  Virtual machine
+*b.  Guest OS
+c.  Virtual machine
 d.  Linux machine
 
 1.  What is the name of the package repository most often used with Flatpaks?

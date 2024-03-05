@@ -31,8 +31,8 @@ d)  Hard Changes to the Nature of Linux
 1.  Name the fifth phase of Free and Opensource Maturity?
 a)  Unix Users, Application Development, and Licensing
 b)  Opensource Licensing
-*c)  The Rise of Enterprise Linux
-d)  Hard Changes to the Nature of Linux
+c)  The Rise of Enterprise Linux
+*d)  Hard Changes to the Nature of Linux
 
 1.  Name the sixth phase of Free and Opensource Maturity?
 a)  Unix Users, Application Development, and Licensing
