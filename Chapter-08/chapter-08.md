@@ -108,9 +108,9 @@ echo "Lincoln" >> names.txt
 # to an array named NAMESARRAY
 NAMESARRAY=( $(cat names.txt))
 
-echo ${NAMESARRAY[2]}
+echo ${NAMESARRAY[1]}
 # this will print out the second element of the array
-# which is Lincoln
+# which is Lincoln, remember computers and arrays start counting at 0
 ```
 
 We can make use of some meta-characters that have new special meanings here. First is the *at sign* or `@` which allows us to access all of the elements in an array without having to create a loop. The line below will print out the entire content of the array. The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array. Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered. Also note the array elements are encapsulated in `{ }`--curly braces to prevent the `[ ]` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by an index. ```echo ${instanceARR[0]}; echo ${instanceARR[1]}; echo ${instanceARR[2]}```. Remember that arrays are __zero indexed__.
@@ -801,22 +801,21 @@ At the completion of this lab you will further your knowledge of shell scripting
 The goal of this shell script is to add IF statement logic to prevent errors in our code in case of duplicates in relation to account creations on a server. Create the shell script in your in your `HOME directory > Documents` and name it `l8ex12.sh`.
 
 * Write a shell script using a while script to read in the content of roster.txt into a variable named $LINE
-  * For each user check for the existance of a home directory
+  * For each user check for the existence of a home directory
   * If the directory doesn't exists, use the this command to create a user account on your system
     * `sudo useradd -c "Account for $NAME" -s /usr/bin/bash -d /home/$NAME -m $NAME`
     * Write a log message telling us which account was created, redirecting output for standard error and standard out and with a timestamp
-      * Name the log `l8ex11-log.sh`
+      * Name the log `l8ex11.log`
     * Add an `echo` to the screen telling which account has just been created
     * else skip the account creation 
   * Run the command to create a directory named `.ssh` owned by the user `$NAME` in their home directory
-    * Use -O to check for file existance and ownership
-  * Run the command to create an ssh key using an IF statement checking for the existance of the keys in the .ssh directory
+    * Use -O to check for file existence and ownership
+  * Run the command to create an ssh key using an IF statement checking for the existence of the keys in the .ssh directory
       * `sudo ssh-keygen -t ed25519 -f /home/$NAME/.ssh/id_ed25519_$NAME -N ""`
       * Take note of the home directory and use the `chown` command to change the ownership of the keys in the .ssh directory to the user just created
       * Write a log message telling us that keys were created for a user, redirecting output for standard error and standard out and with a time stamp
-        * Append to the log `l8ex11-log.sh`
+        * Append to the log `l8ex11.log`
       * Add an `echo` to the screen telling which keys have just been created
-  * Name the script: `l8ex11.sh`
 
 #### Footnotes
 
