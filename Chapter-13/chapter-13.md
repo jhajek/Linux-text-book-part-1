@@ -989,6 +989,18 @@ export VAULT_SKIP_VERIFY="true"
 export VAULT_TOKEN="hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2"
 ```
 
+### Setting Vault Environment Variables on Your Host Linux System
+
+Using any Linux distro with the Bash Shell edit the `~/.bashrc` file adding these values. Remember to source the changes `. ~/.bashrc` after making the changes
+
+```bash
+# The 192.168.56.99 is the value we set on line 35 of the 
+# Vault-Server Vagrantfile
+export VAULT_ADDR='https://192.168.56.99:8200'
+export VAULT_SKIP_VERIFY="true"
+export VAULT_TOKEN="hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2"
+```
+
 ### Using the Vault Template
 
 Now we should be ready to go and use the secrets we added to Vault. There is an additional Packer Template located in the book sample code under `files` > `Chapter-13` > `packer-build-templates` > `ubuntu_22043_vanilla-vault-example`. You can test to see if you Vault integration works, by issuing the command: `packer validate .` to see the results. If you receive a timeout or connection denied a few things might be happening. You Vault could be sealed or perhaps you have not entered your secrets yet, or you may have not reloaded your terminal variables based on the Vault IP and token settings from the previous section.
