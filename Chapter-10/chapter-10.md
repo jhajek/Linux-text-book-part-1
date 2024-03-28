@@ -435,7 +435,7 @@ This is a sample of a `.service` file created for a Python user script, called `
  # /etc/systemd/system/write-journal.service
 [Unit]
 Description=Script that writes a Hello message to the journal
-ddAfter=network.target
+After=network.target
 
 [Service]
 Type=simple
