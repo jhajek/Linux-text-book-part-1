@@ -737,7 +737,7 @@ Through this chapter we learned about the su, sudo, and root user account paradi
     b.   usermod
     c.   adduser
     d.   add
-1.  What command would be used to modify a user account settings and add them to the sudo users group on an Ubuntu distro (user is named controller)?
+1.  What command would be used to modify a user account settings and add them to the sudo users group on an Ubuntu distro while removing them from groups they are already a part of? (user is named controller)?
     a.   `sudo useradd -aG sudo controller`
     b.   `sudo usermod -a sudo controller`
     c.   `sudo usermod -G sudo controller`
