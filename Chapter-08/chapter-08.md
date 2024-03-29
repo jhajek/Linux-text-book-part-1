@@ -579,6 +579,10 @@ Lets see what `awk`[^90] can do:
 * How would you check for WordPress filesystem hacks by searching for '/' or '..' or /etc or names like passwd .htacess my.cnf?
   * ```awk '$11~/\.\.\//' u_ex150721.log```
 * What is the difference between ```cat hosts.deny``` and ```awk '{print;}' hosts.deny```
+* How would you print out the last column of a file?
+  * ```awk '$NF' <insert_file_name>```
+* How would you print out the last 3 columns of a file?
+  * ```awk '{print $(NF-2), $(NF-1), $NF}' <insert_file_name>```
 * How would you print out all lines of a file that contain a \# as the first character?
   * ```awk '$0~/^#/' hosts.deny```
 * How would you print out all lines of a file that do not contain a \# as the first character?
