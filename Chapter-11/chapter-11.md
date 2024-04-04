@@ -64,6 +64,7 @@ These are solid state drives, but instead of sending data over the SATA interfac
      PCIe 3.0              7 GT/s            985 MB/s   3.9 GB/s     7.8 GB/s      15.75 GB/s
      PCIe 4.0              15 GT/s           1.97 GB/s  7.88 GB/s    15.6 GB/s     31.5 GB/s
      PCIe 5.0              25 GT/s           3.94 GB/s  15.76 GB/s   31.5 GB/s    63.8 GB/s
+     PCIe 6.0              64 GT/s           7.56 GB/s  30.25 GB/s   60.50 GB/s   121.0 GB/s 
 
 #### The RAM Future That Wouldn't be
 
