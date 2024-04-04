@@ -213,7 +213,7 @@ Everything looks good, but DON'T QUIT YET!  If you type __q__ now your changes w
 
 Using the `fdisk` command does have its drawbacks.  The tool was designed in the day when systems had 1 or 2 hard drives.  Filesystems handled small files and the idea of large files partitions that spanned multiple disks was not possible due to software and processor limitations.  But we see with the cost of disk alone, systems having 24 or more hard drives is not unheard of.  Most filesystems were designed around the limitations of `fdisk` and since then new solutions have been designed to overcome the limitations of partitions such as LVM and filesystem extents, which we will cover at the end of this chapter.
 
-## Logical Volume Manager -LVM
+## Logical Volume Manager - LVM
 
 Partitioning of disks worked well when you had one disk and needed to create *logical* disks or partitions. But what happens when you have multiple disks or want to create a *logical* disk that spans many *physical* disks. Once a partition has been created it is not easily resized or expanded. Similarly partitions do not have a capacity for taking `filesystem level snaphosts`. Early Linux filesystems, such as ext4 did not handle volume management and left that to the Operating System.
 
@@ -364,9 +364,9 @@ These matter because humans and computers (and marketing) use different numberin
 
 XFS is a robust and highly-scalable single host 64-bit journaling file system. It is entirely extent-based, so it supports very large files and file system sizes. The maximum supported file system size is 100 TB. The number of files an XFS system can hold is limited only by the space available in the file system[^127].
 
-XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem.  SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation.  They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access.  SGI created XFS to suit that need.  XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used-also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices[^127].
+XFS was originally created by SGI (Silicon Graphics Inc) back in 1993 to be a high-end Unix work station filesystem. SGI was the company that made computers in the 1990's for high end move special effects and graphical simulation. They had their own version of Unix called IRIX, and needed a filesystem capable of handling large files at that time, and places like NASA which had large amounts of data to store and access. SGI created XFS to suit that need. XFS excels in the execution of parallel input/output (I/O) operations due to its design, which is based on allocation groups (a type of subdivision of the physical volumes in which XFS is used-also shortened to AGs). Because of this, XFS enables extreme scalability of I/O threads, file system bandwidth, and size of files and of the file system itself when spanning multiple physical storage devices[^127].
 
-XFS was ported to Linux in 2001 as SGI and IRIX went out of business and the filesystem languished.  It was opensourced and GPL'd in 2002.  Red Hat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large sized files.  Red Hat also hired many of the SGI engineers and developers who created this filesystem and brought it back into production quality.  Red Hat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem on the RHEL product.
+XFS was ported to Linux in 2001 as SGI and IRIX went out of business and the filesystem languished. It was opensourced and GPL'd in 2002. Red Hat began to see this filesystem as an alternative to ext4 and more mature than other replacements since it had over 10 years of development from the start to handle large sized files. Red Hat also hired many of the SGI engineers and developers who created this filesystem and brought it back into production quality. Red Hat began with RHEL 7 to deprecate ext4 as the default filesystem and implement XFS as their standard filesystem on the RHEL product.
 
 XFS is notoriously bad at being used by an everyday computer because its strength is built on storing large database files or using large files. You can install the tools needed to make a partition of the XFS format by typing `sudo apt-get install xfsprogs`; the XFS tools are already installed on Fedora and CentOS by default. You can create an XFS filesystem using the `sudo mkfs.xfs` command. We can grow an XFS filesystem with the command `xfs_growfs /mount/point -D size`.
 
@@ -426,7 +426,7 @@ ZFS therefore cannot be part of Linux natively and some arguments would say that
 * [Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS](https://www.fsf.org/licensing/zfs-and-linux "Interpreting, enforcing and changing the GNU GPL, as applied to combining Linux and ZFS")
 * [Ubuntu ZFS announcement](https://blog.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04 "Ubuntu ZFS Annoucement")
 
-FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and ZFS is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module.  Ubuntu now supports the root partition being ZFS as well.  
+FreeBSD didn't have this restriction under the BSD license and they have had native kernel based support for ZFS since version 9 of FreeBSD and ZFS is a supported filesystem type on MacOS. As of Ubuntu 16.04, you can install ZFS via apt-get and include the CDDL licensed ZFS code on Linux as a loadable kernel module. Ubuntu is beginning to support root partition being ZFS on the desktop.  
 
 Development of all ZFS code now lives in the upstream [OpenZFS project](https://openzfs.org/wiki/Main_Page "OpenZFS wikipage"). Since the ZFS code was opensourced, when Oracle tried to "closesource" the code base in 2010, essentially what Oracle did was make a fork of the project and keep their changes proprietary. The rest of the community took ZFS and made the OpenZFS community, which now consolidates various ZFS code bases into a single repo for MacOS, FreeBSD, and Linux as a loadable kernel module. Red Hat has not participated in the Linux development of OpenZFS as most companies are afraid of potential litigation and lawsuits from Oracle (real or perceived). There is even a ZFS developer port who brought [ZFS to Windows](https://github.com/openzfsonwindows/ZFSin "ZFS on Windows"), using the latest Windows OS.
 
@@ -435,6 +435,10 @@ Development of all ZFS code now lives in the upstream [OpenZFS project](https://
 Here is an example to install the ZFS module, load the module, and then format and create a zpool logical mirror (RAID1) in a few steps, tutorial comes from here: [https://wiki.ubuntu.com/Kernel/Reference/ZFS](https://wiki.ubuntu.com/Kernel/Reference/ZFS "ZFS Tutorial").
 
 ```bash
+# See that the zfs module is not loaded
+modprobe zfs
+lsmod | grep zfs
+
 sudo apt install zfsutils-linux
 
 # Now check to see if the zfs module is loaded
