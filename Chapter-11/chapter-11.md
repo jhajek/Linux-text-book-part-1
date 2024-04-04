@@ -260,7 +260,7 @@ Since LVs are logical they can also be extended and reduced on the fly.
 * Using the command `sudo lvextend -l +100%FREE /dev/VG-NAME/LV-NAME` will extend the disk to fill all additional free space
   * Find the device name, run the command: `df -H`
   * Note you have to run the command `sudo resize2fs /dev/VG-NAME/LV-NAME`
-  * This will resize the filesystem to the size you extnded your logical volume to
+  * This will resize the filesystem to the size you extended your logical volume to
 
 ### LVM Snapshots
 
@@ -345,7 +345,7 @@ Ext4 saw the capacity extension of __ext3__ and introduction to __extents__. The
 
 In ext4, __extents__ replaced the traditional block mapping scheme used by ext2 and ext3. An extent is a range of contiguous physical blocks, improving large file performance and reducing fragmentation. A single extent in __ext4__ can map up to 128 MiB of contiguous space with a 4 KiB block size [^126].  The advantage is that the smaller 4KB blocks are bound contiguously on disk together.
 
-Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros, though that is changing as OpenSuse and Fedora 33 have adopted using Btrfs and Ubuntu is working on adopting OpenZFS as their default filesystem.  The advantage of ext4 is it is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type `mkfs.ext4` and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems since 2008 that fill the void left by __ext4__.
+Theodore Ts'o is a respected developer in the open source community, who currently is the maintainer of __ext4__ and is employed by Google to develop filesystems.  __Ext4__ is the current default file system for most Linux distros, though that is changing as OpenSuse and Fedora have adopted using Btrfs and Ubuntu is working on adopting OpenZFS as their default filesystem.  The advantage of ext4 is it is well tested and a well known quantity and is currently used by Google in Android devices as well.  To format a partition using the __ext4__ filesystem you would simply type `mkfs.ext4` and the partition will be formatted. You normally don't format entire devices, just partitions, which can take up entire disks. There are three additional competing filesystems since 2008 that fill the void left by __ext4__.
 
 ### Giga vs Gibi
 
@@ -392,7 +392,7 @@ Btrfs adds support for resource pooling and using extents to make logical drives
 | Ubuntu Desktop   |       ext4         |   zfs and btrfs    |
 | Ubuntu Server    |       ext4         |   zfs and btrfs    |
 | Fedora Workstation |    btrfs         |   xfs    |
-| Alma and Rocky Linux   |       xfs         |   -   |  
+| Alma, RHEL, & Rocky Linux   |       xfs         |   -   |  
 | Debian         | ext4  |  zfs, xfs, btrfs |
 
 ### Btrfs Creation Commands
