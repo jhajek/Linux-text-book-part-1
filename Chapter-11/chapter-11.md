@@ -235,7 +235,11 @@ This diagram creates three concepts to know when dealing with LVM:
 
 ### Physical Volumes
 
-The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use. Note that you can choose to use the entire disk `/dev/sdb` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the `pvcreate` command to *create* physical volumes, same case with the partition. You can display the details of your physical volumes with the command: `sudo pvdisplay`.
+The first thing to do in creating an LVM partition is to figure out what kind of disks you have and what kind of partition scheme you want to use. Note that you can choose to use the entire disk `/dev/sdb` for instance or you can create a partition on the disk for use with LVM; if you do make sure to create the partition of type __0x8E__ LVM and not a standard Linux partition. In order to use entire disks you need to use the `pvcreate` command to *create* physical volumes, same case with the partition. 
+
+#### Create an LVM Physical Volume
+
+Once you have added additional hard disks to your virtual machine, you can use the command `lsblk` to list all disks. Then use the command `sudo pvcreate /dev/sdb` to register a disk as an LVM Physical Volume (PV). You can display the details of your physical volumes with the command: `sudo pvdisplay`.
 
 ### Volume Groups
 
