@@ -484,7 +484,7 @@ ZFS supports creating multiple types of redundant disks that increase speed or i
 
 # Assume each disk is 2 GB in size
 # Create a Stripe of 3 disks for a single 6 GB logical volume
-sudo zpool create datastripe /dev/sdb /dev/sdc /dev/sdc
+sudo zpool create datastripe /dev/sdb /dev/sdc /dev/sdd
 sudo zpool status
 
 # Create a Mirror of 2 disks for a single 2 GB logical volume
