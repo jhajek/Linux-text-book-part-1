@@ -932,22 +932,26 @@ In this assessment you will using Linux shell scripting to create a WordPress Bl
 
 ### Lab Pre-requisites 
 
-* You will need to create a fresh Ubuntu 22.04 LTS server virtual machine.
-  * You will need to enable an additional host-only network interface 
-  * (before first installation boot) and install and enable openssh-server.   
-* You can execute the setup commands remotely from a newly created Fedora 39 Workstation virtual machine 
-  * that also has an additional host-only network enabled.   
+* You will need to create or use a fresh Ubuntu 22.04 LTS server virtual machine
+  * You will need to enable an additional host-only network interface
+  * And have installed and enabled openssh-server
+  * Attach two new virtualdisks of 10GB each
+* You can execute the setup commands remotely from a newly created Fedora Workstation virtual machine 
+  * Also have an additional host-only network enabled.   
 * For the next set of questions, you will need to SSH into the Ubuntu 22.04 LTS from your Fedora install 
   * Then configure various pieces of software then answer questions based on those installs on the Ubuntu Server 22.04 LTS remotely  
 
 #### Deliverable: 
 
-Submit a screenshot of the final blog post and the shell script that scripts the following to your week-14 folder in your private GitHub repo.  These 11 steps need to be in your final shell script.
+Submit a screenshot of the final blog post and the shell script that scripts the following to your chapter-14 folder in your private GitHub repo. These 11 steps need to be in your final shell script.
 
 #### Part One - Shell Script
 
-* Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, libapache2-mod-php, and php-mysqli).
+* On the Ubuntu 22.04 format the new disks creating a single datapool named: `datapool1`
+  * Change ownership and group of the newly created `/datapool` to your own user  
+* Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, libapache2-mod-php, and php-mysqli)
   *  You won't need all of these but you can see here which ones WordPress requires -- [Server Dependencies list](https://make.wordpress.org/hosting/handbook/server-environment/ "website link for extra dependencies")
+* Using this [tutorial](https://askubuntu.com/questions/137424/how-do-i-move-the-mysql-data-directory "webpage move mysql directory"), following the 2nd answer's instruction complete the process to move the database directory from `/` to the newly created `/datapool`
 * Use the MySQL inline option (-e) to create a database named: `wp`
 * Use the MySQL inline option (-e) to create a non-root user named: `wp-user`
 * Use the MySQL inline option (-e) to grant the user, wp-user, the proper permissions needed for WordPress (section 12.5.2.6)
