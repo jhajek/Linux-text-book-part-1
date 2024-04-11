@@ -95,9 +95,10 @@ When dealing with Virtual Machines, we can attach and detach storage very easily
 
 What is Virtio? "*Essentially, it’s an interface that allows a virtual machine to use its host’s devices via minimized virtual devices called VirtIO devices[^ch11f147]."* In VirtualBox you can replace the default SATA devices and use the VirtIO interface directly to your disk devices--saving virtualization overhead.
 
-### Disk Management in VirtualBox
+### Disk Management in VirtualBox and Parallels
 
-For this chapter we will assume that you are using VirtualBox 7.x, but these concepts apply to any virtual machine or Hypervisor. This also assumes you have free space on your computer. Since the point of this lab is to explore and not production usage, you may want to get an external USB hard drive and use that for this chapter so as not to fill up your hard drive.
+For this chapter we will assume that you are using VirtualBox 7.x or Parallels 19. The concepts demonstrated should be applicable to any Type II hypervisor. This also assumes you have free space on your computer. Since the point of this lab is to explore and not production usage, you may want to get an external USB hard drive and use that for this chapter so as not to fill up your hard drive.
+
 
 With your Ubuntu or Fedora virtual machine powered down, let's add some new disks (virtually) to your Linux system. The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu.
 
