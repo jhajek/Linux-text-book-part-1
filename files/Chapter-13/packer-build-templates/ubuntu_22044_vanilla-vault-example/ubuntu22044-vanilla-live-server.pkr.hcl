@@ -12,7 +12,7 @@ packer {
   }
 }
 
-source "virtualbox-iso" "ubuntu-22043-server" {
+source "virtualbox-iso" "ubuntu-22044-server" {
     boot_command = [
         "e<wait>",
         "<down><down><down>",
@@ -43,7 +43,7 @@ source "virtualbox-iso" "ubuntu-22043-server" {
 }
 
 build {
-  sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+  sources = ["source.virtualbox-iso.ubuntu-22044-server"]
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"

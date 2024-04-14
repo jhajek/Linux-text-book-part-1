@@ -349,7 +349,7 @@ packer {
   }
 }
 
-source "virtualbox-iso" "ubuntu-22043-server" {
+source "virtualbox-iso" "ubuntu-22044-server" {
     boot_command = [
         "e<wait>",
         "<down><down><down>",
@@ -386,7 +386,7 @@ source "virtualbox-iso" "ubuntu-22043-server" {
 }
 
 build {
-  sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+  sources = ["source.virtualbox-iso.ubuntu-22044-server"]
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
@@ -464,7 +464,7 @@ The source block takes two options, the type of virtual machine artifact you are
 
 ```json
 {
-source "virtualbox-iso" "ubuntu-22043-server"
+source "virtualbox-iso" "ubuntu-22044-server"
 }
 ```
 
@@ -529,7 +529,7 @@ The Build block is where you tell Packer what to build. You include the source b
 
 ```json
 build {
-  sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+  sources = ["source.virtualbox-iso.ubuntu-22044-server"]
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
@@ -544,7 +544,7 @@ Provisioner are tools that you can use to customize your machine image after the
 
 ```json
 build {
-sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+sources = ["source.virtualbox-iso.ubuntu-22044-server"]
 
 provisioner "shell" {
   execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
@@ -778,7 +778,7 @@ How then do we build our own artifacts with Packer to manage them? Here is an en
 
 # clone the source code from the book to get the sample files
 # git clone https://github.com/jhajek/Linux-text-book-part-1.git
-cd Linux-text-book-part-1/files/Chapter-13/packer-build-templates/ubuntu_22043_vanilla
+cd Linux-text-book-part-1/files/Chapter-13/packer-build-templates/ubuntu_22044_vanilla
 packer init .
 packer validate .
 packer build .
@@ -786,7 +786,7 @@ packer build .
 # Upon completion of the Packer build...
 # Each build has a string representation of the day, month, year to make each
 # filename unique, called epoch (your *.box name will be different)
-vagrant box add ../build/ubuntu-22043-server-20231103191942.box --name vanilla-ubuntu-server
+vagrant box add ../build/ubuntu-22044-server-20231103191942.box --name vanilla-ubuntu-server
 cd ../build
 # Good idea to name the directory the same as your Vagrant Box -- so you
 # don't lose track of it!
@@ -826,7 +826,7 @@ Vault tightly controls access to secrets and encryption keys by authenticating a
 For our convenience, Packer has direct integration with Vault. Once Vault is installed an setup on your [local system](https://www.vaultproject.io/docs/install/index.html "Install Vault") for instance by running the Vault agent you can simply read your secrets in the Packer Build Template, without the secret ever being seen by a person. There is more to say on this, but the reason we introduce it here is so that you can be exposed to safe practices from the beginning as well as deal with one of the major problems in IT, which is Secrets Management.
 
 ```json
-source "virtualbox-iso" "ubuntu-22043-server" {
+source "virtualbox-iso" "ubuntu-22044-server" {
     boot_command = [
         "e<wait>",
         "<down><down><down>",
@@ -841,7 +841,7 @@ source "virtualbox-iso" "ubuntu-22043-server" {
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  iso_checksum  = "sha256:a4acfda10b18da50e2ec50ccaf860d7f20b389df8765611142305c0e911d16fd"
+  iso_checksum  = "sha256:a4acfda10b18da50e2ec50ccaf860d7f20.......305c0e911d16fd"
   iso_urls                = ["${var.iso_urls}"]
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
@@ -857,7 +857,7 @@ source "virtualbox-iso" "ubuntu-22043-server" {
 }
 
 build {
-  sources = ["source.virtualbox-iso.ubuntu-22043-server"]
+  sources = ["source.virtualbox-iso.ubuntu-22044-server"]
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
@@ -880,7 +880,7 @@ build {
 
 ### Building the Vault
 
-To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_22043_vanilla` or `ubuntu_22043_m1_mac` to build a new virtual machine. Refer to the Packer section on how to build this Vagrant Box and how to add the Box to Vagrant's control.
+To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_22044_vanilla` or `ubuntu_22044_m1_mac` to build a new virtual machine. Refer to the Packer section on how to build this Vagrant Box and how to add the Box to Vagrant's control.
 
 #### Vagrantfile and Vault Install
 
@@ -1003,7 +1003,7 @@ export VAULT_TOKEN="hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2"
 
 ### Using the Vault Template
 
-Now we should be ready to go and use the secrets we added to Vault. There is an additional Packer Template located in the book sample code under `files` > `Chapter-13` > `packer-build-templates` > `ubuntu_22043_vanilla-vault-example`. You can test to see if you Vault integration works, by issuing the command: `packer validate .` to see the results. If you receive a timeout or connection denied a few things might be happening. You Vault could be sealed or perhaps you have not entered your secrets yet, or you may have not reloaded your terminal variables based on the Vault IP and token settings from the previous section.
+Now we should be ready to go and use the secrets we added to Vault. There is an additional Packer Template located in the book sample code under `files` > `Chapter-13` > `packer-build-templates` > `ubuntu_22044_vanilla-vault-example`. You can test to see if you Vault integration works, by issuing the command: `packer validate .` to see the results. If you receive a timeout or connection denied a few things might be happening. You Vault could be sealed or perhaps you have not entered your secrets yet, or you may have not reloaded your terminal variables based on the Vault IP and token settings from the previous section.
 
 To fully test and see the results, let us go ahead and execute the `packer build .` command.  You will notice that we can access the secrets set in the Vault from the `variables.pkr.hcl` file by providing the PATH that was defined and then giving the KEY value.
 
@@ -1236,7 +1236,7 @@ Once this step is successful, we need to establish a connection to the virtual m
 
 ### Part Two - Packer Commands
 
-Using the sample code from the text book in: files > Chapter-13 > packer-build-templates, init, validate and build the ubuntu_22043_vanilla if you are on Windows or an Intel Mac or the ubuntu_22043_m1_mac if you are using Apple Silicon.
+Using the sample code from the text book in: files > Chapter-13 > packer-build-templates, init, validate and build the `ubuntu_22044_vanilla` if you are on Windows or an Intel Mac or the `ubuntu_22044_m1_mac` if you are using Apple Silicon.
 
 One the `.box` file has been successfully built, use the Vagrant commands from this chapter to `add` the box file and to `init` a Vagrantfile. Bring the Vagrant box up and then exit your ssh session and halt the Vagrant box.
 
