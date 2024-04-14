@@ -924,6 +924,8 @@ Lets now unseal the vault. Execute the command: `vault operator unseal`. You nee
 
 Now that we have unsealed the Vault (the sealed value will have gone from True to False) we can login with the Initial Root token. This is used to initially log in an generate subsequent login tokens. The `vault login` command will prompt you for a Token -- which is the `Initial Root Token` value.
 
+`vault login`
+
 Now that we are logged in, the next step is to initialize a secret storage engine. This defines how the secrets are stored and mapped. We are going to enable a standard engine called `kv` (This stands for Key Value pair storage). Our secrets will be mapped into a mini-file system hierarchy inside the Vault starting at the path `secret/`. This is an arbitrary name that we chose when defining the `-path`.
 
 `vault secrets enable -version=2 -path=secret kv`
