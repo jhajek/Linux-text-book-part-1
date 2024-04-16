@@ -943,7 +943,7 @@ In this assessment you will using Linux shell scripting to create a WordPress Bl
 
 #### Deliverable: 
 
-Submit a screenshot of the final blog post and the shell script that scripts the following to your chapter-14 folder in your private GitHub repo. These 11 steps need to be in your **final shell script**. 
+Submit a screenshot of the final blog post and the shell script that scripts the following to your chapter-12 folder in your private GitHub repo. These 11 steps need to be in your **final shell script**. 
 
 We recommend you complete this once manually - taking note of all the steps, then create a single shell script to do all these steps in an automated fashion. This will require having fresh systems to start over with
 
