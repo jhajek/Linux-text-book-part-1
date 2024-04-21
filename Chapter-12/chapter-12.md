@@ -950,10 +950,17 @@ We recommend you complete this once manually - taking note of all the steps, the
 #### Part One - Shell Script
 
 * On the Ubuntu 22.04 format the new disks creating a single datapool named: `datapool1`
-  * Change ownership and group of the newly created `/datapool` to your own user  
+  * Change ownership and group of the newly created `/datapool` to your own user
+  * Ensure you add the lines into /etc/fstab to mount datapool on reboot  
 * Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, libapache2-mod-php, and php-mysqli)
   *  You won't need all of these but you can see here which ones WordPress requires -- [Server Dependencies list](https://make.wordpress.org/hosting/handbook/server-environment/ "website link for extra dependencies")
-* Using this [tutorial](https://askubuntu.com/questions/137424/how-do-i-move-the-mysql-data-directory "webpage move mysql directory"), following the 2nd answer's instruction complete the process to move the database directory from `/` to the newly created `/datapool`
+* Stop the MySQL service
+* Copy the /var/lib/mysql directory to /datapool using the rsync command to preserve permissions
+* Give ownership of the entire directory to MySQL and set permissions to 700
+* Uncomment and change the line that specifies the path to the data directory in /etc/mysql/mysql.conf.d/mysqld.cnf
+* Change the two lines in /etc/apparmor.d/usr.sbin.mysqld which allow data directory access
+* Reload the apparmor service
+* Start the MySQL service
 * Use the MySQL inline option (-e) to create a database named: `wp`
 * Use the MySQL inline option (-e) to create a non-root user named: `wp-user`
 * Use the MySQL inline option (-e) to grant the user, wp-user, the proper permissions needed for WordPress (section 12.5.2.6)
