@@ -151,9 +151,9 @@ In 1998 Qt was not available under a completely *"free software"* license. It ha
 
 KDE is unique because although Qt has vendor input to the project, KDE itself is not vendor owned. KDE is also not tied to a single Linux distro. Distros such as [openSUSE](opensuse.org "opensuse"), [Mageia](mageia.org "Mageia"), [Chakra](www.chakralinux.org "Chakra Linux"), [KDE Neon Ubuntu](https://neon.kde.org "KDE Neon Ubuntu webpage"), [PCLinuxOS](www.pclinuxos.com "PC Linux OS") and even FreeBSD are using KDE by default or have it available in software repositories. The Steam Deck portable hand-held gaming system [uses KDE as its desktop](https://arstechnica.com/gaming/2022/02/linux-on-steam-deck-what-you-need-to-know-what-currently-works/ "webpage article about KDE use on Steam Deck").
 
-#### Plasma
+#### Plasma 6.x
 
-The KDE desktop runs an environment called [Plasma](https://kde.org/plasma-desktop/ "website for KDE Plasma"). This desktop includes controls all the software, notifications, launcher activity, and system tray integrations for you. KDE version 5 supports Plasma and KDE 6 will shortly be released in 2024. There is a [mobile Plasma](https://plasma-mobile.org/ "webpage for mobile Plasma") framework available for Linux based phones and tablets.
+The KDE desktop runs an environment called [Plasma](https://kde.org/plasma-desktop/ "website for KDE Plasma"). This desktop includes controls all the software, notifications, launcher activity, and system tray integrations for you. [KDE 6 is now available](https://kde.org/announcements/megarelease/6/ "KDE 6 release webpage"). There is a [mobile Plasma](https://plasma-mobile.org/ "webpage for mobile Plasma") framework available for Linux based phones and tablets.
 
 ### GNOME
 
