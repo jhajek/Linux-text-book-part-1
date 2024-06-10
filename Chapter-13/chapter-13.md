@@ -1211,7 +1211,7 @@ Once these commands are executed -- both under the `jammy64` and `almalinux` dir
 * `code Vagrantfile`
 * `vim Vagrantfile`
 
-Line 15 you will see the setting that tells Vagrant which **box** this Vagrantfile manages: `config.vm.box = "ubuntu/jammy64"`.  This value came from the `vagrant init` command typed above. Line 35, which is commented out, will let us configure a **host-only** network between out host system and any guest (virtual) OSes we install. Line 52, 57, and 58 are a loop that allows us to increase the default memory from 1Gb to 2 Gb or 4 Gb.
+Line 15 you will see the setting that tells Vagrant which **box** this Vagrantfile manages: `config.vm.box = "ubuntu/jammy64"`.  This value came from the `vagrant init` command typed above. Line 35, which is commented out, will let us configure a **host-only** network between out host system and any guest (virtual) OSes we install. Line 59, 64, and 65 is a loop that allows us to increase the default memory from 1Gb to 2 Gb or 4 Gb.
 
 #### Start a Vagrant Box
 
@@ -1228,7 +1228,7 @@ Once this step is successful, we need to establish a connection to the virtual m
 * Using the `sudo apt-get update` and `sudo apt-get install nginx` command, install the Nginx webserver (pronounced Engine X)
   * Exit the ssh session.
   * Edit the corresponding `Vagrantfile` to enable line 35 a private network interface at 192.168.56.100
-  * Edit the corresponding `Vagrantfile` to uncomment line 52, 57, and 58 changing line 57 to 2048 or 4096
+  * Edit the corresponding `Vagrantfile` to uncomment line 59, 64, and 65 changing line 64 to 2048 or 4096
 * Using the command `vagrant reload --provision` restart the virtual machine
 * After the reload command has succeeded, without using the `vagrant ssh` command, open a web-browser on your Host OS to `http://192.168.56.100` to see the **Welcome to Nginx!** message being served from Nginx in your Vagrant Box
 * Using the `vagrant halt` to power off the virtual machine, then issue the `vagrant destroy` command to reset the Vagrant Box to its initial state (pre-webserver install)
