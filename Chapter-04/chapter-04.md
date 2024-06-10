@@ -252,15 +252,24 @@ Each application has a preferences and content menu area in GNOME. It is located
 
 You can remove default icons from the favorite menu as well as add your own favorite applications in GNOME. By right-clicking on the icon you have an option to remove it from the Favorites menu.
 
-For example to add a Favorite for the Terminal program click **Activities** > **Search** > type **Terminal** > right click on the icon > **Add to Favorites**.
+For example to add a Favorite for the Terminal program click the `Workspace Identifier` > `Search` > type `Terminal` > right click on the icon > `Add to Favorites`. There has also been an [integration of track pad gestures](https://forty.gnome.org/ "Website GNOME 40 what is new") to quickly switch workspaces.
 
-[There has also been an integration of track pad gestures](https://news.itsfoss.com/gnome-40-release/ "Website itsfoss GNOME 40 what is new").  *"Even if you’re not a laptop user, you can still use these gestures by using the keyboard shortcut: Super+Alt+↑ or ↓ or ← or →. Going up and down on the touchpad takes you in and out of the activities overview and app grid screens, left and right switches you between workspaces. And, if you’re using a mouse, you can navigate using Super + Alt + Scroll."*
+* Touchpad
+  * Three Fingers ↑ ↓ Toggle Overview
+  * Three Fingers ← → Switch Workspaces
+* Keyboard
+  * Super + Alt + ↑ ↓ Toggle Overview
+  * Super + Alt + ← → Switch Workspaces
+* Mouse
+  * Super + Alt + Scroll  
 
 #### GNOME Extensions
 
 To extend the functionality of GNOME there is a [GNOME extensions website](https://extensions.gnome.org "GNOME extensions").  This site allows you to add on additional features to GNOME that you may want.  If visit the site while using Fedora or any GNOME enabled site and you allow the GNOME plugin to run in your FireFox browser, then the website will allow you to interactively install plugins.  Try it.  Go to the second page and choose a plugin called *Caffeine*.  This is handy because it allows you to disable the screensaver and system suspend and is very handy if you are working on a virtual machine.  Note how the caffeine plugin simply places a coffee cup icon in the top toolbar? 
 
-A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor"). Most GNOME 3 extensions should work on GNOME 40 but not all have been ported. You can find that some [Linux distros need an additional plugin](https://wiki.gnome.org/action/show/Projects/GnomeShellIntegration/Installation?action=show&redirect=Projects%2FGnomeShellIntegrationForChrome%2FInstallation "webpage for installting gnome extensions browser plugin") to make the extensions work directly from the browser (Ubuntu), some already work by default (Fedora).
+A few others you may want to try are the [Drop Down Terminal](https://extensions.gnome.org/extension/442/drop-down-terminal/ "Drop Down Terminal"), [Logout Button on Panel](https://extensions.gnome.org/extension/944/logout-button-on-panel/ "Add Logout button"), or the [System Monitor](https://extensions.gnome.org/extension/9/systemmonitor/ "System Monitor"). Most GNOME 3 extensions should work on GNOME 40 but not all have been ported. 
+
+You can find that some [Linux distros need an additional plugin](https://wiki.gnome.org/action/show/Projects/GnomeShellIntegration/Installation?action=show&redirect=Projects%2FGnomeShellIntegrationForChrome%2FInstallation "webpage for installting gnome extensions browser plugin") to make the extensions work directly from the browser (Ubuntu), some already work by default (Fedora).
 
 ![*GNOME Extensions*](images/Chapter-04/extensions.png "Extensions")
 
@@ -268,7 +277,7 @@ A few others you may want to try are the [Drop Down Terminal](https://extensions
 
 Previously Linux distributions had made an effort to build in Software Stores, much like we saw in iOS and Android. The issue with a software store became the ability to make money, charge money, and distribute money. All though the distributions still support Software Stores, their heart is not in this manner of software installation. The original way to install software was via a package manager, which the stores were a front for anyway. There are two competing standards to replace packages or more appropriately bring "app" like functionality to Linux. These are called [Flatpak](https://flatpak.org "Flatpak") on Fedora and [Snaps](https://www.ubuntu.com/desktop/snappy "Snaps").
 
-To access the terminal on a GNOME desktop, click the **Activities** button at the top and in the **find** box type: *terminal*.
+To access the terminal on a GNOME desktop, click the `Activities Identifier` button at the top and in the `Search` box type: *terminal*.
   
 #### Ubuntu
 
