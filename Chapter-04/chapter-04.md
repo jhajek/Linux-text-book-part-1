@@ -159,11 +159,11 @@ The KDE desktop runs an environment called [Plasma](https://kde.org/plasma-deskt
 
 Shortly after the initial release of KDE and its licensing confusion, an enterprising opensource advocate saw the need for a truly open and free desktop environment. His name was [Miguel De Icaza](https://en.wikipedia.org/wiki/Miguel_de_Icaza "Miguel").
 
-#### Miguel de Icaza
+#### Miguel de Icaza and GNOME history
 
 ![*Miguel de Icaza*](images/Chapter-04/People/351px-Miguel_de_Icaza.jpg "Miguel de Icaza")
 
-GNOME[^33] initially stood for GNU Network Object Model Environment but the acronym is no longer used[^28].  GNOME was a GNU project directly created under the GPL. The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Tool Kit*, used to stand for the GIMP Tool Kit. The toolkit is once again known as **GTK**. GTK is a library useful for creating standalone applications with multiple development language bindings as well.
+GNOME[^33] initially stood for GNU Network Object Model Environment but the acronym is no longer used[^28]. GNOME was a GNU project directly created under the GPL. The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Tool Kit*, used to stand for the GIMP Tool Kit. The toolkit is once again known as **GTK**. GTK is a library useful for creating standalone applications with multiple development language bindings as well.
 
 In an interesting development Miguel ended up forming the company that became Xamarin, a cross development mobile platform using C# to develop for Android and iOS--shortly after Microsoft began opensourcing the C# language. Recently Xamarin was purchased by Microsoft and Miguel was a Microsoft VP. Miguel has always been a software pragmatist - always chasing the best technology and open sourcing it.  He took much criticism because he started the Mono project in bringing Microsoft's C# and .NET platform to Linux, because he saw C# as the best language to develop in cross platform. This brought about the condemnation of Richard Stallman, calling Miguel, "*A traitor to free software.*" [^30]  Miguel's response to Stallman was a beautiful example of how to diffuse an inflammatory situation:
 
@@ -183,17 +183,27 @@ You can check the version of your GNOME desktop from the cli by issuing the comm
 
 ![*KDE 6 and GNOME Desktop Comparison*](./images/Chapter-04/GNOME40/gnome40-kde6.png "image of KDE 6 and GNOME Desktop Comparison")
 
-#### GNOME Forks: Unity, Mate, Cinnamon, and Pop!_OS
+#### GNOME Forks
 
-Linus Torvalds was quoted as saying:
+GNOME is considered the Linux default desktop due to its tight integration with systemd. So much so that GNOME community contributed development has begun to wane[^29]. Which is better GNOME or KDE? With all major Linux systems that are using systemd you now have no choice but to adopt GNOME as the default desktop.  Both have had great set backs and great feature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer. Try them both and choose the best one for your needs.
 
-> "People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done[^38]..."  
+#### GNOME Forks: Mate
 
-GNOME 3 led to the creation of alternatives in 2012. When GNOME moved from version 2 to version 3 the amount of change was seen by some GNOME users as treason. The MATE project (pronounced *"ma-tay"* not *"may-tuh"*) was a fork and continuation of the GNOME 2 code base. The Cinnamon desktop was a fork of GNOME 3 with an added features set for the Linux Mint distro. Unity was Ubuntu's reimplementation of the GNOME shell with the Unity shell on top of GNOME 3. These desktops, with the exception of Unity, can be deployed or installed on most Linux distributions. As a final thought Linus Torvalds has since reconciled with GNOME 3 as of 2013 based on some additional 3rd party tools that allow the GNOME 3 experience to be customized to his liking[^37]. 
+The [Mate desktop](https://mate-desktop.org/ "Webpage mate desktop") (pronounced *mah-tay*) is a fork and maintaining of the older GNOME 2 platform. Linus Torvalds was quoted as saying, *"People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done[^38]..."*  
+
+#### GNOME Forks: Cinnamon
+
+The [Cinnamon desktop](https://projects.linuxmint.com/cinnamon/ "Webpage for Cinnamon Desktop") was a fork of GNOME 3 with an added features set for the Linux Mint distro in 2013 started by the [Linux Mint](https://linuxmint.com/ "Webpage Linux Mint") project. Cinnamon is no longer compatible with the stock GNOME plugins.
+
+#### GNOME Forks: Ubuntu Unity 
+
+From 2010 to 2018, Ubuntu maintained the [Unity Shell](https://en.wikipedia.org/wiki/Unity_(user_interface) "Webpage for Unity Shell"), which was a reimplementation of the GNOME shell, not a full desktop. Ubuntu has plans to design a single desktop that would run across various sized devices, PCs, laptops, phones, and tablets. Unity lives on though in an official [Ubuntu Unity](https://en.wikipedia.org/wiki/Ubuntu_Unity "webpage for Ubuntu unity") distro and the [Ubuntu Touch phone OS project](https://ubuntu-touch.io/ "webpage for Ubuntu Touch project"). 
+
+#### GNOME Forks: Pop!_os
 
 In April of 2021, [Linux open laptop manufacturer, System76](https://system76.com/ "Website for System76 Linux Laptop manufacturer") released a themed GNOME 3 desktop called [Pop!_OS](https://pop.system76.com/ "Website to Pop OS") with a custom windows manager that defaults to a tiling mode rather than a stacking mode.  
 
-GNOME is considered the Linux default desktop due to its tight integration with systemd. So much so that GNOME community contributed development has begun to wane[^29]. Which is better GNOME or KDE? With all major Linux systems that are using systemd you now have no choice but to adopt GNOME as the default desktop.  Both have had great set backs and great feature advancements over the years. In the end it is up to you based on your usage patterns, development environment preferences, even which distro you use or prefer. Try them both and choose the best one for your needs.
+In 2024, Pop!_os in a dispute with the GNOME project, began work on their own bespoke Rust based desktop named the [Cosmos Desktop Environment](https://blog.system76.com/post/cosmic-the-road-to-alpha "webpage fro Cosmos DE"). The project is still in early alpha. 
 
 ### Xfce
 
