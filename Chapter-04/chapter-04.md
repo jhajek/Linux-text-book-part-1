@@ -242,11 +242,11 @@ Wikipedia has a sample gallery of all these desktop environments and more at [ht
 
 Everything in [GNOME](https://www.gnome.org/gnome-3/ "GNOME") starts with the `Workspace Indicator` button in the upper left-hand corner. There is no traditional "Start Button" in GNOME. Just activities to be launched in a workspace. There is also a `Type to Search` box for searching everything in GNOME 40+ from documents to applications to even suggested software. There is also a `favorites dash` on the bottom of the screen. You will see preinstalled icons for FireFox Web Browser, the file manager, Nautilus, the Software Store application, the clock, and finally a grid launcher for everything else. Note there are no *"categories"* such as system tools or office software. This is a design feature of GNOME.
 
-![*GNOME FAVORITES DASH*](images/Chapter-04/GNOME40/favorites.png "GNOME favorites bar")
+![*GNOME FAVORITES DASH*](images/Chapter-04/GNOME40/favorites.png "Image of GNOME favorites dash")
 
 Each application has a preferences and content menu area in GNOME. It is located right next to the Activities button.  You will see the application name with a small white drop down arrow. In order to find the window commands for open, close, resize, tiling, and so forth you just need to right click on the gray toolbar on top of the window that has the focus.
 
-![*GNOME Taskbar*](images/Chapter-04/GNOME3/taskbar-and-toolbar.png "Taskbar")
+![*GNOME Taskbar*](images/Chapter-04/GNOME40/workspace-identifier.png "Image of Workspace Identifier")
 
 #### GNOME Remove and Add Favorites
 
