@@ -177,6 +177,8 @@ What made GNOME 3 so different is that it took on a different structure from the
 
 You can check the version of your GNOME desktop from the cli by issuing the command: `gnome-desktop --version`.
 
+\newpage
+
 #### KDE6 and GNOME Desktop Comparison 
 
 ![*KDE6 and GNOME Desktop Comparison*](./images/Chapter-04/GNOME40/gnome40-kde6.png "image of KDE6 and GNOME Desktop Comparison")
