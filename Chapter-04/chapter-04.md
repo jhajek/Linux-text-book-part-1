@@ -165,19 +165,21 @@ Shortly after the initial release of KDE and its licensing confusion, an enterpr
 
 GNOME[^33] initially stood for GNU Network Object Model Environment but the acronym is no longer used[^28].  GNOME was a GNU project directly created under the GPL. The first major GNOME release was done by Miguel in March of 1999. This project used the [*GTK+*](http://www.gtk.org/ "GTK+"), commonly mistaken as the *Gnome Tool Kit*, used to stand for the GIMP Tool Kit. The toolkit is once again known as **GTK**. GTK is a library useful for creating standalone applications with multiple development language bindings as well.
 
-In an interesting development Miguel ended up forming the company that became Xamarin, a cross development mobile platform using C# to develop for Android and iOS--shortly after Microsoft began opensourcing the C# language. Recently Xamarin was purchased by Microsoft and Miguel is now a Microsoft VP. Miguel has always been a software pragmatist - always chasing the best technology and open sourcing it.  He took much criticism because he started the Mono project in bringing Microsoft's C# and .NET platform to Linux, because he saw C# as the best language to develop in cross platform. This brought about the condemnation of Richard Stallman, calling Miguel, "*A traitor to free software.*" [^30]  Miguel's response to Stallman was a beautiful example of how to diffuse an inflammatory situation:
+In an interesting development Miguel ended up forming the company that became Xamarin, a cross development mobile platform using C# to develop for Android and iOS--shortly after Microsoft began opensourcing the C# language. Recently Xamarin was purchased by Microsoft and Miguel was a Microsoft VP. Miguel has always been a software pragmatist - always chasing the best technology and open sourcing it.  He took much criticism because he started the Mono project in bringing Microsoft's C# and .NET platform to Linux, because he saw C# as the best language to develop in cross platform. This brought about the condemnation of Richard Stallman, calling Miguel, "*A traitor to free software.*" [^30]  Miguel's response to Stallman was a beautiful example of how to diffuse an inflammatory situation:
 
-> *"I want to say that God loves all creatures. From the formidable elephant to the tiniest ant. And that includes Richard Stallman.
->
-> As for me, I think that there is a world of possibility, and if Richard wants to discuss how we can improve the pool of open source/free software in the world he has my email address.
->
-> Love, Miguel."* [^35]
+> *"I want to say that God loves all creatures. From the formidable elephant to the tiniest ant. And that includes Richard Stallman. As for me, I think that there is a world of possibility, and if Richard wants to discuss how we can improve the pool of open source/free software in the world he has my email address. Love, Miguel."* [^35]
 
 In the early 2000s Sun and HP adopted the GNOME desktop as the replacement for CDE for their Unix distros. Red Hat and Debian adopted GNOME as well. With the release of Ubuntu 18.04, Ubuntu returned to the GNOME desktop.
 
-GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released March 2021.  Over this 18+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars.  But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. What made GNOME 3 so different is that it took on a different structure from the traditional Windows desktop--called the GNOME shell. Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once.  Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks. The GNOME naming convention has changed from the previous 2.x and 3.x to just 40. So there is in a sense no more GNOME 3 or 4, but like a webbrowser just a rolling version starting at the number 40.  
+GNOME 2 was released in early 2002, GNOME 3 was released in 2010, and GNOME 4--now known as GNOME 40, released March 2021. Over this 20+ years GNOME developed itself as a mature desktop by using the traditional desktop metaphor: start menu, task managers, and toolbars. But like all things that change, in early 2011 GNOME 3 was released, and there was a mighty backlash.  Even Linus Torvalds, who is a Red Hat and GNOME user came out against GNOME 3 very hard, calling it a *"total UX disaster"* [^36]. 
 
-![*GNOME 40 Desktop*](./images/Chapter-04/GNOME40/gnome40-desktop.png "image GNOME 40 desktop")
+What made GNOME 3 so different is that it took on a different structure from the traditional Windows desktop--called the GNOME shell. Think of the GNOME shell as a way to manage or view multiple tasks and applications happening at once. Instead of a single desktop, think of the new metaphor as a table top using the shell as a magnifying glass to view all tasks. The GNOME naming convention has changed from the previous 2.x and 3.x to just GNOME desktop, starting at version 40. 
+
+You can check the version of your GNOME desktop from the cli by issuing the command: `gnome-desktop --version`.
+
+#### KDE6 and GNOME Desktop Comparison 
+
+![*KDE6 and GNOME Desktop Comparison*](./images/Chapter-04/GNOME40/gnome40-kde6.png "image of KDE6 and GNOME Desktop Comparison")
 
 #### GNOME Forks: Unity, Mate, Cinnamon, and Pop!_OS
 
