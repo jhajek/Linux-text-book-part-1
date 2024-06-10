@@ -179,9 +179,9 @@ You can check the version of your GNOME desktop from the cli by issuing the comm
 
 \newpage
 
-#### KDE6 and GNOME Desktop Comparison 
+#### KDE 6 and GNOME Desktop Comparison 
 
-![*KDE6 and GNOME Desktop Comparison*](./images/Chapter-04/GNOME40/gnome40-kde6.png "image of KDE6 and GNOME Desktop Comparison")
+![*KDE 6 and GNOME Desktop Comparison*](./images/Chapter-04/GNOME40/gnome40-kde6.png "image of KDE 6 and GNOME Desktop Comparison")
 
 #### GNOME Forks: Unity, Mate, Cinnamon, and Pop!_OS
 
