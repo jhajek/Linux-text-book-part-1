@@ -238,13 +238,11 @@ Wikipedia has a sample gallery of all these desktop environments and more at [ht
 
 ### Gnome Features
 
-![*GNOME*](images/Chapter-04/activities-overview-3.16-711x400.png "GNOME 3")
+![*GNOME*](images/Chapter-04/GNOME40/gnome-desktop46.png "GNOME")
 
-Everything in [GNOME](https://www.gnome.org/gnome-3/ "GNOME 3") starts with the `Activities` button in the upper left hand corner. There is no traditional "Start Button."  Just this sense of activities to be launched. There is also a `Find` box for searching everything in GNOME 40+ from documents to applications to even suggested software. There is also a `favorites bar` on the left hand side of the screen. You will see preinstalled icons for FireFox Web Browser, Evolution E-mail client, Rhythm Box music player, Shotwell for picture management, the file manager is named Nautilus, the Software Store application, and finally a grid launcher for everything else. Note there are no *"categories"* such as system tools or office software. This is a design feature of GNOME.
+Everything in [GNOME](https://www.gnome.org/gnome-3/ "GNOME") starts with the `Workspace Indicator` button in the upper left-hand corner. There is no traditional "Start Button" in GNOME. Just activities to be launched in a workspace. There is also a `Type to Search` box for searching everything in GNOME 40+ from documents to applications to even suggested software. There is also a `favorites dash` on the bottom of the screen. You will see preinstalled icons for FireFox Web Browser, the file manager, Nautilus, the Software Store application, the clock, and finally a grid launcher for everything else. Note there are no *"categories"* such as system tools or office software. This is a design feature of GNOME.
 
-![firefox](images/Chapter-04/ff.png "FF") ![Evolution](images/Chapter-04/evolution.png "Evolution") ![Rhythm Box](images/Chapter-04/rythembox.png "Rhythem Box") ![Shotwell](images/Chapter-04/shotwell.png "Shotwell") ![Nautilus](images/Chapter-04/files.png "File Manager") ![Software](images/Chapter-04/software.png "Software") ![Application Launcher](images/Chapter-04/application.png "Application")
-
-You will notice a few other system designs or features. For instance there is no logout button. The little white triangle in the upper right hand corner next to the battery and sound icon controls poweroff and restart, but by default there is no logout button. This is a GNOME feature.  
+![*GNOME FAVORITES DASH*](images/Chapter-04/GNOME40/favorites.png "GNOME favorites bar")
 
 Each application has a preferences and content menu area in GNOME. It is located right next to the Activities button.  You will see the application name with a small white drop down arrow. In order to find the window commands for open, close, resize, tiling, and so forth you just need to right click on the gray toolbar on top of the window that has the focus.
 
