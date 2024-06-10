@@ -209,13 +209,11 @@ In 2024, Pop!_os in a dispute with the GNOME project, began work on their own be
 
 Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environments as the resources required were growing.  So a movement to create a lightweight desktop environment sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. 
 
-Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999.  At one point Debian was considering it as an alternative to GNOME, but dropped it because of adopting systemd--forcing Debian to take GNOME 3 as their default desktop.  Xubuntu is a common derivative distro made up of Ubuntu using Xfce instead of GNOME.  Xfce until recently was using the GTK2 toolkit but is in the process of being rewritten in GTK3 conversion started with version 4.12 in 2015.  As of 2020, most of the major components have been re-written in GTK3. 
-
-One of the biggest draw backs of Xfce is that it only runs on X11 and not on Wayland compositors.
+Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999. At one point Debian was considering it as an alternative to GNOME, but dropped it because of the systemd requirement in GNOME. [Xubuntu](https://xubuntu.org/ "webpage for xubuntu") is a common derivative distro made up of Ubuntu using Xfce instead of GNOME. One of the biggest draw backs of Xfce is that it only runs on X11 and not on the Wayland compositor.
 
 ### LXQT
 
-The LXQT project was started as the LXDE[^39] project in 2006 by Hong Jen Yee.  This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merger with another desktop environment, razor-qt. This produced a new desktop environment called LXQT. The Lubuntu distribution uses LQXT as its default desktop environment on top of modern Ubuntu.
+The LXQT project was started as the LXDE[^39] project in 2006 by Hong Jen Yee. This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merger with another desktop environment, razor-qt. This produced a new desktop environment called LXQT. The [Lubuntu](https://lubuntu.me "webpage for lubuntu disto") distribution uses LQXT as its default desktop environment on top of modern Ubuntu.
 
 ### Budgie
 
@@ -223,7 +221,7 @@ A MacOS inspired desktop, [The Budgie desktop](https://buddiesofbudgie.org/ "Web
 
 ### Enlightenment
 
-This project started in 1997 and intended to be a virtual desktop window manager. This would involve a grid of desktops a user could move windows around and onto.  The initial release was in 1999 called E16. The second release E17 took 12 years. But E17 had grown from just a window manager into a full-fledged desktop environment using its own libraries called Enlightenment Foundation Libraries. Enlightenment can also be a shell that can sit on top of KDE and GNOME.
+This project started in 1997 and intended to be a virtual desktop window manager. This would involve a grid of desktops a user could move windows around and onto. The initial release was in 1999 called E16. The second release E17 took 12 years. But E17 had grown from just a window manager into a full-fledged desktop environment using its own libraries called Enlightenment Foundation Libraries. Enlightenment can also be a shell that can sit on top of KDE and GNOME.
 
 ### Who Uses What
 
