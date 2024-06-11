@@ -187,7 +187,7 @@ GNOME is considered the Linux default desktop due to its tight integration with 
 
 #### GNOME Forks: Mate
 
-The [Mate desktop](https://mate-desktop.org/ "Webpage mate desktop") (pronounced *mah-tay*) is a fork and maintaining of the older GNOME 2 platform. Linus Torvalds was quoted as saying, *"People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done[^38]..."*  
+The [Mate desktop](https://mate-desktop.org/ "Webpage mate desktop") (pronounced *mah-tay*) is a fork maintaining the older GNOME 2 platform. Linus Torvalds was quoted as saying, *"People don't want Gnome 2 because it was a pinnacle of some GUI design. They want it because Gnome 3 removed features they used, and made it harder to get their work done[^38]..."*.  
 
 #### GNOME Forks: Cinnamon
 
