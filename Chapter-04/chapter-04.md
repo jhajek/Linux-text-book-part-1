@@ -195,7 +195,7 @@ The [Cinnamon desktop](https://projects.linuxmint.com/cinnamon/ "Webpage for Cin
 
 #### GNOME Forks: Ubuntu Unity 
 
-From 2010 to 2018, Ubuntu maintained the [Unity Shell](https://en.wikipedia.org/wiki/Unity_(user_interface) "Webpage for Unity Shell"), which was a reimplementation of the GNOME shell, not a full desktop. Ubuntu has plans to design a single desktop that would run across various sized devices, PCs, laptops, phones, and tablets. Unity lives on though in an official [Ubuntu Unity](https://en.wikipedia.org/wiki/Ubuntu_Unity "webpage for Ubuntu unity") distro and the [Ubuntu Touch phone OS project](https://ubuntu-touch.io/ "webpage for Ubuntu Touch project"). 
+From 2010 to 2018, Ubuntu maintained the [Unity Shell](https://en.wikipedia.org/wiki/Unity_(user_interface) "Webpage for Unity Shell"), which was a reimplementation of the GNOME shell, not a full desktop. Ubuntu had plans to design a single desktop that would run across various sized devices, PCs, laptops, phones, and tablets. Support for Unity was dropped as of Ubuntu 18.04 but Unity lives on though in an official [Ubuntu Unity](https://en.wikipedia.org/wiki/Ubuntu_Unity "webpage for Ubuntu unity") distro and the [Ubuntu Touch phone OS project](https://ubuntu-touch.io/ "webpage for Ubuntu Touch project"). 
 
 #### GNOME Forks: Pop!_os
 
@@ -205,17 +205,17 @@ In 2024, Pop!_os in a dispute with the GNOME project, began work on their own be
 
 ### Xfce
 
-Seeing as KDE and GNOME focused on features and usability, many people who were using older hardware felt left out or unable to run these environments as the resources required were growing.  So a movement to create a lightweight desktop environment sprung up.  The first was Xfce and was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself not relying on or forking any of GNOME. This environment had a focus on simplicity and running with lower end hardware requirements. 
+There is a third desktop environment that targets lower hardware requirements with a simpler ambiance and lower hardware requirements, named [Xfce](https://xfce.org/ "webpage xfce site") was born. [Xfce](https://xfce.org/ "webpage xfce site") was developed in parallel to KDE and GNOME by Olivier Fourdan. Xfce wrote all of its [components](https://en.wikipedia.org/wiki/Xfce#Software_components "Xfce components") by itself--not relying on or forking any of GNOME.
 
-Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999. At one point Debian was considering it as an alternative to GNOME, but dropped it because of the systemd requirement in GNOME. [Xubuntu](https://xubuntu.org/ "webpage for xubuntu") is a common derivative distro made up of Ubuntu using Xfce instead of GNOME. One of the biggest draw backs of Xfce is that it only runs on X11 and not on the Wayland compositor.
+Originally based on a proprietary toolkit, when Xfce was rejected for inclusion in Red Hat Linux because of this license, Xfce moved to GTK+ 2 toolkit by 1999. At one point Debian was considering it as an alternative to GNOME, but dropped it because of the systemd requirement in GNOME. [Xubuntu](https://xubuntu.org/ "webpage for xubuntu") is a common derivative distro made up of Ubuntu using Xfce instead of GNOME. One of the biggest drawbacks of Xfce is that it only runs on X11 and not on the Wayland compositor.
 
 ### LXQT
 
-The LXQT project was started as the LXDE[^39] project in 2006 by Hong Jen Yee. This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merger with another desktop environment, razor-qt. This produced a new desktop environment called LXQT. The [Lubuntu](https://lubuntu.me "webpage for lubuntu disto") distribution uses LQXT as its default desktop environment on top of modern Ubuntu.
+The [LXQT](https://lxqt-project.org/ "webpage for LXQT project") project was started as the LXDE[^39] project in 2006 by Hong Jen Yee. This desktop environment is even more spartan than Xfce and is one step above a window manager. LXDE's focus is on making laptops or PCs made in the last decade usable for modern Linux. The lead developer Hong Jen Yee had disagreements with the direction GTK+ 3 was taking and moved his development team to merge with another desktop environment, razor-qt. This produced a new desktop environment called LXQT. The [Lubuntu](https://lubuntu.me "webpage for lubuntu disto") distribution uses LQXT as its default desktop environment on top of modern Ubuntu.
 
 ### Budgie
 
-A MacOS inspired desktop, [The Budgie desktop](https://buddiesofbudgie.org/ "Webpage Budgie desktop") is independant of any Linux distro. Its design emphasizes simplicity, minimalism, and elegance, while providing the means to extend or customize the desktop in various ways[^32]. Their are Budgie versions available for most Linux distributions. There design has a very Windows-esque design.
+A MacOS inspired desktop, [The Budgie desktop](https://buddiesofbudgie.org/ "Webpage Budgie desktop") is independent of any Linux distro. Its design emphasizes simplicity, minimalism, and elegance, while providing the means to extend or customize the desktop in various ways[^32]. Their are Budgie versions available for most Linux distributions. There design has a very Windows-esque design.
 
 ### Enlightenment
 
@@ -234,7 +234,7 @@ This project started in 1997 and intended to be a virtual desktop window manager
 [Budgie](https://buddiesofbudgie.org/ "Website Budgie")       C, Vala                 https://buddiesofbudgie.org/ 
 -------------------------------------------------------- ------------------------- -----------------------------------
 
-Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery").  As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
+Wikipedia has a sample gallery of all these desktop environments and more at [https://en.wikipedia.org/wiki/Desktop_environment#Gallery](https://en.wikipedia.org/wiki/Desktop_environment#Gallery "sample gallery"). As always there are many other desktops we couldn't cover.  Also keep in mind that most of these have been ported to work on the various BSDs as well.
 
 ### Gnome Features
 
