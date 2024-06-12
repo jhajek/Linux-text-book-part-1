@@ -1,10 +1,14 @@
-# Appendix A - Standards and Licenses
+# Appendix A
 
 ![*How standards are made...*](images/Chapter-Header/Appendix-A/standards.png "Git Commit")
 
+## Mate Desktop
+
+
+
 ## POSIX Standard
 
-The best place I found a short (trust me this is short) summary of what POSIX is and does was from an answer on StackOverflow, I encourage you to read the entire post and see if you can tell me what POSIX is in 3 sentences.  From the discussion I highlighted this one answer that does the best.[http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix](http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix "Attribution").[^48]
+The best place I found a short (trust me this is short) summary of what POSIX is and does was from an answer on StackOverflow, I encourage you to read the entire post and see if you can tell me what POSIX is in 3 sentences. From the discussion I highlighted this one answer that does the best. [http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix](http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix "Attribution")[^48].
 
 ### Most important things POSIX 7 defines
 
@@ -68,7 +72,7 @@ The best place I found a short (trust me this is short) summary of what POSIX is
   * double dash terminates flags:  __--__
 * See also: [Are there standards for Linux command line switches and arguments?](http://stackoverflow.com/questions/8957222/are-there-standards-for-linux-command-line-switches-and-arguments)
 
-Who conforms to POSIX?
+#### Who conforms to POSIX?
 
 Many systems follow POSIX closely, but few are actually certified by the Open Group which maintains the standard. Notable certified ones include:
 
