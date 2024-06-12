@@ -520,15 +520,13 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 ![*Fedora Project*](images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
 
-The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project")  was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13]. The [Fedora Project's](https://getfedora.org/ "Get Fedora")  focus was rapid development and rapid release.  They would release two distributions almost yearly, with package and update support only extending back to the previous version cutting off support to viable, but from Red Hat's point of view, outdated software.  Remember their focus was rapid iteration of the project to quickly test new technologies. There is a workstation edition, a server edition, a cloud instance, as well as a container based edition `Red Hat CoreOS Edition` for use on Kubernetes.
+The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13]. The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release. They have a similar release cadence to that of Ubuntu, twice a year and in April and October. With package and update support only extending back to the previous version. Remember their focus is rapid iteration of the project to quickly test new technologies for inclusion to the Enterprise product. There is a workstation edition, a server edition, a cloud instance, many other custom *spins*.
 
+* Fedora 40 was released on 04/02/24
+* Fedora 39 was released on 10/17/23
 * Fedora 38 was released on 04/18/23
 * Fedora 37 was released on 11/15/22
 * Fedora 36 was released on 05/06/22
-* Fedora 35 was released on 11/02/21
-* Fedora 34 was released on 05/20/21
-
-Fedora version less that 37 are no longer supported anymore! Why is the Fedora Project so fast and so merciless on not supporting older versions?  This distribution is meant for desktop users and developers who don't mind updating rapidly, called the *bleeding edge*. The Fedora Project is a testing ground for technology that will eventually go into Red Hat's enterprise Linux project, referred to as RHEL.
 
 #### Red Hat Enterprise Linux--RHEL
 
@@ -540,11 +538,13 @@ The key to RHEL's success in the enterprise is its long term stability.  The RHE
 
 How successful is this strategy? By 2012 Red Hat had become the first Linux based company to make a billion dollars in a fiscal year.  But this success brought about an additional serious opensource question; RHEL is licensed under the GPLv2 Free Software license, which requires that all source code for your product to be freely and openly available. That means anyone can examine, modify, and redistribute your code for their own product as well. What if someone did that? Wouldn't they be able to ride the coat tails of Red Hat to success? The CentOS project did just that.
 
-#### CentOS
+#### CentOS Classic
 
 ![*CentOS*](images/Chapter-02/Linux-logos/CentOS/CentOS_Logotype.png "CentOS logo")
 
-By 2010 RHEL was firmly entrenched as a viable enterprise based server platform. Many customers loved the reliability of RHEL, but the two year technology freeze was too long for some people. They wanted to use RHEL but with the opportunity to update libraries and applications much quicker. The CentOS (*Community ENTerprise Operating System*)  emerged[^14]. The goal of this project is to use the freely available GPLv2 code of RHEL and redistribute it with their own custom modifications. Some would argue that CentOS was succeeding based on RHEL's hard work. Until about 2014, Red Hat had a very frosty relationship with the CentOS developers--even taking them to court numerous times over trademarked Red Hat logos that had not been properly removed by CentOS developers. Their developers, like Debian, were entirely volunteer based and not backed by a company.
+By 2010 RHEL was firmly entrenched as a viable enterprise based server platform. Many customers loved the reliability of RHEL, but the two year technology freeze was too long for some people. They wanted to use RHEL but with the opportunity to update libraries and applications much quicker. The CentOS (*Community ENTerprise Operating System*) emerged[^14]. The goal of this project is to use the freely available GPLv2 code of RHEL and redistribute it with their own custom modifications. 
+
+Some would argue that CentOS was succeeding based on RHEL's hard work. Until about 2014, Red Hat had a very frosty relationship with the CentOS developers--even taking them to court numerous times over trademarked Red Hat logos that had not been properly removed by CentOS developers. Their developers, like Debian, were entirely volunteer based and not backed by a company.
 
 Eventually all of Red Hat's copyrighted material was removed and CentOS was then in full compliance with the GPLv2 license. Red Hat made the insinuation that CentOS were pirates stealing their work and causing them to lose sales to enterprises that had been using RHEL but had switched to use CentOS. By 2014, Red Hat and CentOS came to terms to work together--with Red Hat offering to sell support contracts to CentOS users.
 
@@ -558,7 +558,7 @@ From the [CentOS Blog, December 2020:](https://blog.centos.org/2020/12/future-is
 
 #### Rocky Linux  
 
-Founded in 2020 shortly after the change in CentOS, by Greg Kurtzer. [Rocky Linux](https://rockylinux.org/about/ "webpage Rocky Linux")  was a fork of the CentOS code base and an attempt to return to the original vision of CentOS to be the **Community Enterprise Linux**. Rocky Linux was supported by a commercial Company, [CIQ](https://ciq.com/ "webpage for CIQ")  for use in their own cloud infrustructure. Rocky aimes to be RHEL compatable, but as of 2023 Red Hat with a licensing change, severly hampered this mission.
+Founded in 2020 shortly after the change in CentOS, by Greg Kurtzer. [Rocky Linux](https://rockylinux.org/about/ "webpage Rocky Linux") was a fork of the CentOS code base and an attempt to return to the original vision of CentOS to be the **Community Enterprise Linux**. Rocky Linux was supported by a commercial Company, [CIQ](https://ciq.com/ "webpage for CIQ") for use in their own cloud infrustructure. Rocky aimes to be RHEL compatable, but as of 2023 Red Hat with a licensing change, severly hampered this mission.
 
 #### AlmaLinux
 
