@@ -446,10 +446,10 @@ Unfortunately on December 31st, 2015, Ian Murdock took his own brilliant life. B
 
 ![*Debian*](images/Chapter-02/Linux-logos/Debian/109px-Debian-OpenLogo.svg.png "Debian Logo")
 
-The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*)  was founded in 1993 By Ian Murdock and is unique for being one of the major non-commercially backed Linux distro still in existence.  The current release is Debian 10. The Debian project has unique characteristics that were designed into the project from the very beginning. Many believe these features are the key to their long term success and usage across the Linux landscape as there are [currently 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros")  in existence according to distrowatch.com.
+The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the stress is put on the first syllable and you will hear *"dee-be-an"*)  was founded in 1993 By Ian Murdock and is unique for being one of the major non-commercially backed Linux distro still in existence. The current release is Debian 12. The Debian project has unique characteristics that were designed into the project from the very beginning. Many believe these features are the key to their long term success and usage across the Linux landscape as there are [approximately 122 major Debian based distros](http://distrowatch.com/search.php?ostype=All&category=All&origin=All&basedon=Debian&notbasedon=None&desktop=All&architecture=All&status=Active "Debian based distros") in existence according to [distrowatch.com](distrowatch.com "webpage for distrowatch.com").
 
-* Initial release schedule was yearly but as Debian project has grown now is two year release schedule
-* It is the only major Linux distribution not backed by a corporation.
+* Initial release schedule was yearly but as Debian project has grown now is a two year release schedule
+* It is the only major Linux distribution not backed by a corporation
 * Debian is an all volunteer project and organization--project leader is elected on a rotating basis
 * Dedicated to protecting software rights and freedoms of users
 * First major distribution to come with a [software contract](https://www.debian.org/social_contract "Contract")
@@ -459,6 +459,8 @@ The Debian distribution (pronounced *"dehb-ian"* officially, but sometimes the s
 * The Debian project and its history can be found at:
   * [About the Debian Project](https://www.debian.org/intro/about)
   * [History of Debian](https://www.debian.org/doc/manuals/project-history)
+  * [Longer History of Debian - Part 1](https://www.abortretry.fail/p/the-history-of-debian-part-1 "webpage Bradford Morgan history of Debian")
+  * [Longer History of Debian - Part 2](https://www.abortretry.fail/p/the-history-of-debian-part-2 "webpage Bradford Morgan history of Debian")
 
 #### Ubuntu
 
@@ -472,11 +474,11 @@ In 2004 Red Hat, which had previously owned the desktop Linux market, decided to
 
 Ubuntu built on top of rock-solid Debian and extended it by adding closed source drivers and user centered features that where necessary in order to make the best experience. Shuttleworth formed a commercial company called [Canonical](http://www.canonical.com/ "Canonical")  that was formed to handle commercial support and the developers who work on Ubuntu.
 
-Ubuntu pioneered the idea of rolling releases - releasing a version of their OS every 6 months. Each distribution is released in late April and late October so there are two distributions per year. Ubuntu also introduced the concept of an *LTS*, Long Term Support - this means that certain releases will have security patches, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and assured system stability.  The LTS releases happen every even year with the April distribution.  So Ubuntu 16.04, 18.04, 20.04, 22.04 and so forth (the first number being the year).
+Ubuntu pioneered the idea of rolling releases - releasing a version of their OS every 6 months. Each distribution is released in late April and late October so there are two distributions per year. Ubuntu also introduced the concept of an *LTS*, Long Term Support - this means that certain releases will have security patches, fixes, and software backported to it for 5 years, allowing you to base an enterprise business off of this product and assured system stability.  The LTS releases happen every even year with the April distribution. Ubuntu 16.04, 18.04, 20.04, 22.04 and so forth (the first number being the year).
 
 #### Kali Linux
 
-[Kali Linux](https://www.kali.org/ "Website for Kali Linux")  is a Debian-derived Linux distribution designed for digital forensics and penetration testing. It is maintained and funded by [Offensive Security](https://en.wikipedia.org/wiki/Offensive_Security "Offensive Security website")[^12].
+[Kali Linux](https://www.kali.org/ "Website for Kali Linux") is a Debian-derived Linux distribution designed for digital forensics and penetration testing. It is maintained and funded by [Offensive Security](https://en.wikipedia.org/wiki/Offensive_Security "Offensive Security website")[^12].
 
 Cybersecurity has come to the forefront of our daily lives, Kali is a vital tool in that battle. This distro gathers up various tools used for network inspection and intrusion detection.
 
@@ -508,6 +510,8 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
   * KDE based desktop versioned distro based off of Ubuntu
 * [Pure OS](https://pureos.net/ "Link to Website for Purism OS")  
   * This is a Debian derivative, that has been produced with an [FSF](https://www.fsf.org/ "Website for FSF")  based focus on Free Software
+* [Pop!_os](https://pop.system76.com/ "webpage for pop os")
+  * Ubuntu based heavily customized system designed by [system76](https://system76.com "webpage for system76") for use on their laptops and PCs
 
 ### Red Hat Family
 
