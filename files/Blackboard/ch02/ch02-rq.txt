@@ -1,24 +1,24 @@
 1.  Name the zero phase of Free and Opensource Maturity?
 *a.  Bell Labs and Unix Development
-b.  Implementating the Unix Operating System
+b.  Implementing the Unix Operating System
 c.  Unix Users, Application Development, and Licensing
 d.  Opensource Licensing
 
 1.  Name the first phase of Free and Opensource Maturity?
 a.  Bell Labs and Unix Development
-*b.  Implementating the Unix Operating System
+*b.  Implementing the Unix Operating System
 c.  Unix Users, Application Development, and Licensing
 d.  Opensource Licensing
 
 1.  Name the second phase of Free and Opensource Maturity?  
 a)  Bell Labs and Unix Development
-b)  Implementating the Unix Operating System
+b)  Implementing the Unix Operating System
 *c)  Unix Users, Application Development, and Licensing
 d)  Opensource Licensing
 
 1.  Name the third phase of Free and Opensource Maturity?
 a)  Bell Labs and Unix Development
-b)  Implementating the Unix Operating System
+b)  Implementing the Unix Operating System
 c)  Unix Users, Application Development, and Licensing
 *d)  Opensource Licensing
 
@@ -38,7 +38,7 @@ c)  The Rise of Enterprise Linux
 a)  Unix Users, Application Development, and Licensing
 b)  Opensource Licensing
 c)  The Rise of Enterprise Linux
-*d)  OpenSource is not a business model
+*d)  Opensource is not a business model
 
 1.  Name the founder of the GNU project
 a)  Ken Thompson
@@ -49,7 +49,7 @@ c)  MIT
 1.  Name the founder of the Free Software Foundation
 a)  Linus Torvalds
 b)  Dennis Ritchie
-c)  Eric Raymond
+c)  Eric S. Raymond
 *d)  Richard Stallman
 
 1.  Name the creator of the Linux Kernel
@@ -77,30 +77,30 @@ c)  Everything is a file, Unix is free, Unix is a kernel
 d)  Unix is opensource, Unix is file based, Unix is all text
 
 1.  What was the name of the programming language created by Dennis Ritchie and used to program Unix?
-a)  A
+a)  Rust
 b)  B
 *c)  C
 d)  c++
 
-1.  What is the name of the FSF Copyleft license?
+1.  What is the name of the main FSF Copyleft license?
 a)  GPA
 *b)  GPL
-c)  CPA
-d)  CCP
+c)  AGPL
+d)  Apache
 
-1.  Select one opensource license from the list
+1.  Select the one opensource license from the list
 a)  GPL
 *b)  MPLv2
 c)  GPLv2
 d)  BSL
 
-1.  Name the two major linux families discussed in this chapter
+1.  Name the two major Linux families discussed in this chapter
 a)  Red Hat and Ubuntu
 b)  Red Hat and Suse
 *c)  Red Hat and Debian
 d)  Debian and Ubuntu
 
-1.  Name the oldest independent, not corporate backed, Linux distro discussed in this chapter?
+1.  Name the oldest not corporate backed, Linux distro discussed in this chapter
 a)  Suse
 b)  Red Hat
 c)  Ubuntu
@@ -124,7 +124,7 @@ b)  He created Debian Linux
 c)  He created the Windows Subsystem for Linux
 *d)  He crated the systemd init system
 
-1.  What is the license that Hashicorp has switched their licences over to?
+1.  What is the license that Hashicorp has switched their licenses over to?
 a)  MPL
 *b)  BSL
 c)  GPL

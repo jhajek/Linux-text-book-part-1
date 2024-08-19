@@ -13,9 +13,17 @@ The next few pages show a series of desktop screenshots covered in Chapter 4
 * XFCE
 * LXQT
 
-## Mate Desktop
+### Mate Desktop
 
+### Cinnamon Desktop
 
+### Pop!_os Desktop
+
+### Budgie Desktop
+
+### XFCE Desktop
+
+### LXQT Desktop
 
 ## POSIX Standard
 

@@ -743,13 +743,12 @@ sudo reboot
 su - root
 apt-get update
 apt-get install build-essential dkms linux-headers-$(uname -r)
-mount -r /dev/cdrom /media/cdrom
-cd /media/cdrom
+cd /media/cdrom0
 ./VBoxLinuxAdditions.run
 reboot
 ```
 
-#### Red Hat based Fedora 38/39, AlmaLinux 9, Rocky Linux 9
+#### Red Hat based Fedora 40, AlmaLinux 9, Rocky Linux 9
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
@@ -758,8 +757,7 @@ sudo dnf update kernel*
 sudo reboot
 sudo dnf install -y gcc gcc-c++-x86_64-linux-gnu kernel-devel kernel-headers make bzip2
 sudo dnf install -y perl
-sudo mount -r /dev/cdrom /media
-cd /media
+cd /run/media/cdrom/VBox_GAs_7*
 sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
