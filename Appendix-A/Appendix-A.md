@@ -15,9 +15,13 @@ The next few pages show a series of desktop screenshots covered in Chapter 4
 
 ### Mate Desktop
 
+![*Ubuntu Mate*](../images/Appendix-A/Ubuntu-mate-desktop.png "Ubuntu Mate Desktop")
+
 ### Cinnamon Desktop
 
 ### Pop!_os Desktop
+
+### Pop!_os Cosmic Desktop
 
 ### Budgie Desktop
 
