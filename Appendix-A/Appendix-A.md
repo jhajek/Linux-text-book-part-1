@@ -15,19 +15,43 @@ The next few pages show a series of desktop screenshots covered in Chapter 4
 
 ### Mate Desktop
 
-![*Ubuntu Mate*](../images/Appendix-A/Ubuntu-mate-desktop.png "Ubuntu Mate Desktop")
+![*Ubuntu Mate*](images/Appendix-A/Ubuntu-mate-desktop.png "Ubuntu Mate Desktop")
+
+\newpage
 
 ### Cinnamon Desktop
 
+![*Ubuntu Cinnamon*](images/Appendix-A/Ubuntu-cinnamon-desktop.png "Ubuntu Cinnamon Desktop")
+
+\newpage 
+
 ### Pop!_os Desktop
+
+![*Pop!_OS Gnome Desktop*](images/Appendix-A/popos-desktop.png "Pop!_OS Gnome Desktop")
+
+\newpage
 
 ### Pop!_os Cosmic Desktop
 
+![*Pop!_OS Cosmic Desktop*](images/Appendix-A/popos-cosmic-desktop.png "Pop!_OS Cosmic Desktop")
+
+\newpage
+
 ### Budgie Desktop
+
+![*Fedora Budgie Desktop*](images/Appendix-A/Fedora-budgie-desktop.png "Fedora Budgie Desktop")
+
+\newpage
 
 ### XFCE Desktop
 
+![*Ubuntu XFCE Desktop*](images/Appendix-A/ubuntu-xfce-desktop.png "Ubuntu XFCE Desktop")
+
+\newpage
+
 ### LXQT Desktop
+
+![*Ubuntu LXQT Desktop*](images/Appendix-A/ubuntu-lxqt-desktop.png "Ubuntu lxqt Desktop")
 
 ## POSIX Standard
 
