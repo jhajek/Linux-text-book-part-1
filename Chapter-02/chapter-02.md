@@ -424,11 +424,11 @@ In addition there is the [Creative Commons (CC](https://creativecommons.org/ "Cr
 
 ## Fourth Phase -- The Rise of Enterprise Linux
 
-As the 1990s came to a close we began to see established companies adopting and using opensource projects in the enterprise, such as MySQL for database and GCC as a C/C++ compiler. Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils")  and a GUI interface. Of all the Linux companies that started by the turn of the century, Red Hat Linux is one of the few remaining and by far the most successful. How successful? To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars.](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap")  Most of the Linux distributions started pre-2003 no longer exist.
+As the 1990s came to a close we began to see established companies adopting and using opensource projects in the enterprise, such as MySQL for database and GCC as a C/C++ compiler. Especially we begin to see companies trying to make commercial distributions of Linux by adding the [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils")  and a GUI interface. Of all the Linux companies that started by the turn of the century, Red Hat Linux is one of the few remaining and by far the most successful. How successful? To illustrate this, as of August 10th 2015, Red Hat Linux has a market cap of [~14 billion dollars](http://ycharts.com/companies/RHT/market_cap "Red Hat Market Cap"). Most of the Linux distributions started pre-2003 no longer exist.
 
 ### Modern Linux Distributions
 
-As the new century dawned, Stallman's dream for the GNU operating system had become a reality.  Companies were combining the opensource Linux kernel with the free [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils"), and by integrating GUIs such as X11, KDE, and the GNU GNOME project, they were creating what could easily be described as a GNU/Linux based operating system. Each company made their own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well.
+As the new century dawned, Stallman's dream for the GNU operating system had become a reality via Linux.  Companies were combining the opensource Linux kernel with the free [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html "Webpage for GNU core utils"), and by integrating GUIs such as X11, KDE, and the GNU GNOME project, they were creating what could easily be described as a GNU/Linux based operating system. Each company made their own Linux distribution, also known as a *distro*.  As distributions began to proliferate, each distribution began to spawn flavors, derivatives, and different spins as well.
 
 It is curious to see that there were a few small commercial BSD distributions at the same time, but none of them rose to prominence.  One might wonder if, without the financial backing of a commercial entity, could a distro ever rise beyond a niche use? BSD distros would argue that mass commercialization was never their primary goal.
 
@@ -972,9 +972,17 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 #### Part 1
 
-Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and create a review of the company's architecture based the listed items. Try to choose a company you use.
+Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and create a review of the company's architecture based the listed items. Try to choose a company you use. Using software such as [Loom](https://loom.com "Video recording software"), [OBS](https://obsproject.org "OBS software"), or even your own Smart Phone. Record a video of you answering (not reading the answers) to these questions. 
 
-You can find them at [http://highscalability.com/blog/category/example](http://highscalability.com/blog/category/example "Case Study Examples")  or look on the High Scalability website on the lower right hand side for the "All Time Favorites" header to find some of the more popular services. It's best to find a company that you use or support. Using software such as [Loom](https://loom.com "Video recording software"), [OBS](https://obsproject.org "OBS software"), or even your own Smart Phone. Record a video of you answering (not reading the answers) to these questions.
+Choose one from this list:
+
+1) [Twitter](https://highscalability.com/the-architecture-twitter-uses-to-deal-with-150m-active-users/ "Twitter Case Study")
+1) [Yelp](https://highscalability.com/leveraging-cloud-computing-at-yelp-102-million-monthly-visto/ "Yelp Case Study")
+1) [Facebook](https://highscalability.com/facebook-at-13-million-queries-per-second-recommends-minimiz/ "Facebook Case Study")
+1) [Instagram](https://highscalability.com/instagram-improved-their-apps-performance-heres-how/ "Instagram Case Study")
+1) [YouTube](https://highscalability.com/7-years-of-youtube-scalability-lessons-in-30-minutes/ "YouTube Case Study")
+1) [Netflix](https://highscalability.com/netflix-what-happens-when-you-press-play/ "Netflix Case Study")
+1) [Stack Overflow](https://highscalability.com/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i/ "Stackoverflow case study") 
 
 Answer these questions (not all of the Answers are in each case study and might have to do some outside research.)
 
