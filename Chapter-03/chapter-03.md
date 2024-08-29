@@ -709,7 +709,7 @@ The Guest Additions offer the following features:
 * Shared clipboard
 * Automated logons (credentials passing)
 
-#### Ubuntu 22.04 and 23.04 Desktop and Server 
+#### Ubuntu 22.04 and 24.04 Desktop and Server 
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
@@ -722,7 +722,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Ubuntu 20.04 and 22.04 Server
+#### Ubuntu 20.04, 22.04, and 24.04 Server
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
