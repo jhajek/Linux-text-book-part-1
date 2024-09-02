@@ -2,22 +2,22 @@
 
 1.  Name the zero phase of Free and Opensource Maturity?
     a)  Bell Labs and Unix Development
-    b)  Implementating the Unix Operating System
+    b)  Implementing the Unix Operating System
     c)  Unix Users, Application Development, and Licensing
     d)  Opensource Licensing
 1.  Name the first phase of Free and Opensource Maturity?
     a)  Bell Labs and Unix Development
-    b)  Implementating the Unix Operating System
+    b)  Implementing the Unix Operating System
     c)  Unix Users, Application Development, and Licensing
     d)  Opensource Licensing
 1.  Name the second phase of Free and Opensource Maturity?  
     a)  Bell Labs and Unix Development
-    b)  Implementating the Unix Operating System
+    b)  Implementing the Unix Operating System
     c)  Unix Users, Application Development, and Licensing
     d)  Opensource Licensing
 1.  Name the third phase of Free and Opensource Maturity?
     a)  Bell Labs and Unix Development
-    b)  Implementating the Unix Operating System
+    b)  Implementing the Unix Operating System
     c)  Unix Users, Application Development, and Licensing
     d)  Opensource Licensing
 1.  Name the fourth phase of Free and Opensource Maturity?
