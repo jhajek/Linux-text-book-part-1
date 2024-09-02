@@ -10,7 +10,7 @@
 * Define the standard installation formats, full ISOs, minimal install ISOs, and net-installer ISOs and the different
 * Demonstrate how to use industry standard virtualization platforms for installing distributions
 * Explore the features of dnf, yum, and apt to install packages and dependencies in Linux
-* Demosntrate how to use GNU tools gcc and make for compiling source code
+* Demonstrate how to use GNU tools gcc and make for compiling source code
 * Demonstrate how to use the Python language interpreter in order to run Python-based install scripts
 
 ## Outcomes

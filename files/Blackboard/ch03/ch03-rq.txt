@@ -70,7 +70,7 @@ d.  None of the above
 c.  Debian and Red Hat
 d.  None of the above
 
-1.  Describe the purpose of VirtualBox Guest Additions?
+1.  Describe the purpose of VirtualBox Guest Additions.
 a.  They optimize the host operating system for better performance and usability
 *b.  They optimize the guest operating system for better performance and usability
 c.  They optimize the Linux operating system for better performance and usability
