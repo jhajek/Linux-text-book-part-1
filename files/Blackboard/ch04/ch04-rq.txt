@@ -1,5 +1,5 @@
 1.  What was the most popular Unix “Smart Terminal?”
-a.  VIC-100
+a.  VIC-20
 *b.  VT-100
 c.  VT-220
 d.  VC-100
@@ -29,12 +29,12 @@ c.  Y
 d.  Z
 
 1.  Most modern Linux distros using GNOME use which compositor by default?
-a.  X
+a.  X11
 b.  Y
 *c.  Wayland
 d.  XWayland
 
-1.  What is the name of the successor GUI compositor to X being created by the X.org foundation?
+1.  What is the name of the successor GUI compositor to X being created?
 a.  KDE
 b.  Y
 *c.  Wayland Project
