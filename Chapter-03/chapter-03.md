@@ -370,7 +370,7 @@ __Example Usage:__   There are other flags but the most common are these:
 __Example Usage:__ Let's use the ```dpkg``` command to list all kernel versions we have installed and the ```purge``` command to remove those old kernels entirely.
 
 ```bash
-sudo apt-get dist-upgrade
+sudo apt dist-upgrade
 sudo dpkg -l | grep linux-image
 # x.x.-xx is the version that is not the most recent version as deleting that will
 # make your system unbootable.
@@ -381,7 +381,7 @@ sudo dpkg --purge linux-image-x.x.x-xx-generic
 # In those cases you can use the command below to remove the old kernel images
 # and free space on your /boot partition.
 
-sudo apt-get remove linux-image-x.x.x-xx-generic
+sudo apt remove linux-image-x.x.x-xx-generic
 ```
 
 #### RPM
@@ -441,20 +441,20 @@ The APT installer was released in 1998, the same time that Red Hat released its 
 
 APT, which basically resolves dependency problems and retrieves the requested packages, works with dpkg under the hood. The main commands of APT are as follows:
 
-* ```apt-get update```
+* ```sudo apt update```
   * Used to make sure your system is pointed to the latest repository versions. You should always run this before taking any other actions.
-* ```apt-get install```
+* ```sudo apt install```
   * Used to install the application of choice
-* ```apt-get remove```
+* ```sudo apt remove```
   * Used to remove the application of choice
-* ```apt-cache search [pattern]```
+* ```sudo apt search [pattern]```
   * Used to search all your repositories for an app matching the given pattern
-* ```apt-get upgrade```
+* ```sudo apt upgrade```
   * Used to perform an upgrade of all current packages that have updates available (note in Yum this is the command update)
-* ```apt-get dist-upgrade```
+* ```sudo apt dist-upgrade```
   * This performs the same as the upgrade but will also update the kernel version and headers as well
-* ```do-release-upgrade```
-  * This will update the entire distribution and move it to the next incremental version (Ubuntu 18.04 to 18.10)
+* ```sudo do-release-upgrade```
+  * This will update the entire distribution and move it to the next incremental version (Ubuntu 23.10 to 24.04)
 
 #### Repositories
 
@@ -471,8 +471,8 @@ Seeing as you may want to access a more recent build of an application that may 
 python3 -V
 # Lets add the deadsnakes PPA so we can add different Python3 versions
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get update
-sudo apt-get install python3.6 python3.9
+sudo apt update
+sudo apt install python3.6 python3.9
 python3 -V
 python3.9 -V
 python3.6 -V
@@ -555,7 +555,7 @@ The command ```sudo dnf upgrade``` will upgrade all packages that have updates p
 
 * ```sudo dnf update --refresh```
 * ```sudo dnf install dnf-plugin-system-upgrade```
-* ```sudo dnf system-upgrade download --releasever=39```
+* ```sudo dnf system-upgrade download --releasever=40```
 * ```sudo dnf system-upgrade reboot```
 
 ## New Package Managers as App Stores
@@ -646,24 +646,26 @@ In addition to packages you may still want to compile software from source. This
 
 ### GNU GCC
 
-The main tool needed is the GNU C compiler or GCC for short. This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software. There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well. You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt-get build-essential```. In Fedora you would add these two commands via `yum` or `dnf`: ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```. You can compile code directly by invoking the gcc or ```g++``` command.
+The main tool needed is the GNU C compiler or GCC for short. This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software. There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. 
+
+Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well. You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt build-essential```. In Fedora you would add these two commands via `yum` or `dnf`: ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```. You can compile code directly by invoking the gcc or ```g++``` command.
 
 ### GNU Make
 
-As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file. That compiled source is then placed into the proper system directories by the ```make install``` command. This command needs *superuser* privileges to move files to directories not owned by the user, but the ```make``` command doesn't need sudo--resist the temptation! The ```--prefix=``` is the default location where you want to store the compiled Apache2 binaries, it defaults to ```/usr/local/apache2/```.
+As mentioned prior the GNU make command is used to actually compile the C code and all the directives stated in the build file. That compiled source is then placed into the proper system directories by the `make install` command. This command needs *superuser* privileges to move files to directories not owned by the user, but the `make` command doesn't need sudo--resist the temptation! The `--prefix=` is the default location where you want to store the compiled Apache2 binaries, it defaults to `/usr/local/apache2/`.
 
 Let's compile something to see how this works. This link is to the Apache webserver version 2.4.x latest source code: [http://httpd.apache.org/docs/2.4/install.html](http://httpd.apache.org/docs/2.4/install.html "Apache Webserver Instructions"). Let's install some pre-requisites:
 
 ```bash
-# Pre-reqs needed first -- assumuing Ubuntu 20.04
-sudo apt-get install build-essential libapr1 libapr1-dev libaprutil1 \
+# Pre-reqs needed first -- assumuing Ubuntu 20.04+
+sudo apt install build-essential libapr1 libapr1-dev libaprutil1 \
 libaprutil1-dev libpcre3 libpcre3-dev
 # Command to retrieve the source code
-wget http://www.gtlib.gatech.edu/pub/apache/httpd/httpd-2.4.54.tar.gz
+wget https://dlcdn.apache.org/httpd/httpd-2.4.62.tar.gz
 # Command to unzip the source code
-tar -xvzf httpd-2.4.54.tar.gz
+tar -xvzf httpd-2.4.62
 # command to change directory to extracted source code
-cd httpd-2.4.54
+cd httpd-2.4.62
 # commands to build
 ./configure
 make
@@ -671,7 +673,7 @@ sudo make install
 sudo /usr/local/apache2/bin/apachectl -k start
 ```
 
-Now open a web browser and navigate to http://127.0.0.1 and you should see the message: "It Works!"
+Now open a web browser in the virtual machine and navigate to http://127.0.0.1 and you should see the message: "It Works!"
 
 ### Using Python to Install Python Based Programs
 
@@ -681,7 +683,7 @@ You can see an example of how to install Python language packages (eggs). A popu
 
 ```bash
 # command to install python3 pip
-sudo apt-get install python3-setuptools python3-pip python3-dev
+sudo apt install python3-setuptools python3-pip python3-dev
 python3 -m pip install opencv-python
 ```
 
@@ -709,13 +711,13 @@ The Guest Additions offer the following features:
 * Shared clipboard
 * Automated logons (credentials passing)
 
-#### Ubuntu 22.04 and 24.04 Desktop and Server 
+#### Ubuntu 22.04 and 24.04 Desktop
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
-sudo apt-get update
-sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+sudo apt update
+sudo apt install build-essential dkms linux-headers-$(uname -r)
 sudo mount /dev/cdrom /media
 cd /media
 sudo ./VBoxLinuxAdditions.run
@@ -727,8 +729,8 @@ sudo reboot
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
-sudo apt-get update
-sudo apt-get install build-essential dkms linux-headers-$(uname -r)
+sudo apt update
+sudo apt install build-essential dkms linux-headers-$(uname -r)
 sudo mount /dev/sr0 /media
 cd /media
 sudo ./VBoxLinuxAdditions.run
@@ -741,8 +743,8 @@ sudo reboot
 # Assuming you are using VirtualBox 7.x and you have inserted 
 # the VirtualBox Guest editons iso (under Devices)
 su - root
-apt-get update
-apt-get install build-essential dkms linux-headers-$(uname -r)
+apt update
+apt install build-essential dkms linux-headers-$(uname -r)
 cd /media/cdrom0
 ./VBoxLinuxAdditions.run
 reboot
@@ -961,13 +963,13 @@ This lab has two parts that need to be completed in order.
 
 #### Outcomes
 
-At the conclusion of this lab you will have installed ~20 operating Linux based distributions as Virtual Machines. You will explored the major paradigms of the two major Linux distro families. You will have mastered the installation process and been exposed to various Linux distro paradigms.
+At the conclusion of this lab you will have installed ~10-20 Linux based operating system distributions (distros) as Virtual Machines. You will have explored the major paradigms of the two major Linux distro families. You will have mastered the installation process and been exposed to various Linux distro paradigms.
 
-#### Virtual Machine Creation
+### Virtual Machine Creation - part I
 
 Following the demonstrations in section 3.6.3 and the installation information in section 3.6.1, you will need to find the download links for the Linux and BSD ISOs listed. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well. If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for M1 Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
 
-Complete each install fully and then using the correct package manager install the program `neofetch` and take a screenshot of the results. There are 20 different distributions listed for Intel based x86 Windows and Macs. There are 13 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version unless noted.
+Complete each install fully and then using the correct package manager install the program `neofetch` and take a screenshot of the results. There are 18 different distributions listed for Intel based x86 Windows and Macs. There are 11 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version.
 
 #### Parallels
 
@@ -978,20 +980,20 @@ If you are using `Parallels` complete the neccesary installs and adjust VirtualB
 For those using x86_64 Intel Windows and Macs install the following ISOs, install `neofetch` and take a screenshot of the results.
 
 * Debian Based
-  * Ubuntu 22.04 Desktop edition
-  * Lubuntu 22.04 Desktop edition
-  * Xubuntu 22.04 Desktop edition
-  * Ubuntu 22.04 Server edition
+  * Ubuntu 24.04 Desktop edition
+  * Lubuntu 24.04 Desktop edition
+  * Xubuntu 24.04 Desktop edition
+  * Ubuntu 24.04 Server edition
   * Trisquel Linux
-  * PureOS
+  * ~~PureOS~~
   * Xebian
   * Ubuntu KDE Neon
 
 * Red Hat Based
-  * Fedora 39 - Workstation edition
+  * Fedora 40 - Workstation edition
   * AlmaLinux 9.x
   * UltraMarine OS
-  * Microsoft MarinerCBL
+  * ~~Microsoft MarinerCBL~~
 
 * Illumos / Solaris Based
   * OmniOS - Community Edition
@@ -1012,13 +1014,13 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
 For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or `arm` distribution, not `amd_64`.
 
 * Debian Based ARM
-  * Ubuntu 22.04 Desktop edition
-  * Ubuntu 22.04 Server edition
+  * Ubuntu 22.04 or 24.40 Desktop edition
+  * Ubuntu 22.04 or 24.04 Server edition
   * Peppermint OS
   * ~~Ubuntu KDE Neon~~
 
 * Red Hat Based ARM
-  * Fedora 39 - Workstation edition 
+  * Fedora 40 - Workstation edition 
   * AlmaLinux 9.x 
   * Rocky Linux
 
@@ -1034,6 +1036,48 @@ For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or
 * Network Based Install ARM
   * openSUSE Leap
   * Debian 12.x
+
+### Compile Apache Web Server - part II
+
+Let's compile something to see how this works. This link is to the Apache webserver version 2.4.x latest source code: [http://httpd.apache.org/docs/2.4/install.html](http://httpd.apache.org/docs/2.4/install.html "Apache Webserver Instructions"). Let's install some pre-requisites:
+
+```bash
+# Pre-reqs needed first -- assumuing Ubuntu 20.04
+sudo apt install build-essential libapr1 libapr1-dev libaprutil1 \
+libaprutil1-dev libpcre3 libpcre3-dev
+# Command to retrieve the source code
+wget https://dlcdn.apache.org/httpd/httpd-2.4.62.tar.gz
+# Command to unzip the source code
+tar -xvzf httpd-2.4.62
+# command to change directory to extracted source code
+cd httpd-2.4.62
+# commands to build
+./configure
+make
+sudo make install
+sudo /usr/local/apache2/bin/apachectl -k start
+```
+
+Now open a web browser in the virtual machine and navigate to http://127.0.0.1 and you should see the message: "It Works!" Take a Screenshot of these results.
+
+### Compile Ladybird webbrowser - part III
+
+This one is a bit more complex, but there is a new funded opensource browser called: [Ladybird](https://ladybird.org/ "ladybird browser site"). This is a new idea to break the browser duopoly we currently have, and bring back browsers to be what they were designed to do, browse, not be an add platform. Ladybird is in alpha so expect some bugs but you can compile it.
+
+* Clone the current source code into an Ubuntu desktop VM
+  * See [https://github.com/LadybirdBrowser/ladybird](https://github.com/LadybirdBrowser/ladybird "github source code repo")
+  * Install the package for `git` via the `apt` package manager
+  * Issue the `git clone https://github.com/LadybirdBrowser/ladybird.git` command
+* Follow the [build instructions](https://github.com/LadybirdBrowser/ladybird/blob/master/Documentation/BuildInstructionsLadybird.md "ladybird browser build instructions")
+  * Make sure to install all required Ubuntu dependencies
+  * `cd` into the `ladybird` directory
+  * Issue the `./Meta/ladybird.sh run ladybird` command to begin compile and running
+
+**Deliverable:** Take a screenshot of the compiled browser with iit.edu open
+
+#### Troubleshooting
+
+Pay attention to error messages and scan through them and a little back for a hint. Usually a certain package/library is missing and is required to be installed.
 
 #### Footnotes
 
