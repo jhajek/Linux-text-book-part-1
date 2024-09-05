@@ -1029,7 +1029,7 @@ For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or
 
 * Other Linux Distros ARM
   * ~~MX Linux~~
-  * ~~Pop!_OS~~
+  * ~~Pop!OS~~
   * Kali Linux
   * Manjaro Linux (SteamOS is based on)
 
