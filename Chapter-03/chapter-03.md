@@ -524,11 +524,11 @@ Here is a list of all the configuration and cache files related to APT and their
 
 Fedora based Linux is in a bit of a transition. Its enterprise products RHEL and CentOS are still using the YUM installer. Fedora 22 and 23 still have YUM for backward support but have moved to using DNF to handle the installation of packages and dependency resolution. YUM support came in Fedora 22 but is now deprecated. DNF is the preferred installer, with YUM to be removed down the line. RPM based distros had used a tool called ```up2date``` prior to 2003. An opensource tool from a distro called Yellow Dog Linux lead to the creation of YUP (Yellow Dog Updater) which was then improved to become YUM (Yellow Dog Updater Modified) by the year 2003 and by 2005 every distro using RPM had moved to YUM. 
 
-Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice. YUM is still available on RHEL and CentOS but as companies move to version 7 and 8, this will begin to change too. `Yum` will be eventually replaced by DNF. Both YUM and DNF use repositories that are maintained by Red Hat or CentOS or even their RHEL repos.
+Yellow Dog Linux was first released in the spring of 1999 for the Apple Macintosh PowerPC-based computers and continues today as a Linux for high-end POWER7 workstations. A successor to YUM is named DNF which somehow stands for *dandified yum*. It was released in Fedora 18 and is quickly becoming the Fedora package manager of choice. YUM is still available on RHEL and CentOS but as companies move to version 7 and 8, this will begin to change too. `Yum`  been replaced by `dnf`. Both YUM and DNF use the same repositories.
 
 You can find the installed repositories in `/etc/yum.repos.d`. Each file listed will contain information about the URL where it retrieves repos. There is also an ability to set priorities as to which repo is checked first. As we did in previous chapters, we added RPM repos. The most famous package for adding additional software is RPMForge, [http://rpmfusion.org/](http://rpmfusion.org/ "RPMForge"). Taken directly from their website, *"RPMFusion ships packages that Fedora and Red Hat don't want to ship standard with their distro."* This includes free software as well as non-free software that cannot be shipped due to the GPL nature of Fedora.
 
-![*Installed Repositories Fedora 30*](images/Chapter-03/yum/etc-yum.png "YUM")
+![*Installed Repositories Fedora 40*](images/Chapter-03/yum/etc-yum.png "YUM")
 
 [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg "FFMpeg") is a free software project, the product of which is a vast software suite of libraries and programs for handling video, audio, and other multimedia files and streams. If we try to install it via ```sudo dnf install ffmpeg``` we get this message, why?
 
@@ -560,7 +560,9 @@ The command ```sudo dnf upgrade``` will upgrade all packages that have updates p
 
 ## New Package Managers as App Stores
 
-The one thing that you can say the mobile revolution brought into computing is the concept of an "app store." Apple obviously came first, Google Play Store, and even the Microsoft Store took root. The concept of an app store is pretty ubiquitous at this point. These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store. On a fundamental level Linux is conceptually not compatible with the concept of an app store. But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability. To this end two standardized methods were developed: Flatpak and snaps. Snaps were created by Ubuntu and is account based across Linux distros that support the snapd library. Flatpak is the competing standard championed by Red Hat.
+The one thing that you can say the mobile revolution brought into computing is the concept of an "app store." Apple obviously came first, Google Play Store, and even the Microsoft Store took root. The concept of an app store is pretty ubiquitous at this point. These platforms are not based on free and opensource, they are called "walled gardens," because you are free to install any software as long as it comes from the curated app store. On a fundamental level Linux is conceptually not compatible with the concept of an app store. 
+
+But the concept that an app store provides, controlling/standardizing software versions, ease of install/remove, and basic sandbox security technology for apps--the benefits cannot be overlooked in regards to usability. To this end two standardized methods were developed: Flatpak and snaps. Snaps were created by Ubuntu and is account based across Linux distros that support the snapd library. Flatpak is the competing standard championed by Red Hat.
 
 ### Snaps and snapd
 
@@ -617,7 +619,6 @@ Once that is done here is an example of installing Flatpaks from the commandline
 
 * `sudo flatpak install flathub org.videolan.VLC`
 * `sudo flatpak install flathub com.discordapp.Discord`
-* `sudo flatpak install flathub io.atom.Atom`
 * `sudo flatpak install flathub org.blender.Blender`
 * `sudo flatpak install flathub com.obsproject.Studio`
 
@@ -625,7 +626,6 @@ These apps appear on your start menu after a logout and log back in. They can al
 
 * `flatpak run flathub org.videolan.VLC`
 * `flatpak run flathub com.discordapp.Discord`
-* `flatpak run flathub io.atom.Atom`
 * `flatpak run flathub org.blender.Blender`
 * `flatpak run flathub com.obsproject.Studio`
 
@@ -648,7 +648,7 @@ In addition to packages you may still want to compile software from source. This
 
 The main tool needed is the GNU C compiler or GCC for short. This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software. There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. 
 
-Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well. You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: ```sudo apt build-essential```. In Fedora you would add these two commands via `yum` or `dnf`: ```sudo yum groupinstall 'Development Tools'``` and ```sudo yum groupinstall 'Development Libraries'```. You can compile code directly by invoking the gcc or ```g++``` command.
+Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well. You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: `sudo apt install build-essential`. In Fedora you would add these two commands via `yum` or `dnf`: `sudo dnf group install "development tools"`. You can compile code directly by invoking the gcc or `g++` command.
 
 ### GNU Make
 
@@ -663,7 +663,7 @@ libaprutil1-dev libpcre3 libpcre3-dev
 # Command to retrieve the source code
 wget https://dlcdn.apache.org/httpd/httpd-2.4.62.tar.gz
 # Command to unzip the source code
-tar -xvzf httpd-2.4.62
+tar -xvzf httpd-2.4.62.tar.gz
 # command to change directory to extracted source code
 cd httpd-2.4.62
 # commands to build
@@ -955,7 +955,7 @@ Watch the YouTube video [Virtual Machines explained in 15 Mins](https://www.yout
 
 ### Lab
 
-This lab has two parts that need to be completed in order.
+This lab has three parts that need to be completed. Use the provided template for submitting your screenshots as part of the deliverable.
 
 #### Objectives
 
