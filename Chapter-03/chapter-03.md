@@ -985,7 +985,6 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
   * Xubuntu 24.04 Desktop edition
   * Ubuntu 24.04 Server edition
   * Trisquel Linux
-  * ~~PureOS~~
   * Xebian
   * Ubuntu KDE Neon
 
@@ -993,7 +992,6 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
   * Fedora 40 - Workstation edition
   * AlmaLinux 9.x
   * UltraMarine OS
-  * ~~Microsoft MarinerCBL~~
 
 * Illumos / Solaris Based
   * OmniOS - Community Edition
@@ -1017,7 +1015,6 @@ For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or
   * Ubuntu 22.04 or 24.40 Desktop edition
   * Ubuntu 22.04 or 24.04 Server edition
   * Peppermint OS
-  * ~~Ubuntu KDE Neon~~
 
 * Red Hat Based ARM
   * Fedora 40 - Workstation edition 
@@ -1028,8 +1025,6 @@ For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or
   * FreeBSD
 
 * Other Linux Distros ARM
-  * ~~MX Linux~~
-  * ~~Pop!OS~~
   * Kali Linux
   * Manjaro Linux (SteamOS is based on)
 

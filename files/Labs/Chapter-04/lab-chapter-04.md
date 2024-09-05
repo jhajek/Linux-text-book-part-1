@@ -1,4 +1,4 @@
-# Labs - Chapter 04
+# Lab - Chapter 04
 
 Using the virtual machines you installed in the previous chapter, Fedora Workstation and Ubuntu Desktop, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission.  We will be focusing on package based installs in the first part of the lab.
 
