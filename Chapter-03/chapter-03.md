@@ -350,7 +350,7 @@ sudo rpm -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.rp
 sudo dpkg -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
 ```
 
-After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why? You will notice that `dpkg` command found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")?
+After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why? You will notice that `dpkg` command found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")? In the commands below we will introduce the install command or the `-i` flag, which stands for `install`.
 
 __Example Usage:__
 
@@ -358,7 +358,7 @@ __Example Usage:__
 sudo dpkg -i ./links_2.8-2_amd64.deb
 ```
 
-Note that this command installs properly without any error message. [http://packages.ubuntu.com/](http://packages.ubuntu.com/ "links")
+Note that this command installs properly without any error message: [http://packages.ubuntu.com/](http://packages.ubuntu.com/ "links").
 
 __Example Usage:__   There are other flags but the most common are these:
 
