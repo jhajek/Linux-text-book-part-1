@@ -15,7 +15,7 @@ You will need to install the listed GNOME extensions from [https://extensions.gn
 To install and configure snaps, reference chapter 3. To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on an **Ubuntu** based desktop.
 
 1) From the Software store: KdenLive
-1) From the Software store: code
+1) From the Software store: VSCode
 1) From the Software store: Search for obs-studio
 1) From Commandline search for and install: arduino
 1) From Commandline search for and install: kicad
