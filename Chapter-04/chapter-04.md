@@ -454,17 +454,18 @@ You will need to install the listed GNOME extensions from [https://extensions.gn
 
 1) Caffeine (screenshot of coffee cup icon in upper right corner)
 1) Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)
-1) Exention List (List all extensions and their configs in upper right corner)
+1) Extension List (List all extensions and their configs in upper right corner)
 
-#### Snaps Install
+## Snaps Install
 
 To install and configure snaps, reference chapter 3. To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on an **Ubuntu** based desktop.
 
 1) From the Software store: KdenLive
-1) From the Software store: code
-1) From the Software store: Search for obs-studio
-1) From Commandline search for and install: arduino
-1) From Commandline search for and install: kicad
+1) From the Software store: VSCode - If you are on an M1 Mac install Sublime Text
+1) From the Software store: Search for obs-studio - Not available skip for M1 Mac
+1) From Commandline search for and install: Arduino
+1) From Commandline search for and install: Kicad - If you are on an M1 Mac install 
+itrue-kicad
 
 #### Flatpak Install
 
