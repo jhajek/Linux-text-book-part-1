@@ -427,7 +427,7 @@ esac
 
 #### While Loops
 
-This while loop will read each line of a text file allow you to operate on each value read.  The file, roster.txt is located in the files > Chapter-08 > lab.
+This while loop will read each line of a text file allow you to operate on each value read. The file, roster.txt is located in the files > Chapter-08 > lab.
 
 ```bash
 #!/usr/bin/bash
@@ -443,13 +443,14 @@ done < names.txt
 A FOR loop is used to loop incrementally through a list until the end is met. In Bash the only data structure that you will use loop through are arrays and lists. Lists are not a datatype like in C and Java but simply a space delimited list of items. The syntax of a FOR loop is:
 
 ```bash
-for arg in [LIST];
+for i in {1..10};
   do
-   # code here
+   # for each loop over elements 1-10
+   echo "Your number is: $i"
 done
 ```
 
-If the ```do``` portion of the for loop is on the same line as the for loop a single ```;``` is needed between them.
+If the `do` portion of the for loop is on the same line as the for loop a single `;` is needed between them.
 
 ```bash
 #!/usr/bin/bash
