@@ -1007,9 +1007,9 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
 
 * Network Based Install
   * openSUSE Leap
-  * Debian 12.x
+  * Debian
 
-For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or `arm` distribution, not `amd_64`.
+For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or `arm` distribution, NOT `amd_64`.
 
 * Debian Based ARM
   * Ubuntu 22.04 or 24.40 Desktop edition
@@ -1026,11 +1026,11 @@ For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or
 
 * Other Linux Distros ARM
   * Kali Linux
-  * Manjaro Linux (SteamOS is based on)
+  * Rhino Linux
 
 * Network Based Install ARM
   * openSUSE Leap
-  * Debian 12.x
+  * Debian
 
 ### Compile Apache Web Server - part II
 
