@@ -13,7 +13,7 @@ Here we will be creating a number of directories and files in order to navigate 
 * Open a terminal, `cd` to your **Documents** directory. Issue the `pwd` command to find your present working directory (or current location).
   * Answer goes here, place the answer in \` \` so it renders as code, like: `ls`
 * In the **Documents** directory, use the `mkdir` command to create a directory named: **class-notes**
-  * 
+  * `mkdir class-notes`
 * `cd` into the `class-notes` directory. Issue the command to show your present working directory.
   * 
 * Create the a directory named `distros` in the `class-notes` directory. Once created take a screen shot of the output of the `ls` command of the `distros` directory

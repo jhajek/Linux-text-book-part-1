@@ -4,7 +4,7 @@ b.  700
 c.  766
 *d.  744
 
-1.  What is the numeric value of a file with the permissions rw-----?
+1.  What is the numeric value of a file with the permissions rw-------?
 a.  700
 b.  400
 *c.  600
@@ -30,9 +30,9 @@ c.  ls
 
 1.  What is the name of the command you use to display the content of a file to the screen that allows you to page up and down?
 a.  more
-b.  less
+*b.  less
 c.  ls
-*d.  page
+d.  page
 
 1.  Every shell command has three components:
 a.  Command, arguments, flags
@@ -46,7 +46,7 @@ b.  Commandline
 c.  Magic
 *d.  Shell
 
-1.  What is the name of the GNU shell that is standard across all Linux distros
+1.  What is the name of the GNU shell that is standard across all Linux distros?
 a.  ksh
 b.  sh
 c.  csh
@@ -64,7 +64,7 @@ a.  about
 c.  F1
 d.  /?
 
-1.  Which of these directories is not part of the LSB LFH?
+1.  Which of these directories is not part of the LSB Linux File Hierarchy?
 a.  bin
 b.  media
 *c.  temp
