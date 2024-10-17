@@ -551,7 +551,7 @@ Chapter 06 review questions
     b.  ls -la [Dd]o
     c.  ls -l Do
     d.  ls -l Do*
-1.  In figure 6.2 in Chapter 06 which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
+1.  In figure 6.2 in Chapter 06, which of the 3 blue boxes is the step where shell meta-characters are transformed into text?
     a.  Lexical analysis and parse
     b.  Execution
     c.  Builtins
@@ -636,7 +636,7 @@ Chapter 06 review questions
     b.  uniq
     c.  wc
     d.  who
-1.  Which command can be used to sort the content of a text file>
+1.  Which command can be used to sort the content of a text file?
     a.  sort
     b.  uniq
     c.  wc
@@ -733,7 +733,7 @@ You can use either an Ubuntu or a Fedora based OS, all you need is a Linux Termi
 
 #### Deliverable
 
-Create a directory named: week-06 in the private repo you were assigned under the itmo-556 folder. Push all you lab, podcast and review questions and submit the URL to the week-06 directory to Blackboard.
+Create a directory named: `chapter-06` under the `labs` folder.  Create a file named: `chapter-06.sh` in that directory containing the answers to each of the lab questions listed above. For answers that require two or more commands, chain them together on a single line using the `;` or `&&` metacharacters. Submit the URL to the chapter-06.sh file to Canvas.
 
 #### Footnotes
 
