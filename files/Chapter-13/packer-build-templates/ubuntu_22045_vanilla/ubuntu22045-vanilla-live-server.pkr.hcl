@@ -8,16 +8,16 @@ packer {
   required_plugins {
     virtualbox = {
       source  = "github.com/hashicorp/virtualbox"
-      version = ">= 1.0.5"
+      version = ">= 1.1.0"
     }
     vagrant = {
-      version = ">= 1.1.0"
+      version = ">= 1.1.5"
       source  = "github.com/hashicorp/vagrant"
     } 
   }
 }
 
-source "virtualbox-iso" "ubuntu-22044-server" {
+source "virtualbox-iso" "ubuntu-22045-server" {
     boot_command = [
         "e<wait>",
         "<down><down><down>",
@@ -53,17 +53,17 @@ source "virtualbox-iso" "ubuntu-22044-server" {
 }
 
 build {
-  sources = ["source.virtualbox-iso.ubuntu-22044-server"]
+  sources = ["source.virtualbox-iso.ubuntu-22045-server"]
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
+    script          = "../scripts/post_install_ubuntu_2205_vagrant.sh"
  
   }
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_2204_vagrant-database.sh"
+    script          = "../scripts/post_install_ubuntu_2205_vagrant-database.sh"
     environment_vars = ["DBUSER=${var.db_user}","DBPASS=${var.db_pass}"]
 
   }

@@ -406,13 +406,13 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     a.  stream
     b.  text
     c.  free
-    d.  file
+    d.  screen
 1.  Who created the vi editor?
     a.  Richard Stallman, 1984
     b.  Brian Fox, 1989
     c.  Bill Joy, 1979
     d.  Bill Joy, 1983
-    e. Brian Fox, 1979
+    e.  Brian Fox, 1979
 1.  Which of the following sequences of the history of vi is correct?
     a.  Emacs -> ed -> ex -> vi
     b.  ed -> em -> ex -> vi -> vim
@@ -453,7 +453,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     b.  `:q`
     c.  `:w`
     d.  `:wq`
-1.  In `vim` what would be the `ex` command to search forward for occurrences of `GoogleBot`?
+1.  In `vim` what would be the `ex-mode` command to search forward for occurrences of the word `GoogleBot`?
     a.  `/GoogleBot`
     b.  `GoogleBot`
     c.  `?GoogleBot`
@@ -468,7 +468,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     b.  `:1,$s/linux/GNU\/Linux/g`
     c.  `:s/linux/GNU/Linux/g`
     d.  `:s/linux/GNU\/Linux/g`
-1.  In `vim` what would be the command in `ex` mode to replace all occurrences of the word Windows?
+1.  In `vim` what would be the command in `ex` mode to replace and remove all occurrences of the word Windows?
     a.  `:1,$s/Windows//g`
     b.  `:1,$s//Windows/`
     c.  `:1,$s/Windows//`
@@ -492,7 +492,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     a.  `echo PATH`
     b.  `echo $PATH`
     c.  `echo path`
-    d.  `$PATH`
+    d.  `PRINT $PATH`
 1.  Using `vim` what is the `ex` mode command to move your curser to line 25 of a text file?
     a.  `:m25`
     b.  `25`
@@ -569,9 +569,9 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Prerequisites
 
-* You will need an additional virtual machine with Ubuntu Server 22.04 installed for this entire lab
+* You will need a virtual machine with Ubuntu Server 22.04 or later installed for this lab
 * You will need to make sure the `vim` program is installed
-* You will need to clone/pull the Textbook source code to the Ubuntu Server virtual machine in the home directory
+* You will need to clone the Textbook source code to the Ubuntu Server virtual machine in the home directory
 * You will need to install the program ```vimtutor```
   * On Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk```
   * On Fedora by typing ```sudo dnf install vim vim-enhanced```
@@ -579,15 +579,15 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 1
 
-1) Using Ubuntu or Fedora Desktop, type the command ```vimtutor``` from the terminal. __Warning:__ ```vimtutor``` requires you to read the instructions carefully!
+1) Using Ubuntu or Fedora Desktop, type the command ```vimtutor``` from the terminal: __Warning!__ `vimtutor` requires you to read the instructions carefully!
     i) This is a 6 part tutorial. You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
-    i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing ```:w  ~/Documents/vimtutor.txt``` - this way you can edit the file on your local system instead of launching the vimtutor application again. Note you need to use ```vim``` for this assignment.
+    i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing `:w  ~/Documents/vimtutor.txt` - this way you can edit the file on your local system instead of launching the vimtutor application again. Note you need to use `vim` for this assignment.
     i) Save the finished output of `vimtutor.txt` in `vim` using the `:w` command
 
 #### Part 2
 
-1) On Ubuntu Server from the textbook source code folder: ```files/Chapter-07/lab```, copy the file ```install-software.sh```to your home directory
-    i) Using vim/ex commands, find all occurrences of ```python``` and replace them with ```python3```
+1) On Ubuntu Server from the textbook source code folder: `files/Chapter-07/lab`, copy the file `install-software.sh` to your home directory
+    i) Using vim/ex commands, find all occurrences of `python` and replace them with `python3`
     i) Save file and quit the vim editor
     i)  To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
     i) Take a screenshot of the result
@@ -597,7 +597,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 1) Using Ubuntu Server, in your home directory, using vim, create a shell script named ```first-shell.sh``` in your home directory that contains the following:
     i) Add the proper *shebang* on the first line.
     i) Add two lines of space
-    i) Store the output of the command ```date``` into the shell variable named **DT**
+    i) Store the output of the command `date` into the shell variable named **DT**
     i) Add the command that will print out the text: "#############"
     i) Add the command that will print out the text: "Script execution began at: $DT"
     i) Add the command that will print out the text: "#############"
