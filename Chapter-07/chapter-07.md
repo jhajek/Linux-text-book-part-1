@@ -495,7 +495,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     d.  `PRINT $PATH`
 1.  Using `vim` what is the `ex` mode command to move your curser to line 25 of a text file?
     a.  `:m25`
-    b.  `25`
+    b.  `/25`
     c.  `^25:`
     d.  `:25`
 1.  Using `vim` what is the `ex` mode command to move your curser to the last line of a text file?
@@ -503,7 +503,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     b.  `G`
     c.  `:$`
     d.  `ESC G`
-1.  Using `vim` what is the `ex` more command to find and replace the word `Ubuntu` with `Fedora` only the first occurrence on a line
+1.  Using `vim` what is the `ex` mode command to find and replace the word `Ubuntu` with `Fedora` only the first occurrence on a line?
     a.  `:s/ubuntu/fedora`
     b.  `:s/Ubuntu/Fedora`
     c.  `:1,$s/Ubuntu/Fedora`
@@ -518,7 +518,7 @@ In this chapter we learned about the vi editor and mastered its three modes.  We
     b.  `/bin/sh`
     c.  `/bin/ash`
     d.  `/sbin/bash`
-1.  If you execute the command `./list-ip.sh` and you recieved the error message **Permission denied**. What is the solution to the problem?
+1.  If you execute the command `./list-ip.sh` and you received the error message **Permission denied**. What is the solution to the problem?
     a.  You need to give the owner of the file read permission
     b.  You need to give the owner of the file write permission
     c.  You need to give the owner of the file open permission
