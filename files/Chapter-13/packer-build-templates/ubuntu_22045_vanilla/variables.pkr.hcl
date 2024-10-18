@@ -1,6 +1,6 @@
 variable "headless_build" {
   type =  bool
-  default = false
+  default = true
 }
 
 variable "memory_amount" {
