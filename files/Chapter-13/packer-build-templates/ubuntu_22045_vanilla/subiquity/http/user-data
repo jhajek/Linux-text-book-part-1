@@ -45,4 +45,5 @@ autoinstall:
     - "echo 'Defaults:vagrant !requiretty' > /target/etc/sudoers.d/vagrant"
     - "echo 'vagrant ALL=(ALL) NOPASSWD: ALL' >> /target/etc/sudoers.d/vagrant"
     - "chmod 440 /target/etc/sudoers.d/vagrant"
+    - echo "PubkeyAcceptedKeyTypes=+ssh-rsa" | sudo tee /etc/ssh/sshd_config.d/add_rsa_accepted_key_type.conf
     - sudo systemctl start ssh
