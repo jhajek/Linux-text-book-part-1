@@ -24,7 +24,7 @@ variable "build_artifact_location" {
 variable "iso_url" {
 
   type = string 
-  default = "http://mirrors.edge.kernel.org/ubuntu-releases/22.04.4/ubuntu-22.04.4-live-server-amd64.iso"
+  default = "http://mirrors.edge.kernel.org/ubuntu-releases/22.04.5/ubuntu-22.04.5-live-server-amd64.iso"
 }
 
 variable "db_user" {

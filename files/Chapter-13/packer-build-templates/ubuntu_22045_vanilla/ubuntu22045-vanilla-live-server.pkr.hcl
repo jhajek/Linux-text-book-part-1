@@ -37,7 +37,7 @@ source "virtualbox-iso" "ubuntu-22045-server" {
   rtc_time_base           = "UTC"
   # https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
-  iso_checksum            = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.4/SHA256SUMS"
+  iso_checksum            = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.5/SHA256SUMS"
   iso_urls                = ["${var.iso_url}"]
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
