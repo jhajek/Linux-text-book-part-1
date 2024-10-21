@@ -26,14 +26,14 @@ source "virtualbox-iso" "ubuntu-22045-server" {
         "<f10><wait>"
       ]
   boot_wait               = "8s"
-  disk_size               = 35000
+  disk_size               = 30000
   guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
   guest_os_type           = "Ubuntu_64"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  firmware                = "efi"
-  hard_drive_interface    = "sata"
+  #firmware                = "efi"
+  #hard_drive_interface    = "sata"
   rtc_time_base           = "UTC"
   # https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
