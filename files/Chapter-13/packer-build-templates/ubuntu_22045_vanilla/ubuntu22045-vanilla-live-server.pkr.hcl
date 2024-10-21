@@ -25,7 +25,7 @@ source "virtualbox-iso" "ubuntu-22045-server" {
         "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
         "<f10><wait>"
       ]
-  boot_wait               = "5s"
+  boot_wait               = "8s"
   disk_size               = 35000
   guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
   guest_os_type           = "Ubuntu_64"
