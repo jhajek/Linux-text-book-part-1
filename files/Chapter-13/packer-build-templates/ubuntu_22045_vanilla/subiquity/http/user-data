@@ -35,7 +35,7 @@ autoinstall:
           dhcp4: true
           dhcp-identifier: mac
   ssh:
-    allow-pw: true
+    allow-pw: false
     install-server: true
     # Adding the Vagrant initial insecure public key - that will be replaced, new key pair generated, upon launch
     authorized-keys:
