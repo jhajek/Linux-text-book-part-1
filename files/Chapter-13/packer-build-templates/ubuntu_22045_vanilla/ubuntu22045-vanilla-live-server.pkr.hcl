@@ -33,7 +33,7 @@ source "virtualbox-iso" "ubuntu-22045-server" {
   http_port_max           = 9200
   http_port_min           = 9001
   firmware                = "efi"
-  hard_drive_interface    = "virtio"
+  #hard_drive_interface    = "virtio"
   rtc_time_base           = "UTC"
   # https://www.virtualbox.org/manual/ch06.html
   nic_type                = "virtio"
