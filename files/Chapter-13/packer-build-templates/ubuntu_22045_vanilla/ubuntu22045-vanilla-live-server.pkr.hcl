@@ -41,8 +41,7 @@ source "virtualbox-iso" "ubuntu-22045-server" {
   iso_urls                = ["${var.iso_url}"]
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
-  #ssh_password            = "${var.user-ssh-password}"
-  #ssh_port                = 22
+  ssh_password            = "${var.user-ssh-password}"
   ssh_timeout             = "30m"
   cpus                    = 2
   memory                  = "${var.memory_amount}"
