@@ -18,3 +18,6 @@ sudo mysql -e "CREATE DATABASE records;"
 # https://dev.mysql.com/doc/refman/8.0/en/grant.html
 sudo mysql -e "GRANT CREATE, SELECT, UPDATE, DELETE, INSERT ON records.* TO '$DBUSER'@'localhost';"  
 sudo mysql -e "FLUSH PRIVILEGES;"
+
+# Customization to disable password auth over ssh
+echo "PasswordAuthentication no" | sudo tee -a /etc/ssh/sshd_config.d/diable-password-auth.conf
