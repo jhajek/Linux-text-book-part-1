@@ -74,25 +74,7 @@ In this example we see how the value of $MDY is interpreted first and then passe
 UT2=$(uptime)
 ```
 
-Any variables that are declared have a scope of this scripts execution. This means that once the script has finished executing any variables are tossed from memory. If I wanted a variables name and value to life after the completion of my shell script I can always add the __export__ command. The __export__ command will take the content of this variable and move it from the memory space of the script's execution and move it into the memory space of the launching shell. This way the variable will live only as long as that terminal session is open--once the window closes those variables disappear from memory because the process that was holding them in a piece of memory is gone too.
-
-> __Example Usage:__  Create a shell script with this content below. Save the file, make it executable, and then execute it. Upon completion of that execution, type `echo $DT` what value do you see and why?
-
-```bash
-#!/usr/bin/bash
-
-# This is a comment - usually by convention variables are in all caps - no spaces, ever!
-DT=$(date)
-# This command outputs the date in a format of our specifications
-MDY=$(date +%m%d%Y)
-echo "****************"
-echo "today's date is: $DT"
-echo "****************"
-echo "Making a folder named MMDDYYYY"
-mkdir /home/joseph/Documents/$MDY
-export DT
-echo "Finished"
-```
+Any variables that are declared have a scope of this scripts execution. This means that once the script has finished executing any variables are tossed from memory.
 
 #### Array Support in Bash
 
@@ -331,20 +313,20 @@ if [ -a ~/Documents ]
       echo "The documents directory exists"
     else
      # This will silently log the error to a file
-     echo "Directory doesn't exist" &> ~/Documents/script.log
+     echo "Directory doesn't exist" &> ~/script.log
 fi
 ```
 
 ```bash
 #!/usr/bin/bash
-# Checking the number of parameters and exiting is postional parameter quantity is wrong
+# Checking the number of parameters and exiting is positional parameter quantity is wrong
 
-if [ $# -gt 1 ]
+if [ $# -lt 1 ]
     then
-      echo "You need to type only 1 positional parameter - you entered more!"
+      echo "You need to type 1 positional parameter - you have not entered the correct amount."
       exit 1
-else
-   echo "Good job you typed in 1 parameter"
+    else
+      echo "Good job you typed in 1 parameter"
 fi
 ```
 
