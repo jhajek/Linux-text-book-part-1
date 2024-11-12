@@ -821,13 +821,13 @@ Assumptions:
 
 1) Write a shell script that issues the command to add the user named **nsa**, display the content of the `/etc/passwd` file, and then delete the user account, display the content of the `/etc/passwd` to show that the user has been deleted
 
-1) Issue the commands to edit the `/etc/sudoers` file and give the **user** "mysql-backup" sudo privilege. Take a screenshot of the relevant line that you added to `/etc/sudoers` file.
+1) Issue the commands to edit the `/etc/sudoers.d/extensions` file and add an entry to give the **user** "mysql-backup" sudo privilege.
 
-1) Issue the commands to edit the `/etc/sudoers` file and give the **group** "mysql-admins" sudo privilege. Take a screenshot of the relevant line that you added to `/etc/sudoers` file.
+1) Issue the commands to edit the `/etc/sudoers.d/extensions` file and give the **group** "mysql-admins" sudo privilege.
 
-1) Issues the commands to edit the `/etc/sudoers` file and give the **user** "mysql-admin" sudo privilege to only use the mysql database backup command named `mysqldump`. Take a screenshot of the relevant line that you added to `/etc/sudoers` file.
+1) Issues the commands to edit the `/etc/sudoers.d/extensions` file and give the **user** "mysql-admin" sudo privilege to only use the mysql database backup command named `mysqldump`
 
-1) Issue the commands to edit the `/etc/sudoers` file to give the user "mysql-admin" sudo privilege to only execute the `mysql` command and not require a password. Take a screenshot of the relevant line that you added to `/etc/sudoers` file.
+1) Issue the commands to edit the `/etc/sudoers.d/extensions` file to give the user "mysql-admin" sudo privilege to only execute the `mysql` command and not require a password.
 
 1) Issue the command to list all log messages of priority levels ERROR and worse, from the current boot.
 
@@ -837,7 +837,7 @@ Assumptions:
 
 1) Install the Nginx webserver in a virtual machine. In your Virtual Machine open a webbrowser and navigate to http://127.0.0.1. Then type in the address bar http://127.0.0.1/cats (this site will 404 -- not be found). Then issue the command to display the content of the Nginx access.log showing both connection you just made, from the log file
 
-1) In your home directory, create a file named: todo-list.txt. Then create a group named: accounting. What command would you use to change the group ownership of the file todo-list.txt to be owned by the "accounting" group?  
+1) In your home directory, create a file named: `todo-list.txt`. Then create a group named: accounting. What command would you use to change the group ownership of the file `todo-list.txt` to be owned by the "accounting" group?  
 
 1) Issue the command you would type to generate a RSA key pair, if you created it previously you can overwrite the previous key.
 
