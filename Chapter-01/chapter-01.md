@@ -10,7 +10,7 @@ date: 07/30/2015
 
 ## Objectives of this book
 
-This book was designed to give an overview of free and opensource software and how this philosophical reality is represented in midern technology we use everyday in conducting business. Herein contains history, exposition, exercises, quizzes, and projects.
+This book was designed to give an overview of free and opensource software and how this philosophical reality is represented in modern technology we use everyday in conducting business. Herein contains history, exposition, exercises, quizzes, and projects.
 
 Everyday people are exposed to free and opensource software without even knowing it. What does this mean?  And what are the advantages/disadvantages with proprietary or closed-source software?  What are the different development paradigms and what do these things mean in relation to privacy, security, and impact on your daily life.  In reading the above quotes it is clear there is more than a technological discussion going on, this is really a philosophy of technology discussion.  Operating systems power our computers and smart phones; they allow us to interact with the hardware contained within and to impact society.
 
@@ -75,7 +75,7 @@ Part of this book was inspired by a quote from my friend in regards to Linux tex
 
 "*Android is a Linux distribution according to the Linux Foundation, Google's open-source chief Chris DiBona, and several journalists. Others, such as Google engineer Patrick Brady, say that Android is not Linux in the traditional Unix-like Linux distribution sense; Android does not include the GNU C Library (it uses Bionic as an alternative C library) and some of other components typically found in Linux distributions.*"
 
-#### Business Source Licesnse
+#### Business Source License
 
 *[The Business Source License](https://spdx.github.io/license-list-data/BUSL-1.1.html "BUSL 1.1") (this document, or the “License”) is not an Open Source license. However, the Licensed Work will eventually be made available under an Open Source License, as stated in this License.*
 
