@@ -100,7 +100,7 @@ The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` but this file i
 
 `GRUB_TIMEOUT_STYLE` -- this will let the count down appear or silently countdown.  
 
-`GRUB_CMDLINE_LINUX_DEFAULT` -- this value adds additional key value pairs to the kernel boot parameters.  A common setting here is to change the setting of *splash quiet* which hides and boot time kernel message behind the Ubuntu logo and instead displays them on the screen.  
+`GRUB_CMDLINE_LINUX_DEFAULT` -- this value adds additional key value pairs to the kernel boot parameters. A common setting here is to enable or disable the vendor splash screen: `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`. This value, `splash quiet`, hides the boot time kernel message behind a vendor logo, the Ubuntu logo  for instance with the spinning indicator.
 
 `GRUB_DISABLE_RECOVERY` -- this hides the single user/recovery mode from the GRUB menu per kernel entry
 
@@ -620,22 +620,22 @@ Through this chapter we learned about init systems, the traditional SysVinit and
     b.  LILO
     c.  GRUB
     d.  GLOADER
-1.  In what Linux directory are the kernel and initrd image stored?
+1.  In what Linux directory are the kernel and initrd image stored (for BIOS)?
     a.  /root
     b.  /root/kernel
     c.  /boot
-    d.  /boot/vmlinux
-1.  What is the name of the pre-kernel gzip file located in `/boot` that helps the kernel load?
+    d.  /boot/vmlinuz
+1.  What is the name of the pre-kernel gzip file located in `/boot` that loads the kernel load?
     a.  vmlinuz
     b.  initrd
     c.  initram
     d.  init
-1.  Where is the file location where the GNU Grub configuration is stored (on Ubuntu) that a user would edit?
+1.  What is the file location for the GNU Grub configuration on Ubuntu, that a user would edit?
     a.  `/boot/grub/grub.cfg`
     b.  `/etc/default/grub`
     c.  `/etc/grub/grub.cfg`
     d.  `/boot/kernel/conf`
-1.  In the /etc/default/grub file, which of these options below would you edit to dispaly the splash screen on boot so kernel messages are displayed?
+1.  In the `/etc/default/grub` file, which of these options below would you edit to display the splash screen on boot so kernel messages are displayed?
     a.  GRUB_CMDLINE_LINUX_DEFAULT
     b.  GRUB_BACKGROUND
     c.  GRUB_GFXMODE
@@ -645,7 +645,7 @@ Through this chapter we learned about init systems, the traditional SysVinit and
     b.  sudo apt-get update
     c.  sudo update-grub
     d.  sudo updatedb
-1.  Under SysVinit - what is the ancestor process that launches first and every other process is started by it?
+1.  Under SysVinit - what is the ancestor process that launches the first process?
     a.  root
     b.  sbin
     c.  init
@@ -656,15 +656,15 @@ Through this chapter we learned about init systems, the traditional SysVinit and
     c.  3
     d.  5
 1.  Which Operating System is still using the Upstart init system?
-    a.  Ubuntu
+    a.  Debian
     b.  MX Linux
     c.  Fedora
     d.  ChromeOS
-1.  What is the name of the init system that has replaced SysVinit in every single major Linux distribution (not including Devuan and Gentoo Linux.?
+1.  What is the name of the init system that has replaced SysVinit in most major Linux distributions?
     a.  systemX
     b.  systemd
     c.  systemV
-    d.  initrd
+    d.  systemctl
 1.  What is the name of the command you use in systemd to inspect, start, stop, and modify process states?
     a.  systemd
     b.  systemd-init
@@ -687,10 +687,10 @@ Through this chapter we learned about init systems, the traditional SysVinit and
     d.  meminfo
 1.  SysVinit used the concept of PIDs and PPIDs--what did systemd replace these with?
     a.  proc-groups
-    b.  sys-groups
+    b.  pgroups
     c.  cgroups
     d.  xgroups
-1.  The /proc filesystem provides you what?  (choose all that apply)
+1.  The /proc filesystem provides you what? (choose all that apply)
     a.  Provides you a file based interface to the processes that are running on your system
     b.  It can be regarded as a control and information center for the kernel
     c.  Shows up to the second process usage--updated in real time
@@ -711,7 +711,7 @@ Through this chapter we learned about init systems, the traditional SysVinit and
     c.  .mount
     d.  .unit
 1.  What is the systemd service used to change the timezone of the system?
-    a.  /etc/timezones
+    a.  timezones
     b.  cron
     c.  NTP
     d.  timedatectl

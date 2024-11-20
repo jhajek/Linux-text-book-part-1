@@ -672,22 +672,17 @@ Through this chapter we learned about the su, sudo, and root user account paradi
     b.  Ubuntu
     c.  All Debian based distros
     d.  Fedora
-1.  What is the name of the file where sudo privileges are kept?
-    a.  /etc/sudo
-    b.  visudo
-    c.  /etc/allow
-    d.  /etc/sudoers
-1.  What is the name of the command used to modify /etc/sudoers to grant a new user sudo privilege?
-    a.  Just use vi to edit it directly
-    b.  Logout and log back in as root and do it
-    c.  visudo
-    d.  sudo visudo
-1.  Based on this line in /etc/sudoers - `%meninblack  ALL=(ALL:ALL) ALL` - what does the first value by the % mean?
+1.  What is the name of the directory where a user can add customizations the `/etc/sudoers` file to grant a new user sudo privilege?
+    a.  Just use vi to edit `/etc/sudoers` directly
+    b.  `/etc/sudoers`
+    c.  `/etc/sudoers.d/`
+    d.  `/etc.d/sudoers`
+1.  Based on this line in `/etc/sudoers` - `%meninblack  ALL=(ALL:ALL) ALL` - what does the first value `%` mean?
     a.   Name of a group
     b.   Name of a user
     c.   Name of the user group
-    d.   Name of a process
-1.  In the /etc/sudoers file - what does this line mean: `RMS ALL=(root) NOPASSWD: ALL`
+    d.   Name of the superuser
+1.  In the `/etc/sudoers` file - what does this line mean: `RMS ALL=(root) NOPASSWD: ALL`
     a.   The user RMS has sudo permissions and access to all commands
     b.   The user RMS has sudo permissions
     c.   The group RMS has sudo permissions to all commands
@@ -737,7 +732,7 @@ Through this chapter we learned about the su, sudo, and root user account paradi
     b.   usermod
     c.   adduser
     d.   add
-1.  What command would be used to modify a user account settings and add them to the sudo users group on an Ubuntu distro (user is named controller)?
+1.  What command would be used to modify a user account's settings and add them to the sudo users group on an Ubuntu distro (user is named controller)?
     a.   `sudo useradd -aG sudo controller`
     b.   `sudo usermod -a sudo controller`
     c.   `sudo usermod -G sudo controller`
@@ -748,12 +743,12 @@ Through this chapter we learned about the su, sudo, and root user account paradi
     c.  `sudo useradd controller`
     d.  `sudo useradd -G sudo -s /bin/bash -m controller`
     e. `sudo useradd -c "User for spring class" -G sudo -m controller`
-1.  In the sshd configuration, which value would you change to no to disable Password Authentication?
+1.  In the sshd configuration, which value would you change to **no** to disable Password Authentication?
     a.  PassAuth
     b.  Password
     c.  PasswordAuthentication
     d.  Authentication
-1.  What is the name of the file located in the `~/.ssh` directory that you can hardcode information per connection?
+1.  What is the name of the file located in the `~/.ssh` directory that you can hardcode information per SSH connection?
     a.  conf
     b.  config.txt
     c.  config
@@ -763,21 +758,21 @@ Through this chapter we learned about the su, sudo, and root user account paradi
     b.  ssh identityname hostname
     c.  ssh -i identityname username@hostname
     d.  ssh username@hostname
-1.  What is the proper sysntax to copy an indentity (public key) securely to a remote ssh server?
+1.  What is the proper syntax to copy an identity (public key) securely to a remote ssh server?
     a.  ssh -i identityname username@hostname
     b.  ssh-copy-id identityname username@hostname
     c.  ssh identityname username@hostname
-    d.  ssh-copy-id -i identityname username@hostname
+    d.  ssh-copy-id -x identityname username@hostname
 1.  What is the command to generate an ssh keypair of type ed25519?
     a.  ssh-keygen -t ed25519
     b.  ssh-keygen -t rsa
     c.  ssh-keygen
     d.  ssh-keygen -t
 1.  What are the three P's of troubleshooting?
-    a.  Path, Permission, dePendencies
-    b.  Path, Permission, passcodes
-    c.  Path, Permission, permutations
-    d.  Path, Permission, pam
+    a.  Path, Permission, Planning
+    b.  Path, Permission, Passcodes
+    c.  Path, Permission, Permutations
+    d.  Path, Permission, dePendencies
 
 ### Podcast Questions
 
@@ -825,13 +820,13 @@ Assumptions:
 
 1) Issue the commands to edit the `/etc/sudoers.d/extensions` file and give the **group** "mysql-admins" sudo privilege.
 
-1) Issues the commands to edit the `/etc/sudoers.d/extensions` file and give the **user** "mysql-admin" sudo privilege to only use the mysql database backup command named `mysqldump`
+1) Issue the commands to edit the `/etc/sudoers.d/extensions` file and give the **user** "mysql-admin" sudo privilege to only use the mysql database backup command named `mysqldump`
 
 1) Issue the commands to edit the `/etc/sudoers.d/extensions` file to give the user "mysql-admin" sudo privilege to only execute the `mysql` command and not require a password.
 
 1) Issue the command to list all log messages of priority levels ERROR and worse, from the current boot.
 
-1) Issue the command to install the `mysql-server` (database) from the command line using either `dnf` or `apt-get`.
+1) Issue the command to install `mysql-server` (database) from the command line using either `dnf` or `apt-get`.
 
 1) Issue the command to list all the occurrences in the logs generated by `mysql-server` using journalctl.
 
@@ -840,6 +835,10 @@ Assumptions:
 1) In your home directory, create a file named: `todo-list.txt`. Then create a group named: accounting. What command would you use to change the group ownership of the file `todo-list.txt` to be owned by the "accounting" group?  
 
 1) Issue the command you would type to generate a RSA key pair, if you created it previously you can overwrite the previous key.
+
+### Part Two
+
+This portion of the lab requires some pre-reqs and setup.
 
 1) The next questions require some setup:
    i. You need two virtual machines for this part: One Ubuntu based and one Fedora based
