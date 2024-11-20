@@ -88,19 +88,19 @@ Once we select a kernel version, GRUB knows where to go to find that kernel file
 
 #### initrd img
 
-Before the kernel image can be loaded the GRUB stage 2 needs to load the `initrd.img-X.XX.X-XX` file. This is the pre-kernel which contains all the drivers necessary for the kernel to use before the root filesystem has been mounted. The `initrd` file is gzip compressed and is decompressed on each boot. Once the `initrd` temporary filesystem is loaded, with its own `/etc` and own `/bin`, the `vmlinuz*` file, which is the actual kernel, is now loaded into memory and begins to un-mount and remove the `initrd` from memory as they are no longer needed.  
+Before the kernel image can be loaded the GRUB stage 2 needs to load the `initrd.img-X.XX.X-XX` file. This is the pre-kernel which contains all the drivers necessary for the kernel to use before the root filesystem has been mounted. The `initrd` file is gzip compressed and is decompressed on each boot. Once the `initrd` temporary filesystem is loaded, with its own `/etc` and own `/bin`, the `vmlinuz*` file, which is the actual kernel, is now loaded into memory and begins to un-mount and remove the `initrd` from memory as they are no longer needed.
 
 ### GNU GRUB Settings
 
 The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` but this file is auto generated so to edit the settings you would modify the `/etc/default/grub` file. The `/etc/default/grub` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
 
-`GRUB_DEFAULT=N` -- this value is which entry in your GRUB list is the default operating system to boot.  If you have a single OS installed, this value will be 0.  
+`GRUB_DEFAULT=N` -- this value is which entry in your GRUB list is the default operating system to boot. If you have a single OS installed, this value will be 0.
 
-`GRUB_TIMEOUT` -- this is the setting that tells the system to boot the default command N seconds after the GRUB menu has appeared.  It functions as a countdown.  
+`GRUB_TIMEOUT` -- this is the setting that tells the system to boot the default command N seconds after the GRUB menu has appeared. It functions as a countdown.
 
-`GRUB_TIMEOUT_STYLE` -- this will let the count down appear or silently countdown.  
+`GRUB_TIMEOUT_STYLE` -- this will let the count down appear or silently countdown.
 
-`GRUB_CMDLINE_LINUX_DEFAULT` -- this value adds additional key value pairs to the kernel boot parameters. A common setting here is to enable or disable the vendor splash screen: `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`. This value, `splash quiet`, hides the boot time kernel message behind a vendor logo, the Ubuntu logo  for instance with the spinning indicator.
+`GRUB_CMDLINE_LINUX_DEFAULT` -- this value adds additional key value pairs to the kernel boot parameters. A common setting here is to enable or disable the vendor splash screen: `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`. This value, `splash quiet`, hides the boot time kernel message behind a vendor logo, the Ubuntu logo for instance with the spinning indicator.
 
 `GRUB_DISABLE_RECOVERY` -- this hides the single user/recovery mode from the GRUB menu per kernel entry
 
@@ -116,9 +116,9 @@ To make these changes permanent you need to execute the `sudo update-grub` comma
 
 I am going to describe the classic Unix System V init process first. This is the basis of all knowledge relating to how processes start since the early 1980s. This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. SysVinit is not in use in Linux as it was replaced by systemd in 2015.
 
-Once the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by starting up the system processes. The first task that SysVinit executes is `/sbin/init`. This is referred to as the init process. It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.  
+Once the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by starting up the system processes. The first task that SysVinit executes is `/sbin/init`. This is referred to as the init process. It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.
 
-The `/sbin/init/` looks at the value stored in `/etc/inittab` to find the system __run level__.  The `run level` tells us which mode to start in and which associated services are needed. These levels are general and each Linux distro modifies them as needed. The default run level for a GUI based distro is `5`. The default run level for a server based OS is `3`.
+The `/sbin/init/` looks at the value stored in `/etc/inittab` to find the system __run level__. The `run level` tells us which mode to start in and which associated services are needed. These levels are general and each Linux distro modifies them as needed. The default run level for a GUI based distro is `5`. The default run level for a server based OS is `3`.
 
 : Traditional Run Levels
 
@@ -135,23 +135,23 @@ The `/sbin/init/` looks at the value stored in `/etc/inittab` to find the system
 
 Once the run level is determined, there is a directory called `/etc/rc.d` which contains __run level specific__ programs to be executed. Files preceded by an *S* mean to start the service, and files preceded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first. The good thing is that each K or S file is nothing more than a bash script to start or kill a service and do a bit of environment preparation.
 
-As you can see this system has some flaws. There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs.  Also there is no way for services that start later that depend on a previous service to be started to understand its own state. The service will happily start itself without its dependencies and go right off a cliff[^ch10f115].
+As you can see this system has some flaws. There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs. Also there is no way for services that start later that depend on a previous service to be started to understand its own state. The service will happily start itself without its dependencies and go right off a cliff[^ch10f115].
 
 ![*Classic SysVinit RC files on Ubuntu 14.04*](images/Chapter-10/sysvinit/rc-d.png "rc.d")
 
-### Working With Services in SysVinit/Upstart  
+### Working With Services in SysVinit/Upstart
 
-Under the Upstart methodology you can simply start services and stop them with the `service` command.  The syntax is: `sudo service <service-name> start | stop | restart | reload | status`.  
+Under the Upstart methodology you can simply start services and stop them with the `service` command. The syntax is: `sudo service <service-name> start | stop | restart | reload | status`.
 
-This would act upon the appropriate shell script to perform the appropriate action.  Why would you need to restart a user run service?  Remember that everything in Linux is configured with text files. At initial load the text files information is parsed and placed in memory. If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance. The `service` commands are still in place but are just links to the systemd command and control `systemctl`.
+This would act upon the appropriate shell script to perform the appropriate action. Why would you need to restart a user run service? Remember that everything in Linux is configured with text files. At initial load the text files information is parsed and placed in memory. If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance. The `service` commands are still in place but are just links to the systemd command and control `systemctl`.
 
-> __Example Usage:__  On an Ubuntu system to restart your apache2 webserver your would type: `sudo service apache2 restart` (assuming you had apache2 already installed).
+> __Example Usage:__ On an Ubuntu system to restart your apache2 webserver your would type: `sudo service apache2 restart` (assuming you had apache2 already installed).
 
 > __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located. In this case perhaps `/etc/init.d/apache2 restart`
 
 #### ps
 
-The `ps` command displays information about a selection of the active processes. This is different from the `top` command as the information is not updated but just displayed.  The `ps` command by itself shows very little useful information.  Overtime three versions of `ps`` have joined together so there are three sets of options, BSD, Unix, and GNU. The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
+The `ps` command displays information about a selection of the active processes. This is different from the `top` command as the information is not updated but just displayed. The `ps` command by itself shows very little useful information. Overtime three versions of `ps`` have joined together so there are three sets of options, BSD, Unix, and GNU. The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
 
 ![*ps command*](images/Chapter-10/processes/ps.png "ps")
 
@@ -169,7 +169,7 @@ These additional commands will share more information:
 
 #### kill
 
-In the SysVinit/Upstart world to terminate a process you would use the `kill` command.  There are various levels of `kill`.  
+In the SysVinit/Upstart world to terminate a process you would use the `kill` command.There are various levels of `kill`.
 
  Level       Name            Function
 -------- ------------ -----------------------------------------------------------------------
@@ -183,7 +183,7 @@ All programs can choose to *trap* these kill commands and ignore them or take di
 
 #### nice
 
-The `nice` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process.  Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process.  A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy.  You can find the usage at `man nice`.
+The `nice` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process. Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process. A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy. You can find the usage at `man nice`.
 
 ```bash
 # increase favorability of this process to the scheduler by 10 on a 
@@ -193,7 +193,7 @@ nice -n 10 my-program-name
 
 ### Upstart
 
-In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called `upstart`.  Upstart moved all the traditional runlevels and start up scripts to `/etc/init` directory and placed the scripts in configuration files. While leaving the `/etc/rc.d` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in `/etc/init/myservice.conf`:  Note the use of the __run level__ concept from SysVinit.  Compare this to (on an Ubuntu system) the contents of any script in `/etc/rc3.d` (run level 3).  Upstart exhibits a bit more process control but still being a shell script when you boil it down.
+In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called `upstart`. Upstart moved all the traditional runlevels and start up scripts to `/etc/init` directory and placed the scripts in configuration files. While leaving the `/etc/rc.d` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in `/etc/init/myservice.conf`: Note the use of the __run level__ concept from SysVinit. Compare this to (on an Ubuntu system) the contents of any script in `/etc/rc3.d` (run level 3). Upstart exhibits a bit more process control but still being a shell script when you boil it down.
 
 ```bash
 myservice - myservice job file
@@ -226,7 +226,7 @@ Upstart was seen as the compromise between SysVinit and its failings but in the 
 
 ### Other SysVinit Linux Replacements
 
-Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage"). OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."* Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.  
+Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage"). OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."* Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.
 
 OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used. These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible. Here is a comparison table between systemd, sysVinit, and OpenRC:
 
@@ -253,11 +253,11 @@ From Lennart's own website, *"systemd is a suite of basic building blocks for a 
 
 > *"Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions[^116]."*
 
-One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__.  The command `init 3` was always start at the commandline, and `init 5` was GUI. 
+One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__. The command `init 3` was always start at the commandline, and `init 5` was GUI. 
 
 #### systemd.target
 
-Systemd introduces __targets__ in their place.  Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the `/etc/inittab`[^118]. From the man page of `systemd.target`:
+Systemd introduces __targets__ in their place. Targets are supposed to be more flexible in what they can load and how they are loaded as opposed to the values of the `/etc/inittab`[^118]. From the man page of `systemd.target`:
 
 >  *"Targets exist merely to group units via dependencies, and to establish standardized names for synchronization points used in dependencies between units. Among other things, target units are a more flexible replacement for SysV runlevels in the classic SysV init system"*
 
@@ -269,11 +269,11 @@ Systemd introduces __targets__ in their place.  Targets are supposed to be more 
      5            runlevel5.target, graphical.target    multi-user GUI mode
      6            runlevel6.target, reboot.target       reboots
                   emergency.target                      Emergency shell
----------------- ------------------------------------- -------------------------  
+---------------- ------------------------------------- -------------------------
 
 If you wanted to change to a graphical mode directly from your GUI mode you would issue `systemctl isolate graphical.target` effectively changing targets. You can change the default target by issuing this command: `systemctl set-default <name of target>.target`. The command `systemctl get-default` will print out your current default target.
 
-> **Exercise:**  Run the `sudo systemctl get-default` command, what is the output?
+> **Exercise:** Run the `sudo systemctl get-default` command, what is the output?
 
 ## systemd Processes and Services
 
@@ -353,7 +353,7 @@ journald
 
 logind
 
-: systemd-logind is a daemon that manages user logins and seats in various ways. It is an integrated login manager that offers multiseat improvements and replaces ConsoleKit, which is no longer maintained. For X11 display managers the switch to logind requires a minimal amount of porting. It was integrated in systemd version 30.
+: systemd-logind is a daemon that manages user logins and seats in various ways. It is an integrated login manager that offers multi-seat improvements and replaces ConsoleKit, which is no longer maintained. For X11 display managers the switch to logind requires a minimal amount of porting. It was integrated in systemd version 30.
 
 networkd
 
@@ -420,11 +420,11 @@ You will note the 3 headers listed in the file:
 * Service
 * Install
 
-Each has its own specific values. The name of the service file is important as well.  This file name become the service name. The file `/usr/lib/systemd/system/apache2.service` is responsible for the apache2 service. Under Unit, you have a description field which is a comment for the user. The next value is: After, this is a powerful addition to systemd that SysVInit did not have. This allows you to give the service a conditional start. In this case, only start the webserver after the network.target service starts, which makes sense.
+Each has its own specific values. The name of the service file is important as well. This file name become the service name. The file `/usr/lib/systemd/system/apache2.service` is responsible for the apache2 service. Under Unit, you have a description field which is a comment for the user. The next value is: After, this is a powerful addition to systemd that SysVInit did not have. This allows you to give the service a conditional start. In this case, only start the webserver after the network.target service starts, which makes sense.
 
-In the Service header, these are the commands to start and stop various shell scripts.  When you use the start | stop | reload | status commands, these are the files or commands that are executed.  The Install tag, is the final tag and tells systemd on which run level to start this service.  Make note that the application uses absolute paths to all of the executables and binaries, this is do to the service run when parts of the operating system are still loading. 
+In the Service header, these are the commands to start and stop various shell scripts. When you use the start | stop | reload | status commands, these are the files or commands that are executed. The Install tag, is the final tag and tells systemd on which run level to start this service. Make note that the application uses absolute paths to all of the executables and binaries, this is do to the service run when parts of the operating system are still loading. 
 
-FreeBSD still uses ```rc``` files which are shell scripts for starting services.  You can find them listed in ```/etc/rc.d/```. Take a look at ```/etc/rc.d/syslogd``` and you will see it is a 74 line shell script, compared to the 12 line systemd unit file.
+FreeBSD still uses ```rc``` files which are shell scripts for starting services. You can find them listed in ```/etc/rc.d/```. Take a look at ```/etc/rc.d/syslogd``` and you will see it is a 74 line shell script, compared to the 12 line systemd unit file.
 
 #### Create a Service File for a User Created Script
 
@@ -542,39 +542,39 @@ Give the above script execute permission, execute it by typing `python3 write-jo
 
 One of the 69+ components of systemd is hostnamectl which is designed to give you an easy interface into controlling the information relating to your systems hostname. Running the command ```man hostnamectl``` shows you what can be done here [hostnamectl](https://www.freedesktop.org/software/systemd/man/hostnamectl "hostnamectl"). The command `sudo hostnamectl set-hostname newhostnamehere` will change the displayed hostname of your system upon next session login.
 
-> **Exercise:** Use the hostnamectl command to change your systems hostname to itmo-556 (or your class name).  Now close your shell and reopen it--what do you see?
+> **Exercise:** Use the hostnamectl command to change your systems hostname to itmo-556 (or your class name). Now close your shell and reopen it--what do you see?
 
-The ```timedatectl``` is used for setting time zone and to activate ntp, [network time protocol](http://tldp.org/LDP/sag/html/ntp.html "Network Time Protocol"), synchronization.  This part of systemd supersedes previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl").  The command `sudo timedatectl status` shows the current timedatectl configuration.  You can also enable NTP and change the timezone via timedatectl, no need to use external NTP services anymore.
+The ```timedatectl``` is used for setting time zone and to activate ntp, [network time protocol](http://tldp.org/LDP/sag/html/ntp.html "Network Time Protocol"), synchronization. This part of systemd supersedes previous commands that ran to handle the clock. [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl"). The command `sudo timedatectl status` shows the current timedatectl configuration. You can also enable NTP and change the timezone via timedatectl, no need to use external NTP services anymore.
 
-> **Exercise:** Using the man command for `timedatectl` can you enable `ntp` synchronization?  Can you change the timezone to UTC using the information at this URL: [https://www.freedesktop.org/software/systemd/man/timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl")?
+> **Exercise:** Using the man command for `timedatectl` can you enable `ntp` synchronization? Can you change the timezone to UTC using the information at this URL: [https://www.freedesktop.org/software/systemd/man/timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl "timedatectl")?
 
 #### systemd-analyze
 
-Systemd was designed to bring modern OS principles to desktop and server Linux.  That includes a tool called ```systemd-analyze``` which breaks down the time it took for all services, modules, and parts of the kernel to finish loading.  To further debug these numbers use, ```systemd-analyze blame```.  This will print out individually which services/targets/units/mounts are taking the most time to load and allow you to investigate or disable those elements.  You can even use the builtin *plotting* feature of systemd-analyze, by typing, ```systemd-analyze plot > plot.svg``` and then typing ```eog plot.svg``` to create a visual time based graph of your plot.  There are additional commands under systemd-analyze, ```critical-chain``` will print specific load time for dependent services of the service you provide, ```systemd-analyze critical-chain httpd.service```.   These tools and options available in the man page, are used to determine system boot-up performance statistics.
+Systemd was designed to bring modern OS principles to desktop and server Linux. That includes a tool called ```systemd-analyze``` which breaks down the time it took for all services, modules, and parts of the kernel to finish loading. To further debug these numbers use, ```systemd-analyze blame```. This will print out individually which services/targets/units/mounts are taking the most time to load and allow you to investigate or disable those elements. You can even use the builtin *plotting* feature of systemd-analyze, by typing, ```systemd-analyze plot > plot.svg``` and then typing ```eog plot.svg``` to create a visual time based graph of your plot. There are additional commands under systemd-analyze, ```critical-chain``` will print specific load time for dependent services of the service you provide, ```systemd-analyze critical-chain httpd.service```. These tools and options available in the man page, are used to determine system boot-up performance statistics.
 
 ### Killing Processes with systemd
 
-Systemd on the other hand has a mechanism for dealing with services directly, `systemctl kill -s SIGTERM httpd.service` will kill the Apache2 webserver service.  You can issue the kill commands above within systemd individual services which are wrapped in control groups.
+Systemd on the other hand has a mechanism for dealing with services directly, `systemctl kill -s SIGTERM httpd.service` will kill the Apache2 webserver service. You can issue the kill commands above within systemd individual services which are wrapped in control groups.
 
-The systemd service using the `systemd-cgls` command and the `systemctl kill` command have effectively replaced the traditional use of `ps` by instead grouping processes into **cgroups**.  Cgroups or Control Groups, allow for child processes to be grouped together, and concpets such as resource quotas or isolation can now be introduced.  This is a more effective manner in killing all the child processes of a parent process.   Cgroups are a Linux specific concept, which ultimately lead to the idea of OS containers and Docker--these are things that BSD and Unix don't have and can't run at the moment--which if OS containers might be the way of the future computing--doesn't bode well for BSD/Unix.
+The systemd service using the `systemd-cgls` command and the `systemctl kill` command have effectively replaced the traditional use of `ps` by instead grouping processes into **cgroups**. Cgroups or Control Groups, allow for child processes to be grouped together, and concpets such as resource quotas or isolation can now be introduced. This is a more effective manner in killing all the child processes of a parent process. Cgroups are a Linux specific concept, which ultimately lead to the idea of OS containers and Docker--these are things that BSD and Unix don't have and can't run at the moment--which if OS containers might be the way of the future computing--doesn't bode well for BSD/Unix.
 
 #### cgroups
 
-Systemd uses cgroups as a way to hierarchically group and label processes, and (B) a way to then apply resource limits to these groups.  cgroups allow you to *police* the resource usage of processes and related subprocesses--which gives finer grained control over other tools.  
+Systemd uses cgroups as a way to hierarchically group and label processes, and (B) a way to then apply resource limits to these groups. Cgroups allow you to watch the resource usage of processes and related subprocesses--which gives finer grained control over other tools.
 
-By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of which processes are part of which cgroup.  You don't have to search for process IDs anymore, you simply kill the entire cgroup.
+By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of which processes are part of which cgroup. You don't have to search for process IDs anymore, you simply kill the entire cgroup.
 
-> __Example Usage:__ To terminate the Apache2 web-server service, (assuming it has been enabled and started) first let's see the processes in its cgroup by typing ```systemd-cgls```.  You can filter just the apache2 process and sub-processes with the command: ```sudo systemd-cgls -u apache2.service```.  You can issue a kill command in the same way you can kill traditional processes by typing, ```systemctl kill httpd.service```.  You can also issue a kill level command through the ```-s``` flag, ```systemctl kill -s SIGHUP httpd.service``` will issue a ```kill -1``` command to all the members of the httpd.service cgroup.
+> __Example Usage:__ To terminate the Apache2 web-server service, (assuming it has been enabled and started) first let's see the processes in its cgroup by typing ```systemd-cgls```. You can filter just the apache2 process and sub-processes with the command: ```sudo systemd-cgls -u apache2.service```. You can issue a kill command in the same way you can kill traditional processes by typing, ```systemctl kill httpd.service```. You can also issue a kill level command through the ```-s``` flag, ```systemctl kill -s SIGHUP httpd.service``` will issue a ```kill -1``` command to all the members of the httpd.service cgroup.
 
 ## Filesystems /proc
 
 > *"/proc is very special in that it is also a virtual filesystem. It's sometimes referred to as a process information pseudo-file system. It doesn't contain 'real' files but runtime system information (e.g. system memory, devices mounted, hardware configuration, etc). For this reason it can be regarded as a control and information centre for the kernel. In fact, quite a lot of system utilities are simply calls to files in this directory. [^120]"*
 
-The ```/proc``` virtual filesystem provides you a file based interface to the processes that are running on your system.  When you type ```ls /proc``` what do you see?  You see a series of numerical directories.  These numbers correspond to process IDs.  Inside of each directory there are a series of files that represent the state of the process at the moment of introspection.   This can be handy in debugging an application or fine tuning a system in regards to memory usage.   Try to launch a Firefox or any other browser window.  Use the ```ps -C``` command from above to find its process ID.  Then find that process directory in ```/proc```.  What do you see? Some of the highlights are ```/proc/PID/cmdline```, which will tell you what command line options were used in launching that particular process, ```/proc/PID/status``` links to the process status in human readable form, and ```/proc/PID/mem``` describes the memory held by this process.  The command ```procinfo``` will give you summary of all system and resource states, the package may need to be installed.  For an exhaustive list of all the contents and meanings you can find a chart at the Linux Documentation Project, [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html "TLDP PROC").
+The ```/proc``` virtual filesystem provides you a file based interface to the processes that are running on your system. When you type ```ls /proc``` what do you see? You see a series of numerical directories. These numbers correspond to process IDs. Inside of each directory there are a series of files that represent the state of the process at the moment of introspection. This can be handy in debugging an application or fine tuning a system in regards to memory usage. Try to launch a Firefox or any other browser window. Use the ```ps -C``` command from above to find its process ID. Then find that process directory in ```/proc```. What do you see? Some of the highlights are ```/proc/PID/cmdline```, which will tell you what command line options were used in launching that particular process, ```/proc/PID/status``` links to the process status in human readable form, and ```/proc/PID/mem``` describes the memory held by this process. The command ```procinfo``` will give you summary of all system and resource states, the package may need to be installed. For an exhaustive list of all the contents and meanings you can find a chart at the Linux Documentation Project, [http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html "TLDP PROC").
 
- In addition ```/proc``` has convenient information about the state of your system.  To display information about your processor you would type, ```cat /proc/cpuinfo``` this prints out the processor family, the feature flags, and the number of processors (physical and logical).  The same can be done with memory by typing, ```cat /proc/meminfo```.  
+ In addition ```/proc``` has convenient information about the state of your system. To display information about your processor you would type, ```cat /proc/cpuinfo``` this prints out the processor family, the feature flags, and the number of processors (physical and logical). The same can be done with memory by typing, ```cat /proc/meminfo```.
 
- The Linux kernel also has a concept of loadable kernel modules.  These are pieces of code that can be added into or removed from the kernel--statically at boot, or dynamically as needed, so as to extend the capabilities of your kernel, without forcing uneeded code. For example--needing drivers for a floppy disk would be a waste to include that in the kernel when it could be added and removed via a loadable module if you happened to need it for testing.   To list all the module currently loaded you would type, ```lsmod```.   This command is actually just formatting the content of ```/proc/modules```.  There are other shortcut commands as well to inspect system devices.
+ The Linux kernel also has a concept of loadable kernel modules. These are pieces of code that can be added into or removed from the kernel--statically at boot, or dynamically as needed, so as to extend the capabilities of your kernel, without forcing uneeded code. For example--needing drivers for a floppy disk would be a waste to include that in the kernel when it could be added and removed via a loadable module if you happened to need it for testing. To list all the module currently loaded you would type, ```lsmod```.  This command is actually just formatting the content of ```/proc/modules```. There are other shortcut commands as well to inspect system devices.
 
 --------------   ---------------------------------------------------------------------------
   `lsmod`           Lists all currently loaded kernel modules
@@ -586,27 +586,27 @@ The ```/proc``` virtual filesystem provides you a file based interface to the pr
 
 ### Loading Modules
 
-You can list, load, and remove kernel modules from a running kernel.  This is desirable because it allows you to change functionality on a permanent basis or temporary basis without having to recompile the core Linux kernel each time you make a change - hence loadable kernel modules.  One of the best instances is [KVM](http://www.linux-kvm.org/page/Main_Page "KVM") KVM stands for *Kernel-based Virtual Machine* and though present in the Linux Kernel the module is not loaded until you install the KVM software libraries that call for that module to be loaded on boot.  If you had the KVM/Qemu virtualization applications installed (```sudo dnf install qemu-kvm libvirtd```) then you would type ```lsmod | grep kvm*```) to see the modules loaded or type ```sudo apt-get install zfsutils-linux``` to load the ZFS kernel modules for Ubuntu.
+You can list, load, and remove kernel modules from a running kernel. This is desirable because it allows you to change functionality on a permanent basis or temporary basis without having to recompile the core Linux kernel each time you make a change - hence loadable kernel modules. One of the best instances to see a kernel module loaded type `sudo apt-get install zfsutils-linux` to load the ZFS kernel modules for Ubuntu.
 
-> __Example Usage:__ You will notice for instance if you type ```lsmod | grep vbox*``` you will see VirtualBox kernel modules loaded - you wouldn't see these if you were on a natively installed Linux system.
+> __Example Usage:__ You will notice for instance if you type `lsmod | grep vbox*` you will see VirtualBox kernel modules loaded - you wouldn't see these if you were on a natively installed Linux system.
 
-> __Example Usage:__ The ```modprobe``` command is a more intelligent way to add kernel modules than ```insmod```.  The command ```lsmod``` will list activated kernel modules and ```rmmod``` will unload a kernel module.
+> __Example Usage:__ The `modprobe` command is a more intelligent way to add kernel modules than `insmod`. The command `lsmod` will list activated kernel modules and `rmmod` will unload a kernel module.
 
 You can also use the ```systemctl``` command with filter options to find modules that have loaded or failed to load.
 
 > __Example Usage:__ You will notice your can filter the systemctl command: ```sudo systemctl --failed```, the normal behavior is to show all running and failed.
 
-> __Example Usage:__ On Ubuntu, if you install the package, `zfsutils-linux` this will add a kernel module for the ZFS file system.  Run the lsmod command before and after you install the ZFS package.  What is the difference?
+> __Example Usage:__ On Ubuntu, if you install the package, `zfsutils-linux` this will add a kernel module for the ZFS file system. Run the lsmod command before and after you install the ZFS package. What is the difference?
 
 ![*sudo systemctl --failed*](images/Chapter-10/systemd/systemctl-failed.png "Image of failed services output for systemctl --failed")
 
 ## Single User Mode
 
-If you have a system with an issue--or damage that needs to be repaired.  Perhaps you need to reset the root password?  You can drop your system into what was once known as single-user mode or runlevel1.target by issuing a command: ```sudo systemctl isolate runlevel1.target```  this command should be used sparingly because what it does is drop you to a commandline prompt with a single user logged in (root) with no password.  This can be used to change or modify lost system passwords, or even reset database passwords or other troubleshooting issues like filesystem checks, which we will talk more about in the next chapter.
+If you have a system with an issue--or damage that needs to be repaired. Perhaps you need to reset the root password? You can drop your system into what was once known as single-user mode or runlevel1.target by issuing a command: `sudo systemctl isolate runlevel1.target` this command should be used sparingly because what it does is drop you to a commandline prompt with a single user logged in (root) with no password. This can be used to change or modify lost system passwords, or even reset database passwords or other troubleshooting issues like filesystem checks, which we will talk more about in the next chapter.
 
 ## Chapter Conclusions and Review
 
-Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands. We learned about how to manage processes in both systems and the basics of how processes are handled.  You learned about the systemctl command for managing processes. You learned about the ps command for managing processes under SysVinit. Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in a file format dynamically on boot and during a system's use.
+Through this chapter we learned about init systems, the traditional SysVinit and the new systemd init commands. We learned about how to manage processes in both systems and the basics of how processes are handled. You learned about the systemctl command for managing processes. You learned about the ps command for managing processes under SysVinit. Finally we learned about the ```/proc``` virtual filesystem and how it presents process information in a file format dynamically on boot and during a system's use.
 
 ### Review Questions
 
