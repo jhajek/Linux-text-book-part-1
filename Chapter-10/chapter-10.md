@@ -507,7 +507,7 @@ The main variable here is the `OnCalendar` value, where you can define a time wh
 You will need to install some pre-reqs for this example.
 
 ```bash
-# Ubuntu  20.04 - https://pypi.org/project/cysystemd/
+# Ubuntu  22.04 - https://pypi.org/project/cysystemd/
 sudo apt-get install build-essential \
     libsystemd-dev \
     python3-pip \
