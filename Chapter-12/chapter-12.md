@@ -873,7 +873,7 @@ In this chapter we learned about the basic components of networking. We learned 
     d.  `/etc/etc/etc`
 1.  What flag would you add to this command to make it survive a reboot: `sudo firewall-cmd --zone=public --add-port=22/tcp`
     a.  `--peppermint`
-    b.  `--permenant`
+    b.  `--permanent`
     c.  `--allow`
     d.  `--list-all`
 1.  Before systemd, NIC interface naming schemes depended on a driver based enumeration process. They switched to a predictable network interface naming process that depends on what for the interface names?
