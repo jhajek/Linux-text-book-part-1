@@ -525,11 +525,10 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13]. The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release. They have a similar release cadence to that of Ubuntu, twice a year and in April and October. With package and update support only extending back to the previous version. Remember their focus is rapid iteration of the project to quickly test new technologies for inclusion to the Enterprise product. There is a workstation edition, a server edition, a cloud instance, many other custom *spins*.
 
+* Fedora 41 was released on 10/15/24
 * Fedora 40 was released on 04/02/24
 * Fedora 39 was released on 10/17/23
 * Fedora 38 was released on 04/18/23
-* Fedora 37 was released on 11/15/22
-* Fedora 36 was released on 05/06/22
 
 #### Red Hat Enterprise Linux--RHEL
 
@@ -582,6 +581,12 @@ SUSE Linux (pronounced *soo-suh*)  began as a German Slackware Linux port and gr
 * In 2006 Microsoft and SUSE announce an interoperability agreement (Patent Lawsuit Protection)
 * Major partner for deploying [SAP](https://www.sap.com "SAP webpage")
 * Owns [RancherOS](https://rancher.com/ "RancherOS webpage")  -- an Enterprise Kubernetes Management Platform
+
+#### SUSE Multi-Linux
+
+This is an enterprise offering by SUSE to directly support RHEL opensource operating systems and stay bug-bug-compatable but run on Cloud hosted platforms. There is no download for this and it is acquired by a paid license and comes with enterprise support.
+
+### Other Linux Distros
 
 #### Intel Clear Linux
 
@@ -721,7 +726,7 @@ The other major point of contention is with all the changes systemd makes to the
 
 You need to give Lennart credit for convincing all major Linux distros to adopt systemd as their init system. Lennart convinced his management at Red Hat to take a chance on his technology, and now most of the industry followed suit 6+ years after he first released systemd.  That is not an easy accomplishment if you think about it.
 
-The first company to adopt systemd was Red Hat.  Debian was the last holdout and they had a spirited debate, which led to a number of resignations and a split within the community over the issue.  Some Debian developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focused on removing all systemd and udev dependencies from a Debian based Linux distro.  
+The first company to adopt systemd was Red Hat. Debian was the last holdout and they had a spirited debate, which led to a number of resignations and a split within the community over the issue.  Some Debian developers left and went on to form a distro called [Devuan](http://www.devuan.org "devuan")--which is focused on removing all systemd and udev dependencies from a Debian based Linux distro.  
 
 In its defense, systemd has many nice and actually new and needed features for Linux.  Lennart is updating pieces of Linux that haven't been touched in decades. He even wrote a [21 part defense](http://0pointer.de/blog/projects/systemd-for-admins-1.html "21")  of systemd on his website. We will talk more on the technical aspects of systemd in the chapter 11.  By using systemd, Linux distros make another fundamental choice, to break with Unix based system compatibility.  Systemd is entirely Linux centric and draws a sharp dividing line between Linux and Unix/BSD based distros. As od July 2022, Lennart left his developer post at Red Hat and [is now employed at Microsoft](https://www.phoronix.com/news/Systemd-Creator-Microsoft "weblink Lennart leaves Red Hat and goes to Microsoft")
 
