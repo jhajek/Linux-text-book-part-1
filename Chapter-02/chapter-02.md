@@ -991,7 +991,7 @@ Choose one from this list:
 
 Answer these questions (not all of the Answers are in each case study and might have to do some outside research.)
 
-* What market does that company serve? (What do they do?) And have they always served that market?
+* Breifly explain what market does that company serve? (What do they do?) And have they always served that market?
 * What Operating System(s) are used by this product to run their servers and services?
 * What programming languages/frameworks are used?
 * What storage and what database technologies are used?
