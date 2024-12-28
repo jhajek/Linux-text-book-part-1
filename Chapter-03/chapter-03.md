@@ -608,7 +608,7 @@ Supported on all Linux operating systems and functions like an app store -- wher
 
 Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard since Fedora 32. Let's install some applicataions via Flatpaks. The first thing is to install the FlatHub repository. You can browse the [Flathub.org website](https://flathub.org "website for Flathub"). On other OSes such as Pop!_OS and OpenSuse, support Flatpak out of the box, but the Flathub repo is not installed by default and can be added with this command:
 
-* Add Flathub to your Flatpak install
+* Add Flathub to your Flatpak install (if needed)
   * `sudo flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo`
 * You can use search for your package names just like in `apt` or `dnf`
   * `sudo flatpak search VLC`
@@ -990,7 +990,6 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
 * Red Hat Based
   * Fedora Workstation edition
   * AlmaLinux
-  * UltraMarine OS
 
 * Illumos / Solaris Based
   * OmniOS - Community Edition
