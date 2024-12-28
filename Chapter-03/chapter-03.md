@@ -441,20 +441,32 @@ The APT installer was released in 1998, the same time that Red Hat released its 
 
 APT, which basically resolves dependency problems and retrieves the requested packages, works with dpkg under the hood. The main commands of APT are as follows:
 
-* ```sudo apt update```
+* `sudo apt update`
   * Used to make sure your system is pointed to the latest repository versions. You should always run this before taking any other actions.
-* ```sudo apt install```
+* `sudo apt install`
   * Used to install the application of choice
-* ```sudo apt remove```
+* `sudo apt remove`
   * Used to remove the application of choice
-* ```sudo apt search [pattern]```
+* `sudo apt search [pattern]`
   * Used to search all your repositories for an app matching the given pattern
-* ```sudo apt upgrade```
+* `sudo apt upgrade`
   * Used to perform an upgrade of all current packages that have updates available (note in Yum this is the command update)
-* ```sudo apt dist-upgrade```
+* `sudo apt dist-upgrade`
   * This performs the same as the upgrade but will also update the kernel version and headers as well
-* ```sudo do-release-upgrade```
+* `sudo do-release-upgrade`
   * This will update the entire distribution and move it to the next incremental version (Ubuntu 23.10 to 24.04)
+
+Here is a list of all the configuration and cache files related to APT and their location:
+
+* `/etc/apt/sources.list`: Locations to fetch packages from
+* `/etc/apt/sources.list.d/`: Additional source list fragments
+* `/etc/apt/apt.conf`: APT configuration file.
+* `/etc/apt/apt.conf.d/`: APT configuration file fragments.
+* `/etc/apt/preferences`: version preferences file. This is where you would specify "pinning", i.e. a preference to get certain packages from a separate source or from a different version of a distribution.
+* `/var/cache/apt/archives/`: storage area for retrieved package files.
+* `/var/cache/apt/archives/partial/`: storage area for package files in transit.
+* `/var/lib/apt/lists/`: storage area for state information for each package resource specified in sources.list
+* `/var/lib/apt/lists/partial/`: storage area for state information in transit.
 
 #### Repositories
 
@@ -507,18 +519,6 @@ These are the short steps:
   * ```sudo apt install linux-libre-lts```
 
 ![*Linux-Libre*](images/Chapter-03/linux-libre/kernel-linux-libre.png "libre.png")
-
-Here is a list of all the configuration and cache files related to APT and their location:
-
-* ```/etc/apt/sources.list```: Locations to fetch packages from.
-* ```/etc/apt/sources.list.d/```: Additional source list fragments.
-* ```/etc/apt/apt.conf```: APT configuration file.
-* ```/etc/apt/apt.conf.d/```: APT configuration file fragments.
-* ```/etc/apt/preferences```: version preferences file. This is where you would specify "pinning", i.e. a preference to get certain packages from a separate source or from a different version of a distribution.
-* ```/var/cache/apt/archives/```: storage area for retrieved package files.
-* ```/var/cache/apt/archives/partial/```: storage area for package files in transit.
-* ```/var/lib/apt/lists/```: storage area for state information for each package resource specified in sources.list
-* ```/var/lib/apt/lists/partial/```: storage area for state information in transit.
 
 ### yum & dnf
 
@@ -711,7 +711,7 @@ The Guest Additions offer the following features:
 * Shared clipboard
 * Automated logons (credentials passing)
 
-#### Ubuntu 22.04 and 24.04 Desktop
+#### Ubuntu Desktop
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
@@ -724,7 +724,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Ubuntu 20.04, 22.04, and 24.04 Server
+#### Ubuntu Server
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
@@ -737,7 +737,7 @@ sudo ./VBoxLinuxAdditions.run
 sudo reboot
 ```
 
-#### Debian 11 and 12 
+#### Debian
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
@@ -750,7 +750,7 @@ cd /media/cdrom0
 reboot
 ```
 
-#### Red Hat based Fedora 40, AlmaLinux 9, Rocky Linux 9
+#### Red Hat based Fedora, AlmaLinux, Rocky Linux
 
 ```bash
 # Assuming you are using VirtualBox 7.x and you have inserted 
@@ -977,20 +977,19 @@ If you are using `Parallels` complete the neccesary installs and adjust VirtualB
 
 #### Screenshots
 
-For those using x86_64 Intel Windows and Macs install the following ISOs, install `neofetch` and take a screenshot of the results.
+For those using x86_64 Intel Windows and Macs install the following ISOs, install the package `neofetch` via the package maanger and take a screenshot of the results adding them to the document below each unit.
 
 * Debian Based
-  * Ubuntu 24.04 Desktop edition
-  * Lubuntu 24.04 Desktop edition
-  * Xubuntu 24.04 Desktop edition
-  * Ubuntu 24.04 Server edition
+  * Ubuntu Desktop edition
+  * Lubuntu Desktop edition
+  * Ubuntu Server edition
   * Trisquel Linux
   * Xebian
   * Ubuntu KDE Neon
 
 * Red Hat Based
-  * Fedora 40 - Workstation edition
-  * AlmaLinux 9.x
+  * Fedora Workstation edition
+  * AlmaLinux
   * UltraMarine OS
 
 * Illumos / Solaris Based
@@ -1009,16 +1008,16 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
   * openSUSE Leap
   * Debian
 
-For those using Parallels virtualization on M1/M2 mac -- look for the `aarch` or `arm` distribution, NOT `amd_64`.
+For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia.org/wiki/Apple_silicon "wiki article for Apple Silicon") -- look for the `aarch` or `arm` distribution, NOT `amd_64`.
 
 * Debian Based ARM
-  * Ubuntu 22.04 or 24.40 Desktop edition
-  * Ubuntu 22.04 or 24.04 Server edition
+  * Ubuntu Desktop edition
+  * Ubuntu Server edition
   * Peppermint OS
 
 * Red Hat Based ARM
-  * Fedora 40 - Workstation edition 
-  * AlmaLinux 9.x 
+  * Fedora Workstation edition 
+  * AlmaLinux
   * Rocky Linux
 
 * BSD based ARM
