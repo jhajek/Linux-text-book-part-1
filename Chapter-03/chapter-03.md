@@ -501,22 +501,22 @@ The resulting combination of the GNU Operating System and the kernel named Linux
 These are the short steps:
 
 * To use this repository first add it to your system. Run this command:
-  * ```sudo apt edit-sources```
+  * `sudo apt edit-sources`
 * And add the line:
-  * ```deb http://linux-libre.fsfla.org/pub/linux-libre/freesh/ freesh main```
+  * `deb http://linux-libre.fsfla.org/pub/linux-libre/freesh/ freesh main`
 * You should also fetch and install the GPG key with which the repository is signed:
-  * ```wget https://jxself.org/gpg.inc```
+  * `wget https://jxself.org/gpg.inc`
 * Check that it's the right key:
-  * ```gpg --with-fingerprint gpg.inc```
+  * `gpg --with-fingerprint gpg.inc`
 * Make sure that you see:
-  * ```Key fingerprint = F611 A908 FFA1 65C6 9958 4ED4 9D0D B31B 545A 3198```
+  * `Key fingerprint = F611 A908 FFA1 65C6 9958 4ED4 9D0D B31B 545A 3198`
 * As long as it matches configure the package manager to trust the key and then delete the temporary copy:
-  * ```sudo apt-key add gpg.inc```
-* Now you will now be able to update your package manager and install Linux-libre:
-  * ```sudo apt update```
-  * ```sudo apt install linux-libre-5.5```
-  * ```sudo apt install linux-libre```
-  * ```sudo apt install linux-libre-lts```
+  * `sudo apt-key add gpg.inc`
+* Now you will now be able to update your package manager and install Linux-libre kernels of your choice:
+  * `sudo apt update`
+  * `sudo apt install linux-libre-5.5`
+  * `sudo apt install linux-libre`
+  * `sudo apt install linux-libre-lts`
 
 ![*Linux-Libre*](images/Chapter-03/linux-libre/kernel-linux-libre.png "libre.png")
 
