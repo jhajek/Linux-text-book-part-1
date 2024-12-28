@@ -598,7 +598,8 @@ Supported on all Linux operating systems and functions like an app store -- wher
 
 Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard since Fedora 32. Let's install some applicataions via Flatpaks. The first thing is to install the FlatHub repository. You can browse the [Flathub.org website](https://flathub.org "website for Flathub"). On other OSes such as Pop!_OS and OpenSuse, support Flatpak out of the box, but the Flathub repo is not installed by default and can be added with this command:
 
-* Add Flathub to your Flatpak install (if needed)
+* Add Flathub to your Flatpak install
+  * Most non-Debian/Ubuntu comes with flathub installed
   * `sudo flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo`
 * You can use search for your package names just like in `apt` or `dnf`
   * `sudo flatpak search VLC`
@@ -607,17 +608,12 @@ Flatpak essentially connects the concepts of repositories and app packages, but 
 
 Once that is done here is an example of installing Flatpaks from the commandline:
 
-* `sudo flatpak install flathub org.videolan.VLC`
-* `sudo flatpak install flathub com.discordapp.Discord`
-* `sudo flatpak install flathub org.blender.Blender`
-* `sudo flatpak install flathub com.obsproject.Studio`
+* `sudo flatpak install flathub VLC`
+* `sudo flatpak install flathub Discord`
+* `sudo flatpak install flathub Blender`
+* `sudo flatpak install flathub Obsproject`
 
 These apps appear on your start menu after a logout and log back in. They can also be launched via the `Flatpak` command from the commandline. Note that from the command line you don't run these as `sudo`. You can find the official Flatpak name by issuing the command: `Flatpak list`.
-
-* `flatpak run flathub org.videolan.VLC`
-* `flatpak run flathub com.discordapp.Discord`
-* `flatpak run flathub org.blender.Blender`
-* `flatpak run flathub com.obsproject.Studio`
 
 ### AppImage
 
