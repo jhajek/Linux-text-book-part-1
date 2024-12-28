@@ -767,6 +767,19 @@ sudo reboot
 ```
 [^22]
 
+#### OpenSUSE
+
+```bash
+# Assuming you are using VirtualBox 7.x and you have inserted 
+# the VirtualBox Guest editons iso (under Devices)
+sudo zypper refresh
+sudo zypper update
+sudo zypper in kernel-devel gcc make
+cd /run/media/linuxconfig/VBox_GAs_7*
+sudo ./VBoxLinuxAdditions.run
+```
+[^ch03f114]
+
 If successful you can reboot the Linux guest VM and you will notice the changes take place immediately. If some of these commands are not familiar that is ok - we will cover them all in later chapters. Without these additional tools installed you will receive an error message similar to this:
 
 ```Building the main Guest Additions Module[Failed]```
@@ -1085,3 +1098,5 @@ Pay attention to error messages and scan through them and a little back for a hi
 [^112]: [https://launchpad.net/~linux-libre/+archive/ubuntu/ppa](https://launchpad.net/~linux-libre/+archive/ubuntu/ppa)  
 
 [^113]: [https://wiki.debian.org/RPM](https://wiki.debian.org/RPM)  
+
+[^ch03f114]: [https://linuxconfig.org/install-virtualbox-guest-additions-on-opensuse](https://linuxconfig.org/install-virtualbox-guest-additions-on-opensuse "web article for installing VBox Guest Additions on openSUSE")
