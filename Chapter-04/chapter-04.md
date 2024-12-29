@@ -205,7 +205,7 @@ From 2010 to 2018, Ubuntu maintained the [Unity Shell](https://en.wikipedia.org/
 
 In April of 2021, [Linux open laptop manufacturer, System76](https://system76.com/ "Website for System76 Linux Laptop manufacturer") released a themed GNOME 3 desktop called [Pop!_OS](https://pop.system76.com/ "Website to Pop OS") with a custom windows manager that defaults to a tiling mode rather than a stacking mode.  
 
-In 2024, Pop!_OS in a dispute with the GNOME project, began work on their own bespoke Rust based desktop named the [Cosmos Desktop Environment](https://blog.system76.com/post/cosmic-the-road-to-alpha "webpage fro Cosmos DE"). The project is still in early alpha. 
+In 2024, Pop!_OS in a dispute with the GNOME project, began work on their own bespoke Rust based desktop named the [Cosmos Desktop Environment](https://blog.system76.com/post/cosmic-the-road-to-alpha "webpage for Cosmos DE"). The project is still in early alpha. 
 
 ### Xfce
 
