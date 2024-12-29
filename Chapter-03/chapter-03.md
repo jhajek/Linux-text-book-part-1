@@ -423,7 +423,7 @@ As you can see that package managers were a great step forward in making Linux u
   * `sudo pkg install neofetch`
 * [Pacman](https://www.archlinux.org/pacman/ "Pacman web page")
   * To update your systems: `sudo pacman -Syu`
-  * To install packages: `sudo pacman -S neofetch`  
+  * To install packages: `sudo pacman -S neofetch`
 * [Yum](https://en.wikipedia.org/wiki/Yum_(software) "Wikipage for YUM")
   * Previous installer for Red Hat based systems
   * Functions identical to `dnf`
@@ -596,7 +596,7 @@ sudo snap list
 
 Supported on all Linux operating systems and functions like an app store -- where you can install, remove, and update packages all from a single command - [Flatpak](https://www.Flatpak.org/ "Flatpak"). You can see software available at [Flathub](https://flathub.org/home "Flathub").
 
-Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard since Fedora 32. Let's install some applicataions via Flatpaks. The first thing is to install the FlatHub repository. You can browse the [Flathub.org website](https://flathub.org "website for Flathub"). On other OSes such as Pop!_OS and OpenSuse, support Flatpak out of the box, but the Flathub repo is not installed by default and can be added with this command:
+Flatpak essentially connects the concepts of repositories and app packages, but the drawback is that Flatpak manages its own applications and list of installed applications. It is installed as standard since Fedora 32. Let's install some applicataions via Flatpaks. The first thing is to install the FlatHub repository. You can browse the [Flathub.org website](https://flathub.org "website for Flathub"). On other OSes such as Pop!\_OS and OpenSuse, support Flatpak out of the box, but the Flathub repo is not installed by default and can be added with this command:
 
 * Add Flathub to your Flatpak install
   * Most non-Debian/Ubuntu comes with flathub installed

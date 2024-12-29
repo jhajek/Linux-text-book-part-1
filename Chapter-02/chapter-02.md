@@ -510,7 +510,7 @@ Some of the other notable Debian/Ubuntu based distros are as follows:
   * KDE based desktop versioned distro based off of Ubuntu
 * [Pure OS](https://pureos.net/ "Link to Website for Purism OS")  
   * This is a Debian derivative, that has been produced with an [FSF](https://www.fsf.org/ "Website for FSF")  based focus on Free Software
-* [Pop!_os](https://pop.system76.com/ "webpage for pop os")
+* [Pop!_OS](https://pop.system76.com/ "webpage for pop os")
   * Ubuntu based heavily customized system designed by [system76](https://system76.com "webpage for system76") for use on their laptops and PCs
 
 ### Red Hat Family

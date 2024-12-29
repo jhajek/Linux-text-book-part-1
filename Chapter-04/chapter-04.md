@@ -201,11 +201,11 @@ The [Cinnamon desktop](https://projects.linuxmint.com/cinnamon/ "Webpage for Cin
 
 From 2010 to 2018, Ubuntu maintained the [Unity Shell](https://en.wikipedia.org/wiki/Unity_(user_interface) "Webpage for Unity Shell"), which was a reimplementation of the GNOME shell, not a full desktop. Ubuntu had plans to design a single desktop that would run across various sized devices, PCs, laptops, phones, and tablets. Support for Unity was dropped as of Ubuntu 18.04 but Unity lives on though in an official [Ubuntu Unity](https://en.wikipedia.org/wiki/Ubuntu_Unity "webpage for Ubuntu unity") distro and the [Ubuntu Touch phone OS project](https://ubuntu-touch.io/ "webpage for Ubuntu Touch project"). 
 
-#### GNOME Forks: Pop!_os
+#### GNOME Forks: Pop!_OS
 
 In April of 2021, [Linux open laptop manufacturer, System76](https://system76.com/ "Website for System76 Linux Laptop manufacturer") released a themed GNOME 3 desktop called [Pop!_OS](https://pop.system76.com/ "Website to Pop OS") with a custom windows manager that defaults to a tiling mode rather than a stacking mode.  
 
-In 2024, Pop!_os in a dispute with the GNOME project, began work on their own bespoke Rust based desktop named the [Cosmos Desktop Environment](https://blog.system76.com/post/cosmic-the-road-to-alpha "webpage fro Cosmos DE"). The project is still in early alpha. 
+In 2024, Pop!_OS in a dispute with the GNOME project, began work on their own bespoke Rust based desktop named the [Cosmos Desktop Environment](https://blog.system76.com/post/cosmic-the-road-to-alpha "webpage fro Cosmos DE"). The project is still in early alpha. 
 
 ### Xfce
 
