@@ -968,7 +968,7 @@ At the conclusion of this lab you will have installed ~10-20 Linux based operati
 
 Following the demonstrations in section 3.6.3 and the installation information in section 3.6.1, you will need to find the download links for the Linux and BSD ISOs listed. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well. If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for Apple Silicon Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
 
-Complete each install fully and then using the correct package manager install the program `neofetch` and take a screenshot of the results. There are 18 different distributions listed for Intel based x86 Windows and Macs. There are 11 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version.
+Complete each install fully and then using the correct package manager install the program `neofetch` and take a screenshot of the results. There are 15 different distributions listed for Intel based x86 Windows and Macs. There are 11 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version.
 
 #### Parallels
 
@@ -989,9 +989,6 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
 * Red Hat Based
   * Fedora Workstation edition
   * AlmaLinux
-
-* Illumos / Solaris Based
-  * OmniOS - Community Edition
 
 * BSD based
   * FreeBSD
