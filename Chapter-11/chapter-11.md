@@ -559,7 +559,8 @@ ZFS also has a mechanism to send and receive snapshots, which done in a small en
   * This promotes my snapshot to a new `dataset` named `lincoln` in the `users` pool  
 * You can pipe the command over `ssh` to restore to a remote system
   * `zfs send users/jeremy@todaysnap | ssh user@hostname sudo sudo zfs recv users/lincoln`
-  * You will need to allow zfs command or sudo w/o password in the remote host in the `/etc/sudoers` file
+  * You will need to use the [zfs allow command](https://xai.sh/2018/08/27/zfs-incremental-backups.html "webpage for zfs allow command") for the user on the receiving end
+  * `zfs allow backupuser atime,create,destroy,mount,mountpoint,receive,rollback,snapshot,userprop targetpool/targetfs`
 
 ### Additional ZFS Features
 
