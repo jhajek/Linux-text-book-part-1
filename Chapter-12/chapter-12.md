@@ -345,13 +345,13 @@ There are additional tools that extend basic troubleshooting features such as:
 
 August 6th 1991, Tim Berners-Lee deployed the first webpage and the created the first webserver. For history's sake, an early copy of it was found on an old system and [restored](http://info.cern.ch/hypertext/WWW/TheProject.html "First webpage"). He was working at the [CERN](https://en.wikipedia.org/wiki/CERN "CERN") research lab in Switzerland. He did so with the idea to be able to freely share text data amongst researchers and national research labs world-wide. To do this he created the Hypertext Transfer Protocol -- [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "HTTP Protocol") protocol for sending and receiving requests as well as a webserver named, NCSA, that would receive and process those requests, returning text to a client browser to be rendered.
 
-The first webserver gave rise to a commercial company called Netscape started by [Marc Andreeson](https://en.wikipedia.org/wiki/Marc_Andreessen "webpage for Marc Andreeson"), with research coming out of the University of Illinois. Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment. The Apache webserver came out of this code base and became the name and the first product of the Apache Opensource Foundation. When we look to two technologies that were used by the dotcom companies that survived the first and second crashes, we find that both the Apache webserver along with the MySQL database made the web possible.  
+The first webserver gave rise to a commercial company called Netscape started by [Marc Andreeson](https://en.wikipedia.org/wiki/Marc_Andreessen "webpage for Marc Andreeson"), with research coming out of the University of Illinois. Famous for their Netscape Navigator browser, they were also the pioneers of the first webserver software. This software had been commercially available before at a high price and was limited to those who already could afford a large hardware investment. The Apache webserver came out of this code base and became the name and the first product of the Apache Opensource Foundation. When we look to two technologies that were used by the dotcom companies that survived the first and second crashes, we find that both the Apache webserver along with the MySQL database made the web possible.
 
 Applications have grown enormously beyond just serving simple html webpages.  What was once a simple webserver has been exchanged becoming application servers and serving traffic or aggregating traffic directly on a per request basis.  We will cover in detail in the next chapters some of those application servers. For now let us start with webservers. They listen for requests on port 80.  When receiving a request, they serve (they are webservers...) or render a page of HTML code and return that to a client (you) viewing a page through a web browser.
 
 ### Apache
 
-Without Apache, companies such as Google, Facebook, Twitter, and many others started upon opensource never would have been able to get started. Apache has over time grown and had to add new functions while shedding old functionality. The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed. Some may criticize Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.  
+Without Apache, companies such as Google, Facebook, Twitter, and many others started upon opensource never would have been able to get started. Apache has over time grown and had to add new functions while shedding old functionality. The memory model of how it processes requests has changed over time as the frequency and amount of requests on a webserver has changed. Some may criticize Apache webserver for being a bit old, but there is a large body of knowledge out there on how to customize and manage it.
 
 The Apache webserver can be installed via package managers. There is even a version of it available for Windows. Note that though the same application, Ubuntu refers to the Apache webserver as `apache2` and Red Hat products refer to it as `httpd`.
 
@@ -360,7 +360,7 @@ The commands to install webservers:
 * Ubuntu and Debian-based distros
   * `sudo apt install apache2`
 * Red Hat-based distros
-  * `sudo dnf install httpd`  
+  * `sudo dnf install httpd`
 * After install check to make sure the services have been started properly using `systemctl`
   * Note you can't start two webservers at once -- only one service can listen on port 80 at a time
   * Open FireFox browser inside of the Virtual machine
