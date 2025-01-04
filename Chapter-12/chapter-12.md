@@ -78,7 +78,7 @@ DNS is set and configured as noted above in the various networking files.  Note 
 
 ### Comparison of Net-tools and iproute2
 
-There are two suites of tools for viewing and configuring network information. The original suite is called `net-tools`. The current standard is called the `iproute2` tools. The *net-tools* suite development was actively **ceased** in 2001 in favor of [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2"). There is alot of information on the web using the `net-tools` but we generally want to deprecate the use of `net-tools` on Linux.  
+There are two suites of tools for viewing and configuring network information. The original suite is called `net-tools`. The current standard is called the `iproute2` tools. The *net-tools* suite development was actively **ceased** in 2001 in favor of [iproute2](https://baturin.org/docs/iproute2/ "webpage iproute2"). There is a lot of information on the web using the `net-tools` but we generally want to deprecate the use of `net-tools` on Linux.
 
 The `iproute2` suite standardized on the singular `ip` command--unifying a disparate set of tools. Older Linux (pre-2015) definitely have `net-tools` installed. Now Linux distributions are only including the `iproute2` package.
 
@@ -132,13 +132,13 @@ What you gain by using this standard:
 
 * Stable interface names across reboots
 * Stable interface names even when hardware is added or removed
-  * no re-enumeration takes place (to the level the firmware permits this)
+  * No re-enumeration takes place (to the level the firmware permits this)
 * Stable interface names when kernels or drivers are updated/changed
 * Stable interface names even if you have to replace broken ethernet cards by new ones
 
 There is a short technical explanation of how these names are devised in the comments of the [source code here](https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c#L20 "Source Code").
 
-What does this mean?  Well let us take a look at the output of the `ip a sh` command. Lets try it on Ubuntu Desktop, Server, and Fedora Workstation, and using `ifconfig` on FreeBSD what do you see?  On some of these you see eth0 some you see enp0sX. Why? Though all of the these OSes are using `systemd`, not FreeBSD, a few of them might have the value `biosdevname=0` set in their `/etc/default/grub` file. 
+What does this mean?  Well let us take a look at the output of the `ip a sh` command. Lets try it on Ubuntu Desktop, Server, and Fedora Workstation, and using `ifconfig` on FreeBSD what do you see?  On some of these you see eth0 some you see enp0sX. Why? Though all of the these OSes are using `systemd`, not FreeBSD, a few of them might have the value `biosdevname=0` set in their `/etc/default/grub` file.
 
 #### Revert Predictable Network Interface Names
 
@@ -154,13 +154,15 @@ The way to reset the values:
 [Source](https://unix.stackexchange.com/questions/81834/how-can-i-change-the-default-ens33-network-device-to-old-eth0-on-fedora-19 "how to reset to old names")
 [Source](http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html "how to reset to old names")
 
-### Network Configuration Troubles
+### NetworkManager
 
-Here is where things get tricky. In the future I would like to think this is will all be sorted out, but for now, buckle up. So networking was always controlled by a service under sysVinit, that was usually `sudo service networking restart`. This was common across all Linux.  This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc. That all changed as wireless connections became a reality, and the mobility of computers to move from network to network, and even virtual machines, that could be created and destroyed rapidly, all began to change how networking was done. 
+Here is where things get tricky. In the future I would like to think this is will all be sorted out, but for now, buckle up. So networking was always controlled by a service under sysVinit, that was usually `sudo service networking restart`. This was common across all Linux. This worked fine when network connections were static and usually a 1 to 1 relationship with a computer or pc. That all changed as wireless connections became a reality, and with mobility of computers to move from network to network, and even virtual machines networking began to change.
 
-In November of 2004 Fedora introduced **Network Manager** to be the main instrument to handle their network configurations. Debian and Ubuntu would eventually follow behind and Network Manager became the default way to manage network connections.  It uses a YAML like file structure to give values to the network service. Debian and Ubuntu maintained support for Network Manager, but always allowed fall back for compatibility reasons for the sysVinit script to manage the network.  
+In November of 2004 Fedora introduced [NetworkManager](https://opensource.com/article/22/4/networkmanager-linux "webpage for NetworkManager") to be the main instrument to handle their network configurations. Debian and Ubuntu would eventually follow and NetworkManager became the default way to manage network connections. It uses a YAML like file structure to give values to the network service. Debian and Ubuntu maintained support for NetworkManager, but always allowed fall back for compatibility reasons to the sysVinit script for managing your network.
 
-The control of the network has been unified once again in Linux distros under **systemd-networkd**, which controls the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in `/etc/systemd/network`. Files in that directory need to end in a .network extension. The systemd-networkd .network file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
+### Systemd-networkd
+
+The systemd project introduced **systemd-networkd**, which aspires to control the networking stack. Systemd-networkd will look for run time localized overwrites of default values located in `/etc/systemd/network`. Files in that directory need to end in a .network extension. The systemd-networkd `.network` file has an INI style value structure[^147]: The entire systemd-networkd documentations is [described here](https://www.freedesktop.org/software/systemd/man/systemd.network.html "systemd-networkd documentation").
 
 #### Who uses what?
 
@@ -222,7 +224,9 @@ iface enp0s8 inet static
 
 ### Ubuntu and Fedora Using NetworkManager
 
-NetworkManager now uses NMconnections for its Networking Syntax, which looks similar to the Networkd style INI based syntax[^148]. The network configurations are no longer located in `/etc/sysconfig/network-scripts/ifcfg-eth0`. You would create a file named `*.nmconnections` located under the `/etc/NetworkManager/system-connections/` directory.
+NetworkManager uses NMconnections for configuring its syntax, which looks similar to the Networkd style INI based syntax[^148]. The network configurations are no longer located in `/etc/sysconfig/network-scripts/ifcfg-eth0`. You would create a file named `*.nmconnections` located under the `/etc/NetworkManager/system-connections/` directory.
+
+> *NetworkManager looks for its own interface connection files, located in the /etc/NetworkManager/system-connections directory. Most distributions, including Fedora, keep their network connection files in the /etc/NetworkManager/system-connections directory, using the network's name as the file name[^ch12f159].*
 
 ```yaml
 [connection]
@@ -302,16 +306,7 @@ Linux, inheriting from UNIX from a time before DNS existed, has a file for local
 
 192.168.33.210 graphitea.iltech.edu graphitea
 192.168.33.220 graphiteb.iltech.edu graphiteb
-192.168.33.200 graphitemc.iltech.edu graphitemc
-
-192.168.33.10  hosta.iltech.edu hosta
-192.168.33.20  hostb.iltech.edu hostb
-
-192.168.33.50 logstash.iltech.edu logstash
-192.168.33.51 ela1.iltech.edu ela1
-192.168.33.52 ela2.iltech.edu ela2
-192.168.33.53 ela3.iltech.edu ela3
-
+192.168.33.200 graphitemc.iltech.edu graphitec
 ```
 
 #### iputils
@@ -331,7 +326,7 @@ The first tool that should be in your tool box is *ping*.
 
 Ping, just like the concept of a submarine using sonar to find objects, communicates with another IP address to see if the other system is "alive" and that your system and network are working properly to get the packet from your network to a different network.  There are many tools to enhance the output of ping as well such as [gping](https://github.com/orf/gping "Ping with graph").
 
-The ```traceroute``` tool is used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic. Try these commands and describe the output:
+The `traceroute` tool is used to report each router hop that a packet takes on its way to its final destination.  Useful for checking if there are routing problems along the path of your traffic. Try these commands and describe the output:
 
 ```bash
 traceroute www.yahoo.com
@@ -340,8 +335,11 @@ traceroute www.yahoo.co.jp
 
 There are additional tools that extend basic troubleshooting features such as:
 
+* [iftop](https://linuxblog.io/iftop-command-in-linux-w-examples/ "iftop usage web page")
+* [Nethogs](https://github.com/raboof/nethogs "Webpage for Net Hogs")
 * [iptraf-ng](https://wiki.ipfire.org/addons/iptraf-ng "iptraf-ng website") - Network traffic visualization
 * [tcpdump](http://www.tcpdump.org/ "tcpdump website") – Detailed Network Traffic Analysis
+* [tshark](https://tshark.dev/setup/install/ "Webpage for commandline Wire Shark")
 
 ## Webservers
 
@@ -999,3 +997,5 @@ We recommend you complete this once manually - taking note of all the steps, the
 [^151]: [https://en.wikipedia.org/wiki/NoSQL](https://en.wikipedia.org/wiki/NoSQL "NoSQL")
 
 [^157]: [https://tldp.org/LDP/nag/node140.html](https://tldp.org/LDP/nag/node140.html NFS description")
+
+[^ch12f159]: [https://opensource.com/article/22/4/networkmanager-linux](https://opensource.com/article/22/4/networkmanager-linux "webpage for NetworkManager")
