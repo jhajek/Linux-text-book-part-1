@@ -339,7 +339,7 @@ There are additional tools that extend basic troubleshooting features such as:
 * [Nethogs](https://github.com/raboof/nethogs "Webpage for Net Hogs")
 * [iptraf-ng](https://wiki.ipfire.org/addons/iptraf-ng "iptraf-ng website") - Network traffic visualization
 * [tcpdump](http://www.tcpdump.org/ "tcpdump website") – Detailed Network Traffic Analysis
-* [tshark](https://tshark.dev/setup/install/ "Webpage for commandline Wire Shark")
+* [tshark](https://tshark.dev/setup/install/ "Webpage for commandline Wireshark")
 
 ## Webservers
 
