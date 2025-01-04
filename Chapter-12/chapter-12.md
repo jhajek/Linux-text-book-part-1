@@ -9,7 +9,7 @@
 * Explain configuring and deploying major webserver platforms
 * Compare and contrast major opensource webservers and be able to discuss their uses in industry
 * Explain how to install, manage, and configure basic major SQL and NOSQL databases
-* Identify the types of desktop based firewalls 
+* Identify the types of desktop based firewalls
 * Explain how to configure desktop based firewalls 
 
 ## Outcomes
@@ -29,7 +29,7 @@ Former CEO of Sun Microsystems, Scott McNealy once famously said, "*The network 
 
 ### IP Addresses
 
-Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: `192.168.1.100`.  
+Every network interface, or NIC, which is the physical or virtual place where your device connects to the network.  Each NIC in turn needs an IP address to communicate on a network. IP addresses come in two flavors, a **static** and a **dynamic** IP address. An IPv4 or IP address is a 4 octet number looking something like this: `192.168.1.100`.
 
 > Exercise: Open a command prompt and type this command to find your IP address: `ip address show`. This command can be abbreviated `ip a sh` as well.
 
@@ -37,9 +37,9 @@ A static address is one that you assign and configure based on your network. If 
 
 > Exercise: Open a command prompt and type this command to find your MAC address or Ethernet Address `ip l sh` which is short for `ip link show`. You can find all the options to display by typing `man ip`.
 
-But what if you have transient or ephemeral nodes (computers) on your network? Then you need to use the **Dynamic Host Configuration Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address. This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.  
+But what if you have transient or ephemeral nodes (computers) on your network? Then you need to use the **Dynamic Host Configuration Protocol**.  Setting your computer to use DHCP allows it to negotiate for a lease on a shared IP address. This is a good idea for transient devices or paces where the total number of IPs needed is less than the total number of devices, but all of those devices will not be present at the same time.
 
-There is a DHCP server (configuring one is beyond the scope of this chapter), that will listen for DHCP broadcasts from your client and answer with an offer of an IP. Once your system (network card) accepts the offer it gains access to that IP address and all other necessary IP configuration--which is relinquishes upon your physically leaving the network for the most part. DHCP allows you to pool IPs when you might not have enough and share or allow for the auto-registration to make managing large scale IP deployments easy.  
+There is a DHCP server (configuring one is beyond the scope of this chapter), that will listen for DHCP broadcasts from your client and answer with an offer of an IP. Once your system (network card) accepts the offer it gains access to that IP address and all other necessary IP configuration--which is relinquishes upon your physically leaving the network for the most part. DHCP allows you to pool IPs when you might not have enough and share or allow for the auto-registration to make managing large scale IP deployments easy.
 
 For instance at a university every student has a laptop and most likely a phone too, you could manually assign each an address but the number of students goes into the thousands and tens of thousands, and it not practical to manage--DHCP makes this scale manageable. Settings these values statically in each operating system is different but the concept is the same. You need to enter an IP Address, Netmask/CIDR, Network Gateway, and DNS.  Each of these concepts is explained below.
 
