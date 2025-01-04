@@ -228,6 +228,8 @@ NetworkManager uses NMconnections for configuring its syntax, which looks simila
 
 > *NetworkManager looks for its own interface connection files, located in the /etc/NetworkManager/system-connections directory. Most distributions, including Fedora, keep their network connection files in the /etc/NetworkManager/system-connections directory, using the network's name as the file name[^ch12f159].*
 
+You can use the `nmcli` command in place of the `ip` and `ifconfig` commands.
+
 ```yaml
 [connection]
 id=Wired connection 2
