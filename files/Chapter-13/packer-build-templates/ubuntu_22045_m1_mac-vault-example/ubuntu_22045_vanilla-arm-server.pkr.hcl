@@ -21,7 +21,7 @@ source "parallels-iso" "vault-client" {
   boot_command          = ["<esc>", "c", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
   boot_wait               = "5s"
   disk_size               = 15000
-  parallels_tools_flavor  = "lin"
+  parallels_tools_flavor  = "lin-arm"
   guest_os_type           = "ubuntu"
   hard_drive_interface    = "sata"
   http_directory          = "subiquity/http"
