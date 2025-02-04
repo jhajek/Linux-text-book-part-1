@@ -9,6 +9,8 @@
 * Explain the contributions of Richard Stallman to Unix, Linux, GNU, the FSF, and *Free/Libre Software*
 * Explain the contributions of Linus Torvalds to the creation of Linux and the Linux Kernel
 * Discuss the nature of modern commercial distributions of Linux and Unix operating systems
+* Compare and contrast the two major Linux distribution families
+* Define the term *distribution* and *distro*
 * Compare and Contrast the principles and key differences of *Free/Libre Software* and *Opensource Software*
 * Discuss and explain how Free and Opensource software lead to Cloud Computing and Mobile Compute
 
