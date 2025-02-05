@@ -643,13 +643,13 @@ Let's compile something to see how this works. This link is to the Apache webser
 ```bash
 # Pre-reqs needed first -- assumuing Ubuntu 20.04+
 sudo apt install build-essential libapr1 libapr1-dev libaprutil1 \
-libaprutil1-dev libpcre3 libpcre3-dev
+libaprutil1-dev libpcre3 libpcre3-dev libpcre2-dev
 # Command to retrieve the source code
-wget https://dlcdn.apache.org/httpd/httpd-2.4.62.tar.gz
+wget https://dlcdn.apache.org/httpd/httpd-2.3.62.tar.gz
 # Command to unzip the source code
-tar -xvzf httpd-2.4.62.tar.gz
+tar -xvzf httpd-2.4.63.tar.gz
 # command to change directory to extracted source code
-cd httpd-2.4.62
+cd httpd-2.4.63
 # commands to build
 ./configure
 make
@@ -1033,11 +1033,11 @@ Let's compile something to see how this works. This link is to the Apache webser
 sudo apt install build-essential libapr1 libapr1-dev libaprutil1 \
 libaprutil1-dev libpcre3 libpcre3-dev
 # Command to retrieve the source code
-wget https://dlcdn.apache.org/httpd/httpd-2.4.62.tar.gz
+wget https://dlcdn.apache.org/httpd/httpd-2.4.63.tar.gz
 # Command to unzip the source code
-tar -xvzf httpd-2.4.62
+tar -xvzf httpd-2.4.63
 # command to change directory to extracted source code
-cd httpd-2.4.62
+cd httpd-2.4.63
 # commands to build
 ./configure
 make
