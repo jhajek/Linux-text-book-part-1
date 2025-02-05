@@ -630,9 +630,15 @@ In addition to packages you may still want to compile software from source. This
 
 ### GNU GCC
 
-The main tool needed is the GNU C compiler or GCC for short. This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software. There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. 
+The main tool needed is the GNU C compiler or GCC for short. This was one of the first items that Richard Stallman created in the GNU project and to this day is needed for building the Linux Kernel and is the standard build tool for Free Software. There are competing software stacks and compilers, as of version 10 the FreeBSD project deprecated GCC and chose the [Clang](https://en.wikipedia.org/wiki/Clang "Clang") project, originally designed by Apple to support [Xcode](https://en.wikipedia.org/wiki/Xcode "Xcode"), instead. Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. 
 
-Apple abandoned the GCC compiler because of the restrictions placed on it by GPLv3, which is an interesting side effect of GPLv3. The GCC compiler has grown to include other languages over the years as well. You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: `sudo apt install build-essential`. In Fedora you would add these two commands via `yum` or `dnf`: `sudo dnf group install "development tools"`. You can compile code directly by invoking the gcc or `g++` command.
+The GCC compiler has grown to include other languages over the years as well. You can install the GCC compiler and all the additional build tools in Debian/Ubuntu by typing: 
+
+> `sudo apt install build-essential` 
+
+In Fedora you would add these two commands via `yum` or `dnf`
+
+>  `sudo dnf group install "development tools"`
 
 ### GNU Make
 
