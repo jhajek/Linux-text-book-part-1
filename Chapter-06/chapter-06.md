@@ -129,7 +129,7 @@ echo "Buy milks and eggs!" >> ~/Documents/my-shopping-list.txt
 
 ```bash
 mkdir chapter-0{1..9}
-rm dir chapter-0{1..9}
+rmdir chapter-0{1..9}
 ```
 
 \#
