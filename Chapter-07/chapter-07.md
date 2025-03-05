@@ -608,7 +608,8 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 1) Using vim:
     i) Create a shell script named **install-textbook-dependencies.sh** in your home directory. You will need to add commands to do the following:
     i) Add the proper *shebang* on the first line, then two lines of space
-    i) Issue the command to retrieve the `.deb` package: `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
+    i) Issue the command to retrieve the `.deb` package:  
+    `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
     i) Write the command to install this `.deb` package
     i) Write the command to update the `apt` repos
     i) Write the command to install these dependencies using the `-y` flag: `texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin  texlive-science-doc texlive-science`
