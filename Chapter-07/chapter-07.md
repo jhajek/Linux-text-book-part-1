@@ -594,7 +594,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 3
 
-1) Using Ubuntu Server, in your home directory, using vim, create a shell script named `first-shell.sh` that contains the following:
+1) Using Ubuntu Server, in your home directory, using vim, create a shell script named `first-shell.sh` that contains the following:  
     i) Add the proper `shebang` on the first line  
     i) Add two lines of space  
     i) Store the output of the command `date` into the shell variable named **DT**  
