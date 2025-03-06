@@ -579,18 +579,18 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 #### Part 1
 
 1) Using Ubuntu or Fedora Desktop, type the command ```vimtutor``` from the terminal: __Warning!__ `vimtutor` requires you to read the instructions carefully!
-    i) This is a 6 part tutorial. You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
-    i) __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing `:w  ~/Documents/vimtutor.txt` - this way you can edit the file on your local system instead of launching the vimtutor application again. Note you need to use `vim` for this assignment.
-    i) Save the finished output of `vimtutor.txt` in `vim` using the `:w` command
-    i) Show the output of the elements you changed
+    1. This is a 6 part tutorial. You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
+    1. __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing `:w  ~/Documents/vimtutor.txt` - this way you can edit the file on your local system instead of launching the vimtutor application again. Note you need to use `vim` for this assignment.
+    1. Save the finished output of `vimtutor.txt` in `vim` using the `:w` command
+    1. Show the output of the elements you changed
 
 #### Part 2
 
 1. From the textbook source code folder: `files/Chapter-07/lab`, copy the file `install-software.sh` to your home directory
-    i) Using vim/ex commands, find all occurrences of `python` and replace them with `python3`
-    i) Save file and quit the vim editor
-    i) To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
-    i) Demonstrate the code change you made and the output it generated 
+    1. Using vim/ex commands, find all occurrences of `python` and replace them with `python3`
+    1. Save file and quit the vim editor
+    1. To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
+    1. Demonstrate the code change you made and the output it generated 
 
 #### Part 3
 
@@ -623,10 +623,10 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 4
 
-1) Using the `mv` command, move your shell-script: `first-shell.sh` to `/home/vagrant/.local/bin` (replace `vagrant` with your system username).  Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
-    i) Demonstrate the output 
-1) In Ubuntu Server, inside the Textbook sample code: `files > Chapter-07 > logs > u_ex151002.log` write a `grep` command to find each line that has `.php` in it
-    i) Demonstrate the output of the command
+1. Using the `mv` command, move your shell-script: `first-shell.sh` to `/home/vagrant/.local/bin` (replace `vagrant` with your system username).  Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
+    1. Demonstrate the output 
+1. In Ubuntu Server, inside the Textbook sample code: `files > Chapter-07 > logs > u_ex151002.log` write a `grep` command to find each line that has `.php` in it
+    1. Demonstrate the output of the command
 
 #### Deliverable  
 
