@@ -586,7 +586,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 2
 
-1) From the textbook source code folder: `files/Chapter-07/lab`, copy the file `install-software.sh` to your home directory
+1. From the textbook source code folder: `files/Chapter-07/lab`, copy the file `install-software.sh` to your home directory
     i) Using vim/ex commands, find all occurrences of `python` and replace them with `python3`
     i) Save file and quit the vim editor
     i) To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
@@ -594,32 +594,32 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 3
 
-1) Using Ubuntu Server, in your home directory, using vim, create a shell script named `first-shell.sh` that contains the following:  
-    i) Add the proper `shebang` on the first line  
-    i) Add two lines of space  
-    i) Store the output of the command `date` into the shell variable named **DT**  
-    i) Add the command that will print out the text: "#############"  
-    i) Add the command that will print out the text: "Script execution began at: $DT"  
-    i) Add the command that will print out the text: "#############"  
-    i) Save the file and quit the vim editor  
-    i) Execute the command to give `first-shell.sh` execute permission  
-    i) Demonstrate the output executing `first-shell.sh`  
-    i) Demonstrate the command used to print the content of the file: `first-shell.sh`  
-1) Using vim:
-    i) Create a shell script named **install-textbook-dependencies.sh** in your home directory. You will need to add commands to do the following:
-    i) Add the proper *shebang* on the first line, then two lines of space
-    i) Issue the command to retrieve the `.deb` package:  
+1. Using Ubuntu Server, in your home directory, using vim, create a shell script named `first-shell.sh` that contains the following:
+    1. Add the proper `shebang` on the first line
+    1. Add two lines of space
+    1. Store the output of the command `date` into the shell variable named **DT**
+    1. Add the command that will print out the text: "#############"
+    1. Add the command that will print out the text: "Script execution began at: $DT"
+    1. Add the command that will print out the text: "#############"
+    1. Save the file and quit the vim editor
+    1. Execute the command to give `first-shell.sh` execute permission
+    1. Demonstrate the output executing `first-shell.sh`
+    1. Demonstrate the command used to print the content of the file: `first-shell.sh`
+1. Using vim:
+    1. Create a shell script named **install-textbook-dependencies.sh** in your home directory. You will need to add commands to do the following:
+    1. Add the proper *shebang* on the first line, then two lines of space
+    1. Issue the command to retrieve the `.deb` package:  
     `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
-    i) Write the command to install this `.deb` package
-    i) Write the command to update the `apt` repos
-    i) Write the command to install these dependencies using the `-y` flag: `texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin  texlive-science-doc texlive-science`
-    i) Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
-1) Compile your version of the textbook
-    i) Edit Line 8 of `chapter-01.md` from the textbook source code to now say: `# New Introduction by YOURNAME` 
-    i) To test the results, `cd` into the Linux-Text-Book-Part-1 directory  
-    i) Execute the script named: `build-linux-and-macos.sh` to build the textbook using the dependencies you installed
-    i) In the `output/txt` directory run a command to display the first 20 lines of the generated file: `Understanding-Free-and-Opensource-Operating-Systems-Part-I.txt`
-    i) Demonstrate the output of building the textbook
+    1. Write the command to install this `.deb` package
+    1. Write the command to update the `apt` repos
+    1. Write the command to install these dependencies using the `-y` flag: `texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin  texlive-science-doc texlive-science`
+    1. Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
+1. Compile your version of the textbook
+    1. Edit Line 8 of `chapter-01.md` from the textbook source code to now say: `# New Introduction by YOURNAME` 
+    1. To test the results, `cd` into the Linux-Text-Book-Part-1 directory  
+    1. Execute the script named: `build-linux-and-macos.sh` to build the textbook using the dependencies you installed
+    1. In the `output/txt` directory run a command to display the first 20 lines of the generated file: `Understanding-Free-and-Opensource-Operating-Systems-Part-I.txt`
+    1. Demonstrate the output of building the textbook
 
 #### Part 4
 
