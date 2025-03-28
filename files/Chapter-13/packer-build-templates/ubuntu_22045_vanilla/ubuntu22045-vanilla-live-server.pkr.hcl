@@ -57,7 +57,7 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_2205_vagrant.sh"
+    script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
  
   }
 
