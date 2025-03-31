@@ -5,9 +5,13 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 # This is the init block needed to initialize the plugin
 packer {
   required_plugins {
+    vagrant = {
+      source  = "github.com/hashicorp/vagrant"
+      version = "~> 1"
+    }
     parallels = {
-      version = ">= 1.1.0"
-      source  = "github.com/Parallels/parallels"
+      source  = "github.com/hashicorp/parallels"
+      version = "~> 1.2.0"
     }
   }
 }
