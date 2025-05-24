@@ -20,4 +20,4 @@ sudo mysql -e "GRANT CREATE, SELECT, UPDATE, DELETE, INSERT ON records.* TO '$DB
 sudo mysql -e "FLUSH PRIVILEGES;"
 
 # Customization to disable password auth over ssh
-echo "PasswordAuthentication no" | sudo tee -a /etc/ssh/sshd_config.d/diable-password-auth.conf
+echo "PasswordAuthentication no" | sudo tee -a /etc/ssh/sshd_config.d/disable-password-auth.conf
