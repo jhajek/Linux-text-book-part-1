@@ -393,8 +393,12 @@ Btrfs adds support for resource pooling and using extents to make logical drives
 | Ubuntu Desktop   |       ext4         |   zfs and btrfs    |
 | Ubuntu Server    |       ext4         |   zfs and btrfs    |
 | Fedora Workstation |    btrfs         |   xfs    |
-| Alma, RHEL, & Rocky Linux   |       xfs         |   -   |  
+| Alma, RHEL, & Rocky Linux   |       xfs         |   \*   |  
 | Debian         | ext4  |  zfs, xfs, btrfs |
+-------------------------------------------------------------
+
+Table: Btrfs support is not native to the RHEL kernel, but can be [added](https://mrgecko.org/blog/2024/add-btrfs-support-to-rocky-and-alma-linux "webpage instructions to install btrfs support on RHEL") 
+
 
 ### Btrfs Creation Commands
 
