@@ -49,11 +49,11 @@ Using this facility you can simply run a command from the terminal: The command 
 
 #### Intel vs Apple Silicon
 
-This tutorial assumes you are using a Windows PC or an Intel based Mac PC. For those using the new Apple Silicon or M1 Macs you will need to see special inserts along the way and will be looking for arm64, arm, or aarch64 based Vagrant boxes. The reason is that the Apple architecture is completely different from the Intel Architecture and you need an Operating system compiled for your own architecture.
+This tutorial assumes you are using a Windows PC or an Intel based Mac PC. For those using the new Apple Silicon or M-series Macs you will need to see special inserts along the way and will be looking for arm64, arm, or aarch64 based Vagrant boxes. The reason is that the Apple architecture is completely different from the Intel Architecture and you need an Operating system compiled for your own architecture.
 
-### Parallels Pro, M1, and Vagrant
+### Parallels Pro, M-series Macs, and Vagrant
 
-* For M1 Macs you will need to make a purchase of a copy of Parallels Pro or Enterprise edition
+* For M-series Macs you will need to make a purchase of a copy of Parallels Pro or Enterprise edition
   * [https://www.parallels.com/products/desktop/pro/](https://www.parallels.com/products/desktop/pro/ "Parallels Pro Edition")
 * [50% off for students and educators Link](https://www.parallels.com/landingpage/pd/education/ "webpage for discount for student and educators")
   * The standard and education edition doesn't contain the commandline interface needed for automation.
@@ -197,18 +197,18 @@ The tutorial on vagrantup.com will walk you through this but a small example (tr
 * `vagrant box add ubuntu/jammy64` (Canonical--Ubuntu 22.04 parent company - provided)
 * `vagrant box add debian/bookworm64` (Official Debian Bookworm release)
 
-For those using M1 Macs and Parallels you will need to replace the names of the Boxes in the demos with these two that have been prepared for M1 macs and parallels
+For those using M-series Macs and Parallels you will need to replace the names of the Boxes in the demos with these two that have been prepared for M-series macs and parallels
 
-* `bento/ubuntu-22.04-arm64`
-* `almalinux/9.aarch64`
+* `bento/ubuntu-22.04`
+* `almalinux/9`
 
-1. `mkdir jammy64-arm`
-1. `cd jammy64-arm`
-1. `vagrant init bento/ubuntu-22.04-arm64` 
+1. `mkdir jammy64`
+1. `cd jammy64`
+1. `vagrant init bento/ubuntu-22.04` 
   
-1. `mkdir almalinux9-arm`
-1. `cd almalinux9-arm` 
-1. `vagrant init almalinux/9.aarch64`
+1. `mkdir almalinux9`
+1. `cd almalinux9` 
+1. `vagrant init almalinux/9`
 
 ### Vagrant commands
 
@@ -291,7 +291,7 @@ This command is issues after the vagrant up command and allows you to establish 
 
 **Command:** `vagrant plugin install vagrant-vbguest` or `vagrant plugin install vagrant-parallels`
 
-This command specifically enables the automatic installation of the VirtualBox Additions to enable VirtualBox specific features such as shared folders. The second command in needed if using Vagrant on a M1/M2 Mac using Parallels Pro.
+This command specifically enables the automatic installation of the VirtualBox Additions to enable VirtualBox specific features such as shared folders. The second command in needed if using Vagrant on a M-series Mac using Parallels Pro.
 
 ### Vagrant Quick Command Tutorial
 
@@ -981,7 +981,7 @@ $Env:VAULT_TOKEN="hvs.CAESIKEylPWlNpOTN.............................ZTRnMxY2"
 
 ### Setting Vault Environment Variables on Your Host MacOS System
 
-Using MacOS (Intel or M1) edit the `~/.zprofile` for the `Z shell` and add these values. Remember to source the changes `. ~/.zprofile` after making the changes
+Using MacOS (Intel or M-series) edit the `~/.zprofile` for the `Z shell` and add these values. Remember to source the changes `. ~/.zprofile` after making the changes
 
 ```bash
 # The 192.168.56.99 is the value we set on line 35 of the 
@@ -1189,20 +1189,20 @@ We will now use Vagrant to retrieve and Ubuntu 22.04 known as Jammy and a AlmaLi
 1. `cd almalinux9` 
 1. `vagrant init almalinux/9` 
 
-#### M1 Macs Only
+#### M-series Macs Only
 
-For those using M1 Macs and Parallels you will need to replace the names of the Boxes in the demos with these two that have been prepared for M1 macs and parallels
+For those using M-series Macs and Parallels you will need to replace the names of the Boxes in the demos with these two that have been prepared for M-series macs and parallels
 
-* `bento/ubuntu-22.04-arm64`
-* `almalinux/9.aarch64`
+* `bento/ubuntu-22.04`
+* `almalinux/9`
 
 1. `mkdir jammy64-arm`
 1. `cd jammy64-arm`
-1. `bento/ubuntu-22.04-arm64` 
+1. `bento/ubuntu-22.04` 
   
-1. `mkdir almalinux9-arm`
+1. `mkdir almalinux9`
 1. `cd almalinux9-arm` 
-1. `vagrant init almalinux/9.aarch64`
+1. `vagrant init almalinux/9`
 
 #### Editing Your Vagrantfile
 
@@ -1222,7 +1222,7 @@ Once this step is successful, we need to establish a connection to the virtual m
 ### Part One - Vagrant Commands
 
 * Using the `vagrant init ubuntu/jammy64` command, initialize a Vagrant Box (only has to be done once on a system)
-  * Or comparable Vagrant Box on an M1 Mac
+  * Or comparable Vagrant Box on an M-series Mac
 * Using the `vagrant up` command, start the virtual machine
 * Using the `vagrant ssh` command, connect to the virtual machine via SSH
 * Using the `sudo apt-get update` and `sudo apt-get install nginx` command, install the Nginx webserver (pronounced Engine X)
