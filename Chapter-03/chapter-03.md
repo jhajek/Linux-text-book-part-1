@@ -88,50 +88,61 @@ The Fedora Project provides its own media writer which can be used with ISOs and
 
 The RaspberryPi Foundation also has their own media writer, [the RaspberryPi Imager](https://www.raspberrypi.org/downloads/ "RaspberryPi Image Writer website") which makes dealing with SD Card based Operating Systems very convenient.  Their tool also has the auto-download of operating system version feature -- which caches the downloads.
 
-One other tool that is of use is Rufus. [Rufus is](https://rufus.ie/ "Rufus image writer web page"): "A utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc."  Rufus is fast and can be used to create Linux images as well as Windows and even DOS boot disks, should the need arise.
+One other tool that is of use is Rufus. [Rufus is](https://rufus.ie/ "Rufus image writer web page"): "A utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc." Rufus is fast and can be used to create Linux images as well as Windows and even DOS boot disks, should the need arise.
 
 ### Importance of ISOs
 
-These tools takes away the difficulty out of making install media. You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source.
-
-While you can burn ISO files to media for installation on a desktop or laptop, ISO files also have utility for installing a Linux distribution into a virtualization platform.
-
+These tools takes away the difficulty out of making install media. You may hear the term *"burn"* used in relation to ISOs, all this means is to transfer or write data from one source to its extracted final source. While you can burn ISO files to media for installation on a desktop or laptop, ISO files also have utility for installing a Linux distribution into a virtualization platform.
 
 ## Installations and ISOs
 
-Now that we covered a bit about what a hypervisor is, let us begin the install process using VirtualBox.  The next pages are going to show you in comparison how to install the latest version of [Fedora Workstation](https://getfedora.org/ "Fedora Workstation") and latest [Ubuntu (LTS)](https://wiki.ubuntu.com/LTS "Ubuntu Long Term Support Link").  This will require you to download two ISOs from their respective download sites. For this install process we will assume that you are using VirtualBox version 6.x or later. It might be a good exercise if you have an old laptop or PC laying around to make some installable media (CR-ROM or Flash drive via Etcher) and install one of these distributions directly as the primary operating system. Finding old laptops is easier than you might think. Try asking your relatives (especially around back-to-school and Christmas), a company you work for, or even a school you go to. Laptops/desktops can have a second life and can still be useful to experiment with Linux installations even if the hardware is not the latest or greatest.  Another option to consider is dual-booting or triple-booting your system, we will not cover that option here.  
+Now that we covered a bit about what a hypervisor is, let us begin the install process using VirtualBox.  The next pages are going to show you in comparison how to install the latest version of [Fedora Workstation](https://getfedora.org/ "Fedora Workstation") and latest [Ubuntu (LTS)](https://wiki.ubuntu.com/LTS "Ubuntu Long Term Support Link").  This will require you to download two ISOs from their respective download sites. For this install process we will assume that you are using VirtualBox version 6.x or later. It might be a good exercise if you have an old laptop or PC laying around to make some installable media (CR-ROM or Flash drive via Etcher) and install one of these distributions directly as the primary operating system. Finding old laptops is easier than you might think. 
 
-If you do try it, back up your data first, you never know what could go wrong. I created a [quad-boot system](https://jeremyhajek.com/2015/06/01/quad-boot-your-pc-ubuntu-15-04-centos-6-6-fedora-21-windows-10.html "Quad Boot") containing Ubuntu, Fedora, CentOS, and Windows 10.  This processes is beyond the scope of this book but the link is provided for those interested.
+Try asking your relatives (especially around back-to-school and Christmas), a company you work for, or even a school you go to. Laptops/desktops can have a second life and can still be useful to experiment with Linux installations even if the hardware is not the latest or greatest.  Another option to consider is dual-booting or triple-booting your system, we will not cover that option here.  
 
-You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was 32-bit or 64-bit?  In modern Linux distros, 32-bit distros are mostly a thing of the past due to all CPUs being 64bit. You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor.  All but the most specialized or low end chip these days is 64-bit you should be safe with that type of distro. 
+You also need to be aware of the type of architecture you are installing to. In the past we had to determine if the CPU was 32-bit or 64-bit? In modern Linux distros, 32-bit distros are mostly a thing of the past due to all CPUs being 64bit. You can find information about your processor by going to [http://ark.intel.com](http://ark.intel.com] "ARK"). This is Intel's clearing house for all its information about processors and motherboards.  They can tell you all you want to know about a processor. All but the most specialized or low end chip these days are 64-bit you should be safe with that type of distro. 
 
-The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture. The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name. There is one other type of architecture called ARM or ARMh7, AARCH, AARCH64. This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi. 
+The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture. The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name. These distros are known as `x86`, `x86_64`, or `AMD64`.  
 
-There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple has moved their laptops to be ARM based, the M1 macs, as of 2021. It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture.
+There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple has moved their laptops to be ARM based, the M-series macs, as of 2021. It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture. They are also known as `aarch`, `aarch64`, or `ARM64`. There is one other type of architecture called `ARM` or `ARMh7/8`. This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi. 
 
 Each distro also has a checksum feature provided by the site that issues the download. A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be. That way if you download an ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents or perhaps just a corrupted download. Most distros use the SHA-256 hash, but for legacy purposes you still see md5 hashes.
 
-* [Get Fedora](https://getfedora.org "Get Fedora")
-* [Get Ubuntu](https://ubuntu.com "ubuntu")
+Most Linux ISOs can be found at their own homepage or from [https://mirrors.kernel.org/](https://mirrors.kernel.org/ "webpage for Kernel Mirror")
+
+#### x86 Intel and AMD PCs and Macs
+
+* [Fedora 42 Workstation Install ISO](https://mirrors.kernel.org/fedora/releases/42/Workstation/x86_64/iso/ "Webpage for Fedora Workstation Install")
+  * [Get Fedora](https://getfedora.org "Get Fedora")
+* [Ubuntu Desktop 25.04](https://mirrors.edge.kernel.org/ubuntu-releases/25.04/ "webpage download Ubuntu Desktop")
+  * [Get Ubuntu](https://ubuntu.com "ubuntu")
   * [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
-  * [Microsoft PowerShell hash checking functions](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function")
-* [Linux Distro Mirrors](https://mirrors.kernel.org "Linux Distro Mirrors")
-* [Get VirtualBox](http://virtualbox.org "VirtualBox")
+* [Debian 13 Standard installation ISO](https://mirrors.iu13.net/debian-cd/13.0.0-live/amd64/iso-hybrid/ "Debian 13 Standard installation ISO")
+  * [Debian 13 Net Install ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/ "Debian 13 Net install ISO")
+
+#### aarch ARM based images for M-series based Macs running Parallels
+
+* [Debian 13 ARM installation ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/ "Debian 13 ARM installation ISO")
+* [Fedora 42 Workstation aarch Install ISO](https://mirrors.kernel.org/fedora/releases/42/Workstation/aarch64/iso/ "Webpage for Fedora Workstation Install on ARM")
+  * [Get Fedora](https://getfedora.org "Get Fedora")
+* [Ubuntu Desktop 25.04 for ARM](https://cdimage.ubuntu.com/daily-live/current/ "webpage for Ubuntu Desktop")
+  * [Get Ubuntu](https://ubuntu.com "ubuntu")
+  * [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
 
 ### Checksums
 
-Here are the commands to execute in Windows in PowerShell:
+Here are the commands to [execute in PowerShell](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function"):
 
 ```powershell
-Get-FileHash .\ubuntu-22.04.2-desktop-amd64.iso -Algorithm SHA256 | format-list
+Get-FileHash .\ubuntu-25.04-desktop-amd64.iso -Algorithm SHA256 | format-list
 ```
 
-Output: ```b98dac940a82b110e6265ca78d1320f1f7103861e922aa1a54e4202686e9bbd3```
+Output: ```B87366B62EDDFBECB60E681BA83299C61884A0D97569ABE797695C8861F5DEA4```
 
 Here are the checksum commands and output to be executed if you are running on an already installed version of Linux or Mac OSX from the terminal:
 
 ```bash
-sha256sum ./Fedora-Workstation-Live-x86_64-38-1.6.iso
+sha256sum ./Fedora-Workstation-Live-42-1.1.x86_64
 ```
 
 Output: ```7A444A2E19012023BF0B015AE30135BAFC5FD20F4F333310D42B118745093992```
