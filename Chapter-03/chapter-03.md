@@ -104,13 +104,13 @@ You also need to be aware of the type of architecture you are installing to. In 
 
 The 32-bit distro is most commonly referred to as the x86 or 586, 686 architecture. The 64-bit architecture is usually referred to as x64, but sometimes *x86_64*, and even *AMD_64*, that is not a reference to AMD processors - just a credit in the name as AMD was the first company to implement 64-bit extensions to the 32-bit x86 instruction set--hence the name. These distros are known as `x86`, `x86_64`, or `AMD64`.  
 
-There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple has moved their laptops to be ARM based, the M-series macs, as of 2021. It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture. They are also known as `aarch`, `aarch64`, or `ARM64`. There is one other type of architecture called `ARM` or `ARMh7/8`. This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry Pi. 
+There are ARM based laptops out there such as the [Pinebook Pro](https://www.pine64.org/pinebook-pro/ "Pinebook Pro website") and even Apple has moved their laptops to be ARM based, the M-series macs, as of 2021. It has an entirely different instruction set so the software compiled for this architecture is not compatible with the Intel x86-x64 architecture. They are also known as `aarch`, `aarch64`, or `ARM64`. There is one other type of architecture called `ARM` or `ARMh7/8`. This is the ARM architecture that runs phones, tablets, and small embedded systems such as the Raspberry PI. 
 
 Each distro also has a checksum feature provided by the site that issues the download. A checksum is a one way mathematical function that gives you a unique representation of what the content of the ISO should be. That way if you download an ISO from somewhere and the checksum is different then you might be alerted to someone trying to add additional contents or perhaps just a corrupted download. Most distros use the SHA-256 hash, but for legacy purposes you still see md5 hashes.
 
 Most Linux ISOs can be found at their own homepage or from [https://mirrors.kernel.org/](https://mirrors.kernel.org/ "webpage for Kernel Mirror")
 
-#### x86 Intel and AMD PCs and Macs
+#### x86 Intel and AMD ISOs for PCs and Macs
 
 * [Fedora 42 Workstation Install ISO](https://mirrors.kernel.org/fedora/releases/42/Workstation/x86_64/iso/ "Webpage for Fedora Workstation Install")
   * [Get Fedora](https://getfedora.org "Get Fedora")
@@ -120,18 +120,18 @@ Most Linux ISOs can be found at their own homepage or from [https://mirrors.kern
 * [Debian 13 Standard installation ISO](https://mirrors.iu13.net/debian-cd/13.0.0-live/amd64/iso-hybrid/ "Debian 13 Standard installation ISO")
   * [Debian 13 Net Install ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/ "Debian 13 Net install ISO")
 
-#### aarch ARM based images for M-series based Macs running Parallels
+#### aarch ARM based ISOs for M-series based Macs running Parallels
 
-* [Debian 13 ARM installation ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/ "Debian 13 ARM installation ISO")
 * [Fedora 42 Workstation aarch Install ISO](https://mirrors.kernel.org/fedora/releases/42/Workstation/aarch64/iso/ "Webpage for Fedora Workstation Install on ARM")
   * [Get Fedora](https://getfedora.org "Get Fedora")
 * [Ubuntu Desktop 25.04 for ARM](https://cdimage.ubuntu.com/daily-live/current/ "webpage for Ubuntu Desktop")
   * [Get Ubuntu](https://ubuntu.com "ubuntu")
   * [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
+* [Debian 13 ARM installation ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/ "Debian 13 ARM installation ISO")
 
 ### Checksums
 
-Here are the commands to [execute in PowerShell](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function"):
+Here are the commands to [execute in PowerShell](http://technet.microsoft.com/en-us/library/dn520872.aspx "Powershell Hash checking function") to compile hashes:
 
 ```powershell
 Get-FileHash .\ubuntu-25.04-desktop-amd64.iso -Algorithm SHA256 | format-list
