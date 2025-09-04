@@ -177,7 +177,7 @@ Before beginning there are a series of questions you should ask yourself, "What 
 
 Upon completion of a fresh install and launching of VirtualBox you should see this image:
 
-![*VirtualBox fresh install*](images/Chapter-03/VirtualBox-Install/new-installation.png "Fresh VirtualBox install")
+![*VirtualBox fresh install*](images/Chapter-03/VirtualBox7/vbox-start-page.png "Fresh VirtualBox install")
 
 See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information. Unlike some opensource projects this documentation is actually very thorough and useful. VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
@@ -981,9 +981,11 @@ At the conclusion of this lab you will have installed ~10-20 Linux based operati
 
 ### Virtual Machine Creation - part I
 
-Following the demonstrations in section 3.6.3 and the installation information in section 3.6.1, you will need to find the download links for the Linux and BSD ISOs listed. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise; it can be installed via Chocolatey or Brew package managers as well. If you are using an M1 Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for Apple Silicon Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
+Following the demonstrations in section 3.6.3 and the installation information in section 3.6.1, you will need to find the download links for the Linux and BSD ISOs listed. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise. 
 
-Complete each install fully and then using the correct package manager install the program `neofetch` and take a screenshot of the results. There are 15 different distributions listed for Intel based x86 Windows and Macs. There are 11 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version.
+If you are using an M-series Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for Apple Silicon Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
+
+Complete each install fully and then using the correct package manager install the program `fastfetch` and take a screenshot of the results. There are 15 different distributions listed for Intel based x86 Windows and Macs. There are 11 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version.
 
 #### Parallels
 
@@ -991,7 +993,7 @@ If you are using `Parallels` complete the neccesary installs and adjust VirtualB
 
 #### Screenshots
 
-For those using x86_64 Intel Windows and Macs install the following ISOs, install the package `neofetch` via the package maanger and take a screenshot of the results adding them to the document below each unit.
+For those using x86_64 Intel Windows and Macs install the following ISOs, install the package `fastfetch` via the package maanger and take a screenshot of the results adding them to the document below each unit.
 
 * Debian Based
   * Ubuntu Desktop edition
@@ -1041,32 +1043,9 @@ For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia
   * openSUSE Leap
   * Debian
 
-### Compile Apache Web Server - part II
+### Compile The Ladybird browser - part II
 
-Let's compile something to see how this works. This link is to the Apache webserver version 2.4.x latest source code: [http://httpd.apache.org/docs/2.4/install.html](http://httpd.apache.org/docs/2.4/install.html "Apache Webserver Instructions"). Let's install some pre-requisites:
-
-```bash
-# Pre-reqs needed first -- assumuing Ubuntu 20.04
-sudo apt install build-essential libapr1 libapr1-dev libaprutil1 \
-libaprutil1-dev libpcre3 libpcre3-dev
-# Command to retrieve the source code
-wget https://dlcdn.apache.org/httpd/httpd-2.4.63.tar.gz
-# Command to unzip the source code
-tar -xvzf httpd-2.4.63
-# command to change directory to extracted source code
-cd httpd-2.4.63
-# commands to build
-./configure
-make
-sudo make install
-sudo /usr/local/apache2/bin/apachectl -k start
-```
-
-Now open a web browser in the virtual machine and navigate to http://127.0.0.1 and you should see the message: "It Works!" Take a Screenshot of these results.
-
-### Compile Ladybird webbrowser - part III
-
-This one is a bit more complex, but there is a new funded opensource browser called: [Ladybird](https://ladybird.org/ "ladybird browser site"). This is a new idea to break the browser duopoly we currently have, and bring back browsers to be what they were designed to do, browse, not be an add platform. Ladybird is in alpha so expect some bugs but you can compile it.
+This one is a bit more complex, but there is a new opensource browser called: [Ladybird](https://ladybird.org/ "ladybird browser site"). This is a new idea to break the browser duopoly we currently have, and bring back browsers to be what they were designed to do, browse, not be an add platform. Ladybird is in alpha so expect some bugs but you can compile it.
 
 * Clone the current source code into an Ubuntu desktop VM
   * See [https://github.com/LadybirdBrowser/ladybird](https://github.com/LadybirdBrowser/ladybird "github source code repo")
@@ -1074,9 +1053,7 @@ This one is a bit more complex, but there is a new funded opensource browser cal
   * Issue the `git clone https://github.com/LadybirdBrowser/ladybird.git` command
 * Follow the [build instructions](https://github.com/LadybirdBrowser/ladybird/blob/master/Documentation/BuildInstructionsLadybird.md "ladybird browser build instructions")
   * Make sure to install all required Ubuntu dependencies
-  * `cd` into the `ladybird` directory
-  * Issue the `./Meta/ladybird.sh run ladybird` command to begin compile and running
-
+  
 **Deliverable:** Take a screenshot of the compiled browser with iit.edu open
 
 #### Troubleshooting
