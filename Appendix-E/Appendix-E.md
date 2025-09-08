@@ -8,33 +8,32 @@ This is an appendix detailing installation of `Ubuntu Desktop`, `Debian Desktop`
 
 Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines-- Intel and AMD and Intel based MacOS.
 
+\newpage
+
 ### Ubuntu 25.04
 
-![*Ubuntu 25.04 Live CD*](images/Appendix-E/ubuntu25/livecd.png "image of live CD installation option.")
+![*Ubuntu 25.04 Live CD*](images/Appendix-E/ubuntu/livecd.png "image of live CD installation option.")
 
-![*Ubuntu 25.04 Interactive Install*](images/Appendix-E/ubuntu25/interactive-install.png "image of interactive installation option.")
+![*Ubuntu 25.04 Interactive Install*](images/Appendix-E/ubuntu/interactive-install.png "image of interactive installation option.")
 
 \newpage
 
-![*Ubuntu 25.04 Language Choice*](images/Appendix-E/ubuntu25/lang.png "image of language selection.")
+![*Ubuntu 25.04 Language Choice*](images/Appendix-E/ubuntu/lang.png "image of language selection.")
 
-![*Ubuntu 25.04 Interactive Install*](images/Appendix-E/ubuntu25/lang.png "image of language selection.")
+![*Ubuntu 25.04 Interactive Install*](images/Appendix-E/ubuntu/lang.png "image of language selection.")
 
 \newpage
 
 ### Fedora 42
 
-![*Ubuntu 25.04*](images/Appendix-E/ubuntu25/ "image of ")
+![*Fedora 42 Try or Install*](images/Appendix-E/fedora/try-or-install.png "image of Try or Install Fedora 42")
 
 ### Debian 13
 
-![*Ubuntu 25.04*](images/Appendix-E/ubuntu25/ "image of ")
 
 ### Debian 12
 
-![*Ubuntu 25.04*](images/Appendix-E/ubuntu25/ "image of ")
-
-
+## Instructions
 
 *WELCOME* screen. Here you will be presented with the option to choose your install language. As well as presented with two options: *TRY UBUNTU* or *INSTALL UBUNTU*. The option *TRY UBUNTU* will load the actual Ubuntu operating system but load it into RAM and not install it on your hard drive. This is helpful because it gives you the option to use Ubuntu fully without permanently installing it. Note that all data is stored in memory so nothing will survive a reboot - but this may be a good tool for doing online banking with. The Live option also has the option to go into an install mode via a desktop icon.
 
