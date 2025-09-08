@@ -18,7 +18,7 @@ Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines
 
 \newpage
 
-![*Ubuntu 25.04 Language Choice*](images/Appendix-E/ubuntu/lang.png "image of language selection.")
+![*Ubuntu 25.04 Language Choice*](images/Appendix-E/ubuntu/test2.png "image of language selection.")
 
 ![*Ubuntu 25.04 Interactive Install*](images/Appendix-E/ubuntu/lang.png "image of language selection.")
 
