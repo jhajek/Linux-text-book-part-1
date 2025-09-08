@@ -177,43 +177,37 @@ Before beginning there are a series of questions you should ask yourself, "What 
 
 Upon completion of a fresh install and launching of VirtualBox you should see this image:
 
-![*VirtualBox fresh install*](images/Chapter-03/VirtualBox7/vbox-start-page.png "Fresh VirtualBox install")
+![*VirtualBox fresh install*](images/Chapter-03/virtualBox7/vbox-start-page.png "Fresh VirtualBox install")
 
 See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information. Unlike some opensource projects this documentation is actually very thorough and useful. VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
 
-Let us walk through the initial installation process. The first step to begin is with the *NEW* button. The next step is where we give our guest virtual machine a name. VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version. If you see the sample below I typed "Ubuntu-20-04-Desktop" and "Fedora-34-workstation." As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.
+Let us walk through the initial installation process. The first step to begin is with the *NEW* button. The next step is where we give our guest virtual machine a name. VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version. As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.
 
-![*Create New Ubuntu and Fedora Instance Dialogs*](images/Chapter-03/VirtualBox-Install/name-and-operating-system-two.png "Create New Instance Dialog")
+![*Create New Virtual Machine*](images/Chapter-03/virtualBox7/new-vbox-instance.png "Create New Instance Dialog")
 
 What happens if you choose the wrong type or version? Two things: __first__, if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it. You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off. __Second__, if you select the wrong version, (32-bit instead of 64-bit) you will receive an error from the BIOS as the operating system loads explaining that it cannot continue.
 
-Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Note the slider, each system to install VirtualBox on will have a different slider based on the amount of memory you can allocate. The recommended amount of memory is at least one gigabyte but two gigabytes or more will be better.
+Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Modern Operating Systems expect at least 2 processors and 4 to 8 GB of memory (4096 - 8192 mb). They also run on EFI (check the box) and not on BIOS.
 
-![*Memory Selection Dialog*](images/Chapter-03/VirtualBox-Install/memory-size.png "Memory Selection Dialog")
+![*Memory Selection Dialog*](images/Chapter-03/virtualBox7/memory-settings.png "Memory Selection Dialog")
 
-The next step is the hard drive creation step. In this step we will choose to create a new hard drive now.
+The next step is the hard drive creation step. In this step we will choose to create a new hard drive and decide where you can store your virtual hard drive. This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM. 
 
-![*Drive Type*](images/Chapter-03/VirtualBox-Install/hard-disk.png "Drive Type")
+As a rule of thumb, I generally **double** the space recommended. Usually the default storage location is fine unless you know you need to store the hard drive on a separate partition or disk.
 
-Next is the hard drive file format. There are a few competing standards. If you know you are going to be working in the VirtualBox environment then the default VDI virtual disk type is sufficient.
+![*Drive Type*](images/Chapter-03/VirtualBox7/virtual-harddrive.png "Drive Type")
 
-![*Hard Disk File Type*](images/Chapter-03/VirtualBox-Install/file-type.png "Hard Disk File Type")
-
-You can choose to dynamically allocate your hard drive space or statically allocate it. The advantage of dynamically allocating is that not all the space will be assigned right away. The hard drive will grow incrementally as you need space until it hits the maximum you defined.
-
-![*Disk Type*](images/Chapter-03/VirtualBox-Install/storage-type.png "Disk Type")
-
-The final option dialog is where you can choose where to store your virtual machine's virtual hard drive and the amount of virtual hard drive you want to allocate. Here you have a choice of how much hard drive space you will allocate to the guest VM. This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM. As a rule of thumb, I generally double the space recommended. Usually the default storage location is fine unless you know you need to store the hard drive on a separate partition or disk.
-
-![*Hard disk Allocation*](images/Chapter-03/VirtualBox-Install/file-location-and-size.png "Harddisk allocation")
-
-Now click *finish* and you should be ready to go. 
+Now click *finish*. There is one other setting to modify.
 
 ### Walk Through the Settings
 
-![*Virtual Machine Settings*](images/Chapter-03/VirtualBox-Install/settings.png "Virtual Machine Settings")
+![*Virtual Machine Settings*](images/Chapter-03/virtualBox7/hdd-virtio-scsi.png "Virtual Machine Settings")
 
-Before we hit the start button - let us select one of our virtual machines and take a look at the content of the SETTINGS button. Here we will find all the settings possible related to our virtual machine. Though not entirely correct - you could think of this similar to a BIOS settings on a PC - and area where we can configure any underlying hardware. The most common options you will deal with are described as follows:
+Before we hit the start button - let us select one of our virtual machines and take a look at the content of the `Settings` button. Here we will find all the settings possible related to our virtual machine. 
+
+#### Virtio
+
+In this example we will edit the `Storage` setting and change the disk controller bus away from `AHCI` to `virtio-scsi`. [Virtio](https://docs.kernel.org/driver-api/virtio/virtio.html "Webpage for discussing virtio") is a newer optimized for virtualization disk bus compared to `AHCI`. 
 
 General
 
@@ -235,49 +229,13 @@ Network
 
 : Settings related to changing or adding new network interfaces or network types.
 
-### Installing Ubuntu
+### Installing Linux Operating Systems
 
-Hitting the *START* button on your virtual machine for Ubuntu 20.04 Desktop will bring you to a screen that asks you to select install media (or ISO file):
+To begin an installation after creating a virtual machine click the *START* button on your virtual machine dashboard and you will turn your virtual machine on--it will begin to *boot*.
 
-![*Select ISO install media*](images/Chapter-03/ubuntu-install/select-iso.png "Select ISO")
+![*Select ISO install media*](images/Chapter-03/virtualbox7/start-button.png "Select ISO")
 
-*WELCOME* screen. Here you will be presented with the option to choose your install language. As well as presented with two options: *TRY UBUNTU* or *INSTALL UBUNTU*. The option *TRY UBUNTU* will load the actual Ubuntu operating system but load it into RAM and not install it on your hard drive. This is helpful because it gives you the option to use Ubuntu fully without permanently installing it. Note that all data is stored in memory so nothing will survive a reboot - but this may be a good tool for doing online banking with. The Live option also has the option to go into an install mode via a desktop icon.
-
-![*Live or Install Mode*](images/Chapter-03/ubuntu-install/live-install.png "Live Install")
-
-For installation type you will be presented with default options such as *ERASE DISK AND INSTALL UBUNTU*. In addition there are options for enabling full disk encryption for securing your install data. The third option listed is to install using the LVM method of partitioning, which will be covered in chapter 12. The fourth option is for a custom partitioning, which is helpful in cases when you are installing multiple operating systems and create a multi-boot system.
-
-![*Confirm Partitions*](images/Chapter-03/ubuntu-install/installation-type.png "Installation Type")
-
-At the completion of this dialog box you will be asked to confirm the automatically generated partitions created by the system. A Linux system needs a minimum of 2 partitions to function but 3 are recommended. Those partitions are / (pronounced root), /boot where all the files needed to start the OS are located, and swap which is an on disk based RAM supplement partition.
-
-![*Installation Type*](images/Chapter-03/ubuntu-install/updates-and-other-software.png "Updates and Other Software")
-
-The next parts of the installation contain pretty straight-forward parts: time zone selection, keyboard layout, and account creation and password setup. Note that Ubuntu doesn't create any root user by default, which ever user you create first is automatically placed into the **sudo** group, which is a super user. For a discussion of password strength and strategies [see this cartoon](http://imgs.xkcd.com/comics/password_strength.png "Password Strength Argument"). You can also see the install details by clicking the small white triangle to reveal the verbose output of the process
-
-![*Install Details*](images/Chapter-03/ubuntu-install/user-account.png "User Account Details")
-
-### Installing Fedora
-
-Similarly on Fedora you will be presented with the option to *Start Fedora Live* or go into troubleshooting mode. You will be presented with an install screen similar above: *TRY FEDORA* or *INSTALL TO HARD DRIVE*. Fedora 32 will initially present you with a language screen option. After choosing your default language the next step is the *installation summary*.
-
-![*Installation Summary*](images/Chapter-03/fedora-install/installation-summary.png "Installation Summary")
-
-You will note 3 categories: keyboard, time and date, and installation destination. The first three options should all be filled out by default, the last option installation destination will have an orange notification icon next to it. This means we need to double click on this section and enter a sub-menu before we can continue.
-
-![*Device Selection*](images/Chapter-03/fedora-install/device-selection-370-by-200.png "Device Selection")
-
-This warning icon is a forcing mechanism to make you review these settings. You will see visual icons of all the hard disks available for installation. The one with a white checkmark is the disk where the __"/"__ (root) partition will be installed. If the default selections are satisfactory then you can click __DONE__ button at the top to the screen and continue.  Otherwise at the bottom of the screen are the detailed installation options, which include encryption, LVM, and external installation drives such as over iSCSI or NFS.
-
-![*Specialized Details*](images/Chapter-03/fedora-install/specialized-disks-330-by-200.png "Specialized Details")
-
-Now you can click "*begin installation*".
-
-The installation will finish without prompting you for creating a user. This will be done on the subsequent reboot as part of the setup process. You will be prompted with optional dialogs, and then a user creation dialog where you will create a user account that will be given admin privileges and/or the ability to log into a corporate account that is managed by a central LDAP or Active Directory (single sign-on).
-
-![*Create User With Sudo*](images/Chapter-03/fedora-install/user-account-fedora.png "Create User With Sudo")
-
-\newpage
+For step-by-step details on installing an operating system see Appendix-E of the book in order to cover both VirtualBox and Parallels based installs for Fedora, Ubuntu Desktop, and Debian installs.
 
 ## Package Managers
 
