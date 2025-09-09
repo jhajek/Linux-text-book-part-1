@@ -927,7 +927,7 @@ Watch the YouTube video [Virtual Machines explained in 15 Mins](https://www.yout
 
 ### Lab
 
-This lab has three parts that need to be completed. Use the provided template for submitting your screenshots as part of the deliverable.
+This lab has two parts that need to be completed. Use the provided template for submitting your screenshots as part of the deliverable.
 
 #### Objectives
 
