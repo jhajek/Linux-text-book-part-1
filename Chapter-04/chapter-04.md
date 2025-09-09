@@ -129,7 +129,7 @@ Tiling Window Managers place window next to each other like tiles on the floor a
   * Update for i3 focused on using Wayland
 * [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
   * [Xmonad User Guide](https://xmonad.org/tour.html "Xmonad User Guide")
-* [Hpyerland](https://hypr.land/ "webpage Hyperland desktop")
+* [Hpyerland](https://hypr.land/ "webpage Hyperland desktop")[^27]
 
 There is a sub-category of Tiling Window Managers called [Dynamic Window Managers](https://en.wikipedia.org/wiki/Dynamic_window_manager "webpage for Dynamic Window Managers"), which can combine some of the stacking features with tiling features. But according to an [article by Jerome Belleman](http://jeromebelleman.gitlab.io/posts/productivity/tiling/ "webpage explaining dynamic windows managers are part of tiling") that dynamic is really a part of tiling and not its own category--*However, reading the Dynamic window manager article reveals a Wikipedia definition which describes dynamic as specifically being a tiling window manager paradigm after all – nothing to do with stacking – and which relies on layouts rather than the user's freedom.*
 
@@ -528,7 +528,7 @@ Install these desktops, restart your system and as you login switch your desktop
 
 [^26]: Diagram provided by: <a href="http://wayland.freedesktop.org/architecture.html">http://wayland.freedesktop.org/architecture.html</a>
 
-[^27]: [http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016](http://www.omgubuntu.co.uk/2014/03/mir-default-display-server-ubuntu-2016)
+[^27]: [Omarchy Opiniated Hyperland + Arch](https://omarchy.org/ "webpage for omarchy")
 
 [^28]: <a href="https://commons.wikimedia.org/wiki/File:Miguel_de_Icaza.jpg#/media/File:Miguel_de_Icaza.jpg">Miguel de Icaza</a>
   Licensed under <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>

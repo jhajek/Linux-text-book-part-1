@@ -62,6 +62,12 @@ Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines
 
 \newpage
 
+![*Fedora 42 Language Select*](images/Appendix-E/fedora/lang.png "image of Language select")
+
+![*Fedora 42 Partitioning of Disks*](images/Appendix-E/fedora/install.png "image of partitioning of disks")
+
+\newpage
+
 ### Debian 13
 
 
