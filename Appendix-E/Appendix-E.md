@@ -50,7 +50,7 @@ Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines
 
 ![Ubuntu 25.04 First Boot After Install Encryption Unlock](images/Appendix-E/ubuntu/boot-unlock.png "image of First Boot After Install Encryption Unlock.")
 
-![Ubuntu 25.04 Launching the terminal and running the Package Manager: Apt](images/Appendix-E/ubuntu/boot-unlock.png "image of Launching the terminal and running the Package Manager: Apt.")
+![Ubuntu 25.04 Launching the terminal and running the Package Manager: Apt](images/Appendix-E/ubuntu/update.png "image of Launching the terminal and running the Package Manager: Apt.")
 
 \newpage
 
