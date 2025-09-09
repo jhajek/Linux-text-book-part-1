@@ -88,15 +88,9 @@ At one time it was thought that X was too deep into the bones of Linux and may n
 
 ![*X on Wayland*](images/Chapter-04/x-on-wayland.png "X on Wayland")
 
-### Ubuntu Mir - Depricated
-
 Not to be outdone Ubuntu saw an opportunity to come up with an X replacement and announced the Mir project in early 2013.  Unfortunately this has met with serious opposition from the X and Wayland communities seeing this as an outside effort to *"corner the market"*, even to the point in 2013 of Intel, who supports Wayland, [rejecting XMir support](http://arstechnica.com/information-technology/2013/09/intel-rejection-of-ubuntus-mir-patch-forces-canonical-to-go-own-way/ "Intel Rejects XMir") in its Linux opensource graphic driver package.
 
-Ubuntu is the only Linux operating system to support Mir and development has been delayed as the project has taken on the monumental task of replacing X.  Ubuntu was criticized for not joining the Wayland group's work but I think that may have been somewhat without warrant.  Ubuntu has a business use case--they are looking to make a compositor that could adapt based on form factor, something not unlike how Android works.  This would enable them to make Ubuntu for tablets, phones, TVs, even smaller devices electronic devices.  Mir would be customizable to Ubuntu's hardware dreams and they could sell hardware and perhaps make some money.
-
-> *"In March 2014, Mark Shuttleworth confirmed that Mir development had been delayed and that it was now forecast to be default for desktop use in Ubuntu 16.04 LTS, expected to be released in April 2016."* [^27]
-
-As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY[^40] interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.  But the Mir Project and Unity lives on in the Ubuntu Touch port maintained for phones and tablets by the [Ubuntu-Touch.io](https://ubuntu-touch.io/ "Ubuntu Touch webpage") project.  The Mir display server is now gaining popularity running Ubuntu Touch on the [Librem 5](https://fossbytes.com/librem-5-ubuntu-touch-support/ "librem 5 ubuntu touch web page") and the [Pinephone](https://devices.ubuntu-touch.io/device/pinephone/ "pinephone running ubuntu touch") Linux based cell phones.
+As of [April 5th 2017](https://arstechnica.com/information-technology/2017/04/ubuntu-unity-is-dead-desktop-will-switch-back-to-gnome-next-year/ "Unity Dead"), Mark Shuttleworth announced that in Ubuntu 18.04 the UNITY[^40] interface and the Mir compositing engine would be deprecated in favor of GNOME 3 and Wayland.  But the Mir Project and Unity lives on in the Ubuntu Touch port maintained for phones and tablets by the [Ubuntu-Touch.io](https://ubuntu-touch.io/ "Ubuntu Touch webpage") project. The Mir display server is now gaining popularity running Ubuntu Touch on the [Librem 5](https://fossbytes.com/librem-5-ubuntu-touch-support/ "librem 5 ubuntu touch web page") and the [Pinephone](https://devices.ubuntu-touch.io/device/pinephone/ "pinephone running ubuntu touch") Linux based cell phones.
 
 ## Window Managers
 
@@ -135,7 +129,7 @@ Tiling Window Managers place window next to each other like tiles on the floor a
   * Update for i3 focused on using Wayland
 * [Xmonad](http://xmonad.org/ "Xmonad") - Minimalist, tiling window manager written in Haskell
   * [Xmonad User Guide](https://xmonad.org/tour.html "Xmonad User Guide")
-* [Qtile](https://qtile.org/ "webpage of qtile")
+* [Hpyerland](https://hypr.land/ "webpage Hyperland desktop")
 
 There is a sub-category of Tiling Window Managers called [Dynamic Window Managers](https://en.wikipedia.org/wiki/Dynamic_window_manager "webpage for Dynamic Window Managers"), which can combine some of the stacking features with tiling features. But according to an [article by Jerome Belleman](http://jeromebelleman.gitlab.io/posts/productivity/tiling/ "webpage explaining dynamic windows managers are part of tiling") that dynamic is really a part of tiling and not its own category--*However, reading the Dynamic window manager article reveals a Wikipedia definition which describes dynamic as specifically being a tiling window manager paradigm after all – nothing to do with stacking – and which relies on layouts rather than the user's freedom.*
 
