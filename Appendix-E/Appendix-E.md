@@ -12,15 +12,45 @@ Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines
 
 ### Ubuntu 25.04
 
-![*Ubuntu 25.04 Live CD*](images/Appendix-E/ubuntu/livecd.png "image of live CD installation option.")
+![Ubuntu 25.04 Live CD welcome screen](images/Appendix-E/ubuntu/welcome.png "image of live CD welcome screen.")
 
-![*Ubuntu 25.04 Interactive Install*](images/Appendix-E/ubuntu/interactive-install.png "image of interactive installation option.")
+![Ubuntu 25.04 Language Choice](images/Appendix-E/ubuntu/lang.png "image of language choice.")
 
 \newpage
 
-![*Ubuntu 25.04 Language Choice*](images/Appendix-E/ubuntu/test2.png "image of language selection.")
+![Ubuntu 25.04 Update Installer](images/Appendix-E/ubuntu/update-installer.png "image of installer update.")
 
-![*Ubuntu 25.04 Interactive Install*](images/Appendix-E/ubuntu/lang.png "image of language selection.")
+![Ubuntu 25.04 Launch Installer or use Live CD](images/Appendix-E/ubuntu/interactive-install.png "image of Launch Installer or use Live CD.")
+
+\newpage
+
+![Ubuntu 25.04 Type of Installation Choice](images/Appendix-E/ubuntu/typeofinstallation.png "image of type of installation choice.")
+
+![Ubuntu 25.04 Type of default applications installed](images/Appendix-E/ubuntu/applications.png "image of default Applications Installed.")
+
+\newpage
+
+![Ubuntu 25.04 Option to install additional drivers](images/Appendix-E/ubuntu/drivers.png "image of option to install additional drivers.")
+
+![Ubuntu 25.04 Disk Setup Options](images/Appendix-E/ubuntu/disksetup.png "image of type of disk setup.")
+
+\newpage
+
+![Ubuntu 25.04 Option to encrypt drives](images/Appendix-E/ubuntu/encrypt.png "image of option to encrypt drives.")
+
+![Ubuntu 25.04 Create encryption passphrase](images/Appendix-E/ubuntu/encryption.png "image of Create encryption passphrase.")
+
+\newpage
+
+![Ubuntu 25.04 Create User Account](images/Appendix-E/ubuntu/create-account.png "image of Create User Account.")
+
+![Ubuntu 25.04 Ready to Install](images/Appendix-E/ubuntu/readytoinstall.png "image of last check before install.")
+
+\newpage
+
+![Ubuntu 25.04 First Boot After Install Encryption Unlock](images/Appendix-E/ubuntu/boot-unlock.png "image of First Boot After Install Encryption Unlock.")
+
+![Ubuntu 25.04 Launching the terminal and running the Package Manager: Apt](images/Appendix-E/ubuntu/boot-unlock.png "image of Launching the terminal and running the Package Manager: Apt.")
 
 \newpage
 
