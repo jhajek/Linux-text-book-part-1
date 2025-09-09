@@ -56,7 +56,11 @@ Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines
 
 ### Fedora 42
 
+![*Fedora 42 Start Live*](images/Appendix-E/fedora/start-live.png "image of Start Live")
+
 ![*Fedora 42 Try or Install*](images/Appendix-E/fedora/try-or-install.png "image of Try or Install Fedora 42")
+
+\newpage
 
 ### Debian 13
 
