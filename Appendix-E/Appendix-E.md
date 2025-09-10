@@ -72,10 +72,7 @@ Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines
 
 ![*Fedora 42 The Install has finished*](images/Appendix-E/fedora/finished.png "image of the completed install")
 
-### Debian 13
-
-
-### Debian 12
+\newpage
 
 ## Instructions
 
