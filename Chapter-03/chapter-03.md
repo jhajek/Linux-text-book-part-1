@@ -179,7 +179,7 @@ Upon completion of a fresh install and launching of VirtualBox you should see th
 
 ![*VirtualBox fresh install*](images/Chapter-03/virtualBox7/vbox-start-page.png "Fresh VirtualBox install")
 
-See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information. Unlike some opensource projects this documentation is actually very thorough and useful. VirtualBox has a list of [supported host operating systems](https://www.virtualbox.org/manual/ch01.html#hostossupport "Supported Host Operating System"), which is basically any operating system you can think of from DOS to Haiku to FreeBSD.
+See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.
 
 Let us walk through the initial installation process. The first step to begin is with the *NEW* button. The next step is where we give our guest virtual machine a name. VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version. As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.
 
@@ -229,13 +229,15 @@ Network
 
 : Settings related to changing or adding new network interfaces or network types.
 
-### Installing Linux Operating Systems
+### Starting Your Virtual Machine
 
 To begin an installation after creating a virtual machine click the *START* button on your virtual machine dashboard and you will turn your virtual machine on--it will begin to *boot*.
 
 ![*Select ISO install media*](images/Chapter-03/virtualbox7/start-button.png "Select ISO")
 
-For step-by-step details on installing an operating system see Appendix-E of the book in order to cover both VirtualBox and Parallels based installs for Fedora, Ubuntu Desktop, and Debian installs.
+## Step-by-step Installing Linux Operating Systems
+
+For step-by-step details on installing an operating system see **Appendix-E** of the book in order to cover both VirtualBox and Parallels based installs for Fedora, Ubuntu Desktop, and Debian installs.
 
 ## Package Managers
 
