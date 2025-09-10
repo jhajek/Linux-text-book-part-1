@@ -181,7 +181,7 @@ Upon completion of a fresh install and launching of VirtualBox you should see th
 
 See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.
 
-Let us walk through the initial installation process. The first step to begin is with the *NEW* button. The next step is where we give our guest virtual machine a name. VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version. As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.
+The first step to begin is with the *NEW* button. The next step is where we give our guest virtual machine a name. VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version. As you type in the title that has the name in it VirtualBox will auto-detect and switch the type and version automatically.
 
 ![*Create New Virtual Machine*](images/Chapter-03/virtualBox7/new-vbox-instance.png "Create New Instance Dialog")
 
