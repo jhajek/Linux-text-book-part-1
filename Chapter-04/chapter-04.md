@@ -426,17 +426,9 @@ In this chapter we learned about the creation and evolution of the desktop GUI. 
 
 ### Podcast Questions
 
-Please answer these questions from the Fedora Project podcast on [FLOSS - http://twit.tv/floss/71](http://twit.tv/floss/71 "Fedora Project")
+Please answer these questions from 37 Signals Podcast introducing Omarchy [https://www.youtube.com/watch?v=BIaG32Siar8&t=2058s](https://www.youtube.com/watch?v=BIaG32Siar8&t=2058s)
 
-* ~9:11 What is the Fedora Project?
-* ~11:35 How does Red Hat make money on Fedora if it is free?
-* ~12:30 What is the Fedora release cycle and can businesses use this release cycle?
-* ~13:30 What is the relationship between Fedora and Red Hat Enterprise Linux (RHEL)?
-* ~25:00 What percentage of the Fedora Project is open source?
-* ~35:00 On further inspection is Fedora Project really opened source according to the Free Software Foundation?
-* ~36:20 Does Fedora include proprietary Nvidia drivers? Why or why not?
-* ~45:00 Does Fedora say "Linux" or "GNU/Linux"?
-* ~46:12 Who is the most famous Fedora user?
+
 
 ### Lab
 
@@ -506,6 +498,11 @@ Install these desktops, restart your system and as you login switch your desktop
 
 1) Install the Budgie desktop on Fedora Workstation -> `budgie-desktop`
 1) Install the Ubuntu Mate Desktop on Ubuntu Desktop -> `ubuntu-mate-desktop`
+
+Install the [Omarchy 2.0 iso](https://learn.omacom.io/2/the-omarchy-manual/51/navigation "webpage for omarchy") 
+
+1) Follow the guide: [https://learn.omacom.io/2/the-omarchy-manual/51/navigation](https://learn.omacom.io/2/the-omarchy-manual/51/navigation "webpage guide to omarchy")
+1) Replicate the 4 screenshots in the Omarchy tutorial, place screenshots in this document
 
 **Deliverable:** Take screenshots of all successful installs of software.
 
