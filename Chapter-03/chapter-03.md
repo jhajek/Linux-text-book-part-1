@@ -177,31 +177,31 @@ Before beginning there are a series of questions you should ask yourself, "What 
 
 Upon completion of a fresh install and launching of VirtualBox you should see this image:
 
-![*VirtualBox fresh install*](images/Chapter-03/virtualBox7/vbox-start-page.png "Fresh VirtualBox install")
+![*VirtualBox fresh install*](images/Chapter-03/virtualbox7/vbox-start-page.png "Fresh VirtualBox install")
 
 See the [getting started manual](https://www.virtualbox.org/manual/ch01.html "Getting started manual") for a wide range of information.
 
 The first step to begin is with the *NEW* button. The next step is where we give our guest virtual machine a name. VirtualBox has long had support that if you type the type of the operating system in the system name - VirtualBox will auto detect the instance type and version. As you type in the title that has the name in it VirtualBox will auto-detect the version automatically.
 
-![*Create New Virtual Machine*](images/Chapter-03/virtualBox7/new-vbox-instance.png "Create New Instance Dialog")
+![*Create New Virtual Machine*](images/Chapter-03/virtualbox7/new-vbox-instance.png "Create New Instance Dialog")
 
 What happens if you choose the wrong type or version? Two things: __first__, if you chose the wrong edition of Linux most things will work but the virtualization layer will not be optimized, try to avoid it. You can always go back into the *SETTINGS* menu option and change it after the virtual machine is powered off. __Second__, if you select the wrong version, (32-bit instead of 64-bit) you will receive an error from the BIOS as the operating system loads explaining that it cannot continue.
 
 Next is the amount of memory available - note that this memory is shared with your underlying OS as described with TYPE II hypervisors. Whatever you allocate to this guest VM will be unavailable to the underlying host OS while the guest VM is powered on. Modern Operating Systems expect at least 2 processors and 4 to 8 GB of memory (4096 - 8192 mb). They also run on EFI (check the box) and not on BIOS.
 
-![*Memory Selection Dialog*](images/Chapter-03/virtualBox7/memory-settings.png "Memory Selection Dialog")
+![*Memory Selection Dialog*](images/Chapter-03/virtualbox7/memory-settings.png "Memory Selection Dialog")
 
 The next step is the hard drive creation step. In this step we will choose to create a new hard drive and decide where you can store your virtual hard drive. This space will be treated as a file by the underlying host OS--allowing for easy migration, export, and even cloning of the guest VM. 
 
 As a rule of thumb, I generally **double** the space recommended. Usually the default storage location is fine unless you know you need to store the hard drive on a separate partition or disk.
 
-![*Drive Type*](images/Chapter-03/VirtualBox7/virtual-harddrive.png "Drive Type")
+![*Drive Type*](images/Chapter-03/virtualbox7/virtual-harddrive.png "Drive Type")
 
 Now click *finish*. There is one other setting to modify.
 
 ### Walk Through the Settings
 
-![*Virtual Machine Settings*](images/Chapter-03/virtualBox7/hdd-virtio-scsi.png "Virtual Machine Settings")
+![*Virtual Machine Settings*](images/Chapter-03/virtualbox7/hdd-virtio-scsi.png "Virtual Machine Settings")
 
 Before we hit the start button - let us select one of our virtual machines and take a look at the content of the `Settings` button. Here we will find all the settings possible related to our virtual machine. 
 
