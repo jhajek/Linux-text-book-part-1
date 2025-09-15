@@ -426,9 +426,29 @@ In this chapter we learned about the creation and evolution of the desktop GUI. 
 
 ### Podcast Questions
 
-Please answer these questions from 37 Signals Podcast introducing Omarchy [https://www.youtube.com/watch?v=BIaG32Siar8&t=2058s](https://www.youtube.com/watch?v=BIaG32Siar8&t=2058s)
+Please answer these questions from 37signals Podcast introducing Omarchy: [https://www.youtube.com/watch?v=BIaG32Siar8&t=2058s](https://www.youtube.com/watch?v=BIaG32Siar8&t=2058s)
 
-
+* ~0:00 What software does [37signals](https://37signals.com/ "webpage of 37signals") produce (look at the top of their webpage)?
+* ~0:00 What programming framework did [David create](https://en.wikipedia.org/wiki/Ruby_on_Rails "webpage for Ruby on Rails")?
+* ~0:53 When did David switch to Linux and what was the first distro he chose?
+* ~1:06 What was his opinion of Ubuntu and what was it lacking?
+* ~1:43 David mentions, "Hyperland," what is it?
+* ~1:46 How does David describe Arch Linux?
+* ~2:38 How is Omarchy described?
+* ~4:08 What kind of nerd is Linux for?
+* ~4:45 How is Hyperland different from the Mac and Windows GUIs?
+* ~10:00 What is Omarchy doing to people who haven't contributed to Opensource projects before?
+* ~10:43 What does David think about the wide range of Linux based Operating Systems?
+* ~12:15 How does David feel about the Omarchy project?
+* ~13:18 Two years ago what was David's opinion of using Linux as a Desktop OS?
+* ~14:06 The 37signals company has been a unified shop, what OS and products had they all been using?
+* ~17:52 All of the 37signals Technical team, over the next three years, will be moving to using which Desktop OS?
+* ~19:44 Originally what percentage of 37signals developers were Mac Users?
+* ~20:00 In David's opinion what is Omarchy bringing to Linux Desktops?
+* ~23:30 How did people react to David and the Omarchy mandate?
+* ~24:30 At 37signals, in building their own Linux Distro, what does every developer now have?
+* ~25:33 What are really hard to break?
+* ~30:22 How is the difference between Omakub and Omarchy described?
 
 ### Lab
 
