@@ -499,13 +499,6 @@ Install these desktops, restart your system and as you login switch your desktop
 1) Install the Budgie desktop on Fedora Workstation -> `budgie-desktop`
 1) Install the Ubuntu Mate Desktop on Ubuntu Desktop -> `ubuntu-mate-desktop`
 
-Install the [Omarchy 2.0 iso](https://learn.omacom.io/2/the-omarchy-manual/51/navigation "webpage for omarchy") 
-
-1) Follow the guide: [https://learn.omacom.io/2/the-omarchy-manual/51/navigation](https://learn.omacom.io/2/the-omarchy-manual/51/navigation "webpage guide to omarchy")
-1) Replicate the 4 screenshots in the Omarchy tutorial, place screenshots in this document
-
-**Deliverable:** Take screenshots of all successful installs of software.
-
 #### Footnotes
 
 [^23]: <a href="http://www.allaboutapple.com/" rel="nofollow">http://www.allaboutapple.com/</a>

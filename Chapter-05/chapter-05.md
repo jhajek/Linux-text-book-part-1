@@ -634,9 +634,7 @@ In this chapter we covered the basic nature of the Linux Shell and how it allows
 
 ### Lab
 
-The objectives of this lab are to use the shell commands we learned in this chapter and understand their proper usage and form. The outcome will help your ability to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser. All actions will be done through the shell unless noted.  
-
-**Note:** All work should be done on either Ubuntu desktop or Fedora desktop unless noted and using the Terminal.
+The objectives of this lab are to use the shell commands we learned in this chapter and understand their proper usage and form. The outcome will help your ability to successfully use the Linux Shell for navigation, file creation, and file modification. Resist the temptation to use the GUI file manager and a web browser. All actions will be done through the shell unless noted.
 
 #### Part 1
 
