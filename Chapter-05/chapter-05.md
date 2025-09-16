@@ -55,12 +55,6 @@ The dream of a unified Linux standard never really occurred. __No one implements
 
 > "*The crux of the issue is, I think, whether this whole game is worth the work: I am yet to hear about software distribution happening through LSB packages. There are only _8_ applications by 6 companies on the LSB certified applications list, of which only one is against LSB >= 4.  Amongst the distributions, RHEL 7.0 is LSB4.1, and Oracle 6, RHEL 6.0 and Ubuntu 9.04 are LSB 4 [^59].*"
 
-### United Linux of 2002 and the Enterprise Linux Association of 2023
-
-As we saw in the fifth phase of Unix/Linux maturity, as Linux companies became viable businesses at the turn of the century, there was a fear that a single company could do what Microsoft had done and corner the market and force all other Linux distributions to be incompatable. So in 2002, United Linux was formed. It was a group united to making a single compatible Linux distro that would compete against Red Hat Linux. It consisted of [SUSE](https://www.suse.com/ "webpage for SUSE Linux"), then owned by [Novell](https://en.wikipedia.org/wiki/Novell "wiki for Novell"), Oracle, and Caldera Linux, which was renamed [SCO Group](https://en.wikipedia.org/wiki/SCO_Group "wiki for SCO group"). The effort collapsed in 2004, when the SCO Group turned around and claimed it owned the Unix Trademarks and that Novell/SUSE, along with IBM, were infringing on their patents. It took a decade, but the courts eventually dismissed SCO Groups claim, but United Linux was dead.
-
-Ironically, a second effort at what might be called the "New United Linux" is being formed by the [ELA - Enterprise Linux Association](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage for the ELA announcemnt"). This group is comprised of SUSE, Oracle, and CIQ and is trying to make a standard Enterprise Linux to compete with Red Hat, forked from the Red Hat Enterprise linux code base.
-
 ### Lennart Poettering's thoughts on POSIX
 
 Lennart Poettering, the Red Hat engineer and leader of the systemd init system has some things to say about POSIX and his being a Red Hat employee seems to mirror Red Hat's position on the history of the Linux Filesystem.
