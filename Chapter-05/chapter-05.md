@@ -99,8 +99,6 @@ __lib64__       Alternate home for 64 bit libraries
 
 ![*Ubuntu root full directory listing*](images/Chapter-05/filesystems/ubuntu-root-listing-long.png "Ubuntu root directory listing")
 
-![*Fedora root full directory listing*](images/Chapter-05/filesystems/fedora-30.png "Fedora root directory listing")
-
 #### Red Hat vs POSIX and LSB
 
 The traditional file system layout goes back to the original design of Unix 50+ years ago. This means that this structure is wide spread and well known. Modern Linux realized that some of the directories defined are completely arbitrary, such as /bin, /sbin, /lib, and /lib64. There are historic reasons for these being discrete directories and also repeated under the /usr directory.
