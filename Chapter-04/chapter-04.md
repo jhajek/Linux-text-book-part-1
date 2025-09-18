@@ -452,7 +452,7 @@ Please answer these questions from 37signals Podcast introducing Omarchy: [https
 
 ### Lab
 
-Using the virtual machines you installed in the previous chapter, Fedora Workstation and Ubuntu Desktop, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software into a single document for submission. We will be focusing on package based installs in the first part of the lab.
+Using the virtual machines you installed in the previous chapter, Fedora Workstation and Ubuntu Desktop, you will now install additional software, themes, desktop environments, and window managers. You will combine screenshots of this newly installed software using the provided template for submission. We will be focusing on package based installs in the first part of the lab.
 
 #### GNOME Extensions
 
