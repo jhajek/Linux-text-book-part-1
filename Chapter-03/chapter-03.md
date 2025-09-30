@@ -235,6 +235,10 @@ To begin an installation after creating a virtual machine click the *START* butt
 
 ![*Select ISO install media*](images/Chapter-03/virtualbox7/start-button.png "Select ISO")
 
+### Create a New VM on Parallels
+
+To see the installation steps for creating a new VM on Parallels, see **Appendix-E** in the back of the book.
+
 ## Step-by-step Installing Linux Operating Systems
 
 For step-by-step details on installing an operating system see **Appendix-E** of the book in order to cover both VirtualBox and Parallels based installs for Fedora, Ubuntu Desktop, and Debian installs.

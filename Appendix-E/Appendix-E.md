@@ -4,9 +4,17 @@
 
 This is an appendix detailing installation of `Ubuntu Desktop` and `Fedora Workstation` on x86 based `VirtualBox` and M-series ARM based `Parallels`.  The VirtualBox instructions should work for the VirtualBox for Windows on Arm version -- but requires you to use aarch64 (arm) based Linux isos.
 
-## Virtual Box x86
+## Creating a new VM using Parallels
 
-Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines-- Intel and AMD and Intel based MacOS. This section show a step by step menu based install of the two major Linux desktop operating systems. When in doubt you can generally select the default setting.
+![*New Virtual Machine*](./images/Appendix-E/parallels/new-vm.png "Image of how to create a new vm in Parallels")
+![*Install from Image*](./images/Appendix-E/parallels/install-from-image.png "Image of how to install from and ISO file")
+![*Choose Manually*](./images/Appendix-E/parallels/choose-manually.png "Choose an image manually to install")
+![*Name and Location*](./images/Appendix-E/parallels/name-and-location.png "Name and location of VM to be saved")
+![*Control Center*](./images/Appendix-E/parallels/control-center.png "Control Center where VMs are created")
+
+## Installing Fedora and Ubuntu on x86 and ARM
+
+This section show a step by step menu based install of the two major Linux desktop operating systems. Once the installation has begun, it doesn't matter if you are using the ARM or x86 version as the Linux OS is the same on each platform. When in doubt you can generally select the default setting.
 
 \newpage
 
@@ -71,12 +79,4 @@ Installing Linux Operating systems on `x86`, `x86_64`, or `AMD64` based machines
 ![*Fedora 42 Installing...*](images/Appendix-E/fedora/installing.png "image of installing")
 
 ![*Fedora 42 The Install has finished*](images/Appendix-E/fedora/finished.png "image of the completed install")
-
-\newpage
-
-## Parallels M-series Arm
-
-### Ubuntu 25.04
-
-### Fedora 42
 
