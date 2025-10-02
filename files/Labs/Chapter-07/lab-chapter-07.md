@@ -68,7 +68,6 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 1. On an OS of your choice, inside the Textbook sample code: `files > Chapter-07 > logs > host2.deny` write a script that will cut the second column, sort the values numerically and redirect the modified output to a file named: `sorted-ips.txt`.  Execute this script.
     1. Demonstrate the output of the command
 
-
 #### Deliverable  
 
 Take small movies of you demonstrating the required commands with your voice explaining the details.
