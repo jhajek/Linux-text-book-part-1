@@ -571,16 +571,16 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 * You will need to make sure the `vim` program is installed
 * You will need to clone/pull the Textbook source code to the home directory in your virtual machine
-* You will need to install the program ```vimtutor```
-  * On Ubuntu by typing ```sudo apt-get install vim vim-runtime vim-gtk```
-  * On Fedora by typing ```sudo dnf install vim vim-enhanced```
+* You will need to install the program `vimtutor`
+  * On Ubuntu by typing `sudo apt install vim vim-runtime vim-gtk`
+  * On Fedora by typing `sudo dnf install vim vim-enhanced`
   * There is a good text explanation of each of the vim tutor exercises: [https://www.systutorials.com/vim-tutorial-beginners-vimtutor/](https://www.systutorials.com/vim-tutorial-beginners-vimtutor/ "vimtutor exercises")
 
 #### Part 1
 
 1) Using Ubuntu or Fedora Desktop, type the command ```vimtutor``` from the terminal: __Warning!__ `vimtutor` requires you to read the instructions carefully!
     1. This is a 6 part tutorial. You need to follow all the steps of the 6 part tutorial making your changes directly in the file.
-    1. __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing `:w  ~/Documents/vimtutor.txt` - this way you can edit the file on your local system instead of launching the vimtutor application again. Note you need to use `vim` for this assignment.
+    1. __Be careful__ to save the file to an external location – otherwise IT WILL BE OVERWRITTEN each time you launch the vimtutor command. You can do this by typing `:w  ~/Documents/vimtutor.txt` - this way you can edit the file on your local system instead of launching the `vimtutor` application again. Note you need to use `vim` for this assignment.
     1. Save the finished output of `vimtutor.txt` in `vim` using the `:w` command
     1. Show the output of the elements you changed
 
@@ -594,7 +594,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 3
 
-1. Using Ubuntu Server, in your home directory, using vim, create a shell script named `first-shell.sh` that contains the following:
+1. Using Ubuntu Server, in your home directory, using `vim`, create a shell script named `first-shell.sh` that contains the following:
     1. Add the proper `shebang` on the first line
     1. Add two lines of space
     1. Store the output of the command `date` into the shell variable named **DT**
@@ -608,11 +608,11 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 1. Using vim:
     1. Create a shell script named **install-textbook-dependencies.sh** in your home directory. You will need to add commands to do the following:
     1. Add the proper *shebang* on the first line, then two lines of space
-    1. Issue the command to retrieve the `.deb` package:  
+    1. Issue the command to retrieve the `.deb` package from the commandline:  
     `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
-    1. Write the command to install this `.deb` package
-    1. Write the command to update the `apt` repos
-    1. Write the command to install these dependencies using the `-y` flag: `texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin  texlive-science-doc texlive-science`
+    1. Issue the command to install this `.deb` package (Chapter 03)
+    1. Issue the command to update the `apt` repos
+    1. Issue the command to install these dependencies using the `-y` flag: `texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin  texlive-science-doc texlive-science`
     1. Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
 1. Compile your version of the textbook
     1. Edit Line 8 of `chapter-01.md` from the textbook source code to now say: `# New Introduction by YOURNAME` 
@@ -625,7 +625,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 1. Using the `mv` command, move your shell-script: `first-shell.sh` to `/home/vagrant/.local/bin` (replace `vagrant` with your system username).  Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
     1. Demonstrate the output 
-1. In Ubuntu Server, inside the Textbook sample code: `files > Chapter-07 > logs > u_ex151002.log` write a `grep` command to find each line that has `.php` in it
+1. Using an OS of your choice, inside the Textbook sample code: `files > Chapter-07 > logs > host2.deny` write a script that will cut the second column, sort the values numerically and redirect the modified output to a file named: `sorted-ips.txt`.  Execute this script.
     1. Demonstrate the output of the command
 
 #### Deliverable  

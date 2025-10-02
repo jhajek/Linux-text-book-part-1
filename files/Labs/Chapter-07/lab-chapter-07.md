@@ -65,8 +65,9 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 1) Using the `mv` command, move your shell-script: `first-shell.sh` to `/home/vagrant/.local/bin` (replace `vagrant` with your system username).  Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
     i) Demonstrate the output 
-1) In Ubuntu Server, inside the Textbook sample code: `files > Chapter-07 > logs > u_ex151002.log` write a `grep` command to find each line that has `.php` in it
-    i) Demonstrate the output of the command
+1. On an OS of your choice, inside the Textbook sample code: `files > Chapter-07 > logs > host2.deny` write a script that will cut the second column, sort the values numerically and redirect the modified output to a file named: `sorted-ips.txt`.  Execute this script.
+    1. Demonstrate the output of the command
+
 
 #### Deliverable  
 
