@@ -92,7 +92,7 @@ NAMESARRAY=( $(cat names.txt))
 
 echo ${NAMESARRAY[1]}
 # this will print out the second element of the array
-# which is Lincoln, remember computers and arrays start counting at 0
+# which is Evelyn, remember computers and arrays start counting at 0
 ```
 
 We can make use of some meta-characters that have new special meanings here. First is the *at sign* or `@` which allows us to access all of the elements in an array without having to create a loop. The line below will print out the entire content of the array. The *pound sign* or some people call it a *hash* or *crunch* indicates that we are looking for the length of the array. Note the dollar sign before the element to tell the shell interpreter that this is a variables to be rendered. Also note the array elements are encapsulated in `{ }`--curly braces to prevent the `[ ]` square braces from being interpreted as shell meta-characters.  As usual elements of an array can be accessed by an index. ```echo ${instanceARR[0]}; echo ${instanceARR[1]}; echo ${instanceARR[2]}```. Remember that arrays are __zero indexed__.
