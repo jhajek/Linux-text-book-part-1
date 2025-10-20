@@ -580,6 +580,9 @@ ssh-copy-id username@hostname
 
 # Optional command if you want to transfer the identity other than the default id_rsa
 ssh-copy-id -i identityname username@hostname
+# The identity is the name of the keypair you created
+# For example:
+ssh-copy-id -i ~/.ssh/id_ed25519_chapter09_key controller@192.168.33.5
 
 ```  
 
