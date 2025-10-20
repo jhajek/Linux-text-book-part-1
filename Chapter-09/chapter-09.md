@@ -611,6 +611,16 @@ The full range of options for the config file can be found in this Digital Ocean
 
 SSH has two configuration files that control its abilities. Located at `/etc/ssh/ssh_config` and `/etc/ssh/sshd_config`. The first file contains user information about what options your client will present and use when connecting to a remote SSH server.  
 
+You won't want to modify these two files: `/etc/ssh/ssh_config` and `/etc/ssh/sshd_config`. Instead create an additional file in the `/etc/ssh/sshd_config.d/` directory and these values will override any of the default values.
+
+For example create a file named `10-disable-password-auth.conf` in the `/etc/ssh/sshd_config.d/` directory. Add the value `PasswordAuthentication no` into this file and restart the ssh service.
+
+```sydo systemctl restart sshd```
+
+ This will overwrite the default value that allows passwords in the `/etc/ssh/sshd_config` file. Any file placed in the `/etc/ssh/sshd_config.d/` directory needs to end in `.conf` in order to be processed by SSH.
+
+### Increasing Security in SSH
+
 In the `ssh_config` file you can modify these lines to increase the security of the encryption ciphers you use.  By default OpenSSH defaults back to an older and weaker set of encryption ciphers such as:
 
 ```Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc```
