@@ -503,13 +503,13 @@ How do you then exchange data? First you generate a keypair. There is the [defau
 * `ssh-keygen -t ed25519`
 
 ```
-$ ssh-keygen -t rsa -b 4096
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/vagrant/.ssh/id_rsa):
+$ ssh-keygen -t ed25519
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/vagrant/.ssh/id_ed25519):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
-Your identification has been saved in /home/vagrant/.ssh/id_rsa
-Your public key has been saved in /home/vagrant/.ssh/id_rsa.pub
+Your identification has been saved in /home/vagrant/.ssh/id_ed25519
+Your public key has been saved in /home/vagrant/.ssh/id_ed25519.pub
 The key fingerprint is:
 SHA256:XxObpGsM3QhN04YCnbHDekkg6eKwhp41ojVGdmIhg2w vagrant@bookworm
 The key's randomart image is:
