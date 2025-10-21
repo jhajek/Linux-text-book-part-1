@@ -859,15 +859,15 @@ This portion of the lab requires some pre-reqs and setup.
    i. Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
    i. On Fedora only, you will need to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
 
-1) Git Clone the repository [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default, use 127.0.0.1 as the host IP
-
-1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomalies -- you will need to stop the service and start it again to make the changes active
+1) Issue the command to transfer an SSH ed25519 key pair to from your system designated as a client, Fedora, to the Ubuntu SSH server
 
 1) Issue the command to connect remotely to the Fedora server via ssh using username and password, create a text file named: website.app - then exit the remote session. On the Fedora system show that the file: website.app, has been created
 
-1) Issue the command to transfer an SSH ed25519 key pair to from your system designated as a client, Fedora, to the Ubuntu SSH server
-
 1) Issue the command to connect remotely to the Fedora server via ssh using username and the identifyFile (RSA key), create a text file named: new-website.app - then exit the remote session. On the Fedora system show that the file: website.app, has been created
+
+1) Git Clone the repository [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default, use 127.0.0.1 as the host IP
+
+1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomalies -- you will need to stop the service and start it again to make the changes active
 
 #### Footnotes
 
