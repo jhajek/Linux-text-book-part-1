@@ -928,7 +928,7 @@ This portion of the lab requires some pre-reqs and setup.
 
 1) Git Clone the repository [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default, use 127.0.0.1 as the host IP.
 
-1) Using the sample configurations in the Securring SSH section of the chapter, update both the client and the server to a hardend state using `.conf` files and restart the SSH server and client. Run the SSH Audit tool again and compare the results report any weak ciphers or security anomalies that have been removed.
+1) Using the sample configurations in the **SSH Client and Server Hardening** section of the chapter, update both the client and the server to a hardend state using `.conf` files and restart the SSH server and client. Run the SSH Audit tool again and compare the results report any weak ciphers or security anomalies that have been removed.
 
 #### Footnotes
 
