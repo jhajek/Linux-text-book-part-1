@@ -865,9 +865,9 @@ This portion of the lab requires some pre-reqs and setup.
 
 1) Issue the command to connect remotely to the Fedora server via ssh using username and the identifyFile (RSA key), create a text file named: new-website.app - then exit the remote session. On the Fedora system show that the file: website.app, has been created
 
-1) Git Clone the repository [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default, use 127.0.0.1 as the host IP
+1) Git Clone the repository [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default, use 127.0.0.1 as the host IP.
 
-1) Modify the client and servers using the example in the text to increase cipher strength, run the ssh-audit tool again and report any weak ciphers or security anomalies -- you will need to stop the service and start it again to make the changes active
+1) Using the sample configurations in the Securring SSH section of the chapter, update both the client and the server to a hardend state using `.conf` files and restart the SSH server and client. Run the SSH Audit tool again and compare the results report any weak ciphers or security anomalies that have been removed.
 
 #### Footnotes
 
