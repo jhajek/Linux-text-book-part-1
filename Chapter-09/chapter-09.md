@@ -650,9 +650,11 @@ In the configuration file `/etc/ssh/sshd_config` the default settings are genera
 
 ### SSH Client and Server Hardening
 
-Clone the repo located at [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "GitHub for SSH Audit tool") and use the Python tool `ssh-audit.py`. This site contains hardening guides for SSH, both client and server located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides"). 
+Clone the repo located at [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "GitHub for SSH Audit tool") and use the Python tool `ssh-audit.py`. This site contains hardening guides for SSH, both client and server located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides").
 
 For your Ubuntu SSH server scroll to the Ubuntu Server 24.04 in the hardening guide information and create a file: `/etc/ssh/sshd_config/20-ssh-server-audit-hardening.conf` on your SSH server.
+
+#### Server Hardening
 
 Run the three commands listed. For step three I have the content listed out here in an easier to parse format -- **note** you will need to us the `sudo` command for step 2.
 
@@ -679,6 +681,10 @@ HostbasedAcceptedAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert
 PubkeyAcceptedAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
 
 ```
+
+#### Client Hardening
+
+For the client hardening you can use the 
 
 ### WireGuard - Linux kernel native VPN
 
