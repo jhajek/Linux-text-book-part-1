@@ -857,7 +857,7 @@ This portion of the lab requires some pre-reqs and setup.
    i. You need two virtual machines for this part: One Ubuntu based and one Fedora based
    i. You will need to modify the Network settings to add a **Host-Only Network Interface** in VirtualBox to get a an IP address only accessible on your computer
    i. Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
-   i. On Fedora only, you will need to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
+   i. On both servers make sure to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
 
 1) Issue the command to transfer an SSH ed25519 key pair to from your system designated as a client, Fedora, to the Ubuntu SSH server
 
