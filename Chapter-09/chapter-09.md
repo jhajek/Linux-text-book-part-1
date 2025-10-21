@@ -648,6 +648,38 @@ In the configuration file `/etc/ssh/sshd_config` the default settings are genera
   * `sudo systemctl daemon-reload`.
   * Restart the SSH service: `sudo systemctl restart sshd`
 
+### SSH Client and Server Hardening
+
+Clone the repo located at [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "GitHub for SSH Audit tool") and use the Python tool `ssh-audit.py`. This site contains hardening guides for SSH, both client and server located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides"). 
+
+For your Ubuntu SSH server scroll to the Ubuntu Server 24.04 in the hardening guide information and create a file: `/etc/ssh/sshd_config/20-ssh-server-audit-hardening.conf` on your SSH server.
+
+Run the three commands listed. For step three I have the content listed out here in an easier to parse format -- **note** you will need to us the `sudo` command for step 2.
+
+```bash
+# Step 3
+# Restrict key exchange, cipher, and MAC algorithms, as per sshaudit.com
+# hardening guide.
+ KexAlgorithms sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512,gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
+
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-gcm@openssh.com,aes128-ctr
+
+MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com
+
+HostKeyAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
+
+RequiredRSASize 3072
+
+CASignatureAlgorithms sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
+
+GSSAPIKexAlgorithms gss-curve25519-sha256-,gss-group16-sha512-
+
+HostbasedAcceptedAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
+
+PubkeyAcceptedAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
+
+```
+
 ### WireGuard - Linux kernel native VPN
 
 A [VPN](https://en.wikipedia.org/wiki/Virtual_private_network "VPN Wikipedia page")  is a virtual private network.  It uses RSA encryption to extend a private network across the public network.  An example would be an employee connecting from home over the public network to a companies private network.  To do this you would need a VPN.
