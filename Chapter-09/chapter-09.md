@@ -619,13 +619,13 @@ For example create a file named `10-disable-password-auth.conf` in the `/etc/ssh
 
  This will overwrite the default value that allows passwords in the `/etc/ssh/sshd_config` file. Any file placed in the `/etc/ssh/sshd_config.d/` directory needs to end in `.conf` in order to be processed by SSH.
 
-### Increasing Security in SSH
+### Increasing Security in SSH - Client Side
 
 In the `ssh_config` file you can modify these lines to increase the security of the encryption ciphers you use. By default OpenSSH defaults back to an older and weaker set of encryption ciphers such as:
 
 ```Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc```
 
-Leave the file `/etc/ssh/ssh_config` and   You would want to make sure that the coresponsiding SSH server in the `sshd_config.d/20-ciphers.conf` file had the same ciphers set other wise negotiation could fail and no connection would take place[^ch9f109].
+Both server and client would want to have the same set of Ciphers other wise negotiation could fail and no connection would take place[^ch9f109]. Lets go ahead and make the change. Leave the file `/etc/ssh/ssh_config`and you would want to make sure that the coresponsiding SSH server in the `/etc/ssh/sshd_config.d/20-ciphers.conf` and `/etc/ssh/ssh_config.d/20-ciphers.conf` (client and server). 
 
 ```bash
 
