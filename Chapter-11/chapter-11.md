@@ -91,14 +91,26 @@ This allows you to separate your storage and your compute. You can even use iSCS
 
 ### Virtual Hard Drives and VirtIO
 
-When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files. This [interface was standardized](https://lwn.net/Articles/239238/ "virtuio announcement webpage") and opensourced as part of the `virtio` package.
+When dealing with Virtual Machines, we can attach and detach storage very easily.  With large deployments of VMware, and Cloud based services, in-place disk can be reformatted and used to attach virtual disks to a virtual machine - with the added ability to manipulate these hard drives as if they were simple files. This [interface was standardized](https://lwn.net/Articles/239238/ "virtio announcement webpage") and opensourced as part of the `virtio` package.
 
 What is Virtio? "*Essentially, it’s an interface that allows a virtual machine to use its host’s devices via minimized virtual devices called VirtIO devices[^ch11f147]."* In VirtualBox you can replace the default SATA devices and use the VirtIO interface directly to your disk devices--saving virtualization overhead.
 
 ### Disk Management in VirtualBox and Parallels
 
-For this chapter we will assume that you are using VirtualBox 7.x or Parallels 19. The concepts demonstrated should be applicable to any Type II hypervisor. This also assumes you have free space on your computer. Since the point of this lab is to explore and not production usage, you may want to get an external USB hard drive and use that for this chapter so as not to fill up your hard drive.
-
+  Commands                              Description
+---------------------------------   ----------------------------------
+        `df -H`                        Disk Usage per mouunt
+        `lspci`                        List of all PCIe devices
+        `lsblk`                        List of all block devices 
+        `lsblk --fs`                   List of filesystem info
+        `ls -l /dev/disk/by-uuid`      List of UUIDs per partition 
+        `sudo fdisk`                   Tool to create disk partitions
+        `mkfs`                         Tool to create a filesystem 
+        `mount`                        Tool to mount a formated disk
+        `/etc/fstab`                   Tool for mounting disks at boot
+        `duf`                          Simplified Disk Usage utility
+        
+The concepts demonstrated should be applicable to any Type II hypervisor. This also assumes you have free space on your computer. Since the point of this lab is to explore and not production usage, you may want to get an external USB hard drive and use that for this chapter so as not to fill up your hard drive.
 
 With your Ubuntu or Fedora virtual machine powered down, let's add some new disks (virtually) to your Linux system. The first thing to do is locate the *SETTINGS* button on the VirtualBox main menu.
 
