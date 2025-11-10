@@ -442,38 +442,28 @@ The OpenBSD project which values security and home grown solutions over pure ava
 
 In late 2009/2010, a developer from [Joyent](https://www.joyent.com/ "joyent website") (later Samsung/Joyent) wanted to explore the probabilities of JavaScript. Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity. He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome browser, added an event loop and I/O functions and made it a standalone server.  Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website").
 
-The NodeJS package install information is here: [https://github.com/nodesource/distributions](https://github.com/nodesource/distributions "webpage for NodeJS").
+NodeJS package install information is here: 
+
+* [Debian and Ubuntu](https://github.com/nodesource/distributions/blob/master/DEV_README.md "Debian and Ubuntu install instructions")
+* [Fedora and AlmaLinux](https://github.com/nodesource/distributions/blob/master/DEV_README.md#enterprise-linux-based-distributions "webpage install instructions for Fedora and AlmaLinux")
 
 ```bash
-##############################################################################
-# Using Ubuntu and NodeJS 20
-# https://github.com/nodesource/distributions#ubuntu-versions
-##############################################################################
-sudo apt-get update
-sudo apt-get install -y ca-certificates curl gnupg
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
-| sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+# Ubuntu and Debian NodeJS installation
+sudo apt install -y curl
+curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
+sudo -E bash nodesource_setup.sh
+sudo apt install nodejs
+node -v
+```
 
-# Define Node 20 install
-# Modify deb source package location line to fit the printing
-NODE_MAJOR=20
-PART1="deb [signed-by=/etc/apt/keyrings/nodesource.gpg]"
-PART2=" https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main"
-echo $PART1$PART2 | sudo tee /etc/apt/sources.list.d/nodesource.list
-
-# Once Node package repository has been added then install nodejs
-sudo apt-get update
-sudo apt-get install nodejs -y
-##############################################################################
-# Using Fedora/RHEL Clones and NodeJS 20 
-# https://github.com/nodesource/distributions#fedora-versions
-##############################################################################
-yum install gcc-c++ make
-sudo yum install -y \
-https://rpm.nodesource.com/pub_20.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm
-sudo yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
-##############################################################################
+```bash
+# Install on Fedora/AlmaLinux NodeJS Installation
+sudo dnf install gcc-c++ make
+sudo dnf install -y curl
+curl -fsSL https://rpm.nodesource.com/setup_22.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo dnf install -y nodejs
+node -v
 ```
 
 Using the NPM package manager, we can install additional plugins that allow our Node.js JavaScript application to have additional features.  For example:
