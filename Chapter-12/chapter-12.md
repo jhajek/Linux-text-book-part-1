@@ -658,12 +658,9 @@ MongoDB packages are maintained by MongoDB -- and are released outside of Linux 
 Used to block external communication on you system ports. Not unlike plugs in the wall of your home, your server has ports that different services connect to and communication on. This allows the operating system and applications to communicate as well with multiple programs. There are 65000 ports available to use. The first 1024 ports are reserved for well known services. These numbers are useful to know.
 
 * SSH - 22
-* FTP - 21
-* SMTP - 25 (deprecated not used as it is an unsecured transport method)
 * DNS - 53
 * HTTP - 80 (becoming deprecated in browsers)
 * HTTPS - 443 (HTTP with TLS/SSL)
-* SMTP over SSL - 990
 * MongoDB - 27017
 * PostgreSQL - 5432
 * MySQL/MariaDB - 3306
