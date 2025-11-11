@@ -39,6 +39,8 @@ A VBR starts at the first sector of a partitioned drive. In modern Linux the VBR
 
 Since 2015, laptops and PCs are not using BIOS. There has been a replacement and evolution of firmware needed to boot a system. The [Unified Extensible Firmware Interface](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface "UEFI Wiki Page"). The original BIOS spec only supported a 16-bit real-mode and 1 MB of memory, which limited what could be done on a system. The replacement UEFI, does the same job as BIOS but is a modern reimplementation of BIOS's basic functions. 
 
+> *UEFI is a modern replacement for the traditional basic input/output system (BIOS) firmware found in computers. UEFI provides a standardized interface between the operating system and the platform firmware, enabling various features and functionalities during the boot process.*[^ch10f116]
+
 BIOS and UEFI are two separate things. When booting with UEFI, there are 3 additional stages that take place before booting of the operating system. UEFI is different from BIOS as is doesn't use MBR based boot devices, it uses a standard called [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table "wikipage for GPT") for formatting drives. These GPT partitions are stored in the UEFI NVRAM with the location of the files needed for loading the kernel into memory, or booting. The `\efi\boot\bootx64.efi` and `\efi\boot\bootaa64.efi` on ARM64 architecture, so no `MBR` or `VBR` needed.
 
 1) SEC - Security Phase
@@ -806,6 +808,8 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 [^ch10f114]: [https://www.gnu.org/software/grub/](https://www.gnu.org/software/grub/)
 
 [^ch10f115]: [http://www.slashroot.in/linux-booting-process-step-step-tutorial-understanding-linux-boot-sequence](http://www.slashroot.in/linux-booting-process-step-step-tutorial-understanding-linux-boot-sequence)
+
+[^ch10f116]: [https://www.lenovo.com/sg/en/glossary/uefi/}(https://www.lenovo.com/sg/en/glossary/uefi/ "webpage what is UEFI")
 
 [^116]: [http://0pointer.de/blog/projects/the-biggest-myths](http://0pointer.de/blog/projects/the-biggest-myths)
 
