@@ -147,9 +147,8 @@ The way to reset the values:
 * Edit `/etc/default/grub`
 * At the end of `GRUB_CMDLINE_LINUX` line append `net.ifnames=0 biosdevname=0`
 * Save the file
-* Type `grub2-mkconfig -o /boot/grub2/grub.cfg`
-* or type `grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg`
-* reboot
+* Run the command: `sudo update-grub`
+* reboot to use the new Grub configuration
 
 [Source](https://unix.stackexchange.com/questions/81834/how-can-i-change-the-default-ens33-network-device-to-old-eth0-on-fedora-19 "how to reset to old names")
 [Source](http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html "how to reset to old names")
