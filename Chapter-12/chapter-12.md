@@ -426,7 +426,7 @@ sudo openssl dhparam -out /etc/nginx/dhparam.pem 4096
 
 # https://security.stackexchange.com/questions/74345/provide-subjectaltname-to-openssl-directly-on-the-command-line
 # Script to auto answer the key request creation information - self-signed cert good for 365 days
-sudo openssl req -subj "/C=US/ST=Illinois/L=Chicago/O=IIT-Company/OU=Org/CN=www.school.com" \
+sudo openssl req -subj "/C=US/ST=Illinois/L=Chicago/O=JRH/OU=Org/CN=www.iit.edu" \
 -newkey rsa:4096 -x509 -nodes -days 365 \
 -keyout /etc/ssl/private/tls-selfsigned.key \
 -out /etc/ssl/certs/tls-selfsigned.crt
