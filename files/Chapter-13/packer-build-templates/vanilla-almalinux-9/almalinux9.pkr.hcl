@@ -10,8 +10,8 @@ source "virtualbox-iso" "alma-linux-9-vanilla" {
   http_directory          = "."
   http_port_min           = 9001
   http_port_max           = 9100
-  iso_checksum            = "file:http://almalinux.interhost.co.il/9.6/isos/x86_64/CHECKSUM"
-  iso_urls                = ["http://almalinux.interhost.co.il/9.6/isos/x86_64/AlmaLinux-9.6-x86_64-boot.iso"]
+  iso_checksum            = "file:http://almalinux.interhost.co.il/9.7/isos/x86_64/CHECKSUM"
+  iso_urls                = ["http://almalinux.interhost.co.il/9.7/isos/x86_64/AlmaLinux-9.7-x86_64-boot.iso"]
   shutdown_command        = "echo 'vagrant' | sudo -S /sbin/poweroff"
   ssh_password            = "${var.SSHPW}"
   ssh_port                = 22
