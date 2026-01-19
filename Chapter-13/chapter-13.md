@@ -528,11 +528,11 @@ The Build block is where you tell Packer what to build. You include the source b
 
 ```json
 build {
-  sources = ["source.virtualbox-iso.ubuntu-22045-server"]
+  sources = ["source.virtualbox-iso.ubuntu-24043-server"]
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
+    script          = "../scripts/post_install_ubuntu_2404_vagrant.sh"
   }
 }
 ```
@@ -543,11 +543,11 @@ Provisioner are tools that you can use to customize your machine image after the
 
 ```json
 build {
-sources = ["source.virtualbox-iso.ubuntu-22045-server"]
+sources = ["source.virtualbox-iso.ubuntu-24043-server"]
 
 provisioner "shell" {
   execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-  script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
+  script          = "../scripts/post_install_ubuntu_2404_vagrant.sh"
   }
 }
 ```
@@ -556,7 +556,7 @@ provisioner "shell" {
 # Using multiple shell scripts
 provisioner "shell" {
   execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-  scripts          = ["../scripts/post_install_ubuntu_2204_vagrant.sh".
+  scripts          = ["../scripts/post_install_ubuntu_2404_vagrant.sh".
                       " ../scripts/install-webserver.sh",
                       " ../scripts/install-database.sh",
                       " ../scripts/create-users.sh]
@@ -777,7 +777,7 @@ How then do we build our own artifacts with Packer to manage them? Here is an en
 
 # clone the source code from the book to get the sample files
 # git clone https://github.com/jhajek/Linux-text-book-part-1.git
-cd Linux-text-book-part-1/files/Chapter-13/packer-build-templates/ubuntu_22045_vanilla
+cd Linux-text-book-part-1/files/Chapter-13/packer-build-templates/ubuntu_24043_vanilla-server
 packer init .
 packer validate .
 packer build .
@@ -785,7 +785,7 @@ packer build .
 # Upon completion of the Packer build...
 # Each build has a string representation of the day, month, year to make each
 # filename unique, called epoch (your *.box name will be different)
-vagrant box add ../build/ubuntu-22045-server-20231103191942.box --name vanilla-ubuntu-server
+vagrant box add ../build/ubuntu-24043-server-20260104230904.box --name vanilla-ubuntu-server
 cd ../build
 # Good idea to name the directory the same as your Vagrant Box -- so you
 # don't lose track of it!
