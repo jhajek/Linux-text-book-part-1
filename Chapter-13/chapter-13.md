@@ -334,22 +334,22 @@ Let us look at an example HCL template file: This source can be viewed from the 
 [files > Chapter-13 > packer-build-templates](https://github.com/jhajek/Linux-text-book-part-1/blob/master/files/Chapter-13/packer-build-templates/ "Packer Template")
 
 ```json
-//############################################################################
-//# Packer Virtualbox-iso documentation: 
-//# https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-//############################################################################
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
 packer {
   required_plugins {
     virtualbox = {
       source  = "github.com/hashicorp/virtualbox"
-      version = ">= 1.0.5"
+      version = "~> 1"
+    }
+      vagrant = {
+      version = "~> 1"
+      source = "github.com/hashicorp/vagrant"
     }
   }
 }
 
-source "virtualbox-iso" "ubuntu-22045-server" {
+source "virtualbox-iso" "ubuntu-24043-server" {
     boot_command = [
         "e<wait>",
         "<down><down><down>",
@@ -364,40 +364,39 @@ source "virtualbox-iso" "ubuntu-22045-server" {
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  firmware                = "efi"
-  hard_drive_interface    = "virtio"
-  rtc_time_base           = "UTC"
-  // https://www.virtualbox.org/manual/ch06.html
-  nic_type                = "virtio"
-  iso_checksum  = "file:https://mirrors.edge.kernel.org/ubuntu-releases/22.04.5/SHA256SUMS"
-  iso_urls                = "${var.iso_url}"
+  iso_checksum            = "${var.iso_checksum}"
+  iso_urls                = ["${var.iso_url}"]
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
   ssh_password            = "${var.user-ssh-password}"
-  ssh_timeout             = "45m"
+  ssh_timeout             = "25m"
+  nic_type                = "virtio"
+  chipset                 = "ich9"
+  gfx_vram_size           = "16"
+  gfx_controller          = "vboxvga"
+  #hard_drive_interface    = "virtio"
   cpus                    = 2
   memory                  = "${var.memory_amount}"
-  // Change to --nat-localhostreachable1 forced by 
-  // https://github.com/hashicorp/packer/issues/12118
   vboxmanage              = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
   virtualbox_version_file = ".vbox_version"
-  vm_name                 = "jammy-server"
+  vm_name                 = "ubuntu-vanilla-server"
   headless                = "${var.headless_build}"
 }
 
 build {
-  sources = ["source.virtualbox-iso.ubuntu-22045-server"]
+  sources = ["source.virtualbox-iso.ubuntu-24043-server"]
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
+    script          = "../scripts/post_install_ubuntu_2404_vagrant.sh"
   }
 
   post-processor "vagrant" {
     keep_input_artifact = false
-    output = "${var.build_artifact_location}{{ .BuildName }}-${local.timestamp}.box"
+    output              = "${var.build_artifact_location}{{ .BuildName }}-${local.timestamp}.box"
   }
 }
+
 ```
 
 #### Important Packer Blocks
@@ -464,7 +463,7 @@ The source block takes two options, the type of virtual machine artifact you are
 
 ```json
 {
-source "virtualbox-iso" "ubuntu-22045-server"
+source "virtualbox-iso" "ubuntu-24043-server"
 }
 ```
 
@@ -1242,7 +1241,7 @@ Once this step is successful, we need to establish a connection to the virtual m
 
 ### Part Two - Packer Commands
 
-Using the sample code from the text book in: files > Chapter-13 > packer-build-templates, init, validate and build the `ubuntu_22045_vanilla` if you are on Windows or an Intel Mac or the `ubuntu_22045_m1_mac` if you are using Apple Silicon.
+Using the sample code from the text book in: files > Chapter-13 > packer-build-templates, init, validate and build the `ubuntu_24043_vanilla-server` if you are on Windows or an Intel Mac or the `ubuntu_24043_apple_silicon_mac-vanilla-server` if you are using Apple Silicon.
 
 One the `.box` file has been successfully built, use the Vagrant commands from this chapter to `add` the box file and to `init` a Vagrantfile. Bring the Vagrant box up and then exit your ssh session and halt the Vagrant box.
 
