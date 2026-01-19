@@ -826,7 +826,8 @@ Vault tightly controls access to secrets and encryption keys by authenticating a
 For our convenience, Packer has direct integration with Vault. Once Vault is installed an setup on your [local system](https://www.vaultproject.io/docs/install/index.html "Install Vault") for instance by running the Vault agent you can simply read your secrets in the Packer Build Template, without the secret ever being seen by a person. There is more to say on this, but the reason we introduce it here is so that you can be exposed to safe practices from the beginning as well as deal with one of the major problems in IT, which is Secrets Management.
 
 ```json
-source "virtualbox-iso" "ubuntu-22045-server" {
+
+source "virtualbox-iso" "vault-client" {
     boot_command = [
         "e<wait>",
         "<down><down><down>",
@@ -841,31 +842,34 @@ source "virtualbox-iso" "ubuntu-22045-server" {
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  iso_checksum  = "sha256:a4acfda10b18da50e2ec50ccaf860d7f20.......305c0e911d16fd"
-  iso_urls                = ["${var.iso_urls}"]
+  iso_checksum            = "${var.iso_checksum}"
+  iso_urls                = ["${var.iso_url}"] 
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
-  // Note the use of ${local} as the way to reference vault variables
   ssh_password            = "${local.user-ssh-password}"
-  ssh_timeout             = "45m"
+  ssh_timeout             = "30m"
+  nic_type                = "virtio"
+  chipset                 = "ich9"
+  gfx_vram_size           = "16"
+  gfx_controller          = "vboxvga"
+  #hard_drive_interface    = "virtio"
   cpus                    = 2
   memory                  = "${var.memory_amount}"
   vboxmanage              = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
   virtualbox_version_file = ".vbox_version"
-  vm_name                 = "jammy-server"
+  vm_name                 = "vault-client"
   headless                = "${var.headless_build}"
 }
 
 build {
-  sources = ["source.virtualbox-iso.ubuntu-22045-server"]
+  sources = ["source.virtualbox-iso.vault-client"]
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_2204_vagrant.sh"
+    script          = "../scripts/post_install_ubuntu_2404_vagrant.sh"
+    environment_vars = ["DBUSER=${local.db_user}"]
   }
 
-  // As an example the value for the shell variable is being written to a 
-  // textfile -- the value id coming from Vault -- user never sees the value
   provisioner "shell" {
     inline = ["echo $DBUSER", "echo $DBUSER > /home/vagrant/TEST"]
     environment_vars = ["DBUSER=${local.db_user}"]
@@ -873,14 +877,14 @@ build {
 
   post-processor "vagrant" {
     keep_input_artifact = false
-    output              = "${var.build_artifact_location}{{ .BuildName }}-${local.timestamp}.box"
+    output              = "${var.artifact_location}{{ .BuildName }}-${local.timestamp}.box"
   }
 }
 ```
 
 ### Building the Vault
 
-To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_22045_vanilla` or `ubuntu_22045_m1_mac` to build a new virtual machine. Refer to the Packer section on how to build this Vagrant Box and how to add the Box to Vagrant's control.
+To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_24043_vanilla-server` or `ubuntu_24043_apple_silicon_mac-vanilla-server` to build a new virtual machine. Refer to the Packer section on how to build this Vagrant Box and how to add the Box to Vagrant's control.
 
 #### Vagrantfile and Vault Install
 
