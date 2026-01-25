@@ -7,7 +7,7 @@ variable "SSHPW" {
   # Don't hard code a password here...
   sensitive = true
   type = string
-  default = ""
+  default = "vagrant"
 }
 
 variable "build_artifact_location" {
