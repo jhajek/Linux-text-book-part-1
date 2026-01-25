@@ -814,6 +814,11 @@ In Linux distros as well as Packer, there are methods for dealing with secrets. 
 
 The tool we want to introduce is [Hashicorp Vault](https://www.hashicorp.com/products/vault "webpage for Vault"). Vault's job is to manage access to secrets and protect sensitive data with identity-based security. Vault is no longer distributed as opensource, recently moving to the [BUSL license](https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license "Article HashiCorp adopts BUSL"), but is still worth using.
 
+For a high-level introduction and a technical explanation of how Vault works:
+
+* [HashiCorp Co-Founder and CTO, Armon Dadgar, explains the basics of Vault](https://www.youtube.com/watch?v=eA_9WwYwXp0 "youtube video of Vault explanation")
+* [HashiCorp Vault Tutorial for Beginners - What, Why and How](https://www.youtube.com/watch?v=klyAhaklGNU&t=6s "youtube for Hashicorp, What, Why, and How?")
+
 ### How to Manage Secrets
 
 Vault can manage secrets needed by multiple people across a large enterprise, or even a large cloud enterprise. Vault does what is says, essentially cryptographically storing all the secrets you enter into a *vault*, then delegating access to these secrets via API (over HTTP) allowing for the implementation of policy and identity relating to accessing these secrets. The *vault* can then be attached or mounted into any system and each developer can access their secrets. Vaults use cases are as follows"
