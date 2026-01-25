@@ -888,15 +888,26 @@ build {
 
 ### Building the Vault
 
-To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. You will build a Vagrant Box for Ubuntu Server and then manually install the Vault Software. You can use the `ubuntu_24043_vanilla-server` or `ubuntu_24043_apple_silicon_mac-vanilla-server` to build a new virtual machine. Refer to the Packer section on how to build this Vagrant Box and how to add the Box to Vagrant's control.
+To start we need to build the Vault before we can put secrets in. In this case we will use the provided Packer build template provided to you to in the sample files of Chapter 13. There are two ways to do this.  
 
-#### Vagrantfile and Vault Install
+### Using the Vault Server Templates
 
-Before we start the Vagrant box, we need to edit line 35 of the `Vagrantfile` to read: `config.vm.network "private_network", ip: "192.168.56.99"`. This will add a second network interface to our host-only network and subsequent virtual machines will be able to connect to our Vault Server.
+There are two Packer build templates provided to you that will build an Ubuntu 24.04 server and install `Vault` for you during its provisioner phase. It is recommended to use these templates to begin to gain experience provisioning software installs.
+
+* `ubuntu_24043_vault-server`
+* `ubuntu_24043_apple_silicon_mac_vault-server`
+
+### Manual Vault install
+
+You can use the `ubuntu_24043_vanilla-server` or `ubuntu_24043_apple_silicon_mac-vanilla-server` template and then upon succesful `packer build .` and `vagrant up` you can install Vault your self using a Package Manager.
 
 Once the vault-server has been built and initialized in Vagrant, we need to Vagrant SSH into our system and [install Vault for Linux Debian/Ubuntu](https://developer.hashicorp.com/vault/install "webpage install Vault for Ubuntu"). Check to make sure the Vault service has started properly and is enabled.
 
 See this link for the proper Ubuntu Linux installation instructions: [https://developer.hashicorp.com/vault/install#Linux](https://developer.hashicorp.com/vault/install#Linux "webpage for vault Linux install")
+
+#### Vagrantfile and Vault Install
+
+Before we start the Vagrant box, we need to edit line 35 of the `Vagrantfile` to read: `config.vm.network "private_network", ip: "192.168.56.99"`. This will add a second network interface to our host-only network and subsequent virtual machines will be able to connect to our Vault Server.
 
 #### Configuring the Vault-Server
 
