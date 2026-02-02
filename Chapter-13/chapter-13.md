@@ -988,7 +988,7 @@ Now we can finally add our secrets. The command has a strict format. The `vault 
 
 ### Setting Vault Environment Variables on Your Host Windows System
 
-From your terminal you will need to execute the command `notepad $profile` to open your user profile and we will need to add some variables. This is the Windows equivilent of adding variables to the linux `.bashrc` file. If the `$profile` doesn't already exist you can create it with this command: `new-item -type file -path $profile`. These three values will need to added and will be determined as part of the Vault setup. Make sure you close all your terminals and open them up again to reprocess these new values in each terminal window.
+From your terminal you will need to execute the command `notepad $profile` to open your user profile and we will need to add some variables. This is the Windows equivilent of adding variables to the linux `.bashrc` file. If the `$profile` doesn't already exist you can create it with this command: `new-item -type file -path $profile`. These three values will need to added and will be determined as part of the Vault setup. You can source the changes by typing `. $profile` or you can close and reopen all of your terminal windows.
 
 ```powershell
 # The 192.168.56.99 is the value we set on line 35 of the 
