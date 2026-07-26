@@ -10,7 +10,7 @@ variable "memory_amount" {
 
 variable "iso_url" {
   type = string
-  default = "https://mirrors.edge.kernel.org/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.is"
+  default = "https://mirrors.edge.kernel.org/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
 }
 
 variable "iso_checksum" {
