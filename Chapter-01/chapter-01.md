@@ -75,13 +75,27 @@ Part of this book was inspired by a quote from my friend in regards to Linux tex
 
 "*Android is a Linux distribution according to the Linux Foundation, Google's open-source chief Chris DiBona, and several journalists. Others, such as Google engineer Patrick Brady, say that Android is not Linux in the traditional Unix-like Linux distribution sense; Android does not include the GNU C Library (it uses Bionic as an alternative C library) and some of other components typically found in Linux distributions.*"
 
-#### Business Source License
+#### IBM Closes Landmark Purchase of Red Hat Linux
+
+*"July 9, 2019, IBM (NYSE:IBM) and Red Hat announced today that they have closed the transaction under which IBM acquired all of the issued and outstanding common shares of Red Hat for $190.00 per share in cash, representing a total equity value of approximately $34 billion."* - [IBM closes purchase of Red Hat Linux](https://www.redhat.com/en/about/press-releases/ibm-closes-landmark-acquisition-red-hat-34-billion-defines-open-hybrid-cloud-future "webpage IBM closes purchase of Red Hat Linux")
+
+#### How the Business Source License Differs from Open Core
+
+*"Unlike open-core models, where core features are open source but advanced features are locked behind a paid license, BSL keeps the entire source code open but allows the licensor to set limits on commercial use. This encourages broader community contributions while protecting the licensor’s revenue streams*" -[How the BUSL differs from Open Core](https://mariadb.com/bsl-faq-mariadb/ "webpage on MariaDB adopting the BUSL license").
 
 *[The Business Source License](https://spdx.github.io/license-list-data/BUSL-1.1.html "BUSL 1.1") (this document, or the “License”) is not an Open Source license. However, the Licensed Work will eventually be made available under an Open Source License, as stated in this License.*
 
 #### Linux Foundation Decreases Linux Spending
 
 *On December 8th, 2022, the Linux Foundation [released their annual report for 2022](https://project.linuxfoundation.org/hubfs/LF%20Research/2022%20Linux%20Foundation%20Annual%20Report.pdf?hsLang=en "Linux Foundation Annual Report"). I’m not going to sugar coat this… it is absolutely ridiculous. The highlight? Funding for the Linux kernel, in 2022, dropped to a measly 3.2% of the foundation’s total revenue of $243 Million dollars. Down from the — already absurdly low — 3.4% from 2021.*  - [Lunduke Journal of Technology](https://lunduke.locals.com/post/4408159/linux-foundation-decreased-linux-spending-to-3-2-in-2022 "Lunkduke Journal of Technology article: Linux Foundation decreases spending")
+
+#### AI and Opensource
+
+*"28th Jun 2026. If it's not obvious, I think that FOSS (Free and Open Source Software) is dead. It lost the title position of what internet-facing source code was a long time ago to open-source."*
+
+*"Open-source projects posited a new contract that instead promised maintainers the world, and instead gave them implicit contracts into unpaid labour for hyperscalers. And now, I think we could be seeing it die but keep the name, but for now."*
+
+*"Without being too nihilistic, we may look back on this age as the most egregious example of public facing software licenses being discarded en-masse as a simple prelude to a great loss of skill, novel ideas and eventual entrenchment in the domain of computer science."* [Where are the third places for learners?](https://kernelkennel.com/blog/where-is-the-middle-space/ "webpage explaining Quick landscape on AI in open-source")
 
 ### Summary Question
 
