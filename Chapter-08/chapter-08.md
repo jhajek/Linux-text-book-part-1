@@ -571,7 +571,7 @@ Lets see what `awk`[^90] can do:
 * How would you print out all lines of a file that do not contain a \# as the first character?
   * ```awk '$0!~/^#/' hosts.deny```
 
-You can find more information at this IBM tutorial: [AWK by example](https://www.ibm.com/developerworks/library/l-awk1/index.html "AWK by example"). The GNU version of AWK is called [gawk](http://www.gnu.org/software/gawk/ "GNU webpage for gawk") and it performs the same commands and options but is licensed under GPLv3+ as AWK was part of the proprietary UNIX tools and license. Linux systems symlink `awk` command to `gawk`.  
+You can find more information at this IBM tutorial: [AWK by example](https://developer.ibm.com/tutorials/l-awk1/ "AWK by example"). The GNU version of AWK is called [gawk](http://www.gnu.org/software/gawk/ "GNU webpage for gawk") and it performs the same commands and options but is licensed under GPLv3+ as AWK was part of the proprietary UNIX tools and license. Linux systems symlink `awk` command to `gawk`.  
 
 ### sed
 
