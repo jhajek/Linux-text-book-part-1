@@ -141,6 +141,7 @@ Special thanks to those who have submitted pull requests and bug reports:
 * [psfales](https://github.com/psfales "GitHub profile for psfales")
 * [probonopd](https://github.com/probonopd "GitHub profile for probonopd")
 * [daimi16](https://github.com/daimi16 "GitHub profile for daimi16")
+* [luklewluk](https://github.com/luklewluk "GitHub profile for luklewluk")
 
 ## Special Thanks
 
