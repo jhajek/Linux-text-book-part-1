@@ -791,23 +791,24 @@ Other foundations include:
    
     > "*Following the announcement that Oracle was seeking to [move Java EE technologies to an open-source](https://www.infoq.com/news/2017/09/JavaEEtoEclipse "webpage eclipse foundation")  foundation, the company has now said that they have chosen the Eclipse Foundation as the new custodians of the platform.*"
 
-If you look at the foundations, they are mostly trade organizations (501c6), "pay-to-play" in which large corporations pay to have a seat on the board. These companies don't always have the best track record in relation to respecting free/opensource licensing. Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out. The large corporations have found and embraced Opensource Software. Foundations also lead to governance -- which prevents "forking", one of the main ideas of Free and Opensource Software. The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
+If you look at the foundations, they are mostly trade organizations (501c6), "pay-to-play" in which large corporations pay to have a seat on the board. These companies don't always have the best track record in relation to respecting free/opensource licensing. 
 
-### GitHub Copilot - Opensource and AI
+Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out. The large corporations have found and embraced Opensource Software. Foundations also lead to governance -- which prevents "forking", one of the main ideas of Free and Opensource Software. The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
 
-As of 2022/23 a new wrinkle has appeared in the Opensource discussion. With [GitHub](https://github.com "GitHub version control webpage")  being one of the largest repositories of public opensource code, there came a new opportunity. Could AI scan the existing code base and make coding suggestions as you develop? GitHub is now offering this via their [Copilot](https://github.com/features/copilot/ "GitHub copilot webpage")  paid product.
+### Opensource and AI
 
-The question this presents -- is this legal? How does the existing opensource licenses: MIT, Apache2, GPL3, and the MPL impact this service? Can a third party collect opensource code and sell it to you without creating a derivative work? The [FSF](https://fsf.org "Free Software Foundation webpage")  has a lengthy commentary on this.
+As of 2022/23 a new wrinkle has appeared in the Opensource discussion. With [GitHub](https://github.com "GitHub version control webpage") being one of the largest repositories of public opensource code, there came a new opportunity. Could AI scan the existing code base and make coding suggestions as you develop? GitHub is now offering this via their [Copilot](https://github.com/features/copilot/ "GitHub copilot webpage")  paid product.
+
+The question this presents -- is this legal? How does the existing opensource licenses: MIT, Apache2, GPL3, and the MPL impact this service? Can a third party collect opensource code and sell it to you without creating a derivative work?
 
 * [On the Nature of AI Code Copilots](https://www.fsf.org/licensing/copilot/on-the-nature-of-ai-code-copilots "On the Nature of AI Code Copilots article webpage")
 * [If Software is My Copilot, Who Programmed My Software?](https://www.fsf.org/licensing/copilot/if-software-is-my-copilot-who-programmed-my-software "If Software is My Copilot, Who Programmed My Software article webpage")
 * [Copilot, Copying, Commons, Community, Culture](https://www.fsf.org/licensing/copilot/copilot-copying-commons-community-culture "Copilot, Copying, Commons, Community, Culture Article webpage")
-* [Windows Copilot](https://blogs.windows.com/windowsdeveloper/2023/05/23/bringing-the-power-of-ai-to-windows-11-unlocking-a-new-era-of-productivity-for-customers-and-developers-with-windows-copilot-and-dev-home/ "webpage Windows Copilot")
-* [GitHub Copilot](https://resources.github.com/copilot-for-business/?ef_id=_k_d7c8f98d2fbd11f26ffc9d67ea078490_k_&OCID=AIDcmmc3fhtaow_SEM__k_d7c8f98d2fbd11f26ffc9d67ea078490_k_&msclkid=d7c8f98d2fbd11f26ffc9d67ea078490 "webpage GitHub Copilot")
+* [Where are the third places for learners?](https://kernelkennel.com/blog/where-is-the-middle-space/ "webpage from kernelkenel")
 
 ### Changing Landscape of Enterprise Linux
 
-Clearly there is a changing of philosophy in Linu now that billion dollar companies are involved. The questions we now consider are very far from the world in 1983 when Free Software and GNU were making an impact. Red Hat, claiming they are respecting the GPLv2 license have removed the existing upstream source code that had been available for others to download and recompile, and will now only be offering the source code to paying customers -- not all asundry people who want it. The argument is that the GPLv2 only applies to those that enter into the implicit contract with the source provider and that Red Hat can place restrictions on those, who under contract, redistribute the source code of RHEL.
+Clearly there is a changing of philosophy in Linu now that billion dollar companies are involved. The questions we now consider are very far from the world in 1983 when Free Software and GNU were making an impact. Red Hat, claiming they are respecting the GPLv2 license have removed the existing upstream source code that had been available for others to download and recompile, and will now only be offering the source code to paying customers -- not all asundry people who want it. The argument is that the GPLv2 only applies to those that enter into the implicit contract with the source provider and that Red Hat can place restrictions on those, who under **contract**, redistribute the source code of RHEL.
 
 The question of does a company have a right to do this? Can they contribute to a community? What are the moral and legal implications that others can make money off of your hardwork due to opensource. How do we synchronize the motivations of induvidual contributers and large enterprises? Are we seeing a market consolidation of Enterprise Linux into essentially RHEL?
 
@@ -817,16 +818,7 @@ The question of does a company have a right to do this? Can they contribute to a
   * [RedHat found a way to get around the GPLv2 license intention with contract law](https://opencoreventures.com/blog/2023-08-redhat-gets-around-gplv2-license-intention-with-contract-law/ "webpage Red hat found a way around GPLv2")
   * [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall")
 
-In response Oracle, SUSE, and CIQ have formed a RHEL compatible competitor, [OpenELA](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage for OpenELA"). The plan of attack is to attack Red Hat with a Red Hat compatible OS serviced by these companies with their own software added.
-
-* SUSE and Oracle's responce to the RHEL based Enterprise market
-  * [Why SUSE is forking Red Hat Enterprise Linux | TechCrunch](https://techcrunch.com/2023/07/11/why-suse-is-forking-red-hat-enterprise-linux/ "webpage link to why SUSE is forking Red Hat Linux")
-  * [Red Hat and the Clone Wars IV: Knives Out: Dissociated Press](https://dissociatedpress.net/2023/07/11/red-hat-and-the-clone-wars-iv-knives-out/ "webpage clone wars")
-  * [CIQ, Oracle and SUSE Create Open Enterprise Linux Association for a Collaborative and Open Future | SUSE](https://www.suse.com/news/OpenELA-for-a-Collaborative-and-Open-Future/ "webpage forms Open Enterprise Linux Association")
-
-Does this mean a future consolidation of Enterprise Linux as RHEL? Does POSIX just become RHEL for the enterprise as the Linux Standards Base moving forward? Time will tell, what do you think?
-
-__Exercise:__ Here is an article from the President of the Linux Professional Institute (LPI)  and an old Unix/Linux veteran: [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall")  with [John Maddog Hall](https://en.wikipedia.org/wiki/Jon_Hall_(programmer)  "wiki article of John Hall")
+__Exercise:__ Here is an article from the President of the Linux Professional Institute (LPI) and an old Unix/Linux veteran: [IBM, Red Hat and Free Software: An old maddog’s view - Linux Professional Institute (lpi.org)](https://www.lpi.org/blog/2023/07/30/ibm-red-hat-and-free-software-an-old-maddogs-view/ "interview with maddog hall") with [John Maddog Hall](https://en.wikipedia.org/wiki/Jon_Hall_(programmer)  "wiki article of John Hall")
 
 * Who is John Maddog Hall and when did he start to program?
 * Briefly explain the difference between using gratis software and Free or Freedom Respecting Software.
@@ -953,11 +945,11 @@ In this chapter you were introduced to many names in relation to the history of 
     b)  BSL
     c)  GPL
     d)  AGPL
-1.  What is the name of the joint foundation created by Oracle, SuSE, and Rocky Linux
-    a)  Linux Foundation
-    b)  OpenTF
-    c)  OpenELA
-    d)  RHEL
+1.  Select the two Non-profit (501c3) foundations listed in the chapter
+    a)  Linux Foundation and ETA foudnation
+    b)  Hashicorp and Redhat
+    c)  Free Software Foundation and Software Freedom Conservancy
+    d)  GNU and and Software Freedom Conservancy
 
 ### Podcast Questions
 
@@ -978,7 +970,7 @@ Either individually, as a class, or get into groups and watch the documentary mo
 
 #### Part 1
 
-Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and create a review of the company's architecture based the listed items. Try to choose a company you use. Using software such as [Loom](https://loom.com "Video recording software"), [OBS](https://obsproject.org "OBS software"), or even your own Smart Phone. Record a video of you answering (not reading the answers) to these questions. 
+Most of the popular and functional pieces of software you use everyday involve Free and OpenSource. Choose 1 case studies from [http://highscalability.com](http://highscalability.com "High Scalability") and create a review of the company's architecture based the listed items. Try to choose a company you use. Follow the submission directions provided by your instructor. 
 
 Choose one from this list:
 
@@ -994,7 +986,7 @@ Answer these questions (not all of the Answers are in each case study and might 
 
 * Breifly explain what market does that company serve? (What do they do?) And have they always served that market?
 * What Operating System(s) are used by this product to run their servers and services?
-* What programming languages/frameworks are used?
+* What programming programming languages/frameworks are used?
 * What storage and what database technologies are used?
 * What Opensource license is the technology stack licensed under?
 * What is the current stock price and what was the IPO of the company? (if traded publicly.)
@@ -1003,12 +995,15 @@ Answer these questions (not all of the Answers are in each case study and might 
 
 #### Part 2
 
-Read this article:
+This assignment is to begin to learn about how opensource licensing impacts AI/LLM [Frontier Models](https://aiwiki.ai/wiki/frontier_models "webpage for frontier models").
 
-* [https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494](https://medium.com/@adamhjk/goodbye-open-core-good-riddance-to-bad-rubbish-ae3355316494 "Adam Jacobs article on open core")
+Using an LLM of your choice, ask these prompts: 
 
-* Briefly summarize Adam Jacob's opinion on running a company with an opensource product?
-* Do you agree or disagree with Adam's conclusion about opensource licensing?
+* "Can you list 5 of the current most popular Frontier Models?"
+* "Can you list 5 of the current most popular opensource/openwight models?"
+* "Can you explain the difference between an opensource model and an openweight model?"
+
+Taking that ouput put together a 2-3 minute verbal presentation giving the answers to each question and explaining which licences the opensource/openwight models use. Follow the devliverable instructions provided by your professor.
 
 #### Footnotes
 
