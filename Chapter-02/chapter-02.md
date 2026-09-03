@@ -1000,10 +1000,10 @@ This assignment is to begin to learn about how opensource licensing impacts AI/L
 Using an LLM of your choice, ask these prompts: 
 
 * "Can you list 5 of the current most popular Frontier Models?"
-* "Can you list 5 of the current most popular opensource/openwight models?"
+* "Can you list 5 of the current most popular opensource/openweight models?"
 * "Can you explain the difference between an opensource model and an openweight model?"
 
-Taking that ouput put together a 2-3 minute verbal presentation giving the answers to each question and explaining which licences the opensource/openwight models use. Follow the devliverable instructions provided by your professor.
+Taking that ouput put together a 2-3 minute verbal presentation giving the answers to each question and explaining which licences the opensource/openweight models use. Follow the devliverable instructions provided by your professor.
 
 #### Footnotes
 
