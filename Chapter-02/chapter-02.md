@@ -336,9 +336,9 @@ In October 2018, [Linus Torvalds returned from his one month of reflection](http
 
 The nascent Linux project saw a rush of growth and developer contribution from August of 1991 to February of 1992. But where did all these developers come from?  At this time we need to go back to Berkeley University and check in on the BSD project, (Berkeley Software Distribution).  In the late 80s and up to the early 1990s BSD Unix development had been flourishing at Berkeley.  Some would attribute this to great minds and an open environment, some would attribute it to lots of government funding.  Either way the product produced began to eclipse the commercial AT&T Unix in features and quality.  BSD began to significantly and irreconcilably differ from AT&T Unix.
 
-AT&T seeing this decided in the early 1992 to take the BSD project to court in order to stop BSD from cutting into their commercial business.  BSD technically came from AT&T Unix back in 1976, when Ken Thompson took his sabbatical at Berkeley and brought the then pet project AT&T Unix with him. AT&T found that some of the BSD code had not been changed as was claimed and was still original AT&T Unix code, which they claimed was a copyright infringement. In early 1992 AT&T was granted a court ordered development injunction against the BSD project, preventing development work from being done on BSD Unix.  This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing or copyright issues to worry about. BSD developers in droves flocked to the Linux project. By the time the lawsuit was finished in late 1993/1994 it was too late.  The results of the court case were that BSD could no longer use the term Unix to describe itself and they had to rewrite a handful of programs to remove AT&T code.  AT&T had succeeded in planting the seed for the growth of the entire Linux industry with this action. The Linux rocket had left the launch pad.
+AT&T decided in the early 1992 to take the BSD project to court in order to stop BSD from cutting into their commercial business. BSD technically came from AT&T Unix back in 1976, when Ken Thompson took his sabbatical at Berkeley and brought the then pet project AT&T Unix with him. AT&T found that some of the BSD code had not been changed as was claimed and was still original AT&T Unix code, which they claimed was a copyright infringement. In early 1992 AT&T was granted a court ordered development injunction against the BSD project, preventing development work from being done on BSD Unix. This was the perfect time for Linux kernel development to flourish, protected by the GPL, there were no licensing or copyright issues to worry about. BSD developers in droves flocked to the Linux project. By the time the lawsuit was finished in late 1993/1994 it was too late.  The results of the court case were that BSD could no longer use the term Unix to describe itself and they had to rewrite a handful of programs to remove AT&T code.  AT&T had succeeded in planting the seed for the growth of the entire Linux industry with this action. The Linux rocket had left the launch pad.
 
-After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. Also they are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red Hat.  All are maintained by volunteer organizations.
+After the BSD and AT&T lawsuit was settled the BSD code base split into three and then four main distribution families--each with their own focus but all common enough to share code between them. These distros are free of any contention with commercially licensed Unix and usable for enterprise work. Unlike Linux, BSD lacks a major corporate sponsored distribution, like Ubuntu or Red Hat. They are maintained by volunteer organizations.
 
 * FreeBSD
 * DragonFlyBSD, split from FreeBSD
@@ -349,7 +349,7 @@ After the BSD and AT&T lawsuit was settled the BSD code base split into three an
 
 ### Free Software vs. Opensource Software
 
-By the end of the 90s a curious thing was happening; Microsoft had a near total domination of the desktop PC operating system market and was being investigated by the US Department of Justice for anti-competitive practices. Apple had just brought Steve Jobs back as CEO and was beginning to take steps towards recovering from lost decade.  The Internet as the phenomena we recognize today was just beginning to take root in homes across America through dialup services like [AOL](https://en.wikipedia.org/wiki/AOL "AOL"), [Compuserve](https://en.wikipedia.org/wiki/CompuServe "Compuserve"), and [Prodigy](https://en.wikipedia.org/wiki/Prodigy_\(online_service\)  "Prodigy"). At the same time, the quality and quantity of free and opensource software was increasing.  The Internet was being powered by webservers and databases.  Opensource tools such as the Apache Webserver, Perl programming Language, and MySQL database became the *killer apps* to use on Linux or BSD.
+By the end of the 90s a curious thing was happening; Microsoft had a near total domination of the desktop PC operating system market and was being investigated by the US Department of Justice for anti-competitive practices. Apple had just brought Steve Jobs back as CEO and was beginning to take steps towards recovering from lost decade. The Internet as the phenomena we recognize today was just beginning to take root in homes across America through dialup services like [AOL](https://en.wikipedia.org/wiki/AOL "AOL"), [Compuserve](https://en.wikipedia.org/wiki/CompuServe "Compuserve"), and [Prodigy](https://en.wikipedia.org/wiki/Prodigy_\(online_service\)  "Prodigy"). At the same time, the quality and quantity of free and opensource software was increasing.  The Internet was being powered by webservers and databases.  Opensource tools such as the Apache Webserver, Perl programming Language, and MySQL database became the *killer apps* to use on Linux or BSD.
 
 The term opensource software is pervasive today but until 1998, it didn't exist as we know it--there was only the term *free software*. The term *free software* had existed since 1985, but because of the ambiguity of the English word *free* it became associated with zero-cost free and not freedom free. The term *free* can also give the potential idea of cheap or shoddy work--compared to professional proprietary work and the enterprise would not touch it.  
 
@@ -359,7 +359,7 @@ The term *opensource* was not a movement away from the principles of *free softw
 
 ![*Christine Peterson*](images/Chapter-02/People/Christine-Peterson/Christine_Peterson_2009.jpg "Christine Peterson")
 
-Christine Peterson[^115] was a technologist who was part of the group that would become the OpenSource Initiative.  She is generally credited with deciding to use the term, *"Opensource,"* as a differentiator from *"Free Software"*. Though there is evidence that the term *Opensource* was actually [in use 10 to 20 years prior](https://lunduke.locals.com/post/4408440/who-really-coined-the-term-open-source "webpage linking to article about opensource").
+Christine Peterson[^115] was a technologist who was part of the group that would become the OpenSource Initiative. She is generally credited with deciding to use the term, *"Opensource,"* as a differentiator from *"Free Software"*. Though there is evidence that the term *Opensource* was actually [in use 10 to 20 years prior](https://lunduke.locals.com/post/4408440/who-really-coined-the-term-open-source "webpage linking to article about opensource").
 
 #### Eric S. Raymond
 
@@ -373,7 +373,7 @@ Raymond proposed that opensource code and an opensource design methodology of tr
 
 > *As head of the Open Source Initiative, he (Raymond) argued that advocates should focus on the potential for better products. "The "very seductive" moral and ethical rhetoric of Richard Stallman and the Free Software Foundation fails, he said, "not because his principles are wrong, but because that kind of language ... simply does not persuade anybody".* [Eric S. Raymond](https://en.wikipedia.org/wiki/Eric_S._Raymond#Open_source "Quote")
 
-The "Cathedral and the Bazaar" was influential in helping the Netscape Corporation opensource their Netscape Web Browser code before the company was sold to AOL, under the name of the Mozilla project.  This code gave rise to what would eventually become the Firefox web browser in 2002--thanks to Raymond's writings.  
+The `Cathedral and the Bazaar` was influential in helping the Netscape Corporation opensource their Netscape Web Browser code before the company was sold to AOL, under the name of the Mozilla project.  This code gave rise to what would eventually become the Firefox web browser in 2002--thanks to Raymond's writings.  
 
 Richard Stallman and the FSF alleged the OSI was willing to make freedom compromises in order to make larger productivity gains with opensource software and fired back in his article ["Open Source Misses the Point"](http://www.gnu.org/philosophy/open-source-misses-the-point.html "Open Source Misses the Point"). The terms do overlap, but Free Software and opensource ultimately have two divergent meanings and *free* software is *not* opensource software.
 
@@ -388,7 +388,7 @@ You can read Raymond's two seminal books on Unix and opensource philosophy onlin
 
 Open source doesn't just mean access to the source code. According to the [Opensource Initiative](https://opensource.org/ "Opensource Initiative")  written by Bruce Perens, the now 10 rights enshrined in the OSD encompass the 4 software freedoms and extend them with a focus on applications in the business world. The distribution terms of open-source software must comply with the [following criteria:](https://opensource.org/osd-annotated "Annotated definition")
 
-1.  Free Redistribution
+1. Free Redistribution
     i)  The license shall not restrict any party from selling or giving away the software as a component of an aggregate software distribution containing programs from several different sources. The license shall not require a royalty or other fee for such sale.
 2. Source Code
     i)  The program must include source code, and must allow distribution in source code as well as compiled form. Where some form of a product is not distributed with source code, there must be a well-publicized means of obtaining the source code for no more than a reasonable reproduction cost, preferably downloading via the Internet without charge. The source code must be the preferred form in which a programmer would modify the program. Deliberately obfuscated source code is not allowed. Intermediate forms such as the output of a preprocessor or translator are not allowed.
@@ -525,12 +525,7 @@ Red Hat Linux distribution was formed after the Debian project by Marc Ewing and
 
 ![*Fedora Project*](images/Chapter-02/Linux-logos/Fedora/768px-Logo_Fedora_full.svg-96dpi.png "Fedora Project")
 
-The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13]. The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release. They have a similar release cadence to that of Ubuntu, twice a year and in April and October. With package and update support only extending back to the previous version. Remember their focus is rapid iteration of the project to quickly test new technologies for inclusion to the Enterprise product. There is a workstation edition, a server edition, a cloud instance, many other custom *spins*.
-
-* Fedora 41 was released on 10/15/24
-* Fedora 40 was released on 04/02/24
-* Fedora 39 was released on 10/17/23
-* Fedora 38 was released on 04/18/23
+The [Fedora Project](https://en.wikipedia.org/wiki/Fedora_Project "Fedora Project") was started in 2003 when the Red Hat Desktop Linux product was merged with the company/community based spin off Fedora Core Linux [^13]. The [Fedora Project's](https://getfedora.org/ "Get Fedora") focus was rapid development and rapid release. They have a similar release cadence to that of Ubuntu, twice a year and in April and October. With package and update support only extending back to the previous version. Their focus is rapid iteration of the project to quickly test new technologies for inclusion to the Enterprise product. There is a workstation edition, a server edition, a cloud instance, many other custom *spins*.
 
 #### Red Hat Enterprise Linux--RHEL
 
@@ -583,20 +578,18 @@ SUSE Linux (pronounced *soo-suh*)  began as a German Slackware Linux port and gr
 * In 2006 Microsoft and SUSE announce an interoperability agreement (Patent Lawsuit Protection)
 * Major partner for deploying [SAP](https://www.sap.com "SAP webpage")
 * Owns [RancherOS](https://rancher.com/ "RancherOS webpage")  -- an Enterprise Kubernetes Management Platform
-
-#### SUSE Multi-Linux
-
-This is an enterprise offering by SUSE to directly support RHEL opensource operating systems and stay bug-bug-compatable but run on Cloud hosted platforms. There is no download for this and it is acquired by a paid license and comes with enterprise support.
+* SUSE Multi-Linux
+  * Bug-for-bug compatable with RHEL but run on Cloud hosted platforms 
+  * There is no download for this and it is acquired by a paid license and comes with enterprise support.
 
 ### Other Linux Distros
 
-#### Intel Clear Linux
+#### Atomic Desktops
 
-* [Intel Clear Linux](https://clearlinux.org/ "Intel Clear Linux")
-  * Rolling release designed by Intel with auto-updating features built into the OS.
-* *"Clear Linux OS is an open source, rolling release Linux distribution optimized for performance and security, from the Cloud to the Edge, designed for customization, and manageability [https://clearlinux.org/](https://clearlinux.org/ "Clear Linux")."*
-* Designed to work on recent Intel processors, dropping legacy support for older hardware--in order to optimize for modern cloud and OS Container based workloads like Kubernetes.
-* Not focused on desktop Linux but for Cloud-based virtual machines and OS Container images
+[Atomic Desktops](https://en.wikipedia.org/wiki/Fedora_Linux#Atomic_desktops "webpage describing Atomic Desktops") are a unique design decision and though based on Fedora and Debian, their structure is different. *"Every atomic desktop installation is identical to every other installation of the same version, and it never changes as it is used. The immutable design is intended to make the operating system more stable, less prone to bugs, easier to test and develop..."*
+
+* [Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/ "webpage for Fedora Silverblue")
+* [Debian based - Vanilla OS](https://vanillaos.org/ "webpage for Vanilla OS - Debian based")
 
 #### Gentoo Linux
 
@@ -648,8 +641,9 @@ While Linux was exploding in the mid 1990s, the AT&T lawsuit against BSD had bee
 
 #### Other BSD projects
 
-* [Ghost BSD](https://www.ghostbsd.org/ "Ghost BSD")
-* [Hardened BSD](https://hardenedbsd.org/ "Hardened BSD")
+* [GhostBSD](https://www.ghostbsd.org/ "webpage for Ghost BSD")
+* [HardenedBSD](https://hardenedbsd.org/ "webpage for Hardened BSD")
+* [MidnightBSD](https://www.midnightbsd.org/ "webpage for midnightBSD")
 
 #### OpenBSD
 
@@ -769,28 +763,33 @@ Others will cite the fact that very few successful software packages are license
 
 #### 5013c and 501c6 Foundations
 
-One industry solution has been the formation of charitable foundations (501c3)  or trade organizations (501c6). For example, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation")  employs Linus Torvalds to continue work on the Linux Kernel as well as maintaing the Linux kernel source code. In addition, the Linux Foundation runs multiple other significant technology foundations--all offspring of Linux and opensource.  The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation")  and shepherded by the Linux Foundation is pretty astounding.
+One industry solution has been the formation of charitable foundations (501c3)  or trade organizations (501c6). For example, the [Linux Foundation](https://linuxfoundation.org "The Linux Foundation") employs Linus Torvalds to continue work on the Linux Kernel as well as maintaing the Linux kernel source code. In addition, the Linux Foundation runs multiple other significant technology foundations--all offspring of Linux and opensource. The [list of projects that are managed](https://www.linuxfoundation.org/projects/directory/ "Projects managed by the Linux Foundation") and shepherded by the Linux Foundation is pretty astounding.
 
 Other foundations include:
 
 * [Apache Software Foundataion - ASF](https://apache.org/ "Website Apache Software Foundation")
 
-  "*ASF’s open source software is used ubiquitously around the world with more than 8,400 committers contributing to more than 320 active projects.*"
+  > "*ASF’s open source software is used ubiquitously around the world with more than 8,400 committers contributing to more than 320 active projects.*"
 
 * [Cloud Native Computing Foundation](https://cncf.io "Cloud Native Computing Foundation")  (CNCF)
 
-    "*The Cloud Native Computing Foundation (CNCF)  hosts critical components of the global technology infrastructure. CNCF brings together the world’s top developers, end users, and vendors and runs the largest open source developer conferences. CNCF is part of the nonprofit Linux Foundation.*"
+    > "*The Cloud Native Computing Foundation (CNCF)  hosts critical components of the global technology infrastructure. CNCF brings together the world’s top developers, end users, and vendors and runs the largest open source developer conferences. CNCF is part of the nonprofit Linux Foundation.*"
 
 * [OpenJS Foundation](https://openjfs.org "Open JS Foundation"): An amalgamation of two other JavaScript Foundations: the JavaScript Foundation [JS Foundation](https://js.foundation/ "JavaScript Foundation")  and the [NodeJS Foundation](https://foundation.nodejs.org/ "The NodeJS Foundation").  
 
-    "*The OpenJS Foundation is made up of 32 open source JavaScript projects including Appium, Dojo, jQuery, Node.js, and webpack. Our mission is to support the healthy growth of JavaScript and web technologies by providing a neutral organization to host and sustain projects, as well as collaboratively fund activities that benefit the ecosystem as a whole.*"
+    > "*The OpenJS Foundation is made up of 32 open source JavaScript projects including Appium, Dojo, jQuery, Node.js, and webpack. Our mission is to support the healthy growth of JavaScript and web technologies by providing a neutral organization to host and sustain projects, as well as collaboratively fund activities that benefit the ecosystem as a whole.*"
 
-* The [Continuous Delivery Foundation](https://cd.foundation/ "The Continuous Delivery Foundation")  (CDF)
+* The [Free Software Foundation](https://www.fsf.org/ "Webpage for Free Software Foundation")
+  
+  > The Free Software Foundation (FSF) is a nonprofit with a worldwide mission to promote computer user freedom and holds the GNU software copyrights.
 
-    "*The Continuous Delivery Foundation (CDF)  serves as the vendor-neutral home of many of the fastest-growing projects for continuous delivery, including Jenkins, Jenkins X, Spinnaker, and Tekton. CDF supports DevOps practitioners with an open model, training, industry guidelines, and a portability focus.*"
+* [The Software Freedom Conservancy](https://sfconservancy.org/ "webpage for Software Freedom Conservancy")
+  
+  > Software Freedom Conservancy is a nonprofit organization centered around ethical technology. Our mission is to ensure the right to repair, improve and reinstall software.
 
 * The [Eclipse Foundation](https://eclipse.org "The Eclipse Foundation")
-  * "*Following the announcement that Oracle was seeking to [move Java EE technologies to an open-source](https://www.infoq.com/news/2017/09/JavaEEtoEclipse "webpage eclipse foundation")  foundation, the company has now said that they have chosen the Eclipse Foundation as the new custodians of the platform.*"
+   
+    > "*Following the announcement that Oracle was seeking to [move Java EE technologies to an open-source](https://www.infoq.com/news/2017/09/JavaEEtoEclipse "webpage eclipse foundation")  foundation, the company has now said that they have chosen the Eclipse Foundation as the new custodians of the platform.*"
 
 If you look at the foundations, they are mostly trade organizations (501c6), "pay-to-play" in which large corporations pay to have a seat on the board. These companies don't always have the best track record in relation to respecting free/opensource licensing. Some great technological advances have come about due to foundations but the voice of the individual contributor has been drowned out. The large corporations have found and embraced Opensource Software. Foundations also lead to governance -- which prevents "forking", one of the main ideas of Free and Opensource Software. The question we need to ask ourselves is, "[What comes next after opensource?](https://www.youtube.com/watch?v=vTsc1m78BUk "Bruce Perens Video")"
 
