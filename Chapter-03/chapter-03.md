@@ -33,7 +33,7 @@ By having the hypervisor intercepting system calls from the virtualized operatin
 
 For example if we were running an Ubuntu 22.04.3 Desktop virtualized guest system on a Windows 10 host, the Linux desktop has no way of knowing how to issue a command to use the network card to request a website because Windows is a completely different kernel and operating system. The virtualization layer will do the translation for you, allowing the *"host"* system to think that your guest virtualized operating system is nothing more than a native application, and allowing your guest virtualized operating system to think that it owns the entire set of hardware.
 
-The main concept of virtualization you need to know is that your computer (PC, laptop, Mac) has vastly more power then is needed most of the time. The benefit of virtualization is that a hypervisor can act as a translator for multiple operating systems running simultaneously on one system.  Thereby maximizing the usage of your resources and preventing you from needing 4 or 5 different physical PCs.  See Chapter 13 and 14 for application and development uses of Virtualization.
+The main concept of virtualization you need to know is that your computer (PC, laptop, Mac) has vastly more power then is needed most of the time. The benefit of virtualization is that a hypervisor can act as a translator for multiple operating systems running simultaneously on one system.  Thereby maximizing the usage of your resources and preventing you from needing 4 or 5 different physical PCs.
 
 ## Hypervisors
 
