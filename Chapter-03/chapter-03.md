@@ -13,7 +13,7 @@
 
 ## Outcomes
 
-At the end of this chapter you will understand how to complete multiple installations of all the major Linux and BSD platforms. You will be comfortable using industry standard virtualization platforms to enable rapid install of operating systems. You will also be familiar with and be able to differentiate between processor architectures. You will be able to install packages and manage dependencies through using standard package managers. Finally, you will also be comfortable compiling software from source using a tar ball and python setup-tools.
+At the end of this chapter you will understand how to complete multiple installations of all the major Linux platforms. You will be comfortable using industry standard virtualization platforms to enable rapid install of operating systems. You will also be familiar with and be able to differentiate between processor architectures. You will be able to install packages and manage dependencies through using standard package managers.
 
 ## Virtual Machines
 
