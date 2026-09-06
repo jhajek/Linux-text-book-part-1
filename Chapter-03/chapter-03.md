@@ -112,22 +112,22 @@ Most Linux ISOs can be found at their own homepage or from [https://mirrors.kern
 
 #### x86 Intel and AMD ISOs for PCs and Macs
 
-* [Fedora 42 Workstation Install ISO](https://mirrors.kernel.org/fedora/releases/42/Workstation/x86_64/iso/ "Webpage for Fedora Workstation Install")
+* [Fedora 44 Workstation Install ISO](https://mirrors.kernel.org/fedora/releases/44/Workstation/x86_64/iso/ "Webpage for Fedora Workstation Install")
   * [Get Fedora](https://getfedora.org "Get Fedora")
-* [Ubuntu Desktop 25.04](https://mirrors.edge.kernel.org/ubuntu-releases/25.04/ "webpage download Ubuntu Desktop")
+* [Ubuntu Desktop 26.04](https://mirrors.edge.kernel.org/ubuntu-releases/26.04/ "webpage download Ubuntu Desktop")
   * [Get Ubuntu](https://ubuntu.com "ubuntu")
   * [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
-* [Debian 13 Standard installation ISO](https://mirrors.iu13.net/debian-cd/13.0.0-live/amd64/iso-hybrid/ "Debian 13 Standard installation ISO")
-  * [Debian 13 Net Install ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/ "Debian 13 Net install ISO")
+* [Debian Current Release Standard installation ISO](https://mirrors.iu13.net/debian-cd/current-live/amd64/iso-hybrid/ "Debian Current Standard installation ISO")
+  * [Debian Current Net Install ISO](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/ "Debian Current Net install ISO")
 
 #### aarch ARM based ISOs for M-series based Macs running Parallels
 
-* [Fedora 42 Workstation aarch Install ISO](https://mirrors.kernel.org/fedora/releases/42/Workstation/aarch64/iso/ "Webpage for Fedora Workstation Install on ARM")
+* [Fedora 44 Workstation aarch Install ISO](https://mirrors.kernel.org/fedora/releases/42/Workstation/aarch64/iso/ "Webpage for Fedora Workstation Install on ARM")
   * [Get Fedora](https://getfedora.org "Get Fedora")
-* [Ubuntu Desktop 25.04 for ARM](https://cdimage.ubuntu.com/daily-live/current/ "webpage for Ubuntu Desktop")
+* [Ubuntu Desktop Current for ARM](https://cdimage.ubuntu.com/daily-live/current/ "webpage for Ubuntu Desktop")
   * [Get Ubuntu](https://ubuntu.com "ubuntu")
   * [Ubuntu checksum page](https://help.ubuntu.com/community/UbuntuHashes "Ubuntu Hashes")
-* [Debian 13 ARM installation ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/ "Debian 13 ARM installation ISO")
+* [Debian Current ARM installation ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/ "Debian Current ARM installation ISO")
 
 ### Checksums
 
