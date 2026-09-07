@@ -45,7 +45,7 @@ There are basically two types of virtualization. We will be dealing with TYPE II
 
 #### Microsoft Hyper-V
 
-Hyper-V was originally only a server class product released on Windows Server 2008 R2.  Microsoft ported the technology to be able to be used in Windows 8 and 10 Professional and Enterprise editions for free.  It comes as an add-on component and is a fully functional implementation of the sever class product.  It has the added benefit of being able to work over a wireless connection geared towards desktops.  Hyper-V is a good product, if you have an [Xbox One](https://en.wikipedia.org/wiki/Xbox_One#Software_and_services "Xbox One"), you are using Hyper-V to enable backward compatibility for your games. Hyper-V runs on Windows 8 and 10 and runs Windows, Linux, and BSD virtual machines.
+Hyper-V was originally only a server class product released on Windows Server 2008 R2. Microsoft ported the technology to be able to be used in Windows 8 and 10 Professional and Enterprise editions for free. It comes as an add-on component and is a fully functional implementation of the sever class product. It has the added benefit of being able to work over a wireless connection geared towards desktops. Hyper-V is a good product, if you have an [Xbox One](https://en.wikipedia.org/wiki/Xbox_One#Software_and_services "Xbox One"), you are using Hyper-V to enable backward compatibility for your games. Hyper-V runs on Windows 8 and 10 and runs Windows, Linux, and BSD virtual machines.
 
 #### Oracle VirtualBox
 
@@ -65,7 +65,7 @@ Until 2013 Parallels Desktop was a direct competitor to VMware Workstation on th
 
 ### TYPE I Hypervisor - Bare Metal or Native Virtualization
 
-TYPE I is used in server environments on hardware utilizing multiple core CPUs, multiple terabytes of RAM, and multiple terabytes of hard drive space.  A TYPE I hypervisor includes a kernel and tiny purpose driven mini-operating system tuned just for managing and interfacing with virtual machines.  The kernel itself is the hypervisor also tuned with all unnecessary features removed.  This book will not cover TYPE I hypervisors or commercial implementations of them.
+TYPE I is used in server environments on hardware utilizing multiple core CPUs, multiple terabytes of RAM, and multiple terabytes of hard drive space. A TYPE I hypervisor includes a kernel and tiny purpose driven mini-operating system tuned just for managing and interfacing with virtual machines. The kernel itself is the hypervisor also tuned with all unnecessary features removed. This book will not cover TYPE I hypervisors or commercial implementations of them.
 
 * [Microsoft Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx "Hyper-V")
 * [VMware ESXi](http://www.vmware.com/products/vsphere-hypervisor/ "vSphere")
