@@ -53,7 +53,7 @@ This product was originally an opensource project that was purchased by Sun and 
 
 #### VMware Workstation
 
-VMware also released a desktop product that is similar to VirtualBox on Windows and Linux called VMware Workstation. This software predated VirtualBox by nearly 5 years with a separate desktop product available for the Mac called VMware Fusion.
+VMware also released a desktop product that is similar to VirtualBox on Windows and Linux called VMware Workstation. This software predated VirtualBox by nearly 5 years with a separate desktop product available for the Mac called VMware Fusion. [Broadcom purchased VMware](https://investors.broadcom.com/news-releases/news-release-details/broadcom-completes-acquisition-vmware "webpage of Broadcom purchasing VMware") in November of 2023 and the Workstation and Fusion products are now available for free as it looks that Broadcom is moving out of this market.
 
 #### Parallels Desktop for Mac
 
