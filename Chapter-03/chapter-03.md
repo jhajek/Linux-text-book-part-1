@@ -473,11 +473,11 @@ The resulting combination of the GNU Operating System and the kernel named Linux
 
 These are the short steps:
 
-* `wget` [https://linux-libre.fsfla.org/pub/linux-libre/freesh/pool/main/f/freesh-archive-keyring/freesh-archive-keyring_1.1_all.deb](https://linux-libre.fsfla.org/pub/linux-libre/freesh/pool/main/f/freesh-archive-keyring/freesh-archive-keyring_1.1_all.deb "link for Libre Linux keyring deb")
-* `dpkg -c freesh-archive-keyring_1.1_all.deb`
-* `sudo dpkg -i freesh-archive-keyring_1.1_all.deb`
+* `wget` [https://linux-libre.fsfla.org/pub/linux-libre/freesh/pool/main/f/freesh-archive-keyring/freesh-archive-keyring_1.3_all.deb](https://linux-libre.fsfla.org/pub/linux-libre/freesh/pool/main/f/freesh-archive-keyring/freesh-archive-keyring_1.3_all.deb "link for Libre Linux keyring deb")
+* `dpkg -c freesh-archive-keyring_1.3_all.deb`
+* `sudo dpkg -i freesh-archive-keyring_1.3_all.deb`
 * `gpg --no-default-keyring --keyring /usr/share/keyrings/freesh-archive-keyring.gpg --list-keys`
-* `rm freesh-archive-keyring_1.1_all.deb`
+* `rm freesh-archive-keyring_1.3_all.deb`
 * `sudo apt update`
 * `sudo apt install linux-libre linux-libre-lts`
 
