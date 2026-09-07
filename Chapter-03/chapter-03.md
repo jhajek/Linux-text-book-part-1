@@ -29,7 +29,7 @@ Virtualization works because your CPU[^19]. To do this, AMD and Intel introduced
 
 ![*Virtualization Diagram*](images/Chapter-03/Hypervisor/Hardware_Virtualization.jpg "Virtualization Diagram")
 
-By having the hypervisor intercepting system calls from the virtualized operating system this allows for multiple operating systems to co-exist on one computer unaware of each other[^20]. The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two attendees.  The hypervisor essentially creates two classes of operating systems.  The "*host*" and potentially multiple "*guests*".  The *"guest"* operating system thinks it has complete control of the hardware - but the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available. The hypervisor offers a *"virtualized kernel and drivers"* to the guest operating system. In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands.  
+By having the hypervisor intercepting system calls from the virtualized operating system this allows for multiple operating systems to co-exist on one computer unaware of each other[^20]. The way a hypervisor works is not unlike having a professional translator at a business meeting translating between two attendees.  The hypervisor essentially creates two classes of operating systems.  The "*host*" and potentially multiple "*guests*". The *"guest"* operating system thinks it has complete control of the hardware - but the virtualization software is only showing the guest system a small portion of all the total RAM, CPU, and disk space available. The hypervisor offers a *"virtualized kernel and drivers"* to the guest operating system. In turn, the hypervisor translates the system commands to the kernel it has received and translates them to the host operating systems commands.  
 
 For example if we were running an Ubuntu 22.04.3 Desktop virtualized guest system on a Windows 10 host, the Linux desktop has no way of knowing how to issue a command to use the network card to request a website because Windows is a completely different kernel and operating system. The virtualization layer will do the translation for you, allowing the *"host"* system to think that your guest virtualized operating system is nothing more than a native application, and allowing your guest virtualized operating system to think that it owns the entire set of hardware.
 
@@ -49,7 +49,7 @@ Hyper-V was originally only a server class product released on Windows Server 20
 
 #### Oracle VirtualBox
 
-This product was originally an opensource project that was purchased by Sun and then inherited by Oracle. Though the name is on the project, Oracle has been surprisingly hands off of this project.  Because of that it has grown in usage, features, and utility to become the de facto desktop virtualization tool.  It can run on Mac, Windows, and Linux and allows for seamless transfer of virtual machines across platforms
+This product was originally an opensource project that was purchased by Sun and then inherited by Oracle. Though the name is on the project, Oracle has been surprisingly hands off of this project. Because of that it has grown in usage, features, and utility to become the de facto desktop virtualization tool.  It can run on Mac, Windows, and Linux and allows for seamless transfer of virtual machines across platforms
 
 #### VMware Workstation
 
