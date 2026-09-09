@@ -19,13 +19,13 @@ When you think about how we use computers today the one thing we take for grante
 
 The [Datapoint 3300](https://en.wikipedia.org/wiki/Datapoint_3300 "Datapoint 3300") was one of the more common models representing the era.  It supported control codes to move the cursor up, down, left and right, to the top left of the screen, or to the start of the bottom line and displayed a whopping 72 by 25 rows of characters in the days before microprocessors and ram were part of terminals. By 1978 Digital Equipment Corporation (DEC) had released something akin to an upgrade for the dumb terminal called a *smart terminal*.
 
-The [DEC VT-100](https://en.wikipedia.org/wiki/VT100 "VT-100") was the most popular model: it had character and cursor positioning and was connected to the Unix system via serial ports and a modem.  The VT-100 set the standard for 80 by 24 rows and columns still in use today.  These terminals had the backing of DRAM and an Intel 8080 processor.  Open up any terminal emulator in Linux and see its default size.  Open up cmd.exe in Windows and you will notice the same default dimensions.  Why? Sociologists always talk about nature vs. nurture. Nature plays a huge part in software development.  All the developers who built Terminal emulators and cmd.exe for Windows "grew up" using Unix systems on a DEC VT-100 screen in college and at work.  It was a natural fit.  The VT-100 and VT-220 continued with wide deployment and success but the concept of color or being able to draw any shapes to the screen was in the hands of a few expensive and proprietary companies; everything was still [ASCII](https://en.wikipedia.org/wiki/ASCII "ASCII") or character based.
+The [DEC VT-100](https://en.wikipedia.org/wiki/VT100 "VT-100") was the most popular model: it had character and cursor positioning and was connected to the Unix system via serial ports and a modem. The VT-100 set the standard for 80 by 24 rows and columns still in use today.  These terminals had the backing of DRAM and an Intel 8080 processor. Open up any terminal emulator in Linux and see its default size. Open up cmd.exe in Windows and you will notice the same default dimensions. Why? Sociologists always talk about nature vs. nurture. Nature plays a huge part in software development. All the developers who built Terminal emulators and cmd.exe for Windows "grew up" using Unix systems on a DEC VT-100 screen in college and at work. It was a natural fit. The VT-100 and VT-220 continued with wide deployment and success but the concept of color or being able to draw any shapes to the screen was in the hands of a few expensive and proprietary companies; everything was still [ASCII](https://en.wikipedia.org/wiki/ASCII "ASCII") or character based.
 
 ### VT-100
 
 ![*VT-100*](images/Chapter-04/Terminals/DEC_VT100_terminal.jpg "VT-100")[^25]
 
-This screenshot is a file listing from the ```/dev``` (devices) folder on a Fedora 22 system
+This screenshot is a file listing from the `/dev` (devices) folder on a Fedora system
 
 ![*TTY Alive Today*](images/Chapter-04/tty.png "TTYs")
 
@@ -35,7 +35,7 @@ This screenshot is a file listing from the ```/dev``` (devices) folder on a Fedo
 
 ### Virtual Consoles
 
-With the X system the idea of having discrete terminals went away. Now you could have multiple *virtual terminals* on one system that emulated the features of a DEC VT-100 or VT-220 terminal. If you hit the  ```ctrl + alt + F1-F7``` within your Linux distro you will jump to 1 of 7 different virtual terminals enabled by default.  Usually F7 is the default GUI but it can vary from operating system to operating system.
+With the X system the idea of having discrete terminals went away. Now you could have multiple *virtual terminals* on one system that emulated the features of a DEC VT-100 or VT-220 terminal. If you hit the  `ctrl + alt + F1-F7` within your Linux distro you will jump to 1 of 7 different virtual terminals enabled by default.  Usually F7 is the default GUI but it can vary from operating system to operating system.
 
 ## Along Comes an X
 
