@@ -993,9 +993,10 @@ For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia
   * Peppermint OS
 
 * Red Hat Based ARM
-  * Fedora Workstation edition 
+  * Fedora Workstation edition
+  * [Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/ "webpage for Fedora Silverblue") 
   * AlmaLinux
-  * Rocky Linux
+  * ~~Rocky Linux~~
 
 * BSD based ARM
   * FreeBSD
