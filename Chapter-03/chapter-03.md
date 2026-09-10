@@ -391,12 +391,12 @@ sudo dnf install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm
 As you can see that package managers were a great step forward in making Linux usable. But they don't handle the dependency issue--they don't understand the context of auto-dependency retrieval. Various solutions were created and new ones seem to pop up with each new Linux distro. Fedora based distros use yum and now use dnf (as of Fedora 23) and Debian based distros use apt. Others you might encounter:
 
 * [Zypper](https://en.wikipedia.org/wiki/ZYpp "SUSE Zypper web page")
-  * `sudo zypper install neofetch`
+  * `sudo zypper install fastfetch`
 * [pkg for BSD](https://www.freebsd.org/doc/handbook/pkgng-intro.html "pkg for BSD")
-  * `sudo pkg install neofetch`
+  * `sudo pkg install fastfetch`
 * [Pacman](https://www.archlinux.org/pacman/ "Pacman web page")
   * To update your systems: `sudo pacman -Syu`
-  * To install packages: `sudo pacman -S neofetch`
+  * To install packages: `sudo pacman -S fastfetch`
 * [Yum](https://en.wikipedia.org/wiki/Yum_(software) "Wikipage for YUM")
   * Previous installer for Red Hat based systems
   * Functions identical to `dnf`
@@ -506,7 +506,7 @@ Since the Red Hat source code was geared for long term enterprise support the nu
 * [Extra Packages for Enterprise Linux (EPEL)](https://docs.fedoraproject.org/en-US/epel/ "webpage for EPEL")
   * Developed by the and included by the Fedora Project - not needed on Fedora 
   * `sudo dnf install epel-release`
-  * `sudo dnf install neofetch`
+  * `sudo dnf install fastfetch`
 * [ELRepo](https://elrepo.org/ "Website Enterprise Linux Repos")
   * Ships software that Fedora won't or can't
   * `rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org`
@@ -933,7 +933,7 @@ Watch the YouTube video [Virtual Machines explained in 15 Mins](https://www.yout
 
 ### Lab
 
-This lab has two parts that need to be completed. Use the provided template for submitting your screenshots as part of the deliverable.
+This is the installation marathon lab. Use the provided template for submitting your screenshots as part of the deliverable.
 
 #### Objectives
 
@@ -943,13 +943,13 @@ This lab has two parts that need to be completed. Use the provided template for 
 
 At the conclusion of this lab you will have installed ~10-20 Linux based operating system distributions (distros) as Virtual Machines. You will have explored the major paradigms of the two major Linux distro families. You will have mastered the installation process and been exposed to various Linux distro paradigms.
 
-### Virtual Machine Creation - part I
+### Virtual Machine Creation Lab
 
 Following the demonstrations in section 3.6.3 and the installation information in section 3.6.1, you will need to find the download links for the Linux and BSD ISOs listed. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise. 
 
-If you are using an M-series Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for Apple Silicon Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
+If you are using an M-series Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for Apple Silicon Macs](https://www.parallels.com/ "Parallels virtualization for Apple Silicon Mac").
 
-Complete each install fully and then using the correct package manager install the program `fastfetch` and take a screenshot of the results. There are 15 different distributions listed for Intel based x86 Windows and Macs. There are 11 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version.
+Complete each install fully and then using the correct package manager install the program `fastfetch` and take a screenshot of the results. There are different distributions listed for x86 Windows and Macs. There are different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version of that linux distro.
 
 #### Parallels
 
@@ -957,7 +957,7 @@ If you are using `Parallels` complete the neccesary installs and adjust VirtualB
 
 #### Screenshots
 
-For those using x86_64 Intel Windows and Macs install the following ISOs, install the package `fastfetch` via the package maanger and take a screenshot of the results adding them to the document below each unit.
+For those using x86_64 Intel Windows and Macs install the following ISOs, install the package `fastfetch` via the package manager and take a screenshot of the results adding them to the document below each unit.
 
 * Debian Based
   * Ubuntu Desktop edition

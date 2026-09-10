@@ -1,41 +1,44 @@
 # Lab - Chapter 03
 
-This lab has two parts that need to be completed. Use the provided template for submitting your screenshots as part of the deliverable.
+## Lab
 
-## Objectives
+This is the installation marathon lab. Use the provided template for submitting your screenshots as part of the deliverable.
+
+### Objectives
 
 * Explore installing multiple industry standard Linux distros
 
-## Outcomes
+### Outcomes
 
 At the conclusion of this lab you will have installed ~10-20 Linux based operating system distributions (distros) as Virtual Machines. You will have explored the major paradigms of the two major Linux distro families. You will have mastered the installation process and been exposed to various Linux distro paradigms.
 
-### Virtual Machine Creation - part I
+## Virtual Machine Creation Lab
 
 Following the demonstrations in section 3.6.3 and the installation information in section 3.6.1, you will need to find the download links for the Linux and BSD ISOs listed. You will need to install the latest version of [VirtualBox 7.x](https://virtualbox.org "VirtualBox Download site") in order to complete this exercise. 
 
-If you are using an M-series Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for Apple Silicon Macs](https://www.parallels.com/ "Parallels virtualization for M1 Mac").
+If you are using an M-series Mac, you will need to purchase a copy of a comparable software called [Parallels Virtualization for Apple Silicon Macs](https://www.parallels.com/ "Parallels virtualization for Apple Silicon Mac").
 
-Complete each install fully and then using the correct package manager install the program `fastfetch` and take a screenshot of the results. There are 15 different distributions listed for Intel based x86 Windows and Macs. There are 11 different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version.
+Complete each install fully and then using the correct package manager install the program `fastfetch` and take a screenshot of the results. There are different distributions listed for x86 Windows and Macs. There are different distributions listed for M-series Mac Hardware. If a version number is not listed, assume the latest version of that linux distro.
 
-#### Parallels
+### Parallels
 
-If you are using `Parallels` complete the necessary installs and adjust VirtualBox deliverables where appropriate.
+If you are using `Parallels` complete the neccesary installs and adjust VirtualBox deliverables where appropriate.
 
 ### Screenshots
 
-For those using x86_64 Intel Windows and Macs install the following ISOs, install the package `fastfetch` via the package manger and take a screenshot of the results adding them to the document below each unit.
+For those using x86_64 Intel Windows and Macs install the following ISOs, install the package `fastfetch` via the package manager and take a screenshot of the results adding them to the document below each unit.
 
 * Debian Based
   * Ubuntu Desktop edition
-  * Lubuntu Desktop edition
+  * ~~Lubuntu Desktop edition~~
   * Ubuntu Server edition
   * Trisquel Linux
-  * Xebian
-  * Ubuntu KDE Neon
+  * [Xebian](https://www.xebian.org/ "webpage for Xebian Linux")
+  * ~~Ubuntu KDE Neon~~ [Bunsen Labs](https://www.bunsenlabs.org/index.html "webpage for bunsen labs")
 
 * Red Hat Based
   * Fedora Workstation edition
+  * [Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/ "webpage for Fedora Silverblue")
   * AlmaLinux
 
 * BSD based
@@ -43,15 +46,15 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
 
 * Linux
   * MX Linux
-  * Pop!_OS
+  * ~~Pop!_OS~~
   * Kali Linux
   * Manjaro Linux (SteamOS is based on)
 
 * Network Based Install
-  * openSUSE Leap
+  * ~~openSUSE Leap~~
   * Debian
 
-For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia.org/wiki/Apple_silicon "wiki article for Apple Silicon") -- look for the `aarch` or `arm` distribution, NOT `amd_64`.
+For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia.org/wiki/Apple_silicon "wiki article for Apple Silicon") -- look for the `aarch` or `arm` or `arm64` distribution, NOT `amd_64`.
 
 * Debian Based ARM
   * Ubuntu Desktop edition
@@ -59,9 +62,10 @@ For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia
   * Peppermint OS
 
 * Red Hat Based ARM
-  * Fedora Workstation edition 
+  * Fedora Workstation edition
+  * [Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/ "webpage for Fedora Silverblue") 
   * AlmaLinux
-  * Rocky Linux
+  * ~~Rocky Linux~~
 
 * BSD based ARM
   * FreeBSD
@@ -71,10 +75,10 @@ For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia
   * Rhino Linux
 
 * Network Based Install ARM
-  * openSUSE Leap
+  * ~~openSUSE Leap~~
   * Debian
 
-### Compile Ladybird browser - part II
+## Additional Optional Assignement - Compile Ladybird browser
 
 This one is a bit more complex, but there is a new funded opensource browser called: [Ladybird](https://ladybird.org/ "ladybird browser site"). This is a new idea to break the browser duopoly we currently have, and bring back browsers to be what they were designed to do, browse, not be an add platform. Ladybird is in alpha so expect some bugs but you can compile it.
 
