@@ -1021,6 +1021,26 @@ This one is a bit more complex, but there is a new opensource browser called: [L
   
 **Deliverable:** Take a screenshot of the compiled browser with iit.edu open
 
+### Optional Assignment - Free your Kernel
+
+Linux-libre is a GNU package that is a modified version of the Linux kernel. The aim of the project is to remove from non-free or significantly obfuscated code[^111] from the Linux kernel. The downside of removing proprietary firmware from the kernel is that it will cause lose functionality for certain hardware that does not have a free software replacement available. This affects certain sound, video, TV tuner, and network (especially wireless) cards.
+
+The resulting combination of the GNU Operating System and the kernel named Linux is the GNU+Linux operating system, although many (incorrectly) refer to it as ["Linux"](http://www.gnu.org/gnu/linux-and-gnu.html "GNU/Linux")[^112].
+
+> __Example Usage:__ Let's set our kernel free, FSF style... Following these instructions: [FSF Latin America](https://www.fsfla.org/ikiwiki/selibre/linux-libre/freesh.en.html "web link to article to install Libre-Linux"). Once successful, reboot your system and/while holding down shift - you should see the menu in the image below appear. Choose *Advanced Options For Ubuntu* and you will see your GNU/Libre kernels. Try to boot from one. 
+
+These are the short steps:
+
+* `wget` [https://linux-libre.fsfla.org/pub/linux-libre/freesh/pool/main/f/freesh-archive-keyring/freesh-archive-keyring_1.3_all.deb](https://linux-libre.fsfla.org/pub/linux-libre/freesh/pool/main/f/freesh-archive-keyring/freesh-archive-keyring_1.3_all.deb "link for Libre Linux keyring deb")
+* `dpkg -c freesh-archive-keyring_1.3_all.deb`
+* `sudo dpkg -i freesh-archive-keyring_1.3_all.deb`
+* `gpg --no-default-keyring --keyring /usr/share/keyrings/freesh-archive-keyring.gpg --list-keys`
+* `rm freesh-archive-keyring_1.3_all.deb`
+* `sudo apt update`
+* `sudo apt install linux-libre linux-libre-lts`
+
+![*Linux-Libre*](images/Chapter-03/linux-libre/kernel-linux-libre.png "libre.png")
+
 #### Troubleshooting
 
 Pay attention to error messages and scan through them and a little back for a hint. Usually a certain package/library is missing and is required to be installed.
