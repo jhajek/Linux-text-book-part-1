@@ -504,7 +504,7 @@ First we want to check if we have the correct RPM name. We can search through ou
 Since the Red Hat source code was geared for long term enterprise support the number of packages and availability of packages differs from a unified Debian or Ubuntu Distro. There are two additional package repos you can add to a Rocky Linux, Fedora Linux, or AlmaLinux system.
 
 * [Extra Packages for Enterprise Linux (EPEL)](https://docs.fedoraproject.org/en-US/epel/ "webpage for EPEL")
-  * Developed by the and included by the Fedora Project
+  * Developed by the and included by the Fedora Project - not needed on Fedora 
   * `sudo dnf install epel-release`
   * `sudo dnf install neofetch`
 * [ELRepo](https://elrepo.org/ "Website Enterprise Linux Repos")
@@ -518,7 +518,7 @@ The command ```sudo dnf upgrade``` will upgrade all packages that have updates p
 
 * ```sudo dnf update --refresh```
 * ```sudo dnf install dnf-plugin-system-upgrade```
-* ```sudo dnf system-upgrade download --releasever=40```
+* ```sudo dnf system-upgrade download --releasever=44```
 * ```sudo dnf system-upgrade reboot```
 
 ## New Package Managers as App Stores
@@ -961,14 +961,15 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
 
 * Debian Based
   * Ubuntu Desktop edition
-  * Lubuntu Desktop edition
+  * ~~Lubuntu Desktop edition~~
   * Ubuntu Server edition
   * Trisquel Linux
-  * Xebian
-  * Ubuntu KDE Neon
+  * [Xebian](https://www.xebian.org/ "webpage for Xebian Linux")
+  * ~~Ubuntu KDE Neon~~ [Bunsen Labs](https://www.bunsenlabs.org/index.html "webpage for bunsen labs")
 
 * Red Hat Based
   * Fedora Workstation edition
+  * [Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/ "webpage for Fedora Silverblue")
   * AlmaLinux
 
 * BSD based
@@ -976,15 +977,15 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
 
 * Linux
   * MX Linux
-  * Pop!_OS
+  * ~~Pop!_OS~~
   * Kali Linux
   * Manjaro Linux (SteamOS is based on)
 
 * Network Based Install
-  * openSUSE Leap
+  * ~~openSUSE Leap~~
   * Debian
 
-For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia.org/wiki/Apple_silicon "wiki article for Apple Silicon") -- look for the `aarch` or `arm` distribution, NOT `amd_64`.
+For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia.org/wiki/Apple_silicon "wiki article for Apple Silicon") -- look for the `aarch` or `arm` or `arm64` distribution, NOT `amd_64`.
 
 * Debian Based ARM
   * Ubuntu Desktop edition
@@ -1004,10 +1005,10 @@ For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia
   * Rhino Linux
 
 * Network Based Install ARM
-  * openSUSE Leap
+  * ~~openSUSE Leap~~
   * Debian
 
-### Compile The Ladybird browser - part II
+### Optional Assignemnt - Compile The Ladybird browser
 
 This one is a bit more complex, but there is a new opensource browser called: [Ladybird](https://ladybird.org/ "ladybird browser site"). This is a new idea to break the browser duopoly we currently have, and bring back browsers to be what they were designed to do, browse, not be an add platform. Ladybird is in alpha so expect some bugs but you can compile it.
 
