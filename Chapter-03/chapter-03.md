@@ -965,7 +965,8 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
   * Ubuntu Server edition
   * Trisquel Linux
   * [Xebian](https://www.xebian.org/ "webpage for Xebian Linux")
-  * ~~Ubuntu KDE Neon~~ [Bunsen Labs](https://www.bunsenlabs.org/index.html "webpage for bunsen labs")
+  * ~~Ubuntu KDE Neon~~ 
+  * [Bunsen Labs](https://www.bunsenlabs.org/index.html "webpage for bunsen labs")
 
 * Red Hat Based
   * Fedora Workstation edition
@@ -990,7 +991,7 @@ For those using Parallels virtualization on [Apple Silicon](https://en.wikipedia
 * Debian Based ARM
   * Ubuntu Desktop edition
   * Ubuntu Server edition
-  * Peppermint OS
+  * ~~Peppermint OS~~
 
 * Red Hat Based ARM
   * Fedora Workstation edition

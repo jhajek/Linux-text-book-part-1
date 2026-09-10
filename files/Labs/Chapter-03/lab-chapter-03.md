@@ -34,7 +34,8 @@ For those using x86_64 Intel Windows and Macs install the following ISOs, instal
   * Ubuntu Server edition
   * Trisquel Linux
   * [Xebian](https://www.xebian.org/ "webpage for Xebian Linux")
-  * ~~Ubuntu KDE Neon~~ [Bunsen Labs](https://www.bunsenlabs.org/index.html "webpage for bunsen labs")
+  * ~~Ubuntu KDE Neon~~ 
+  * [Bunsen Labs](https://www.bunsenlabs.org/index.html "webpage for bunsen labs")
 
 * Red Hat Based
   * Fedora Workstation edition
