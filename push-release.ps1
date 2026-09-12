@@ -11,6 +11,6 @@ git push origin $STAMP
 
 # Retrieve PREVIOUS commit tag
 $PREV=git describe --tags --abbrev=0 HEAD^
-$NOTES=git log $PREV --pretty=format:'- %s (%h)'
+$NOTES="$(git log $PREV --pretty=format:'- %s (%h)')"
 
 gh release create $STAMP $PDF_PATH $EPUB_PATH --title $STAMP --notes $NOTES
