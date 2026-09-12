@@ -22,5 +22,3 @@ build/
 *.vdi
 !/files/Blackboard/*/*.txt
 /output/txt/
-push-release.ps1
-push-release.sh
