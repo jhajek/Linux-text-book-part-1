@@ -501,7 +501,7 @@ First we want to check if we have the correct RPM name. We can search through ou
 
 #### Additional Packages for Enterprise Linux - RPM
 
-Since the Red Hat source code was geared for long term enterprise support the number of packages and availability of packages differs from a unified Debian or Ubuntu Distro. There are two additional package repos you can add to a Rocky Linux, Fedora Linux, or AlmaLinux system.
+Since the Red Hat source code was geared for long term enterprise support the number of packages and availability of packages differs from a unified Debian or Ubuntu Distro. There are two additional package repos you can add to a Rocky Linux or AlmaLinux system.
 
 * [Extra Packages for Enterprise Linux (EPEL)](https://docs.fedoraproject.org/en-US/epel/ "webpage for EPEL")
   * Developed by the and included by the Fedora Project - not needed on Fedora 
