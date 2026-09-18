@@ -44,24 +44,26 @@ Using these three [AppImage install packages](https://appimage.org/ "AppImages i
 
 ## Installing Window Managers
 
-You will install 3 of the window managers from the categories listed earlier in the chapter. Once installed you need to log out and restart your session. In order to change the default window manager or desktop environment--from the login screen, you need to click on the user name and select the little gear below the password field. In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
+You will install the required window managers from the categories listed earlier in the chapter. Once installed you need to log out and restart your session. In order to change the default window manager or desktop environment--from the login screen, you need to click on the user name and select the little gear below the password field. In your screenshot open a terminal window, you might need to do some research to understand how to operate in a window manager.
 
 ![*Change Window Managers*](images/Chapter-04/GNOME3/window-manager.png "Change")
 
 * Stacking window manager - [IceWM](http://ice-wm.org/ "webpage for Ice WM")
   * Show 3 Windows stacked (FireFox, Terminal, and the File Manager)
-* Tiling window manager - i3
-  * [i3 keyboard command reference](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")
-  * Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.
-  * Use the link above to learn the key commands to launch windows, remember there is no mouse!
+* ~~Tiling window manager - i3~~
+  * ~~[i3 keyboard command reference](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")~~
+  * ~~Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.~~
+  * ~~Use the link above to learn the key commands to launch windows, remember there is no mouse!~~
 * Tiling window manager - Sway
   * [Sway documentation](https://github.com/swaywm/sway/wiki/ "webpage Sway reference")
+  * [Sway Command Cheatsheet](https://wiki.garudalinux.org/en/sway-cheatsheet "webpage to sway command cheat sheet")
+    * There is no mouse!
   * Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.
 
-**Note:** the names of packages are not always obvious so you can use search features of package managers.  For example, here would be how to search for the i3 package.
+**Note:** the names of packages are not always obvious so you can use search features of package managers.  For example, here would be how to search for the sway package.
 
-* ```sudo apt-cache search i3```
-* ```sudo dnf search i3```
+* `sudo apt-cache search sway`
+* `sudo dnf search sway`
 
 ## Desktop Environment Installs
 
