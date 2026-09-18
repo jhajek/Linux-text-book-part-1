@@ -499,7 +499,7 @@ You will install the required window managers from the categories listed earlier
 * Stacking window manager - [IceWM](http://ice-wm.org/ "webpage for Ice WM")
   * Show 3 Windows stacked (FireFox, Terminal, and the File Manager)
 * ~~Tiling window manager - i3~~
-  * ~~[i3 keyboard command reference](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")~~
+  * [~~i3 keyboard command reference~~](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")
   * ~~Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.~~
   * ~~Use the link above to learn the key commands to launch windows, remember there is no mouse!~~
 * Tiling window manager - Sway
