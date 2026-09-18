@@ -24,7 +24,7 @@ To install and configure snaps, reference **chapter 3**. To show these packages 
 1) From Commandline search for and install: Arduino
 1) From Commandline search for and install: Kicad for an amd64 Ubuntu or FreeCAD if you are using an arm64 Ubuntu
 
-#### Flatpak Install
+## Flatpak Install
 
 To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on a **Fedora** virtual machine:
 
