@@ -459,7 +459,7 @@ Using the virtual machines you installed in the previous chapter, Fedora Worksta
 You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions"). The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser. On Ubuntu Desktop (amd64 and arm64), open a terminal and type the command `sudo apt install chrome-gnome-shell` and refresh the Gnome extensions webpage twice.
 
 1) Caffeine (screenshot of coffee cup icon in upper right corner)
-1) ~~Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)~~ Shutdown Button
+1) ~~Bring out submenu of Power Off/Logout Button Expands all poweroff and logout buttons~~ Shutdown Button
 1) Extension List (List all extensions and their configs in upper right corner)
 
 ## Snaps Install
