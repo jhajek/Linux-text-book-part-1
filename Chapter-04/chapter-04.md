@@ -459,7 +459,7 @@ Using the virtual machines you installed in the previous chapter, Fedora Worksta
 You will need to install the listed GNOME extensions from [https://extensions.gnome.org](https://extensions.gnome.org "Gnome extensions"). The first one is the example in the book called *Caffeine*. Make sure you have the Gnome Shell integration installed to configure and install plugins directly from the browser. If you are using Ubuntu Desktop, you first need to install one commandline pre-req via apt. Open a terminal and type the command `sudo apt install chrome-gnome-shell` and choose 'Y' on Ubuntu Desktop 22.04. On Ubuntu Desktop 23.04+ type on the terminal: `sudo apt install gnome-browser-connector` and choose 'Y'.
 
 1) Caffeine (screenshot of coffee cup icon in upper right corner)
-1) Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)
+1) ~~Bring out submenu of Power Off/Logout Button (Expands all poweroff and logout buttons)~~ Shutdown Button
 1) Extension List (List all extensions and their configs in upper right corner)
 
 ## Snaps Install
@@ -467,21 +467,20 @@ You will need to install the listed GNOME extensions from [https://extensions.gn
 To install and configure snaps, reference chapter 3. To show these packages are installed take a screenshot of the output of the command: `sudo snap list`. Install these packages via Snap on an **Ubuntu** based desktop.
 
 1) From the Software store: KdenLive
-1) From the Software store: VSCode - If you are on an M1 Mac install Sublime Text
-1) From the Software store: Search for obs-studio - Not available skip for M1 Mac
+1) From the Software store: Code on an amd64 Ubuntu or Codium if you are using an arm64 Ubuntu
+1) From the Software store: Search for OBS Studio for amd64 Ubuntu and Cheese if you are using an arm64 Ubuntu
 1) From Commandline search for and install: Arduino
-1) From Commandline search for and install: Kicad - If you are on an M1 Mac install 
-itrue-kicad
+1) From Commandline search for and install: Kicad for an amd64 Ubuntu or FreeCAD if you are using an arm64 Ubuntu
 
 #### Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on s **Fedora** virtual machine:
+To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on a **Fedora** virtual machine:
 
 1) From the Software store: Gnome Notes
-1) From the Software store: Develop -> Visual Studio Code
+1) From the Software store: Develop -> Visual Studio Code or VS Codium
 1) From the Software store: Socialize -> Falkon Web Browser
 1) From Commandline search for and install: VLC (video player)
-1) From Commandline search for and install: GtkStressTesting
+1) From Commandline search for and install: ~~GtkStressTesting~~ CPU-X
 
 #### AppImage Install
 
