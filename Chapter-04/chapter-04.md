@@ -525,7 +525,6 @@ Install these desktops, restart your system and as you login switch your desktop
 
 1) Install the Budgie desktop on Fedora Workstation -> `budgie-desktop`
 1) Install the Ubuntu Mate Desktop on Ubuntu Desktop -> `ubuntu-mate-desktop`
-1) Install the Xfce Desktop on Debian Linux -> `sudo apt install task-xfce-desktop`
 
 #### Footnotes
 
