@@ -48,17 +48,23 @@ You will install the required window managers from the categories listed earlier
 
 ![*Change Window Managers*](images/Chapter-04/GNOME3/window-manager.png "Change")
 
-* Stacking window manager - [IceWM](http://ice-wm.org/ "webpage for Ice WM")
+* Stacking window manager 
+  * On `amd64` use either Xebian Linux, Xubuntu Linux, or Linux Mint
+  * On `arm64` see Debian Linux pre-reqs in the section: Desktop Environment Installs
+  * [IceWM](http://ice-wm.org/ "webpage for Ice WM") or [Openbox](https://openbox.org/ "webpage for Openbox")
   * Show 3 Windows stacked (FireFox, Terminal, and the File Manager)
 * ~~Tiling window manager - i3~~
   * [~~i3 keyboard command reference~~](https://i3wm.org/docs/refcard.html "i3 keyboard command reference")
   * ~~Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.~~
   * ~~Use the link above to learn the key commands to launch windows, remember there is no mouse!~~
-* Tiling window manager - Sway
+* Tiling window manager 
+  * [Sway](https://swaywm.org/ "webpage for Sway Windows Manager)
+    * If using VirtualBox, under the `Display` setting choose: `3D Acceleration`
+    * Increase the `Video Memory` to 256 mb
   * [Sway documentation](https://github.com/swaywm/sway/wiki/ "webpage Sway reference")
   * [Sway Command Cheatsheet](https://wiki.garudalinux.org/en/sway-cheatsheet "webpage to sway command cheat sheet")
     * There is no mouse!
-  * Show 3 Windows tiled, 2 Terminal Windows and 1 FireFox.
+  * Show 3 Windows tiled: 2 Terminal Windows and 1 FireFox.
 
 **Note:** the names of packages are not always obvious so you can use search features of package managers.  For example, here would be how to search for the sway package.
 
