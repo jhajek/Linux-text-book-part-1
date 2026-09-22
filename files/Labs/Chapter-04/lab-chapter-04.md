@@ -77,5 +77,3 @@ Install these desktops, restart your system and as you login switch your desktop
 
 1) Install the Budgie desktop on Fedora Workstation -> `budgie-desktop`
 1) Install the Ubuntu Mate Desktop on Ubuntu Desktop -> `ubuntu-mate-desktop`
-
-**Deliverable:** Take screenshots of all successful installs of software.
