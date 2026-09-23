@@ -70,7 +70,7 @@ Here we will be creating a number of directories and files in order to navigate 
   * 
 * Using in the book source code, under files > chapter-05 > sample-script: copy the file `sample-command` to your home directory. Use the command to the give the script execute permission `+x`.  Issue the `ls -l sample-script/sample-command` command to show the permissions of just the `sample-command` file
   * 
-* Move the file `sample-command` to the location `/usr/local/bin` (**Note:** you will need to add the `sudo` command in front to give yourself root privilleges to move a file to this location)
+* Move the file `sample-command` to the location `/usr/local/bin` (**Note:** you will need to add the `sudo` command in front to give yourself root privileges to move a file to this location)
   * 
 * From the command line (any location) execute the command: `sample-command`, and if succesful you will receive a message of success
   * 

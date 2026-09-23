@@ -664,7 +664,7 @@ Here we will be creating a number of directories and files in order to navigate 
 1) Issue that same command to display what type of file `Appendix-A` is.
 1) Using in the book source code, under files > chapter-05 > sample-script: copy the file `sample-command` to your home directory. Use the command to the give the script execute permission `+x`.  Issue the command: `ls -l sample-command` to show the permissions of just the `sample-command` file
 1) Move the file `sample-command` to the location `/usr/local/bin` (**Note:** you will need to add the `sudo` command in front to give yourself root privileges to move a file to this location)
-1) From the command line (any location) execute the command: `sample-command`, and if succesful you will receive a message of success
+1) From the command line (any location) execute the command: `sample-command`, and if successful you will receive a message of success
 1) Execute the `ssh-keygen` command on the command line (from any location) and accept all the default values (just hit enter for now, we will cover RSA in depth later in the text). This command generates two files that are part of an RSA keypair, located in `~/.ssh`
 1) `cd` into the directory `~/.ssh` and type the command to show the long listing of the directory.
 1) From the textbook sample code > Files > Chapter-05 > sample-scripts > copy the file `date-time-script.sh` to your home directory.  `cd` to your home directory and execute the shell script you just copied (which will print out the current datetime) with the command: `./date-time-script.sh`.  You get an error message stating **permission is denied**: Explain why?
