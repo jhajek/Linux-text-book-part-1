@@ -52,15 +52,15 @@ Here we will be creating a number of directories and files in order to navigate 
 
 * Use the `man` command to figure out how to display the format of the `date` command as month, day, year combined to look like: 10152021
   * 
-* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf.log`:  Type the command to display the last 10 lines of this file
+* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf5.log`:  Type the command to display the last 10 lines of this file
   * 
-* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf.log`:  Type the command to display the first 10 lines of this file
+* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf5.log`:  Type the command to display the first 10 lines of this file
   * 
-* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf.log`:  Using the `man` command on the previous question, find how to display the last 25 lines of this file
+* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf5.log`:  Using the `man` command on the previous question, find how to display the last 25 lines of this file
   * 
-* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf.log`:  Type the command to display the entire contents of this file backwards (last line to first)
+* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf5.log`:  Type the command to display the entire contents of this file backwards (last line to first)
   * 
-* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf.log`:  Use one of the commands to allow for paging through one of these commands (hit 'q' to quit the paging command)
+* Using the file on Ubuntu: `/var/log/syslog` or Fedora `/var/log/dnf5.log`:  Use one of the commands to allow for paging through one of these commands (hit 'q' to quit the paging command)
   * 
 * Change directory to the Documents folder under your **HOME** directory and issue the command to Git clone the textbook source code. Issue the command: `git clone https://github.com/jhajek/Linux-text-book-part-1.git`. (*Hint:* You may have to use your distro package manager to install the `git` tool)
   * 
