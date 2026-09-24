@@ -628,7 +628,7 @@ The objectives of this lab are to use the shell commands we learned in this chap
 
 #### Part 1
 
-Here we will be creating a number of directories and files in order to navigate our filesystem. Each step can be satisfied with a short line of text or a screenshot.
+Here we will be creating a number of directories and files in order to navigate our filesystem. Each step can be satisfied with a **concise** screenshot.
 
 1) Open a terminal, `cd` to the **Documents** directory. Issue the `pwd` command to find your present working directory (or current location).
 1) In the **Documents** directory, use the `mkdir` command to create a directory named: **class-notes**

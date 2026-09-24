@@ -6,7 +6,7 @@ The objectives of this lab are to use the shell commands we learned in this chap
 
 ### Part 1
 
-Here we will be creating a number of directories and files in order to navigate our filesystem. Each step can be satisfied with a short line of text or a screenshot.
+Here we will be creating a number of directories and files in order to navigate our filesystem. Each step can be satisfied with a **concise** screenshot.
 
 * Open a terminal, `cd` to your **Documents** directory. Issue the `pwd` command to find your present working directory (or current location).
   * Answer goes here, place the answer in \` \` so it renders as code, like: `ls`
