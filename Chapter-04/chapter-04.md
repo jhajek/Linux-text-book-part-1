@@ -487,7 +487,7 @@ Using these three [AppImage install packages](https://appimage.org/ "AppImages i
 
 1) Lagrange - [Gemini client](https://en.wikipedia.org/wiki/Gemini_(protocol) "wiki article for Gemini Protocol")
 1) LibreWolf - Firefox fork
-1) LibrePCB
+1) LibrePCB on x86_64 or FreeCad on aarch
 
 #### Installing Window Managers
 
