@@ -469,11 +469,11 @@ To install and configure snaps, reference chapter 3. To show these packages are 
 1) From the Software store: Code on an amd64 Ubuntu or Codium if you are using an arm64 Ubuntu
 1) From the Software store: Search for OBS Studio for amd64 Ubuntu and Cheese if you are using an arm64 Ubuntu
 1) From Commandline search for and install: Arduino
-1) From Commandline search for and install: Kicad for an amd64 Ubuntu or FreeCAD if you are using an arm64 Ubuntu
+1) From Commandline search for and install: KiCad for an amd64 Ubuntu or FreeCAD if you are using an arm64 Ubuntu
 
 #### Flatpak Install
 
-To install and configure flatpak and flathub, reference chapter 3.  To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on a **Fedora** virtual machine:
+To install and configure flatpak and flathub, reference chapter 3. To show these packages are installed take a screenshot of the output of the command: `sudo flatpak list`. Install these packages via flatpak on a **Fedora** virtual machine:
 
 1) From the Software store: Gnome Notes
 1) From the Software store: Develop -> Visual Studio Code or VS Codium
@@ -487,7 +487,7 @@ Using these three [AppImage install packages](https://appimage.org/ "AppImages i
 
 1) Lagrange - [Gemini client](https://en.wikipedia.org/wiki/Gemini_(protocol) "wiki article for Gemini Protocol")
 1) LibreWolf - Firefox fork
-1) LibrePCB on x86_64 or FreeCad on aarch
+1) LibrePCB on x86_64/amd64 or FreeCad on aarch/arm64
 
 #### Installing Window Managers
 
