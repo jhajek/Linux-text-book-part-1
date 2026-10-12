@@ -1,6 +1,6 @@
 # Podcast Questions - Chapter 06
 
-Watch this video with Professor Brian Kernighan [History of grep - https://www.youtube.com/watch?v=NTfOnGZUZDk](https://www.youtube.com/watch?v=NTfOnGZUZDk&t=1s) and answer the following questions.
+Watch this video on the `History of grep` - [https://www.youtube.com/watch?v=NTfOnGZUZDk](https://www.youtube.com/watch?v=NTfOnGZUZDk&t=1s) and answer the following questions.
 
 * 0:00 What is the name of the trading firm supporting/sponsoring the [Computerphile](https://www.youtube.com/@Computerphile "webpage for Computerphile YouTube Channel") YouTube Channel?
 * 0:00 Not in the podcast, from chapter 2 of the textbook - who is Brian Kernighan and what was his contribution to Unix?
