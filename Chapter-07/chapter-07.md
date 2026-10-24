@@ -612,7 +612,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
     1. Issue the command to install this `.deb` package (Chapter 03)
     1. Issue the command to update the `apt` repos
-    1. Issue the command to install these dependencies using the `-y` flag: `texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin  texlive-science-doc texlive-science`
+    1. Issue the command to install these dependencies using the `-y` flag: ```texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin texlive-science texlive-science-doc```
     1. Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
 1. Compile your version of the textbook
     1. Edit Line 8 of `chapter-01.md` from the textbook source code to now say: `# New Introduction by YOURNAME` 
@@ -623,7 +623,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 4
 
-1. Using the `mv` command, move your shell-script: `first-shell.sh` to `/home/vagrant/.local/bin` (replace `vagrant` with your system username).  Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
+1. Using the `mv` command, move your shell-script: `first-shell.sh` to `/home/vagrant/.local/bin` (replace `vagrant` with your system username). Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
     1. Demonstrate the output 
 1. Using an OS of your choice, inside the Textbook sample code: `files > Chapter-07 > logs > host2.deny` write a script that will cut the second column, sort the values numerically and redirect the modified output to a file named: `sorted-ips.txt`.  Execute this script.
     1. Demonstrate the output of the command
