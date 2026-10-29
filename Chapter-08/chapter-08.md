@@ -783,7 +783,7 @@ These are a series of small shell scripts you will create to demonstrate the con
   
 1) Write a shell script to check in your `topsecret` directory to see if a given file name exists (passed in by positional parameters). If TRUE print a message else print an error message with the given file name being passed, named `l8ex7.sh`
     
-1) Using `sed`, write a shell script to find the line **bind-address** located in the mariadb database server config file (you might need to install mariadb-server). The file locations are: Fedora `/etc/my.cnf.d/mariadb-server.cnf` and Ubuntu `/etc/mysql/mariadb.conf.d/50-server.cnf`. Comment out the value, change the IP value to 0.0.0.0, and write the change back to the original file, named `l8ex8.sh`.
+1) Using `sed`, write a shell script to find the line **bind-address** located in the mariadb database server config file (you might need to install mariadb-server). The file locations are: Fedora `/etc/my.cnf.d/mariadb-server.cnf` and Ubuntu `/etc/mysql/mariadb.conf.d/50-server.cnf`. There is a line with the IP address value of `127.0.0.1`, you need to replace that value with: `0.0.0.0` and write the change back to the original file, named `l8ex8.sh`.
 
 #### Part 3
 
