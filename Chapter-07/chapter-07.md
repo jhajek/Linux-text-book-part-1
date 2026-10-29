@@ -612,7 +612,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
     or
     `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-arm64.deb`
-    1. Issue the command to install this `.deb` package (Chapter 03)
+    1. Issue the command to install this `.deb` package (Chapter 3.8.1.2 DEB package install example)
     1. Issue the command to update the `apt` repos
     1. Issue the command to install these dependencies using the `-y` flag: ```texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin texlive-science texlive-science-doc```
     1. Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
@@ -629,7 +629,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     1. Demonstrate the output 
 1. Using an OS of your choice, inside the Textbook sample code: `files > Chapter-07 > logs > host2.deny` write a script that will cut the second column, sort the values numerically and redirect the modified output to a file named: `sorted-ips.txt`.  Execute this script.
     1. Demonstrate the output of the command
-    
+
 #### Footnotes
 
 [^77]: <a href="https://commons.wikimedia.org/wiki/File:Bill_joy.jpg#/media/File:Bill_joy.jpg">Bill joy</a> by Original uploader was <a title="en:User:SqueakBox" class="extiw" href="//en.wikipedia.org/wiki/User:SqueakBox">SqueakBox</a> at <a href="http://en.wikipedia.org">en.wikipedia</a> - Transferred from <a href="http://en.wikipedia.org">en.wikipedia</a>; Transfer was stated to be made by <a title="User:Jalo" href="//commons.wikimedia.org/wiki/User:Jalo">User:Jalo</a>.. Licensed under <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.
