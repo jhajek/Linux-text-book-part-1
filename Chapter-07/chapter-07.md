@@ -586,7 +586,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 2
 
-1. From the textbook source code folder: `files/Chapter-07/lab`, copy the file `install-software.sh` to your home directory
+1. Using Ubuntu or Fedora Desktop, from the textbook source code folder: `files/Chapter-07/lab`, copy the file `install-software.sh` to your home directory
     1. Using vim/ex commands, find all occurrences of `python` and replace them with `python3`
     1. Save file and quit the vim editor
     1. To test your work, give the shell script execute permission and execute it by using `sudo ./install-software.sh`
@@ -594,7 +594,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 3
 
-1. Using Ubuntu Server, in your home directory, using `vim`, create a shell script named `first-shell.sh` that contains the following:
+1. Using Ubuntu Server for all of Part 3, in your home directory, using `vim`, create a shell script named `first-shell.sh` that contains the following:
     1. Add the proper `shebang` on the first line
     1. Add two lines of space
     1. Store the output of the command `date` into the shell variable named **DT**
@@ -605,16 +605,18 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     1. Execute the command to give `first-shell.sh` execute permission
     1. Demonstrate the output executing `first-shell.sh`
     1. Demonstrate the command used to print the content of the file: `first-shell.sh`
-1. Using vim:
+1. Using Ubuntu server and with vim:
     1. Create a shell script named **install-textbook-dependencies.sh** in your home directory. You will need to add commands to do the following:
     1. Add the proper *shebang* on the first line, then two lines of space
-    1. Issue the command to retrieve the `.deb` package from the commandline:  
+    1. Issue the command to retrieve the `.deb` package from the commandline based on your CPU architecture:  
     `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
+    or
+    `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-arm64.deb`
     1. Issue the command to install this `.deb` package (Chapter 03)
     1. Issue the command to update the `apt` repos
     1. Issue the command to install these dependencies using the `-y` flag: ```texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin texlive-science texlive-science-doc```
     1. Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
-1. Compile your version of the textbook
+1. Using Ubuntu server compile your version of the textbook
     1. Edit Line 8 of `chapter-01.md` from the textbook source code to now say: `# New Introduction by YOURNAME` 
     1. To test the results, `cd` into the Linux-Text-Book-Part-1 directory  
     1. Execute the script named: `build-linux-and-macos.sh` to build the textbook using the dependencies you installed
@@ -623,15 +625,11 @@ At the end you will have mastered the basics of vi and now be proficient in the 
 
 #### Part 4
 
-1. Using the `mv` command, move your shell-script: `first-shell.sh` to `/home/vagrant/.local/bin` (replace `vagrant` with your system username). Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
+1. Using Ubuntu Desktop in your home directory, retype the script you created in Part 3.1, `first-shell.sh`, and using the command to move a file, move that script to `/usr/local/bin`. Note that `/usr/local/bin` is owned by root, and an extra command will be needed to successfully move your shell script. Execute the command: by typing just `first-shell.sh`, without any slashes or sudo commands and take a screenshot of the output
     1. Demonstrate the output 
 1. Using an OS of your choice, inside the Textbook sample code: `files > Chapter-07 > logs > host2.deny` write a script that will cut the second column, sort the values numerically and redirect the modified output to a file named: `sorted-ips.txt`.  Execute this script.
     1. Demonstrate the output of the command
-
-#### Deliverable  
-
-Take small movies of you demonstrating the required commands with your voice explaining the details.
-
+    
 #### Footnotes
 
 [^77]: <a href="https://commons.wikimedia.org/wiki/File:Bill_joy.jpg#/media/File:Bill_joy.jpg">Bill joy</a> by Original uploader was <a title="en:User:SqueakBox" class="extiw" href="//en.wikipedia.org/wiki/User:SqueakBox">SqueakBox</a> at <a href="http://en.wikipedia.org">en.wikipedia</a> - Transferred from <a href="http://en.wikipedia.org">en.wikipedia</a>; Transfer was stated to be made by <a title="User:Jalo" href="//commons.wikimedia.org/wiki/User:Jalo">User:Jalo</a>.. Licensed under <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">CC BY 2.0</a> via <a href="https://commons.wikimedia.org/wiki/">Commons</a>.

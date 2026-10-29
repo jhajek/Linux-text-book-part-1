@@ -277,9 +277,9 @@ This style of software installation put a high barrier to who could practically 
 
 #### .deb
 
-The first package manager was __dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primitive package manager. The program ```dpkg``` is used to install, remove, and provide information about .deb packages.
+The first package manager was __dpkg__ which was created by Matt Welsh, Carl Streeter and Ian Murdock (founder of Debian) in 1994 as a replacement for an earlier primitive package manager. The program `dpkg` is used to install, remove, and provide information about .deb packages.
 
-A Debian package (or ```.deb``` file) is really just made up of two tarballs[^107]. One is the control data which is listed as such:
+A Debian package (or `.deb` file) is really just made up of two tarballs[^107]. One is the control data which is listed as such:
 
 ```yaml
      Package: hello
@@ -296,42 +296,35 @@ A Debian package (or ```.deb``` file) is really just made up of two tarballs[^10
 
 The most important line being the __Depends__ option which controls dependencies and can prevent installation if these conditions cannot be met. The second component includes the binary or pre-compiled portion of the code. Using ```dpkg``` is a clear step above using tarballs and compiling the code yourself.
 
-Recently with Oracle changing the nature of how Java is supported with the transition from Java 8 and 11 and into the future, concerned companies created their own OpenJDK for download that will be supported. One such instance is [Amazon Corretto](https://aws.amazon.com/corretto/ "Amazon Corretto OpenJDK"). These releases are created in ```.deb``` packages. Let's download one and install it using a simple command called ```wget``` or you can open a web browser and download the package and install it manually.  Click on the link and save the ```.deb``` file on Ubuntu. Now using the ```dpkg``` command we can install the package manually (note there may be an error message about a missing dependency).
+Recently with Oracle changing the nature of how Java is supported with the transition from Java 8 and 11 and into the future, concerned companies created their own OpenJDK for download that will be supported. One such instance is [Amazon Corretto](https://aws.amazon.com/corretto/ "Amazon Corretto OpenJDK"). These releases are created in `.deb` packages. Let's download one and install it using a simple command called `wget` or you can open a web browser and download the package and install it manually.  Click on the link and save the `.deb` file on Ubuntu. Now using the `dpkg` command we can install the package manually (note there may be an error message about a missing dependency).
 
 #### DEB package install example
+
+[Amazon Corretto](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/what-is-corretto-17.html "webpage for Amazon Correto") is a no-cost, multiplatform, production-ready distribution of the Open Java Development Kit (OpenJDK). Corretto comes with long-term support that includes performance enhancements and security fixes.
 
 ```bash
 # From the command line terminal after you have downloaded the file
 # on a Debian based system:
-wget https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb
-sudo dpkg -i ./java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
-# This method will retrieve the .rpm file directly from the internet and pass it to
-# the rpm command on CentOS or Red Hat systems.
-sudo rpm -iv https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.rpm
+# For x86_64 or amd64
+wget https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.deb
+sudo dpkg -i ./amazon-corretto-17-x64-linux-jdk.deb
+# See the version of Java you just installed
+java --version
+# For aarch or arm64
+wget https://corretto.aws/downloads/latest/amazon-corretto-17-aarch64-linux-jdk.deb
+sudo dpkg -i ./amazon-corretto-17-aarch64-linux-jdk.deb
+java --version
 ```
 
-You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser. The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through dpkg in Ubuntu's case. In the command below we will introduce the install command or the ```-i``` flag, which stands for __install__.
-
-#### RPM Package example
+You can download a `.deb` file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com"). Vivaldi is a browser from the team that brought us Opera. The packages are not available in `apt` or `dnf`, you download the .deb file directly and install through `dpkg` in Ubuntu's case. In the command below we will introduce the install command or the `-i` flag, which stands for __install__.
 
 ```bash
 # Download URL at: https://vivaldi.com/download/
-sudo dpkg -i ./vivaldi-stable_5.3.2679.70-1_amd64.deb
-sudo rpm -iv ./vivaldi-stable_5.3.2679.70-1.x86_64.rpm
-# This command involves downloading and installing directly from the web
-sudo rpm -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.rpm
-sudo dpkg -i https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+# For x86_64
+sudo dpkg -i https://downloads.vivaldi.com/stable/Vivaldi.8.2.4133.94.amd64.deb
+# For ARM64 or aarch
+sudo dpkg -i https://downloads.vivaldi.com/stable/Vivaldi.8.2.4133.94.arm64.deb
 ```
-
-After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why? You will notice that `dpkg` command found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")? In the commands below we will introduce the install command or the `-i` flag, which stands for `install`.
-
-__Example Usage:__
-
-```bash
-sudo dpkg -i ./links_2.8-2_amd64.deb
-```
-
-Note that this command installs properly without any error message: [http://packages.ubuntu.com/](http://packages.ubuntu.com/ "links").
 
 __Example Usage:__   There are other flags but the most common are these:
 
@@ -359,7 +352,7 @@ sudo apt remove linux-image-x.x.x-xx-generic
 
 #### RPM
 
- A few years after dpkg became standard on Debian based distros, the Red Hat Linux created their own package manager out of necessity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.) It is used across Fedora and RHEL derivatives. RPM is also used on IBM's AIX Unix distribution. RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113].
+ A few years after `dpkg` became standard on Debian based distros, then Red Hat Linux created their own package manager out of necessity in 1998 and called it RPM (Originally Red Hat Package Manager - now known as RPM Package Manager.) It is used across Fedora and RHEL derivatives. RPM is also used on IBM's AIX Unix distribution. RPM code and FAQ can be found at [http://rpm.opg](http://rpm.org "RPM.org") [^113].
 
 > __Example Usage:__ List all installed packages:
 ```rpm -qa```
@@ -376,15 +369,21 @@ sudo apt remove linux-image-x.x.x-xx-generic
 > __Example Usage:__ Get information about a remote package
 ```rpm -qpi <url>```
 
-Similar to the previous example let us download the Vivaldi RPM and install it locally. [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com"). After selecting the Vivaldi 64 bit rpm and using the ```-i``` flag to install it, what error message is printed?
+Similar to the previous example let us download the Vivaldi RPM and install it locally. [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com"). After selecting the Vivaldi 64 bit rpm and using the `-i` flag to install it, what error message is printed?
 
-Let's try another rpm. This one is called "elrepo," it for Enterprise Linux version RHEL and CentOS. This adds up to date packages and third party repos, adding software that is not part of the stable Enterprise repos. The rpm is located at [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php "elrepo website"). You need a few pre-reqs to make this work.
+#### RPM Package example
+
+You can download a .deb or .rpm file from the Vivaldi browser website: [https://vivaldi.com/download/](https://vivaldi.com/download/ "Vivaldi.com") Vivaldi is a new browser from the team that brought us Opera browser. The packages are not available in APT or RPM, you download the .deb or .rpm. file directly and install through `dpkg` in Ubuntu's case. In the command below we will introduce the install command or the `-i` flag, which stands for __install__.
 
 ```bash
-# Add the GPG key for the repo to make sure that you are adding the official elrepo
-sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-sudo dnf install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm
+# Download URL at: https://vivaldi.com/download/
+# For x86_64
+sudo dpkg -i https://downloads.vivaldi.com/stable/Vivaldi.8.2.4133.94.amd64.rpm
+# For ARM64 or aarch
+sudo dpkg -i https://downloads.vivaldi.com/stable/Vivaldi.8.2.4133.94.arm64.rpm
 ```
+
+After executing this command on the Vivaldi packages, you will receive an error message. What is it telling you and why? You will notice that `dpkg` command found that it had a *dependency*, can you locate that *dependency* on [http://packages.ubuntu.com](http://packages.ubuntu.com "packages")? In the commands below we will introduce the install command or the `-i` flag, which stands for `install`.
 
 #### Other Package Managers
 
