@@ -53,7 +53,7 @@ At the end you will have mastered the basics of vi and now be proficient in the 
     `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-amd64.deb`
     or
     `https://github.com/jgm/pandoc/releases/download/3.1.3/pandoc-3.1.3-1-arm64.deb`
-    1. Issue the command to install this `.deb` package (Chapter 3.8.1.2 DEB package install example)
+    1. Issue the command to install this `.deb` package (Chapter 3.8.1.2 DEB package install)
     1. Issue the command to update the `apt` repos
     1. Issue the command to install these dependencies using the `-y` flag: ```texlive texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex texlive-font-utils librsvg2-bin texlive-science texlive-science-doc```
     1. Test your shell script by giving it execute permissions and use sudo to run it (required for permission to install packages)
