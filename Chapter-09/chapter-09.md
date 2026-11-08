@@ -98,7 +98,7 @@ vagrant  ALL=(ALL) NOPASSWD:ALL
 
 The ideal way to add additional entries to your `sudoers` file is to add a file to a special directory named `/etc/sudoers.d/`. The `.d` convention is on all Unix and Linux systems and means that the original file `/etc/sudoers` should read any file in the directory `/etc/sudoers.d/` and append or overwrite these new values to the original `/etc/sudoers` file. This keeps the original clean, allows the operating system to update it with worrying about conflicting changes, and allows you to automate the creation of additional sudoers rules.
 
-#### Red Hat family / Debian Linux distros and root
+#### Red Hat family, Debian Linux distros and root
 
 All other Linux distributions have a __root__ account user made at install time along with a user account, such as Debian and Alma Linux. Debian based operating systems usually have this -- though some use the Ubuntu style account creation. 
 
