@@ -16,7 +16,7 @@ At the completion of this chapter you will have the ability to administer a Linu
 
 ## Sudo and the Root User Paradigm
 
-On every Unix system dating back to Thompson's Unix, there has always been a single *superuser* account on every system.  This account is usually called the __root user__ or __root__.   The __root user__ must be used with the utmost care, as that account has all the system privilege and authority to carry out any operation, even the `rm -rf /*` command. Root is good for getting things done or overriding users, but is *dangerous.* You should log into that account only sparingly.  Every single admin worth their salt will tell you not to use __root__ in almost any case [^ch9f90].
+On every Unix system dating back to Thompson's Unix, there has always been a single *superuser* account on every system.  This account is usually called the __root user__ or __root__. The __root user__ must be used with the utmost care, as that account has all the system privilege and authority to carry out any operation, even the `rm -rf /*` command. Root is good for getting things done or overriding users, but is *dangerous.* You should log into that account only sparingly. Every single admin worth their salt will tell you not to use __root__ in almost any case [^ch9f90].
 
 This concept is *vital* enough that on the Ubuntu distribution there is no __root__ account available. On the BSD distros, Debian, and the Red Hat/Fedora family - there is still a __root__ account, partially because of tradition and partially because of the way system administration always worked. Remember that Unix was developed in the environment of multiple users accessing a large central Unix server. So you always had to have a __root__ account to override any activities of the users and to enforce system policies, such as disk quotas, changing network configurations, or even system wide profiles. As a reminder when you are signed in as, or acting as "root", the shell prompt displays __#__ as the last character in bash and as seen in the image below. You can use the `whoami` command to find out what user account you are logged in as well.
 
@@ -38,7 +38,7 @@ This includes writing a new `sudo`, named [sudo-rs](https://discourse.ubuntu.com
 
 #### Ubuntu
 
-Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo. First, they recently release `sudo-rs`, which on the surface functions similar to the classic `sudo` but doesn't in important ways. They firmly believe not to have a root account as a point of differentiation. They rely on `sudo` in place of root. The first user you create (like in Windows and Mac) is automatically added to the `sudo` usergroup and has sudo privilege. Then any command you need *superuser* privileges you can simply elevate to that privilege by typing the word `sudo` in front on any command. Upon successful entry of your own password you will be elevated up to full system authority. Some refer to this as *admin mode*.
+Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo. They do not to have a root account. In Linux this has become the current trend when installing an operating system.  They rely on `sudo` in place of root and the first user you create (like in Windows and Mac) is automatically added to the `sudo` usergroup and has sudo privilege. Then any command you need *superuser* privileges you can simply elevate to that privilege by typing the word `sudo` in front on any command. Upon successful entry of your own password you will be elevated up to full system authority.
 
 ![*Ubuntu /etc/sudoers*](images/Chapter-09/root/etc-sudoers-2.png)
 
@@ -63,7 +63,7 @@ This line allows you to add specific users and then list specific commands that 
 %sudo   ALL=(ALL:ALL) ALL
 ```
 
-The next line allows you to add groupnames to receive sudo access.  Any user account that is a member of this group, in Ubuntu's case *sudo* can gain *superuser* permissions
+The next line allows you to add groupnames to receive `sudo` access. Any user account that is a member of this group, in Ubuntu's case *sudo* can gain *superuser* permissions
 
 ```bash
 # Members of the admin group may gain root privileges
@@ -98,44 +98,47 @@ vagrant  ALL=(ALL) NOPASSWD:ALL
 
 The ideal way to add additional entries to your `sudoers` file is to add a file to a special directory named `/etc/sudoers.d/`. The `.d` convention is on all Unix and Linux systems and means that the original file `/etc/sudoers` should read any file in the directory `/etc/sudoers.d/` and append or overwrite these new values to the original `/etc/sudoers` file. This keeps the original clean, allows the operating system to update it with worrying about conflicting changes, and allows you to automate the creation of additional sudoers rules.
 
-For example: to override the default behavior of a password prompt being presented when issuing the `sudo` command, you could create a named: `disable-password.conf` in the `/etc/sudoers.d` directory with the content:
+For example: to override the default behavior of a password prompt being presented when issuing the `sudo` command, you could create a file, with no filename extension or `.` in the file, named: `disable-password-username` in the `/etc/sudoers.d` directory with the content:
 
 ```bash
 # This assumes that your user is named: controller -- adjust accordingly
 controller ALL=(ALL) NOPASSWD:ALL
-# This will override all users in the 'backupusers' group need for a password prompt 
+# Override all users in the 'backupusers' group need for a password prompt 
 %backupusers ALL=(ALL) NOPASSWD:ALL
 ```
 
 #### Red Hat family, Debian Linux distros, and root
 
-All other Linux distributions have a __root__ account user made at install time along with a user account, such as Debian and Alma Linux. Debian based operating systems usually have this -- though some use the Ubuntu style account creation. 
+All other Linux distributions have a __root__ account user made at install time along with a user account, such as Debian and AlmaLinux. Debian based operating systems usually have this -- though some use the Ubuntu style account creation. 
 
 When logged in as __root__, the __root__ user has its own home directory located at `/root`. Even if you are going to use the __root__ account it is still advised to log in as a regular user and then use the `su` command to elevate and then exit those privileges.
 
-Red Hat based distros use different groups for sudo and *superuser* access. That group is called *wheel*. If you look at the `/etc/sudoers` output below from Fedora system you see the groups and file content is slightly different.
+Red Hat based distros use different groups for sudo and *superuser* access. That group is called *wheel*. If you look at the `/etc/sudoers` output below you see the groups and file content is slightly different.
 
+AlmaLinux and Fedora
 ```bash
-# On Alma Linux 10 this is the content of the /etc/sudoers file
+# On AlmaLinux and Fedora this is the content of the /etc/sudoers file
 ## Allow root to run any commands anywhere
 root    ALL=(ALL)       ALL
-
-## Allows members of the 'sys' group to run networking, software,
-## service management apps and more.
-# %sys ALL = NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS
 
 ## Allows people in group wheel to run all commands
 %wheel  ALL=(ALL)       ALL
 
 ## Same thing without a password
 # %wheel        ALL=(ALL)       NOPASSWD: ALL
+```
 
-## Allows members of the users group to mount and unmount the
-## cdrom as root
-# %users  ALL=/sbin/mount /mnt/cdrom, /sbin/umount /mnt/cdrom
+Debian based have:
+```bash
+# On Debian 13 this is the content of the /etc/sudoers file
+## Allow root to run any commands anywhere
+root    ALL=(ALL)       ALL
 
-## Allows members of the users group to shutdown this system
-# %users  localhost=/sbin/shutdown -h now
+## Allows people in group wheel to run all commands
+%sudo  ALL=(ALL)       ALL
+
+## Same thing without a password
+# %wheel        ALL=(ALL)       NOPASSWD: ALL
 ```
 
 #### sudo usage examples and conclusion
@@ -144,7 +147,7 @@ root    ALL=(ALL)       ALL
 
 > __Example Usage:__ To install a service: `sudo dnf install httpd`, then you need to start the service: `sudo systemctl start httpd`.
 
-That is sudo in a nutshell, be careful and happy sudo-ing. To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis.
+That is `sudo` in a nutshell, be careful and happy sudo-ing. To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis.
 
 ## Logging and Monitoring
 
