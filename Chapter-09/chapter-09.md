@@ -107,7 +107,7 @@ controller ALL=(ALL) NOPASSWD:ALL
 %backupusers ALL=(ALL) NOPASSWD:ALL
 ```
 
-#### Red Hat family, Debian Linux distros, and root
+#### Red Hat family, Debian Linux Distros, and Root
 
 All other Linux distributions have a __root__ account user made at install time along with a user account, such as Debian and AlmaLinux. Debian based operating systems usually have this -- though some use the Ubuntu style account creation. 
 
