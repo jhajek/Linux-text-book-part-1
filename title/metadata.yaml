@@ -7,4 +7,8 @@ title:
 author: Jeremy Hajek
 rights:  
 language: en-US
+header-includes: |
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
 ...

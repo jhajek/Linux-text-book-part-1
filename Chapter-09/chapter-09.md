@@ -4,7 +4,7 @@
 
 ## Objectives
 
-* Describe the concept of the `sudo` command and the root user security implications
+* Describe the concept of the `sudo` and `sudo-rs` commands and user security implications
 * Identify basic administration tools 
 * Explain the concept of system logs
 * Describe how to use basic system tools for system monitoring and reporting
@@ -30,9 +30,15 @@ As a great philosopher once said, *"With great power comes great responsibility.
 
 From 1986 to 1991, development of `sudo` moved to CU-Boulder in Colorado and gained the cu-sudo prefix. In 1991, the code was relicensed under the GPLv2. In 1996 Todd C. Miller (one of the early maintainers) took the project under his wing moving a version of sudo to his own servers, to differentiate from cu-sudo. By 1999 the code base was moved to the ISC license--[Internet Systems Consortium](https://www.isc.org/ "ISC"), the same license the bind-dns server is under, it is the preferred license of the OpenBSD project and is a GPL compatible free license. Todd C. Miller is paid by Dell to maintain `sudo` as part of his day job. The sudo project homepage is located at [http://www.sudo.ws](http://www.sudo.ws). [A brief history of sudo](http://www.sudo.ws/history.html "Brief history of sudo") [^ch9f91]. The tool is often mispronounced "*su - doh*". But actual pronunciation is "*su - doo*". You can learn more about sudo implementation and security in a video by Michael Lucas entitled, [Sudo: You're doing it wrong](https://www.youtube.com/watch?v=o0purspHg-o "Sudo you are doing it wrong").
 
+### sudo-rs
+
+The Ubuntu developer team in October of 2025 announced a plan to [oxidize all the coreutils](https://discourse.ubuntu.com/t/adopting-sudo-rs-by-default-in-ubuntu-25-10/60583 "Webpage of rust rewrite of coreutils") used by their Linux distro. This means that they planned to rewrite all the tools we use in Linux with the Rust programming language. 
+
+This includes writing a new `sudo`, named [sudo-rs](https://discourse.ubuntu.com/t/adopting-sudo-rs-by-default-in-ubuntu-25-10/60583#p-156027-what-is-sudo-rs-2 "webpage about sudo-rs"). The features are generally one-to-one compatible, [except when they are not](https://utcc.utoronto.ca/~cks/space/blog/linux/Ubuntu2604RustSudoNotCompatible "webpage for when the sudo-rs changes are not the same")...
+
 #### Ubuntu
 
-Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo.  They firmly believe not to have a root account as a point of differentiation. They rely on `sudo` in place of root. The first user you create (like in Windows and Mac) is automatically added to the __sudo__ usergroup and has sudo privilege. Then any command you need *superuser* privileges you can simply ellevate to that privilege by typing the word `sudo` in front on any command. Upon successful entry of your own password you will be elevated up to full system authority. Some refer to this as *god mode* but I think using that term is a bit presumptuous as you do have absolute power over the system but `sudo` doesn't let you create the world in seven days.  
+Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo. First, they recently release `sudo-rs`, which on the surface functions similar to the classic `sudo` but doesn't in important ways. They firmly believe not to have a root account as a point of differentiation. They rely on `sudo` in place of root. The first user you create (like in Windows and Mac) is automatically added to the `sudo` usergroup and has sudo privilege. Then any command you need *superuser* privileges you can simply elevate to that privilege by typing the word `sudo` in front on any command. Upon successful entry of your own password you will be elevated up to full system authority. Some refer to this as *admin mode*.
 
 ![*Ubuntu /etc/sudoers*](images/Chapter-09/root/etc-sudoers-2.png)
 
@@ -79,7 +85,7 @@ The first column is either a user account (no %) or preceded by a % sign meaning
    %cia                  ALL                           ALL                               ALL
 --------------- -----------------------------    ------------------   -----------------------------------------
 
-After the useraccount you can add an additional parameter to remove the password requirement. This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users. It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
+After the user account you can add an additional parameter to remove the password requirement. This is dangerous because it means anyone who has local access to the system can now become a *superuser* account just by switching users. It is best to leave this task for remote automated users or narrow down the powers to a single specific job.
 
 > __Example Usage:__  The two commands below give the user `bkupuser` the ability to become sudo without requiring a password and only the power to execute the database backup tool. 
 
@@ -90,13 +96,15 @@ vagrant  ALL=(ALL) NOPASSWD:ALL
 
 #### /etc/sudoers.d
 
-You would add additional entries into a special file named `/etc/sudoers.d/extensions`. The `.d` convention is on all Unix and Linux systems and means that the original file `/etc/sudoers` should read any file in the directory `/etc/sudoers.d/` and append those values to the original `/etc/sudoers` file. This keeps the original clean, allows the operating system to update it with worrying about conflicting changes, and allows you to automate the creation of additional sudoers rules.
+The ideal way to add additional entries to your `sudoers` file is to add a file to a special directory named `/etc/sudoers.d/`. The `.d` convention is on all Unix and Linux systems and means that the original file `/etc/sudoers` should read any file in the directory `/etc/sudoers.d/` and append or overwrite these new values to the original `/etc/sudoers` file. This keeps the original clean, allows the operating system to update it with worrying about conflicting changes, and allows you to automate the creation of additional sudoers rules.
 
-#### Fedora and other Linux
+#### Red Hat family / Debian Linux distros and root
 
-All other Linux distributions have a __root__ account user made at install time. Some minimal distributions or in FreeBSD case may only allow you to create a __root__ user at install time and make additional users your job to create. In Fedora you can log into an GNOME session using the root account, there might be warnings from the operating system, as it is not expecting you to be logged in as __root__. The __root__ user has its own home directory located at `/root`. Even if you are going to use the __root__ account it is still advised to log in as a regular user and then use the `sudo` or `su` commands to elevate and then exit those privileges.
+All other Linux distributions have a __root__ account user made at install time along with a user account, such as Debian and Alma Linux. Debian based operating systems usually have this -- though some use the Ubuntu style account creation. 
 
-Fedora and other Linux/Unix/Mac use different groups for sudo and *superuser* access. That group is called *wheel*.  If you look at the `/etc/sudoers` output below from Fedora system you see the groups and file content is slightly different.
+When logged in as __root__, the __root__ user has its own home directory located at `/root`. Even if you are going to use the __root__ account it is still advised to log in as a regular user and then use the `su` command to elevate and then exit those privileges.
+
+Red Hat based distros use different groups for sudo and *superuser* access. That group is called *wheel*. If you look at the `/etc/sudoers` output below from Fedora system you see the groups and file content is slightly different.
 
 ![*Fedora /etc/sudoers*](images/Chapter-09/root/fedora-22-etc-sudoers.png "Fedora sudoers")
 
@@ -106,7 +114,7 @@ Fedora and other Linux/Unix/Mac use different groups for sudo and *superuser* ac
 
 > __Example Usage:__ To install a service: `sudo dnf install httpd`, then you need to start the service (on Ubuntu they autostart for you, Fedora family they don't autostart), `sudo systemctl start httpd`.
 
-That is sudo in a nutshell, be careful and happy sudo-ing.  To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis.
+That is sudo in a nutshell, be careful and happy sudo-ing. To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis.
 
 ## Logging and Monitoring
 
@@ -175,7 +183,7 @@ Syslog runs along side of journald The traditional ways of using syslog had been
 * `tail -f /var/log/syslog` will now become `sudo journalctl -f`
 * `grep sshd /var/log/syslog` will now become `sudo journalctl -u sshd`
 
-To use the journal daemon (journald) all its elements are accessed through the `journalctl` command.  All previously sparse logs are now contained in a single binary append only log format. The advantage of that is that the output can be programmatically parsed and queried like a database.
+To use the journal daemon (journald) all its elements are accessed through the `journalctl` command. All previously sparse logs are now contained in a single binary append only log format. The advantage of that is that the output can be programmatically parsed and queried like a database.
 
 > __Example Usage:__ These examples have been taken from the [systemd website](http://www.freedesktop.org/software/systemd/man/journalctl.html "jounralctl examples"):[^99]
 
@@ -239,8 +247,6 @@ journalctl -u ssh.service
 
 > See log entries created only by the SSH service
 
-
-
 ### Log rotation
 
 The concept of log rotation existed under syslog and rsyslog when logs were simple text files, but no longer exists under journald.  This was accomplished by the `/etc/logrotate.conf`.   Applications may still write to a discrete syslog (or may not), but all logs are then copied by journald, which systemd made the central repository for logs.
@@ -285,14 +291,6 @@ The first step in system administration is monitoring. Just like viewing logs, a
 
 The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at. 
 
-![*Fedora top screenshot*](images/Chapter-09/monitoring/top/top.png "top")
-
-The image below displays the system average loads over longer rolling periods: 1 minute, 5 minutes, and 15 minute rolling average.
-
-![*top avg*](images/Chapter-09/monitoring/top/top-avg.png "Top average")
-
-This section tells you the number of processes, how much memory and swap is in use and how much is free. It also tells you the breakdown between users and system on who is using the CPU percentage wise.
-
 ![*top usage*](images/Chapter-09/monitoring/top/top-usage.png "Top usage")
 
 Finally this section shows the name and individual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
@@ -313,19 +311,19 @@ The `top` command also has the ability to sort and modify its output while runni
   'q'          This will quit the `top` application
 -----------  --------------------------------------------------------------------------------
 
-### htop
+`htop`
 
-The htop command is an extension to the Linux top command. It is written in C using the ncurses library for text-based GUIs so it has mouse support. It also has metered output-and uses all the same interactive commands as `top`. The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop")[^103]. The `htop` command needs to be installed via apt-get or yum/dnf.
+: The htop command is an extension to the Linux top command. It is written in C using the ncurses library for text-based GUIs so it has mouse support. It also has metered output-and uses all the same interactive commands as `top`. The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop")[^103]. The `htop` command needs to be installed via apt-get or yum/dnf.
 
 ![*htop*](images/Chapter-09/monitoring/top/htop.png "htop")
 
-### systemd-cgtop
+`btop`
 
-You were probably wondering if systemd had its own system monitoring tool. And you would be correct to think so.  It's name is systemd-cgtop and the command is native to any system running systemd. The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop") The nature of the output is the same as top but the information is being queried from systemd and not from the `/proc` filesystem. You run the command `systemd-cgtop` from the commandline with preset flags like top or you run it in interactive mode. In interactive mode you would type `%` percent to toggle between CPU time as time or percentage. You would type p, t, c, m, i to sort by path, number of tasks, CPU load, memory usage, or IO load. The letter *q* is to quit. There are other configuration options displayed by typing `man systemd-cgtop`.
+: You can install [btop](https://github.com/aristocratos/btop "webpage for btop") for a smoother looking text-based system resource usage output for processor, memory, disks, network and processes. 
 
-### btop
+`systemd-cgtop`
 
-You can install [btop](https://github.com/aristocratos/btop "webpage for btop") for a smoother looking text-based system resource usage output for processor, memory, disks, network and processes. 
+: You were probably wondering if systemd had its own system monitoring tool. And you would be correct to think so. It's name is `systemd-cgtop` and the command is native to any system running systemd. The usage patterns can be found at [http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html](http://www.freedesktop.org/software/systemd/man/systemd-cgtop.html "systemd-cgtop"). The nature of the output is the same as top but the information is being queried from systemd and not from the `/proc` filesystem. 
 
 ### Network Monitoring Tools
 
@@ -353,21 +351,59 @@ There are many additional standard Linux tools as well as many GitHub projects b
 
 #### Load Generators
 
-The opposite side of system monitoring is sometime you want to generate a load to see how your system responds.  On modern system that are multi-core with fast memory. There is a tool called `stress` you can install it via The Ubuntu and Fedora software stores or form the commandline using apt-get and yum/dnf.  It is also available for the Mac via the Homebrew package manager. The command `stress --cpu 2 --timeout 60`  will cause two processors to max out for 60 seconds.  You would then be able to see this using an of the above top based commands.  There are some other ways to generate loads in bash as well located here: [http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326](http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326 "Bash load generator ideas")
+The opposite side of system monitoring is sometime you want to generate a load to see how your system responds.  On modern system that are multi-core with fast memory. There is a tool called `stress` you can install it via The Ubuntu and Fedora software stores or form the commandline using apt-get and yum/dnf. It is also available for the Mac via the Homebrew package manager. The command `stress --cpu 2 --timeout 60`  will cause two processors to max out for 60 seconds. You would then be able to see this using an of the above top based commands. There are some other ways to generate loads in bash as well located here: [http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326](http://stackoverflow.com/questions/7908953/how-to-measure-cpu-usage/12993326#12993326 "Bash load generator ideas").
 
-#### mpstat and iostat
+### Disk Space tools
 
-In addition to memory, CPU, and process information. You can other commands to measure system I/O. The `iostat` command, which in Linux is part of the sysstat package--displays kernel I/O statistics on terminal, device and cpu operations. The `mpstat` command will give you a per-processor readout. A common word for this is I/O measurement or throughput. These reports can then be used to change system configurations to better balance the input/output load between physical disks.
+* `ncdu`
+  * ncdu (NCurses Disk Usage) is a curses-based (text UI) version of the well-known `du`
+  * provides a fast way to see what directories are using your disk space
+* `duf`
+  * Simple Disk Usage/Free Utility
+* `dfc`
+  * Is a tool similar to `df` except that it is able to show a graph along with the data
+  * Is able to use color
+* `df`
+  * Displays the amount of space available on the file system
+  * `df -H` is to get units in gigabytes
+  * Part of the operating system's coreutils
+* `du`
+  * Summarize device usage of the set of FILEs, recursively for directories.
+  * Part of the operating system's coreutils
 
-![*iostat*](images/Chapter-09/monitoring/io/iostat.png "iostat")
+Sometimes you need to find out how full your disk is. The command for this is the `df` command. The `df -H` command will print out disk usage in *"human units."*
 
-#### Procmon
+```bash
+# Output of the df -H command
+jeremy@ubuntu-jammy:~$ df -H
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           833M  1.2M  832M   1% /run
+/dev/sda1        42G   37G  4.6G  89% /
+tmpfs           4.2G     0  4.2G   0% /dev/shm
+tmpfs           5.3M     0  5.3M   0% /run/lock
+vagrant         2.0T  1.8T  263G  87% /vagrant
+tmpfs           833M  8.2k  833M   1% /run/user/1000
+```
 
-[Process Monitor (Procmon)](https://github.com/microsoft/ProcMon-for-Linux "Download site for Procmon") is a Linux reimagining of the classic Procmon tool from the Sysinternals suite of tools for Windows. Procmon provides a convenient and efficient way for Linux developers to trace the syscall activity on the system.
+#### I/O monitoring
 
-#### iotop
+In addition to memory, CPU, and process information. You can other commands to measure system I/O. There are many additional tools contained in the `sysstat` package.
 
-Display a dynamic view of system I/O. This can be installed from your package manager.
+`iostat` 
+
+: This commandis displays kernel I/O statistics on terminal, device and cpu operations. It can be used in an interactive fashion: `sudo iostat -t 5`, where the `30` is number of seconds between screen refresh. 
+
+`mpstat` 
+
+: This command will give you a per-processor readout. A common word for this is I/O measurement or throughput. These reports can then be used to change system configurations to better balance the input/output load between physical disks.
+
+[(Procmon) - Process Monitor](https://github.com/microsoft/ProcMon-for-Linux "Download site for Procmon") 
+
+: This is a Linux reimagining of the classic Procmon tool from the Sysinternals suite of tools for Windows. Procmon provides a convenient and efficient way for Linux developers to trace the syscall activity on the system.
+
+`iotop`
+
+: This command displays a dynamic view of system I/O. This can be installed from your package manager.
 
 ## User Administration
 
@@ -435,13 +471,7 @@ lincoln:x:1002:1002:Student for ITMO 556:/home/lincoln:/bin/bash
 sshd:x:129:65534::/run/sshd:/usr/sbin/nologin
 ```
 
-The syntax is as follows: Username:password:user-id:group-id:comment-field:home-directory:default-shell.    You can see the encrypted and salted password hash if you have root or sudo privileges by typing `sudo cat /etc/shadow` on the command line.
-
-### systemd-homed
-
-Systemd is looking to the future and will be fading out support for the Unix `/etc/passwd` user control and brining in a new systemctl named [systemd-homed](https://systemd.io/HOME_DIRECTORY/ "webpage for systemd-homed"). As of 2023, systemd-homed is not deployed by any major Linux distros.
-
-> *systemd-homed.service(8) manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user, so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata. This document describes the format used by these home directories, in the context of the storage mechanism used.*
+The syntax is as follows: `Username:password:user-id:group-id:comment-field:home-directory:default-shell`. You can see the encrypted and salted password hash if you have root or sudo privileges by typing `sudo cat /etc/shadow` on the command line.
 
 ### chmod
 
@@ -497,7 +527,7 @@ SSH works because of [Public Key Cryptography](https://en.wikipedia.org/wiki/RSA
 
 Each person generates a __keypair__, a public key and a private key. Both halves of the key make up the single key used for authentication. These keys are exactly what they sound like. The public key is something that is revealed openly, but without the unique private key the "lock" cannot be opened. Think of the __public key__ as the lock on your front door. Conceivably anyone can come up to that lock and try to insert a key. Unless they have the particular key, the lock won't open. The __private key__ is then something to be guarded with your life as anyone who has that key can log into any system where it has permission.
 
-How do you then exchange data? First you generate a keypair. There is the [default RSA standard or a newer  algorithm](https://security.stackexchange.com/questions/90077/ssh-key-ed25519-vs-rsa "webpage RSA vs ed25519") using [eliptical curce cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography "webpage elitical curve cryptography"), the Twisted Edwards Pair 25519. By default ed25519 has a more secure key size, but the RSA keys can be made comparably secure with an override of the defauly options. 
+How do you then exchange data? First you generate a keypair. There is the [default RSA standard or a newer algorithm](https://security.stackexchange.com/questions/90077/ssh-key-ed25519-vs-rsa "webpage RSA vs ed25519") using [eliptical curce cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography "webpage elitical curve cryptography"), the Twisted Edwards Pair 25519. By default ed25519 has a more secure key size, but the RSA keys can be made comparably secure with an override of the defauly options. 
 
 * `ssh-keygen -t rsa -b 4096`
 * `ssh-keygen -t ed25519`
@@ -611,13 +641,11 @@ The full range of options for the config file can be found in this Digital Ocean
 
 SSH has two configuration files that control its abilities. Located at `/etc/ssh/ssh_config` and `/etc/ssh/sshd_config`. The first file contains user information about what options your client will present and use when connecting to a remote SSH server.  
 
-You won't want to modify these two files: `/etc/ssh/ssh_config` and `/etc/ssh/sshd_config`. Instead create an additional file in the `/etc/ssh/sshd_config.d/` directory and these values will override any of the default values.
+You won't want to modify these two files: `/etc/ssh/ssh_config` and `/etc/ssh/sshd_config`. Instead create an additional file in the `/etc/ssh/sshd_config.d/` directory with the `.conf` file extension. Any value in this directoy will override the default values.
 
 For example create a file named `10-disable-password-auth.conf` in the `/etc/ssh/sshd_config.d/` directory. Add the value `PasswordAuthentication no` into this file and restart the ssh service.
 
-```sydo systemctl restart sshd```
-
- This will overwrite the default value that allows passwords in the `/etc/ssh/sshd_config` file. Any file placed in the `/etc/ssh/sshd_config.d/` directory needs to end in `.conf` in order to be processed by SSH.
+```sudo systemctl restart sshd```
 
 ### Increasing Security in SSH - Client Side
 
@@ -628,7 +656,6 @@ In the `ssh_config` file you can modify these lines to increase the security of 
 Both server and client would want to have the same set of Ciphers other wise negotiation could fail and no connection would take place[^ch9f109]. Lets go ahead and make the change. Leave the file `/etc/ssh/ssh_config`and you would want to make sure that the coresponsiding SSH server in the `/etc/ssh/sshd_config.d/20-ciphers.conf` and `/etc/ssh/ssh_config.d/20-ciphers.conf` (client and server). 
 
 ```bash
-
 # This is one line with no line breaks
 # I made it into two lines so it would display properly.
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,
@@ -640,29 +667,28 @@ aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 In the configuration file `/etc/ssh/sshd_config` the default settings are generally very permissive. Here are some suggestions of items to change right away to tighten up your OpenSSH Server.
 
 * Disable password authentication to a remote server and only use Public key authentication[^ch9f108].
-  * Uncomment the line `#PasswordAuthentication yes` and change it to `PasswordAuthentication no` in a file named `10-disable-password-auth.conf`.  
+  * Create a file named `10-disable-password-auth.conf` in the `/etc/ssh/sshd_config.d/` with the value `PasswordAuthentication no`.  
 * By default Fedora and BSD based operating sysems allow the Root account to connect via SSH using a password.
   * This is inherantly dangerous, Ubuntu uses the value `prohibit-password` which would allow RSA but not password based auth. 
-  * Change this setting from  `PermitRootLogin yes` to `PermitRootLogin no`[^ch9f110] in a file name `30-disable-root-login.conf`.
+  * Lets change this setting in our  `/etc/ssh/sshd_config.d/` directory in a file namd `20-disable-root-login.conf`. Place the value to override the default in this file: `PermitRootLogin no`[^ch9f110].
 * Now tell systemd that you have changed a config file
-  * `sudo systemctl daemon-reload`.
-  * Restart the SSH service: `sudo systemctl restart sshd`
+  * Restart the SSH service: `sudo systemctl restart ssh`
 
 ### SSH Client and Server Hardening
 
 Clone the repo located at [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "GitHub for SSH Audit tool") and use the Python tool `ssh-audit.py`. This site contains hardening guides for SSH, both client and server located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides").
 
-For your Ubuntu SSH server scroll to the Ubuntu Server 24.04 in the hardening guide information and create a file: `/etc/ssh/sshd_config/20-ssh-server-audit-hardening.conf` on your SSH server.
+For your Ubuntu SSH server scroll to Ubuntu Server in the hardening guide information and create a file: `/etc/ssh/sshd_config/30-ssh-server-audit-hardening.conf` on your SSH server.
 
 #### Server Hardening
 
-Run the three commands listed. For step three I have the content listed out here in an easier to parse format -- **note** you will need to us the `sudo` command for step 2.
+Run the three commands listed. For step three I have the content listed out here in an easier to parse format -- **note** you will need to us the `sudo` command for step 2 in the linked guide.
 
 ```bash
 # Step 3
 # Restrict key exchange, cipher, and MAC algorithms, as per sshaudit.com
 # hardening guide.
- KexAlgorithms sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512,gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
+KexAlgorithms sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512, gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
 
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-gcm@openssh.com,aes128-ctr
 
@@ -693,7 +719,7 @@ The single step is a oneline shell script that will append to your `~/.ssh/confi
 Host *
  Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-gcm@openssh.com,aes128-ctr
 
- KexAlgorithms sntrup761x25519-sha512@openssh.com,gss-curve25519-sha256-,curve25519-sha256,curve25519-sha256@libssh.org,gss-group16-sha512-,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
+ KexAlgorithms sntrup761x25519-sha512@openssh.com,gss-curve25519-sha256-,  curve25519-sha256,curve25519-sha256@libssh.org,gss-group16-sha512-,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,  diffie-hellman-group-exchange-sha256
 
  MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com
 
