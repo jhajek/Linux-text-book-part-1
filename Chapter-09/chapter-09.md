@@ -177,28 +177,25 @@ Originally the protocol used UDP to reduce network traffic, but now mandates the
 
 Syslog has adopted default levels to describe the severity of a log that is recorded. Standard syslog error levels [^104].  
 
-Value    Severity        Keyword   		Description     			 	            Examples
------ ---------------- ---------- ---------------------------  ----------------------------------
-  0 	  Emergency       emerg      System is unusable  			     This level should not be used
+Value    Severity       Keyword   		Description     			 	            Examples
+----- ---------------- --------- ------------------------------  ----------------------------------
+  0 	  Emergency       emerg      System is unusable  			      This level should not be used
 															     by applications.																
-  1        Alert         alert     Should be corrected 			     Loss of the primary
-								                   immediately 					         ISP connection
-  2       Critical       crit      Critical conditions           A failure in the system's
-															                                   primary application.
-	3        Error         err       Error conditions              An application has exceeded its
-																                                 file storage limit and attempts
-																                                 to write are failing.
-  4       Warning        warning   May indicate an error         A non-root file system has
-								                   will occur if action is       only 2GB remaining.
-								                   not taken.  
-  5        Notice        notice    Events that are unusual,
-								                   but not error conditions.
-  6      Informational   info      Normal operational messages   An application has started,
-								                   that require no action.       paused or ended successful.
-  7        Debug         debug     Information useful to
-                  								 developers for debugging
-							                     the application.
------ ---------------- ---------- ---------------------------  ----------------------------------
+  1        Alert         alert     Should be corrected 			      Loss of the primary
+								                   immediately 					          ISP connection
+  2       Critical       crit      Critical conditions            A failure in the system's
+															                                    primary application.
+	3        Error         err       Error conditions               An application has exceeded its
+																                                  file storage limit and attempts
+																                                  to write are failing.
+  4       Warning        warning   May indicate an error          A non-root file system has
+								                   will occur                     only 2GB remaining.
+  5        Notice        notice    Events that are unusual
+  6      Informational   info      Normal operational messages    An application has started,
+								                                                  paused or ended successful.
+  7        Debug         debug     Information useful for 
+                                   debugging the application
+----- ---------------- ---------- ------------------------------  ----------------------------------
 
 ### Rsyslog
 
@@ -322,7 +319,7 @@ SystemMaxFiles and RuntimeMaxFiles
 
 The first step in system administration is monitoring. Just like viewing logs, also knowing what is currently going on resource wise can be very helpful. The first command we want to look at to help us understand what is occurring on our system is a command called `top`. This stands for *table of processes*. The `top` command produces a list of running processes selected by user-specific criteria[^100]. The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL `top` command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps)[^102].
 
-`top`
+top
 
 : The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at. 
 
@@ -342,13 +339,13 @@ The `top` command also has the ability to sort and modify its output while runni
   'q'          This will quit the `top` application
 -----------  --------------------------------------------------------------------------------
 
-`htop`
+htop
 
 : The htop command is an extension to the Linux top command. It is written in C using the ncurses library for text-based GUIs so it has mouse support. It also has metered output-and uses all the same interactive commands as `top`. The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop")[^103]. The `htop` command needs to be installed via apt or yum/dnf.
 
 ![*htop*](images/Chapter-09/monitoring/top/htop.png "htop")
 
-`btop`
+btop
 
 : You can install [btop](https://github.com/aristocratos/btop "webpage for btop") for a smoother looking text-based system resource usage output for processor, memory, disks, network and processes. 
 
@@ -707,64 +704,23 @@ In the configuration file `/etc/ssh/sshd_config` the default settings are genera
 
 ### SSH Client and Server Hardening
 
-Clone the repo located at [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "GitHub for SSH Audit tool") and use the Python tool `ssh-audit.py`. This site contains hardening guides for SSH, both client and server located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides").
+By defaul the SSH tool has a wide range of security protocols and hashing functions available to use. It wants to be as widely available for any client to use. Generally though, we want to control our networks and tighten up these protocals and hashing functions. First we will do that with an audit to see what the default SSH server settings for Fedora and Ubuntu desktop.
 
-For your Ubuntu SSH server scroll to Ubuntu Server in the hardening guide information and create a file: `/etc/ssh/sshd_config/30-ssh-server-audit-hardening.conf` on your SSH server.
+* Using your package manager, lets install the OpenSSH Server
+  * Ubuntu - `sudo apt update && sudo apt install openssh-server`
+  * Fedora - `sudo dnf install openssh-server`
+* Now we need to enable the service to start at boot
+  * Both - `sudo systemctl enable sshd && sydo systemctl start sshd`
+* Clone the repo located at [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "GitHub for SSH Audit tool") to your `HOME` diretory
+* `cd` into the `ssh-audit` directoy
+  * Issue the command: `python3 ssh-audit.py 127.0.0.1` 
+* Examine the output  
 
-#### Server Hardening
+It is important to know that when an SSH client and server connect, they go through a negotiating round to make sure they can speak the same security protocols. So there are steps you can take to limit what protocols and hashing functions you offer to a client, and as a client there is a way to enforce a limited list of what you will accept.
 
-Run the three commands listed. For step three I have the content listed out here in an easier to parse format -- **note** you will need to us the `sudo` command for step 2 in the linked guide.
+#### SSH Client and Server Hardening Guides
 
-```bash
-# Step 3
-# Restrict key exchange, cipher, and MAC algorithms, as per sshaudit.com
-# hardening guide.
-KexAlgorithms sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512, gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
-
-Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-gcm@openssh.com,aes128-ctr
-
-MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com
-
-HostKeyAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
-
-RequiredRSASize 3072
-
-CASignatureAlgorithms sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
-
-GSSAPIKexAlgorithms gss-curve25519-sha256-,gss-group16-sha512-
-
-HostbasedAcceptedAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
-
-PubkeyAcceptedAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
-
-```
-
-#### Client Hardening
-
-For the client hardening you can use the Amazon Linux (based on Red Hat) cleint hardening guides for SSH, located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides").
-
-The single step is a oneline shell script that will append to your `~/.ssh/config` file, meaning modifying all of yoru outgoing SSH connections. Your `~/.ssh/config` will now look like this:
-
-```bash
-# Your ~/.ssh/config should contain this
-Host *
- Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-gcm@openssh.com,aes128-ctr
-
- KexAlgorithms sntrup761x25519-sha512@openssh.com,gss-curve25519-sha256-,  curve25519-sha256,curve25519-sha256@libssh.org,gss-group16-sha512-,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,  diffie-hellman-group-exchange-sha256
-
- MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com
-
- HostKeyAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
-
- CASignatureAlgorithms sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
-
- GSSAPIKexAlgorithms gss-curve25519-sha256-,gss-group16-sha512-
-
- HostbasedAcceptedAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
-
- PubkeyAcceptedAlgorithms sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
-
-```
+Using the link provided, both client and server hardening guides are located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides"). Use the Ubuntu version closest to the current version and for Fedora Linux make use of the Rocky Linux guides. Once you execute the commands in the document, run the `ssh-audit` tool again and see what changed.
 
 ### WireGuard - Linux kernel native VPN
 
@@ -986,6 +942,22 @@ This portion of the lab requires some pre-reqs and setup.
 1) Git Clone the repository [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default, use 127.0.0.1 as the host IP.
 
 1) Using the sample configurations in the **SSH Client and Server Hardening** section of the chapter, update both the client and the server to a hardend state using `.conf` files and restart the SSH server and client. Run the SSH Audit tool again and compare the results report any weak ciphers or security anomalies that have been removed.
+
+### Extra Assignment
+
+#### SSH Client and Server Hardening Guides
+
+Run the initial step from the section titled: `SSH Client and Server Hardening`. Save the audit output and then complete the Hardening Guide below and run the audit again and explain the difference between the results and what has changed. You may research the details of the algorithms.
+
+Using the link provided, both client and server hardening guides are located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides"). Use the Ubuntu version closest to the current version and for Fedora Linux make use of the Rocky Linux guides.
+
+\newpage
+
+#### Network setup for SSH
+
+![*Virtual Box setup step 1*](images/Chapter-09/lab/vb-step1.png "Virtual Box Network setup for SSH step 1")
+![*Virtual Box setup step 2*](images/Chapter-09/lab/vb-step2.png "Virtual Box Network setup for SSH step 2")
+![*Virtual Box setup step 3*](images/Chapter-09/lab/vb-step3.png "Virtual Box Network setup for SSH step 3")
 
 #### Footnotes
 
