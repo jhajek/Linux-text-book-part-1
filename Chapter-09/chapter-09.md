@@ -161,13 +161,13 @@ The default logging directory on all Linux systems is located in `/var/log`. Thi
 
 When you install additional packages, those packages too will add a directory for its own logs. Note in the picture below there is a log called `httpd` that is created when you install the https (apache2 webserver package) to track the webserver error.log and access.log files. You will notice in these screenshots that there is a log entry for VBoxGuestAdditions--telling you that you are using VirtualBox.
 
-![*Fedora contents of /var/log/\**](images/Chapter-09/logs/var-log.png "var log")
-
-![*Ubuntu contents of /var/log\**](images/Chapter-09/logs/ubuntu-var-log.png "var log")
+> __Example Usage:__ On Fedora or Ubuntu run the command: `ls -l /var/log` -- what do you see? Do you recognize any of these log files? Who owns these files?
 
 ### syslog
 
-The operating system needs a convention on how all the logs are transferred and stored. That method was called syslog. Until 1980 there were various logging methods and schemes. The one that caught on was called `syslog` and was actually part of an email program, Sendmail, initially. Syslog permits the consolidation of logging data from different types of systems in a central file location. Syslog logs can also be transmitted remotely and aggregated on a central system. Originally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS. Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to `journalctl`[^94].
+The operating system needs a convention on how all the logs are transferred and stored. That method was called syslog. Until 1980 there were various logging methods and schemes. The one that caught on was called `syslog` and was actually part of an email program, Sendmail, initially. Syslog permits the consolidation of logging data from different types of systems in a central file location. Syslog logs can also be transmitted remotely and aggregated on a central system. 
+
+Originally the protocol used UDP to reduce network traffic, but now mandates the protocol to use TCP and even TLS. Syslog listens on port 514 and has no authentication mechanism, deferring to the user to allow or block access via the firewall or other network access control. Fedora removed syslog as standard back in Fedora 20 and moved to `journalctl`[^94].
 
 \newpage
 
@@ -284,17 +284,15 @@ journalctl -u ssh.service
 
 ### Log rotation
 
-The concept of log rotation existed under syslog and rsyslog when logs were simple text files, but no longer exists under journald.  This was accomplished by the `/etc/logrotate.conf`.   Applications may still write to a discrete syslog (or may not), but all logs are then copied by journald, which systemd made the central repository for logs.
+The concept of log rotation existed under syslog and rsyslog when logs were simple text files, but no longer exists under journald. This was accomplished by the `/etc/logrotate.conf`. Applications may still write to a discrete syslog (or may not), but all logs are then copied by journald, which systemd made the central repository for logs.
 
 When viewing an older syslog style text log you can use the `tail -f` command and it will auto-update if there is new content automatically. This command can be very helpful if you are watching a log for some particular output - can you find the journald equivalent: `journalctl --follow --since=-1day`.
 
-You can find the systemd journald log rotation and collection specifics [here](http://www.freedesktop.org/software/systemd/man/journald.conf.html "journald.conf"): [^101].
+#### Journald.conf
 
 `/etc/systemd/journald.conf`
 
-Below are the default settings - even though they are commented out they are set there to give a template for a system admin to modify.
-
-Entries can be service specific and kept in subdirectories `/etc/systemd/journald.conf.d/*.conf` any configurations in these directories take precedence over the main journald.conf file.
+You can find the systemd journald log rotation and collection specifics [here](http://www.freedesktop.org/software/systemd/man/journald.conf.html "journald.conf"): [^101]. Below are the default settings - even though they are commented out they are set there to give a template for a system admin to modify. Entries can be service specific and kept in subdirectories `/etc/systemd/journald.conf.d/*.conf` any configurations in these directories take precedence over the main journald.conf file.
 
 Storage
 
@@ -318,19 +316,15 @@ SystemMaxFiles and RuntimeMaxFiles
 
 : Control how many individual journal files to keep at maximum. Note that only archived files are deleted to reduce the number of files until this limit is reached; active files will stay around. This means that in effect there might still be more journal files around in total than this limit after a vacuuming operation is complete. This setting defaults to 100.
 
-## System Monitoring
+### System Monitoring
 
-The first step in system administration is monitoring. Just like viewing logs, also knowing what is currently going on resource wise can be very helpful. The first command we want to look at to help us understand what is occurring on our system is a command called `top`. This stands for *table of processes*. Top produces a list of running processes selected by user-specific criteria[^100]. The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL top command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps)[^102].
+The first step in system administration is monitoring. Just like viewing logs, also knowing what is currently going on resource wise can be very helpful. The first command we want to look at to help us understand what is occurring on our system is a command called `top`. This stands for *table of processes*. The `top` command produces a list of running processes selected by user-specific criteria[^100]. The traditional Unix version was written by William LeFebvre and originally copyrighted in 1984. Since 1991 there has been a Linux based GPL `top` command which is part of the [procps-ng suite of tools](https://gitlab.com/procps-ng/procps)[^102].
 
-### top
+`top`
 
-The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at. 
+: The top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of tasks currently being managed by the Linux kernel. When the screen comes up there is a lot of data present and at first it might not be clear what you are looking at. 
 
-![*top usage*](images/Chapter-09/monitoring/top/top-usage.png "Top usage")
-
-Finally this section shows the name and individual breakdown of the processes and how much resources they are using.  We will cover this in more detail in chapter 11.  
-
-![*top processes*](images/Chapter-09/monitoring/top/top-processes.png "Top process")
+> __Example Usage:__ On any operating system from the command line run the command: `top` -- what do you see? Can you find the memory usage? Do you see the processes that are currently using the CPU?
 
 The `top` command also has the ability to sort and modify its output while running.  
 
@@ -348,7 +342,7 @@ The `top` command also has the ability to sort and modify its output while runni
 
 `htop`
 
-: The htop command is an extension to the Linux top command. It is written in C using the ncurses library for text-based GUIs so it has mouse support. It also has metered output-and uses all the same interactive commands as `top`. The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop")[^103]. The `htop` command needs to be installed via apt-get or yum/dnf.
+: The htop command is an extension to the Linux top command. It is written in C using the ncurses library for text-based GUIs so it has mouse support. It also has metered output-and uses all the same interactive commands as `top`. The homepage for the project can be found at [http://hisham.hm/htop](http://hisham.hm/htop/ "htop")[^103]. The `htop` command needs to be installed via apt or yum/dnf.
 
 ![*htop*](images/Chapter-09/monitoring/top/htop.png "htop")
 
