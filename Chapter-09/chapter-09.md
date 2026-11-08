@@ -143,9 +143,11 @@ root    ALL=(ALL)       ALL
 
 #### sudo usage examples and conclusion
 
-> __Example Usage:__ After installing the apache webserver (httpd) on Fedora - the html files are served out of the default directory `/var/www/html`. Now if you cd to that `/var/www/` what do you notice about group and other ownership of `html`? How would you write a newfile `support.html` file in that directory?
+> __Example Usage:__ On the Fedora commandline, lets install the Apache2 webserver, known as `httpd` on Fedora. The command would be: `sudo dnf install httpd` 
 
-> __Example Usage:__ To install a service: `sudo dnf install httpd`, then you need to start the service: `sudo systemctl start httpd`.
+> __Example Usage:__ To enable a service to start at each boot and start the service after installation, issue the command: `sudo systemctl enable httpd`, then you need to start the service: `sudo systemctl start httpd`.
+
+> __Example Usage:__ The webserver serves html files out of its default directory `/var/www/html`. Now if you cd to that `/var/www/` what do you notice about group and other ownership of `html`? How would you write a newfile `support.html` file in that directory?
 
 That is `sudo` in a nutshell, be careful and happy sudo-ing. To learn more about the heavy details of sudo you can watch [this presentation http://blather.michaelwlucas.com/archives/2266](http://blather.michaelwlucas.com/archives/2266 "sudo") from Michael Lewis.
 
