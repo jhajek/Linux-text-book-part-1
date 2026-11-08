@@ -47,7 +47,7 @@ Let's look at the contents in more detail. To edit the `/etc/sudoers` file you d
 The first line is where you set the system path a user receives when they become a sudo user.  
  ```Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"```  
 
-> __Example Usage:__  Using either Fedora or Ubuntu as your user account from the commandline type `echo $PATH` now type `sudo sh` and then `echo $PATH` notice what happens to the prompt? Are the paths different? Why?  Type `exit` to exit back to the normal user.
+> __Example Usage:__  Using either Fedora or Ubuntu from the commandline run the command: `whomai`. Now run the command: `sudo whoami` Are the responses the same or different? Why might that be?
 
 The next line of interest is:
 
