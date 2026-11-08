@@ -167,7 +167,9 @@ Value    Severity        Keyword   		Description     			 	            Examples
 
 ### Rsyslog
 
-By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed. Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__  It was an improvement on syslog. It made syslog extensible and eventually replaced syslog by default. Most Linux distributions dropped the original syslog application and replaced it with Rsyslog by 2008 [^95].
+By the year 2004 the clear need for a syslog compatible but feature rich replacement was needed. Rsyslog was developed by [Rainer Gerhards](http://www.gerhards.net/rainer "Rainer Gerhards") and in his words, __"Rsyslog is a GPL-ed, enhanced syslogd. Among others, it offers support for reliable syslog over TCP, writing to MySQL databases and fully configurable output formats (including great timestamps)."__
+
+It was an improvement on syslog. It made syslog extensible and eventually replaced syslog by default. Most Linux distributions dropped the original syslog application and replaced it with Rsyslog by 2008 [^95].
 
 ### journald and systemd
 
