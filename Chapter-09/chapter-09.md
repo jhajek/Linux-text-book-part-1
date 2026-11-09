@@ -38,7 +38,7 @@ This includes writing a new `sudo`, named [sudo-rs](https://discourse.ubuntu.com
 
 #### Ubuntu
 
-Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo. They do not to have a root account. In Linux this has become the current trend when installing an operating system.  They rely on `sudo` in place of root and the first user you create (like in Windows and Mac) is automatically added to the `sudo` usergroup and has sudo privilege. Then any command you need *superuser* privileges you can simply elevate to that privilege by typing the word `sudo` in front on any command. Upon successful entry of your own password you will be elevated up to full system authority.
+Ubuntu is a bit different from the other Linux and Unix distros in regards to sudo. They do not to have a root account. In Linux this has become the current trend when installing an operating system. They rely on `sudo` in place of root and the first user you create (like in Windows and Mac) is automatically added to the `sudo` usergroup and has sudo privilege. Then any command you need *superuser* privileges you can simply elevate to that privilege by typing the word `sudo` in front on any command. Upon successful entry of your own password you will be elevated up to full system authority.
 
 ![*Ubuntu /etc/sudoers*](images/Chapter-09/root/etc-sudoers-2.png)
 
@@ -951,7 +951,7 @@ This portion of the lab requires some pre-reqs and setup.
 
 #### SSH Client and Server Hardening Guides
 
-Run the initial step from the section titled: `SSH Client and Server Hardening`. Save the audit output and then complete the Hardening Guide below and run the audit again and explain the difference between the results and what has changed. You may research the details of the algorithms. Compare the default results of Ubuntu Desktop and Fedora Desktop. Are there any differences?
+Complete the commands mentioned from the section titled: `SSH Client and Server Hardening`. Save the audit output and then complete the Hardening Guide below and run the audit again and explain the difference between the results and what has changed. You may research the details of the algorithms. Compare the default results of Ubuntu Desktop and Fedora Desktop. Are there any differences?
 
 Using the link provided, both client and server hardening guides are located at [https://www.ssh-audit.com/hardening_guides.html](https://www.ssh-audit.com/hardening_guides.html "SSH hardening guides"). Use the Ubuntu version closest to the current version and for Fedora Linux make use of the Rocky Linux guides.
 
