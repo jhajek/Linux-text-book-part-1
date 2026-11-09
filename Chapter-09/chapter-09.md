@@ -887,19 +887,23 @@ The objective of this lab are as follows:
 
 #### Lab Outcomes
 
-At the outcome of this lab you will be able to successfully understand how to apply the sudo/root user paradigm. You will understand the binary logging mechanism of journald. You will be able to add, delete, and modify user accounts. Finally, you will be able to succesfully setup and establish remote connections.
+Using the examples and exercises in this chapter you will be able to succesfully and securely connect remotely to a remote server. You will be able to isntall a web server and run it as a service. You will be able to troubleshoot issues using the system logs and the journal and you will be able to modify a sudoers file.
 
 Assumptions:
 
-* Assignments can be done using Ubuntu or Fedora desktop unless stated
-* If a command asks you to work on a user that doesn't exist, it is assumed that you have to create it
-* The `mysqldump` application requires the `mysql-client` package to be installed: [http://superuser.com/questions/165582/installation-mysqldump](http://superuser.com/questions/165582/installation-mysqldump "webpage for mysqldump")
+* You will use one Ubuntu Desktop and one Fedora Workstation instance (2 VMs) for this lab
+* At the end of the chapter, complete the additional steps under the header: __Additional Network Interface Setup for SSH__
+  * These steps are required in order to make this Lab work
+* You can find the ip address of your VMs from the terminal with the command: `ip address show`
+  * On VirtualBox look for interface XX: `enp0s8` 
+  * On Parallesl look for interface YY: `enp0s6`
+* Install any additional packages that the Lab requires
 
 1) Write a shell script that issues the command to add a user named "controller" to your system, using the system default values and display the content of the `/etc/passwd` file to show that the user has been created
 
 1) Write a shell script that issues the command to add a group named *itmo356* to your system. Then use the command to modify the user and append this additional group to the user controller you just created.  Issue the command that shows all of the groups a user is a member of.
 
-1) Write a shell script that issues the command to modify the user **controller** to add them to a *superuser* group (sudo on Ubuntu or wheel on Fedora based)
+1) Write a shell script that issues the command to modify the user **controller** to add them to a *superuser* group (`sudo` on Ubuntu or `wheel` on Red Hat based)
 
 1) Write a shell script that issues the command to add the user named **nsa**, display the content of the `/etc/passwd` file, and then delete the user account, display the content of the `/etc/passwd` to show that the user has been deleted
 
@@ -953,23 +957,27 @@ Using the link provided, both client and server hardening guides are located at 
 
 \newpage
 
-#### Additional Network Interface setup for SSH - VirtualBox
+#### Additional Network Interface Setup for SSH - VirtualBox
 
-![*Virtual Box setup step 1*](images/Chapter-09/lab/vb-step1.png "Virtual Box Network setup for SSH step 1")
+![*VirtualBox setup step 1*](images/Chapter-09/lab/vb-step1.png "VirtualBox Network setup for SSH step 1")
 
-![*Virtual Box setup step 2*](images/Chapter-09/lab/vb-step2.png "Virtual Box Network setup for SSH step 2")
+![*VirtualBox setup step 2*](images/Chapter-09/lab/vb-step2.png "VirtualBox Network setup for SSH step 2")
 
 \newpage
 
-![*Virtual Box setup step 3*](images/Chapter-09/lab/vb-step3.png "Virtual Box Network setup for SSH step 3")
+![*VirtualBox setup step 3*](images/Chapter-09/lab/vb-step3.png "VirtualBox Network setup for SSH step 3")
 
-#### Additional Network Interface setup for SSH - Parallels
+\newpage
 
-![*Virtual Box setup step 1*](images/Chapter-09/lab/vb-step1.png "Virtual Box Network setup for SSH step 1")
+#### Additional Network Interface Setup for SSH - Parallels
 
-![*Virtual Box setup step 2*](images/Chapter-09/lab/vb-step2.png "Virtual Box Network setup for SSH step 2")
+![*Parallels setup step 1*](images/Chapter-09/lab/prl-step1.png "Parallels Network setup for SSH step 1")
 
-![*Virtual Box setup step 3*](images/Chapter-09/lab/vb-step3.png "Virtual Box Network setup for SSH step 3")
+![*Parallels setup step 2*](images/Chapter-09/lab/prl-step2.png "Parallels Box Network setup for SSH step 2")
+
+![*Parallels setup step 3*](images/Chapter-09/lab/prl-step3.png "Parallels Network setup for SSH step 3")
+
+![*Parallels setup step 3*](images/Chapter-09/lab/prl-step4.png "Parallels Network setup for SSH step 4")
 
 #### Footnotes
 
