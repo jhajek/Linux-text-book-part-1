@@ -917,21 +917,13 @@ Write a single shell script that executes the following statements and takes a s
 
 ### Lab - Part Two
 
-1) Install the Nginx webserver in a virtual machine. In your Virtual Machine open a webbrowser and navigate to http://127.0.0.1. Then type in the address bar http://127.0.0.1/cats (this site will 404 -- not be found). Then issue the command to display the content of the Nginx access.log showing both connection you just made, from the log file
+This portion of the lab requires some pre-reqs
 
-1) In your home directory, create a file named: `todo-list.txt`. Then create a group named: accounting. What command would you use to change the group ownership of the file `todo-list.txt` to be owned by the "accounting" group?  
-
-1) Issue the command you would type to generate a RSA key pair, if you created it previously you can overwrite the previous key.
-
-### Part Two
-
-This portion of the lab requires some pre-reqs and setup.
-
-1) The next questions require some setup:
-   i. You need two virtual machines for this part: One Ubuntu based and one Fedora based
-   i. You will need to modify the Network settings to add a **Host-Only Network Interface** in VirtualBox to get a an IP address only accessible on your computer
-   i. Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
-   i. On both servers make sure to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
+* The next questions require some setup:
+  * You need two virtual machines for this part
+  * You will need to modify the Network settings to add a **Host-Only Network Interface** in VirtualBox to get a an IP address only accessible on your computer
+  * Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
+  * On both servers make sure to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
 
 1) Issue the command to transfer an SSH ed25519 key pair to from your system designated as a client, Fedora, to the Ubuntu SSH server
 
