@@ -925,7 +925,7 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
   * Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
   * On both servers make sure to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
-  * Use the command `ip address show`
+  * Use the command `ip address show` to find your IP addresses
   
 1) On your client system, issue the command create an `ed25519` public key pair. 
 
