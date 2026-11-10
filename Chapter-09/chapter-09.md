@@ -921,13 +921,15 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
 * The next questions require some setup:
   * You need two virtual machines for this part
-  * You will need to modify the Network settings to add a **Host-Only Network Interface** in VirtualBox to get a an IP address only accessible on your computer
+  * You will need to modify the Network settings to add a **Host-Only Network Interface**
+
   * Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
   * On both servers make sure to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
+  
 
+1) On your client system, issue the command create an `ed25519` public key pair. 
 
-
-1) Issue the command to transfer an SSH ed25519 key pair to from your system designated as a client, Fedora, to the Ubuntu SSH server
+1) On your client system issue the command to transfer that private key securely to your server via the `ssh-copy-id` command
 
 1) Issue the command to connect remotely to the Fedora server via ssh using username and password, create a text file named: website.app - then exit the remote session. On the Fedora system show that the file: website.app, has been created
 
