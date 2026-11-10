@@ -925,8 +925,8 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
   * Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
   * On both servers make sure to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
+  * Use the command `ip address show`
   
-
 1) On your client system, issue the command create an `ed25519` public key pair. 
 
 1) On your client system issue the command to transfer that private key securely to your server via the `ssh-copy-id` command
@@ -941,13 +941,13 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
 1) From your client system remotely connect to your server system via SSH, issue the command to install the `apache2` webserver.  On Ubuntu, the package is named `apache2` but on Fedora and Red Hat based operating systems it is named: `httpd`.
 
-1) Remotely connectd to your server, issue the commmands to enable and start the apache2 webserver.  Then issue the status command to show that the apache2 server is in a running state.
+1) Remotely connected to your server, issue the commmands to enable and start the apache2 webserver. Then issue the `status` option via systemcl to show that the `apache2` server is in a running state.
 
 1) On your client system open the Friefox webbrowser and browse to `http://` with the address ip address of the server and dispaly the welcome page.
 
 1) Remotely connect to the server via SSH and modify the `index.html` page adding your name to the HTML. On your client system reload the webpage and demonstrate the change you have made.
 
-1) Remotely connected to your server, using `vim` create in the proper location a simple html file named: `helloworld.html` and the file add the basic structure of an html file along with the words, "Hello World.". From your client system, go to this new URL and display the content.
+1) Remotely connected to your server, and using `vim` create in the proper location a simple html file named: `helloworld.html`. In the file add the basic structure of an html file along with the words, "Hello World.". From your client system in the browser go to this new URL and display the content.
 
 1) On the client system, in the browser change the URL from the previous steps and add /cats.html at the end (this will fail and cause a 404 error). Remotely connected to your server, using the logs files, show this connections details in the `access.log`
 
