@@ -939,7 +939,7 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
 1) Reconnect via SSH to your server without using the password demonstrating that you have enabled Public key auth only
 
-1) From your client system remotely connect to your server system via SSH, issue the command to install the `apache2` webserver.  On Ubuntu, the package is named `apache2` but on Fedora and Red Hat based operating systems it is named: `httpd`.
+1) From your client system remotely connect to your server system via SSH, issue the command to install the `apache2` webserver. On Ubuntu, the package is named `apache2` but on Fedora and Red Hat based operating systems it is named: `httpd`.
 
 1) Remotely connected to your server, issue the commmands to enable and start the apache2 webserver. Then issue the `status` option via systemcl to show that the `apache2` server is in a running state.
 
