@@ -917,13 +917,15 @@ Write a single shell script that executes the following statements and takes a s
 
 ### Lab - Part Two
 
-This portion of the lab requires some pre-reqs
+This portion of the lab requires some pre-reqs. It will be assumed that this portion is completed before you begin the lab deliverable.
 
 * The next questions require some setup:
   * You need two virtual machines for this part
   * You will need to modify the Network settings to add a **Host-Only Network Interface** in VirtualBox to get a an IP address only accessible on your computer
   * Install **openssh-server** on Ubuntu (Server) via apt and Fedora via dnf
   * On both servers make sure to issue two additional commands to start the ssh server: `sudo systemctl enable sshd` and `sudo systemctl start sshd`
+
+
 
 1) Issue the command to transfer an SSH ed25519 key pair to from your system designated as a client, Fedora, to the Ubuntu SSH server
 
