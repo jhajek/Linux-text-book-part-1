@@ -931,15 +931,33 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
 1) On your client system issue the command to transfer that private key securely to your server via the `ssh-copy-id` command
 
-1) Issue the command to connect remotely to the Fedora server via ssh using username and password, create a text file named: website.app - then exit the remote session. On the Fedora system show that the file: website.app, has been created
+1) From the client system, issue the command to connect remotely to the server system via password.  While remotely conneced to the server system create a file named: `/c/sshd/sshd_config.d/disable=-password.conf`.
 
-1) Issue the command to connect remotely to the Fedora server via ssh using username and the identifyFile (RSA key), create a text file named: new-website.app - then exit the remote session. On the Fedora system show that the file: website.app, has been created
+1) On the server via the remot connection dit the cntents of the `/etc/sshd/sshd_condif.d/diable-password.conf` to set `PasswordAUthenitcation No` 
 
-1) Git Clone the repository [https://github.com/jtesta/ssh-audit](https://github.com/jtesta/ssh-audit "SSH audit tool") to both the client and server system, in your home directory. Run the ssh-audit tool on the Fedora and Ubuntu, list the weak ciphers installed by default, use 127.0.0.1 as the host IP.
+1) exit your remote session to the server
 
-1) Using the sample configurations in the **SSH Client and Server Hardening** section of the chapter, update both the client and the server to a hardend state using `.conf` files and restart the SSH server and client. Run the SSH Audit tool again and compare the results report any weak ciphers or security anomalies that have been removed.
+1) Reconnect via SSH to your server without using the password demonstrating that you have enabled Public key auth only
 
-### Extra Assignment
+1) From your client system remotely connect to your server system via SSH, issue the command to install the `apache2` webserver.  On Ubuntu, the package is named `apache2` but on Fedora and Red Hat based operating systems it is named: `httpd`.
+
+1) Remotely connectd to your server, issue the commmands to enable and start the apache2 webserver.  Then issue the status command to show that the apache2 server is in a running state.
+
+1) On your client system open the Friefox webbrowser and browse to `http://` with the address ip address of the server and dispaly the welcome page.
+
+1) Remotely connect to the server via SSH and modify the `index.html` page adding your name to the HTML. On your client system reload the webpage and demonstrate the change you have made.
+
+1) Remotely connected to your server, using `vim` create in the proper location a simple html file named: `helloworld.html` and the file add the basic structure of an html file along with the words, "Hello World.". From your client system, go to this new URL and display the content.
+
+1) On the client system, in the browser change the URL from the previous steps and add /cats.html at the end (this will fail and cause a 404 error). Remotely connected to your server, using the logs files, show this connections details in the `access.log`
+
+1) Remotely connected to your server now install the webserver package for `nginx`. You will receive an error message once it starts. Use the `sudo systemctl status nginx` command to see the status of the nginx webserver service.
+
+1) Use the `journalctl` command for the `nginx.service` to display the error message.
+
+1) Use the `sudo systemctl disable` command to stop the `nginx` service from starting at boot.
+
+### Extra Assignment Lab - Part Three
 
 #### SSH Client and Server Hardening Guides
 
