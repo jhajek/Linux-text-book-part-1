@@ -120,9 +120,9 @@ The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` or `/boot/grub2
 
 ### Systemd and Systemctl
 
-Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at Red Hat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.
+Since 2015 systemd has been the default init system for Linux distributions. Developed by Lennart Poettering while at Red Hat, its main goal is to unify basic Linux configurations and service behaviors across all distributions.
 
-From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system[^117]."* Unlike the SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1. The init process *IS* the system and the process manager, if PID 1 dies, then your system dies too. Systemd includes many other items, ~69 different binaries all rolled into PID 1.
+From Lennart's own website, *"systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system[^117]."* Unlike the previous SysVinit/Upstart method which has an ancestor process in PID 1 (process ID 1), now systemd becomes the PID 1.
 
 > *"As an integrated software suite, systemd replaces the startup sequences and runlevels controlled by the traditional init daemon, along with the shell scripts executed under its control. systemd also integrates many other services that are common on Linux systems by handling user logins, the system console, device hotplugging (see udev), scheduled execution (replacing cron), logging, hostnames and locales[^121]."*
 
@@ -130,7 +130,49 @@ From Lennart's own website, *"systemd is a suite of basic building blocks for a 
 
 > *"Now, as it turns out, more frequently than not we actually adopted schemes that where Debianisms, rather than Fedoraisms/Redhatisms as best supported scheme by systemd. For example, systems running systemd now generally store their hostname in /etc/hostname, something that used to be specific to Debian and now is used across distributions[^116]."*
 
-One of the main differences between traditional Upstart/SysVinit based Linux is that systemd doesn't have __run levels__. The command `init 3` was always start at the commandline, and `init 5` was GUI. 
+### Major systemd Components
+
+Not just an init system replacement, systemd has replaced or merged the functionality of many other Linux services into systemd[^122]. Beside its primary purpose of providing a replacement Linux init system, systemd suite provides additional functionality, including its following components:
+
+journald
+
+: systemd-journald is a daemon responsible for event logging, with append-only binary files serving as its logfiles. The system administrator may choose whether to log system events with systemd-journald, syslog-ng or rsyslog. The potential for corruption of the binary format has led to much heated debate.
+
+logind
+
+: systemd-logind is a daemon that manages user logins and seats in various ways. It is an integrated login manager that offers multi-seat improvements and replaces ConsoleKit, which is no longer maintained. For X11 display managers the switch to logind requires a minimal amount of porting. It was integrated in systemd version 30.
+
+networkd
+
+: networkd is a daemon to handle the configuration of the network interfaces; in version 209, when it was first integrated, support was limited to statically assigned addresses and basic support for bridging configuration. In July 2014, systemd version 215 was released, adding new features such as a DHCP server for IPv4 hosts, and VXLAN support.
+
+resolved
+
+: Handles DNS resolution - internally for local services
+
+tmpfiles
+
+: systemd-tmpfiles is a utility that takes care of creation and clean-up of temporary files and directories. It is normally run once at startup and then in specified intervals.
+
+timedated
+
+: systemd-timedated is a daemon that can be used to control time-related settings, such as the system time, system time zone, or selection between UTC and local time zone system clock. It is accessible through D-Bus. It was integrated in systemd version 30.
+
+localed
+
+: Manage and configure system locale and keyboard settings
+
+hostnamed
+
+: Manage and modify hostname related information
+
+systemd-boot
+
+: systemd-boot is a boot loader, formerly known as gummiboot. Kay Sievers merged it into systemd with systemd 220. The `systemd-boot` tool is designed as a replacement for GNU GRUB and supports UEFI only. Currently `systemd-boot` can be used as your default boot-loader but no systems are actively using is as their default currently. Work is continuing to make this change. 
+
+homed
+
+: systemd-homed.service manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata[^ch10f124]. This is a brand new paradigm yet to be implemented in any Linux distros.
 
 #### systemd.target
 
@@ -219,50 +261,6 @@ The systemd command `systemctl show` will show all details relating to a target 
   * Will show only the property "ExecStart" from the service file
 * The command `sudo systemctl show --property "After" nginx.service`
   * Will show only the property "After" from the service file
-
-### Major systemd Components
-
-Not just an init system replacement, systemd has replaced or merged the functionality of many other Linux services into systemd[^122]. Beside its primary purpose of providing a replacement Linux init system, systemd suite provides additional functionality, including its following components:
-
-journald
-
-: systemd-journald is a daemon responsible for event logging, with append-only binary files serving as its logfiles. The system administrator may choose whether to log system events with systemd-journald, syslog-ng or rsyslog. The potential for corruption of the binary format has led to much heated debate.
-
-logind
-
-: systemd-logind is a daemon that manages user logins and seats in various ways. It is an integrated login manager that offers multi-seat improvements and replaces ConsoleKit, which is no longer maintained. For X11 display managers the switch to logind requires a minimal amount of porting. It was integrated in systemd version 30.
-
-networkd
-
-: networkd is a daemon to handle the configuration of the network interfaces; in version 209, when it was first integrated, support was limited to statically assigned addresses and basic support for bridging configuration. In July 2014, systemd version 215 was released, adding new features such as a DHCP server for IPv4 hosts, and VXLAN support.
-
-resolved
-
-: Handles DNS resolution - internally for local services
-
-tmpfiles
-
-: systemd-tmpfiles is a utility that takes care of creation and clean-up of temporary files and directories. It is normally run once at startup and then in specified intervals.
-
-timedated
-
-: systemd-timedated is a daemon that can be used to control time-related settings, such as the system time, system time zone, or selection between UTC and local time zone system clock. It is accessible through D-Bus. It was integrated in systemd version 30.
-
-localed
-
-: Manage and configure system locale and keyboard settings
-
-hostnamed
-
-: Manage and modify hostname related information
-
-systemd-boot
-
-: systemd-boot is a boot loader, formerly known as gummiboot. Kay Sievers merged it into systemd with systemd 220. The `systemd-boot` tool is designed as a replacement for GNU GRUB and supports UEFI only. Currently `systemd-boot` can be used as your default boot-loader but no systems are actively using is as their default currently. Work is continuing to make this change. 
-
-homed
-
-: systemd-homed.service manages home directories of regular (“human”) users. Each directory it manages encapsulates both the data store and the user record of the user so that it comprehensively describes the user account, and is thus naturally portable between systems without any further, external metadata[^ch10f124]. This is a brand new paradigm yet to be implemented in any Linux distros.
 
 ### systemd Unit Types
 
