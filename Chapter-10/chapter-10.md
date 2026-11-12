@@ -114,7 +114,7 @@ The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` or `/boot/grub2
 
 > __Example:__ If you wanted to remove the splash screen and see the services loading at boot time, on Red Hat based and Ubuntu based systems edit the `/etc/default/grub` file.  Let us do that and comment out the line that start with: `GRUB_CMDLINE_LINUX_DEFAULT`
 
-> __Example:__ For Red Hat based OSes you would run sudo `grub2-mkconfig` to recompile your grub configuration. On Debian and Ubuntu systems you can run `sudo update-grub or sudo update-grub2`. Lets do that, reboot and take notice that the splash screen is gone upn reboot.
+> __Example:__ For [Red Hat based OSes](https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/ "Fedora Grub2 documentation") you would run the command: `sudo grub2-mkconfig` to recompile your grub configuration. On Debian and Ubuntu systems you can run `sudo update-grub or sudo update-grub2`. Lets do that, reboot and take notice that the splash screen is gone upn reboot.
 
 ## Third Phase of the system boot
 
