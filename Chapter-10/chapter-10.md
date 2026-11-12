@@ -72,7 +72,7 @@ The GRUB boot loader, has 3 stages of the boot loading process.
 
 #### Stage 1 - BIOS only
 
-In the first stage of the GRUB loader, the `boot.img` file, located in sector 0 in the first 440 bytes of the MBR is loaded. The `boot.img` file addresses the `diskboot.img` file via a 64-bit Logical Block Address​ (no filesystem to address); this is the raw disk location. `Diskboot.img` is the first sector of the `core.img` file and its only job is to begin loading `core.img.`
+In the first stage of the GRUB loader, the `boot.img` file, located in sector 0 in the first 440 bytes of the MBR is loaded. The `boot.img` file addresses the `diskboot.img` file via a 64-bit Logical Block Address​ (no filesystem to address); this is the raw disk location. The `diskboot.img` is the first sector of the `core.img` file and its only job is to begin loading `core.img.`
 
 #### Stage 1.5 - BIOS only
 
@@ -80,13 +80,15 @@ The `core.img` is read into memory. This is file is about 32K in length. The pur
 
 #### Stage 2 - BIOS and UEFI
 
-Now the GRUB menu begin to load at this stage. GRUB 1.5 will load filesystem drivers that are separate from the Operating System so that the file `/boot/grub/grub.cfg` can be read. Fedora stores its grub configuration at `/boot/grub2/grub.cfg`. UEFI loads `/efi/<distro>/grubx64.efi` ​then hands over to `/boot/grub/grub.cfg`. This file contains details about the path to various kernels for loading and various system configurations. In UEFI there is no MBR and stage 1 or 1.5 -- the path to the EFI partition is stored in NVRAM and UEFI will load this directly. This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
+Now the GRUB menu begin to load at this stage. GRUB 1.5 will load filesystem drivers that are separate from the Operating System so that the file `/boot/grub/grub.cfg` can be read.
+
+UEFI loads `/boot/efi/EFI/<distro name>/grub.cfg` ​then hands over to `/boot/grub2/grub.cfg` or `/boot/grub/grub.cfg`. This file contains details about the path to various kernels for loading and various system configurations. In UEFI there is no MBR and stage 1 or 1.5 -- the path to the EFI partition is stored in NVRAM and UEFI will load this directly. This is where you get the nice TUI (Terminal User Interface screen) allowing you to choose which kernel and any features you want to enable/disable per this boot.
 
 By default this user interface will pop up if you have more than one operating system or kernel version installed in the case of Fedora. If you have a single operating system this screen will be skipped by default, you can hold down the SHIFT key at boot and force this screen to come up. In the case of Ubuntu you can select ADVANCED to see different kernel versions you can load.
 
 ![*Terminal User Interface*](images/Chapter-10/GRUB/tui-large.png "TUI")
 
-Once we select a kernel version, GRUB knows where to go to find that kernel file, read it into memory, decompress it. All kernel images are located in `/boot` or `/efi/boot`.
+Once we select a kernel version, GRUB knows where to go to find that kernel file, read it into memory, decompress it. All kernel images are located in `/boot` or `/boot/efi`.
 
 #### initrd img
 
@@ -94,7 +96,7 @@ Before the kernel image can be loaded the GRUB stage 2 needs to load the `initrd
 
 ### GNU GRUB Settings
 
-The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` but this file is auto generated so to edit the settings you would modify the `/etc/default/grub` file. The `/etc/default/grub` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
+The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` or `/boot/grub2/grub.cfg` but this file is auto generated so to edit the settings you would modify the `/etc/default/grub` file. The `/etc/default/grub` file contains various key, value pairs defining default kernel parameters to be passed to GRUB.
 
 `GRUB_DEFAULT=N` -- this value is which entry in your GRUB list is the default operating system to boot. If you have a single OS installed, this value will be 0.
 
@@ -110,7 +112,9 @@ The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` but this file i
 
 `GRUB_BACKGROUND` -- this option lets you *theme* your GRUB menu by adding a background image.
 
-To make these changes permanent you need to execute the `sudo update-grub` command after saving the file so the `/boot/grub/grub.cfg` will be regenerated and used on the next boot.
+> __Example:__ If you wanted to remove the splash screen and see the services loading at boot time, on Red Hat based and Ubuntu based systems edit the `/etc/default/grub` file.  Let us do that and comment out the line that start with: `GRUB_CMDLINE_LINUX_DEFAULT`
+
+> __Example:__ For Red Hat based OSes you would run sudo `grub2-mkconfig` to recompile your grub configuration. On Debian and Ubuntu systems you can run `sudo update-grub or sudo update-grub2`. Lets do that, reboot and take notice that the splash screen is gone upn reboot.
 
 ## Third Phase of the system boot
 
@@ -755,9 +759,9 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 
 #### Lab 10 Outcomes
 
-At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd. After each item take a screenshot and place it below the question to demonstrate the answer (unless specified otherwise). Edit your screenshots to show just the relevant information.
+At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.
 
-1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`. Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, and now take a screenshot of the same menu that is missing the recovery options. Hold the **shift** key down until you see the GRUB menu for some Linux distros.
+1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`. Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, show the same menu that is missing the recovery options. Hold the **shift** key down until you see the GRUB menu for some Linux distros.
 
 1) Type the command to display your default `target` environment
 
@@ -800,7 +804,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Use one of the tools described in the **Filesystems /proc** section and print out the exact processor/cpu type your Linux system is reporting.
 
-1) In the textbook sample code: files > Chapter-10 > service-files there is a `.service` file named write-journal.service. Issue the commands to enable and start this service. This will require you to beforehand install the pre-requisite packages and create the `write-journal.py` script: the code is in the section **Logging and Service Files**. Write a `.timer` unit file (remember to enable and start the timer unit file), which will execute your `write-journal.service` once every 5 minutes.  Take a screenshot of the output of the `journactl` command that will show logs from only the `write-journal.service` showing that 10 minutes approimately elapsed. Take an additionl screenshot of the status of the systemctl timers to show the timer unit has been registered.
+1) In the textbook sample code: files > Chapter-10 > service-files there is a `.service` file named write-journal.service. Issue the commands to enable and start this service. This will require you to beforehand install the pre-requisite packages and create the `write-journal.py` script: the code is in the section **Logging and Service Files**. Write a `.timer` unit file (remember to enable and start the timer unit file), which will execute your `write-journal.service` once every 5 minutes. Show the output of the `journactl` command that will show logs from only the `write-journal.service` showing that 10 minutes approimately elapsed. Show the status of the systemctl timers to show the timer unit has been registered.
 
 #### Footnotes
 
