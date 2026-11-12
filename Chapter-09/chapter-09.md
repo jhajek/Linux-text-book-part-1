@@ -941,9 +941,9 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
 1) From your client system remotely connect to your server system via SSH, issue the command to install the `apache2` webserver. On Ubuntu, the package is named `apache2` but on Fedora and Red Hat based operating systems it is named: `httpd`.
 
-1) Remotely connected to your server, issue the commmands to enable and start the apache2 webserver. Then issue the `status` option via systemcl to show that the `apache2` server is in a running state.
+1) Remotely connected to your server, issue the commands to enable and start the apache2 webserver. Then issue the `status` option via systemcl to show that the `apache2` server is in a running state.
 
-1) On your client system open the Friefox webbrowser and browse to `http://` with the address ip address of the server and dispaly the welcome page.
+1) On your client system open the Friefox webbrowser and browse to `http://` with the address ip address of the server and display the welcome page.
 
 1) Remotely connect to the server via SSH and modify the `index.html` page adding your name to the HTML. On your client system reload the webpage and demonstrate the change you have made.
 
