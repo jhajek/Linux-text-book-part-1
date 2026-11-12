@@ -433,7 +433,6 @@ FreeBSD still uses ```rc``` files which are shell scripts for starting services.
 This is a sample of a `.service` file created for a Python user script, called `write-journal.service`
 
 ```bash
- # .service file for the Rsyslog service:
  # /etc/systemd/system/write-journal.service
 [Unit]
 Description=Script that writes a Hello message to the journal
@@ -509,7 +508,7 @@ The main variable here is the `OnCalendar` value, where you can define a time wh
 You will need to install some pre-reqs for this example.
 
 ```bash
-# Ubuntu  22.04 - https://pypi.org/project/cysystemd/
+# Ubuntu 22+ - https://pypi.org/project/cysystemd/
 sudo apt-get install build-essential \
     libsystemd-dev \
     python3-pip \
@@ -518,7 +517,7 @@ python3 -m pip install cysystemd
 ```
 
 ```bash
-# Fedora/CentOS - https://pypi.org/project/cysystemd/
+# Fedora/AlmaLinux - https://pypi.org/project/cysystemd/
 sudo yum install gcc systemd-devel python3 python3-devel python3-pip
 python3 -m pip install cysystemd
 ```
