@@ -118,121 +118,6 @@ The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` or `/boot/grub2
 
 ## Third Phase of the system boot
 
-### System Init Services
-
-I am going to describe the classic Unix System V init process first. This is the basis of all knowledge relating to how processes start since the early 1980s. This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. SysVinit is not in use in Linux as it was replaced by systemd in 2015.
-
-Once the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by starting up the system processes. The first task that SysVinit executes is `/sbin/init`. This is referred to as the init process. It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.
-
-The `/sbin/init/` looks at the value stored in `/etc/inittab` to find the system __run level__. The `run level` tells us which mode to start in and which associated services are needed. These levels are general and each Linux distro modifies them as needed. The default run level for a GUI based distro is `5`. The default run level for a server based OS is `3`.
-
-: Traditional Run Levels
-
-   Level                Operation
------------  ------------------------------------
-   0             System Halt/Shut Down
-   1              Single User Mode
-   2         Multiuser Mode Without Networking
-   3              Full Multiuser Mode
-   4                    Unused
-   5                    GUI/X11
-   6                    Reboot
------------  ------------------------------------
-
-Once the run level is determined, there is a directory called `/etc/rc.d` which contains __run level specific__ programs to be executed. Files preceded by an *S* mean to start the service, and files preceded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first. The good thing is that each K or S file is nothing more than a bash script to start or kill a service and do a bit of environment preparation.
-
-As you can see this system has some flaws. There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs. Also there is no way for services that start later that depend on a previous service to be started to understand its own state. The service will happily start itself without its dependencies and go right off a cliff[^ch10f115].
-
-![*Classic SysVinit RC files on Ubuntu 14.04*](images/Chapter-10/sysvinit/rc-d.png "rc.d")
-
-### Working With Services in SysVinit/Upstart
-
-Under the Upstart methodology you can simply start services and stop them with the `service` command. The syntax is: `sudo service <service-name> start | stop | restart | reload | status`.
-
-This would act upon the appropriate shell script to perform the appropriate action. Why would you need to restart a user run service? Remember that everything in Linux is configured with text files. At initial load the text files information is parsed and placed in memory. If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance. The `service` commands are still in place but are just links to the systemd command and control `systemctl`.
-
-#### ps
-
-The `ps` command displays information about a selection of the active processes. This is different from the `top` command as the information is not updated but just displayed. The `ps` command by itself shows very little useful information. Overtime three versions of `ps`` have joined together so there are three sets of options, BSD, Unix, and GNU. The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
-
-![*ps command*](images/Chapter-10/processes/ps.png "ps")
-
-These additional commands will share more information:
-
-* `ps -e`  <-- select all processes (similar to -A)
-* `ps -ef`  <-- this is one of the more helpful and verbose sets of options with full-formatting
-* `ps -eF` <-- Extra full-formatting
-* `ps -ely`  <-- Long formatting
-* `ps -eo pif,tid,class,ni,pri,psr...`  <-- the `o` option allows you to customize the column arraingment and output.
-* `ps -C syslogd -o pid=`  <-- this is the same as doing `ps -ef | grep firefox` or `pidof firefox`
-* `ps xawf -eo pid,user,cgroup,args`[^119]  Shows cgroup ownership details.
-* systemd version of `ps` is called `systemd-cgls` which shows a nice hierarchy of process ownership.
-  * cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.) Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
-
-#### kill
-
-In the SysVinit/Upstart world to terminate a process you would use the `kill` command.There are various levels of `kill`.
-
- Level       Name            Function
--------- ------------ -----------------------------------------------------------------------
-  1        SIGHUP       Used to make a process re-read a config file
-  2        SIGINT       Effectively hitting CTRL+C
-  9        SIGKILL      Kills a process ungracefully--could damage files, use as last resort
-  15       SIGTERM      Like a kill 9, but with class, gracefully kills a process
--------- ------------ -----------------------------------------------------------------------
-
-All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors. All except `kill -9` every process has to obey. You can use the `killall` command to kill the process and any associated processes that it had launched all in one fell swoop. You and use the `ptkill` command to kill a process by name instead of PID.
-
-### Upstart
-
-In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called `upstart`. Upstart moved all the traditional runlevels and start up scripts to `/etc/init` directory and placed the scripts in configuration files. While leaving the `/etc/rc.d` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in `/etc/init/myservice.conf`: Note the use of the __run level__ concept from SysVinit. Compare this to (on an Ubuntu system) the contents of any script in `/etc/rc3.d` (run level 3). Upstart exhibits a bit more process control but still being a shell script when you boil it down.
-
-```bash
-myservice - myservice job file
-description "my service description"
-author "Me <myself@i.com>"
-# Stanzas
-#
-# Stanzas control when and how a process is started and stopped
-# See a list of stanzas here: http://upstart.ubuntu.com/wiki/Stanzas#respawn
-# When to start the service
-start on runlevel [2345]
-# When to stop the service
-stop on runlevel [016]
-# Automatically restart process if crashed
-respawn
-# Essentially lets upstart know the process will detach itself to the background
-expect fork
-# Run before process
-pre-start script
-    [ -d /var/run/myservice ] || mkdir -p /var/run/myservice
-    echo "Put bash code here"
-end script
-# Start the process
-exec myprocess
-```
-
-Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental replacement in Fedora 9 - until version 18, when systemd was ready. RHEL and CentOS used Upstart as well until RHEL 7, and ChromeOS still does (OS for Chromebooks). Debian considered using Upstart when Debian 8 was being developed but instead decided to jump to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end. 
-
-Upstart was seen as the compromise between SysVinit and its failings but in the end systemd won out. MacOS uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris and Illumos/SmartOS use [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
-
-### Other SysVinit Linux Replacements
-
-Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage"). OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."* Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.
-
-OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used. These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible. Here is a comparison table between systemd, sysVinit, and OpenRC:
-
-           systemd                         SysVinit                         OpenRC
-------------------------------  -------------------------------- -------------------------------- 
-`systemctl list-units`               `service --list-all`           `rc-status`
-`systemctl --failed`                   -                            `rc-status --crashed`
-`systemctl --all`                      -                            `rc-update -v show`
-`systemctl start/stop`             `service start/stop daemon`      `rc-service daemon start/stop`
-`systemctl enable/disable`          `chkconfig on/off daemon`       `rc-update add/del daemon`
-`systemctl daemon-reload`           `chkconfig daemon -add`                -
-
-Init Systems: Comparison of actions
-
 ### Systemd and Systemctl
 
 Systemd was the alternative decision to SysVinit/Upstart that had been developed by Lennart Poettering while at Red Hat. It's main goal is to unify basic Linux configurations and service behaviors across all distributions.
@@ -556,6 +441,121 @@ Systemd uses cgroups as a way to hierarchically group and label processes, and (
 By typing the command, ```systemd-cgls``` you can see a ordered hierarchy of which processes are part of which cgroup. You don't have to search for process IDs anymore, you simply kill the entire cgroup.
 
 > __Example Usage:__ To terminate the Apache2 web-server service, (assuming it has been enabled and started) first let's see the processes in its cgroup by typing ```systemd-cgls```. You can filter just the apache2 process and sub-processes with the command: ```sudo systemd-cgls -u apache2.service```. You can issue a kill command in the same way you can kill traditional processes by typing, ```systemctl kill httpd.service```. You can also issue a kill level command through the ```-s``` flag, ```systemctl kill -s SIGHUP httpd.service``` will issue a ```kill -1``` command to all the members of the httpd.service cgroup.
+
+### System Init Services
+
+For reference we will cover the classic Unix System V init process. This is the basis of all knowledge relating to how processes start since the early 1980s. This is referred to as SysVinit--note that only the Unix based derivatives of BSD use this as of 2018. SysVinit is not in use in Linux as it was replaced by systemd in 2015.
+
+Once the kernel has complete control of the hardware, it begins to execute the "guts" of the operating system--by starting up the system processes. The first task that SysVinit executes is `/sbin/init`. This is referred to as the init process. It's job is only to be the ancestor of all other processes and start each succeeding service--starting from the X server, to the login server, to any GUI, to a webserver or database.
+
+The `/sbin/init/` looks at the value stored in `/etc/inittab` to find the system __run level__. The `run level` tells us which mode to start in and which associated services are needed. These levels are general and each Linux distro modifies them as needed. The default run level for a GUI based distro is `5`. The default run level for a server based OS is `3`.
+
+: Traditional Run Levels
+
+   Level                Operation
+-----------  ------------------------------------
+   0             System Halt/Shut Down
+   1              Single User Mode
+   2         Multiuser Mode Without Networking
+   3              Full Multiuser Mode
+   4                    Unused
+   5                    GUI/X11
+   6                    Reboot
+-----------  ------------------------------------
+
+Once the run level is determined, there is a directory called `/etc/rc.d` which contains __run level specific__ programs to be executed. Files preceded by an *S* mean to start the service, and files preceded by a *K* mean to kill that service. Each K or S file is followed by a number which also indicated priority order--lowest is first. The good thing is that each K or S file is nothing more than a bash script to start or kill a service and do a bit of environment preparation.
+
+As you can see this system has some flaws. There is no way to start services in parallel, its all sequential, which is a waste on today's modern multi-core CPUs. Also there is no way for services that start later that depend on a previous service to be started to understand its own state. The service will happily start itself without its dependencies and go right off a cliff[^ch10f115].
+
+![*Classic SysVinit RC files on Ubuntu 14.04*](images/Chapter-10/sysvinit/rc-d.png "rc.d")
+
+### Working With Services in SysVinit/Upstart
+
+Under the Upstart methodology you can simply start services and stop them with the `service` command. The syntax is: `sudo service <service-name> start | stop | restart | reload | status`.
+
+This would act upon the appropriate shell script to perform the appropriate action. Why would you need to restart a user run service? Remember that everything in Linux is configured with text files. At initial load the text files information is parsed and placed in memory. If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance. The `service` commands are still in place but are just links to the systemd command and control `systemctl`.
+
+#### ps
+
+The `ps` command displays information about a selection of the active processes. This is different from the `top` command as the information is not updated but just displayed. The `ps` command by itself shows very little useful information. Overtime three versions of `ps`` have joined together so there are three sets of options, BSD, Unix, and GNU. The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
+
+![*ps command*](images/Chapter-10/processes/ps.png "ps")
+
+These additional commands will share more information:
+
+* `ps -e`  <-- select all processes (similar to -A)
+* `ps -ef`  <-- this is one of the more helpful and verbose sets of options with full-formatting
+* `ps -eF` <-- Extra full-formatting
+* `ps -ely`  <-- Long formatting
+* `ps -eo pif,tid,class,ni,pri,psr...`  <-- the `o` option allows you to customize the column arraingment and output.
+* `ps -C syslogd -o pid=`  <-- this is the same as doing `ps -ef | grep firefox` or `pidof firefox`
+* `ps xawf -eo pid,user,cgroup,args`[^119]  Shows cgroup ownership details.
+* systemd version of `ps` is called `systemd-cgls` which shows a nice hierarchy of process ownership.
+  * cgroups (control groups) were a feature added to the Linux kernel that allow for processes to be grouped together and control commands can be executed on entire groups (permission limiting, start/stop, priority changes, etc, etc.) Systemd makes big use of [cgroups](https://en.wikipedia.org/wiki/Cgroups "cgroups").
+
+#### kill
+
+In the SysVinit/Upstart world to terminate a process you would use the `kill` command.There are various levels of `kill`.
+
+ Level       Name            Function
+-------- ------------ -----------------------------------------------------------------------
+  1        SIGHUP       Used to make a process re-read a config file
+  2        SIGINT       Effectively hitting CTRL+C
+  9        SIGKILL      Kills a process ungracefully--could damage files, use as last resort
+  15       SIGTERM      Like a kill 9, but with class, gracefully kills a process
+-------- ------------ -----------------------------------------------------------------------
+
+All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors. All except `kill -9` every process has to obey. You can use the `killall` command to kill the process and any associated processes that it had launched all in one fell swoop. You and use the `ptkill` command to kill a process by name instead of PID.
+
+### Upstart
+
+In 2006 the Ubuntu distro realized the short comings of SysVinit and created a compatible replacement called `upstart`. Upstart moved all the traditional runlevels and start up scripts to `/etc/init` directory and placed the scripts in configuration files. While leaving the `/etc/rc.d` structure in place for any backward compatible needing scripts. Here is an example of a *myservice.conf* upstart file stored in `/etc/init/myservice.conf`: Note the use of the __run level__ concept from SysVinit. Compare this to (on an Ubuntu system) the contents of any script in `/etc/rc3.d` (run level 3). Upstart exhibits a bit more process control but still being a shell script when you boil it down.
+
+```bash
+myservice - myservice job file
+description "my service description"
+author "Me <myself@i.com>"
+# Stanzas
+#
+# Stanzas control when and how a process is started and stopped
+# See a list of stanzas here: http://upstart.ubuntu.com/wiki/Stanzas#respawn
+# When to start the service
+start on runlevel [2345]
+# When to stop the service
+stop on runlevel [016]
+# Automatically restart process if crashed
+respawn
+# Essentially lets upstart know the process will detach itself to the background
+expect fork
+# Run before process
+pre-start script
+    [ -d /var/run/myservice ] || mkdir -p /var/run/myservice
+    echo "Put bash code here"
+end script
+# Start the process
+exec myprocess
+```
+
+Ubuntu adopted Upstart in 2006, Fedora adopted it as a SysVinit supplemental replacement in Fedora 9 - until version 18, when systemd was ready. RHEL and CentOS used Upstart as well until RHEL 7, and ChromeOS still does (OS for Chromebooks). Debian considered using Upstart when Debian 8 was being developed but instead decided to jump to systemd instead. When Debian made the jump, this forced Ubuntu, which is a Debian derived distribution, to abandon work on Upstart and switch to systemd as their init system--though they fought until the bitter end. 
+
+Upstart was seen as the compromise between SysVinit and its failings but in the end systemd won out. MacOS uses their own version called [launchd](https://en.wikipedia.org/wiki/Launchd "launchd") and Sun/Oracle Solaris and Illumos/SmartOS use [SMF](https://en.wikipedia.org/wiki/Service_Management_Facility "SMF") which are similar to Upstart in concept but have OS specific extensions.
+
+### Other SysVinit Linux Replacements
+
+Upstart wasn't the only replacement option, currently there are two major ones, [OpenRC](https://wiki.archlinux.org/index.php/OpenRC "OpenRC Wiki Page") and [runit](http://smarden.org/runit/ "runit wikipage"). OpenRC is maintained by the Gentoo Linux developers, runit is focused on being *"a cross-platform Unix init scheme with service supervision, a replacement for sysvinit, and other init schemes. It runs on GNU/Linux, *BSD, MacOSX, Solaris, and can easily be adapted to other Unix operating systems[^123]."* Devuan Linux, which is the Debian fork without systemd, still uses sysVinit but has the ability to use OpenRC or runit if you so choose.
+
+OpenRC and runit do not use systemd at all and therefore any software that requires systemd as a dependency, such as the [GNOME desktop](https://blogs.gnome.org/ovitters/2013/09/25/gnome-and-logindsystemd-thoughts/ "Gnome3 dependecy on systemd"), then cannot be used. These new projects maintain the backward compatibility of SysVinit but improve or adopt systemd style improvements and management where feasible. Here is a comparison table between systemd, sysVinit, and OpenRC:
+
+           systemd                         SysVinit                         OpenRC
+------------------------------  -------------------------------- -------------------------------- 
+`systemctl list-units`               `service --list-all`           `rc-status`
+`systemctl --failed`                   -                            `rc-status --crashed`
+`systemctl --all`                      -                            `rc-update -v show`
+`systemctl start/stop`             `service start/stop daemon`      `rc-service daemon start/stop`
+`systemctl enable/disable`          `chkconfig on/off daemon`       `rc-update add/del daemon`
+`systemctl daemon-reload`           `chkconfig daemon -add`                -
+
+Init Systems: Comparison of actions
 
 ## Filesystems /proc
 
