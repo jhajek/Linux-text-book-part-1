@@ -46,9 +46,9 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
 1) On your client system issue the command to transfer that private key securely to your server via the `ssh-copy-id` command
 
-1) From the client system, issue the command to connect remotely to the server system via password.  While remotely conneced to the server system create a file named: `/c/sshd/sshd_config.d/disable=-password.conf`.
+1) From the client system, issue the command to connect remotely to the server system via password.  While remotely conneced to the server system create a file named: `/c/sshd/sshd_config.d/disable-password.conf`.
 
-1) On the server via the remot connection dit the cntents of the `/etc/sshd/sshd_condif.d/diable-password.conf` to set `PasswordAuthentication No` 
+1) On the server via the remot connection dit the cntents of the `/etc/sshd/sshd_config.d/disable-password.conf` to set `PasswordAuthentication No` 
 
 1) exit your remote session to the server
 
