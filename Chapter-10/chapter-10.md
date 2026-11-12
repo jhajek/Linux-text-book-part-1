@@ -168,7 +168,7 @@ hostnamed
 
 systemd-boot
 
-: systemd-boot is a boot loader, formerly known as gummiboot. Kay Sievers merged it into systemd with systemd 220. The `systemd-boot` tool is designed as a replacement for GNU GRUB and supports UEFI only. Currently `systemd-boot` can be used as your default boot-loader but no systems are actively using is as their default currently. Work is continuing to make this change. 
+: systemd-boot is a boot loader, formerly known as gummiboot. Kay Sievers merged it into systemd with systemd 220. The `systemd-boot` tool is designed as a replacement for GNU GRUB and supports UEFI only. Currently `systemd-boot` can be used as your default boot-loader but are no Linux distros actively using is as their default.
 
 homed
 
