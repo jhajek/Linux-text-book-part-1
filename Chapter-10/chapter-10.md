@@ -151,10 +151,6 @@ Under the Upstart methodology you can simply start services and stop them with t
 
 This would act upon the appropriate shell script to perform the appropriate action. Why would you need to restart a user run service? Remember that everything in Linux is configured with text files. At initial load the text files information is parsed and placed in memory. If you change a value, you need to reload that configuration file into memory, and restarting a service does just that for instance. The `service` commands are still in place but are just links to the systemd command and control `systemctl`.
 
-> __Example Usage:__ On an Ubuntu system to restart your apache2 webserver your would type: `sudo service apache2 restart` (assuming you had apache2 already installed).
-
-> __Example Usage:__ On SysVinit systems (pre-Ubuntu 6.10) you would type the absolute path to the directory where the init script was located. In this case perhaps `/etc/init.d/apache2 restart`
-
 #### ps
 
 The `ps` command displays information about a selection of the active processes. This is different from the `top` command as the information is not updated but just displayed. The `ps` command by itself shows very little useful information. Overtime three versions of `ps`` have joined together so there are three sets of options, BSD, Unix, and GNU. The BSD options have no "-" prefix, UNIX options have a single "-" and GNU options have a double dash "--".
@@ -186,16 +182,6 @@ In the SysVinit/Upstart world to terminate a process you would use the `kill` co
 -------- ------------ -----------------------------------------------------------------------
 
 All programs can choose to *trap* these kill commands and ignore them or take different expected behaviors. All except `kill -9` every process has to obey. You can use the `killall` command to kill the process and any associated processes that it had launched all in one fell swoop. You and use the `ptkill` command to kill a process by name instead of PID.
-
-#### nice
-
-The `nice` command is a *suggestion* tool to the operating system scheduler on how to adjust resource allocation to a process. Giving nice the value or -20 means that this is a really high priority or more favorable process, all the way up to 19 which means that it is a really low priority process. A good example of this would be on a large print job that will take a long time to print but you are not in a time rush--so you can nice the print job to a low priority and it will print when the system is less busy. You can find the usage at `man nice`.
-
-```bash
-# increase favorability of this process to the scheduler by 10 on a 
-# scale of -20 to 19--default is 0.
-nice -n 10 my-program-name
-```
 
 ### Upstart
 
