@@ -887,7 +887,7 @@ The objective of this lab are as follows:
 
 #### Lab Outcomes
 
-Using the examples and exercises in this chapter you will be able to succesfully and securely connect remotely to a remote server. You will be able to isntall a web server and run it as a service. You will be able to troubleshoot issues using the system logs and the journal and you will be able to modify a sudoers file.
+Using the examples and exercises in this chapter you will be able to successfully and securely connect remotely to a remote server. You will be able to install a web server and run it as a service. You will be able to troubleshoot issues using the system logs and the journal and you will be able to modify a sudoers file.
 
 Pre-reqs:
 
@@ -898,7 +898,7 @@ Pre-reqs:
   * These steps are required in order to make this Lab work
 * You can find the ip address of your VMs from their terminal with the command: `ip address show`
   * On VirtualBox look for interface XX: `enp0s8`
-  * On Parallesl look for interface YY: `enp0s6`
+  * On Parallels look for interface YY: `enp0s6`
 * Install any additional packages that the Lab requires
 
 ### Lab - Part One
