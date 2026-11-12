@@ -41,7 +41,7 @@ Since 2015, laptops and PCs are not using BIOS. There has been a replacement and
 
 > *UEFI is a modern replacement for the traditional basic input/output system (BIOS) firmware found in computers. UEFI provides a standardized interface between the operating system and the platform firmware, enabling various features and functionalities during the boot process.*[^ch10f116]
 
-BIOS and UEFI are two separate things. When booting with UEFI, there are 3 additional stages that take place before booting of the operating system. UEFI is different from BIOS as is doesn't use MBR based boot devices, it uses a standard called [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table "wikipage for GPT") for formatting drives. These GPT partitions are stored in the UEFI NVRAM with the location of the files needed for loading the kernel into memory, or booting. The `\efi\boot\bootx64.efi` and `\efi\boot\bootaa64.efi` on ARM64 architecture, so no `MBR` or `VBR` needed.
+BIOS and UEFI are two separate things. When booting with UEFI, there are 3 additional stages that take place before booting of the operating system. UEFI is different from BIOS as is doesn't use MBR based boot devices, it uses a standard called [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table "wikipage for GPT") for formatting drives. These GPT partitions are stored in the UEFI NVRAM with the location of the files needed for loading the kernel into memory, or booting.
 
 1) SEC - Security Phase
 1) PEI - Pre-EFI Initialization
