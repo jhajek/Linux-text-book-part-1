@@ -12,8 +12,8 @@ Pre-reqs:
 * Located at the end of this chapter are critical virtual machine setup steps, complete the additional steps under the header: __Additional Network Interface Setup for SSH__
   * These steps are required in order to make this Lab work
 * You can find the ip address of your VMs from their terminal with the command: `ip address show`
-  * On VirtualBox look for interface XX: `enp0s8`
-  * On Parallels look for interface YY: `enp0s6`
+  * On VirtualBox look for interface: `enp0s8`
+  * On Parallels look for interface: `enp0s6`
 * Install any additional packages that the Lab requires
 
 ### Lab - Part One
@@ -48,7 +48,7 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
 1) From the client system, issue the command to connect remotely to the server system via password.  While remotely conneced to the server system create a file named: `/c/sshd/sshd_config.d/disable-password.conf`.
 
-1) On the server via the remot connection dit the cntents of the `/etc/sshd/sshd_config.d/disable-password.conf` to set `PasswordAuthentication No` 
+1) On the server via the remote connection dit the cntents of the `/etc/sshd/sshd_config.d/disable-password.conf` to set `PasswordAuthentication No` 
 
 1) exit your remote session to the server
 
