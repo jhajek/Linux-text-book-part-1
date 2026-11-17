@@ -745,23 +745,23 @@ View the presentation by FreeBSD developer Benno Rice from BSDCan 2018 at [https
 
 At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.
 
-1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`. Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, show the same menu that is missing the recovery options. Hold the **shift** key down until you see the GRUB menu for some Linux distros.
+1) Using the default GRUB settings in `/etc/default/grub`, change the setting, removing *splash quiet* on `GRUB_CMDLINE_LINUX_DEFAULT=""`. Save the changes the GRUB configuration file, and then run the OS appropriate grub update command (different for Ubuntu and Fedora). Reboot the virtual machine and explain what changed during the boot process.
+
+1) Using the default GRUB settings in `/etc/default/grub`, change the setting, to say `GRUB_TIMEOUT_STYLE="menu"`, `GRUB_TIMEOUT=15`, and `GRUB_DEFAULT=0`. Save the changes the GRUB configuration file, and then run the OS appropriate grub update command (different for Ubuntu and Fedora). Reboot the virtual machine and explain what changed during the boot process.
 
 1) Type the command to display your default `target` environment
 
-1) Install the `openssh-server` package on your distro. Type the 3 commands be to enable the service to start at boot, start the service running, and check the service status?
+1) For the `openssh-server` package on your distro type the 3 commands to enable the service to start at boot, start the service running, and check the service status
 
 1) Install the Nginx webserver package. What is the location on the filesystem of the `.service` file?
 
-1) Breifly explain the recommended purpose of `/etc/systemd/system`  and `/lib/systemd/system`
+1) Briefly explain the recommended purpose of `/etc/systemd/system` and `/lib/systemd/system`
 
 1) Type the systemctl command to stop the Nginx service
 
-1) Type the systemctl command needed to process changes to configuration files before restarting a service
+1) Type the systemctl command that will retrieve and display the `ExecStart` property from the `nginx.service` file (not grep)
 
-1) Type the systemctl command that will retrieve and display the `ExecStart` property from the Nginx.service file (not grep)
-
-1) Type the systemctl command that will retrieve and display the `WantedBy` property from the Nginx.service file (not grep)
+1) Type the systemctl command that will retrieve and display the `WantedBy` property from the `nginx.service` file (not grep)
 
 1) Using the `man` command explain what `timedatectl` does?
 
@@ -773,11 +773,9 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Using the `man` command explain what `hostnamectl` does?
 
-1) Install the package for `systemd-oomd`, using the `man` command explain what `oomctl` does?
+1) List the three headers or parts of a `.service` file?
 
-1) List the three headers or parts of a `.service` file
-
-1) Using the command `timedatectl status`, copy the text output to your answer here. Use the `man` command to find hwo to change your system clock to `UTC`. Run the `timedatectl status` again and copy the output showing the difference--a screen shot is acceptable as well.
+1) Using the command `timedatectl status` use the `man` command to find hwo to change your system clock to `UTC`. Run the `timedatectl status` again and copy the output showing the difference
 
 1) Use the `hostnamectl` command to:
    a) set-hostname to itmo-556-xyz (xyz is your initials)
@@ -788,7 +786,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Use one of the tools described in the **Filesystems /proc** section and print out the exact processor/cpu type your Linux system is reporting.
 
-1) In the textbook sample code: files > Chapter-10 > service-files there is a `.service` file named write-journal.service. Issue the commands to enable and start this service. This will require you to beforehand install the pre-requisite packages and create the `write-journal.py` script: the code is in the section **Logging and Service Files**. Write a `.timer` unit file (remember to enable and start the timer unit file), which will execute your `write-journal.service` once every 5 minutes. Show the output of the `journactl` command that will show logs from only the `write-journal.service` showing that 10 minutes approimately elapsed. Show the status of the systemctl timers to show the timer unit has been registered.
+1) In the textbook sample code: `files > Chapter-10 > service-files` there is a `.service` file named `write-journal.service`. Issue the commands to enable and start this service. This will require you to beforehand install the pre-requisite packages and create the `write-journal.py` script: the code is in the section **Logging and Service Files**. Write a `.timer` unit file (remember to enable and start the timer unit file), which will execute your `write-journal.service` once every 5 minutes. Show logs from only the `write-journal.service` showing that 10 minutes approximately elapsed. Show the status of the systemctl timers to show the timer unit has been registered.
 
 #### Footnotes
 
