@@ -946,7 +946,7 @@ This portion of the lab requires some pre-reqs. It will be assumed that this por
 
 1) Remotely connect to the server via SSH and modify the `index.html` page adding your name to the HTML. On your client system reload the webpage and demonstrate the change you have made.
 
-1) Remotely connected to your server, and using `vim` create in the proper location a simple html file named: `helloworld.html`. In the file add the basic structure of an html file along with the words, "Hello World.". From your client system in the browser go to this new URL and display the content.
+1) Remotely connected to your server, and using `vim` create in the proper location a simple html file named: `helloworld.html` in the `/var/www/html/` directory. In the file add the basic structure of an html file along with the words, "Hello World.". From your client system in the browser go to this new URL and display the content.
 
 1) On the client system, in the browser change the URL from the previous steps and add /cats.html at the end (this will fail and cause a 404 error). Remotely connected to your server, using the logs files, show this connections details in the `access.log`
 

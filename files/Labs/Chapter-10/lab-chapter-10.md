@@ -2,9 +2,13 @@
 
 ## Lab 10 Outcomes
 
-At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd. After each item take a screenshot and place it below the question to demonstrate the answer (unless specified otherwise). Edit your screenshots to show just the relevant information.
+At the conclusion of this lab, you will be able to manage, edit, and list system processes in systemd--helping you to master the concepts of systemd.
 
-1) Change the default GRUB settings on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`. Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, and now take a screenshot of the same menu that is missing the recovery options. Hold the **shift** key down until you see the GRUB menu for some Linux distros.
+GRUB_CMDLINE_LINUX_DEFAULT=""
+`GRUB_TIMEOUT_STYLE`
+`GRUB_TIMEOUT`
+`GRUB_DEFAULT`
+1) Edit the default GRUB settings in `/etc/default/grub` on your Ubuntu virtual machine uncommenting the entry `GRUB_DISABLE_RECOVERY="true"`. Save the changes the GRUB configuration file, reboot the virtual machine, repeating the process in the first question, and now take a screenshot of the same menu that is missing the recovery options. Hold the **shift** key down until you see the GRUB menu for some Linux distros.
 
 1) Type the command to display your default `target` environment
 
@@ -12,7 +16,7 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Install the Nginx webserver package. What is the location on the filesystem of the `.service` file?
 
-1) Breifly explain the recommended purpose of `/etc/systemd/system`  and `/lib/systemd/system`
+1) Briefly explain the recommended purpose of `/etc/systemd/system`  and `/lib/systemd/system`
 
 1) Type the systemctl command to stop the Nginx service
 

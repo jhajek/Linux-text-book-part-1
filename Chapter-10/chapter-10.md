@@ -102,7 +102,7 @@ The GNU GRUB bootloader exists in the file `/boot/grub/grub.cfg` or `/boot/grub2
 
 `GRUB_TIMEOUT` -- this is the setting that tells the system to boot the default command N seconds after the GRUB menu has appeared. It functions as a countdown.
 
-`GRUB_TIMEOUT_STYLE` -- this will let the count down appear or silently countdown.
+`GRUB_TIMEOUT_STYLE` -- the options are `menu` and `hidden` this will let the count down appear or silently countdown.
 
 `GRUB_CMDLINE_LINUX_DEFAULT` -- this value adds additional key value pairs to the kernel boot parameters. A common setting here is to enable or disable the vendor splash screen: `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`. This value, `splash quiet`, hides the boot time kernel message behind a vendor logo, the Ubuntu logo for instance with the spinning indicator.
 
