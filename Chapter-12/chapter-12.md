@@ -14,7 +14,7 @@
 
 ## Outcomes
 
-At the conclusion of this chapter you will have explored the nature of the network settings for the two major Linux distribution families and for BSD.  You will be comfortable using various commandline troubleshooting tools to help solve network issues and problems.  You will deploy two major webserver platforms and understand the differences between Apache and Nginx in their memory models and request handling models.  Finally you will have gained experience deploying, installing, and configuring MySQL and MariaDB SQL databases and a popular NoSQL database MongoDB.
+At the conclusion of this chapter you will have explored the nature of the network settings for the two major Linux distribution families and for BSD.  You will be comfortable using various commandline troubleshooting tools to help solve network issues and problems. You will deploy two major webserver platforms and understand the differences between Apache and Nginx in their memory models and request handling models. Finally you will have gained experience deploying, installing, and configuring MySQL and MariaDB SQL databases and a popular NoSQL database MongoDB.
 
 ## Networking
 
@@ -82,8 +82,8 @@ There are two suites of tools for viewing and configuring network information. T
 
 The `iproute2` suite standardized on the singular `ip` command--unifying a disparate set of tools. Older Linux (pre-2015) definitely have `net-tools` installed. Now Linux distributions are only including the `iproute2` package.
 
-* Red Hat Workstation includes `net-tools` and `ip-route2`
-  * Almalinux (RHEL server) includes only `ip-route2`
+* Fedora Workstation includes `net-tools` and `ip-route2`
+  * AlmaLinux includes only `ip-route2`
 * Debian Linux Desktop and Server only includes `ip-route2`
   * Ubuntu Desktop and Server only includes `ip-route2`
 * openSuse Linux only includes `ip-route2`
@@ -221,7 +221,7 @@ iface enp0s8 inet static
      gateway 192.168.0.1
 ```
 
-### Ubuntu and Fedora Using NetworkManager
+### Ubuntu and Fedora Desktop Using NetworkManager
 
 NetworkManager uses NMconnections for configuring its syntax, which looks similar to the Networkd style INI based syntax[^148]. The network configurations are no longer located in `/etc/sysconfig/network-scripts/ifcfg-eth0`. You would create a file named `*.nmconnections` located under the `/etc/NetworkManager/system-connections/` directory.
 
@@ -255,7 +255,7 @@ nm-generated=true
 
 #### Netplan.io
 
-To further confuse things, Ubuntu decided to write a YAML based file management abstraction layer for networking that can use the same configuration for either Network Manager or Networkd-Systemd. It is called [netplan.io](https://netplan.io "netplan").  Netplan reads YAML style files from a network configuration located in `/etc/netplan/*.yaml`.
+To further confuse things, Ubuntu decided to write a YAML based file management abstraction layer for networking that can use the same configuration for either Network Manager or Networkd-Systemd. It is called [netplan.io](https://netplan.io "netplan"). Netplan reads YAML style files from a network configuration located in `/etc/netplan/*.yaml`.
 
 Not to be out done, the sample template from Netplan.io looks similar to systemd-networkd[^149]. To configure `netplan`, save configuration files under `/etc/netplan/` with a .yaml extension (e.g. `/etc/netplan/config.yaml`), then run `sudo netplan apply`. This command parses and applies the configuration to the system. Configuration written to disk under `/etc/netplan/` will persist between reboots.  By default in Ubuntu 18.04 Network Manager is used for actively managing network connections, Netplan is "on" but allows Network Manager to manage by default unless specifically altered below.
 
@@ -914,18 +914,18 @@ Structure of Assessment: For this assessment you will need to execute various se
 
 ### Outcomes
 
-In this assessment you will using Linux shell scripting to create a WordPress Blog on an Ubuntu Server 22.04 LTS 
+In this assessment you will using Linux shell scripting to create a WordPress Blog on an Ubuntu Server 
 
 ### Lab Pre-requisites 
 
-* You will need to create or use a fresh Ubuntu 22.04 LTS server virtual machine
+* You will need to create or use a fresh Ubuntu server virtual machine
   * You will need to enable an additional host-only network interface
   * And have installed and enabled openssh-server
   * Attach two new virtualdisks of 10GB each
 * You can execute the setup commands remotely from a newly created Fedora Workstation virtual machine 
   * Also have an additional host-only network enabled.   
-* For the next set of questions, you will need to SSH into the Ubuntu 22.04 LTS from your Fedora install 
-  * Then configure various pieces of software then answer questions based on those installs on the Ubuntu Server 22.04 LTS remotely  
+* For the next set of questions, you will need to SSH into the Ubuntu Server from your Fedora install 
+  * Then configure various pieces of software then answer questions based on those installs on the Ubuntu Server remotely  
 
 #### Deliverable: 
 
@@ -935,16 +935,16 @@ We recommend you complete this once manually - taking note of all the steps, the
 
 #### Part One - Shell Script
 
-* On the Ubuntu 22.04 format the new disks creating a single datapool named: `datapool1`
+* On the Ubuntu Server format the new disks creating a single datapool named: `datapool1`
   * Change ownership and group of the newly created `/datapool` to your own user
   * Ensure you add the lines into /etc/fstab to mount datapool on reboot  
 * Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, libapache2-mod-php, and php-mysqli)
   *  You won't need all of these but you can see here which ones WordPress requires -- [Server Dependencies list](https://make.wordpress.org/hosting/handbook/server-environment/ "website link for extra dependencies")
 * Stop the MySQL service
-* Copy the /var/lib/mysql directory to /datapool using the rsync command to preserve permissions
+* Copy the `/var/lib/mysql` directory to `/datapool` using the rsync command to preserve permissions
 * Give ownership of the entire directory to MySQL and set permissions to 700
-* Uncomment and change the line that specifies the path to the data directory in /etc/mysql/mysql.conf.d/mysqld.cnf
-* Change the two lines in /etc/apparmor.d/usr.sbin.mysqld which allow data directory access
+* Uncomment and change the line that specifies the path to the data directory in `/etc/mysql/mysql.conf.d/mysqld.cnf`
+* Change the two lines in `/etc/apparmor.d/usr.sbin.mysqld` which allow data directory access
 * Reload the apparmor service
 * Start the MySQL service
 * Use the MySQL inline option (-e) to create a database named: `wp`
@@ -953,7 +953,7 @@ We recommend you complete this once manually - taking note of all the steps, the
 * Retrieve the WordPress Installer Zip file 
 * Extract the WordPress code 
 * Move the extracted wordpress directory to `/var/www/html/`
-* Rename the file wp-config-sample.php to wp-config.php in the `/var/www/html/wordpress` directory 
+* Rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory 
 * Using the sed command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29 
 * Install `firewalld` via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone
 * Using the `chown` command change the ownership of the directory `/var/www/html/wordpress` to have owner and group be `www-data`, which is the apache2 webserver's username

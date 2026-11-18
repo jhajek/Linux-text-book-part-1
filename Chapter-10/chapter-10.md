@@ -313,7 +313,6 @@ After=network.target
 
 [Service]
 Type=simple
-PIDFile=/run/bb.pid
 #Adjust User to your current username
 User=controller
 ExecStart=/usr/bin/python3 /usr/local/bin/write-journal.py
@@ -343,7 +342,7 @@ WantedBy=multi-user.target
 Alias=syslog.service
 ```
 
-#### Creating a .timer script
+#### Creating a .timer Script
 
 Systemd `.timer` scripts are an effort to replace crontab with a centralized systemd format called `timers`. You can see all the timers set on your system by default by using the `sudo systemctl list-timers` command. The `.timer` files are named the same as the `.service` file--this correlates them. Timer files are stored along with service files in the `/usr/lib/systemd/system` or `/etc/systemd/system` directory. Here is a sample `.timer`:
 
@@ -356,14 +355,14 @@ Description=Daily apt download activities
 
 [Timer]
 OnCalendar=*-*-* 6,18:00
-RandomizedDelaySec=12h
+RandomizedDelaySec=30s
 Persistent=true
 
 [Install]
 WantedBy=timers.target
 ```
 
-The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency. It can use various types of time definitions[^ch10f125]. Here is a small list defining the various ways you can state time, even extending the traditional CronTab syntax and adding ranges (seperated by the two dots "..").
+The main variable here is the `OnCalendar` value, where you can define a time when the script takes place and or the frequency. It can use various types of time definitions[^ch10f125]. Here is a small list defining the various ways you can state time, even extending the traditional CronTab syntax and adding ranges (separated by the two dots "..").
 
 * Wed 18:00:00
 * Mon..Wed \*-5-27
@@ -381,7 +380,7 @@ The main variable here is the `OnCalendar` value, where you can define a time wh
 You will need to install some pre-reqs for this example.
 
 ```bash
-# Ubuntu 22+ - https://pypi.org/project/cysystemd/
+# Ubuntu - https://pypi.org/project/cysystemd/
 sudo apt-get install build-essential \
     libsystemd-dev \
     python3-pip \
@@ -784,7 +783,13 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Use one of the tools described in the **Filesystems /proc** section and print out the exact processor/cpu type your Linux system is reporting.
 
-1) In the textbook sample code: `files > Chapter-10 > service-files` there is a `.service` file named `write-journal.service`. Issue the commands to enable and start this service. This will require you to beforehand install the pre-requisite packages and create the `write-journal.py` script: the code is in the section **Logging and Service Files**. Write a `.timer` unit file (remember to enable and start the timer unit file), which will execute your `write-journal.service` once every 5 minutes. Show logs from only the `write-journal.service` showing that 10 minutes approximately elapsed. Show the status of the systemctl timers to show the timer unit has been registered.
+1) Using Fedora Workstation and duplicating the steps demonstrated in the class video and following the textbook, you will create a Python script to enter logs into the journal, create a service file to execute that Python script, and create a timer file to execute the service every two minutes.
+
+* Using the textbook section entitled: **Logging and Service Files**, write a Python script named: `write-journal.py` that uses the systemd journal to write a message into the journal.  Copy the Python file to `/usr/local/bin/`
+* Create and place in the proper location for a user created service file a systemd service file named: `write-journal.service` (see textbook section entitled: **Create a Service File for a User Created Script**) 
+* Create and place in the proper location for a user created timer file a systemd timer file named: `write-journal.timer` (see textbook section entitled: **Creating a .timer Script**) Have `OnCalendar=` execute every two minutes. Make sure to enable and start your .timer service
+* Use the `systemctl --list-timers` command to show your timer is active
+* Use the journalctl command to list the logs entries for the `write-journal.service` and demonstrate that the log message *"Hello Lennart"* is being logged. Show at least two executions of your .timer file and the resulting log entries.
 
 #### Footnotes
 
