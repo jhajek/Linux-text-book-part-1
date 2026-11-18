@@ -36,12 +36,10 @@ At the conclusion of this lab, you will be able to manage, edit, and list system
 
 1) Using the command `timedatectl status` use the `man` command to find hwo to change your system clock to `UTC`. Run the `timedatectl status` again and copy the output showing the difference
 
-1) Use the `hostnamectl` command to:
-   a) set-hostname to itmo-556-xyz (xyz is your initials)
-   b) set-location to: d1r1u22
-   c) set-chassis to: vm
-   d) set-deployment to: development
-   e) display the changes by issuing the `hostnamectl` command
+1) Use the `hostnamectl` command to modify and display the following:
+   a) set-hostname on your SSH client to xyz-ssh-client (xyz is your initials)
+   b) set-chassis to: vm
+   c) set-deployment to: dev
 
 1) Use one of the tools described in the **Filesystems /proc** section and print out the exact processor/cpu type your Linux system is reporting.
 
