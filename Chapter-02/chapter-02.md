@@ -557,7 +557,7 @@ From the [CentOS Blog, December 2020:](https://blog.centos.org/2020/12/future-is
 
 #### Rocky Linux  
 
-Founded in 2020 shortly after the change in CentOS, by Greg Kurtzer. [Rocky Linux](https://rockylinux.org/about/ "webpage Rocky Linux") was a fork of the CentOS code base and an attempt to return to the original vision of CentOS to be the **Community Enterprise Linux**. Rocky Linux was supported by a commercial Company, [CIQ](https://ciq.com/ "webpage for CIQ") for use in their own cloud infrustructure. Rocky aimes to be RHEL compatable, but as of 2023 Red Hat with a licensing change, severly hampered this mission.
+Founded in 2020 shortly after the change in CentOS, by Greg Kurtzer. [Rocky Linux](https://rockylinux.org/about/ "webpage Rocky Linux") was a fork of the CentOS code base and an attempt to return to the original vision of CentOS to be the **Community Enterprise Linux**. Rocky Linux has been supported by a commercial Company, [CIQ](https://ciq.com/ "webpage for CIQ") for use in their own cloud infrustructure. Rocky aimes to be RHEL compatable, but as of 2023 Red Hat with a licensing change, severly hampered this mission.
 
 #### AlmaLinux
 
