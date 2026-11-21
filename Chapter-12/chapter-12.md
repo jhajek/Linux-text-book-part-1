@@ -441,9 +441,7 @@ The OpenBSD project which values security and home grown solutions over pure ava
 
 In late 2009, a developer from [Joyent](https://www.joyent.com/ "joyent website") (later Samsung/Joyent) wanted to explore the probabilities of JavaScript. Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity. He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome browser, added an event loop and I/O functions and made it a standalone server.
 
-Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website"). 
-
-For more information you could watch the documentary: [Node.js: The Documentary | An origin story](https://www.youtube.com/watch?v=LB8KwiiUGy0 "youtube NodeJS story")
+Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package Manager or [NPM](https://www.npmjs.com/ "NPM website"). For more information you could watch the documentary: [Node.js: The Documentary | An origin story](https://www.youtube.com/watch?v=LB8KwiiUGy0 "youtube NodeJS story")
 
 #### Installing Node.js
 
@@ -552,7 +550,7 @@ sudo dnf install mysql-client
 
 ### Opensource Relational Database History
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql"). The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market.  MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010.  Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company. MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the `mysql` cli.
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql"). The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market. MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010. Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company. MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the `mysql` cli.
 
 #### Common Administrative Commands
 
@@ -671,12 +669,12 @@ Used to block external communication on you system ports. Not unlike plugs in th
 * SSH - 22
 * DNS - 53
 * HTTP - 80 (becoming deprecated in browsers)
-* HTTPS - 443 (HTTP with TLS/SSL)
+* HTTPS - 443 (HTTP with TLS)
 * MongoDB - 27017
 * PostgreSQL - 5432
 * MySQL/MariaDB - 3306
 * Oracle DB - 1521
-* ExpressJS - 3000
+* Express - 3000
 
 You can use rules to allow or deny traffic based on source IP, source Port, Destination IP, or Destination Port. Some people urge turning the firewall off because of complexity. I do not recommend this. If you are going to run a business, you need to understand what ports are open and why--opening them all is not a solution and could be a violation of laws regarding security, privacy, and government regulation.  
 
