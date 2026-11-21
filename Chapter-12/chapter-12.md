@@ -437,57 +437,47 @@ sudo openssl req -subj "/C=US/ST=Illinois/L=Chicago/O=JRH/OU=Org/CN=www.iit.edu"
 
 The OpenBSD project which values security and home grown solutions over pure availability.  Instead of trusting others code, the OpenBSD project built and maintain [their own webserver](https://bsd.plumbing/about.html#features "OpenBSD httpd").
 
-### NodeJS
+### Node.js
 
-In late 2009/2010, a developer from [Joyent](https://www.joyent.com/ "joyent website") (later Samsung/Joyent) wanted to explore the probabilities of JavaScript. Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity. He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome browser, added an event loop and I/O functions and made it a standalone server.  Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website").
+In late 2009, a developer from [Joyent](https://www.joyent.com/ "joyent website") (later Samsung/Joyent) wanted to explore the probabilities of JavaScript. Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity. He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome browser, added an event loop and I/O functions and made it a standalone server.
 
-NodeJS package install information is here: 
+Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package manager or [NPM](https://www.npmjs.com/ "NPM website"). 
 
-* [Debian and Ubuntu](https://github.com/nodesource/distributions/blob/master/DEV_README.md "Debian and Ubuntu install instructions")
-* [Fedora and AlmaLinux](https://github.com/nodesource/distributions/blob/master/DEV_README.md#enterprise-linux-based-distributions "webpage install instructions for Fedora and AlmaLinux")
+For more information you could watch the documentary: [Node.js: The Documentary | An origin story](https://www.youtube.com/watch?v=LB8KwiiUGy0 "youtube NodeJS story")
+
+#### Installing Node.js
+
+[Follow the instructions](https://nodejs.org/en/download "webpage to install Node.js") to install Node.js on any Linux platform.
 
 ```bash
-# Ubuntu and Debian NodeJS installation
-sudo apt install -y curl
-curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
-sudo -E bash nodesource_setup.sh
-sudo apt install nodejs
-node -v
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+# Download and install Node.js:
+nvm install 26
+# Verify the Node.js version:
+node -v # Should print "v26.13.1".
+# Verify npm version:
+npm -v # Should print "11.20.0".
 ```
 
-```bash
-# Install on Fedora/AlmaLinux NodeJS Installation
-sudo dnf install gcc-c++ make
-sudo dnf install -y curl
-curl -fsSL https://rpm.nodesource.com/setup_22.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo dnf install -y nodejs
-node -v
-```
+#### Installing Packages with NPM
 
-Using the NPM package manager, we can install additional plugins that allow our Node.js JavaScript application to have additional features.  For example:
+Using the `npm` package manager, we can install additional libraries that allow our Node.js application to have additional features. One of the current popular `npm` packages is `Express`, which is [webserver written entirely in JavaScript](https://expressjs.com/ "webpage for Express"). Lets install ExpressJS. From the terminal for example:
 
 ```bash
-##############################################################################
-# Using NPM to install the ExpressJS JavaScript server
-##############################################################################
 sudo npm install express
-##############################################################################
-# Using NPM to install the Mysql connector to talk to a MySQL or MariaDB 
-# database
-##############################################################################
 sudo npm install mysql2
-##############################################################################
 ```
 
-Now using vim or nano lets code a sample "Hello World" Node.js program, let's create a directory in the `Documents` directory named: **myapp**. Name the file **app.js**. Then type the code sample below:
+### Creating an Express "Hello World!"
+
+Now using vim or nano lets code a sample "Hello World" Node.js program, let's create a directory in your `HOME` directory named: **myapp**. Name the file: app.js`. Then type the code sample below:
 
 ```javascript
-// Simple sample app from
-// http://expressjs.com/en/starter/hello-world.html
-// You can access this by opening a webbrowser on your Virtual Machine
-// from the directory where the app.js is located run: node app.js
-// and go to http://127.0.0.1:3000
+//This is essentially the simplest Express app you can create 
+// It is a single file app 
 
 const express = require('express')
 const app = express()
@@ -502,22 +492,45 @@ app.listen(port, () => {
 })
 ```
 
-### Staring the sample Express JS APP
+### Staring the Sample Express Application
 
-With all the pre-reqs installed you are ready to start the ExpressJS server and begin serving our "Hello World!" app. Using the app.js file in our sample code located at `files > Chapter-12 > javascript > app.js` execute the commmand: `node app.js` and your application will begin to server.
+With all the pre-reqs installed you are ready to start the ExpressJS server and begin serving our "Hello World!" app. Execute the commmand: `node app.js` and your application will begin to serve, but note what happens when you close your terminal? The server stops serving. In order to keep in running in the background we need a `.service` file from Chapter 10.
 
-## Database and NoSQL
+### Node.js .service file
 
-Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The major commercial databases you are familiar with: Oracle, MS SQL-Server, and IBM DB2 are relational databases but not opensource--they won't be covered here. The relational database structure uses a query language called SQL, *Structured Query Language* which allows you to make queries on structured data. Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth. These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language. There are many opensource relational database systems here are the four major ones:
+Lets create a `.service` file in the `/etc/systemd/system` directory named: `myapp.service`. Remember to `enable` and `start` your service file. Then reboot your OS and see if your "Hello Word," application is still serving.
+
+```bash
+[Unit]
+Description=MyApp Server
+After=network.target
+
+[Service]
+Type=simple
+User=controller # replace with your username
+WorkingDirectory=/home/yourusername/myapp
+ExecStart=/usr/bin/node /home/yourusername/myapp/app.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+## Relational Databases
+
+Databases come in two types: **Relational databases** and **Non-relational databases (NoSQL)**. The major commercial databases you are familiar with: Oracle, Microsoft SQL Server, and IBM DB2 are relational databases but not opensource--they won't be covered here. 
+
+The relational database structure uses a query language called SQL, *Structured Query Language* which allows you to make queries on structured data. Structured data assumes that data is stored in typed fields such as integer, varchar, decimal, datetime, and so forth. These structured rows and columns are then stored in a table and accessed via the SQL syntax either via the command line or integrated into a programming language. There are many opensource relational database systems here are the four major ones:
 
 * [MySQL](https://www.mysql.com/ "website for mysql")
 * [MariaDB](https://mariadb.org/ "website for mariadb")
 * [SQLite](https://www.sqlite.org/index.html "webpage for sqlite")
 * [PostgreSQL](https://www.postgresql.org/ "webpage for postgresql")
 
-### Install MySQL and MariaDB
+### Install MySQL or MariaDB
 
-We will focus on the MySQL and MariaDB instances. They are interchangable and if you learn one of these you will be a way to learning other systems. Installation of a database is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server.  These parts do what they say, if you are accessing a database remotely, you do not need to install the entire server just the client tools to use the applications.
+We will focus on the MySQL and MariaDB instances. They are interchangable and if you learn one of these you will be a way to learning other systems. Installation of a database is straight forward using package managers, there are two pieces of the Relational Database (RDBMS) the client and the server. These parts do what they say, if you are accessing a database remotely, you do not need to install the entire server just the client tools to use the applications. Make sure to start and enable the maria or mysql service!
 
 ```bash
 # Using Ubuntu or Debian based distros
@@ -525,17 +538,16 @@ We will focus on the MySQL and MariaDB instances. They are interchangable and if
 # Ubuntu 
 sudo apt install mariadb-server
 sudo apt install mysql-server
-
+# or
 sudo apt install mariadb-client
 sudo apt install mysql-client
 
 # Installing on Fedora
 sudo dnf install mariadb-server
 sudo dnf install mariadb-client
+# or
 sudo dnf install mysql-server
 sudo dnf install mysql-client
-
-# Make sure to start and enable the maria or mysql service!!!
 ```
 
 ### Opensource Relational Database History
@@ -918,22 +930,14 @@ In this assessment you will using Linux shell scripting to create a WordPress Bl
 
 ### Lab Pre-requisites 
 
-* You will need to create or use a fresh Ubuntu server virtual machine
+* You will need two Virtual Machines
+  * Designate an Ubuntu Server VM as your server
+  * Designate an Desktop VM as your client
   * You will need to enable an additional host-only network interface
   * And have installed and enabled openssh-server
-  * Attach two new virtualdisks of 10GB each
-* You can execute the setup commands remotely from a newly created Fedora Workstation virtual machine 
-  * Also have an additional host-only network enabled.   
-* For the next set of questions, you will need to SSH into the Ubuntu Server from your Fedora install 
-  * Then configure various pieces of software then answer questions based on those installs on the Ubuntu Server remotely  
+  * Attach two new virtualdisks of 10GB each (Chapter 11)
 
-#### Deliverable: 
-
-Submit a screenshot of the final blog post and the shell script that scripts the following to your chapter-12 folder in your private GitHub repo. These 11 steps need to be in your **final shell script**. 
-
-We recommend you complete this once manually - taking note of all the steps, then create a single shell script to do all these steps in an automated fashion. This will require having fresh systems to start over with
-
-#### Part One - Shell Script
+#### Part One A (with Chapter 11)
 
 * On the Ubuntu Server format the new disks creating a single datapool named: `datapool1`
   * Change ownership and group of the newly created `/datapool` to your own user
@@ -954,7 +958,33 @@ We recommend you complete this once manually - taking note of all the steps, the
 * Extract the WordPress code 
 * Move the extracted wordpress directory to `/var/www/html/`
 * Rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory 
-* Using the sed command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29 
+* Using the `sed` command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29 
+* Install `firewalld` via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone
+* Using the `chown` command change the ownership of the directory `/var/www/html/wordpress` to have owner and group be `www-data`, which is the apache2 webserver's username
+  * Make sure to use the `-R` flag to recursively change the ownership in all sub-directories as well
+
+#### Part One B (without Chapter 11)
+
+* On the Ubuntu Server format the new disks creating a single datapool named: `datapool1`
+  * Change ownership and group of the newly created `/datapool` to your own user
+  * Ensure you add the lines into /etc/fstab to mount datapool on reboot  
+* Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, libapache2-mod-php, and php-mysqli)
+  *  You won't need all of these but you can see here which ones WordPress requires -- [Server Dependencies list](https://make.wordpress.org/hosting/handbook/server-environment/ "website link for extra dependencies")
+* Stop the MySQL service
+* Copy the `/var/lib/mysql` directory to `/datapool` using the rsync command to preserve permissions
+* Give ownership of the entire directory to MySQL and set permissions to 700
+* Uncomment and change the line that specifies the path to the data directory in `/etc/mysql/mysql.conf.d/mysqld.cnf`
+* Change the two lines in `/etc/apparmor.d/usr.sbin.mysqld` which allow data directory access
+* Reload the apparmor service
+* Start the MySQL service
+* Use the MySQL inline option (-e) to create a database named: `wp`
+* Use the MySQL inline option (-e) to create a non-root user named: `wp-user`
+* Use the MySQL inline option (-e) to grant the user, wp-user, the proper permissions needed for WordPress (section 12.5.2.6)
+* Retrieve the WordPress Installer Zip file 
+* Extract the WordPress code 
+* Move the extracted wordpress directory to `/var/www/html/`
+* Rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory 
+* Using the `sed` command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29 
 * Install `firewalld` via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone
 * Using the `chown` command change the ownership of the directory `/var/www/html/wordpress` to have owner and group be `www-data`, which is the apache2 webserver's username
   * Make sure to use the `-R` flag to recursively change the ownership in all sub-directories as well
