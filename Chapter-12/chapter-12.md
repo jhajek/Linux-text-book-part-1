@@ -384,15 +384,14 @@ Started in 2004 by Igor Sysoev, this product came out of a Russian company who f
 
 #### Sample HTTP site
 
-To help out our brand new webserver -- lets get us some content. On our Ubuntu Desktop system, lets issue these commands from the terminal:
+To help out our brand new webserver -- lets get us some content. On our Ubuntu Desktop system in our HOME directory, lets issue these commands from the terminal:
 
-* `wget https://github.com/twbs/bootstrap/releases/download/v5.3.2/bootstrap-5.3.2-examples.zip`
-  * To download the latest bootstrap CSS samples. 
-* `unzip bootstrap-5.3.2-examples.zip`
+* Use the `wget` tool to retrieve the needed files: [bootstrap-5.3.2-examples.zip](https://github.com/twbs/bootstrap/releases/download/v5.3.2/bootstrap-5.3.2-examples.zip "github for Bootstrap example")
+  * Run the command: `unzip bootstrap-5.3.2-examples.zip`
   * Decompress the samples -- might need to install the zip package
 * Issue the `cd` command into the `bootstrap` directory
   * Issue the copy command of the `assets` and `heroes` directory
-  * Copy them to the `/var/www/html` directory as this is where Nginx on Ubuntu server its webpages from
+  * Copy them to the `/var/www/html/` directory as this is where Nginx on Ubuntu server its webpages from
 * Open the FireFox browser in that virtual machine
   * Navigate to the URL: `http://127.0.0.1/heroes` to see the bootstrap sample page
 
