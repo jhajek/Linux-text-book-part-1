@@ -614,26 +614,21 @@ sudo mysql < ./insert-single-record.sql
 
 #### Inline SQL commands
 
-SQL commands can also be executed inline as well.
-
 ```bash
 sudo mysql -e "CREATE DATABASE wordpress_db;"
 sudo mysql -e "CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';"
 
 # https://wordpress.stackexchange.com/questions/6424/
-# I am splitting the long command up into two parts to fit it on the screen
-# It should look like this:
-# sudo mysql -e "GRANT SELECT INSERT UPDATE DELETE DROP ALTER ON wordpress_db.*
-# TO 'wp_user'@'localhost'"
-
-COMMAND1="GRANT CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER ON wordpress_db.*"
-COMMAND2=" TO 'wp_user'@'localhost';"
-sudo mysql -e "$COMMAND1$COMMAND2"
-
-# You can assign long commands to variables and execute them too
-COMMAND="FLUSH PRIVILEGES;"
-sudo mysql -e "$COMMAND" 
+sudo mysql -e "GRANT CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER ON \ wordpress_db.* TO 'wp_user'@'localhost'";
 ```
+
+* SQL commands can be executed via Bash or *inline*
+* These step grant privilleges to our non-root user `wp_user`
+  * Note the '\' is a line continuation character
+  * Meaning this is really one lineof code but separated into two for the book
+* We need to grant permision to the database and the specific tables 
+  * Via the `wordpress_db.*` text 
+  * This means all tables under the `wordpress_db` database
 
 ### PostgreSQL
 

@@ -1,4 +1,5 @@
-CREATE DATABASE records;
+-- This code will use the database records and create a table for records to
+-- be entered into it
 USE records;
 CREATE TABLE tutorials_tbl(
    tutorial_id INT NOT NULL AUTO_INCREMENT,
