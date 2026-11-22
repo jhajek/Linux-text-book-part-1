@@ -697,7 +697,7 @@ Firewalld uses the `firewall-cmd` command and not firewallctl like you would exp
 # https://firewalld.org/documentation/
 
 # Install firewalld on Ubuntu
-sudo apt-get install firewalld
+sudo apt install firewalld
 sudo systemctl enable firewalld
 sudo systemctl start firewalld
 ```
