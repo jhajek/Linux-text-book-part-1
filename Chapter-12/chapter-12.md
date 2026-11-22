@@ -981,19 +981,18 @@ Following the [Wordpress Blog installation instructions](https://developer.wordp
   * Use the MySQL inline option (-e) to grant the user, `wp_user`, the proper permissions needed for WordPress
 * From the command line using the `wget` command, retrieve the WordPress Installer Zip file 
   * [https://wordpress.org/latest.zip](https://wordpress.org/latest.zip "webpage for latest download of Wordpress")
-* Move the extracted wordpress directory to `/var/www/html/`
-* Rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory 
-* Using the `sed` command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29 
+* Move the entire extracted wordpress directory into `/var/www/html/`
+* In the moved directory, rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory 
+* Using the `sed -i` command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29
+  * Use the value you created when setting up the Mariadb server 
 * Install `firewalld` via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone
-* Using the `chown` command change the ownership of the directory `/var/www/html/wordpress` to have owner and group be `www-data`, which is the apache2 webserver's username
-  * Make sure to use the `-R` flag to recursively change the ownership in all sub-directories as well
 
 #### Part Two - Manual Configuration Steps
 
-* From your Fedora system, open a web browser and navigate to http://IP-of-ubuntu-server/wordpress 
+* From your HOST system, open a web browser and navigate to http://IP-of-ubuntu-server/wordpress 
   * Complete the manual portion to setup a WordPress User, login to your new WordPress installation. 
   * Create a single new blog post that posts a picture of you and the University Logo at the bottom of your post 
-    * The image in located in the textbook sample code: files > Chapter-14 > logos > illinois-tech-logo.jpg
+    * The image in located in the textbook sample code: files > Chapter-12 > logos > illinois-tech-logo.jpg
 
 #### Footnotes
 
