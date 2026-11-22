@@ -506,7 +506,7 @@ After=network.target
 Type=simple
 User=controller # replace with your username
 WorkingDirectory=/home/yourusername/myapp
-ExecStart=/usr/bin/node /home/yourusername/myapp/app.js
+ExecStart=/usr/bin/node /home/controller/myapp/app.js
 Restart=on-failure
 RestartSec=5
 
