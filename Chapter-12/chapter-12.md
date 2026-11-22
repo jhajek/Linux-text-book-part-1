@@ -750,7 +750,7 @@ sudo systemctl start fail2ban
 
 ### Ubuntu UFW
 
-Ubuntu uses [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW "Ubuntu UFW"). It is installed but not enabled by default.  You can enable it:  `sudo ufw enable` and print out the status via `sudo ufw status`.  Syntax examples include:
+Ubuntu has there own firewall, called [UFW (Uncomplicated Firewall)](https://help.ubuntu.com/community/UFW "Ubuntu UFW"). It is installed but not enabled by default.  You can enable it: `sudo ufw enable` and print out the status via `sudo ufw status`.  Syntax examples include:
 
 * Allow or deny by port number
   * `sudo ufw allow 53`
