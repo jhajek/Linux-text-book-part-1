@@ -440,7 +440,7 @@ The OpenBSD project which values security and home grown solutions over pure ava
 
 In late 2009, a developer from [Joyent](https://www.joyent.com/ "joyent website") (later Samsung/Joyent) wanted to explore the probabilities of JavaScript. Up to this time JavaScript had been used in the WebBrowser, but creator Ryan Dahl saw an opportunity. He took the [V8 JavaScript rendering engine](https://v8.dev/ "V8 development website") out of the Chrome browser, added an event loop and I/O functions and made it a standalone server.
 
-Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package Manager or [NPM](https://www.npmjs.com/ "NPM website"). For more information you could watch the documentary: [Node.js: The Documentary | An origin story](https://www.youtube.com/watch?v=LB8KwiiUGy0 "youtube NodeJS story")
+Now you could programmatically use JavaScript on the server-side as well as client-side called [Node.js](https://nodejs.org/en/ "NodeJS website"). A package manager for Node was added a year later and called the Node Package Manager or [NPM](https://www.npmjs.com/ "NPM website"). For more information you could watch the documentary: [Node.js: The Documentary | An origin story](https://www.youtube.com/watch?v=LB8KwiiUGy0 "youtube NodeJS story").
 
 #### Installing Node.js
 
