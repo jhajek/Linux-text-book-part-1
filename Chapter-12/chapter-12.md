@@ -461,7 +461,7 @@ npm -v # Should print "11.20.0".
 
 #### Installing Packages with NPM
 
-Using the `npm` package manager, we can install additional libraries that allow our Node.js application to have additional features. One of the current popular `npm` packages is `Express`, which is [webserver written entirely in JavaScript](https://expressjs.com/ "webpage for Express"). Lets install ExpressJS. From the terminal for example:
+Using the `npm` package manager, we can install additional libraries that allow our Node.js application to have additional features. One of the current popular `npm` packages is `Express`, which is a [webserver written entirely in JavaScript](https://expressjs.com/ "webpage for Express"). Lets install Express from the terminal using `npm`:
 
 ```bash
 sudo npm install express
