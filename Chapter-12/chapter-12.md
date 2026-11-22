@@ -923,14 +923,6 @@ Structure of Assessment: For this assessment you will need to execute various se
 
 In this assessment you will using Linux shell scripting to create a WordPress Blog on an Ubuntu Server 
 
-### Lab Pre-requisites 
-
-* You will need two Virtual Machines
-  * Designate an Ubuntu Server VM as your server
-  * Designate an Desktop VM as your client
-  * You will need to enable an additional host-only network interface
-  * And have installed and enabled openssh-server
-
 #### Part One - Wordpress Install
 
 This lab will have you installing and configuring your own Wordpress blog. This has setup steps that require you install and configure a webserver, a database, and many packages of pre-reqs. For this lab, we wil use `Nginx` and you can select if you use Ubuntu Desktop of Fedora Workstation.
