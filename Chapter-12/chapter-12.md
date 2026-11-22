@@ -946,9 +946,9 @@ In this assessment you will using Linux shell scripting to create a WordPress Bl
 * Change the two lines in `/etc/apparmor.d/usr.sbin.mysqld` which allow data directory access
 * Reload the apparmor service
 * Start the MySQL service
-* Use the MySQL inline option (-e) to create a database named: `wp`
-* Use the MySQL inline option (-e) to create a non-root user named: `wp-user`
-* Use the MySQL inline option (-e) to grant the user, wp-user, the proper permissions needed for WordPress (section 12.5.2.6)
+* Use the MySQL inline option (-e) to create a database named: `wordpress_db`
+* Use the MySQL inline option (-e) to create a non-root user named: `wp_user`
+* Use the MySQL inline option (-e) to grant the user: `wp_user`, the proper permissions needed for WordPress (section 12.5.2.6)
 * Retrieve the WordPress Installer Zip file 
 * Extract the WordPress code 
 * Move the extracted wordpress directory to `/var/www/html/`
@@ -960,23 +960,27 @@ In this assessment you will using Linux shell scripting to create a WordPress Bl
 
 #### Part One B (without Chapter 11)
 
-* On the Ubuntu Server format the new disks creating a single datapool named: `datapool1`
-  * Change ownership and group of the newly created `/datapool` to your own user
-  * Ensure you add the lines into /etc/fstab to mount datapool on reboot  
-* Install all needed WordPress pre-reqs via the apt package manager (including vim, unzip, libapache2-mod-php, and php-mysqli)
-  *  You won't need all of these but you can see here which ones WordPress requires -- [Server Dependencies list](https://make.wordpress.org/hosting/handbook/server-environment/ "website link for extra dependencies")
-* Stop the MySQL service
-* Copy the `/var/lib/mysql` directory to `/datapool` using the rsync command to preserve permissions
-* Give ownership of the entire directory to MySQL and set permissions to 700
-* Uncomment and change the line that specifies the path to the data directory in `/etc/mysql/mysql.conf.d/mysqld.cnf`
-* Change the two lines in `/etc/apparmor.d/usr.sbin.mysqld` which allow data directory access
-* Reload the apparmor service
-* Start the MySQL service
-* Use the MySQL inline option (-e) to create a database named: `wp`
-* Use the MySQL inline option (-e) to create a non-root user named: `wp-user`
-* Use the MySQL inline option (-e) to grant the user, wp-user, the proper permissions needed for WordPress (section 12.5.2.6)
-* Retrieve the WordPress Installer Zip file 
-* Extract the WordPress code 
+This lab will have you installing and configuring your own Wordpress blog. This has setup steps that require you install and configure a webserver, a database, and many packages of pre-reqs. For this lab, we wil use `Nginx` and you can select if you use Ubuntu Desktop of Fedora Workstation.
+
+```bash
+# Pre-reqs needed for Ubuntu Desktop
+sudo apt install -y nginx mariadb-server php8.5 php8.5-cli php8.5-mysql php8.5-curl php8.5-gd php8.5-mbstring php8.5-xml php8.5-zip
+
+# Pre-reqs needed for Fedora Desktop
+sudo nginx mariadb-srver php php-cli php-common php-json php-mbstring php-opcache php-gd php-xml php-zip php-mysqlnd
+
+# On either distro execute the commands to start and enable both mariadb-server and nginx
+sudo systemctl start nginx mariadb-server
+sudo systemctl enable nginx mariadb-server
+```
+
+Following the [Wordpress Blog installation instructions](https://developer.wordpress.org/advanced-administration/before-install/howto-install/ "webpage for Wordpress Installations") we will now commence to setup our database to get ready for Wordpress.
+* Start the MySQL service and from the section of the textbook: `Inline SQL commands`
+  * Use the MySQL inline option (-e) to create a database named: `wordpress_db`
+  * Use the MySQL inline option (-e) to create a non-root user named: `wp_user`
+  * Use the MySQL inline option (-e) to grant the user, `wp_user`, the proper permissions needed for WordPress
+* From the command line using the `wget` command, retrieve the WordPress Installer Zip file 
+  * [https://wordpress.org/latest.zip](https://wordpress.org/latest.zip "webpage for latest download of Wordpress")
 * Move the extracted wordpress directory to `/var/www/html/`
 * Rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory 
 * Using the `sed` command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29 
