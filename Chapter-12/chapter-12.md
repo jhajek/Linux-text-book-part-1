@@ -563,9 +563,11 @@ We will now go over some common adminsitrative commands that can be executed fro
 * Make an SQL query​
 * Quit 
 
-#### User Accounts and Security Concerns
+#### Database Root User User Paradigms
 
-After the installation of MariaDB/MySQL, you can create user accounts with limited privilleges. This is a good idea as the `root` account doesn't have a password by default and is clearly recommended **NOT** to be used for anything other than administration.  So your application will need to use a non-root account. After you log in to the MySQL command-line using the command: `sudo mysql`, and after you have created a database (as in the example above), you can create users and assign access to particular databases and even particular tables. Linux distributions began eliminating a security hole by having the user provide a database root password at installation time. Instead access to the `root` user in a database is controlled by `sudo` access.
+Databases have their own user account systems separate from the local accounts. Just as their is a `root` account for the Linux distro, there is a separate `root` user account for the database.
+
+This [paradigm](https://en.wikipedia.org/wiki/Paradigm "webpage for paradigm") proved dangerous--any user with the root database password could do damage to the system.  By 2015, Ubuntu, Debian, Fedora and AlmaLinux began to modify the packages for MaraiDB and MySQL so that the database `root` user is controlled by users that have `sudo` access. 
 
 #### Login to Your Database
 
