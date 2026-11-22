@@ -975,17 +975,20 @@ sudo systemctl enable nginx mariadb-server
 ```
 
 Following the [Wordpress Blog installation instructions](https://developer.wordpress.org/advanced-administration/before-install/howto-install/ "webpage for Wordpress Installations") we will now commence to setup our database to get ready for Wordpress.
-* Start the MySQL service and from the section of the textbook: `Inline SQL commands`
+* Start the MySQL service and from the section of this chapter entitled: **Inline SQL commands**
   * Use the MySQL inline option (-e) to create a database named: `wordpress_db`
   * Use the MySQL inline option (-e) to create a non-root user named: `wp_user`
   * Use the MySQL inline option (-e) to grant the user, `wp_user`, the proper permissions needed for WordPress
 * From the command line using the `wget` command, retrieve the WordPress Installer Zip file 
   * [https://wordpress.org/latest.zip](https://wordpress.org/latest.zip "webpage for latest download of Wordpress")
-* Move the entire extracted wordpress directory into `/var/www/html/`
-* In the moved directory, rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory 
-* Using the `sed -i` command find and replace in `/var/www/html/wordpress/wp-config.php` the place holders on line 23, 26, and 29
-  * Use the value you created when setting up the Mariadb server 
-* Install `firewalld` via the apt package manager – enable and start the service and permanently open port 80/tcp for http traffic on the public zone
+* Move the entire extracted wordpress directory 
+  * Into `/var/www/html/` if you are using Ubuntu Desktop
+  * Into `/usr/share/nginx/html/` if you are using Fedora Desktop
+* In the moved directory, rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory or `/usr/share/nginx/html/wordpress` 
+  * Using the `sed -i` command find and replace in `./wp-config.php` the place holders on line 23, 26, and 29: see textbook section: **8.5.2.1 sed infile find and replace using -i**
+  * Use the values you created when setting up the Mariadb server 
+* Install `firewalld` via the apt package manager
+  * Enable and start the `firewalld service` and permanently open port `80/tcp` or `http` on the public zone
 
 #### Part Two - Manual Configuration Steps
 
