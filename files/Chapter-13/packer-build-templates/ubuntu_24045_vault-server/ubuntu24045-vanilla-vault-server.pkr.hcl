@@ -21,7 +21,7 @@ packer {
 
 # Packer Virtualbox-iso documentation
 # https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox/latest/components/builder/iso
-source "virtualbox-iso" "ubuntu-24043-server" {
+source "virtualbox-iso" "ubuntu-vault-server" {
     boot_command = [
         "e<wait>",
         "<down><down><down>",
@@ -37,7 +37,7 @@ source "virtualbox-iso" "ubuntu-24043-server" {
   http_port_max           = 9200
   http_port_min           = 9001
   iso_checksum            = "${var.iso_checksum}"
-  iso_urls                = ["${var.iso_url}"]
+  iso_urls                = ["${var.iso_url}"] 
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_username            = "vagrant"
   ssh_password            = "${var.user-ssh-password}"
@@ -53,16 +53,31 @@ source "virtualbox-iso" "ubuntu-24043-server" {
   # Change to --nat-localhostreachable1 forced by https://github.com/hashicorp/packer/issues/12118
   vboxmanage              = [["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]]
   virtualbox_version_file = ".vbox_version"
-  vm_name                 = "ubuntu-vanilla-server"
+  vm_name                 = "jammy-server"
   headless                = "${var.headless_build}"
 }
 
 build {
-  sources = ["source.virtualbox-iso.ubuntu-24043-server"]
+  sources = ["source.virtualbox-iso.ubuntu-vault-server"]
+
+  ##############################################################################
+  # This shell script adds the default user "vagrant" to the sudoers group and
+  # removes the password requirement to elevate to "sudo"
+  ##############################################################################
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     script          = "../scripts/post_install_ubuntu_2404_vagrant.sh"
+  }
+
+  ##############################################################################
+  # This shell script goes to the vault.io website and installs all the
+  # pre-reqs needed to install vault software
+  ##############################################################################
+
+  provisioner "shell" {
+    execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    script          = "../scripts/post_install_ubuntu_2404_install-vault.sh"
   }
 
   post-processor "vagrant" {

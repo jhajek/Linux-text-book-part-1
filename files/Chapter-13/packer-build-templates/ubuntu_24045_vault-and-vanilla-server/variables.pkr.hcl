@@ -22,12 +22,12 @@ variable "build_artifact_location" {
 
 variable "iso_url" {
   type = string
-  default = "https://mirrors.edge.kernel.org/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso"
+  default = "https://mirrors.edge.kernel.org/ubuntu-releases/24.04.5/ubuntu-24.04.5-live-server-amd64.iso"
 }
 
 variable "iso_checksum" {
   type = string
-  default = "file:http://mirrors.edge.kernel.org/ubuntu-releases/24.04.3/SHA256SUMS"
+  default = "file:http://mirrors.edge.kernel.org/ubuntu-releases/24.04.5/SHA256SUMS"
 }
 
 
