@@ -35,9 +35,9 @@ source "virtualbox-iso" "vault-client" {
   ssh_timeout             = "30m"
   # https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox/latest/components/builder/iso#optional
   nic_type                = "virtio"
-  chipset                 = "ich9"
-  gfx_vram_size           = "16"
-  gfx_controller          = "vboxvga"
+  #chipset                 = "ich9"
+  gfx_vram_size           = "32"
+  gfx_controller          = "vmsvga"
   #hard_drive_interface    = "virtio"
   cpus                    = 2
   memory                  = "${var.memory_amount}"

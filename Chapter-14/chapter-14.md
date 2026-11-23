@@ -1,4 +1,4 @@
-# Final Projects
+# Final Project List
 
 ![*Projects sometimes get out of hand...*](images/Chapter-Header/Appendix-D/cautionary.png "Project gets out of hand")
 
