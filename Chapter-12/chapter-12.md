@@ -627,7 +627,7 @@ sudo mysql -e "GRANT CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER ON \
 * SQL commands can be executed via Bash or *inline*
 * These step grant privilleges to our non-root user `wp_user`
   * Note the '\' is a line continuation character
-  * Meaning this is really one lineof code but separated into two for the book
+  * Meaning this is really one line of code but separated into two for the book
 * We need to grant permision to the database and the specific tables 
   * Via the `wordpress_db.*` text 
   * This means all tables under the `wordpress_db` database
