@@ -549,7 +549,9 @@ sudo dnf install mysql-client
 
 ### Opensource Relational Database History
 
-MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql"). The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market. MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010. Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company. MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the `mysql` cli.
+MySQL was started by [Michael "Monte" Widens](https://en.wikipedia.org/wiki/Michael_Widenius "Monte Mysql"). The company was one of the first major companies to become successful with an opensource model, especially for a database product in a crowded market. MySQL the company was [sold to Sun in 2009](https://www.cio.com/article/2374129/sun-buys-mysql.html "Sun Buys MySQL"), which then was inherited by Oracle in their purchase of Sun in 2010. 
+
+Monte was not happy with Oracle's stewardship of MySQL and decided to fork the codebase and begin a new yet familiar product called MariaDB.  MariaDB continued the MySQL legacy by essentially restarting the MySQL company. MariaDB is for all purposes a drop in replacement for MySQL, even using the same commands to run the database. You can create a database and a table directly from the `mysql` cli.
 
 #### Common Administrative Commands
 
@@ -620,14 +622,12 @@ sudo mysql -e "CREATE DATABASE wordpress_db;"
 sudo mysql -e "CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';"
 
 # https://wordpress.stackexchange.com/questions/6424/
-sudo mysql -e "GRANT CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER ON \
+sudo mysql -e "GRANT CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER ON 
  wordpress_db.* TO 'wp_user'@'localhost'";
 ```
 
-* SQL commands can be executed via Bash or *inline*
-* These step grant privilleges to our non-root user `wp_user`
-  * Note the '\' is a line continuation character
-  * Meaning this is really one line of code but separated into two for the book
+* SQL commands can be executed via Bash, which is called *inline*
+  * These step grant privilleges to our non-root user `wp_user`
 * We need to grant permision to the database and the specific tables 
   * Via the `wordpress_db.*` text 
   * This means all tables under the `wordpress_db` database
@@ -641,7 +641,9 @@ As always in technology, product names often have a joke or a story behind them.
 
 ### SQLite
 
-SQLite skips some of the bigger features to be mean and lean. *"SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]."* It is meant to store and retrieve data and that is about it. This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application. Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for SqLite3"). You can install SQLite3 via the normal package mechanism and it is usually close to being up to date. Note that SQLite3 doesn't listen on external ports by default it is included as an external library in your application.
+SQLite skips some of the bigger features to be mean and lean. *"SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine[^150]."* It is meant to store and retrieve data and that is about it. This makes it very small and very compact, which makes it great for using on the mobile platform Android or iOS since it is a single binary file, and can be installed on mobile devices and tablets as part of an application.
+
+Sqlite3 has the unique licensing of being the [Public Domain](https://sqlite.org/copyright.html "Public Domain for SqLite3"). You can install SQLite3 via the normal package mechanism and it is usually close to being up to date. Note that SQLite3 doesn't listen on external ports by default it is included as an external library in your application.
 
 * `sudo apt install sqlite3`
 * `sudo dnf install sqlite`
@@ -917,15 +919,13 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 
 #### Pre-reqs and Assumptions
 
-Structure of Assessment: For this assessment you will need to execute various setup steps and capture those commands as part of the final deliverable 
+Structure of Assessment: For this assessment you will need to execute various setup steps and capture those commands as part of the final deliverable.
 
 ### Outcomes
 
-In this assessment you will using Linux shell scripting to create a WordPress Blog on an Ubuntu Server 
+This lab will have you installing and configuring your own Wordpress blog. This has setup steps that require you install and configure a webserver, a database, and many packages of pre-reqs. For this lab, we wil use `Nginx` and you can select if you use Ubuntu Desktop of Fedora Workstation.
 
 #### Part One - Wordpress Install
-
-This lab will have you installing and configuring your own Wordpress blog. This has setup steps that require you install and configure a webserver, a database, and many packages of pre-reqs. For this lab, we wil use `Nginx` and you can select if you use Ubuntu Desktop of Fedora Workstation.
 
 ```bash
 # Pre-reqs needed for Ubuntu Desktop
