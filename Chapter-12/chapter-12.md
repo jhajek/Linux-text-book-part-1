@@ -620,7 +620,8 @@ sudo mysql -e "CREATE DATABASE wordpress_db;"
 sudo mysql -e "CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';"
 
 # https://wordpress.stackexchange.com/questions/6424/
-sudo mysql -e "GRANT CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER ON \ wordpress_db.* TO 'wp_user'@'localhost'";
+sudo mysql -e "GRANT CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER ON \
+ wordpress_db.* TO 'wp_user'@'localhost'";
 ```
 
 * SQL commands can be executed via Bash or *inline*
