@@ -44,7 +44,7 @@ source "virtualbox-iso" "ubuntu-vanilla-server" {
   ssh_timeout             = "25m"
   # https://developer.hashicorp.com/packer/integrations/hashicorp/virtualbox/latest/components/builder/iso#optional
   nic_type                = "virtio"
-  #chipset                 = "ich9"
+  chipset                 = "ich9"
   gfx_vram_size           = "32"
   gfx_controller          = "vmsvga"
   #hard_drive_interface    = "virtio"
