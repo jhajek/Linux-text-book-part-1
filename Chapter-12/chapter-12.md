@@ -924,6 +924,7 @@ View or listen to this Podcast about Nginx: [http://twit.tv/show/floss-weekly/28
 * You may have to disable or stop additional services if they are already running
 * For this lab, we wil use `Nginx` as our webserver
 * You will use `Ubuntu Server` as your Wordpress blog server
+  * Configure, install, and enable openssh server
 * From your `SSH client` configure Password-less Key Authentication to your Ubuntu Server instance
   * Execute and demonstrate all commands below while remotely connected to the Ubuntu Server from your Linux Desktop OS.
 
