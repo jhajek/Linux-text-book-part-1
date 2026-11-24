@@ -955,7 +955,7 @@ Following the [Wordpress Blog installation instructions](https://developer.wordp
 * Install `firewalld` via the apt package manager
   * Enable and start the `firewalld service` and permanently open port `80/tcp` or `http` on the public zone
 
-#### Part Two - Manual Configuration Steps
+#### Part Two - Render the Blog Webpage
 
 * From your HOST system, open a web browser and navigate to http://IP-of-ubuntu-server/wordpress 
   * Complete the manual portion to setup a WordPress User, login to your new WordPress installation. 
