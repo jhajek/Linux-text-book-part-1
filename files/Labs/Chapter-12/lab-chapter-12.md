@@ -2,7 +2,7 @@
 
 ## Outcomes
 
-This lab will have you installing and configuring your own Wordpress blog. This has setup steps that require you install and configure a webserver, a database, and many packages of pre-reqs.
+This lab will have you installing and configuring your own WordPress blog. This has setup steps that require you install and configure a webserver, a database, and many packages of pre-reqs.
 
 ### Pre-reqs and Assumptions
 
@@ -10,12 +10,12 @@ This lab will have you installing and configuring your own Wordpress blog. This 
 * Install needed services as required
 * You may have to disable or stop additional services if they are already running
 * For this lab, we wil use `Nginx` as our webserver
-* You will use `Ubuntu Server` as your Wordpress blog server
+* You will use `Ubuntu Server` as your WordPress blog server
   * Configure, install, and enable openssh server
 * From your `SSH client` configure Password-less Key Authentication to your Ubuntu Server instance
   * Execute and demonstrate all commands below while remotely connected to the Ubuntu Server from your Linux Desktop OS.
 
-### Part One - Wordpress Install
+### Part One - WordPress Install
 
 ```bash
 # Pre-reqs needed for Debian/Ubuntu Desktop and Server
@@ -32,7 +32,7 @@ sudo systemctl start nginx mariadb-server
 sudo systemctl enable nginx mariadb-server
 ```
 
-Following the [Wordpress Blog installation instructions](https://developer.wordpress.org/advanced-administration/before-install/howto-install/ "webpage for Wordpress Installations") we will now commence to setup our database to get ready for Wordpress.
+Following the [WordPress Blog installation instructions](https://developer.wordpress.org/advanced-administration/before-install/howto-install/ "webpage for WordPress Installations") we will now commence to setup our database to get ready for WordPress.
 
 * Start and enable the `mariadb-server` service
 * Start and enable the `nginx` service
@@ -41,7 +41,7 @@ Following the [Wordpress Blog installation instructions](https://developer.wordp
   * Use the `mysql` inline option (-e) to create a non-root user named: `wp_user`
   * Use the `mysql` inline option (-e) to grant the user, `wp_user`, the proper permissions needed for WordPress
 * From the command line using the `wget` command, retrieve the WordPress Installer Zip file 
-  * [https://wordpress.org/latest.zip](https://wordpress.org/latest.zip "webpage for latest download of Wordpress")
+  * [https://wordpress.org/latest.zip](https://wordpress.org/latest.zip "webpage for latest download of WordPress")
 * Move the entire extracted wordpress directory 
   * Into `/var/www/html/` if you are using Ubuntu Desktop
   * Into `/usr/share/nginx/html/` if you are using Fedora Desktop
