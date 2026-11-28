@@ -957,17 +957,21 @@ Following the [WordPress Blog installation instructions](https://developer.wordp
   * Use the `mysql` command inline option (-e) to create a database named: `wordpress_db`
   * Use the `mysql` inline option (-e) to create a non-root user named: `wp_user`
   * Use the `mysql` inline option (-e) to grant the user, `wp_user`, the proper permissions needed for WordPress
-* From the command line using the `wget` command, retrieve the WordPress Installer Zip file 
+* From the commandline of the server, using the `wget` command, retrieve the WordPress Installer Zip file 
   * [https://wordpress.org/latest.zip](https://wordpress.org/latest.zip "webpage for latest download of WordPress")
+  * Extract the downloaded `.zip` file using the `unzip` command from `5.5.3 Basic Shell Commands`
 * Move the entire extracted wordpress directory 
   * Into `/var/www/html/` if you are using Ubuntu Desktop
   * Into `/usr/share/nginx/html/` if you are using Fedora Desktop
-* In the moved directory, rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory or `/usr/share/nginx/html/wordpress` 
-  * Using the `sed -i` command find and replace in `./wp-config.php` the place holders on line 23, 26, and 29
+* In the just moved `wordpress` directory, rename the file `wp-config-sample.php` to `wp-config.php` in the `/var/www/html/wordpress` directory or `/usr/share/nginx/html/wordpress`
+  * Using the `sed -i` command find and replace in `./wp-config.php` the place holders on line 23, 26, and 29 to match the values you set in the **Inline SQL commands** section (do use `vim` or `nano`)
   * See textbook section: **8.5.2.1** sed infile find and replace using -i
   * Use the values you created when setting up the Mariadb server 
 * Install `firewalld` via the apt package manager
-  * Enable and start the `firewalld service` and permanently open port `80/tcp` or `http` on the public zone
+  * Enable and start the `firewalld` service
+  * Show the `firewalld` servic status
+  * Permanently open port `80/tcp` or `http` on the public zone
+  * Reload the `firewall-cmd` configuration using the `--reload` option 
 
 #### Part Two - Render the Blog Webpage
 
