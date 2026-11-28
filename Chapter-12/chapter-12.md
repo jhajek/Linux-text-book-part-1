@@ -940,7 +940,7 @@ sudo apt install -y nginx mariadb-server php8.5 php8.5-cli php8.5-mysql php8.5-c
 php8.5-gd php8.5-mbstring php8.5-xml php8.5-zip
 
 # Pre-reqs needed for Fedora Desktop
-sudo nginx mariadb-srver php php-cli php-common php-json php-mbstring php-opcache 
+sudo nginx mariadb-server php php-cli php-common php-json php-mbstring php-opcache 
 php-gd php-xml php-zip php-mysqlnd
 
 # On either distro execute the commands to start and enable both

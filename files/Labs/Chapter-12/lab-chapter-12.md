@@ -6,7 +6,7 @@ This lab will have you installing and configuring your own Wordpress blog. This 
 
 ### Pre-reqs and Assumptions
 
-* Assume that you have a second `Host-Only` network adpater attached to the VM you will use for this lab.
+* Assume that you have a second `Host-Only` network adapter attached to the VM you will use for this lab.
 * Install needed services as required
 * You may have to disable or stop additional services if they are already running
 * For this lab, we wil use `Nginx` as our webserver
@@ -23,7 +23,7 @@ sudo apt install -y nginx mariadb-server php8.5 php8.5-cli php8.5-mysql php8.5-c
 php8.5-gd php8.5-mbstring php8.5-xml php8.5-zip
 
 # Pre-reqs needed for Fedora Desktop
-sudo nginx mariadb-srver php php-cli php-common php-json php-mbstring php-opcache 
+sudo nginx mariadb-server php php-cli php-common php-json php-mbstring php-opcache 
 php-gd php-xml php-zip php-mysqlnd
 
 # On either distro execute the commands to start and enable both
